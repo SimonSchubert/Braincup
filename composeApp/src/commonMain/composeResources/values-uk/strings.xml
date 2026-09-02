@@ -8,6 +8,9 @@
     <string name="button_play_again">Грати знову</string>
     <string name="button_play_next_level">Наступний рівень</string>
     <string name="finish_max_level_reached">Досягнуто максимального рівня. Чекайте на новий вміст.</string>
+    <string name="finish_congruency_effect_title">Ціна конгруентності</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Наскільки довше ви відповідали, коли слово розходилося з чорнилом</string>
     <string name="button_play_random">Випадкова гра</string>
     <string name="button_give_up">Здатися</string>
     <string name="button_stay">Залишитися</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">Коло</string>
     <string name="shape_heart">Серце</string>
     <string name="shape_star">Зірка</string>
+    <string name="shape_cross">Хрест</string>
     <string name="shape_t_shape">Т-подібна</string>
     <string name="shape_l_shape">Г-подібна</string>
     <string name="shape_diamond">Ромб</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">Стандартна міра стійкої розподіленої уваги: скільки рухомих цілей ти утримуєш серед однакових відволікачів.</string>
     <string name="science_mental_rotations_paradigm">Задача уявного обертання</string>
     <string name="science_mental_rotations_summary">Стандартна міра просторових здібностей: вирішити, чи це те саме тіло, лише повернуте, чи дзеркальні відображення, які жодне обертання не суміщає.</string>
+    <string name="science_color_confusion_paradigm">Тест Струпа</string>
+    <string name="science_color_confusion_summary">Стандартна міра гальмування: назвати колір, яким надруковано слово, тоді як читання самого слова підказує швидшу, конкурентну відповідь.</string>
     <string name="science_digit_memory_paradigm">Задача Брауна-Петерсона</string>
     <string name="science_digit_memory_summary">Стандартна міра робочої пам'яті: утримувати послідовність, поки інше завдання займає той самий мисленнєвий простір.</string>
     <string name="science_pattern_sequence_paradigm">Матричні міркування</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">Стандартна міра когнітивної гнучкості: скільки коштує відпустити щойно застосоване правило й застосувати інше.</string>
     <string name="science_n_back_paradigm">Завдання N-Back</string>
     <string name="science_n_back_summary">Стандартна міра оновлення робочої пам'яті: тримати актуальним рухоме вікно з кількох останніх елементів і звірятися з ним, поки воно й далі зміщується.</string>
+    <string name="science_rule_shift_paradigm">Вісконсинський тест сортування карток</string>
+    <string name="science_rule_shift_summary">Стандартна міра формування понять: знайти правило сортування лише з «правильно чи ні», а потім помітити, коли воно мовчки змінюється.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханойські вежі</string>
     <string name="science_tower_of_hanoi_summary">Стандартна міра планування: головоломка вимагає ходів, які спершу скасовують поступ, перш ніж мети можна досягти.</string>
     <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>
@@ -745,6 +753,15 @@
     <string name="sherlock_calculation_demo_title">Досягни потрібного числа</string>
     <string name="value_comparison_demo_title">Вибери найбільше значення</string>
     <string name="mental_flex_demo_title">Пара задає правило</string>
+    <string name="rule_shift_demo_title">Правило ніколи не називають</string>
+    <string name="rule_shift_demo_caption_match">Покладіть карту до тієї ключової карти, з якою вона збігається.</string>
+    <string name="rule_shift_demo_caption_rule_works">Синє до синього, червоне до червоного. Обидва рази правильно.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Зелене до зеленого. Неправильно, і без пояснень.</string>
+    <string name="rule_shift_demo_caption_new_rule">Один символ, перша ключова карта. Тепер важить кількість.</string>
+    <string name="color_confusion_demo_caption_ink">Слово називає один колір. Чорнило інший.</string>
+    <string name="color_confusion_demo_caption_agree">Іноді вони збігаються.</string>
+    <string name="color_confusion_demo_caption_trap">Пастка в тому, щоб прочитати слово.</string>
+    <string name="color_confusion_demo_caption_recover">Відповідь завжди в чорнилі.</string>
     <string name="spot_the_new_demo_title">Знайди нове</string>
     <string name="spot_the_new_demo_seen_label">Вже бачено</string>
     <string name="spot_the_new_demo_new">Натисни на тварину, яку ти ще не бачив.</string>
@@ -784,6 +801,7 @@
     <string name="game_trio">Тріо</string>
     <string name="game_mental_rotations">Уявне обертання</string>
     <string name="game_mental_flex">Гнучкість мислення</string>
+    <string name="game_rule_shift">Зміна правила</string>
     <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
     <string name="game_mental_rotations_desc">Визнач, чи другий блок це повернутий перший, чи його дзеркальне відображення.</string>
     <string name="game_mental_rotations_question">Той самий блок чи дзеркальне відображення?</string>
@@ -794,6 +812,10 @@
     <string name="game_mental_flex_rule_shape">Форма</string>
     <string name="game_mental_flex_rule_color">Колір</string>
     <string name="game_mental_flex_howto">Помітьте, що спільного в цієї пари.</string>
+    <string name="game_rule_shift_desc">Розкладіть кожну карту до однієї з чотирьох ключових карт. Правила вам ніхто не каже, і воно змінюється, щойно ви його зрозуміли.</string>
+    <string name="game_rule_shift_howto">До якої ключової карти вона належить?</string>
+    <string name="game_rule_shift_cards_left">Залишилося карт: %1$d</string>
+    <string name="game_color_confusion_howto">Натисніть колір чорнила.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>
     <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
     <string name="trio_trait_shape">Форма</string>
@@ -813,9 +835,11 @@
     <string name="achievement_gold_trio">Потрійний зір</string>
     <string name="achievement_gold_mental_rotations">Майстер обертання</string>
     <string name="achievement_gold_mental_flex">Швидка зміна</string>
+    <string name="achievement_gold_rule_shift">Порушник правил</string>
     <string name="achievement_gold_trio_desc">Виграйте золоту медаль у Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Здобудь золоту медаль в Уявному обертанні</string>
     <string name="achievement_gold_mental_flex_desc">Здобудь золоту медаль у Гнучкості мислення</string>
+    <string name="achievement_gold_rule_shift_desc">Здобудь золоту медаль у Зміні правила</string>
 
     <string name="iq_test_button">Тест IQ</string>
     <string name="iq_test_title">Тест IQ</string>

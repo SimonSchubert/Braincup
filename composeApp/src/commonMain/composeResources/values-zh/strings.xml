@@ -8,6 +8,9 @@
     <string name="button_play_again">再玩一次</string>
     <string name="button_play_next_level">玩下一关</string>
     <string name="finish_max_level_reached">已达最高关卡。请等待新内容。</string>
+    <string name="finish_congruency_effect_title">一致性代价</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">当文字与墨色不一致时，你多花了多少时间</string>
     <string name="button_play_random">随机游戏</string>
     <string name="button_give_up">放弃</string>
     <string name="button_stay">继续</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">圆形</string>
     <string name="shape_heart">心形</string>
     <string name="shape_star">星形</string>
+    <string name="shape_cross">十字</string>
     <string name="shape_t_shape">T形</string>
     <string name="shape_l_shape">L形</string>
     <string name="shape_diamond">菱形</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">持续分配性注意的标准测量：在完全相同的干扰物中，你能同时盯住几个移动目标。</string>
     <string name="science_mental_rotations_paradigm">心理旋转任务</string>
     <string name="science_mental_rotations_summary">空间能力的标准测量：判断两个图形是同一个物体转了个方向，还是任何旋转都无法重合的镜像。</string>
+    <string name="science_color_confusion_paradigm">斯特鲁普任务</string>
+    <string name="science_color_confusion_summary">抑制能力的标准测量：说出一个词印刷时所用的颜色，而阅读这个词本身却提供了一个更快的、相互竞争的答案。</string>
     <string name="science_digit_memory_paradigm">布朗-彼得森任务</string>
     <string name="science_digit_memory_summary">工作记忆的标准测量：在一项无关任务占用同一心理空间时保持住一串序列。</string>
     <string name="science_pattern_sequence_paradigm">矩阵推理</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">认知灵活性的标准测量：放下刚刚在用的规则、改用另一条规则所付出的代价。</string>
     <string name="science_n_back_paradigm">N-back 任务</string>
     <string name="science_n_back_summary">工作记忆更新的标准测量：让最近几项构成的滑动窗口保持最新，并在它不断移动的同时据此判断。</string>
+    <string name="science_rule_shift_paradigm">威斯康星卡片分类测验</string>
+    <string name="science_rule_shift_summary">概念形成的标准测量：仅凭对与错的反馈找出分类规则，再察觉它何时悄然改变。</string>
     <string name="science_tower_of_hanoi_paradigm">汉诺塔</string>
     <string name="science_tower_of_hanoi_summary">计划能力的标准测量：这个谜题要求先走一些让进度倒退的步子，才能到达目标。</string>
     <string name="brain_cup_button">Brain Cup 排行榜</string>
@@ -744,6 +752,15 @@
     <string name="sherlock_calculation_demo_title">达到目标数字</string>
     <string name="value_comparison_demo_title">选出最大值</string>
     <string name="mental_flex_demo_title">这一对决定规则</string>
+    <string name="rule_shift_demo_title">规则从不明说</string>
+    <string name="rule_shift_demo_caption_match">把卡片放到与它相符的关键卡片处。</string>
+    <string name="rule_shift_demo_caption_rule_works">蓝配蓝，红配红。两次都对。</string>
+    <string name="rule_shift_demo_caption_rule_moved">绿配绿。错了，而且不给理由。</string>
+    <string name="rule_shift_demo_caption_new_rule">一个符号，第一张关键卡。现在看的是数量。</string>
+    <string name="color_confusion_demo_caption_ink">文字说的是一种颜色，墨色说的是另一种。</string>
+    <string name="color_confusion_demo_caption_agree">有时两者是一致的。</string>
+    <string name="color_confusion_demo_caption_trap">读出那个词就是陷阱。</string>
+    <string name="color_confusion_demo_caption_recover">答案永远是墨色。</string>
     <string name="spot_the_new_demo_title">找出新出现的</string>
     <string name="spot_the_new_demo_seen_label">已见过的</string>
     <string name="spot_the_new_demo_new">点击你之前没见过的动物。</string>
@@ -783,6 +800,7 @@
     <string name="game_trio">三重组</string>
     <string name="game_mental_rotations">心理旋转</string>
     <string name="game_mental_flex">思维转换</string>
+    <string name="game_rule_shift">规则转换</string>
     <string name="game_trio_desc">找出形状、数量或填充相同的三张牌。</string>
     <string name="game_mental_rotations_desc">判断第二个方块是第一个转过来的，还是它的镜像。</string>
     <string name="game_mental_rotations_question">同一个方块，还是镜像？</string>
@@ -793,6 +811,10 @@
     <string name="game_mental_flex_rule_shape">形状</string>
     <string name="game_mental_flex_rule_color">颜色</string>
     <string name="game_mental_flex_howto">看出这一对的共同点。</string>
+    <string name="game_rule_shift_desc">把每张卡片归到四张关键卡片之一。没有人告诉你规则，而你一旦掌握它就会改变。</string>
+    <string name="game_rule_shift_howto">它属于哪张关键卡片？</string>
+    <string name="game_rule_shift_cards_left">剩余卡片：%1$d</string>
+    <string name="game_color_confusion_howto">点击墨水的颜色。</string>
     <string name="trio_demo_title">找出三张一组</string>
     <string name="trio_demo_rule">它们共享一项特征。其余没有混杂。</string>
     <string name="trio_trait_shape">形状</string>
@@ -812,9 +834,11 @@
     <string name="achievement_gold_trio">三重视力</string>
     <string name="achievement_gold_mental_rotations">旋转大师</string>
     <string name="achievement_gold_mental_flex">快速切换</string>
+    <string name="achievement_gold_rule_shift">破规者</string>
     <string name="achievement_gold_trio_desc">在 Trio 中赢得金牌</string>
     <string name="achievement_gold_mental_rotations_desc">在心理旋转中赢得金牌</string>
     <string name="achievement_gold_mental_flex_desc">在思维转换中赢得金牌</string>
+    <string name="achievement_gold_rule_shift_desc">在规则转换中赢得金牌</string>
 
     <string name="iq_test_button">智商测试</string>
     <string name="iq_test_title">智商测试</string>

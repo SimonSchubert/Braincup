@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Bedste: %1$s forsøg</string>
     <string name="button_play_next_level">Spil næste niveau</string>
     <string name="finish_max_level_reached">Højeste niveau nået. Vent på nyt indhold.</string>
+    <string name="finish_congruency_effect_title">Kongruensomkostning</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Hvor meget længere du var om det, når ordet og blækket var uenige</string>
 
     <string name="feedback_solution">Løsning: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mentale rotationer</string>
     <string name="game_mental_flex">Mental fleksibilitet</string>
+    <string name="game_rule_shift">Regelskift</string>
 
     <string name="game_anomaly_puzzle_desc">Find figuren, der skiller sig ud. Se både på farve og form.</string>
     <string name="game_mental_calculation_desc">Følg de matematiske udtryk. Brug resultatet som grundlag for næste beregning.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Farve</string>
     <string name="game_mental_flex_howto">Find ud af, hvad parret har til fælles.</string>
+    <string name="game_rule_shift_desc">Sortér hvert kort hen til et af de fire nøglekort. Ingen fortæller dig reglen, og den skifter, så snart du har den.</string>
+    <string name="game_rule_shift_howto">Hvilket nøglekort hører det til?</string>
+    <string name="game_rule_shift_cards_left">Kort tilbage: %1$d</string>
+    <string name="game_color_confusion_howto">Tryk på blækkets farve.</string>
     <string name="trio_demo_title">Find et sæt af tre</string>
     <string name="trio_demo_rule">De deler en egenskab. Intet andet er blandet.</string>
     <string name="trio_trait_shape">Form</string>
@@ -398,6 +406,15 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="sherlock_calculation_demo_title">Nå måletallet</string>
     <string name="value_comparison_demo_title">Vælg den største værdi</string>
     <string name="mental_flex_demo_title">Parret sætter reglen</string>
+    <string name="rule_shift_demo_title">Reglen bliver aldrig sagt</string>
+    <string name="rule_shift_demo_caption_match">Læg kortet ved det nøglekort, det matcher.</string>
+    <string name="rule_shift_demo_caption_rule_works">Blå ved blå, rød ved rød. Begge rigtige.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Grøn ved grøn. Forkert, og ingen forklaring.</string>
+    <string name="rule_shift_demo_caption_new_rule">Ét symbol, første nøglekort. Nu er det antallet, der gælder.</string>
+    <string name="color_confusion_demo_caption_ink">Ordet siger én farve. Blækket en anden.</string>
+    <string name="color_confusion_demo_caption_agree">Nogle gange er de enige.</string>
+    <string name="color_confusion_demo_caption_trap">At læse ordet er fælden.</string>
+    <string name="color_confusion_demo_caption_recover">Blækket er altid svaret.</string>
     <string name="pattern_sequence_prompt">Hvilken brik fuldender matricen?</string>
     <string name="game_tap_original_targets">Tryk på de oprindelige mål</string>
     <string name="game_remember_targets">Husk målene</string>
@@ -423,6 +440,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="shape_circle">Cirkel</string>
     <string name="shape_heart">Hjerte</string>
     <string name="shape_star">Stjerne</string>
+    <string name="shape_cross">Kryds</string>
     <string name="shape_t_shape">T-form</string>
     <string name="shape_l_shape">L-form</string>
     <string name="shape_diamond">Rombe</string>
@@ -459,6 +477,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_trio">Trippelsyn</string>
     <string name="achievement_gold_mental_rotations">Drejemester</string>
     <string name="achievement_gold_mental_flex">Hurtigt skift</string>
+    <string name="achievement_gold_rule_shift">Regelbryder</string>
     <string name="achievement_gold_path_finder">Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle">Afvigeren fundet</string>
     <string name="achievement_gold_colored_shapes">Formskifter</string>
@@ -497,6 +516,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_trio_desc">Vind guldmedaljen i Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Vind guldmedaljen i Mentale rotationer</string>
     <string name="achievement_gold_mental_flex_desc">Vind guldmedaljen i Mental fleksibilitet</string>
+    <string name="achievement_gold_rule_shift_desc">Vind guldmedaljen i Regelskift</string>
     <string name="achievement_gold_path_finder_desc">Vind guldmedaljen i Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vind guldmedaljen i Afvigelsespuslespil</string>
     <string name="achievement_gold_colored_shapes_desc">Vind guldmedaljen i Farvede former</string>
@@ -586,6 +606,8 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="science_orbit_tracker_summary">Et standardmål for vedvarende delt opmærksomhed: hvor mange mål i bevægelse du kan holde styr på blandt ens distraktorer.</string>
     <string name="science_mental_rotations_paradigm">Mental rotation</string>
     <string name="science_mental_rotations_summary">Et standardmål for rumlig evne: at afgøre om to figurer er det samme legeme drejet, eller spejlbilleder som ingen rotation kan få til at passe.</string>
+    <string name="science_color_confusion_paradigm">Stroop-opgaven</string>
+    <string name="science_color_confusion_summary">Et standardmål for inhibition: at benævne den farve, et ord er trykt med, mens det at læse selve ordet leverer et hurtigere, konkurrerende svar.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-opgaven</string>
     <string name="science_digit_memory_summary">Et standardmål for arbejdshukommelsen: at holde på en række, mens en anden opgave optager den samme mentale plads.</string>
     <string name="science_pattern_sequence_paradigm">Matrixræsonnement</string>
@@ -594,6 +616,8 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="science_mental_flex_summary">Et standardmål for kognitiv fleksibilitet: hvad det koster at slippe den regel, du lige brugte, og bruge en anden.</string>
     <string name="science_n_back_paradigm">N-Back-opgaven</string>
     <string name="science_n_back_summary">Et standardmål for opdatering af arbejdshukommelsen: at holde et glidende vindue over de sidste par elementer ajour og bedømme ud fra det, mens det bliver ved med at rykke.</string>
+    <string name="science_rule_shift_paradigm">Wisconsin Card Sorting Test</string>
+    <string name="science_rule_shift_summary">Et standardmål for begrebsdannelse: at finde sorteringsreglen ud fra intet andet end rigtigt-eller-forkert og så opdage, når den lydløst skifter.</string>
     <string name="science_tower_of_hanoi_paradigm">Tårnet i Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Et standardmål for planlægning: puslespillet kræver træk, der først fortryder fremskridtet, før målet kan nås.</string>
     <string name="brain_cup_button">Brain Cup-rangliste</string>

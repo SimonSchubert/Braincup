@@ -179,6 +179,9 @@
     <string name="finish_best_tries">ಶ್ರೇಷ್ಠ: %1$s ಪ್ರಯತ್ನಗಳು</string>
     <string name="button_play_next_level">ಮುಂದಿನ ಹಂತ ಆಡಿ</string>
     <string name="finish_max_level_reached">ಗರಿಷ್ಠ ಹಂತ ತಲುಪಿದೆ. ಹೊಸ ವಿಷಯಕ್ಕಾಗಿ ಕಾಯಿರಿ.</string>
+    <string name="finish_congruency_effect_title">ಹೊಂದಾಣಿಕೆಯ ಬೆಲೆ</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">ಪದ ಮತ್ತು ಶಾಯಿ ಹೊಂದದಿದ್ದಾಗ ನಿಮಗೆ ಎಷ್ಟು ಹೆಚ್ಚು ಸಮಯ ಬೇಕಾಯಿತು</string>
 
     <string name="feedback_solution">ಪರಿಹಾರ: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">ತ್ರಿವಳಿ</string>
     <string name="game_mental_rotations">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆ</string>
     <string name="game_mental_flex">ಮಾನಸಿಕ ನಮ್ಯತೆ</string>
+    <string name="game_rule_shift">ನಿಯಮ ಬದಲು</string>
 
     <string name="game_anomaly_puzzle_desc">ಬೇರೆಯಾಗಿ ಕಾಣುವ ಆಕೃತಿಯನ್ನು ಹುಡುಕಿ. ಪ್ರತಿ ಆಕೃತಿಯ ಬಣ್ಣ ಮತ್ತು ಆಕಾರ ಎರಡನ್ನೂ ಗಮನಿಸಿ.</string>
     <string name="game_mental_calculation_desc">ಗಣಿತದ ಪದಪುಂಜಗಳನ್ನು ಅನುಸರಿಸಿ. ಫಲಿತಾಂಶವನ್ನು ಮುಂದಿನ ಗಣನೆಗೆ ಆಧಾರವಾಗಿ ಬಳಸಿ.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">ಆಕಾರ</string>
     <string name="game_mental_flex_rule_color">ಬಣ್ಣ</string>
     <string name="game_mental_flex_howto">ಜೋಡಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾದದ್ದನ್ನು ಗುರುತಿಸಿ.</string>
+    <string name="game_rule_shift_desc">ಪ್ರತಿ ಕಾರ್ಡ್ ಅನ್ನು ನಾಲ್ಕು ಪ್ರಮುಖ ಕಾರ್ಡ್‌ಗಳಲ್ಲಿ ಒಂದರ ಬಳಿ ಜೋಡಿಸಿ. ನಿಯಮವನ್ನು ಯಾರೂ ನಿಮಗೆ ಹೇಳುವುದಿಲ್ಲ, ಮತ್ತು ನೀವು ಅದನ್ನು ತಿಳಿದ ಕೂಡಲೇ ಅದು ಬದಲಾಗುತ್ತದೆ.</string>
+    <string name="game_rule_shift_howto">ಇದು ಯಾವ ಪ್ರಮುಖ ಕಾರ್ಡ್‌ಗೆ ಸೇರುತ್ತದೆ?</string>
+    <string name="game_rule_shift_cards_left">ಉಳಿದ ಕಾರ್ಡ್‌ಗಳು: %1$d</string>
+    <string name="game_color_confusion_howto">ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="trio_demo_title">ಮೂರರ ಗುಂಪನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಅವು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ. ಬೇರೇನೂ ಬೆರೆತಿಲ್ಲ.</string>
     <string name="trio_trait_shape">ಆಕಾರ</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">ಗುರಿ ಸಂಖ್ಯೆಯನ್ನು ತಲುಪಿ</string>
     <string name="value_comparison_demo_title">ಅತಿ ದೊಡ್ಡ ಮೌಲ್ಯವನ್ನು ಆರಿಸಿ</string>
     <string name="mental_flex_demo_title">ಜೋಡಿ ನಿಯಮವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ</string>
+    <string name="rule_shift_demo_title">ನಿಯಮವನ್ನು ಎಂದಿಗೂ ಹೇಳುವುದಿಲ್ಲ</string>
+    <string name="rule_shift_demo_caption_match">ಕಾರ್ಡ್ ಅನ್ನು ಅದಕ್ಕೆ ಹೊಂದುವ ಪ್ರಮುಖ ಕಾರ್ಡ್ ಬಳಿ ಇಡಿ.</string>
+    <string name="rule_shift_demo_caption_rule_works">ನೀಲಿಗೆ ನೀಲಿ, ಕೆಂಪಿಗೆ ಕೆಂಪು. ಎರಡೂ ಸರಿ.</string>
+    <string name="rule_shift_demo_caption_rule_moved">ಹಸಿರಿಗೆ ಹಸಿರು. ತಪ್ಪು, ಕಾರಣವನ್ನೂ ಹೇಳುವುದಿಲ್ಲ.</string>
+    <string name="rule_shift_demo_caption_new_rule">ಒಂದು ಚಿಹ್ನೆ, ಮೊದಲ ಪ್ರಮುಖ ಕಾರ್ಡ್. ಈಗ ಸಂಖ್ಯೆಯೇ ಮುಖ್ಯ.</string>
+    <string name="color_confusion_demo_caption_ink">ಪದ ಒಂದು ಬಣ್ಣ ಹೇಳುತ್ತದೆ. ಶಾಯಿ ಇನ್ನೊಂದು.</string>
+    <string name="color_confusion_demo_caption_agree">ಕೆಲವೊಮ್ಮೆ ಎರಡೂ ಒಂದೇ ಆಗಿರುತ್ತವೆ.</string>
+    <string name="color_confusion_demo_caption_trap">ಪದವನ್ನು ಓದುವುದೇ ಬಲೆ.</string>
+    <string name="color_confusion_demo_caption_recover">ಉತ್ತರ ಯಾವಾಗಲೂ ಶಾಯಿಯೇ.</string>
     <string name="pattern_sequence_prompt">ಯಾವ ತುಂಡು ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ?</string>
     <string name="game_tap_original_targets">ಮೂಲ ಗುರಿಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="game_remember_targets">ಗುರಿಗಳನ್ನು ನೆನಪಿಡಿ</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">ವೃತ್ತ</string>
     <string name="shape_heart">ಹೃದಯ</string>
     <string name="shape_star">ನಕ್ಷತ್ರ</string>
+    <string name="shape_cross">ಕ್ರಾಸ್</string>
     <string name="shape_t_shape">T ಆಕಾರ</string>
     <string name="shape_l_shape">L ಆಕಾರ</string>
     <string name="shape_diamond">ವಜ್ರ</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">ಮೂರು ಕಣ್ಣಿನ ನೋಟ</string>
     <string name="achievement_gold_mental_rotations">ತಿರುಗಿಸುವ ನಿಪುಣ</string>
     <string name="achievement_gold_mental_flex">ತ್ವರಿತ ಬದಲಾವಣೆ</string>
+    <string name="achievement_gold_rule_shift">ನಿಯಮ ಮುರಿಯುವವ</string>
     <string name="achievement_gold_path_finder">ದಾರಿ ಮಾಡಿದವ</string>
     <string name="achievement_gold_anomaly_puzzle">ಬೇರೆಯಾದದ್ದು ಸಿಕ್ಕಿತು</string>
     <string name="achievement_gold_colored_shapes">ಆಕಾರ ಬದಲಿಸುವವ</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">ತ್ರಿವಳಿಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_mental_rotations_desc">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_mental_flex_desc">ಮಾನಸಿಕ ನಮ್ಯತೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_rule_shift_desc">ನಿಯಮ ಬದಲಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_path_finder_desc">ದಾರಿ ಶೋಧಕದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ವ್ಯತ್ಯಾಸ ಒಗಟಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_colored_shapes_desc">ಬಣ್ಣದ ಆಕಾರಗಳಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">ನಿರಂತರ ವಿಭಜಿತ ಗಮನದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಒಂದೇ ರೀತಿಯ ಗಮನ ಸೆಳೆಯುವ ವಸ್ತುಗಳ ನಡುವೆ ಎಷ್ಟು ಚಲಿಸುವ ಗುರಿಗಳನ್ನು ಹಿಡಿದಿಡಬಹುದು.</string>
     <string name="science_mental_rotations_paradigm">ಮಾನಸಿಕ ಪರಿಭ್ರಮಣ ಕಾರ್ಯ</string>
     <string name="science_mental_rotations_summary">ಪ್ರಾದೇಶಿಕ ಸಾಮರ್ಥ್ಯದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಎರಡು ಆಕೃತಿಗಳು ಒಂದೇ ಘನವನ್ನು ತಿರುಗಿಸಿದವೇ, ಅಥವಾ ಯಾವ ತಿರುಗುವಿಕೆಯೂ ಹೊಂದಿಸಲಾಗದ ಕನ್ನಡಿ ಬಿಂಬಗಳೇ ಎಂದು ನಿರ್ಧರಿಸುವುದು.</string>
+    <string name="science_color_confusion_paradigm">ಸ್ಟ್ರೂಪ್ ಕಾರ್ಯ</string>
+    <string name="science_color_confusion_summary">ಪ್ರತಿಬಂಧದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಪದವು ಯಾವ ಬಣ್ಣದಲ್ಲಿ ಮುದ್ರಿತವಾಗಿದೆಯೋ ಅದನ್ನು ಹೆಸರಿಸುವುದು, ಆದರೆ ಪದವನ್ನು ಓದುವುದೇ ವೇಗವಾದ, ಪೈಪೋಟಿಯ ಉತ್ತರವನ್ನು ಮುಂದಿಡುತ್ತದೆ.</string>
     <string name="science_digit_memory_paradigm">ಬ್ರೌನ್-ಪೀಟರ್ಸನ್ ಕಾರ್ಯ</string>
     <string name="science_digit_memory_summary">ಕಾರ್ಯ ಸ್ಮರಣೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಸಂಬಂಧವಿಲ್ಲದ ಬೇರೊಂದು ಕೆಲಸ ಅದೇ ಮಾನಸಿಕ ಜಾಗವನ್ನು ಆಕ್ರಮಿಸಿರುವಾಗ ಒಂದು ಸರಣಿಯನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುವುದು.</string>
     <string name="science_pattern_sequence_paradigm">ಮ್ಯಾಟ್ರಿಕ್ಸ್ ತರ್ಕ</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">ಅರಿವಿನ ನಮ್ಯತೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಈಗಷ್ಟೇ ಬಳಸಿದ ನಿಯಮವನ್ನು ಬಿಟ್ಟು ಬೇರೊಂದನ್ನು ಅನ್ವಯಿಸುವ ಬೆಲೆ.</string>
     <string name="science_n_back_paradigm">N-Back ಕಾರ್ಯ</string>
     <string name="science_n_back_summary">ಕಾರ್ಯ ಸ್ಮರಣೆಯ ನವೀಕರಣದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಕೊನೆಯ ಕೆಲವು ಅಂಶಗಳ ಚಲಿಸುವ ಕಿಟಕಿಯನ್ನು ತಾಜಾವಾಗಿ ಇಟ್ಟುಕೊಳ್ಳುವುದು, ಮತ್ತು ಅದು ಚಲಿಸುತ್ತಲೇ ಇರುವಾಗ ಅದರೊಂದಿಗೆ ಹೋಲಿಸಿ ತೀರ್ಮಾನಿಸುವುದು.</string>
+    <string name="science_rule_shift_paradigm">ವಿಸ್ಕಾನ್ಸಿನ್ ಕಾರ್ಡ್ ಸಾರ್ಟಿಂಗ್ ಟೆಸ್ಟ್</string>
+    <string name="science_rule_shift_summary">ಪರಿಕಲ್ಪನೆ ರಚನೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಸರಿ-ಅಥವಾ-ತಪ್ಪು ಎಂಬುದರಿಂದಷ್ಟೇ ವಿಂಗಡಣೆಯ ನಿಯಮವನ್ನು ಕಂಡುಕೊಳ್ಳುವುದು, ನಂತರ ಅದು ಯಾವಾಗ ಮೌನವಾಗಿ ಬದಲಾಯಿತೆಂದು ಗಮನಿಸುವುದು.</string>
     <string name="science_tower_of_hanoi_paradigm">ಹನೋಯಿ ಗೋಪುರ</string>
     <string name="science_tower_of_hanoi_summary">ಯೋಜನೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಗುರಿ ತಲುಪುವ ಮೊದಲು ಪ್ರಗತಿಯನ್ನು ಹಿಂದಕ್ಕೆ ಒಯ್ಯುವ ನಡೆಗಳು ಈ ಒಗಟಿನಲ್ಲಿ ಬೇಕಾಗುತ್ತವೆ.</string>
     <string name="brain_cup_button">Brain Cup ಅಗ್ರಪಟ್ಟಿ</string>

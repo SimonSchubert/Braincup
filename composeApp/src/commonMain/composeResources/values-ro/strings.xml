@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Cel mai bun: %1$s încercări</string>
     <string name="button_play_next_level">Joacă nivelul următor</string>
     <string name="finish_max_level_reached">Nivelul maxim atins. Așteaptă conținut nou.</string>
+    <string name="finish_congruency_effect_title">Costul congruenței</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Cu cât mai mult ai zăbovit când cuvântul nu se potrivea cu cerneala</string>
 
     <string name="feedback_solution">Soluție: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rotații mentale</string>
     <string name="game_mental_flex">Flexibilitate mentală</string>
+    <string name="game_rule_shift">Schimbare de regulă</string>
 
     <string name="game_anomaly_puzzle_desc">Găsește figura care iese în evidență. Uită-te la culoarea și forma fiecărei figuri.</string>
     <string name="game_mental_calculation_desc">Urmărește expresiile matematice. Folosește rezultatul ca bază pentru calculul următor.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Formă</string>
     <string name="game_mental_flex_rule_color">Culoare</string>
     <string name="game_mental_flex_howto">Observă ce au în comun cele două.</string>
+    <string name="game_rule_shift_desc">Așază fiecare carte la una dintre cele patru cărți-cheie. Nimeni nu îți spune regula, iar ea se schimbă imediat ce ai prins-o.</string>
+    <string name="game_rule_shift_howto">Cărei cărți-cheie îi aparține?</string>
+    <string name="game_rule_shift_cards_left">Cărți rămase: %1$d</string>
+    <string name="game_color_confusion_howto">Apasă culoarea cernelii.</string>
     <string name="trio_demo_title">Găsește un set de trei</string>
     <string name="trio_demo_rule">Împart o trăsătură. Nimic altceva nu e amestecat.</string>
     <string name="trio_trait_shape">Formă</string>
@@ -398,6 +406,15 @@ Mută Cow — devine Bull.</string>
     <string name="sherlock_calculation_demo_title">Ajunge la numărul-scop</string>
     <string name="value_comparison_demo_title">Alege valoarea cea mai mare</string>
     <string name="mental_flex_demo_title">Perechea stabilește regula</string>
+    <string name="rule_shift_demo_title">Regula nu e spusă niciodată</string>
+    <string name="rule_shift_demo_caption_match">Pune cartea la cartea-cheie care i se potrivește.</string>
+    <string name="rule_shift_demo_caption_rule_works">Albastru cu albastru, roșu cu roșu. Ambele corecte.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Verde cu verde. Greșit, și fără explicație.</string>
+    <string name="rule_shift_demo_caption_new_rule">Un simbol, prima cheie. Acum contează numărul.</string>
+    <string name="color_confusion_demo_caption_ink">Cuvântul spune o culoare. Cerneala, alta.</string>
+    <string name="color_confusion_demo_caption_agree">Uneori cele două se potrivesc.</string>
+    <string name="color_confusion_demo_caption_trap">Capcana e să citești cuvântul.</string>
+    <string name="color_confusion_demo_caption_recover">Cerneala e mereu răspunsul.</string>
     <string name="pattern_sequence_prompt">Care piesă completează matricea?</string>
     <string name="game_tap_original_targets">Apasă țintele originale</string>
     <string name="game_remember_targets">Ține minte țintele</string>
@@ -423,6 +440,7 @@ Mută Cow — devine Bull.</string>
     <string name="shape_circle">Cerc</string>
     <string name="shape_heart">Inimă</string>
     <string name="shape_star">Stea</string>
+    <string name="shape_cross">Cruce</string>
     <string name="shape_t_shape">Formă T</string>
     <string name="shape_l_shape">Formă L</string>
     <string name="shape_diamond">Romb</string>
@@ -459,6 +477,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_trio">Viziune triplă</string>
     <string name="achievement_gold_mental_rotations">Maestrul rotației</string>
     <string name="achievement_gold_mental_flex">Schimbare rapidă</string>
+    <string name="achievement_gold_rule_shift">Spărgător de reguli</string>
     <string name="achievement_gold_path_finder">Deschizător de drum</string>
     <string name="achievement_gold_anomaly_puzzle">Anomalia găsită</string>
     <string name="achievement_gold_colored_shapes">Schimbător de forme</string>
@@ -497,6 +516,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_trio_desc">Câștigă medalia de aur la Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Câștigă medalia de aur la Rotații mentale</string>
     <string name="achievement_gold_mental_flex_desc">Câștigă medalia de aur la Flexibilitate mentală</string>
+    <string name="achievement_gold_rule_shift_desc">Câștigă medalia de aur la Schimbare de regulă</string>
     <string name="achievement_gold_path_finder_desc">Câștigă medalia de aur la Căutător de cale</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Câștigă medalia de aur la Puzzle-ul anomaliei</string>
     <string name="achievement_gold_colored_shapes_desc">Câștigă medalia de aur la Forme colorate</string>
@@ -586,6 +606,8 @@ Mută Cow — devine Bull.</string>
     <string name="science_orbit_tracker_summary">O măsură standard a atenției distributive susținute: câte ținte în mișcare reușești să urmărești printre distractori identici.</string>
     <string name="science_mental_rotations_paradigm">Sarcina de rotație mentală</string>
     <string name="science_mental_rotations_summary">O măsură standard a abilității spațiale: a decide dacă două figuri sunt același corp rotit sau imagini în oglindă pe care nicio rotație nu le poate suprapune.</string>
+    <string name="science_color_confusion_paradigm">Sarcina Stroop</string>
+    <string name="science_color_confusion_summary">O măsură standard a inhibiției: să numești culoarea în care e tipărit un cuvânt, în timp ce citirea cuvântului însuși oferă un răspuns mai rapid și concurent.</string>
     <string name="science_digit_memory_paradigm">Sarcina Brown-Peterson</string>
     <string name="science_digit_memory_summary">O măsură standard a memoriei de lucru: a păstra un șir în timp ce o altă sarcină ocupă același spațiu mental.</string>
     <string name="science_pattern_sequence_paradigm">Raționament matricial</string>
@@ -594,6 +616,8 @@ Mută Cow — devine Bull.</string>
     <string name="science_mental_flex_summary">O măsură standard a flexibilității cognitive: cât costă să renunți la regula tocmai folosită și să aplici alta.</string>
     <string name="science_n_back_paradigm">Sarcina N-Back</string>
     <string name="science_n_back_summary">O măsură standard a actualizării memoriei de lucru: a ține la zi o fereastră mobilă a ultimelor elemente și a judeca prin raportare la ea în timp ce ea continuă să înainteze.</string>
+    <string name="science_rule_shift_paradigm">Testul de sortare a cărților Wisconsin</string>
+    <string name="science_rule_shift_summary">O măsură standard a formării conceptelor: să găsești regula de sortare doar din corect-sau-greșit, apoi să observi când se schimbă în tăcere.</string>
     <string name="science_tower_of_hanoi_paradigm">Turnul din Hanoi</string>
     <string name="science_tower_of_hanoi_summary">O măsură standard a planificării: puzzle-ul cere mutări care desfac progresul înainte ca ținta să poată fi atinsă.</string>
     <string name="brain_cup_button">Clasament Brain Cup</string>

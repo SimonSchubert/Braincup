@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Legjobb: %1$s próbálkozás</string>
     <string name="button_play_next_level">Következő szint</string>
     <string name="finish_max_level_reached">Elérted a max szintet. Várj az új tartalomra.</string>
+    <string name="finish_congruency_effect_title">Kongruenciaköltség</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Mennyivel tartott tovább, amikor a szó és a tinta ellentmondott egymásnak</string>
 
     <string name="feedback_solution">Megoldás: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Gondolati forgatás</string>
     <string name="game_mental_flex">Gondolati váltás</string>
+    <string name="game_rule_shift">Szabályváltás</string>
 
     <string name="game_anomaly_puzzle_desc">Találd meg az alakzatot, amely kilóg. Nézd meg minden alakzat színét és formáját.</string>
     <string name="game_mental_calculation_desc">Kövesd a matematikai kifejezéseket. Az eredmény legyen a következő számolás alapja.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Szín</string>
     <string name="game_mental_flex_howto">Vedd észre, mi közös a párban.</string>
+    <string name="game_rule_shift_desc">Rendezd minden lapot a négy kulcslap egyike alá. A szabályt senki nem mondja meg, és megváltozik, amint rájöttél.</string>
+    <string name="game_rule_shift_howto">Melyik kulcslaphoz tartozik?</string>
+    <string name="game_rule_shift_cards_left">Hátralévő lapok: %1$d</string>
+    <string name="game_color_confusion_howto">Koppints a tinta színére.</string>
     <string name="trio_demo_title">Találj egy hármas szettet</string>
     <string name="trio_demo_rule">Egy tulajdonságon osztoznak. Semmi más nem keveredik.</string>
     <string name="trio_trait_shape">Alak</string>
@@ -398,6 +406,15 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="sherlock_calculation_demo_title">Érd el a célszámot</string>
     <string name="value_comparison_demo_title">Válaszd a legnagyobb értéket</string>
     <string name="mental_flex_demo_title">A pár szabja meg a szabályt</string>
+    <string name="rule_shift_demo_title">A szabályt soha nem mondják ki</string>
+    <string name="rule_shift_demo_caption_match">Tedd a lapot ahhoz a kulcslaphoz, amelyikhez illik.</string>
+    <string name="rule_shift_demo_caption_rule_works">Kéket a kékhez, pirosat a piroshoz. Mindkettő jó.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Zöldet a zöldhöz. Rossz, és indoklás nélkül.</string>
+    <string name="rule_shift_demo_caption_new_rule">Egy jel, első kulcslap. Most a darabszám számít.</string>
+    <string name="color_confusion_demo_caption_ink">A szó egy színt mond. A tinta egy másikat.</string>
+    <string name="color_confusion_demo_caption_agree">Néha a kettő egyetért.</string>
+    <string name="color_confusion_demo_caption_trap">A csapda az, ha elolvasod a szót.</string>
+    <string name="color_confusion_demo_caption_recover">A válasz mindig a tinta.</string>
     <string name="pattern_sequence_prompt">Melyik darab egészíti ki a mátrixot?</string>
     <string name="game_tap_original_targets">Koppints az eredeti célokra</string>
     <string name="game_remember_targets">Jegyezd meg a célokat</string>
@@ -423,6 +440,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="shape_circle">Kör</string>
     <string name="shape_heart">Szív</string>
     <string name="shape_star">Csillag</string>
+    <string name="shape_cross">Kereszt</string>
     <string name="shape_t_shape">T alak</string>
     <string name="shape_l_shape">L alak</string>
     <string name="shape_diamond">Rombusz</string>
@@ -459,6 +477,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_trio">Hármas látás</string>
     <string name="achievement_gold_mental_rotations">Forgatómester</string>
     <string name="achievement_gold_mental_flex">Gyors váltás</string>
+    <string name="achievement_gold_rule_shift">Szabályszegő</string>
     <string name="achievement_gold_path_finder">Úttörő</string>
     <string name="achievement_gold_anomaly_puzzle">Megvan a kakukktojás</string>
     <string name="achievement_gold_colored_shapes">Alakváltó</string>
@@ -497,6 +516,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_trio_desc">Nyerj aranyérmet Trio játékban</string>
     <string name="achievement_gold_mental_rotations_desc">Nyerj aranyérmet Gondolati forgatás játékban</string>
     <string name="achievement_gold_mental_flex_desc">Nyerj aranyérmet Gondolati váltás játékban</string>
+    <string name="achievement_gold_rule_shift_desc">Nyerj aranyérmet Szabályváltás játékban</string>
     <string name="achievement_gold_path_finder_desc">Nyerj aranyérmet Útkereső játékban</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Nyerj aranyérmet Anomália-rejtvény játékban</string>
     <string name="achievement_gold_colored_shapes_desc">Nyerj aranyérmet Színes alakzatok játékban</string>
@@ -586,6 +606,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="science_orbit_tracker_summary">A tartós megosztott figyelem bevett mérőszáma: hány mozgó célpontot tartasz szemmel egyforma zavaró elemek között.</string>
     <string name="science_mental_rotations_paradigm">Mentális forgatási feladat</string>
     <string name="science_mental_rotations_summary">A téri képesség bevett mérőszáma: eldönteni, hogy két alak ugyanaz a test elforgatva, vagy tükörképek, amelyeket semmilyen forgatás nem hoz fedésbe.</string>
+    <string name="science_color_confusion_paradigm">Stroop-feladat</string>
+    <string name="science_color_confusion_summary">A gátlás bevett mérőszáma: megnevezni a színt, amellyel egy szót nyomtattak, miközben magának a szónak az elolvasása gyorsabb, versengő választ kínál.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-feladat</string>
     <string name="science_digit_memory_summary">A munkamemória bevett mérőszáma: egy sorozat megtartása, miközben egy másik feladat ugyanazt a mentális teret foglalja.</string>
     <string name="science_pattern_sequence_paradigm">Mátrixos következtetés</string>
@@ -594,6 +616,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="science_mental_flex_summary">A kognitív rugalmasság bevett mérőszáma: mibe kerül elengedni az imént használt szabályt, és másikat alkalmazni.</string>
     <string name="science_n_back_paradigm">N-Back feladat</string>
     <string name="science_n_back_summary">A munkamemória frissítésének bevett mérőszáma: az utolsó néhány elem mozgó ablakát naprakészen tartani, és ehhez mérni, miközben az tovább halad.</string>
+    <string name="science_rule_shift_paradigm">Wisconsin kártyaszortírozási teszt</string>
+    <string name="science_rule_shift_summary">A fogalomalkotás bevett mérőszáma: megtalálni a rendezési szabályt puszta jó-vagy-rossz visszajelzésből, majd észrevenni, mikor változik meg némán.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi tornya</string>
     <string name="science_tower_of_hanoi_summary">A tervezés bevett mérőszáma: a fejtörő olyan lépéseket kíván, amelyek előbb visszavonják az addigi haladást, mire a cél elérhetővé válik.</string>
     <string name="brain_cup_button">Brain Cup ranglista</string>

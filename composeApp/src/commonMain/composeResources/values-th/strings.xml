@@ -8,6 +8,9 @@
     <string name="button_play_again">เล่นอีกครั้ง</string>
     <string name="button_play_next_level">เล่นระดับถัดไป</string>
     <string name="finish_max_level_reached">ถึงระดับสูงสุดแล้ว รอเนื้อหาใหม่</string>
+    <string name="finish_congruency_effect_title">ต้นทุนความสอดคล้อง</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">คุณใช้เวลานานขึ้นเท่าใดเมื่อคำกับหมึกไม่ตรงกัน</string>
     <string name="button_play_random">เล่นเกมสุ่ม</string>
     <string name="button_give_up">ยอมแพ้</string>
     <string name="button_stay">อยู่ต่อ</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">วงกลม</string>
     <string name="shape_heart">หัวใจ</string>
     <string name="shape_star">ดาว</string>
+    <string name="shape_cross">กากบาท</string>
     <string name="shape_t_shape">รูปตัว T</string>
     <string name="shape_l_shape">รูปตัว L</string>
     <string name="shape_diamond">เพชร</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">มาตรวัดมาตรฐานของความใส่ใจแบบแบ่งส่วนที่ต่อเนื่อง: คุณตามเป้าหมายที่เคลื่อนที่ได้กี่ชิ้นท่ามกลางสิ่งรบกวนที่หน้าตาเหมือนกัน</string>
     <string name="science_mental_rotations_paradigm">งานหมุนภาพในใจ</string>
     <string name="science_mental_rotations_summary">มาตรวัดมาตรฐานของความสามารถเชิงมิติสัมพันธ์: ตัดสินว่าสองรูปคือวัตถุเดียวกันที่ถูกหมุน หรือเป็นภาพสะท้อนที่ไม่มีการหมุนใดทำให้ทับกันได้</string>
+    <string name="science_color_confusion_paradigm">งานสตรูป</string>
+    <string name="science_color_confusion_summary">มาตรวัดมาตรฐานของการยับยั้ง: การเรียกชื่อสีที่ใช้พิมพ์คำ ขณะที่การอ่านตัวคำเองให้คำตอบที่เร็วกว่าและแข่งขันกันอยู่</string>
     <string name="science_digit_memory_paradigm">งานบราวน์-ปีเตอร์สัน</string>
     <string name="science_digit_memory_summary">มาตรวัดมาตรฐานของความจำใช้งาน: การเก็บลำดับไว้ขณะที่งานอื่นเข้ามาใช้พื้นที่ความคิดเดียวกัน</string>
     <string name="science_pattern_sequence_paradigm">การให้เหตุผลเชิงเมทริกซ์</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">มาตรวัดมาตรฐานของความยืดหยุ่นทางปัญญา: ต้นทุนของการทิ้งกฎที่เพิ่งใช้อยู่แล้วหันไปใช้อีกกฎหนึ่ง</string>
     <string name="science_n_back_paradigm">งาน N-Back</string>
     <string name="science_n_back_summary">มาตรวัดมาตรฐานของการปรับปรุงความจำใช้งาน: การรักษาหน้าต่างเลื่อนของรายการล่าสุดไม่กี่รายการให้เป็นปัจจุบัน และตัดสินเทียบกับมันขณะที่มันยังเลื่อนต่อไป</string>
+    <string name="science_rule_shift_paradigm">แบบทดสอบการจัดเรียงไพ่วิสคอนซิน</string>
+    <string name="science_rule_shift_summary">มาตรวัดมาตรฐานของการก่อรูปมโนทัศน์: หากฎการจัดเรียงจากเพียงคำตอบถูกหรือผิด แล้วสังเกตว่ามันเปลี่ยนไปเงียบ ๆ เมื่อใด</string>
     <string name="science_tower_of_hanoi_paradigm">หอคอยฮานอย</string>
     <string name="science_tower_of_hanoi_summary">มาตรวัดมาตรฐานของการวางแผน: ปริศนานี้ต้องใช้การเดินที่ย้อนความคืบหน้าก่อน จึงจะไปถึงเป้าหมายได้</string>
     <string name="brain_cup_button">ตารางอันดับ Brain Cup</string>
@@ -744,6 +752,15 @@
     <string name="sherlock_calculation_demo_title">ไปให้ถึงตัวเลขเป้าหมาย</string>
     <string name="value_comparison_demo_title">เลือกค่าที่มากที่สุด</string>
     <string name="mental_flex_demo_title">คู่บนกำหนดกฎ</string>
+    <string name="rule_shift_demo_title">กฎไม่เคยถูกบอก</string>
+    <string name="rule_shift_demo_caption_match">วางไพ่ไว้กับไพ่หลักที่ตรงกัน</string>
+    <string name="rule_shift_demo_caption_rule_works">น้ำเงินคู่น้ำเงิน แดงคู่แดง ถูกทั้งสองครั้ง</string>
+    <string name="rule_shift_demo_caption_rule_moved">เขียวคู่เขียว ผิด และไม่บอกเหตุผล</string>
+    <string name="rule_shift_demo_caption_new_rule">หนึ่งสัญลักษณ์ ไพ่หลักใบแรก ตอนนี้นับจำนวนแล้ว</string>
+    <string name="color_confusion_demo_caption_ink">คำบอกสีหนึ่ง หมึกบอกอีกสีหนึ่ง</string>
+    <string name="color_confusion_demo_caption_agree">บางครั้งทั้งสองก็ตรงกัน</string>
+    <string name="color_confusion_demo_caption_trap">กับดักคือการอ่านคำนั้น</string>
+    <string name="color_confusion_demo_caption_recover">คำตอบคือสีหมึกเสมอ</string>
     <string name="spot_the_new_demo_title">หาตัวใหม่</string>
     <string name="spot_the_new_demo_seen_label">ที่เคยเห็นมาแล้ว</string>
     <string name="spot_the_new_demo_new">แตะสัตว์ที่คุณยังไม่เคยเห็นมาก่อน</string>
@@ -783,6 +800,7 @@
     <string name="game_trio">ทริโอ</string>
     <string name="game_mental_rotations">หมุนภาพในใจ</string>
     <string name="game_mental_flex">ยืดหยุ่นทางความคิด</string>
+    <string name="game_rule_shift">สลับกฎ</string>
     <string name="game_trio_desc">หาไพ่สามใบที่รูป จำนวน หรือการเติมเหมือนกัน</string>
     <string name="game_mental_rotations_desc">ตัดสินว่าบล็อกที่สองคือบล็อกแรกที่ถูกหมุน หรือเป็นภาพในกระจก</string>
     <string name="game_mental_rotations_question">บล็อกเดียวกัน หรือภาพในกระจก?</string>
@@ -793,6 +811,10 @@
     <string name="game_mental_flex_rule_shape">รูปร่าง</string>
     <string name="game_mental_flex_rule_color">สี</string>
     <string name="game_mental_flex_howto">สังเกตว่าคู่นี้มีอะไรเหมือนกัน</string>
+    <string name="game_rule_shift_desc">จัดไพ่แต่ละใบไปยังหนึ่งในสี่ไพ่หลัก ไม่มีใครบอกกฎกับคุณ และกฎจะเปลี่ยนทันทีที่คุณจับทางได้</string>
+    <string name="game_rule_shift_howto">ใบนี้เข้ากับไพ่หลักใบไหน</string>
+    <string name="game_rule_shift_cards_left">ไพ่ที่เหลือ: %1$d</string>
+    <string name="game_color_confusion_howto">แตะสีของหมึก</string>
     <string name="trio_demo_title">หาชุดสามใบ</string>
     <string name="trio_demo_rule">มีลักษณะร่วมกัน ส่วนอื่นไม่ปะปน</string>
     <string name="trio_trait_shape">รูปทรง</string>
@@ -812,9 +834,11 @@
     <string name="achievement_gold_trio">สายตาสามเท่า</string>
     <string name="achievement_gold_mental_rotations">เซียนหมุนภาพ</string>
     <string name="achievement_gold_mental_flex">เปลี่ยนไว</string>
+    <string name="achievement_gold_rule_shift">ผู้แหกกฎ</string>
     <string name="achievement_gold_trio_desc">ชนะเหรียญทองใน Trio</string>
     <string name="achievement_gold_mental_rotations_desc">ชนะเหรียญทองในหมุนภาพในใจ</string>
     <string name="achievement_gold_mental_flex_desc">ชนะเหรียญทองในยืดหยุ่นทางความคิด</string>
+    <string name="achievement_gold_rule_shift_desc">ชนะเหรียญทองในสลับกฎ</string>
 
     <string name="iq_test_button">แบบทดสอบไอคิว</string>
     <string name="iq_test_title">แบบทดสอบไอคิว</string>

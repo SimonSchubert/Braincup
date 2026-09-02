@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Parim: %1$s katset</string>
     <string name="button_play_next_level">Mängi järgmine tase</string>
     <string name="finish_max_level_reached">Kõrgeim tase saavutatud. Oota uut sisu.</string>
+    <string name="finish_congruency_effect_title">Kongruentsuse hind</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Kui palju kauem sul läks, kui sõna ja tint olid vastuolus</string>
 
     <string name="feedback_solution">Lahendus: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mõttelised pöörded</string>
     <string name="game_mental_flex">Mõtteline paindlikkus</string>
+    <string name="game_rule_shift">Reeglivahetus</string>
 
     <string name="game_anomaly_puzzle_desc">Leia kujund, mis eristub. Vaata nii värvi kui kuju.</string>
     <string name="game_mental_calculation_desc">Jälgi matemaatilisi avaldisi. Kasuta tulemust järgmise arvutuse alusena.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Kuju</string>
     <string name="game_mental_flex_rule_color">Värv</string>
     <string name="game_mental_flex_howto">Leia, mis on paaril ühist.</string>
+    <string name="game_rule_shift_desc">Paiguta iga kaart ühe nelja võtmekaardi juurde. Reeglit ei ütle sulle keegi ja see muutub kohe, kui oled selle leidnud.</string>
+    <string name="game_rule_shift_howto">Millise võtmekaardi juurde see kuulub?</string>
+    <string name="game_rule_shift_cards_left">Kaarte jäänud: %1$d</string>
+    <string name="game_color_confusion_howto">Puuduta tindi värvi.</string>
     <string name="trio_demo_title">Leia kolmik</string>
     <string name="trio_demo_rule">Need jagavad omadust. Midagi muud ei segune.</string>
     <string name="trio_trait_shape">Kuju</string>
@@ -398,6 +406,15 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="sherlock_calculation_demo_title">Jõua eesmärgiarvuni</string>
     <string name="value_comparison_demo_title">Vali suurim väärtus</string>
     <string name="mental_flex_demo_title">Paar määrab reegli</string>
+    <string name="rule_shift_demo_title">Reeglit ei öelda kunagi välja</string>
+    <string name="rule_shift_demo_caption_match">Pane kaart selle võtmekaardi juurde, millega see sobib.</string>
+    <string name="rule_shift_demo_caption_rule_works">Sinine sinise juurde, punane punase juurde. Mõlemad õiged.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Roheline rohelise juurde. Vale, ja põhjust ei öelda.</string>
+    <string name="rule_shift_demo_caption_new_rule">Üks sümbol, esimene võtmekaart. Nüüd loeb arv.</string>
+    <string name="color_confusion_demo_caption_ink">Sõna ütleb ühe värvi. Tint teise.</string>
+    <string name="color_confusion_demo_caption_agree">Vahel need kaks langevad kokku.</string>
+    <string name="color_confusion_demo_caption_trap">Lõks on sõna lugemine.</string>
+    <string name="color_confusion_demo_caption_recover">Vastus on alati tint.</string>
     <string name="pattern_sequence_prompt">Milline tükk täiendab maatriksit?</string>
     <string name="game_tap_original_targets">Puuduta algseid sihtmärke</string>
     <string name="game_remember_targets">Jäta sihtmärgid meelde</string>
@@ -423,6 +440,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="shape_circle">Ring</string>
     <string name="shape_heart">Süda</string>
     <string name="shape_star">Täht</string>
+    <string name="shape_cross">Rist</string>
     <string name="shape_t_shape">T-kuju</string>
     <string name="shape_l_shape">L-kuju</string>
     <string name="shape_diamond">Romb</string>
@@ -459,6 +477,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_trio">Kolmiknägemine</string>
     <string name="achievement_gold_mental_rotations">Pöördemeister</string>
     <string name="achievement_gold_mental_flex">Kiire vahetus</string>
+    <string name="achievement_gold_rule_shift">Reeglimurdja</string>
     <string name="achievement_gold_path_finder">Rajaleidja</string>
     <string name="achievement_gold_anomaly_puzzle">Anomaalia leitud</string>
     <string name="achievement_gold_colored_shapes">Kujumuutja</string>
@@ -497,6 +516,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_trio_desc">Võida kuldmedal Trios</string>
     <string name="achievement_gold_mental_rotations_desc">Võida kuldmedal Mõttelistes pööretes</string>
     <string name="achievement_gold_mental_flex_desc">Võida kuldmedal Mõttelises paindlikkuses</string>
+    <string name="achievement_gold_rule_shift_desc">Võida kuldmedal Reeglivahetuses</string>
     <string name="achievement_gold_path_finder_desc">Võida kuldmedal Teeotsijas</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Võida kuldmedal Anomaalia mõistatuses</string>
     <string name="achievement_gold_colored_shapes_desc">Võida kuldmedal Värvilistes kujundites</string>
@@ -586,6 +606,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="science_orbit_tracker_summary">Püsiva jaotatud tähelepanu standardmõõt: mitut liikuvat sihtmärki suudad ühesuguste segajate hulgas silmas pidada.</string>
     <string name="science_mental_rotations_paradigm">Vaimse pööramise ülesanne</string>
     <string name="science_mental_rotations_summary">Ruumilise võimekuse standardmõõt: otsustada, kas kaks kujundit on sama keha pööratuna või peegelpildid, mida ükski pööre kokku ei vii.</string>
+    <string name="science_color_confusion_paradigm">Stroopi ülesanne</string>
+    <string name="science_color_confusion_summary">Pidurduse standardmõõt: nimetada värv, millega sõna on trükitud, samal ajal kui sõna enda lugemine pakub kiiremat, võistlevat vastust.</string>
     <string name="science_digit_memory_paradigm">Browni-Petersoni ülesanne</string>
     <string name="science_digit_memory_summary">Töömälu standardmõõt: jada hoidmine ajal, mil teine ülesanne hõivab sama vaimse ruumi.</string>
     <string name="science_pattern_sequence_paradigm">Maatriksarutlus</string>
@@ -594,6 +616,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="science_mental_flex_summary">Kognitiivse paindlikkuse standardmõõt: kui palju maksab loobuda just kasutatud reeglist ja rakendada teist.</string>
     <string name="science_n_back_paradigm">N-Back ülesanne</string>
     <string name="science_n_back_summary">Töömälu uuendamise standardmõõt: viimaste elementide liikuva akna värskena hoidmine ja selle järgi otsustamine ajal, mil see aina edasi liigub.</string>
+    <string name="science_rule_shift_paradigm">Wisconsini kaartide sortimise test</string>
+    <string name="science_rule_shift_summary">Mõistete kujunemise standardmõõt: leida sortimisreegel ainult õige-või-vale põhjal ja siis märgata, millal see vaikselt muutub.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi torn</string>
     <string name="science_tower_of_hanoi_summary">Planeerimise standardmõõt: mõistatus nõuab käike, mis tühistavad edasimineku, enne kui eesmärgini jõuab.</string>
     <string name="brain_cup_button">Brain Cupi edetabel</string>

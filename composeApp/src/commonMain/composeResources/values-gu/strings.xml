@@ -179,6 +179,9 @@
     <string name="finish_best_tries">શ્રેષ્ઠ: %1$s પ્રયાસ</string>
     <string name="button_play_next_level">આગળનું સ્તર રમો</string>
     <string name="finish_max_level_reached">મહત્તમ સ્તરે પહોંચ્યા. નવી સામગ્રીની રાહ જુઓ.</string>
+    <string name="finish_congruency_effect_title">સુસંગતતાની કિંમત</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">શબ્દ અને શાહી ન મળતાં હોય ત્યારે તમને કેટલો વધુ સમય લાગ્યો</string>
 
     <string name="feedback_solution">ઉકેલ: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">ત્રિપુટી</string>
     <string name="game_mental_rotations">માનસિક ઘૂર્ણન</string>
     <string name="game_mental_flex">માનસિક લવચીકતા</string>
+    <string name="game_rule_shift">નિયમ બદલ</string>
 
     <string name="game_anomaly_puzzle_desc">અલગ તરી આવતી આકૃતિ શોધો. દરેક આકૃતિનો રંગ અને આકાર બંને ધ્યાનમાં લો.</string>
     <string name="game_mental_calculation_desc">ગણિતની પદાવલિઓ અનુસરો. પરિણામને આગળની ગણતરીના આધાર તરીકે વાપરો.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">આકાર</string>
     <string name="game_mental_flex_rule_color">રંગ</string>
     <string name="game_mental_flex_howto">જોડીમાં શું સરખું છે તે શોધો.</string>
+    <string name="game_rule_shift_desc">દરેક પત્તું ચાર મુખ્ય પત્તાંમાંથી એકની સાથે ગોઠવો. નિયમ તમને કોઈ કહેતું નથી, અને તમે સમજી જાઓ કે તરત તે બદલાઈ જાય છે.</string>
+    <string name="game_rule_shift_howto">એ કયા મુખ્ય પત્તા સાથે જાય છે?</string>
+    <string name="game_rule_shift_cards_left">બાકી પત્તાં: %1$d</string>
+    <string name="game_color_confusion_howto">શાહીના રંગ પર ટેપ કરો.</string>
     <string name="trio_demo_title">ત્રણનો સમૂહ શોધો</string>
     <string name="trio_demo_rule">તેમનું એક લક્ષણ સરખું છે. બીજું કંઈ ભળેલું નથી.</string>
     <string name="trio_trait_shape">આકાર</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">લક્ષ્ય સંખ્યા સુધી પહોંચો</string>
     <string name="value_comparison_demo_title">સૌથી મોટું મૂલ્ય પસંદ કરો</string>
     <string name="mental_flex_demo_title">જોડી નિયમ નક્કી કરે છે</string>
+    <string name="rule_shift_demo_title">નિયમ ક્યારેય કહેવાતો નથી</string>
+    <string name="rule_shift_demo_caption_match">પત્તું એ મુખ્ય પત્તા પાસે મૂકો જેની સાથે તે મળે છે.</string>
+    <string name="rule_shift_demo_caption_rule_works">વાદળી સાથે વાદળી, લાલ સાથે લાલ. બંને સાચાં.</string>
+    <string name="rule_shift_demo_caption_rule_moved">લીલા સાથે લીલું. ખોટું, અને કારણ કહ્યા વગર.</string>
+    <string name="rule_shift_demo_caption_new_rule">એક ચિહ્ન, પહેલું મુખ્ય પત્તું. હવે સંખ્યા ગણાય છે.</string>
+    <string name="color_confusion_demo_caption_ink">શબ્દ એક રંગ કહે છે. શાહી બીજો.</string>
+    <string name="color_confusion_demo_caption_agree">ક્યારેક બંને એકસરખા હોય છે.</string>
+    <string name="color_confusion_demo_caption_trap">શબ્દ વાંચી લેવો એ જ જાળ છે.</string>
+    <string name="color_confusion_demo_caption_recover">જવાબ હંમેશાં શાહી જ છે.</string>
     <string name="pattern_sequence_prompt">કયો ટુકડો મેટ્રિક્સ પૂરો કરે છે?</string>
     <string name="game_tap_original_targets">મૂળ લક્ષ્યો પર ટેપ કરો</string>
     <string name="game_remember_targets">લક્ષ્યો યાદ રાખો</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">વર્તુળ</string>
     <string name="shape_heart">હૃદય</string>
     <string name="shape_star">તારો</string>
+    <string name="shape_cross">ક્રોસ</string>
     <string name="shape_t_shape">T આકાર</string>
     <string name="shape_l_shape">L આકાર</string>
     <string name="shape_diamond">હીરો</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">ત્રિવિધ દૃષ્ટિ</string>
     <string name="achievement_gold_mental_rotations">ઘૂર્ણન ગુરુ</string>
     <string name="achievement_gold_mental_flex">ઝડપી ફેરફાર</string>
+    <string name="achievement_gold_rule_shift">નિયમભંગ કરનાર</string>
     <string name="achievement_gold_path_finder">કેડી કંડારનાર</string>
     <string name="achievement_gold_anomaly_puzzle">અલગ પડતું પકડાયું</string>
     <string name="achievement_gold_colored_shapes">આકાર બદલનાર</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">ત્રિપુટીમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_mental_rotations_desc">માનસિક ઘૂર્ણનમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_mental_flex_desc">માનસિક લવચીકતામાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_rule_shift_desc">નિયમ બદલમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_path_finder_desc">માર્ગ શોધકમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_anomaly_puzzle_desc">વિસંગતિ કોયડામાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_colored_shapes_desc">રંગીન આકારોમાં સુવર્ણ ચંદ્રક જીતો</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">સતત વિભાજિત ધ્યાનનું પ્રમાણભૂત માપ: એકસરખા ધ્યાનભંગ કરનારા વચ્ચે તમે કેટલાં ગતિશીલ લક્ષ્ય સંભાળી શકો છો.</string>
     <string name="science_mental_rotations_paradigm">માનસિક પરિભ્રમણ કાર્ય</string>
     <string name="science_mental_rotations_summary">અવકાશી ક્ષમતાનું પ્રમાણભૂત માપ: બે આકૃતિઓ એક જ ઘન ફેરવેલો છે કે કોઈ પરિભ્રમણથી ન મળે તેવી અરીસા-પ્રતિમા છે તે નક્કી કરવું.</string>
+    <string name="science_color_confusion_paradigm">સ્ટ્રૂપ કાર્ય</string>
+    <string name="science_color_confusion_summary">નિરોધનું પ્રમાણભૂત માપ: શબ્દ જે રંગમાં છપાયો છે તેનું નામ આપવું, જ્યારે શબ્દ વાંચવો એ જ વધુ ઝડપી, હરીફ જવાબ આગળ ધરે છે.</string>
     <string name="science_digit_memory_paradigm">બ્રાઉન-પીટરસન કાર્ય</string>
     <string name="science_digit_memory_summary">કાર્યકારી સ્મૃતિનું પ્રમાણભૂત માપ: એક શ્રેણી પકડી રાખવી જ્યારે બીજું અસંબંધિત કાર્ય એ જ માનસિક જગ્યા રોકે છે.</string>
     <string name="science_pattern_sequence_paradigm">મેટ્રિક્સ તર્ક</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">બોધાત્મક લવચીકતાનું પ્રમાણભૂત માપ: હમણાં જ વાપરેલો નિયમ છોડીને બીજો લાગુ કરવાની કિંમત.</string>
     <string name="science_n_back_paradigm">N-Back કાર્ય</string>
     <string name="science_n_back_summary">કાર્યકારી સ્મૃતિના અદ્યતનીકરણનું પ્રમાણભૂત માપ: છેલ્લી થોડી વસ્તુઓની ચાલતી બારીને તાજી રાખવી, અને એ સરકતી રહે ત્યારે જ તેની સામે નિર્ણય કરવો.</string>
+    <string name="science_rule_shift_paradigm">વિસ્કોન્સિન કાર્ડ સોર્ટિંગ ટેસ્ટ</string>
+    <string name="science_rule_shift_summary">સંકલ્પના રચનાનું પ્રમાણભૂત માપ: માત્ર સાચું-કે-ખોટું પરથી ગોઠવણીનો નિયમ શોધવો, અને પછી ધ્યાનમાં લેવું કે તે ક્યારે ચૂપચાપ બદલાયો.</string>
     <string name="science_tower_of_hanoi_paradigm">હનોઈનો મિનારો</string>
     <string name="science_tower_of_hanoi_summary">આયોજનનું પ્રમાણભૂત માપ: લક્ષ્ય સુધી પહોંચતા પહેલાં પ્રગતિ પાછી લઈ જતી ચાલ આ કોયડામાં જરૂરી બને છે.</string>
     <string name="brain_cup_button">Brain Cup ગુણતાલિકા</string>

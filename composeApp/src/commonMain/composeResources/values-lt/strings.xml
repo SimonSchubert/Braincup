@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Geriausia: %1$s bandymų</string>
     <string name="button_play_next_level">Žaisti kitą lygį</string>
     <string name="finish_max_level_reached">Pasiektas aukščiausias lygis. Palauk naujo turinio.</string>
+    <string name="finish_congruency_effect_title">Kongruencijos kaina</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Kiek ilgiau užtrukai, kai žodis nesutapo su rašalu</string>
 
     <string name="feedback_solution">Sprendimas: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mintinis sukimas</string>
     <string name="game_mental_flex">Minties lankstumas</string>
+    <string name="game_rule_shift">Taisyklės kaita</string>
 
     <string name="game_anomaly_puzzle_desc">Rask figūrą, kuri išsiskiria. Stebėk ir spalvą, ir formą kiekvienos figūros.</string>
     <string name="game_mental_calculation_desc">Sek matematinius reiškinius. Rezultatą naudok kaip kito skaičiavimo pagrindą.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Spalva</string>
     <string name="game_mental_flex_howto">Pastebėk, kas poroje bendra.</string>
+    <string name="game_rule_shift_desc">Kiekvieną kortą priskirk vienai iš keturių raktinių kortų. Taisyklės niekas tau nesako, o ji pasikeičia vos tik ją supranti.</string>
+    <string name="game_rule_shift_howto">Kuriai raktinei kortai ji priklauso?</string>
+    <string name="game_rule_shift_cards_left">Liko kortų: %1$d</string>
+    <string name="game_color_confusion_howto">Paliesk rašalo spalvą.</string>
     <string name="trio_demo_title">Rask trejetą</string>
     <string name="trio_demo_rule">Dalijasi savybe. Nieko kito nemaišoma.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -398,6 +406,15 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="sherlock_calculation_demo_title">Pasiek tikslinį skaičių</string>
     <string name="value_comparison_demo_title">Pasirink didžiausią vertę</string>
     <string name="mental_flex_demo_title">Pora nustato taisyklę</string>
+    <string name="rule_shift_demo_title">Taisyklė niekada nepasakoma</string>
+    <string name="rule_shift_demo_caption_match">Padėk kortą prie raktinės kortos, su kuria ji sutampa.</string>
+    <string name="rule_shift_demo_caption_rule_works">Mėlyną prie mėlynos, raudoną prie raudonos. Abu teisingai.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Žalią prie žalios. Neteisingai, ir be paaiškinimo.</string>
+    <string name="rule_shift_demo_caption_new_rule">Vienas simbolis, pirma raktinė korta. Dabar svarbu kiekis.</string>
+    <string name="color_confusion_demo_caption_ink">Žodis sako vieną spalvą. Rašalas kitą.</string>
+    <string name="color_confusion_demo_caption_agree">Kartais abu sutampa.</string>
+    <string name="color_confusion_demo_caption_trap">Spąstai yra perskaityti žodį.</string>
+    <string name="color_confusion_demo_caption_recover">Atsakymas visada yra rašalas.</string>
     <string name="pattern_sequence_prompt">Kuri dalelė papildo matricą?</string>
     <string name="game_tap_original_targets">Paliesk pradinius taikinius</string>
     <string name="game_remember_targets">Įsimink taikinius</string>
@@ -423,6 +440,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="shape_circle">Apskritimas</string>
     <string name="shape_heart">Širdis</string>
     <string name="shape_star">Žvaigždė</string>
+    <string name="shape_cross">Kryžius</string>
     <string name="shape_t_shape">T forma</string>
     <string name="shape_l_shape">L forma</string>
     <string name="shape_diamond">Rombas</string>
@@ -459,6 +477,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_trio">Triguba rega</string>
     <string name="achievement_gold_mental_rotations">Sukimo meistras</string>
     <string name="achievement_gold_mental_flex">Greitas perjungimas</string>
+    <string name="achievement_gold_rule_shift">Taisyklių laužytojas</string>
     <string name="achievement_gold_path_finder">Pionierius</string>
     <string name="achievement_gold_anomaly_puzzle">Išimtis atskleista</string>
     <string name="achievement_gold_colored_shapes">Formų keitėjas</string>
@@ -497,6 +516,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_trio_desc">Laimėk aukso medalį Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Laimėk aukso medalį Mintiniame sukime</string>
     <string name="achievement_gold_mental_flex_desc">Laimėk aukso medalį Minties lankstume</string>
+    <string name="achievement_gold_rule_shift_desc">Laimėk aukso medalį Taisyklės kaitoje</string>
     <string name="achievement_gold_path_finder_desc">Laimėk aukso medalį Kelio ieškotojuje</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Laimėk aukso medalį Anomalijos galvosūkyje</string>
     <string name="achievement_gold_colored_shapes_desc">Laimėk aukso medalį Spalvotose figūrose</string>
@@ -586,6 +606,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="science_orbit_tracker_summary">Standartinis nuolatinio padalyto dėmesio matas: kiek judančių taikinių išlaikai tarp vienodų blaškytojų.</string>
     <string name="science_mental_rotations_paradigm">Mintinio sukimo užduotis</string>
     <string name="science_mental_rotations_summary">Standartinis erdvinio mąstymo matas: nuspręsti, ar dvi figūros yra tas pats pasuktas kūnas, ar veidrodiniai atvaizdai, kurių joks pasukimas nesutapatins.</string>
+    <string name="science_color_confusion_paradigm">Strupo užduotis</string>
+    <string name="science_color_confusion_summary">Standartinis slopinimo matas: įvardyti spalvą, kuria išspausdintas žodis, kai pats žodžio skaitymas siūlo greitesnį, konkuruojantį atsakymą.</string>
     <string name="science_digit_memory_paradigm">Brauno ir Petersono užduotis</string>
     <string name="science_digit_memory_summary">Standartinis darbinės atminties matas: išlaikyti seką, kol kita užduotis užima tą pačią mintinę erdvę.</string>
     <string name="science_pattern_sequence_paradigm">Matricinis samprotavimas</string>
@@ -594,6 +616,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="science_mental_flex_summary">Standartinis kognityvinio lankstumo matas: kiek kainuoja atsisakyti ką tik taikytos taisyklės ir taikyti kitą.</string>
     <string name="science_n_back_paradigm">N-Back užduotis</string>
     <string name="science_n_back_summary">Standartinis darbinės atminties atnaujinimo matas: išlaikyti šviežią slenkantį kelių paskutinių elementų langą ir sprendžiant lyginti su juo, kol jis vis slenka toliau.</string>
+    <string name="science_rule_shift_paradigm">Viskonsino kortų rūšiavimo testas</string>
+    <string name="science_rule_shift_summary">Standartinis sąvokų formavimo matas: rasti rūšiavimo taisyklę vien iš teisingo-ar-neteisingo, o paskui pastebėti, kada ji tyliai pasikeičia.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojaus bokštas</string>
     <string name="science_tower_of_hanoi_summary">Standartinis planavimo matas: dėlionė reikalauja ėjimų, kurie pirma atšaukia pažangą, kol tikslas tampa pasiekiamas.</string>
     <string name="brain_cup_button">Brain Cup rezultatų lenta</string>

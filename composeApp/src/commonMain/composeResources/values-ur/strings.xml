@@ -179,6 +179,9 @@
     <string name="finish_best_tries">بہترین: %1$s کوششیں</string>
     <string name="button_play_next_level">اگلی سطح کھیلیں</string>
     <string name="finish_max_level_reached">سب سے اونچی سطح آ گئی۔ نئے مواد کا انتظار کریں۔</string>
+    <string name="finish_congruency_effect_title">مطابقت کی قیمت</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">جب لفظ اور سیاہی مختلف تھے تو آپ نے کتنا زیادہ وقت لیا</string>
 
     <string name="feedback_solution">حل: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">ٹریو</string>
     <string name="game_mental_rotations">ذہنی گردش</string>
     <string name="game_mental_flex">ذہنی لچک</string>
+    <string name="game_rule_shift">قاعدے کی تبدیلی</string>
 
     <string name="game_anomaly_puzzle_desc">وہ شکل تلاش کریں جو الگ ہو۔ ہر شکل کے رنگ اور صورت دونوں دیکھیں۔</string>
     <string name="game_mental_calculation_desc">ریاضی کی عبارتیں فالو کریں۔ نتیجہ اگلے حساب کی بنیاد بنائیں۔</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">صورت</string>
     <string name="game_mental_flex_rule_color">رنگ</string>
     <string name="game_mental_flex_howto">پہچانیں کہ جوڑے میں کیا مشترک ہے۔</string>
+    <string name="game_rule_shift_desc">ہر کارڈ کو چار کلیدی کارڈوں میں سے کسی ایک کے ساتھ رکھیں۔ قاعدہ آپ کو کوئی نہیں بتاتا، اور جیسے ہی آپ سمجھ لیں یہ بدل جاتا ہے۔</string>
+    <string name="game_rule_shift_howto">یہ کس کلیدی کارڈ سے تعلق رکھتا ہے؟</string>
+    <string name="game_rule_shift_cards_left">باقی کارڈ: %1$d</string>
+    <string name="game_color_confusion_howto">سیاہی کے رنگ پر دبائیں۔</string>
     <string name="trio_demo_title">تین کا سیٹ تلاش کریں</string>
     <string name="trio_demo_rule">ان میں ایک خصوصیت مشترک ہے۔ باقی ملا جلا نہیں۔</string>
     <string name="trio_trait_shape">شکل</string>
@@ -396,6 +404,15 @@
     <string name="sherlock_calculation_demo_title">ہدف عدد تک پہنچیں</string>
     <string name="value_comparison_demo_title">سب سے بڑی مقدار چنیں</string>
     <string name="mental_flex_demo_title">جوڑا قاعدہ طے کرتا ہے</string>
+    <string name="rule_shift_demo_title">قاعدہ کبھی نہیں بتایا جاتا</string>
+    <string name="rule_shift_demo_caption_match">کارڈ کو اس کلیدی کارڈ کے ساتھ رکھیں جس سے یہ ملتا ہے۔</string>
+    <string name="rule_shift_demo_caption_rule_works">نیلا نیلے کے ساتھ، سرخ سرخ کے ساتھ۔ دونوں درست۔</string>
+    <string name="rule_shift_demo_caption_rule_moved">سبز کے ساتھ سبز۔ غلط، اور کوئی وجہ نہیں بتائی گئی۔</string>
+    <string name="rule_shift_demo_caption_new_rule">ایک نشان، پہلا کلیدی کارڈ۔ اب تعداد اہم ہے۔</string>
+    <string name="color_confusion_demo_caption_ink">لفظ ایک رنگ بتاتا ہے۔ سیاہی دوسرا۔</string>
+    <string name="color_confusion_demo_caption_agree">کبھی کبھی دونوں ایک ہوتے ہیں۔</string>
+    <string name="color_confusion_demo_caption_trap">پھندا یہ ہے کہ لفظ پڑھ لیا جائے۔</string>
+    <string name="color_confusion_demo_caption_recover">جواب ہمیشہ سیاہی ہوتا ہے۔</string>
     <string name="pattern_sequence_prompt">کون سا ٹکڑا میٹرکس مکمل کرتا ہے؟</string>
     <string name="game_tap_original_targets">اصل اہداف دبائیں</string>
     <string name="game_remember_targets">اہداف یاد رکھیں</string>
@@ -421,6 +438,7 @@
     <string name="shape_circle">دائرہ</string>
     <string name="shape_heart">دل</string>
     <string name="shape_star">ستارہ</string>
+    <string name="shape_cross">صلیب</string>
     <string name="shape_t_shape">ٹی شکل</string>
     <string name="shape_l_shape">ایل شکل</string>
     <string name="shape_diamond">لوزی</string>
@@ -457,6 +475,7 @@
     <string name="achievement_gold_trio">سہ گنا نظر</string>
     <string name="achievement_gold_mental_rotations">گردش کا ماہر</string>
     <string name="achievement_gold_mental_flex">تیز تبدیلی</string>
+    <string name="achievement_gold_rule_shift">قاعدہ شکن</string>
     <string name="achievement_gold_path_finder">راستہ کھولنے والا</string>
     <string name="achievement_gold_anomaly_puzzle">الگ پہچان</string>
     <string name="achievement_gold_colored_shapes">شکل بدلنے والا</string>
@@ -495,6 +514,7 @@
     <string name="achievement_gold_trio_desc">ٹریو میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_mental_rotations_desc">ذہنی گردش میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_mental_flex_desc">ذہنی لچک میں طلائی تمغہ جیتیں</string>
+    <string name="achievement_gold_rule_shift_desc">قاعدے کی تبدیلی میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_path_finder_desc">راستہ تلاش میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_anomaly_puzzle_desc">انوکھی پہیلی میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_colored_shapes_desc">رنگین شکلیں میں طلائی تمغہ جیتیں</string>
@@ -584,6 +604,8 @@
     <string name="science_orbit_tracker_summary">مسلسل تقسیم شدہ توجہ کا معیاری پیمانہ: ایک جیسے توجہ ہٹانے والوں کے درمیان آپ کتنے متحرک اہداف سنبھال پاتے ہیں۔</string>
     <string name="science_mental_rotations_paradigm">ذہنی گردش کا ٹاسک</string>
     <string name="science_mental_rotations_summary">مکانی صلاحیت کا معیاری پیمانہ: یہ طے کرنا کہ دو شکلیں ایک ہی جسم کو گھما کر بنی ہیں یا آئینے کے عکس ہیں جنہیں کوئی گردش نہیں ملا سکتی۔</string>
+    <string name="science_color_confusion_paradigm">سٹروپ ٹاسک</string>
+    <string name="science_color_confusion_summary">روک تھام کا معیاری پیمانہ: اس رنگ کا نام لینا جس میں لفظ چھپا ہے، جبکہ خود لفظ پڑھنا ایک تیز تر، مسابقتی جواب پیش کرتا ہے۔</string>
     <string name="science_digit_memory_paradigm">براؤن-پیٹرسن ٹاسک</string>
     <string name="science_digit_memory_summary">کارگر یادداشت کا معیاری پیمانہ: ایک ترتیب کو تھامے رکھنا جب کوئی غیر متعلقہ کام اسی ذہنی جگہ کو گھیرے ہوئے ہو۔</string>
     <string name="science_pattern_sequence_paradigm">میٹرکس استدلال</string>
@@ -592,6 +614,8 @@
     <string name="science_mental_flex_summary">ادراکی لچک کا معیاری پیمانہ: ابھی استعمال کیے گئے اصول کو چھوڑ کر دوسرا لاگو کرنے کی قیمت۔</string>
     <string name="science_n_back_paradigm">N-Back ٹاسک</string>
     <string name="science_n_back_summary">کارگر یادداشت کی تازہ کاری کا معیاری پیمانہ: آخری چند اشیاء کی کھسکتی کھڑکی کو تازہ رکھنا، اور اسی کھسکتے رہنے کے دوران اس سے ملا کر فیصلہ کرنا۔</string>
+    <string name="science_rule_shift_paradigm">وسکونسن کارڈ سارٹنگ ٹیسٹ</string>
+    <string name="science_rule_shift_summary">تصور سازی کا معیاری پیمانہ: صرف درست یا غلط کی بنیاد پر ترتیب کا قاعدہ ڈھونڈنا، پھر یہ محسوس کرنا کہ وہ کب خاموشی سے بدل گیا۔</string>
     <string name="science_tower_of_hanoi_paradigm">ہنوئی کا مینار</string>
     <string name="science_tower_of_hanoi_summary">منصوبہ بندی کا معیاری پیمانہ: منزل تک پہنچنے سے پہلے اس پہیلی میں ایسی چالیں درکار ہوتی ہیں جو پیش رفت کو پیچھے لے جاتی ہیں۔</string>
     <string name="brain_cup_button">Brain Cup لیڈر بورڈ</string>

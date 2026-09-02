@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Best: %1$s subok</string>
     <string name="button_play_next_level">Laruin ang susunod na level</string>
     <string name="finish_max_level_reached">Naabot na ang max level. Maghintay ng bagong content.</string>
+    <string name="finish_congruency_effect_title">Halaga ng pagkakatugma</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Gaano ka pa katagal noong hindi magkatugma ang salita at ang tinta</string>
 
     <string name="feedback_solution">Solusyon: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Pag-ikot sa Isip</string>
     <string name="game_mental_flex">Flexible na Isip</string>
+    <string name="game_rule_shift">Palit-Panuntunan</string>
 
     <string name="game_anomaly_puzzle_desc">Hanapin ang figure na kakaiba. Tingnan ang kulay at hugis ng bawat isa.</string>
     <string name="game_mental_calculation_desc">Sundin ang mga mathematical expression. Gamitin ang resulta bilang base ng susunod na kalkulasyon.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Hugis</string>
     <string name="game_mental_flex_rule_color">Kulay</string>
     <string name="game_mental_flex_howto">Tuklasin kung ano ang pareho sa dalawa.</string>
+    <string name="game_rule_shift_desc">Iuri ang bawat baraha sa isa sa apat na pangunahing baraha. Walang magsasabi sa iyo ng panuntunan, at nagbabago ito sa sandaling matutunan mo.</string>
+    <string name="game_rule_shift_howto">Saang pangunahing baraha ito kabilang?</string>
+    <string name="game_rule_shift_cards_left">Natitirang baraha: %1$d</string>
+    <string name="game_color_confusion_howto">I-tap ang kulay ng tinta.</string>
     <string name="trio_demo_title">Maghanap ng set ng tatlo</string>
     <string name="trio_demo_rule">May iisang katangian sila. Walang halo-halo.</string>
     <string name="trio_trait_shape">Hugis</string>
@@ -396,6 +404,15 @@
     <string name="sherlock_calculation_demo_title">Abutin ang goal number</string>
     <string name="value_comparison_demo_title">Piliin ang pinakamalaking value</string>
     <string name="mental_flex_demo_title">Ang pares ang nagtatakda ng rule</string>
+    <string name="rule_shift_demo_title">Hindi kailanman sinasabi ang panuntunan</string>
+    <string name="rule_shift_demo_caption_match">Ilagay ang baraha sa pangunahing barahang katugma nito.</string>
+    <string name="rule_shift_demo_caption_rule_works">Asul sa asul, pula sa pula. Parehong tama.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Berde sa berde. Mali, at walang ibinigay na dahilan.</string>
+    <string name="rule_shift_demo_caption_new_rule">Isang simbolo, unang pangunahing baraha. Bilang na ang hinahanap ngayon.</string>
+    <string name="color_confusion_demo_caption_ink">Isang kulay ang sabi ng salita. Iba ang sabi ng tinta.</string>
+    <string name="color_confusion_demo_caption_agree">Minsan magkatugma ang dalawa.</string>
+    <string name="color_confusion_demo_caption_trap">Ang pagbasa sa salita ang bitag.</string>
+    <string name="color_confusion_demo_caption_recover">Ang tinta ang laging sagot.</string>
     <string name="pattern_sequence_prompt">Aling piraso ang kumukumpleto sa matrix?</string>
     <string name="game_tap_original_targets">I-tap ang orihinal na targets</string>
     <string name="game_remember_targets">Tandaan ang targets</string>
@@ -421,6 +438,7 @@
     <string name="shape_circle">Bilog</string>
     <string name="shape_heart">Puso</string>
     <string name="shape_star">Bituin</string>
+    <string name="shape_cross">Krus</string>
     <string name="shape_t_shape">Hugis T</string>
     <string name="shape_l_shape">Hugis L</string>
     <string name="shape_diamond">Diamante</string>
@@ -457,6 +475,7 @@
     <string name="achievement_gold_trio">Tatlong Paningin</string>
     <string name="achievement_gold_mental_rotations">Bihasa sa Pag-ikot</string>
     <string name="achievement_gold_mental_flex">Mabilis na Palit</string>
+    <string name="achievement_gold_rule_shift">Lumalabag sa Panuntunan</string>
     <string name="achievement_gold_path_finder">Tagapagbukas ng Landas</string>
     <string name="achievement_gold_anomaly_puzzle">Natukoy ang Kaiba</string>
     <string name="achievement_gold_colored_shapes">Palit-Hugis</string>
@@ -495,6 +514,7 @@
     <string name="achievement_gold_trio_desc">Manalo ng gold medal sa Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Manalo ng gold medal sa Pag-ikot sa Isip</string>
     <string name="achievement_gold_mental_flex_desc">Manalo ng gold medal sa Flexible na Isip</string>
+    <string name="achievement_gold_rule_shift_desc">Manalo ng gold medal sa Palit-Panuntunan</string>
     <string name="achievement_gold_path_finder_desc">Manalo ng gold medal sa Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Manalo ng gold medal sa Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Manalo ng gold medal sa Mga Kulay na Hugis</string>
@@ -584,6 +604,8 @@
     <string name="science_orbit_tracker_summary">Karaniwang sukatan ng tuloy-tuloy na hating atensyon: kung ilang gumagalaw na target ang kaya mong subaybayan sa gitna ng magkakaparehong distractor.</string>
     <string name="science_mental_rotations_paradigm">Mental Rotation Task</string>
     <string name="science_mental_rotations_summary">Karaniwang sukatan ng spatial na kakayahan: pagpapasya kung ang dalawang hugis ay iisang bagay na iniikot, o mga salaming imahe na walang pag-ikot ang makakatugma.</string>
+    <string name="science_color_confusion_paradigm">Gawaing Stroop</string>
+    <string name="science_color_confusion_summary">Karaniwang sukatan ng inhibisyon: pagpangalan sa kulay ng tintang ipinalimbag sa isang salita, samantalang ang pagbasa mismo sa salita ay nag-aalok ng mas mabilis at nakikipagtunggaling sagot.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson Task</string>
     <string name="science_digit_memory_summary">Karaniwang sukatan ng working memory: paghawak sa isang serye habang may ibang gawaing sumasakop sa parehong espasyo ng isip.</string>
     <string name="science_pattern_sequence_paradigm">Matrix Reasoning</string>
@@ -592,6 +614,8 @@
     <string name="science_mental_flex_summary">Karaniwang sukatan ng cognitive flexibility: ang halagang kailangan para bitawan ang panuntunang kagagamit mo lang at gumamit ng iba.</string>
     <string name="science_n_back_paradigm">N-Back Task</string>
     <string name="science_n_back_summary">Karaniwang sukatan ng pag-update ng working memory: panatilihing sariwa ang gumagalaw na bintana ng huling ilang bagay, at humatol laban dito habang patuloy itong gumagalaw.</string>
+    <string name="science_rule_shift_paradigm">Wisconsin Card Sorting Test</string>
+    <string name="science_rule_shift_summary">Karaniwang sukatan ng pagbuo ng konsepto: hanapin ang panuntunan sa pag-uuri mula lamang sa tama-o-mali, at mapansin kung kailan ito tahimik na nagbago.</string>
     <string name="science_tower_of_hanoi_paradigm">Tore ng Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Karaniwang sukatan ng pagpaplano: hinihingi ng palaisipan ang mga galaw na nagpapaurong muna sa progreso bago maabot ang layunin.</string>
     <string name="brain_cup_button">Leaderboard ng Brain Cup</string>

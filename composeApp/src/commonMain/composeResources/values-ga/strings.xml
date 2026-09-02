@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Is fearr: %1$s iarracht</string>
     <string name="button_play_next_level">Imir an chéad leibhéal eile</string>
     <string name="finish_max_level_reached">Leibhéal uasta sroichte. Fan le hábhar nua.</string>
+    <string name="finish_congruency_effect_title">Costas comhréire</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Cé mhéad níos faide a thóg sé ort nuair nár réitigh an focal leis an dúch</string>
 
     <string name="feedback_solution">Réiteach: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rothluithe intinne</string>
     <string name="game_mental_flex">Solúbthacht intinne</string>
+    <string name="game_rule_shift">Athrú Rialach</string>
 
     <string name="game_anomaly_puzzle_desc">Faigh an figiúr atá difriúil. Féach ar dhath agus ar chruth gach figiúir.</string>
     <string name="game_mental_calculation_desc">Lean slonnanna matamaitice. Úsáid an toradh mar bhonn don chéad áireamh eile.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Cruth</string>
     <string name="game_mental_flex_rule_color">Dath</string>
     <string name="game_mental_flex_howto">Aimsigh cad atá i gcoiteann ag an bpéire.</string>
+    <string name="game_rule_shift_desc">Sórtáil gach cárta le ceann de na ceithre eochairchárta. Ní insíonn éinne an riail duit, agus athraíonn sí a luaithe atá sí agat.</string>
+    <string name="game_rule_shift_howto">Cén eochairchárta lena mbaineann sé?</string>
+    <string name="game_rule_shift_cards_left">Cártaí fágtha: %1$d</string>
+    <string name="game_color_confusion_howto">Tapáil dath an dúigh.</string>
     <string name="trio_demo_title">Faigh tríréad</string>
     <string name="trio_demo_rule">Roinntear tréith. Ní mheascann aon ní eile.</string>
     <string name="trio_trait_shape">Cruth</string>
@@ -398,6 +406,15 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="sherlock_calculation_demo_title">Sroich an uimhir sprice</string>
     <string name="value_comparison_demo_title">Roghnaigh an luach is mó</string>
     <string name="mental_flex_demo_title">Socraíonn an péire an riail</string>
+    <string name="rule_shift_demo_title">Ní luaitear an riail riamh</string>
+    <string name="rule_shift_demo_caption_match">Cuir an cárta leis an eochairchárta a mheaitseálann é.</string>
+    <string name="rule_shift_demo_caption_rule_works">Gorm le gorm, dearg le dearg. Tá an dá cheann ceart.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Glas le glas. Mícheart, agus gan fáth ar bith.</string>
+    <string name="rule_shift_demo_caption_new_rule">Siombail amháin, an chéad eochair. Is é an líon atá i gceist anois.</string>
+    <string name="color_confusion_demo_caption_ink">Deir an focal dath amháin. Deir an dúch ceann eile.</string>
+    <string name="color_confusion_demo_caption_agree">Uaireanta aontaíonn an bheirt acu.</string>
+    <string name="color_confusion_demo_caption_trap">Is é léamh an fhocail an gaiste.</string>
+    <string name="color_confusion_demo_caption_recover">Is é an dúch an freagra i gcónaí.</string>
     <string name="pattern_sequence_prompt">Cén píosa a chomhlánaíonn an mhaitrís?</string>
     <string name="game_tap_original_targets">Tapáil na spriceanna bunaidh</string>
     <string name="game_remember_targets">Meabhraigh na spriceanna</string>
@@ -423,6 +440,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="shape_circle">Ciorcal</string>
     <string name="shape_heart">Croí</string>
     <string name="shape_star">Réalta</string>
+    <string name="shape_cross">Cros</string>
     <string name="shape_t_shape">Cruth T</string>
     <string name="shape_l_shape">Cruth L</string>
     <string name="shape_diamond">Rombas</string>
@@ -459,6 +477,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_trio">Radharc tríréad</string>
     <string name="achievement_gold_mental_rotations">Máistir an chasta</string>
     <string name="achievement_gold_mental_flex">Athrú tapa</string>
+    <string name="achievement_gold_rule_shift">Briseoir Rialacha</string>
     <string name="achievement_gold_path_finder">Ceannródaí</string>
     <string name="achievement_gold_anomaly_puzzle">Eisceacht aimsithe</string>
     <string name="achievement_gold_colored_shapes">Athraitheoir crutha</string>
@@ -497,6 +516,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_trio_desc">Bain bonn óir amach i Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Bain bonn óir amach i Rothluithe intinne</string>
     <string name="achievement_gold_mental_flex_desc">Bain bonn óir amach i Solúbthacht intinne</string>
+    <string name="achievement_gold_rule_shift_desc">Bain bonn óir amach in Athrú Rialach</string>
     <string name="achievement_gold_path_finder_desc">Bain bonn óir amach in Aimsitheoir slí</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Bain bonn óir amach i dTomhas aimhrialtachta</string>
     <string name="achievement_gold_colored_shapes_desc">Bain bonn óir amach i gCruthanna daite</string>
@@ -586,6 +606,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="science_orbit_tracker_summary">Gnáthbheart ar an aird roinnte leanúnach: cé mhéad sprioc ghluaisteach a choinníonn tú i measc seachráin chomhionanna.</string>
     <string name="science_mental_rotations_paradigm">Tasc Rothlaithe Intinne</string>
     <string name="science_mental_rotations_summary">Gnáthbheart ar an gcumas spásúil: a shocrú an é an cruth céanna casta atá sa dá fhíor, nó scátháníomhánna nach dtagann aon rothlú leo.</string>
+    <string name="science_color_confusion_paradigm">Tasc Stroop</string>
+    <string name="science_color_confusion_summary">Gnáthbheart ar an gcosc: dath a ainmniú a bhfuil focal clóite ann, agus léamh an fhocail féin ag tairiscint freagra níos tapúla atá san iomaíocht leis.</string>
     <string name="science_digit_memory_paradigm">Tasc Brown-Peterson</string>
     <string name="science_digit_memory_summary">Gnáthbheart ar an gcuimhne oibre: sraith a choinneáil agus tasc eile ag glacadh na spáis intinne céanna.</string>
     <string name="science_pattern_sequence_paradigm">Réasúnaíocht Maitrísí</string>
@@ -594,6 +616,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="science_mental_flex_summary">Gnáthbheart ar an tsolúbthacht chognaíoch: an costas a bhaineann le riail a bhí á húsáid agat a ligean uait agus ceann eile a chur i bhfeidhm.</string>
     <string name="science_n_back_paradigm">Tasc N-Back</string>
     <string name="science_n_back_summary">Gnáthbheart ar nuashonrú na cuimhne oibre: fuinneog reatha na míreanna is déanaí a choinneáil cothrom le dáta, agus breith a thabhairt ina coinne agus í ag bogadh ar aghaidh.</string>
+    <string name="science_rule_shift_paradigm">Tástáil Shórtáil Cártaí Wisconsin</string>
+    <string name="science_rule_shift_summary">Gnáthbheart ar fhoirmiú coincheap: an riail sórtála a aimsiú ó cheart-nó-mícheart amháin, agus a thabhairt faoi deara ansin nuair a athraíonn sí go ciúin.</string>
     <string name="science_tower_of_hanoi_paradigm">Túr Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Gnáthbheart ar an bpleanáil: éilíonn an puzal bearta a chuireann an dul chun cinn ar gcúl sular féidir an sprioc a bhaint amach.</string>
     <string name="brain_cup_button">Clár scóir Brain Cup</string>

@@ -8,6 +8,9 @@
     <string name="button_play_again">Jogar novamente</string>
     <string name="button_play_next_level">Jogar próximo nível</string>
     <string name="finish_max_level_reached">Nível máximo alcançado. Aguarde novo conteúdo.</string>
+    <string name="finish_congruency_effect_title">Custo de congruência</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Quanto tempo a mais levou quando a palavra não batia com a tinta</string>
     <string name="button_play_random">Jogo aleatório</string>
     <string name="button_give_up">Desistir</string>
     <string name="button_stay">Ficar</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">Círculo</string>
     <string name="shape_heart">Coração</string>
     <string name="shape_star">Estrela</string>
+    <string name="shape_cross">Cruz</string>
     <string name="shape_t_shape">Forma T</string>
     <string name="shape_l_shape">Forma L</string>
     <string name="shape_diamond">Diamante</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">Uma medida padrão da atenção dividida sustentada: quantos alvos em movimento consegues acompanhar entre distratores idênticos.</string>
     <string name="science_mental_rotations_paradigm">Tarefa de rotação mental</string>
     <string name="science_mental_rotations_summary">Uma medida padrão da capacidade espacial: decidir se duas figuras são o mesmo sólido rodado ou imagens espelhadas que nenhuma rotação faz coincidir.</string>
+    <string name="science_color_confusion_paradigm">Tarefa de Stroop</string>
+    <string name="science_color_confusion_summary">Uma medida padrão da inibição: nomear a cor em que uma palavra está impressa, enquanto ler a própria palavra oferece uma resposta mais rápida e concorrente.</string>
     <string name="science_digit_memory_paradigm">Tarefa de Brown-Peterson</string>
     <string name="science_digit_memory_summary">Uma medida padrão da memória de trabalho: reter uma sequência enquanto outra tarefa ocupa o mesmo espaço mental.</string>
     <string name="science_pattern_sequence_paradigm">Raciocínio matricial</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">Uma medida padrão da flexibilidade cognitiva: o custo de largar a regra que acabaste de usar e aplicar outra.</string>
     <string name="science_n_back_paradigm">Tarefa N-Back</string>
     <string name="science_n_back_summary">Uma medida padrão da atualização da memória de trabalho: manter atualizada uma janela móvel dos últimos elementos e julgar em relação a ela enquanto continua a avançar.</string>
+    <string name="science_rule_shift_paradigm">Teste de Classificação de Cartas de Wisconsin</string>
+    <string name="science_rule_shift_summary">Uma medida padrão da formação de conceitos: encontrar a regra de ordenação apenas a partir de um certo-ou-errado, e depois notar quando ela muda em silêncio.</string>
     <string name="science_tower_of_hanoi_paradigm">Torres de Hanói</string>
     <string name="science_tower_of_hanoi_summary">Uma medida padrão do planeamento: o quebra-cabeças exige jogadas que desfazem o progresso antes de a meta poder ser alcançada.</string>
     <string name="brain_cup_button">Ranking Brain Cup</string>
@@ -745,6 +753,15 @@
     <string name="sherlock_calculation_demo_title">Alcance o número alvo</string>
     <string name="value_comparison_demo_title">Escolha o maior valor</string>
     <string name="mental_flex_demo_title">O par define a regra</string>
+    <string name="rule_shift_demo_title">A regra nunca é dita</string>
+    <string name="rule_shift_demo_caption_match">Ponha a carta junto da carta-chave que lhe corresponde.</string>
+    <string name="rule_shift_demo_caption_rule_works">Azul com azul, vermelho com vermelho. Ambas certas.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Verde com verde. Errado, e sem explicação.</string>
+    <string name="rule_shift_demo_caption_new_rule">Um símbolo, primeira chave. Agora o que conta é a quantidade.</string>
+    <string name="color_confusion_demo_caption_ink">A palavra diz uma cor. A tinta diz outra.</string>
+    <string name="color_confusion_demo_caption_agree">Às vezes os dois concordam.</string>
+    <string name="color_confusion_demo_caption_trap">Ler a palavra é a armadilha.</string>
+    <string name="color_confusion_demo_caption_recover">A tinta é sempre a resposta.</string>
     <string name="spot_the_new_demo_title">Encontre o novo</string>
     <string name="spot_the_new_demo_seen_label">Visto até agora</string>
     <string name="spot_the_new_demo_new">Toque no animal que você ainda não viu.</string>
@@ -784,6 +801,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rotações mentais</string>
     <string name="game_mental_flex">Flexibilidade mental</string>
+    <string name="game_rule_shift">Troca de regra</string>
     <string name="game_trio_desc">Encontre três cartas que compartilhem forma, quantidade ou preenchimento.</string>
     <string name="game_mental_rotations_desc">Decide se o segundo bloco é o primeiro rodado ou a sua imagem espelhada.</string>
     <string name="game_mental_rotations_question">Mesmo bloco ou imagem espelhada?</string>
@@ -794,6 +812,10 @@
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Cor</string>
     <string name="game_mental_flex_howto">Perceba o que o par tem em comum.</string>
+    <string name="game_rule_shift_desc">Coloque cada carta sob uma das quatro cartas-chave. Ninguém diz qual é a regra, e ela muda assim que você a descobre.</string>
+    <string name="game_rule_shift_howto">A que carta-chave pertence?</string>
+    <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>
+    <string name="game_color_confusion_howto">Toque na cor da tinta.</string>
     <string name="trio_demo_title">Encontre um conjunto de três</string>
     <string name="trio_demo_rule">Elas compartilham um traço. Nada mais está misturado.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -813,9 +835,11 @@
     <string name="achievement_gold_trio">Visão tripla</string>
     <string name="achievement_gold_mental_rotations">Mestre da rotação</string>
     <string name="achievement_gold_mental_flex">Troca rápida</string>
+    <string name="achievement_gold_rule_shift">Quebra-regras</string>
     <string name="achievement_gold_trio_desc">Ganhe a medalha de ouro em Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Ganhe a medalha de ouro em Rotações mentais</string>
     <string name="achievement_gold_mental_flex_desc">Ganhe a medalha de ouro em Flexibilidade mental</string>
+    <string name="achievement_gold_rule_shift_desc">Ganhe a medalha de ouro em Troca de regra</string>
 
     <string name="iq_test_button">Teste de QI</string>
     <string name="iq_test_title">Teste de QI</string>

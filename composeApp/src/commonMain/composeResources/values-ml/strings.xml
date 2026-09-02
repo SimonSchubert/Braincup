@@ -179,6 +179,9 @@
     <string name="finish_best_tries">മികച്ചത്: %1$s ശ്രമങ്ങൾ</string>
     <string name="button_play_next_level">അടുത്ത നില കളിക്കുക</string>
     <string name="finish_max_level_reached">പരമാവധി നിലയിലെത്തി. പുതിയ ഉള്ളടക്കത്തിനായി കാത്തിരിക്കുക.</string>
+    <string name="finish_congruency_effect_title">പൊരുത്തത്തിന്റെ വില</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">വാക്കും മഷിയും യോജിക്കാതിരുന്നപ്പോൾ നിങ്ങൾക്ക് എത്ര സമയം കൂടുതൽ വേണ്ടിവന്നു</string>
 
     <string name="feedback_solution">പരിഹാരം: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">ത്രയം</string>
     <string name="game_mental_rotations">മാനസിക ഭ്രമണം</string>
     <string name="game_mental_flex">മാനസിക വഴക്കം</string>
+    <string name="game_rule_shift">നിയമ മാറ്റം</string>
 
     <string name="game_anomaly_puzzle_desc">വേറിട്ടു നിൽക്കുന്ന രൂപം കണ്ടെത്തുക. ഓരോ രൂപത്തിന്റെയും നിറവും ആകൃതിയും ശ്രദ്ധിക്കുക.</string>
     <string name="game_mental_calculation_desc">ഗണിത വാക്യങ്ങൾ പിന്തുടരുക. ഫലം അടുത്ത കണക്കിന്റെ അടിസ്ഥാനമായി ഉപയോഗിക്കുക.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">ആകൃതി</string>
     <string name="game_mental_flex_rule_color">നിറം</string>
     <string name="game_mental_flex_howto">ജോഡിക്ക് പൊതുവായുള്ളത് കണ്ടെത്തുക.</string>
+    <string name="game_rule_shift_desc">ഓരോ കാർഡും നാല് പ്രധാന കാർഡുകളിൽ ഒന്നിനൊപ്പം ചേർക്കുക. നിയമം ആരും നിങ്ങളോട് പറയില്ല, നിങ്ങൾ അത് പിടിച്ചാൽ ഉടൻ അത് മാറും.</string>
+    <string name="game_rule_shift_howto">ഇത് ഏത് പ്രധാന കാർഡിനൊപ്പമാണ്?</string>
+    <string name="game_rule_shift_cards_left">ബാക്കി കാർഡുകൾ: %1$d</string>
+    <string name="game_color_confusion_howto">മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="trio_demo_title">മൂന്നിന്റെ കൂട്ടം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">അവയ്ക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്. മറ്റൊന്നും കൂടിക്കലർന്നിട്ടില്ല.</string>
     <string name="trio_trait_shape">രൂപം</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">ലക്ഷ്യ സംഖ്യയിലെത്തുക</string>
     <string name="value_comparison_demo_title">ഏറ്റവും വലിയ മൂല്യം തിരഞ്ഞെടുക്കുക</string>
     <string name="mental_flex_demo_title">ജോഡിയാണ് നിയമം നിശ്ചയിക്കുന്നത്</string>
+    <string name="rule_shift_demo_title">നിയമം ഒരിക്കലും പറയുന്നില്ല</string>
+    <string name="rule_shift_demo_caption_match">കാർഡ് അതിനോട് യോജിക്കുന്ന പ്രധാന കാർഡിനടുത്ത് വയ്ക്കുക.</string>
+    <string name="rule_shift_demo_caption_rule_works">നീലയ്ക്കൊപ്പം നീല, ചുവപ്പിനൊപ്പം ചുവപ്പ്. രണ്ടും ശരി.</string>
+    <string name="rule_shift_demo_caption_rule_moved">പച്ചയ്ക്കൊപ്പം പച്ച. തെറ്റ്, കാരണവും പറയുന്നില്ല.</string>
+    <string name="rule_shift_demo_caption_new_rule">ഒരു ചിഹ്നം, ആദ്യ പ്രധാന കാർഡ്. ഇപ്പോൾ എണ്ണമാണ് പ്രധാനം.</string>
+    <string name="color_confusion_demo_caption_ink">വാക്ക് ഒരു നിറം പറയുന്നു. മഷി മറ്റൊന്ന്.</string>
+    <string name="color_confusion_demo_caption_agree">ചിലപ്പോൾ രണ്ടും ഒന്നുതന്നെ.</string>
+    <string name="color_confusion_demo_caption_trap">വാക്ക് വായിക്കുന്നതാണ് കെണി.</string>
+    <string name="color_confusion_demo_caption_recover">ഉത്തരം എപ്പോഴും മഷിയാണ്.</string>
     <string name="pattern_sequence_prompt">ഏത് കഷണമാണ് മാട്രിക്സ് പൂർത്തിയാക്കുന്നത്?</string>
     <string name="game_tap_original_targets">യഥാർത്ഥ ലക്ഷ്യങ്ങളിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="game_remember_targets">ലക്ഷ്യങ്ങൾ ഓർത്തുവയ്ക്കുക</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">വൃത്തം</string>
     <string name="shape_heart">ഹൃദയം</string>
     <string name="shape_star">നക്ഷത്രം</string>
+    <string name="shape_cross">ക്രോസ്</string>
     <string name="shape_t_shape">T ആകൃതി</string>
     <string name="shape_l_shape">L ആകൃതി</string>
     <string name="shape_diamond">വജ്രം</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">മുക്കണ്ണൻ കാഴ്ച</string>
     <string name="achievement_gold_mental_rotations">ഭ്രമണ വിദഗ്ധൻ</string>
     <string name="achievement_gold_mental_flex">പെട്ടെന്നുള്ള മാറ്റം</string>
+    <string name="achievement_gold_rule_shift">നിയമം ലംഘിക്കുന്നവൻ</string>
     <string name="achievement_gold_path_finder">വഴിവെട്ടുന്നവൻ</string>
     <string name="achievement_gold_anomaly_puzzle">വേറിട്ടത് കണ്ടെത്തി</string>
     <string name="achievement_gold_colored_shapes">രൂപം മാറ്റുന്നവൻ</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">ത്രയത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_mental_rotations_desc">മാനസിക ഭ്രമണത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_mental_flex_desc">മാനസിക വഴക്കത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_rule_shift_desc">നിയമ മാറ്റത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_path_finder_desc">വഴി കണ്ടെത്തലിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_anomaly_puzzle_desc">വ്യത്യാസ കടങ്കഥയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_colored_shapes_desc">നിറമുള്ള രൂപങ്ങളിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">നിലനിൽക്കുന്ന വിഭജിത ശ്രദ്ധയുടെ മാനക അളവ്: ഒരുപോലുള്ള ശ്രദ്ധ തിരിക്കുന്നവയ്ക്കിടയിൽ എത്ര ചലിക്കുന്ന ലക്ഷ്യങ്ങളെ പിടിച്ചുനിർത്താനാകും.</string>
     <string name="science_mental_rotations_paradigm">മാനസിക ഭ്രമണ ടാസ്ക്</string>
     <string name="science_mental_rotations_summary">സ്ഥലബോധത്തിന്റെ മാനക അളവ്: രണ്ട് രൂപങ്ങൾ ഒരേ ഘനം തിരിച്ചതാണോ, അതോ ഒരു ഭ്രമണത്തിനും ചേർക്കാനാവാത്ത കണ്ണാടിപ്രതിബിംബങ്ങളാണോ എന്ന് തീരുമാനിക്കുക.</string>
+    <string name="science_color_confusion_paradigm">സ്ട്രൂപ്പ് ടാസ്ക്</string>
+    <string name="science_color_confusion_summary">തടസ്സപ്പെടുത്തലിന്റെ മാനക അളവ്: ഒരു വാക്ക് ഏത് നിറത്തിൽ അച്ചടിച്ചിരിക്കുന്നു എന്ന് പറയുക, അതേസമയം വാക്ക് വായിക്കുന്നത് തന്നെ വേഗമേറിയ, മത്സരിക്കുന്ന ഒരു ഉത്തരം മുന്നോട്ടുവയ്ക്കുന്നു.</string>
     <string name="science_digit_memory_paradigm">ബ്രൗൺ-പീറ്റേഴ്സൺ ടാസ്ക്</string>
     <string name="science_digit_memory_summary">പ്രവർത്തന ഓർമയുടെ മാനക അളവ്: ബന്ധമില്ലാത്ത മറ്റൊരു ജോലി അതേ മാനസിക ഇടം കൈയടക്കുമ്പോൾ ഒരു ശ്രേണി പിടിച്ചുനിർത്തുക.</string>
     <string name="science_pattern_sequence_paradigm">മാട്രിക്സ് യുക്തി</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">വൈജ്ഞാനിക വഴക്കത്തിന്റെ മാനക അളവ്: ഇപ്പോൾ ഉപയോഗിച്ച നിയമം വിട്ട് മറ്റൊന്ന് പ്രയോഗിക്കാനുള്ള വില.</string>
     <string name="science_n_back_paradigm">N-Back ടാസ്ക്</string>
     <string name="science_n_back_summary">പ്രവർത്തന ഓർമ പുതുക്കുന്നതിന്റെ മാനക അളവ്: അവസാനത്തെ ചില ഇനങ്ങളുടെ ചലിക്കുന്ന ജാലകം പുതുക്കി നിർത്തുക, അത് നീങ്ങിക്കൊണ്ടിരിക്കുമ്പോൾ തന്നെ അതുമായി തട്ടിച്ചുനോക്കി വിധിക്കുക.</string>
+    <string name="science_rule_shift_paradigm">വിസ്കോൺസിൻ കാർഡ് സോർട്ടിംഗ് ടെസ്റ്റ്</string>
+    <string name="science_rule_shift_summary">ആശയരൂപീകരണത്തിന്റെ മാനക അളവ്: ശരി-അല്ലെങ്കിൽ-തെറ്റ് എന്നതിൽ നിന്ന് മാത്രം തരംതിരിക്കൽ നിയമം കണ്ടെത്തുക, പിന്നെ അത് എപ്പോൾ നിശ്ശബ്ദമായി മാറി എന്ന് തിരിച്ചറിയുക.</string>
     <string name="science_tower_of_hanoi_paradigm">ഹനോയ് ഗോപുരം</string>
     <string name="science_tower_of_hanoi_summary">ആസൂത്രണത്തിന്റെ മാനക അളവ്: ലക്ഷ്യത്തിലെത്തും മുമ്പ് പുരോഗതി പിന്നോട്ടാക്കുന്ന നീക്കങ്ങൾ ഈ കടങ്കഥയിൽ വേണ്ടിവരുന്നു.</string>
     <string name="brain_cup_button">Brain Cup ലീഡർബോർഡ്</string>

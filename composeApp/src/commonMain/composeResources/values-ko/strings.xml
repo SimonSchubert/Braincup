@@ -8,6 +8,9 @@
     <string name="button_play_again">다시 플레이</string>
     <string name="button_play_next_level">다음 레벨 플레이</string>
     <string name="finish_max_level_reached">최대 레벨에 도달했습니다. 새 콘텐츠를 기다려 주세요.</string>
+    <string name="finish_congruency_effect_title">일치 비용</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">글자와 잉크가 어긋났을 때 얼마나 더 오래 걸렸는지</string>
     <string name="button_play_random">랜덤 게임</string>
     <string name="button_give_up">포기</string>
     <string name="button_stay">계속</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">원</string>
     <string name="shape_heart">하트</string>
     <string name="shape_star">별</string>
+    <string name="shape_cross">십자</string>
     <string name="shape_t_shape">T자 모양</string>
     <string name="shape_l_shape">L자 모양</string>
     <string name="shape_diamond">다이아몬드</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">지속적 분할 주의의 표준 측정법. 똑같이 생긴 방해 자극 사이에서 움직이는 표적을 몇 개나 놓치지 않는지.</string>
     <string name="science_mental_rotations_paradigm">심적 회전 과제</string>
     <string name="science_mental_rotations_summary">공간 능력의 표준 측정법. 두 도형이 같은 입체를 돌린 것인지, 어떤 회전으로도 겹칠 수 없는 거울상인지 판단한다.</string>
+    <string name="science_color_confusion_paradigm">스트룹 과제</string>
+    <string name="science_color_confusion_summary">억제의 표준 측정법. 단어가 인쇄된 색을 말해야 하는데, 단어를 읽는 것 자체가 더 빠르게 경쟁하는 답을 내놓는다.</string>
     <string name="science_digit_memory_paradigm">브라운-피터슨 과제</string>
     <string name="science_digit_memory_summary">작업기억의 표준 측정법. 무관한 과제가 같은 정신적 작업 공간을 차지하는 동안 계열을 유지한다.</string>
     <string name="science_pattern_sequence_paradigm">행렬 추론</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">인지적 유연성의 표준 측정법. 방금 쓰던 규칙을 버리고 다른 규칙을 적용하는 데 드는 비용.</string>
     <string name="science_n_back_paradigm">N-백 과제</string>
     <string name="science_n_back_summary">작업기억 갱신의 표준 측정법. 최근 몇 항목으로 이루어진 창을 최신 상태로 유지하고, 그 창이 계속 움직이는 동안 그것에 비추어 판단한다.</string>
+    <string name="science_rule_shift_paradigm">위스콘신 카드 분류 검사</string>
+    <string name="science_rule_shift_summary">개념 형성의 표준 측정법. 맞고 틀림이라는 신호만으로 분류 규칙을 찾아내고, 그것이 조용히 바뀌는 때를 알아차린다.</string>
     <string name="science_tower_of_hanoi_paradigm">하노이 탑</string>
     <string name="science_tower_of_hanoi_summary">계획 능력의 표준 측정법. 목표에 이르기 전에 진행을 되돌리는 수를 두어야 하는 퍼즐.</string>
     <string name="brain_cup_button">Brain Cup 순위표</string>
@@ -744,6 +752,15 @@
     <string name="sherlock_calculation_demo_title">목표 숫자에 도달하기</string>
     <string name="value_comparison_demo_title">가장 큰 값 고르기</string>
     <string name="mental_flex_demo_title">짝이 규칙을 정합니다</string>
+    <string name="rule_shift_demo_title">규칙은 결코 알려주지 않는다</string>
+    <string name="rule_shift_demo_caption_match">카드를 맞는 기준 카드 옆에 놓으세요.</string>
+    <string name="rule_shift_demo_caption_rule_works">파랑은 파랑에, 빨강은 빨강에. 둘 다 정답.</string>
+    <string name="rule_shift_demo_caption_rule_moved">초록은 초록에. 오답, 이유는 알려주지 않습니다.</string>
+    <string name="rule_shift_demo_caption_new_rule">기호 하나, 첫 번째 기준 카드. 이제는 개수가 기준입니다.</string>
+    <string name="color_confusion_demo_caption_ink">글자는 한 색을 말하고, 잉크는 다른 색을 말합니다.</string>
+    <string name="color_confusion_demo_caption_agree">가끔은 둘이 일치합니다.</string>
+    <string name="color_confusion_demo_caption_trap">글자를 읽는 것이 함정입니다.</string>
+    <string name="color_confusion_demo_caption_recover">답은 언제나 잉크입니다.</string>
     <string name="spot_the_new_demo_title">새로운 것 찾기</string>
     <string name="spot_the_new_demo_seen_label">지금까지 본 것</string>
     <string name="spot_the_new_demo_new">아직 보지 못한 동물을 탭하세요.</string>
@@ -783,6 +800,7 @@
     <string name="game_trio">트리오</string>
     <string name="game_mental_rotations">심적 회전</string>
     <string name="game_mental_flex">심적 유연성</string>
+    <string name="game_rule_shift">규칙 전환</string>
     <string name="game_trio_desc">모양, 개수, 채우기 중 하나를 공유하는 카드 세 장을 찾으세요.</string>
     <string name="game_mental_rotations_desc">두 번째 블록이 첫 번째를 돌린 것인지, 거울상인지 판단하세요.</string>
     <string name="game_mental_rotations_question">같은 블록일까요, 거울상일까요?</string>
@@ -793,6 +811,10 @@
     <string name="game_mental_flex_rule_shape">모양</string>
     <string name="game_mental_flex_rule_color">색상</string>
     <string name="game_mental_flex_howto">두 도형의 공통점을 찾으세요.</string>
+    <string name="game_rule_shift_desc">카드를 네 장의 기준 카드 중 하나에 분류하세요. 규칙은 아무도 알려주지 않고, 알아차리는 순간 바뀝니다.</string>
+    <string name="game_rule_shift_howto">어느 기준 카드에 속할까요?</string>
+    <string name="game_rule_shift_cards_left">남은 카드: %1$d</string>
+    <string name="game_color_confusion_howto">잉크의 색을 탭하세요.</string>
     <string name="trio_demo_title">세 장의 세트 찾기</string>
     <string name="trio_demo_rule">특징 하나를 공유합니다. 나머지는 섞이지 않습니다.</string>
     <string name="trio_trait_shape">모양</string>
@@ -812,9 +834,11 @@
     <string name="achievement_gold_trio">트리플 비전</string>
     <string name="achievement_gold_mental_rotations">회전의 달인</string>
     <string name="achievement_gold_mental_flex">빠른 전환</string>
+    <string name="achievement_gold_rule_shift">규칙 파괴자</string>
     <string name="achievement_gold_trio_desc">Trio에서 금메달을 획득하세요</string>
     <string name="achievement_gold_mental_rotations_desc">심적 회전에서 금메달 획득</string>
     <string name="achievement_gold_mental_flex_desc">심적 유연성에서 금메달 획득</string>
+    <string name="achievement_gold_rule_shift_desc">규칙 전환에서 금메달 획득</string>
 
     <string name="iq_test_button">IQ 테스트</string>
     <string name="iq_test_title">IQ 테스트</string>

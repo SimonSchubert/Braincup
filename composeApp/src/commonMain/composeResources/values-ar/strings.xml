@@ -8,6 +8,9 @@
     <string name="button_play_again">العب مجدداً</string>
     <string name="button_play_next_level">المستوى التالي</string>
     <string name="finish_max_level_reached">وصلت إلى أعلى مستوى. انتظر محتوى جديدًا.</string>
+    <string name="finish_congruency_effect_title">كلفة التوافق</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">كم استغرقت وقتًا أطول حين اختلفت الكلمة عن الحبر</string>
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_stay">ابق</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">دائرة</string>
     <string name="shape_heart">قلب</string>
     <string name="shape_star">نجمة</string>
+    <string name="shape_cross">صليب</string>
     <string name="shape_t_shape">شكل T</string>
     <string name="shape_l_shape">شكل L</string>
     <string name="shape_diamond">معين</string>
@@ -309,6 +313,8 @@
     <string name="science_orbit_tracker_summary">مقياس قياسي للانتباه الموزّع المستمر: كم هدفًا متحركًا يمكنك متابعته بين مشتتات متطابقة.</string>
     <string name="science_mental_rotations_paradigm">مهمة التدوير الذهني</string>
     <string name="science_mental_rotations_summary">مقياس قياسي للقدرة المكانية: تحديد ما إذا كان الشكلان جسمًا واحدًا مُدارًا أم صورتين متعاكستين لا يوفّق بينهما أي تدوير.</string>
+    <string name="science_color_confusion_paradigm">مهمة ستروب</string>
+    <string name="science_color_confusion_summary">مقياس قياسي للكبح: تسمية اللون الذي طُبعت به الكلمة، بينما قراءة الكلمة نفسها تقدّم إجابة أسرع تنافسها.</string>
     <string name="science_digit_memory_paradigm">مهمة براون-بيترسون</string>
     <string name="science_digit_memory_summary">مقياس قياسي للذاكرة العاملة: الاحتفاظ بتسلسل بينما تشغل مهمة أخرى الحيز الذهني نفسه.</string>
     <string name="science_pattern_sequence_paradigm">الاستدلال المصفوفي</string>
@@ -317,6 +323,8 @@
     <string name="science_mental_flex_summary">مقياس قياسي للمرونة المعرفية: كلفة ترك القاعدة التي كنت تستخدمها للتو وتطبيق قاعدة أخرى.</string>
     <string name="science_n_back_paradigm">مهمة N-Back</string>
     <string name="science_n_back_summary">مقياس قياسي لتحديث الذاكرة العاملة: إبقاء نافذة متحركة من آخر العناصر محدَّثة، والحكم بالاستناد إليها بينما تواصل التحرك.</string>
+    <string name="science_rule_shift_paradigm">اختبار ويسكونسن لفرز البطاقات</string>
+    <string name="science_rule_shift_summary">مقياس قياسي لتكوين المفاهيم: العثور على قاعدة الفرز من مجرد صواب أو خطأ، ثم ملاحظة متى تتغير في صمت.</string>
     <string name="science_tower_of_hanoi_paradigm">أبراج هانوي</string>
     <string name="science_tower_of_hanoi_summary">مقياس قياسي للتخطيط: يتطلب اللغز نقلات تُرجع التقدم إلى الوراء قبل أن يصبح الهدف قابلًا للبلوغ.</string>
     <string name="brain_cup_button">لوحة متصدري Brain Cup</string>
@@ -745,6 +753,15 @@
     <string name="sherlock_calculation_demo_title">ابلغ الرقم المستهدف</string>
     <string name="value_comparison_demo_title">اختر القيمة الأكبر</string>
     <string name="mental_flex_demo_title">الزوج يحدد القاعدة</string>
+    <string name="rule_shift_demo_title">القاعدة لا تُقال أبدًا</string>
+    <string name="rule_shift_demo_caption_match">ضع البطاقة عند البطاقة المفتاحية التي تطابقها.</string>
+    <string name="rule_shift_demo_caption_rule_works">أزرق مع أزرق، وأحمر مع أحمر. كلاهما صحيح.</string>
+    <string name="rule_shift_demo_caption_rule_moved">أخضر مع أخضر. خطأ، ودون أي تفسير.</string>
+    <string name="rule_shift_demo_caption_new_rule">رمز واحد، المفتاح الأول. الآن العبرة بالعدد.</string>
+    <string name="color_confusion_demo_caption_ink">الكلمة تقول لونًا. والحبر يقول لونًا آخر.</string>
+    <string name="color_confusion_demo_caption_agree">أحيانًا يتفق الاثنان.</string>
+    <string name="color_confusion_demo_caption_trap">الفخ هو أن تقرأ الكلمة.</string>
+    <string name="color_confusion_demo_caption_recover">الحبر هو الجواب دائمًا.</string>
     <string name="spot_the_new_demo_title">اكتشف الجديد</string>
     <string name="spot_the_new_demo_seen_label">ما شوهد حتى الآن</string>
     <string name="spot_the_new_demo_new">انقر على الحيوان الذي لم تره من قبل.</string>
@@ -784,6 +801,7 @@
     <string name="game_trio">ثلاثي</string>
     <string name="game_mental_rotations">التدوير الذهني</string>
     <string name="game_mental_flex">المرونة الذهنية</string>
+    <string name="game_rule_shift">تبديل القاعدة</string>
     <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو العدد أو التعبئة.</string>
     <string name="game_mental_rotations_desc">قرّر ما إذا كانت الكتلة الثانية هي الأولى بعد تدويرها، أم صورتها في المرآة.</string>
     <string name="game_mental_rotations_question">نفس الكتلة أم صورة معكوسة؟</string>
@@ -794,6 +812,10 @@
     <string name="game_mental_flex_rule_shape">الشكل</string>
     <string name="game_mental_flex_rule_color">اللون</string>
     <string name="game_mental_flex_howto">اكتشف ما يشترك فيه الشكلان.</string>
+    <string name="game_rule_shift_desc">صنّف كل بطاقة إلى واحدة من البطاقات المفتاحية الأربع. لا أحد يخبرك بالقاعدة، وهي تتغير ما إن تعرفها.</string>
+    <string name="game_rule_shift_howto">إلى أي بطاقة مفتاحية تنتمي؟</string>
+    <string name="game_rule_shift_cards_left">البطاقات المتبقية: %1$d</string>
+    <string name="game_color_confusion_howto">المس لون الحبر.</string>
     <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>
     <string name="trio_demo_rule">تشترك في سمة. لا شيء آخر مختلط.</string>
     <string name="trio_trait_shape">الشكل</string>
@@ -813,9 +835,11 @@
     <string name="achievement_gold_trio">الرؤية الثلاثية</string>
     <string name="achievement_gold_mental_rotations">بارع التدوير</string>
     <string name="achievement_gold_mental_flex">تبديل سريع</string>
+    <string name="achievement_gold_rule_shift">خارق القواعد</string>
     <string name="achievement_gold_trio_desc">اربح الميدالية الذهبية في Trio</string>
     <string name="achievement_gold_mental_rotations_desc">اربح الميدالية الذهبية في التدوير الذهني</string>
     <string name="achievement_gold_mental_flex_desc">اربح الميدالية الذهبية في المرونة الذهنية</string>
+    <string name="achievement_gold_rule_shift_desc">اربح الميدالية الذهبية في تبديل القاعدة</string>
 
     <string name="iq_test_button">اختبار الذكاء</string>
     <string name="iq_test_title">اختبار الذكاء</string>

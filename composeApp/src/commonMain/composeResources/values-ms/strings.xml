@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Terbaik: %1$s cubaan</string>
     <string name="button_play_next_level">Main tahap seterusnya</string>
     <string name="finish_max_level_reached">Tahap maksimum dicapai. Tunggu kandungan baharu.</string>
+    <string name="finish_congruency_effect_title">Kos kesepadanan</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Berapa lama lagi anda ambil apabila perkataan tidak sepadan dengan dakwat</string>
 
     <string name="feedback_solution">Penyelesaian: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Putaran Minda</string>
     <string name="game_mental_flex">Fleksibiliti Minda</string>
+    <string name="game_rule_shift">Pertukaran Peraturan</string>
 
     <string name="game_anomaly_puzzle_desc">Cari rajah yang menonjol. Pertimbangkan warna dan bentuk setiap rajah.</string>
     <string name="game_mental_calculation_desc">Ikuti ungkapan matematik. Gunakan hasilnya sebagai asas kiraan seterusnya.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Bentuk</string>
     <string name="game_mental_flex_rule_color">Warna</string>
     <string name="game_mental_flex_howto">Kenal pasti apa yang dikongsi pasangan itu.</string>
+    <string name="game_rule_shift_desc">Susun setiap kad ke salah satu daripada empat kad kunci. Tiada siapa memberitahu anda peraturannya, dan ia bertukar sebaik sahaja anda menemuinya.</string>
+    <string name="game_rule_shift_howto">Kad kunci mana tempatnya?</string>
+    <string name="game_rule_shift_cards_left">Kad berbaki: %1$d</string>
+    <string name="game_color_confusion_howto">Ketik warna dakwatnya.</string>
     <string name="trio_demo_title">Cari set tiga</string>
     <string name="trio_demo_rule">Mereka berkongsi satu ciri. Tiada yang lain bercampur.</string>
     <string name="trio_trait_shape">Bentuk</string>
@@ -396,6 +404,15 @@
     <string name="sherlock_calculation_demo_title">Capai nombor sasaran</string>
     <string name="value_comparison_demo_title">Pilih nilai terbesar</string>
     <string name="mental_flex_demo_title">Pasangan menetapkan peraturan</string>
+    <string name="rule_shift_demo_title">Peraturannya tidak pernah dinyatakan</string>
+    <string name="rule_shift_demo_caption_match">Letakkan kad di kad kunci yang sepadan dengannya.</string>
+    <string name="rule_shift_demo_caption_rule_works">Biru dengan biru, merah dengan merah. Kedua-duanya betul.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Hijau dengan hijau. Salah, tanpa sebarang sebab.</string>
+    <string name="rule_shift_demo_caption_new_rule">Satu simbol, kunci pertama. Kini bilangannya yang dikira.</string>
+    <string name="color_confusion_demo_caption_ink">Perkataan menyebut satu warna. Dakwatnya warna lain.</string>
+    <string name="color_confusion_demo_caption_agree">Kadangkala kedua-duanya sepadan.</string>
+    <string name="color_confusion_demo_caption_trap">Membaca perkataannya itulah perangkapnya.</string>
+    <string name="color_confusion_demo_caption_recover">Jawapannya sentiasa dakwat.</string>
     <string name="pattern_sequence_prompt">Kepingan mana yang melengkapkan matriks?</string>
     <string name="game_tap_original_targets">Ketik sasaran asal</string>
     <string name="game_remember_targets">Ingat sasaran</string>
@@ -421,6 +438,7 @@
     <string name="shape_circle">Bulatan</string>
     <string name="shape_heart">Hati</string>
     <string name="shape_star">Bintang</string>
+    <string name="shape_cross">Palang</string>
     <string name="shape_t_shape">Bentuk T</string>
     <string name="shape_l_shape">Bentuk L</string>
     <string name="shape_diamond">Berlian</string>
@@ -457,6 +475,7 @@
     <string name="achievement_gold_trio">Penglihatan Tiga</string>
     <string name="achievement_gold_mental_rotations">Pakar Putaran</string>
     <string name="achievement_gold_mental_flex">Tukar Pantas</string>
+    <string name="achievement_gold_rule_shift">Pelanggar Peraturan</string>
     <string name="achievement_gold_path_finder">Perintis Laluan</string>
     <string name="achievement_gold_anomaly_puzzle">Yang Ganjil Ditemui</string>
     <string name="achievement_gold_colored_shapes">Pengubah Bentuk</string>
@@ -495,6 +514,7 @@
     <string name="achievement_gold_trio_desc">Menangi pingat emas dalam Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Menangi pingat emas dalam Putaran Minda</string>
     <string name="achievement_gold_mental_flex_desc">Menangi pingat emas dalam Fleksibiliti Minda</string>
+    <string name="achievement_gold_rule_shift_desc">Menangi pingat emas dalam Pertukaran Peraturan</string>
     <string name="achievement_gold_path_finder_desc">Menangi pingat emas dalam Pencari Laluan</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Menangi pingat emas dalam Teka-teki Anomali</string>
     <string name="achievement_gold_colored_shapes_desc">Menangi pingat emas dalam Bentuk Berwarna</string>
@@ -584,6 +604,8 @@
     <string name="science_orbit_tracker_summary">Ukuran piawai bagi perhatian terbahagi yang berterusan: berapa banyak sasaran bergerak yang mampu anda jejaki dalam kalangan pengganggu yang serupa.</string>
     <string name="science_mental_rotations_paradigm">Tugas Putaran Mental</string>
     <string name="science_mental_rotations_summary">Ukuran piawai bagi keupayaan ruang: menentukan sama ada dua bentuk ialah jasad yang sama tetapi diputar, atau imej cermin yang tiada putaran dapat menyamakannya.</string>
+    <string name="science_color_confusion_paradigm">Tugasan Stroop</string>
+    <string name="science_color_confusion_summary">Ukuran piawai bagi inhibisi: menamakan warna dakwat sesuatu perkataan dicetak, sementara membaca perkataan itu sendiri menawarkan jawapan lain yang lebih pantas dan bersaing.</string>
     <string name="science_digit_memory_paradigm">Tugas Brown-Peterson</string>
     <string name="science_digit_memory_summary">Ukuran piawai bagi ingatan bekerja: mengekalkan satu turutan sementara tugas lain memenuhi ruang minda yang sama.</string>
     <string name="science_pattern_sequence_paradigm">Penaakulan Matriks</string>
@@ -592,6 +614,8 @@
     <string name="science_mental_flex_summary">Ukuran piawai bagi fleksibiliti kognitif: kos melepaskan peraturan yang baru anda gunakan dan menerapkan yang lain.</string>
     <string name="science_n_back_paradigm">Tugas N-Back</string>
     <string name="science_n_back_summary">Ukuran piawai bagi pengemaskinian ingatan bekerja: mengekalkan tetingkap bergerak berisi beberapa item terakhir supaya sentiasa terkini, dan menilainya sementara ia terus bergerak.</string>
+    <string name="science_rule_shift_paradigm">Ujian Pengisihan Kad Wisconsin</string>
+    <string name="science_rule_shift_summary">Ukuran piawai bagi pembentukan konsep: menemui peraturan pengisihan hanya daripada maklum balas betul-atau-salah, kemudian menyedari bila ia berubah secara senyap.</string>
     <string name="science_tower_of_hanoi_paradigm">Menara Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ukuran piawai bagi perancangan: teka-teki ini memerlukan langkah yang membatalkan kemajuan sebelum matlamat dapat dicapai.</string>
     <string name="brain_cup_button">Papan pendahulu Brain Cup</string>

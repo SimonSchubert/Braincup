@@ -179,6 +179,9 @@
     <string name="finish_best_tries">सर्वोत्तम: %1$s प्रयत्न</string>
     <string name="button_play_next_level">पुढचा स्तर खेळा</string>
     <string name="finish_max_level_reached">कमाल स्तर गाठला. नवीन सामग्रीची वाट पहा.</string>
+    <string name="finish_congruency_effect_title">सुसंगततेची किंमत</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">शब्द आणि शाई जुळत नव्हते तेव्हा तुम्हाला किती जास्त वेळ लागला</string>
 
     <string name="feedback_solution">उत्तर: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">त्रिकूट</string>
     <string name="game_mental_rotations">मानसिक परिभ्रमण</string>
     <string name="game_mental_flex">मानसिक लवचिकता</string>
+    <string name="game_rule_shift">नियम बदल</string>
 
     <string name="game_anomaly_puzzle_desc">वेगळी उठून दिसणारी आकृती शोधा. प्रत्येक आकृतीचा रंग आणि आकार दोन्ही लक्षात घ्या.</string>
     <string name="game_mental_calculation_desc">गणिती पदावल्यांचे अनुसरण करा. निकाल पुढच्या गणनेचा आधार म्हणून वापरा.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">आकार</string>
     <string name="game_mental_flex_rule_color">रंग</string>
     <string name="game_mental_flex_howto">जोडीत काय समान आहे ते ओळखा.</string>
+    <string name="game_rule_shift_desc">प्रत्येक पत्ता चार मुख्य पत्त्यांपैकी एकाशी लावा. नियम तुम्हाला कोणी सांगत नाही, आणि तुम्ही तो ओळखताच तो बदलतो.</string>
+    <string name="game_rule_shift_howto">हा कोणत्या मुख्य पत्त्याशी जुळतो?</string>
+    <string name="game_rule_shift_cards_left">उरलेली पत्ते: %1$d</string>
+    <string name="game_color_confusion_howto">शाईच्या रंगावर टॅप करा.</string>
     <string name="trio_demo_title">तिघांचा संच शोधा</string>
     <string name="trio_demo_rule">त्यांच्यात एक गुणधर्म समान आहे. बाकी काहीही मिसळलेले नाही.</string>
     <string name="trio_trait_shape">आकार</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">ध्येय संख्येपर्यंत पोहोचा</string>
     <string name="value_comparison_demo_title">सर्वात मोठे मूल्य निवडा</string>
     <string name="mental_flex_demo_title">जोडी नियम ठरवते</string>
+    <string name="rule_shift_demo_title">नियम कधीच सांगितला जात नाही</string>
+    <string name="rule_shift_demo_caption_match">पत्ता ज्या मुख्य पत्त्याशी जुळतो त्याच्याजवळ ठेवा.</string>
+    <string name="rule_shift_demo_caption_rule_works">निळ्याशी निळा, लालशी लाल. दोन्ही बरोबर.</string>
+    <string name="rule_shift_demo_caption_rule_moved">हिरव्याशी हिरवा. चूक, आणि कारणही सांगितले नाही.</string>
+    <string name="rule_shift_demo_caption_new_rule">एक चिन्ह, पहिला मुख्य पत्ता. आता संख्या महत्त्वाची.</string>
+    <string name="color_confusion_demo_caption_ink">शब्द एक रंग सांगतो. शाई दुसरा.</string>
+    <string name="color_confusion_demo_caption_agree">कधीकधी दोन्ही जुळतात.</string>
+    <string name="color_confusion_demo_caption_trap">शब्द वाचणे हाच सापळा आहे.</string>
+    <string name="color_confusion_demo_caption_recover">उत्तर नेहमी शाईच असते.</string>
     <string name="pattern_sequence_prompt">कोणता तुकडा मॅट्रिक्स पूर्ण करतो?</string>
     <string name="game_tap_original_targets">मूळ लक्ष्यांवर टॅप करा</string>
     <string name="game_remember_targets">लक्ष्ये लक्षात ठेवा</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">वर्तुळ</string>
     <string name="shape_heart">हृदय</string>
     <string name="shape_star">तारा</string>
+    <string name="shape_cross">क्रॉस</string>
     <string name="shape_t_shape">T आकार</string>
     <string name="shape_l_shape">L आकार</string>
     <string name="shape_diamond">हिरा</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">तिहेरी नजर</string>
     <string name="achievement_gold_mental_rotations">फिरवण्याचा उस्ताद</string>
     <string name="achievement_gold_mental_flex">झटपट बदल</string>
+    <string name="achievement_gold_rule_shift">नियम मोडणारा</string>
     <string name="achievement_gold_path_finder">वाटाड्या</string>
     <string name="achievement_gold_anomaly_puzzle">वेगळे ओळखले</string>
     <string name="achievement_gold_colored_shapes">आकार बदलणारा</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">त्रिकूटमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_mental_rotations_desc">मानसिक परिभ्रमणमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_mental_flex_desc">मानसिक लवचिकतामध्ये सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_rule_shift_desc">नियम बदलमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_path_finder_desc">वाट शोधकमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगती कोड्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीत आकारांमध्ये सुवर्णपदक जिंका</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">टिकाऊ विभागलेल्या लक्षाचे प्रमाणित माप: सारख्याच दिसणाऱ्या विचलित करणाऱ्या वस्तूंमध्ये किती हलती लक्ष्ये तुम्ही सांभाळू शकता.</string>
     <string name="science_mental_rotations_paradigm">मानसिक परिभ्रमण कार्य</string>
     <string name="science_mental_rotations_summary">अवकाशीय क्षमतेचे प्रमाणित माप: दोन आकृती एकच घन फिरवलेला आहे की कोणत्याही फिरवण्याने न जुळणारी आरशातील प्रतिमा आहे हे ठरवणे.</string>
+    <string name="science_color_confusion_paradigm">स्ट्रूप कार्य</string>
+    <string name="science_color_confusion_summary">प्रतिबंधाचे प्रमाणित माप: शब्द ज्या रंगात छापला आहे त्याचे नाव सांगणे, तर शब्द वाचणेच अधिक जलद, स्पर्धक उत्तर पुढे करते.</string>
     <string name="science_digit_memory_paradigm">ब्राउन-पीटरसन कार्य</string>
     <string name="science_digit_memory_summary">कार्यकारी स्मृतीचे प्रमाणित माप: एक मालिका लक्षात ठेवणे, तर दुसरे असंबद्ध काम तीच मानसिक जागा व्यापत असते.</string>
     <string name="science_pattern_sequence_paradigm">मॅट्रिक्स तर्क</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">बोधात्मक लवचिकतेचे प्रमाणित माप: आत्ताच वापरलेला नियम सोडून दुसरा लावण्याची किंमत.</string>
     <string name="science_n_back_paradigm">N-Back कार्य</string>
     <string name="science_n_back_summary">कार्यकारी स्मृती अद्ययावत ठेवण्याचे प्रमाणित माप: शेवटच्या काही गोष्टींची सरकती खिडकी ताजी ठेवणे, आणि ती सरकत असतानाच तिच्याशी ताडून निर्णय घेणे.</string>
+    <string name="science_rule_shift_paradigm">विस्कॉन्सिन कार्ड सॉर्टिंग टेस्ट</string>
+    <string name="science_rule_shift_summary">संकल्पना निर्मितीचे प्रमाणित माप: फक्त बरोबर-की-चूक यावरून वर्गीकरणाचा नियम शोधणे, आणि मग तो कधी गुपचूप बदलला हे ओळखणे.</string>
     <string name="science_tower_of_hanoi_paradigm">हनोईचा मनोरा</string>
     <string name="science_tower_of_hanoi_summary">नियोजनाचे प्रमाणित माप: ध्येयापर्यंत पोहोचण्याआधी प्रगती मागे नेणाऱ्या चाली या कोड्यात कराव्या लागतात.</string>
     <string name="brain_cup_button">Brain Cup गुणतालिका</string>

@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Labākais: %1$s mēģinājumi</string>
     <string name="button_play_next_level">Spēlēt nākamo līmeni</string>
     <string name="finish_max_level_reached">Sasniegts augstākais līmenis. Gaidi jaunu saturu.</string>
+    <string name="finish_congruency_effect_title">Kongruences cena</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Cik ilgāk tev vajadzēja, kad vārds nesakrita ar tinti</string>
 
     <string name="feedback_solution">Risinājums: %1$s</string>
 
@@ -238,6 +241,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Domu rotācijas</string>
     <string name="game_mental_flex">Domu elastība</string>
+    <string name="game_rule_shift">Noteikuma maiņa</string>
 
     <string name="game_anomaly_puzzle_desc">Atrodi figūru, kas izceļas. Skaties gan krāsu, gan formu katrai figūrai.</string>
     <string name="game_mental_calculation_desc">Seko matemātiskajām izteiksmēm. Izmanto rezultātu kā pamatu nākamajam aprēķinam.</string>
@@ -299,6 +303,10 @@
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Krāsa</string>
     <string name="game_mental_flex_howto">Pamani, kas pārim ir kopīgs.</string>
+    <string name="game_rule_shift_desc">Sakārto katru kārti pie vienas no četrām atslēgas kārtīm. Noteikumu tev neviens nepasaka, un tas mainās, tiklīdz tu to esi sapratis.</string>
+    <string name="game_rule_shift_howto">Pie kuras atslēgas kārts tā pieder?</string>
+    <string name="game_rule_shift_cards_left">Atlikušas kārtis: %1$d</string>
+    <string name="game_color_confusion_howto">Pieskaries tintes krāsai.</string>
     <string name="trio_demo_title">Atrodi trijnieku</string>
     <string name="trio_demo_rule">Tās dala īpašību. Nekas cits nesajaucas.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -398,6 +406,15 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="sherlock_calculation_demo_title">Sasniedz mērķa skaitli</string>
     <string name="value_comparison_demo_title">Izvēlies vislielāko vērtību</string>
     <string name="mental_flex_demo_title">Pāris nosaka likumu</string>
+    <string name="rule_shift_demo_title">Noteikums nekad netiek pateikts</string>
+    <string name="rule_shift_demo_caption_match">Noliec kārti pie atslēgas kārts, ar kuru tā sakrīt.</string>
+    <string name="rule_shift_demo_caption_rule_works">Zilo pie zilās, sarkano pie sarkanās. Abas pareizi.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Zaļo pie zaļās. Nepareizi, un bez paskaidrojuma.</string>
+    <string name="rule_shift_demo_caption_new_rule">Viens simbols, pirmā atslēgas kārts. Tagad svarīgs ir skaits.</string>
+    <string name="color_confusion_demo_caption_ink">Vārds saka vienu krāsu. Tinte citu.</string>
+    <string name="color_confusion_demo_caption_agree">Dažreiz abi sakrīt.</string>
+    <string name="color_confusion_demo_caption_trap">Lamatas ir izlasīt vārdu.</string>
+    <string name="color_confusion_demo_caption_recover">Atbilde vienmēr ir tinte.</string>
     <string name="pattern_sequence_prompt">Kurš gabals papildina matricu?</string>
     <string name="game_tap_original_targets">Pieskaries sākotnējiem mērķiem</string>
     <string name="game_remember_targets">Atceries mērķus</string>
@@ -423,6 +440,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="shape_circle">Aplis</string>
     <string name="shape_heart">Sirds</string>
     <string name="shape_star">Zvaigzne</string>
+    <string name="shape_cross">Krusts</string>
     <string name="shape_t_shape">T forma</string>
     <string name="shape_l_shape">L forma</string>
     <string name="shape_diamond">Rombs</string>
@@ -459,6 +477,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_trio">Trīskāršs redzējums</string>
     <string name="achievement_gold_mental_rotations">Griešanas meistars</string>
     <string name="achievement_gold_mental_flex">Ātra maiņa</string>
+    <string name="achievement_gold_rule_shift">Noteikumu lauzējs</string>
     <string name="achievement_gold_path_finder">Pionieris</string>
     <string name="achievement_gold_anomaly_puzzle">Izņēmums atklāts</string>
     <string name="achievement_gold_colored_shapes">Formu mainītājs</string>
@@ -497,6 +516,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_trio_desc">Iegūsti zelta medaļu Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Iegūsti zelta medaļu Domu rotācijās</string>
     <string name="achievement_gold_mental_flex_desc">Iegūsti zelta medaļu Domu elastībā</string>
+    <string name="achievement_gold_rule_shift_desc">Iegūsti zelta medaļu Noteikuma maiņā</string>
     <string name="achievement_gold_path_finder_desc">Iegūsti zelta medaļu Ceļa meklētājā</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Iegūsti zelta medaļu Anomālijas mīklā</string>
     <string name="achievement_gold_colored_shapes_desc">Iegūsti zelta medaļu Krāsainajās figūrās</string>
@@ -586,6 +606,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="science_orbit_tracker_summary">Standarta mērs noturīgai dalītai uzmanībai: cik kustīgus mērķus noturi starp vienādiem traucēkļiem.</string>
     <string name="science_mental_rotations_paradigm">Mentālās rotācijas uzdevums</string>
     <string name="science_mental_rotations_summary">Standarta mērs telpiskajai domāšanai: izlemt, vai divas figūras ir viens un tas pats pagriezts ķermenis vai spoguļattēli, ko neviens pagrieziens nesavieno.</string>
+    <string name="science_color_confusion_paradigm">Strūpa uzdevums</string>
+    <string name="science_color_confusion_summary">Standarta inhibīcijas mērs: nosaukt krāsu, kādā vārds ir iespiests, kamēr paša vārda lasīšana piedāvā ātrāku, konkurējošu atbildi.</string>
     <string name="science_digit_memory_paradigm">Brauna un Pītersona uzdevums</string>
     <string name="science_digit_memory_summary">Standarta mērs darba atmiņai: noturēt virkni, kamēr cits uzdevums aizņem to pašu domāšanas telpu.</string>
     <string name="science_pattern_sequence_paradigm">Matricu spriešana</string>
@@ -594,6 +616,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="science_mental_flex_summary">Standarta mērs kognitīvajai elastībai: cik maksā atmest tikko lietoto likumu un piemērot citu.</string>
     <string name="science_n_back_paradigm">N-Back uzdevums</string>
     <string name="science_n_back_summary">Standarta mērs darba atmiņas atjaunināšanai: uzturēt aktuālu slīdošu logu ar pēdējiem elementiem un spriest pēc tā, kamēr tas turpina virzīties.</string>
+    <string name="science_rule_shift_paradigm">Viskonsinas kāršu šķirošanas tests</string>
+    <string name="science_rule_shift_summary">Standarta jēdzienu veidošanas mērs: atrast šķirošanas noteikumu tikai no pareizi-vai-nepareizi un tad pamanīt, kad tas klusi mainās.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojas tornis</string>
     <string name="science_tower_of_hanoi_summary">Standarta mērs plānošanai: mīkla prasa gājienus, kas vispirms atceļ progresu, pirms mērķis kļūst sasniedzams.</string>
     <string name="brain_cup_button">Brain Cup rezultātu tabula</string>

@@ -179,6 +179,9 @@
     <string name="finish_best_tries">சிறந்தது: %1$s முயற்சிகள்</string>
     <string name="button_play_next_level">அடுத்த நிலையை விளையாடு</string>
     <string name="finish_max_level_reached">அதிகபட்ச நிலையை அடைந்தீர்கள். புதிய உள்ளடக்கத்திற்குக் காத்திருங்கள்.</string>
+    <string name="finish_congruency_effect_title">ஒத்திசைவின் விலை</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">சொல்லும் மையும் ஒத்துப்போகாதபோது உங்களுக்கு எவ்வளவு அதிக நேரம் பிடித்தது</string>
 
     <string name="feedback_solution">தீர்வு: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">மூவர்</string>
     <string name="game_mental_rotations">மனச் சுழற்சி</string>
     <string name="game_mental_flex">மனநெகிழ்வு</string>
+    <string name="game_rule_shift">விதி மாற்றம்</string>
 
     <string name="game_anomaly_puzzle_desc">தனித்து நிற்கும் உருவத்தைக் கண்டுபிடியுங்கள். ஒவ்வொரு உருவத்தின் நிறத்தையும் வடிவத்தையும் கவனியுங்கள்.</string>
     <string name="game_mental_calculation_desc">கணிதக் கோவைகளைப் பின்பற்றுங்கள். அடுத்த கணக்கீட்டுக்கு முடிவை அடிப்படையாகப் பயன்படுத்துங்கள்.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">வடிவம்</string>
     <string name="game_mental_flex_rule_color">நிறம்</string>
     <string name="game_mental_flex_howto">இந்த இணை எதைப் பகிர்கிறது என்பதைக் கண்டறியுங்கள்.</string>
+    <string name="game_rule_shift_desc">ஒவ்வொரு சீட்டையும் நான்கு முக்கியச் சீட்டுகளில் ஒன்றுடன் வையுங்கள். விதியை யாரும் சொல்வதில்லை, நீங்கள் அதைப் பிடித்தவுடன் அது மாறிவிடும்.</string>
+    <string name="game_rule_shift_howto">இது எந்த முக்கியச் சீட்டுடன் சேரும்?</string>
+    <string name="game_rule_shift_cards_left">மீதமுள்ள சீட்டுகள்: %1$d</string>
+    <string name="game_color_confusion_howto">மையின் நிறத்தைத் தட்டுங்கள்.</string>
     <string name="trio_demo_title">மூன்றின் தொகுப்பைக் கண்டுபிடியுங்கள்</string>
     <string name="trio_demo_rule">அவை ஒரே பண்பைப் பகிர்கின்றன. வேறெதுவும் கலக்கவில்லை.</string>
     <string name="trio_trait_shape">வடிவம்</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">இலக்கு எண்ணை அடையுங்கள்</string>
     <string name="value_comparison_demo_title">மிகப்பெரிய மதிப்பைத் தேர்வுசெய்யுங்கள்</string>
     <string name="mental_flex_demo_title">இணையே விதியை நிர்ணயிக்கிறது</string>
+    <string name="rule_shift_demo_title">விதி ஒருபோதும் சொல்லப்படுவதில்லை</string>
+    <string name="rule_shift_demo_caption_match">சீட்டை அதனுடன் பொருந்தும் முக்கியச் சீட்டின் அருகில் வையுங்கள்.</string>
+    <string name="rule_shift_demo_caption_rule_works">நீலத்துடன் நீலம், சிவப்புடன் சிவப்பு. இரண்டும் சரி.</string>
+    <string name="rule_shift_demo_caption_rule_moved">பச்சையுடன் பச்சை. தவறு, காரணமும் சொல்லப்படவில்லை.</string>
+    <string name="rule_shift_demo_caption_new_rule">ஒரு குறியீடு, முதல் முக்கியச் சீட்டு. இப்போது எண்ணிக்கையே முக்கியம்.</string>
+    <string name="color_confusion_demo_caption_ink">சொல் ஒரு நிறத்தைச் சொல்கிறது. மை வேறொன்றை.</string>
+    <string name="color_confusion_demo_caption_agree">சில நேரம் இரண்டும் ஒன்றாகவே இருக்கும்.</string>
+    <string name="color_confusion_demo_caption_trap">சொல்லைப் படிப்பதுதான் பொறி.</string>
+    <string name="color_confusion_demo_caption_recover">விடை எப்போதும் மைதான்.</string>
     <string name="pattern_sequence_prompt">எந்தத் துண்டு அணியை நிறைவுசெய்கிறது?</string>
     <string name="game_tap_original_targets">அசல் இலக்குகளைத் தட்டுங்கள்</string>
     <string name="game_remember_targets">இலக்குகளை நினைவில் வையுங்கள்</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">வட்டம்</string>
     <string name="shape_heart">இதயம்</string>
     <string name="shape_star">நட்சத்திரம்</string>
+    <string name="shape_cross">கிராஸ்</string>
     <string name="shape_t_shape">T வடிவம்</string>
     <string name="shape_l_shape">L வடிவம்</string>
     <string name="shape_diamond">வைரம்</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">மூன்று கண்பார்வை</string>
     <string name="achievement_gold_mental_rotations">சுழற்சி வல்லுநர்</string>
     <string name="achievement_gold_mental_flex">விரைவு மாற்றம்</string>
+    <string name="achievement_gold_rule_shift">விதி மீறுபவர்</string>
     <string name="achievement_gold_path_finder">பாதை வகுப்பவர்</string>
     <string name="achievement_gold_anomaly_puzzle">வித்தியாசம் கண்டறியப்பட்டது</string>
     <string name="achievement_gold_colored_shapes">வடிவம் மாற்றுபவர்</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">மூவரில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_mental_rotations_desc">மனச் சுழற்சியில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_mental_flex_desc">மனநெகிழ்வில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
+    <string name="achievement_gold_rule_shift_desc">விதி மாற்றத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_path_finder_desc">பாதை கண்டுபிடிப்பானில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_anomaly_puzzle_desc">முரண்பாட்டுப் புதிரில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_colored_shapes_desc">வண்ண வடிவங்களில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">நீடித்த பிரிந்த கவனத்தின் நியமமான அளவீடு: ஒரே மாதிரியான கவனச்சிதறல்களுக்கு இடையே எத்தனை நகரும் இலக்குகளைத் தொடர்ந்து பிடித்து வைக்க முடிகிறது.</string>
     <string name="science_mental_rotations_paradigm">மனச் சுழற்சிப் பணி</string>
     <string name="science_mental_rotations_summary">வெளியியல் திறனின் நியமமான அளவீடு: இரு உருவங்கள் ஒரே திண்மம் திருப்பப்பட்டதா, அல்லது எந்தச் சுழற்சியாலும் பொருந்தாத கண்ணாடிப் பிம்பங்களா என்று தீர்மானிப்பது.</string>
+    <string name="science_color_confusion_paradigm">ஸ்ட்ரூப் பணி</string>
+    <string name="science_color_confusion_summary">தடுப்பின் நியமமான அளவீடு: ஒரு சொல் எந்த நிறத்தில் அச்சிடப்பட்டுள்ளதோ அதைப் பெயரிடுவது, அதே சமயம் சொல்லைப் படிப்பதே வேகமான, போட்டியிடும் ஒரு விடையை முன்வைக்கிறது.</string>
     <string name="science_digit_memory_paradigm">பிரவுன்-பீட்டர்சன் பணி</string>
     <string name="science_digit_memory_summary">செயல் நினைவின் நியமமான அளவீடு: தொடர்பற்ற ஒரு பணி அதே மனப் பரப்பை ஆக்கிரமிக்கும்போது ஒரு தொடரைப் பிடித்து வைத்திருப்பது.</string>
     <string name="science_pattern_sequence_paradigm">அணி பகுத்தறிவு</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">அறிவாற்றல் நெகிழ்வின் நியமமான அளவீடு: இப்போதுதான் பயன்படுத்திய விதியை விட்டுவிட்டு வேறொன்றைப் பயன்படுத்துவதற்கான விலை.</string>
     <string name="science_n_back_paradigm">N-Back பணி</string>
     <string name="science_n_back_summary">செயல் நினைவைப் புதுப்பிப்பதற்கான நியமமான அளவீடு: கடைசி சில உருப்படிகளின் நகரும் சாளரத்தைப் புதுப்பித்து வைத்திருப்பது, அது நகர்ந்துகொண்டே இருக்கும்போதே அதனுடன் ஒப்பிட்டு முடிவெடுப்பது.</string>
+    <string name="science_rule_shift_paradigm">விஸ்கான்சின் அட்டை வரிசைப்படுத்தல் தேர்வு</string>
+    <string name="science_rule_shift_summary">கருத்துருவாக்கத்தின் நியமமான அளவீடு: சரி-அல்லது-தவறு என்பதிலிருந்து மட்டுமே வரிசைப்படுத்தும் விதியைக் கண்டறிவது, பிறகு அது எப்போது அமைதியாக மாறியது என்பதைக் கவனிப்பது.</string>
     <string name="science_tower_of_hanoi_paradigm">ஹனோய் கோபுரம்</string>
     <string name="science_tower_of_hanoi_summary">திட்டமிடலின் நியமமான அளவீடு: இலக்கை அடைவதற்கு முன் முன்னேற்றத்தைப் பின்னுக்குத் தள்ளும் நகர்வுகள் இந்தப் புதிரில் தேவைப்படுகின்றன.</string>
     <string name="brain_cup_button">Brain Cup தலைவர் பலகை</string>

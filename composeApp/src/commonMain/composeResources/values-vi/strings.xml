@@ -8,6 +8,9 @@
     <string name="button_play_again">Chơi lại</string>
     <string name="button_play_next_level">Chơi cấp tiếp theo</string>
     <string name="finish_max_level_reached">Đã đạt cấp tối đa. Chờ nội dung mới.</string>
+    <string name="finish_congruency_effect_title">Chi phí tương hợp</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">Bạn mất thêm bao lâu khi chữ và mực không khớp nhau</string>
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
     <string name="button_stay">Ở lại</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">Tròn</string>
     <string name="shape_heart">Trái Tim</string>
     <string name="shape_star">Ngôi Sao</string>
+    <string name="shape_cross">Chữ thập</string>
     <string name="shape_t_shape">Hình T</string>
     <string name="shape_l_shape">Hình L</string>
     <string name="shape_diamond">Kim Cương</string>
@@ -335,6 +339,8 @@
     <string name="science_orbit_tracker_summary">Thước đo chuẩn cho sự chú ý phân chia bền bỉ: bạn giữ được bao nhiêu mục tiêu đang chuyển động giữa những vật gây nhiễu giống hệt.</string>
     <string name="science_mental_rotations_paradigm">Nhiệm vụ xoay hình trong đầu</string>
     <string name="science_mental_rotations_summary">Thước đo chuẩn cho năng lực không gian: quyết định xem hai hình là cùng một khối được xoay hay là ảnh gương mà không phép xoay nào khớp được.</string>
+    <string name="science_color_confusion_paradigm">Nhiệm vụ Stroop</string>
+    <string name="science_color_confusion_summary">Thước đo chuẩn cho sự ức chế: gọi tên màu mực in một từ, trong khi việc đọc chính từ đó lại đưa ra một câu trả lời nhanh hơn và cạnh tranh.</string>
     <string name="science_digit_memory_paradigm">Nhiệm vụ Brown-Peterson</string>
     <string name="science_digit_memory_summary">Thước đo chuẩn cho trí nhớ làm việc: giữ một chuỗi trong khi một việc khác chiếm cùng khoảng không trong đầu.</string>
     <string name="science_pattern_sequence_paradigm">Suy luận ma trận</string>
@@ -343,6 +349,8 @@
     <string name="science_mental_flex_summary">Thước đo chuẩn cho sự linh hoạt nhận thức: cái giá của việc buông quy tắc vừa dùng và áp dụng một quy tắc khác.</string>
     <string name="science_n_back_paradigm">Nhiệm vụ N-Back</string>
     <string name="science_n_back_summary">Thước đo chuẩn cho việc cập nhật trí nhớ làm việc: giữ cho cửa sổ trượt gồm vài mục gần nhất luôn mới, và phán đoán dựa vào nó trong khi nó vẫn tiếp tục dịch chuyển.</string>
+    <string name="science_rule_shift_paradigm">Trắc nghiệm Phân loại Thẻ Wisconsin</string>
+    <string name="science_rule_shift_summary">Thước đo chuẩn cho sự hình thành khái niệm: tìm ra quy tắc phân loại chỉ từ phản hồi đúng-hay-sai, rồi nhận ra khi nó lặng lẽ thay đổi.</string>
     <string name="science_tower_of_hanoi_paradigm">Tháp Hà Nội</string>
     <string name="science_tower_of_hanoi_summary">Thước đo chuẩn cho khả năng lập kế hoạch: câu đố đòi hỏi những nước đi làm mất tiến độ trước khi có thể đạt mục tiêu.</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>
@@ -744,6 +752,15 @@
     <string name="sherlock_calculation_demo_title">Đạt đến số mục tiêu</string>
     <string name="value_comparison_demo_title">Chọn giá trị lớn nhất</string>
     <string name="mental_flex_demo_title">Cặp hình đặt ra quy tắc</string>
+    <string name="rule_shift_demo_title">Luật không bao giờ được nói ra</string>
+    <string name="rule_shift_demo_caption_match">Đặt lá bài cạnh lá chủ mà nó khớp.</string>
+    <string name="rule_shift_demo_caption_rule_works">Xanh dương với xanh dương, đỏ với đỏ. Cả hai đều đúng.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Xanh lá với xanh lá. Sai, và không cho biết vì sao.</string>
+    <string name="rule_shift_demo_caption_new_rule">Một ký hiệu, lá chủ đầu tiên. Giờ là tính theo số lượng.</string>
+    <string name="color_confusion_demo_caption_ink">Chữ nói một màu. Mực nói màu khác.</string>
+    <string name="color_confusion_demo_caption_agree">Đôi khi cả hai trùng nhau.</string>
+    <string name="color_confusion_demo_caption_trap">Cái bẫy là đọc chữ.</string>
+    <string name="color_confusion_demo_caption_recover">Câu trả lời luôn là màu mực.</string>
     <string name="spot_the_new_demo_title">Tìm cái mới</string>
     <string name="spot_the_new_demo_seen_label">Đã thấy cho đến nay</string>
     <string name="spot_the_new_demo_new">Chạm vào con vật bạn chưa thấy trước đây.</string>
@@ -783,6 +800,7 @@
     <string name="game_trio">Bộ ba</string>
     <string name="game_mental_rotations">Xoay Hình Trong Đầu</string>
     <string name="game_mental_flex">Linh Hoạt Tư Duy</string>
+    <string name="game_rule_shift">Đổi Luật</string>
     <string name="game_trio_desc">Tìm ba lá bài chung hình, số lượng hoặc phần tô.</string>
     <string name="game_mental_rotations_desc">Quyết định xem khối thứ hai là khối đầu tiên được xoay, hay là ảnh trong gương của nó.</string>
     <string name="game_mental_rotations_question">Cùng một khối, hay ảnh gương?</string>
@@ -793,6 +811,10 @@
     <string name="game_mental_flex_rule_shape">Hình dạng</string>
     <string name="game_mental_flex_rule_color">Màu sắc</string>
     <string name="game_mental_flex_howto">Nhận ra điểm chung của cặp hình.</string>
+    <string name="game_rule_shift_desc">Xếp mỗi lá bài về một trong bốn lá chủ. Không ai nói cho bạn biết luật, và nó đổi ngay khi bạn nắm được.</string>
+    <string name="game_rule_shift_howto">Lá này thuộc về lá chủ nào?</string>
+    <string name="game_rule_shift_cards_left">Còn lại: %1$d lá</string>
+    <string name="game_color_confusion_howto">Chạm vào màu của mực.</string>
     <string name="trio_demo_title">Tìm một bộ ba lá</string>
     <string name="trio_demo_rule">Chúng chung một đặc điểm. Phần còn lại không bị lẫn.</string>
     <string name="trio_trait_shape">Hình dạng</string>
@@ -812,9 +834,11 @@
     <string name="achievement_gold_trio">Tầm nhìn ba</string>
     <string name="achievement_gold_mental_rotations">Bậc thầy xoay hình</string>
     <string name="achievement_gold_mental_flex">Đổi Nhanh</string>
+    <string name="achievement_gold_rule_shift">Kẻ Phá Luật</string>
     <string name="achievement_gold_trio_desc">Giành huy chương vàng trong Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Giành huy chương vàng trong Xoay Hình Trong Đầu</string>
     <string name="achievement_gold_mental_flex_desc">Giành huy chương vàng trong Linh Hoạt Tư Duy</string>
+    <string name="achievement_gold_rule_shift_desc">Giành huy chương vàng trong Đổi Luật</string>
 
     <string name="iq_test_button">Bài kiểm tra IQ</string>
     <string name="iq_test_title">Bài kiểm tra IQ</string>

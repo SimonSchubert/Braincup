@@ -8,6 +8,9 @@
     <string name="button_play_again">আবার খেলুন</string>
     <string name="button_play_next_level">পরবর্তী লেভেল খেলুন</string>
     <string name="finish_max_level_reached">সর্বোচ্চ লেভেলে পৌঁছেছেন। নতুন কন্টেন্টের জন্য অপেক্ষা করুন।</string>
+    <string name="finish_congruency_effect_title">সঙ্গতির মূল্য</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">শব্দ আর কালি না মিললে আপনার কতটা বেশি সময় লেগেছে</string>
     <string name="button_play_random">র‍্যান্ডম গেম খেলুন</string>
     <string name="button_give_up">হাল ছাড়ুন</string>
     <string name="button_stay">থাকুন</string>
@@ -163,6 +166,7 @@
     <string name="shape_circle">বৃত্ত</string>
     <string name="shape_heart">হৃদয়</string>
     <string name="shape_star">তারা</string>
+    <string name="shape_cross">ক্রস</string>
     <string name="shape_t_shape">T আকৃতি</string>
     <string name="shape_l_shape">L আকৃতি</string>
     <string name="shape_diamond">হীরা</string>
@@ -309,6 +313,8 @@
     <string name="science_orbit_tracker_summary">টানা বিভক্ত মনোযোগের প্রমিত পরিমাপ: একই রকম বিভ্রান্তিকর বস্তুর মাঝে কতগুলি চলমান লক্ষ্য আপনি ধরে রাখতে পারেন।</string>
     <string name="science_mental_rotations_paradigm">মানস আবর্তন টাস্ক</string>
     <string name="science_mental_rotations_summary">স্থানিক দক্ষতার প্রমিত পরিমাপ: দুটি আকৃতি একই ঘনবস্তু ঘোরানো, নাকি আয়না-প্রতিবিম্ব যা কোনো ঘূর্ণনেই মেলে না, তা ঠিক করা।</string>
+    <string name="science_color_confusion_paradigm">স্ট্রুপ কাজ</string>
+    <string name="science_color_confusion_summary">প্রতিরোধের প্রমিত পরিমাপ: শব্দটি যে রঙে ছাপা তার নাম বলা, অথচ শব্দটি পড়া নিজেই দ্রুততর, প্রতিদ্বন্দ্বী একটি উত্তর এগিয়ে দেয়।</string>
     <string name="science_digit_memory_paradigm">ব্রাউন-পিটারসন টাস্ক</string>
     <string name="science_digit_memory_summary">কার্যকরী স্মৃতির প্রমিত পরিমাপ: একটি ক্রম ধরে রাখা যখন সম্পর্কহীন আরেকটি কাজ একই মানসিক জায়গা দখল করে থাকে।</string>
     <string name="science_pattern_sequence_paradigm">ম্যাট্রিক্স যুক্তি</string>
@@ -317,6 +323,8 @@
     <string name="science_mental_flex_summary">জ্ঞানীয় নমনীয়তার প্রমিত পরিমাপ: এইমাত্র ব্যবহার করা নিয়ম ছেড়ে অন্য নিয়ম প্রয়োগ করার খরচ।</string>
     <string name="science_n_back_paradigm">N-Back টাস্ক</string>
     <string name="science_n_back_summary">কার্যকরী স্মৃতি হালনাগাদের প্রমিত পরিমাপ: শেষ কয়েকটি উপাদানের একটি চলমান জানালা হালনাগাদ রাখা, আর সেটি চলতে থাকা অবস্থাতেই তার সঙ্গে মিলিয়ে বিচার করা।</string>
+    <string name="science_rule_shift_paradigm">উইসকনসিন কার্ড সর্টিং টেস্ট</string>
+    <string name="science_rule_shift_summary">ধারণা গঠনের প্রমিত পরিমাপ: শুধু ঠিক-না-ভুল থেকে সাজানোর নিয়ম খুঁজে বার করা, তারপর টের পাওয়া কখন সেটা নীরবে বদলে গেল।</string>
     <string name="science_tower_of_hanoi_paradigm">হ্যানয়ের টাওয়ার</string>
     <string name="science_tower_of_hanoi_summary">পরিকল্পনার প্রমিত পরিমাপ: লক্ষ্যে পৌঁছানোর আগে এই ধাঁধায় এমন চাল দরকার যা অগ্রগতিকে পিছিয়ে দেয়।</string>
     <string name="brain_cup_button">Brain Cup লিডারবোর্ড</string>
@@ -745,6 +753,15 @@
     <string name="sherlock_calculation_demo_title">লক্ষ্য সংখ্যায় পৌঁছান</string>
     <string name="value_comparison_demo_title">সবচেয়ে বড় মান বেছে নিন</string>
     <string name="mental_flex_demo_title">জোড়াই নিয়ম ঠিক করে</string>
+    <string name="rule_shift_demo_title">নিয়মটা কখনও বলা হয় না</string>
+    <string name="rule_shift_demo_caption_match">কার্ডটি সেই মূল কার্ডের পাশে রাখুন যার সঙ্গে এটি মেলে।</string>
+    <string name="rule_shift_demo_caption_rule_works">নীলের সঙ্গে নীল, লালের সঙ্গে লাল। দুটোই ঠিক।</string>
+    <string name="rule_shift_demo_caption_rule_moved">সবুজের সঙ্গে সবুজ। ভুল, কোনো কারণ ছাড়াই।</string>
+    <string name="rule_shift_demo_caption_new_rule">একটি প্রতীক, প্রথম মূল কার্ড। এখন সংখ্যাই বিচার্য।</string>
+    <string name="color_confusion_demo_caption_ink">শব্দ এক রং বলে। কালি বলে অন্য রং।</string>
+    <string name="color_confusion_demo_caption_agree">কখনও কখনও দুটোই মিলে যায়।</string>
+    <string name="color_confusion_demo_caption_trap">ফাঁদটা হলো শব্দটা পড়ে ফেলা।</string>
+    <string name="color_confusion_demo_caption_recover">উত্তর সবসময় কালিই।</string>
     <string name="spot_the_new_demo_title">নতুনটি খুঁজুন</string>
     <string name="spot_the_new_demo_seen_label">এখন পর্যন্ত দেখা হয়েছে</string>
     <string name="spot_the_new_demo_new">আপনি আগে যে প্রাণীটি দেখেননি সেটিতে ট্যাপ করুন।</string>
@@ -784,6 +801,7 @@
     <string name="game_trio">ত্রয়ী</string>
     <string name="game_mental_rotations">মানসিক আবর্তন</string>
     <string name="game_mental_flex">মানসিক নমনীয়তা</string>
+    <string name="game_rule_shift">নিয়ম বদল</string>
     <string name="game_trio_desc">এমন তিনটি তাস খুঁজুন যাদের আকৃতি, সংখ্যা বা ভরাট এক।</string>
     <string name="game_mental_rotations_desc">দ্বিতীয় ব্লকটি প্রথমটিরই ঘোরানো রূপ, নাকি তার আয়না-প্রতিবিম্ব, তা ঠিক করুন।</string>
     <string name="game_mental_rotations_question">একই ব্লক, নাকি আয়না-প্রতিবিম্ব?</string>
@@ -794,6 +812,10 @@
     <string name="game_mental_flex_rule_shape">আকৃতি</string>
     <string name="game_mental_flex_rule_color">রঙ</string>
     <string name="game_mental_flex_howto">জোড়াটির মধ্যে কী মিল আছে খুঁজুন।</string>
+    <string name="game_rule_shift_desc">প্রতিটি কার্ড চারটি মূল কার্ডের একটির সঙ্গে সাজান। নিয়মটা কেউ আপনাকে বলে না, আর ধরে ফেললেই সেটা বদলে যায়।</string>
+    <string name="game_rule_shift_howto">এটি কোন মূল কার্ডের সঙ্গে যায়?</string>
+    <string name="game_rule_shift_cards_left">বাকি কার্ড: %1$d</string>
+    <string name="game_color_confusion_howto">কালির রঙে ট্যাপ করুন।</string>
     <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>
     <string name="trio_demo_rule">তারা একটি বৈশিষ্ট্য ভাগ করে। বাকি মেশানো নয়।</string>
     <string name="trio_trait_shape">আকৃতি</string>
@@ -813,9 +835,11 @@
     <string name="achievement_gold_trio">ত্রিগুণ দৃষ্টি</string>
     <string name="achievement_gold_mental_rotations">ঘূর্ণন গুরু</string>
     <string name="achievement_gold_mental_flex">দ্রুত বদল</string>
+    <string name="achievement_gold_rule_shift">নিয়মভঙ্গকারী</string>
     <string name="achievement_gold_trio_desc">Trio-তে স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_mental_rotations_desc">মানসিক আবর্তন-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_mental_flex_desc">মানসিক নমনীয়তা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_rule_shift_desc">নিয়ম বদল-এ স্বর্ণপদক জিতুন</string>
 
     <string name="iq_test_button">আইকিউ টেস্ট</string>
     <string name="iq_test_title">আইকিউ টেস্ট</string>

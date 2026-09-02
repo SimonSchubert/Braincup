@@ -179,6 +179,9 @@
     <string name="finish_best_tries">అత్యుత్తమం: %1$s ప్రయత్నాలు</string>
     <string name="button_play_next_level">తర్వాతి స్థాయిని ఆడు</string>
     <string name="finish_max_level_reached">గరిష్ఠ స్థాయికి చేరారు. కొత్త కంటెంట్ కోసం వేచి ఉండండి.</string>
+    <string name="finish_congruency_effect_title">అనుగుణ్యత ఖరీదు</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">పదం, సిరా కలవనప్పుడు మీకు ఎంత ఎక్కువ సమయం పట్టింది</string>
 
     <string name="feedback_solution">పరిష్కారం: %1$s</string>
 
@@ -222,6 +225,7 @@
     <string name="game_trio">త్రయం</string>
     <string name="game_mental_rotations">మానసిక భ్రమణం</string>
     <string name="game_mental_flex">మానసిక వశ్యత</string>
+    <string name="game_rule_shift">నియమ మార్పు</string>
 
     <string name="game_anomaly_puzzle_desc">వేరుగా కనిపించే ఆకృతిని కనుగొనండి. ప్రతి ఆకృతి రంగు, ఆకారం రెండింటినీ పరిగణించండి.</string>
     <string name="game_mental_calculation_desc">గణిత వ్యక్తీకరణలను అనుసరించండి. ఫలితాన్ని తర్వాతి గణనకు ఆధారంగా వాడండి.</string>
@@ -283,6 +287,10 @@
     <string name="game_mental_flex_rule_shape">ఆకారం</string>
     <string name="game_mental_flex_rule_color">రంగు</string>
     <string name="game_mental_flex_howto">జతలో ఏది ఉమ్మడిగా ఉందో గుర్తించండి.</string>
+    <string name="game_rule_shift_desc">ప్రతి కార్డును నాలుగు కీలక కార్డుల్లో ఒకదాని దగ్గర ఉంచండి. నియమం మీకు ఎవరూ చెప్పరు, మీరు దాన్ని పట్టుకున్న వెంటనే అది మారిపోతుంది.</string>
+    <string name="game_rule_shift_howto">ఇది ఏ కీలక కార్డుకు చెందుతుంది?</string>
+    <string name="game_rule_shift_cards_left">మిగిలిన కార్డులు: %1$d</string>
+    <string name="game_color_confusion_howto">సిరా రంగును నొక్కండి.</string>
     <string name="trio_demo_title">మూడింటి సమూహాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">అవి ఒకే లక్షణాన్ని పంచుకుంటాయి. మరేదీ కలగలిసి లేదు.</string>
     <string name="trio_trait_shape">ఆకారం</string>
@@ -380,6 +388,15 @@
     <string name="sherlock_calculation_demo_title">లక్ష్య సంఖ్యను చేరుకోండి</string>
     <string name="value_comparison_demo_title">అతిపెద్ద విలువను ఎంచుకోండి</string>
     <string name="mental_flex_demo_title">జతే నియమాన్ని నిర్ణయిస్తుంది</string>
+    <string name="rule_shift_demo_title">నియమం ఎప్పుడూ చెప్పబడదు</string>
+    <string name="rule_shift_demo_caption_match">కార్డును దానికి సరిపోయే కీలక కార్డు దగ్గర ఉంచండి.</string>
+    <string name="rule_shift_demo_caption_rule_works">నీలానికి నీలం, ఎరుపుకు ఎరుపు. రెండూ సరైనవే.</string>
+    <string name="rule_shift_demo_caption_rule_moved">ఆకుపచ్చకు ఆకుపచ్చ. తప్పు, కారణం కూడా చెప్పరు.</string>
+    <string name="rule_shift_demo_caption_new_rule">ఒక గుర్తు, మొదటి కీలక కార్డు. ఇప్పుడు సంఖ్యే ముఖ్యం.</string>
+    <string name="color_confusion_demo_caption_ink">పదం ఒక రంగు చెబుతుంది. సిరా మరొకటి.</string>
+    <string name="color_confusion_demo_caption_agree">కొన్నిసార్లు రెండూ ఒకటే.</string>
+    <string name="color_confusion_demo_caption_trap">పదాన్ని చదవడమే ఉచ్చు.</string>
+    <string name="color_confusion_demo_caption_recover">సమాధానం ఎప్పుడూ సిరాయే.</string>
     <string name="pattern_sequence_prompt">ఏ ముక్క మాత్రికను పూర్తి చేస్తుంది?</string>
     <string name="game_tap_original_targets">అసలు లక్ష్యాలను నొక్కండి</string>
     <string name="game_remember_targets">లక్ష్యాలను గుర్తుంచుకోండి</string>
@@ -405,6 +422,7 @@
     <string name="shape_circle">వృత్తం</string>
     <string name="shape_heart">గుండె</string>
     <string name="shape_star">నక్షత్రం</string>
+    <string name="shape_cross">క్రాస్</string>
     <string name="shape_t_shape">T ఆకారం</string>
     <string name="shape_l_shape">L ఆకారం</string>
     <string name="shape_diamond">వజ్రం</string>
@@ -441,6 +459,7 @@
     <string name="achievement_gold_trio">త్రి నేత్ర దృష్టి</string>
     <string name="achievement_gold_mental_rotations">భ్రమణ నిపుణుడు</string>
     <string name="achievement_gold_mental_flex">వేగవంతమైన మార్పు</string>
+    <string name="achievement_gold_rule_shift">నియమ భంజకుడు</string>
     <string name="achievement_gold_path_finder">బాట వేసినవాడు</string>
     <string name="achievement_gold_anomaly_puzzle">వేరుగా ఉన్నది దొరికింది</string>
     <string name="achievement_gold_colored_shapes">ఆకార మార్పరి</string>
@@ -479,6 +498,7 @@
     <string name="achievement_gold_trio_desc">త్రయంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_mental_rotations_desc">మానసిక భ్రమణంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_mental_flex_desc">మానసిక వశ్యతలో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_rule_shift_desc">నియమ మార్పులో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_path_finder_desc">మార్గ అన్వేషిలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_anomaly_puzzle_desc">అసంగత పజిల్‌లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_colored_shapes_desc">రంగుల ఆకారాలలో బంగారు పతకం గెలవండి</string>
@@ -568,6 +588,8 @@
     <string name="science_orbit_tracker_summary">నిరంతర విభజిత శ్రద్ధకు ప్రామాణిక కొలత: ఒకేలా ఉండే పరధ్యాన వస్తువుల మధ్య ఎన్ని కదిలే లక్ష్యాలను నిలుపుకోగలరు.</string>
     <string name="science_mental_rotations_paradigm">మానసిక భ్రమణ పని</string>
     <string name="science_mental_rotations_summary">ప్రాదేశిక సామర్థ్యానికి ప్రామాణిక కొలత: రెండు ఆకారాలు ఒకే ఘనం తిప్పినవా, లేక ఏ భ్రమణమూ కలపలేని అద్దపు ప్రతిబింబాలా అని తేల్చడం.</string>
+    <string name="science_color_confusion_paradigm">స్ట్రూప్ కర్తవ్యం</string>
+    <string name="science_color_confusion_summary">నిరోధానికి ప్రామాణిక కొలత: ఒక పదం ఏ రంగులో ముద్రితమైందో దాన్ని పేర్కొనడం, అదే సమయంలో పదాన్ని చదవడమే వేగవంతమైన, పోటీపడే సమాధానాన్ని ముందుకు తెస్తుంది.</string>
     <string name="science_digit_memory_paradigm">బ్రౌన్-పీటర్సన్ పని</string>
     <string name="science_digit_memory_summary">పని జ్ఞాపకశక్తికి ప్రామాణిక కొలత: సంబంధం లేని మరో పని అదే మానసిక స్థలాన్ని ఆక్రమించి ఉండగా ఒక శ్రేణిని పట్టుకుని ఉంచడం.</string>
     <string name="science_pattern_sequence_paradigm">మాత్రిక తార్కికత</string>
@@ -576,6 +598,8 @@
     <string name="science_mental_flex_summary">జ్ఞానాత్మక సరళత్వానికి ప్రామాణిక కొలత: ఇప్పుడే వాడిన నియమాన్ని వదిలి మరొకటి వర్తింపజేయడానికి అయ్యే ఖరీదు.</string>
     <string name="science_n_back_paradigm">N-Back పని</string>
     <string name="science_n_back_summary">పని జ్ఞాపకశక్తిని తాజాగా ఉంచడానికి ప్రామాణిక కొలత: చివరి కొన్ని అంశాల కదిలే కిటికీని తాజాగా ఉంచడం, అది కదులుతూ ఉండగానే దానితో సరిపోల్చి నిర్ణయించడం.</string>
+    <string name="science_rule_shift_paradigm">విస్కాన్సిన్ కార్డ్ సార్టింగ్ టెస్ట్</string>
+    <string name="science_rule_shift_summary">భావన నిర్మాణానికి ప్రామాణిక కొలత: సరి-లేదా-తప్పు అనే దాని నుంచే క్రమబద్ధీకరణ నియమాన్ని కనుగొనడం, ఆపై అది ఎప్పుడు నిశ్శబ్దంగా మారిందో గమనించడం.</string>
     <string name="science_tower_of_hanoi_paradigm">హనోయి గోపురం</string>
     <string name="science_tower_of_hanoi_summary">ప్రణాళికకు ప్రామాణిక కొలత: లక్ష్యాన్ని చేరకముందు పురోగతిని వెనక్కి తీసుకెళ్లే ఎత్తుగడలు ఈ పజిల్‌లో అవసరమవుతాయి.</string>
     <string name="brain_cup_button">Brain Cup లీడర్‌బోర్డు</string>
