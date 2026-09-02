@@ -81,119 +81,29 @@ class IosStoreScreenshotTest(
         Locale.setDefault(originalLocale)
     }
 
-    private fun snap(
-        name: String,
-        darkTheme: Boolean,
-        content: @Composable () -> Unit,
-    ) {
-        paparazzi.unsafeUpdateConfig(
-            theme = if (darkTheme) {
-                "android:Theme.Material.NoActionBar"
-            } else {
-                "android:Theme.Material.Light.NoActionBar"
-            },
+    private fun snap(name: String, darkTheme: Boolean, content: @Composable () -> Unit) {
+        paparazzi.snapStore(
+            name = "iphone_${appStoreLocale.lowercase()}_$name",
+            darkTheme = darkTheme,
+            chrome = IosDevice.IPHONE,
+            content = content,
         )
-        paparazzi.snapshot(name = "iphone_${appStoreLocale.lowercase()}_$name") {
-            CompositionLocalProvider(LocalInspectionMode provides true) {
-                BraincupTheme(colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme) {
-                    Surface(modifier = Modifier.fillMaxSize()) {
-                        IosDeviceChrome(IosDevice.IPHONE) {
-                            content()
-                        }
-                    }
-                }
-            }
-        }
     }
+    @Test
+    fun mainMenu() = snap("01", darkTheme = true) { StoreShots.MainMenu(StoreShots.PhoneLineup) }
 
     @Test
-    fun mainMenu() {
-        snap("01", darkTheme = true) {
-            MainMenuScreenContent(
-                totalXp = 250,
-                sessionStreak = 14,
-                sessionProgressIndex = 0,
-                sessionTotalGames = 5,
-                sessionCompletedToday = false,
-                highscores = mainMenuHighscores,
-                unlockedCount = 5,
-                showDailyChallenge = false,
-                gameTypes = persistentListOf(
-                    GameType.CAT_QUEENS,
-                    GameType.GHOST_GRID,
-                    GameType.SPOT_THE_NEW,
-                    GameType.MINI_CHESS,
-                    GameType.DIGIT_MEMORY,
-                    GameType.PATTERN_SEQUENCE,
-                ),
-            )
-        }
-    }
+    fun iqTestResult() = snap("02", darkTheme = true) { StoreShots.IqTestResult() }
 
     @Test
-    fun iqTestResult() {
-        snap("02", darkTheme = true) {
-            IqTestResultScreen(
-                uiState = createIqTestResultUiState(
-                    rawScore = 27,
-                    durationSeconds = 14 * 60 + 46,
-                    tierCorrect = listOf(3, 4, 4, 5, 5, 3, 3),
-                ),
-                onReview = {},
-                onDone = {},
-            )
-        }
-    }
+    fun gameAnomalyPuzzle() = snap("03", darkTheme = true) { StoreShots.AnomalyPuzzle() }
 
     @Test
-    fun gameAnomalyPuzzle() {
-        snap("03", darkTheme = true) {
-            GameScreen(
-                gameUiState = createAnomalyPuzzleUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
-    }
+    fun gameSherlockCalculation() = snap("04", darkTheme = false) { StoreShots.SherlockCalculation() }
 
     @Test
-    fun gameSherlockCalculation() {
-        snap("04", darkTheme = false) {
-            GameScreen(
-                gameUiState = createSherlockCalculationUiState(),
-                timeRemaining = 40_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
-    }
+    fun gamePathFinder() = snap("05", darkTheme = true) { StoreShots.PathFinder() }
 
     @Test
-    fun gamePathFinder() {
-        snap("05", darkTheme = true) {
-            GameScreen(
-                gameUiState = createPathFinderUiState(),
-                timeRemaining = 30_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
-    }
-
-    @Test
-    fun gamePatternSequence() {
-        snap("06", darkTheme = false) {
-            GameScreen(
-                gameUiState = createPatternSequenceUiState(),
-                timeRemaining = 20_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
-    }
+    fun gamePatternSequence() = snap("06", darkTheme = false) { StoreShots.PatternSequence() }
 }

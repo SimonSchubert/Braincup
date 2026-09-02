@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.material3.ColorScheme
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
+import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.api.UserStorage
 import com.russhwolf.settings.MapSettings
@@ -85,6 +86,34 @@ class ScreenshotTest {
         }
     }
 
+    /**
+     * One game board, rendered the way the app renders it.
+     *
+     * Every game shot is the same call with a different [gameUiState], so the callbacks and the
+     * scaffolding live here rather than in forty copies. The snapshot file is named after the test
+     * method, so these stay one method per shot.
+     */
+    fun snapGame(
+        gameUiState: GameUiState,
+        timeRemaining: Long,
+        darkTheme: Boolean = false,
+        colorScheme: ColorScheme? = null,
+        accessiblePalette: Boolean = false,
+    ) {
+        paparazzi.snap(
+            darkTheme = darkTheme,
+            colorScheme = colorScheme,
+            accessiblePalette = accessiblePalette,
+        ) {
+            GameScreen(
+                gameUiState = gameUiState,
+                timeRemaining = timeRemaining,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
 
     @Test
     fun mainMenu() {
@@ -320,67 +349,27 @@ class ScreenshotTest {
 
     @Test
     fun gameColoredShapes() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createColoredShapesUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createColoredShapesUiState(), 45_000L)
     }
 
     @Test
     fun gameAnomalyPuzzle() {
-        paparazzi.snap(darkTheme = true) {
-            GameScreen(
-                gameUiState = createAnomalyPuzzleUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createAnomalyPuzzleUiState(), 50_000L, darkTheme = true)
     }
 
     @Test
     fun gameDigitMemoryShowing() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createDigitMemoryShowingUiState(),
-                timeRemaining = 52_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createDigitMemoryShowingUiState(), 52_000L)
     }
 
     @Test
     fun gameDigitMemorySolving() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createDigitMemorySolvingUiState(),
-                timeRemaining = 48_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createDigitMemorySolvingUiState(), 48_000L)
     }
 
     @Test
     fun gameDigitMemoryRecall() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createDigitMemoryRecallUiState(),
-                timeRemaining = 44_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createDigitMemoryRecallUiState(), 44_000L)
     }
 
     @Test
@@ -443,316 +432,124 @@ class ScreenshotTest {
 
     @Test
     fun gameMentalCalculation() {
-        paparazzi.snap(darkTheme = true) {
-            GameScreen(
-                gameUiState = createMentalCalculationUiState(),
-                timeRemaining = 55_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMentalCalculationUiState(), 55_000L, darkTheme = true)
     }
 
     @Test
     fun gameBubbleSum() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createBubbleSumUiState(),
-                timeRemaining = 55_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createBubbleSumUiState(), 55_000L)
     }
 
     @Test
     fun gameQuickSum() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createQuickSumUiState(),
-                timeRemaining = 55_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createQuickSumUiState(), 55_000L)
     }
 
     @Test
     fun gameNBack() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createNBackUiState(),
-                timeRemaining = 55_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createNBackUiState(), 55_000L)
     }
 
     @Test
     fun gameSherlockCalculation() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSherlockCalculationUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSherlockCalculationUiState(), 50_000L)
     }
 
     @Test
     fun gameChainCalculation() {
-        paparazzi.snap(darkTheme = true) {
-            GameScreen(
-                gameUiState = createChainCalculationUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createChainCalculationUiState(), 50_000L, darkTheme = true)
     }
 
     @Test
     fun gameFractionCalculation() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createFractionCalculationUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createFractionCalculationUiState(), 50_000L)
     }
 
     @Test
     fun gameValueComparison() {
-        paparazzi.snap(darkTheme = true) {
-            GameScreen(
-                gameUiState = createValueComparisonUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createValueComparisonUiState(), 50_000L, darkTheme = true)
     }
 
     @Test
     fun gamePathFinder() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createPathFinderUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createPathFinderUiState(), 50_000L)
     }
 
     @Test
     fun gameMiniSudoku() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createMiniSudokuUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMiniSudokuUiState(), 50_000L)
     }
 
     @Test
     fun gameLightsOut() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createLightsOutUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createLightsOutUiState(), 50_000L)
     }
 
     @Test
     fun gameSlidingPuzzle() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSlidingPuzzleUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSlidingPuzzleUiState(), 50_000L)
     }
 
     @Test
     fun gameShikaku() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createShikakuUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createShikakuUiState(), 50_000L)
     }
 
     @Test
     fun gameNurikabe() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createNurikabeUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createNurikabeUiState(), 50_000L)
     }
 
     @Test
     fun gameCatQueens() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createCatQueensUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createCatQueensUiState(), 50_000L)
     }
 
     @Test
     fun gameKnot() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createKnotUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createKnotUiState(), 50_000L)
     }
 
     @Test
     fun gameSoloChess() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSoloChessUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSoloChessUiState(), 50_000L)
     }
 
     @Test
     fun gameSchulteTable() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSchulteTableUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSchulteTableUiState(), 50_000L)
     }
 
     @Test
     fun gamePatternSequence() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createPatternSequenceUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createPatternSequenceUiState(), 50_000L)
     }
 
     @Test
     fun gameColorConfusion() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createColorConfusionUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createColorConfusionUiState(), 45_000L)
     }
 
     @Test
     fun gameTrio() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createTrioUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createTrioUiState(), 45_000L)
     }
 
     @Test
     fun gameRuleShift() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createRuleShiftUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createRuleShiftUiState(), 45_000L)
     }
 
     // Rule Shift is not gated by requiresColorVision: sorting only ever needs "same colour or not",
     // never a colour named. This snapshot is what backs that claim.
     @Test
     fun gameRuleShiftColorblind() {
-        paparazzi.snap(accessiblePalette = true) {
-            GameScreen(
-                gameUiState = createRuleShiftUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createRuleShiftUiState(), 45_000L, accessiblePalette = true)
     }
 
     @Test
     fun gameMentalFlex() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createMentalFlexUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMentalFlexUiState(), 45_000L)
     }
 
     // The high-score card pins its own face and ink. Material You can resolve `primaryContainer` to
@@ -782,198 +579,78 @@ class ScreenshotTest {
 
     @Test
     fun gameMentalRotations() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createMentalRotationsUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMentalRotationsUiState(), 45_000L)
     }
 
     @Test
     fun gameGhostGrid() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createGhostGridUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createGhostGridUiState(), 50_000L)
     }
 
     @Test
     fun gameGhostGridGameOver() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createGhostGridGameOverUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createGhostGridGameOverUiState(), 50_000L)
     }
 
     @Test
     fun gameSimonSays() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSimonSaysUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSimonSaysUiState(), 50_000L)
     }
 
     @Test
     fun gameSimonSaysGameOver() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createSimonSaysGameOverUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSimonSaysGameOverUiState(), 50_000L)
     }
 
     @Test
     fun gameVisualMemory() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createVisualMemoryUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createVisualMemoryUiState(), 50_000L)
     }
 
     @Test
     fun gameFlashCrowd() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createFlashCrowdUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createFlashCrowdUiState(), 50_000L)
     }
 
     @Test
     fun gameVisualMemoryGameOver() {
-        paparazzi.snap {
-            GameScreen(
-                gameUiState = createVisualMemoryGameOverUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createVisualMemoryGameOverUiState(), 50_000L)
     }
 
     @Test
     fun gamePatternSequenceOledColorblind() {
-        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
-            GameScreen(
-                gameUiState = createPatternSequenceUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createPatternSequenceUiState(), 50_000L, colorScheme = OledColorScheme, accessiblePalette = true)
     }
 
     @Test
     fun gameVisualMemoryOledColorblind() {
-        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
-            GameScreen(
-                gameUiState = createVisualMemoryUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createVisualMemoryUiState(), 50_000L, colorScheme = OledColorScheme, accessiblePalette = true)
     }
 
     /** The one state that puts both achromatic slots -- ROSA and GREY_LIGHT -- in the same grid. */
     @Test
     fun gameVisualMemoryGameOverOledColorblind() {
-        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
-            GameScreen(
-                gameUiState = createVisualMemoryGameOverUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createVisualMemoryGameOverUiState(), 50_000L, colorScheme = OledColorScheme, accessiblePalette = true)
     }
 
     @Test
     fun gameAnomalyPuzzleOledColorblind() {
-        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
-            GameScreen(
-                gameUiState = createAnomalyPuzzleUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createAnomalyPuzzleUiState(), 50_000L, colorScheme = OledColorScheme, accessiblePalette = true)
     }
 
     @Test
     fun gameSimonSaysOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createSimonSaysUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createSimonSaysUiState(), 50_000L, colorScheme = OledColorScheme)
     }
 
     @Test
     fun gameLightsOutOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createLightsOutUiState(),
-                timeRemaining = 50_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createLightsOutUiState(), 50_000L, colorScheme = OledColorScheme)
     }
 
     @Test
     fun gameTrioOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createTrioUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createTrioUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
     // The animated tutorials have no other coverage at all, so this pins at least one of them:
@@ -1060,54 +737,22 @@ class ScreenshotTest {
 
     @Test
     fun gameColorConfusionOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createColorConfusionUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createColorConfusionUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
     @Test
     fun gameRuleShiftOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createRuleShiftUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createRuleShiftUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
     @Test
     fun gameMentalFlexOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createMentalFlexUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMentalFlexUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
     @Test
     fun gameMentalRotationsOled() {
-        paparazzi.snap(colorScheme = OledColorScheme) {
-            GameScreen(
-                gameUiState = createMentalRotationsUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
-            )
-        }
+        snapGame(createMentalRotationsUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
     @Test
