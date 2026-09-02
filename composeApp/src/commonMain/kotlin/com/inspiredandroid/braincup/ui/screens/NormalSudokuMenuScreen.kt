@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -70,8 +70,11 @@ fun NormalSudokuMenuScreen(
                         total = list.size,
                     )
                 }
-                items(list, key = { it.id }, span = { GridItemSpan(1) }) { puzzle ->
-                    val index = list.indexOf(puzzle)
+                itemsIndexed(
+                    list,
+                    key = { _, puzzle -> puzzle.id },
+                    span = { _, _ -> GridItemSpan(1) },
+                ) { index, puzzle ->
                     val isCompleted = puzzle.id in completed
                     // Already-solved puzzles stay replayable; only not-yet-solved ones past the
                     // next playable puzzle are locked (handles legacy non-prefix completion too).

@@ -3,7 +3,7 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -72,8 +72,7 @@ fun MatchstickRiddlesMenuScreenContent(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            items(riddles, key = { it.id }) { riddle ->
-                val index = riddles.indexOf(riddle)
+            itemsIndexed(riddles, key = { _, riddle -> riddle.id }) { index, riddle ->
                 val isSolved = riddle.id in solved
                 val isLocked = !isSolved && firstUnsolved != -1 && index > firstUnsolved
                 RiddleTile(
