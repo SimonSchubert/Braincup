@@ -1,7 +1,7 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 45 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 45 brain training exercises to sharpen your mind and improve concentration.
 
 <b>Mental Calculation</b>:
-Follow the mathematical expressions. Use the result as the base for the next calculation.
+Follow the math expressions. Use each result as the base for the next.
 
 <b>Chain Calculation</b>:
 Solve complex formulas step by step.
@@ -25,13 +25,13 @@ Numbers flash one at a time. Add them up and enter the total.
 Find the figure that stands out.
 
 <b>Pattern Sequence</b>:
-Work out the rule running along each row of the grid, then pick the piece that completes it.
+Work out the rule running along each row, then pick the piece that completes it.
 
 <b>Path Finder</b>:
 Start at the marked cell and follow the arrows to the destination.
 
 <b>Visual Memory</b>:
-Memorize the shapes on the grid, then identify the hidden shape after the timer ends.
+Memorize the shapes, then identify the hidden one when the timer ends.
 
 <b>Ghost Grid</b>:
 Watch the tiles light up one by one, then tap them back in the same order.
@@ -49,13 +49,13 @@ Watch the highlighted balls, then track them as they move.
 Dots flash briefly on each side. Tap the side that had more dots.
 
 <b>Mini Sudoku</b>:
-Fill the small grid so every row, column and block contains each number exactly once.
+Fill the grid so every row, column and block holds each number exactly once.
 
 <b>Mini Chess</b>:
 Checkmate the CPU before it checkmates you.
 
 <b>Solo Chess</b>:
-Capture pieces one by one until only the king remains. Every move must capture.
+Capture pieces until only the king remains. Every move must capture.
 
 <b>Lights Out</b>:
 Turn off every light. Each tap toggles the cell and its four neighbours.
@@ -67,13 +67,13 @@ Slide tiles into the empty space to put them back in order.
 Divide the grid into rectangles, each holding one number equal to its area.
 
 <b>Nurikabe</b>:
-Paint cells to build the sea around numbered islands without forming any 2x2 block.
+Paint the sea around numbered islands, never forming a 2x2 block.
 
 <b>Cat Queens</b>:
-Place one cat in every row, column and color zone. No two cats may touch, not even diagonally.
+Place one cat per row, column and color zone. No two may touch, not even diagonally.
 
 <b>Knot</b>:
-Connect each pair of colored dots with a path. Paths may not cross and must cover every cell.
+Connect each pair of colored dots. Paths may not cross and must fill every cell.
 
 <b>Tower of Hanoi</b>:
 Move the full stack to the right peg.
@@ -85,7 +85,7 @@ Tap the numbers in order from 1 upwards as fast as you can.
 Identify the country by its flag.
 
 <b>Digit Memory</b>:
-Memorize a digit sequence, solve a quick math problem, then recall the digits.
+Memorize a digit sequence, solve a quick math problem, then recall it.
 
 <b>Spot the New</b>:
 Tap the animal you have not seen before.
@@ -121,7 +121,7 @@ Guess the secret 4-digit number with unique digits.
 Each round adds one pad. Tap the whole sequence back from the start.
 
 <b>Prism Clear</b>:
-Swap matching tiles to clear lines of three or more. Empty the whole board to win.
+Swap tiles to clear lines of three or more. Empty the board to win.
 
 <b>Trio</b>:
 Find three cards that share a shape, a count or a fill.
@@ -135,6 +135,6 @@ The pair at the top says which trait counts: shape or color.
 <b>Rule Shift</b>:
 Sort each card onto a key card. Nobody tells you the rule, and it changes once you have it.
 
-The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
+Several <b>achievements</b>, and every exercise has <b>medals</b> to keep you motivated.
 
 No tracking. <b>Open source</b>.
