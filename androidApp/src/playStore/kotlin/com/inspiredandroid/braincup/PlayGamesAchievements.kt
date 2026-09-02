@@ -27,6 +27,22 @@ private const val TAG = "PlayGamesBridge"
 
 private var activityRef: WeakReference<ComponentActivity>? = null
 
+/**
+ * Runs [action] with a live activity and the non-blank achievement or leaderboard id [resId] names.
+ *
+ * Every Play Games call needs both and either can be absent: the activity is a weak reference a
+ * rotation can clear, and the id resolves to an empty string in a build with no Play Games project
+ * behind it. Both cases are a deliberate no-op rather than an error, which is why they were spelled
+ * out at every call site before this.
+ */
+private inline fun withPlayGamesId(resId: Int?, action: (ComponentActivity, String) -> Unit) {
+    val current = activityRef?.get() ?: return
+    if (resId == null) return
+    val id = current.getString(resId)
+    if (id.isBlank()) return
+    action(current, id)
+}
+
 fun initPlayGames(activity: ComponentActivity) {
     activityRef = WeakReference(activity)
     PlayGamesSdk.initialize(activity)
@@ -50,41 +66,34 @@ fun initPlayGames(activity: ComponentActivity) {
     }
 
     PlayGamesBridge.onGoldMedal = fun(gameType: GameType) {
-        val current = activityRef?.get() ?: return
-        val resId = achievementResIdFor(gameType) ?: return
-        val id = current.getString(resId)
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).unlock(id)
+        withPlayGamesId(achievementResIdFor(gameType)) { activity, id ->
+            PlayGames.getAchievementsClient(activity).unlock(id)
+        }
     }
 
     PlayGamesBridge.onTotalScore = fun(total: Int) {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.achievementMindMarathoner)
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).setSteps(id, total.coerceAtMost(MIND_MARATHONER_TARGET))
+        withPlayGamesId(R.string.achievementMindMarathoner) { activity, id ->
+            PlayGames.getAchievementsClient(activity).setSteps(id, total.coerceAtMost(MIND_MARATHONER_TARGET))
+        }
     }
 
     PlayGamesBridge.onStreak = fun(streak: Int) {
         if (streak < IRON_STREAK_TARGET) return
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.achievementIronStreak)
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).unlock(id)
+        withPlayGamesId(R.string.achievementIronStreak) { activity, id ->
+            PlayGames.getAchievementsClient(activity).unlock(id)
+        }
     }
 
     PlayGamesBridge.onPegSolitairePerfect = fun() {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.achievementPegMaster)
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).unlock(id)
+        withPlayGamesId(R.string.achievementPegMaster) { activity, id ->
+            PlayGames.getAchievementsClient(activity).unlock(id)
+        }
     }
 
     PlayGamesBridge.onLearnCertificate = fun(unitId: String) {
-        val current = activityRef?.get() ?: return
-        val resId = learnCertificateResIdFor(unitId) ?: return
-        val id = current.getString(resId)
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).unlock(id)
+        withPlayGamesId(learnCertificateResIdFor(unitId)) { activity, id ->
+            PlayGames.getAchievementsClient(activity).unlock(id)
+        }
     }
 
     PlayGamesBridge.onIqTestCompleted = fun(iq: Int) {
@@ -98,48 +107,37 @@ fun initPlayGames(activity: ComponentActivity) {
     }
 
     PlayGamesBridge.onSudokuTierProgress = fun(difficulty: SudokuDifficulty, solved: Int) {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(sudokuTierAchievementResIdFor(difficulty))
-        if (id.isBlank()) return
-        PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(UserStorage.SUDOKU_TIER_TARGET))
+        withPlayGamesId(sudokuTierAchievementResIdFor(difficulty)) { activity, id ->
+            PlayGames.getAchievementsClient(activity)
+                .setSteps(id, solved.coerceAtMost(UserStorage.SUDOKU_TIER_TARGET))
+        }
     }
 
     PlayGamesBridge.onMatchstickRiddlesProgress = fun(solved: Int) {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.achievementMatchstickMaster)
-        if (id.isBlank()) return
         // Steps toward storeProgressMax (50 in Play Console). In-app unlock is separate; no unlock() here.
-        PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(MatchstickRiddles.count))
+        withPlayGamesId(R.string.achievementMatchstickMaster) { activity, id ->
+            PlayGames.getAchievementsClient(activity).setSteps(id, solved.coerceAtMost(MatchstickRiddles.count))
+        }
     }
 
     PlayGamesBridge.onSubmitScore = fun(gameType: GameType, score: Int) {
-        val current = activityRef?.get() ?: return
-        val resId = leaderboardResIdFor(gameType) ?: return
-        val id = current.getString(resId)
-        if (id.isBlank()) return
-        PlayGames.getLeaderboardsClient(current).submitScore(id, score.toLong())
+        withPlayGamesId(leaderboardResIdFor(gameType)) { activity, id ->
+            PlayGames.getLeaderboardsClient(activity).submitScore(id, score.toLong())
+        }
     }
 
     PlayGamesBridge.onSubmitTotalXp = fun(totalXp: Int) {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.leaderboardBrainCup)
-        if (id.isBlank()) return
-        PlayGames.getLeaderboardsClient(current).submitScore(id, totalXp.toLong())
+        withPlayGamesId(R.string.leaderboardBrainCup) { activity, id ->
+            PlayGames.getLeaderboardsClient(activity).submitScore(id, totalXp.toLong())
+        }
     }
 
     PlayGamesBridge.onShowBrainCup = fun() {
-        val current = activityRef?.get() ?: return
-        val id = current.getString(R.string.leaderboardBrainCup)
-        if (id.isBlank()) return
-        ensureSignedInAndLaunch(current, id)
+        withPlayGamesId(R.string.leaderboardBrainCup, ::ensureSignedInAndLaunch)
     }
 
     PlayGamesBridge.onShowLeaderboard = fun(gameType: GameType) {
-        val current = activityRef?.get() ?: return
-        val resId = leaderboardResIdFor(gameType) ?: return
-        val id = current.getString(resId)
-        if (id.isBlank()) return
-        ensureSignedInAndLaunch(current, id)
+        withPlayGamesId(leaderboardResIdFor(gameType), ::ensureSignedInAndLaunch)
     }
 }
 
