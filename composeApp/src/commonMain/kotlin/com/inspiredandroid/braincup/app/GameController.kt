@@ -200,12 +200,7 @@ class GameController(
 
     private fun generateSessionGameIds(): List<String> {
         val eligibleByCategory = GameType.entries
-            .filterNot {
-                it.usesLevelLabel ||
-                    it == GameType.MINI_CHESS ||
-                    it == GameType.WORDLE ||
-                    it == GameType.BULLS_AND_COWS
-            }
+            .filter { it.inDailySession }
             .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
             .groupBy { it.category.name } // one bucket per GameCategory
             .mapValues { (_, games) -> games.map { it.id } }
@@ -475,7 +470,7 @@ class GameController(
 
         val game = currentState.game
         when (game) {
-            is VisualMemoryGame -> handleVisualMemoryAnswer(game, answer)
+            is VisualMemoryGame -> handleVisualMemoryAnswer(currentState, game, answer)
             is GhostGridGame -> handleGhostGridAnswer(currentState, game, answer)
             is SimonSaysGame -> handleSimonSaysAnswer(currentState, game, answer)
             is AnomalyPuzzleGame -> handleAnomalyPuzzleAnswer(currentState, game, answer.trim())
@@ -484,7 +479,7 @@ class GameController(
             is ColoredShapesGame -> handleColoredShapesAnswer(currentState, game, answer.trim())
             is ColorConfusionGame -> handleColorConfusionAnswer(currentState, game, answer.trim())
             is OrbitTrackerGame -> handleOrbitTrackerAnswer(currentState, game, answer.trim())
-            is FlashCrowdGame -> handleFlashCrowdAnswer(currentState, game, answer.trim())
+            is FlashCrowdGame -> submitGenericAnswer(currentState, game, answer, showsSolutionOnWrong = false)
             is MiniSudokuGame -> handleMiniSudokuAnswer(currentState, game, answer.trim())
             is WordleGame -> handleWordleAnswer(currentState, game, answer)
             is LightsOutGame -> handleLightsOutAnswer(currentState, game, answer.trim())
@@ -504,7 +499,7 @@ class GameController(
             is DigitMemoryGame -> handleDigitMemoryAnswer(currentState, game, answer.trim())
             is QuickSumGame -> handleQuickSumAnswer(currentState, game, answer.trim())
             is NBackGame -> handleNBackAnswer(game, answer.trim())
-            is SpotTheNewGame -> handleSpotTheNewAnswer(game, answer.trim())
+            is SpotTheNewGame -> handleSpotTheNewAnswer(currentState, game, answer.trim())
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
             is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
             is MentalRotationsGame -> handleMentalRotationsAnswer(currentState, game, answer.trim())
@@ -515,7 +510,18 @@ class GameController(
     }
 
     /** Correct/incorrect plus a one-second feedback beat, for games without bespoke handling. */
-    private fun submitGenericAnswer(currentState: GameState.Active, game: Game, answer: String) {
+    /**
+     * The default answer flow: score it, then hold the feedback screen for a beat.
+     *
+     * [showsSolutionOnWrong] is off for Flash Crowd, where the answer is the dot count the player
+     * was just asked to compare, so restating it would say nothing. Giving up still shows it.
+     */
+    private fun submitGenericAnswer(
+        currentState: GameState.Active,
+        game: Game,
+        answer: String,
+        showsSolutionOnWrong: Boolean = true,
+    ) {
         val input = answer.trim()
 
         // Stop continuous motion while the feedback screen is up; proceedAfterFeedback restarts it.
@@ -525,7 +531,12 @@ class GameController(
             onCorrectAnswer(currentState, game)
         } else {
             game.answeredAllCorrect = false
-            showFeedbackScreen(currentState.gameType, game, isCorrect = false, message = game.solutionMessage())
+            showFeedbackScreen(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = false,
+                message = if (showsSolutionOnWrong) game.solutionMessage() else null,
+            )
         }
     }
 
@@ -617,7 +628,7 @@ class GameController(
     private fun scheduleNextRound(gameType: GameType, game: Game, after: Duration) {
         scope.launch {
             delay(after)
-            proceedAfterInlineFeedback(gameType, game)
+            advanceToNextRound(gameType, game)
         }
     }
 
@@ -687,20 +698,28 @@ class GameController(
     private fun proceedAfterFeedback() {
         val currentState = _gameState.value
         if (currentState !is GameState.Feedback) return
+        advanceToNextRound(currentState.gameType, currentState.game)
+    }
 
-        val game = currentState.game
-        val currentTime = Clock.System.now().toEpochMilliseconds()
-        val elapsed = currentTime - startTime
-
+    /**
+     * Leaves a finished round: the run ends if the clock is spent, otherwise the next round is
+     * dealt.
+     *
+     * Both feedback paths land here, the full feedback screen and the inline mark some games show
+     * on their own board, so the run clock is checked in one place. Bubble Sum is the only game
+     * whose motion was stopped for the beat, so it is the only one that needs restarting.
+     */
+    private fun advanceToNextRound(gameType: GameType, game: Game) {
+        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
         if (elapsed > GAME_TIME_MILLIS) {
-            finishGame(currentState.gameType, game)
-        } else {
-            game.nextRound()
-            _gameState.value = GameState.Active(currentState.gameType, game)
-            emitUiState(game)
-            if (game is BubbleSumGame) {
-                startBubbleSumMotion(game)
-            }
+            finishGame(gameType, game)
+            return
+        }
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        emitUiState(game)
+        if (game is BubbleSumGame) {
+            startBubbleSumMotion(game)
         }
     }
 
@@ -726,23 +745,23 @@ class GameController(
         startGame(gameType)
     }
 
-    /** Play Again from the Wordle result screen, or Continue during a daily challenge. */
-    fun wordleFinishedAction() {
+    /**
+     * What the button on a stay-on-board result does: inside a daily challenge it always moves to
+     * the next game, so only [onOwnTerms], the standalone behaviour, differs between the two games.
+     */
+    private fun stayOnBoardFinishedAction(onOwnTerms: () -> Unit) {
         if (inSessionMode) {
             continueStayOnBoardInDailyChallenge()
         } else {
-            restartWordleInPlace()
+            onOwnTerms()
         }
     }
 
+    /** Play Again from the Wordle result screen, or Continue during a daily challenge. */
+    fun wordleFinishedAction() = stayOnBoardFinishedAction(::restartWordleInPlace)
+
     /** Continue from the Bulls & Cows result board: finish screen (medal/XP), or next daily game. */
-    fun bullsAndCowsFinishedAction() {
-        if (inSessionMode) {
-            continueStayOnBoardInDailyChallenge()
-        } else {
-            navigateToBullsAndCowsFinish()
-        }
-    }
+    fun bullsAndCowsFinishedAction() = stayOnBoardFinishedAction(::navigateToBullsAndCowsFinish)
 
     /** Leave the result board for the standard finish screen without recording score again. */
     private fun navigateToBullsAndCowsFinish() {
@@ -777,16 +796,26 @@ class GameController(
 
     private fun startTimer() {
         timerJob?.cancel()
-        timerJob = scope.launch {
-            while (true) {
-                val currentTime = Clock.System.now().toEpochMilliseconds()
-                val elapsed = currentTime - startTime
-                val remaining = (GAME_TIME_MILLIS - elapsed).coerceAtLeast(0)
-                _timeRemaining.value = remaining
+        timerJob = launchCountdown(GAME_TIME_MILLIS)
+    }
 
-                if (remaining <= 0) break
-                delay(100.milliseconds)
+    /**
+     * Ticks [_timeRemaining] down from [totalMillis] since [startTime], then runs [onExpired].
+     *
+     * The run clock and the Flags per-round clock count the same way and differ only in how long
+     * they run and what happens at zero, so they share the loop.
+     */
+    private fun launchCountdown(totalMillis: Long, onExpired: () -> Unit = {}): Job = scope.launch {
+        while (true) {
+            val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+            val remaining = (totalMillis - elapsed).coerceAtLeast(0)
+            _timeRemaining.value = remaining
+
+            if (remaining <= 0) {
+                onExpired()
+                return@launch
             }
+            delay(100.milliseconds)
         }
     }
 
@@ -977,7 +1006,7 @@ class GameController(
         game.startMemorizeCountdown(scope) { emitUiState(game) }
     }
 
-    private fun handleSpotTheNewAnswer(game: SpotTheNewGame, answer: String) {
+    private fun handleSpotTheNewAnswer(currentState: GameState.Active, game: SpotTheNewGame, answer: String) {
         if (game.phase != SpotTheNewGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
             SpotTheNewGame.SubmitResult.Correct -> {
@@ -988,13 +1017,13 @@ class GameController(
             SpotTheNewGame.SubmitResult.PoolExhausted -> {
                 // Player beat every unique combo; count the final tap and finish gracefully.
                 points++
-                finishCurrentGame(GameType.SPOT_THE_NEW, game)
+                finishCurrentGame(currentState.gameType, game)
             }
             SpotTheNewGame.SubmitResult.Wrong -> {
                 emitUiState(game)
                 scope.launch {
                     delay(2.seconds)
-                    finishCurrentGame(GameType.SPOT_THE_NEW, game)
+                    finishCurrentGame(currentState.gameType, game)
                 }
             }
         }
@@ -1182,7 +1211,7 @@ class GameController(
             }
         }
         delay(MISSING_OPS_FEEDBACK_HOLD_MS.milliseconds)
-        proceedAfterInlineFeedback(gameType, game)
+        advanceToNextRound(gameType, game)
     }
 
     private fun handleTrioAnswer(
@@ -1617,22 +1646,32 @@ class GameController(
         }
     }
 
+    /**
+     * Persists the result of a game that stays on its board instead of going to a finish screen.
+     *
+     * Wordle and Bulls & Cows both keep the player on the board after the last guess, so the score
+     * has to be banked there rather than by [finishCurrentGame]. They keep separate
+     * already-recorded flags because their boards are left at different points.
+     */
+    private fun recordStayOnBoardScore(gameType: GameType): UserStorage.ScoreResult {
+        val result = storage.putScore(gameType.id, points)
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+        return result
+    }
+
     /** Persist the Wordle result while staying on the board; the player leaves via Back. */
     private fun recordWordleScore(gameType: GameType) {
         if (wordleScoreRecorded) return
         wordleScoreRecorded = true
-        storage.putScore(gameType.id, points)
-        _totalXp.value = storage.getTotalXp()
-        refreshDerivedStorageState()
+        recordStayOnBoardScore(gameType)
     }
 
     /** Persist the Bulls & Cows result while staying on the board; leave via Continue / Back. */
     private fun recordBullsAndCowsScore(gameType: GameType) {
         if (bullsAndCowsScoreRecorded) return
         bullsAndCowsScoreRecorded = true
-        bullsAndCowsScoreResult = storage.putScore(gameType.id, points)
-        _totalXp.value = storage.getTotalXp()
-        refreshDerivedStorageState()
+        bullsAndCowsScoreResult = recordStayOnBoardScore(gameType)
     }
 
     private fun startSchulteTableGame(gameType: GameType) {
@@ -1690,32 +1729,6 @@ class GameController(
                     emitUiState(game)
                 }
             }
-        }
-    }
-
-    private fun handleFlashCrowdAnswer(
-        currentState: GameState.Active,
-        game: FlashCrowdGame,
-        input: String,
-    ) {
-        val isCorrect = game.isCorrect(input)
-        if (isCorrect) {
-            points++
-        } else {
-            game.answeredAllCorrect = false
-        }
-        // No solution message: the answer is the dot count the player was asked to compare.
-        showFeedbackScreen(currentState.gameType, game, isCorrect = isCorrect, message = null)
-    }
-
-    private fun proceedAfterInlineFeedback(gameType: GameType, game: Game) {
-        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
-        if (elapsed > GAME_TIME_MILLIS) {
-            finishGame(gameType, game)
-        } else {
-            game.nextRound()
-            _gameState.value = GameState.Active(gameType, game)
-            emitUiState(game)
         }
     }
 
@@ -1859,7 +1872,7 @@ class GameController(
         _orbitBallPositions.value = game.balls.map { it.x to it.y }
     }
 
-    private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
+    private fun handleVisualMemoryAnswer(currentState: GameState.Active, game: VisualMemoryGame, answer: String) {
         if (game.phase != VisualMemoryGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
             VisualMemoryGame.SubmitResult.CorrectContinue -> {
@@ -1872,13 +1885,13 @@ class GameController(
             }
             VisualMemoryGame.SubmitResult.GameComplete -> {
                 points++
-                finishCurrentGame(GameType.VISUAL_MEMORY, game)
+                finishCurrentGame(currentState.gameType, game)
             }
             VisualMemoryGame.SubmitResult.Wrong -> {
                 emitUiState(game)
                 scope.launch {
                     delay(2.seconds)
-                    finishCurrentGame(GameType.VISUAL_MEMORY, game)
+                    finishCurrentGame(currentState.gameType, game)
                 }
             }
         }
@@ -2260,18 +2273,7 @@ class GameController(
         cancelTimer()
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = FLAGS_ROUND_TIME_MILLIS
-        flagsTimerJob = scope.launch {
-            while (true) {
-                val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
-                val remaining = (FLAGS_ROUND_TIME_MILLIS - elapsed).coerceAtLeast(0)
-                _timeRemaining.value = remaining
-                if (remaining <= 0) {
-                    finishCurrentGame(gameType, game)
-                    return@launch
-                }
-                delay(100.milliseconds)
-            }
-        }
+        flagsTimerJob = launchCountdown(FLAGS_ROUND_TIME_MILLIS) { finishCurrentGame(gameType, game) }
     }
 
     private fun cancelFlagsTimer() {

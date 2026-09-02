@@ -82,7 +82,6 @@ private data class VisualTile(
 internal fun ColumnScope.PrismClearContent(
     uiState: PrismClearUiState,
     onAnswer: (String) -> Unit,
-    onGiveUp: () -> Unit,
 ) {
     val rows = uiState.rows
     val cols = uiState.cols
@@ -635,7 +634,6 @@ private fun PrismClearContentPreview() {
                 canUndo = true,
             ),
             onAnswer = {},
-            onGiveUp = {},
         )
     }
 }

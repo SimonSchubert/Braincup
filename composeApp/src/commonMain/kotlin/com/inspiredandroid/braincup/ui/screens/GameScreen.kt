@@ -192,7 +192,7 @@ fun GameScreen(
                 is CatQueensUiState -> CatQueensContent(gameUiState, onAnswer, onGiveUp)
                 is KnotUiState -> KnotContent(gameUiState, onAnswer, onGiveUp)
                 is SoloChessUiState -> SoloChessContent(gameUiState, onAnswer, onGiveUp)
-                is PrismClearUiState -> PrismClearContent(gameUiState, onAnswer, onGiveUp)
+                is PrismClearUiState -> PrismClearContent(gameUiState, onAnswer)
                 is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
                 is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)

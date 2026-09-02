@@ -52,6 +52,15 @@ enum class GameType(
      * grid full of them.
      */
     val listedAsUntimed: Boolean = false,
+    /**
+     * Whether the daily challenge may draw this game.
+     *
+     * A daily slot is one sixty second round scored against the others, which rules out the level
+     * ladders (a [usesLevelLabel] game scores by level, not by count) and the three games that
+     * keep the player on their own board until they solve or give up. It is a flag rather than a
+     * list in the controller so a new game declares it in the one place its other traits live.
+     */
+    val inDailySession: Boolean = !usesLevelLabel,
 ) {
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
@@ -71,6 +80,7 @@ enum class GameType(
         silverScore = 10,
         descriptionRes = Res.string.game_mini_chess_desc,
         category = GameCategory.LOGIC,
+        inDailySession = false,
     ),
     SOLO_CHESS(
         displayNameRes = Res.string.game_solo_chess,
@@ -358,6 +368,7 @@ enum class GameType(
         silverScore = 3,
         descriptionRes = Res.string.game_wordle_desc,
         category = GameCategory.LOGIC,
+        inDailySession = false,
     ),
     SIMON_SAYS(
         displayNameRes = Res.string.game_simon_says,
@@ -400,6 +411,7 @@ enum class GameType(
         lowerScoreIsBetter = true,
         bronzeScore = 12,
         usesTriesLabel = true,
+        inDailySession = false,
     ),
     RULE_SHIFT(
         displayNameRes = Res.string.game_rule_shift,
