@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Велемајстор</string>
     <string name="achievements_button">Достигнућа (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Обриши последњу цифру</string>
-    <string name="normal_sudoku_button">Класични Судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Судоку</string>
     <string name="normal_sudoku_difficulty_beginner">Почетник</string>
     <string name="normal_sudoku_difficulty_easy">Лако</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Скакач</string>
     <string name="normal_chess_draw_warning">= пат (реми, не победа)</string>
 
-    <string name="matchstick_riddles_button">Загонетке са шибицама (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Загонетке са шибицама</string>
     <string name="matchstick_riddle_prompt_move_one">Помери 1 шибицу да једначина буде тачна.</string>
     <string name="matchstick_riddle_prompt_move_two">Помери 2 шибице да једначина буде тачна.</string>
@@ -421,7 +419,6 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="game_flash_crowd_which_more">Која страна их је имала више?</string>
     <string name="game_flash_crowd_blue">Плава</string>
     <string name="game_flash_crowd_yellow">Жута</string>
-    <string name="button_done">Готово</string>
 
     <string name="color_red">Црвена</string>
     <string name="color_green">Зелена</string>
@@ -925,16 +922,6 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="learn_topic_certificates">%1$d од %2$d са сертификатом</string>
     <string name="learn_ages">Узраст %1$s</string>
 
-    <string name="learn_level_g12">1.–2. разред</string>
-    <string name="learn_level_g12_subtitle">6–8 година · бројање, облици и прва мерења</string>
-    <string name="learn_level_g35">3.–5. разред</string>
-    <string name="learn_level_g35_subtitle">8–11 година · таблица множења, разломци и графикони</string>
-    <string name="learn_level_g68">6.–8. разред</string>
-    <string name="learn_level_g68_subtitle">11–14 година · однос, проценти и прва алгебра</string>
-    <string name="learn_level_g910">1.–2. разред средње</string>
-    <string name="learn_level_g910_subtitle">14–16 година · квадратне једначине, доказ и тригонометрија</string>
-    <string name="learn_level_g1112">3.–4. разред средње</string>
-    <string name="learn_level_g1112_subtitle">16–18 година · логаритми, јединични круг и калкулус</string>
 
     <string name="learn_topic_arithmetic">Аритметика</string>
     <string name="learn_topic_arithmetic_subtitle">Бројеви и операције</string>
@@ -964,7 +951,6 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="learn_correct">Тачно!</string>
     <string name="learn_revealed_answer">Ево одговора</string>
     <string name="learn_show_answer">Прикажи ми одговор</string>
-    <string name="learn_incorrect">Још не</string>
     <string name="learn_your_answer">Твој одговор</string>
 
     <string name="learn_take_test">Положи тест</string>

@@ -17,7 +17,6 @@
     <string name="button_cancel">Batal</string>
     <string name="button_quit_game">Keluar</string>
     <string name="button_backspace">Hapus</string>
-    <string name="button_done">Selesai</string>
 
     <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Hapus angka terakhir</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Disimpan di Play Games</string>
     <string name="accounts_game_center_desc">Disimpan di Game Center</string>
     <string name="accounts_local_desc">Disimpan di perangkat ini. Hilang jika kamu menghapus aplikasi.</string>
-    <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Pemula</string>
     <string name="normal_sudoku_difficulty_easy">Mudah</string>
     <string name="normal_sudoku_difficulty_medium">Sedang</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">Kuda</string>
     <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
 
-    <string name="matchstick_riddles_button">Teka-teki korek api (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Teka-teki korek api</string>
     <string name="matchstick_riddle_prompt_move_one">Pindahkan 1 korek api untuk memperbaiki persamaan.</string>
     <string name="matchstick_riddle_prompt_move_two">Pindahkan 2 korek api untuk memperbaiki persamaan.</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%1$d dari %2$d bersertifikat</string>
     <string name="learn_ages">Usia %1$s</string>
 
-    <string name="learn_level_g12">Kelas 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 tahun · berhitung, bangun datar, dan pengukuran awal</string>
-    <string name="learn_level_g35">Kelas 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 tahun · perkalian, pecahan, dan grafik</string>
-    <string name="learn_level_g68">Kelas 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 tahun · rasio, persen, dan aljabar awal</string>
-    <string name="learn_level_g910">Kelas 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 tahun · persamaan kuadrat, pembuktian, dan trigonometri</string>
-    <string name="learn_level_g1112">Kelas 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 tahun · logaritma, lingkaran satuan, dan kalkulus</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">Benar!</string>
     <string name="learn_revealed_answer">Ini jawabannya</string>
     <string name="learn_show_answer">Tunjukkan jawabannya</string>
-    <string name="learn_incorrect">Belum tepat</string>
     <string name="learn_your_answer">Jawabanmu</string>
 
     <string name="learn_take_test">Ikuti tes</string>

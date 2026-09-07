@@ -17,7 +17,6 @@
     <string name="button_cancel">ยกเลิก</string>
     <string name="button_quit_game">ออก</string>
     <string name="button_backspace">ลบ</string>
-    <string name="button_done">เสร็จ</string>
 
     <string name="achievements_button">ความสำเร็จ (%1$d/%2$d)</string>
     <string name="number_pad_backspace">ลบตัวเลขสุดท้าย</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">บันทึกใน Play Games</string>
     <string name="accounts_game_center_desc">บันทึกไว้ที่ Game Center</string>
     <string name="accounts_local_desc">บันทึกในเครื่องนี้ หายถ้าถอนการติดตั้ง</string>
-    <string name="normal_sudoku_button">ซูโดกุปกติ (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">เริ่มต้น</string>
     <string name="normal_sudoku_difficulty_easy">ง่าย</string>
     <string name="normal_sudoku_difficulty_medium">ปานกลาง</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">ม้า</string>
     <string name="normal_chess_draw_warning">= เสมอตาย (เสมอ ไม่ใช่ชนะ)</string>
 
-    <string name="matchstick_riddles_button">ปริศนาไม้ขีดไฟ (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ปริศนาไม้ขีดไฟ</string>
     <string name="matchstick_riddle_prompt_move_one">เลื่อนไม้ขีดไฟ 1 แท่งเพื่อแก้สมการ</string>
     <string name="matchstick_riddle_prompt_move_two">เลื่อนไม้ขีดไฟ 2 แท่งเพื่อแก้สมการ</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">ผ่านการรับรองแล้ว %1$d จาก %2$d</string>
     <string name="learn_ages">อายุ %1$s</string>
 
-    <string name="learn_level_g12">ชั้น 1–2</string>
-    <string name="learn_level_g12_subtitle">อายุ 6–8 ปี · การนับ รูปทรง และการวัดเบื้องต้น</string>
-    <string name="learn_level_g35">ชั้น 3–5</string>
-    <string name="learn_level_g35_subtitle">อายุ 8–11 ปี · สูตรคูณ เศษส่วน และกราฟ</string>
-    <string name="learn_level_g68">ชั้น 6–8</string>
-    <string name="learn_level_g68_subtitle">อายุ 11–14 ปี · อัตราส่วน ร้อยละ และพีชคณิตเบื้องต้น</string>
-    <string name="learn_level_g910">ชั้น 9–10</string>
-    <string name="learn_level_g910_subtitle">อายุ 14–16 ปี · สมการกำลังสอง การพิสูจน์ และตรีโกณมิติ</string>
-    <string name="learn_level_g1112">ชั้น 11–12</string>
-    <string name="learn_level_g1112_subtitle">อายุ 16–18 ปี · ลอการิทึม วงกลมหนึ่งหน่วย และแคลคูลัส</string>
 
     <string name="learn_topic_arithmetic">เลขคณิต</string>
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">ถูกต้อง!</string>
     <string name="learn_revealed_answer">นี่คือคำตอบ</string>
     <string name="learn_show_answer">ขอดูคำตอบ</string>
-    <string name="learn_incorrect">ยังไม่ใช่</string>
     <string name="learn_your_answer">คำตอบของคุณ</string>
 
     <string name="learn_take_test">ทำแบบทดสอบ</string>

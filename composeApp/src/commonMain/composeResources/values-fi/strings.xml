@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Suurmestari</string>
     <string name="achievements_button">Saavutukset (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Poista viimeinen numero</string>
-    <string name="normal_sudoku_button">Klassinen Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Aloittelija</string>
     <string name="normal_sudoku_difficulty_easy">Helppo</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Ratsu</string>
     <string name="normal_chess_draw_warning">= patti (tasapeli, ei voitto)</string>
 
-    <string name="matchstick_riddles_button">Tulitikkutehtävät (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Tulitikkutehtävät</string>
     <string name="matchstick_riddle_prompt_move_one">Siirrä 1 tulitikku, jotta yhtälö täsmää.</string>
     <string name="matchstick_riddle_prompt_move_two">Siirrä 2 tulitikkua, jotta yhtälö täsmää.</string>
@@ -421,7 +419,6 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="game_flash_crowd_which_more">Millä puolella oli enemmän?</string>
     <string name="game_flash_crowd_blue">Sininen</string>
     <string name="game_flash_crowd_yellow">Keltainen</string>
-    <string name="button_done">Valmis</string>
 
     <string name="color_red">Punainen</string>
     <string name="color_green">Vihreä</string>
@@ -925,16 +922,6 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_topic_certificates">%1$d / %2$d todistettu</string>
     <string name="learn_ages">Ikä %1$s</string>
 
-    <string name="learn_level_g12">1.–2. luokka</string>
-    <string name="learn_level_g12_subtitle">6–8 v · laskeminen, muodot ja ensimmäiset mittaukset</string>
-    <string name="learn_level_g35">3.–5. luokka</string>
-    <string name="learn_level_g35_subtitle">8–11 v · kertotaulut, murtoluvut ja diagrammit</string>
-    <string name="learn_level_g68">6.–8. luokka</string>
-    <string name="learn_level_g68_subtitle">11–14 v · suhde, prosentti ja ensimmäinen algebra</string>
-    <string name="learn_level_g910">9. luokka</string>
-    <string name="learn_level_g910_subtitle">14–16 v · toisen asteen yhtälöt, todistaminen ja trigonometria</string>
-    <string name="learn_level_g1112">Lukio 1–3</string>
-    <string name="learn_level_g1112_subtitle">16–18 v · logaritmit, yksikköympyrä ja analyysi</string>
 
     <string name="learn_topic_arithmetic">Aritmetiikka</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>
@@ -964,7 +951,6 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_correct">Oikein!</string>
     <string name="learn_revealed_answer">Tässä on vastaus</string>
     <string name="learn_show_answer">Näytä vastaus</string>
-    <string name="learn_incorrect">Ei ihan</string>
     <string name="learn_your_answer">Vastauksesi</string>
 
     <string name="learn_take_test">Tee testi</string>

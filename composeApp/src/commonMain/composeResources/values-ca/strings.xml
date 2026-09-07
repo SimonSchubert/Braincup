@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Gran mestre</string>
     <string name="achievements_button">Assoliments (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Esborra l'últim dígit</string>
-    <string name="normal_sudoku_button">Sudoku clàssic (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Principiant</string>
     <string name="normal_sudoku_difficulty_easy">Fàcil</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Cavall</string>
     <string name="normal_chess_draw_warning">= ofegat (taules, no una victòria)</string>
 
-    <string name="matchstick_riddles_button">Enigmes de llumins (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Enigmes de llumins</string>
     <string name="matchstick_riddle_prompt_move_one">Mou 1 llumí perquè l'equació quadri.</string>
     <string name="matchstick_riddle_prompt_move_two">Mou 2 llumins perquè l'equació quadri.</string>
@@ -421,7 +419,6 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="game_flash_crowd_which_more">A quin costat n'hi havia més?</string>
     <string name="game_flash_crowd_blue">Blau</string>
     <string name="game_flash_crowd_yellow">Groc</string>
-    <string name="button_done">Fet</string>
 
     <string name="color_red">Vermell</string>
     <string name="color_green">Verd</string>
@@ -925,16 +922,6 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_topic_certificates">%1$d de %2$d certificats</string>
     <string name="learn_ages">Edats %1$s</string>
 
-    <string name="learn_level_g12">1r–2n de primària</string>
-    <string name="learn_level_g12_subtitle">6–8 anys · comptar, formes i primeres mesures</string>
-    <string name="learn_level_g35">3r–5è de primària</string>
-    <string name="learn_level_g35_subtitle">8–11 anys · taules, fraccions i gràfics</string>
-    <string name="learn_level_g68">6è – 2n d'ESO</string>
-    <string name="learn_level_g68_subtitle">11–14 anys · raó, percentatge i primera àlgebra</string>
-    <string name="learn_level_g910">3r–4t d'ESO</string>
-    <string name="learn_level_g910_subtitle">14–16 anys · quadràtiques, demostració i trigonometria</string>
-    <string name="learn_level_g1112">1r–2n de batxillerat</string>
-    <string name="learn_level_g1112_subtitle">16–18 anys · logaritmes, circumferència unitat i càlcul</string>
 
     <string name="learn_topic_arithmetic">Aritmètica</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres i operacions</string>
@@ -964,7 +951,6 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_correct">Correcte!</string>
     <string name="learn_revealed_answer">Aquesta és la resposta</string>
     <string name="learn_show_answer">Mostra'm la resposta</string>
-    <string name="learn_incorrect">Encara no</string>
     <string name="learn_your_answer">La teva resposta</string>
 
     <string name="learn_take_test">Fes el test</string>

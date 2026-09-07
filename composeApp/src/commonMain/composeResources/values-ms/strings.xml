@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Mahaguru</string>
     <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Padam digit terakhir</string>
-    <string name="normal_sudoku_button">Sudoku Biasa (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Permulaan</string>
     <string name="normal_sudoku_difficulty_easy">Mudah</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Kuda</string>
     <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
 
-    <string name="matchstick_riddles_button">Teka-teki Mancis (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Teka-teki Mancis</string>
     <string name="matchstick_riddle_prompt_move_one">Alih 1 mancis untuk membetulkan persamaan.</string>
     <string name="matchstick_riddle_prompt_move_two">Alih 2 mancis untuk membetulkan persamaan.</string>
@@ -419,7 +417,6 @@
     <string name="game_flash_crowd_which_more">Belah mana yang lebih banyak?</string>
     <string name="game_flash_crowd_blue">Biru</string>
     <string name="game_flash_crowd_yellow">Kuning</string>
-    <string name="button_done">Selesai</string>
 
     <string name="color_red">Merah</string>
     <string name="color_green">Hijau</string>
@@ -923,16 +920,6 @@
     <string name="learn_topic_certificates">%1$d daripada %2$d disijilkan</string>
     <string name="learn_ages">Umur %1$s</string>
 
-    <string name="learn_level_g12">Gred 1–2</string>
-    <string name="learn_level_g12_subtitle">Umur 6–8 · mengira, bentuk dan ukuran pertama</string>
-    <string name="learn_level_g35">Gred 3–5</string>
-    <string name="learn_level_g35_subtitle">Umur 8–11 · jadual darab, pecahan dan graf</string>
-    <string name="learn_level_g68">Gred 6–8</string>
-    <string name="learn_level_g68_subtitle">Umur 11–14 · nisbah, peratus dan algebra pertama</string>
-    <string name="learn_level_g910">Gred 9–10</string>
-    <string name="learn_level_g910_subtitle">Umur 14–16 · kuadratik, bukti dan trigonometri</string>
-    <string name="learn_level_g1112">Gred 11–12</string>
-    <string name="learn_level_g1112_subtitle">Umur 16–18 · log, bulatan unit dan kalkulus</string>
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Nombor &amp; operasi</string>
@@ -962,7 +949,6 @@
     <string name="learn_correct">Betul!</string>
     <string name="learn_revealed_answer">Inilah jawapannya</string>
     <string name="learn_show_answer">Tunjukkan jawapannya</string>
-    <string name="learn_incorrect">Belum tepat</string>
     <string name="learn_your_answer">Jawapan anda</string>
 
     <string name="learn_take_test">Ambil ujian</string>

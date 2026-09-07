@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Velmistr</string>
     <string name="achievements_button">Úspěchy (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Smazat poslední číslici</string>
-    <string name="normal_sudoku_button">Klasické Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Začátečník</string>
     <string name="normal_sudoku_difficulty_easy">Lehké</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Jezdec</string>
     <string name="normal_chess_draw_warning">= pat (remíza, ne výhra)</string>
 
-    <string name="matchstick_riddles_button">Sirkové hádanky (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Sirkové hádanky</string>
     <string name="matchstick_riddle_prompt_move_one">Přesuň 1 sirku, aby rovnice seděla.</string>
     <string name="matchstick_riddle_prompt_move_two">Přesuň 2 sirky, aby rovnice seděla.</string>
@@ -421,7 +419,6 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="game_flash_crowd_which_more">Která strana jich měla víc?</string>
     <string name="game_flash_crowd_blue">Modrá</string>
     <string name="game_flash_crowd_yellow">Žlutá</string>
-    <string name="button_done">Hotovo</string>
 
     <string name="color_red">Červená</string>
     <string name="color_green">Zelená</string>
@@ -925,16 +922,6 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_topic_certificates">%1$d z %2$d s certifikátem</string>
     <string name="learn_ages">Věk %1$s</string>
 
-    <string name="learn_level_g12">1.–2. ročník</string>
-    <string name="learn_level_g12_subtitle">6–8 let · počítání, tvary a první míry</string>
-    <string name="learn_level_g35">3.–5. ročník</string>
-    <string name="learn_level_g35_subtitle">8–11 let · násobilka, zlomky a grafy</string>
-    <string name="learn_level_g68">6.–8. ročník</string>
-    <string name="learn_level_g68_subtitle">11–14 let · poměr, procenta a první algebra</string>
-    <string name="learn_level_g910">9.–10. ročník</string>
-    <string name="learn_level_g910_subtitle">14–16 let · kvadratické rovnice, důkaz a trigonometrie</string>
-    <string name="learn_level_g1112">11.–12. ročník</string>
-    <string name="learn_level_g1112_subtitle">16–18 let · logaritmy, jednotková kružnice a kalkulus</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Čísla a operace</string>
@@ -964,7 +951,6 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_correct">Správně!</string>
     <string name="learn_revealed_answer">Tady je odpověď</string>
     <string name="learn_show_answer">Ukaž mi odpověď</string>
-    <string name="learn_incorrect">Ještě ne</string>
     <string name="learn_your_answer">Tvoje odpověď</string>
 
     <string name="learn_take_test">Složit test</string>

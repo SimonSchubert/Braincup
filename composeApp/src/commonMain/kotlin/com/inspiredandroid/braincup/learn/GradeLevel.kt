@@ -1,18 +1,5 @@
 package com.inspiredandroid.braincup.learn
 
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.learn_level_g1112
-import braincup.composeapp.generated.resources.learn_level_g1112_subtitle
-import braincup.composeapp.generated.resources.learn_level_g12
-import braincup.composeapp.generated.resources.learn_level_g12_subtitle
-import braincup.composeapp.generated.resources.learn_level_g35
-import braincup.composeapp.generated.resources.learn_level_g35_subtitle
-import braincup.composeapp.generated.resources.learn_level_g68
-import braincup.composeapp.generated.resources.learn_level_g68_subtitle
-import braincup.composeapp.generated.resources.learn_level_g910
-import braincup.composeapp.generated.resources.learn_level_g910_subtitle
-import org.jetbrains.compose.resources.StringResource
-
 /**
  * Where a sub-topic sits in school.
  *
@@ -23,44 +10,32 @@ import org.jetbrains.compose.resources.StringResource
 enum class GradeLevel(
     val id: String,
     val urlSlug: String,
-    val titleRes: StringResource,
-    val subtitleRes: StringResource,
     /** The ages this band is usually taught at, shown beside a sub-topic's name. */
     val ageRange: String,
 ) {
     GRADES_1_2(
         id = "g12",
         urlSlug = "grade-1-2",
-        titleRes = Res.string.learn_level_g12,
-        subtitleRes = Res.string.learn_level_g12_subtitle,
         ageRange = "6–8",
     ),
     GRADES_3_5(
         id = "g35",
         urlSlug = "grade-3-5",
-        titleRes = Res.string.learn_level_g35,
-        subtitleRes = Res.string.learn_level_g35_subtitle,
         ageRange = "8–11",
     ),
     GRADES_6_8(
         id = "g68",
         urlSlug = "grade-6-8",
-        titleRes = Res.string.learn_level_g68,
-        subtitleRes = Res.string.learn_level_g68_subtitle,
         ageRange = "11–14",
     ),
     GRADES_9_10(
         id = "g910",
         urlSlug = "grade-9-10",
-        titleRes = Res.string.learn_level_g910,
-        subtitleRes = Res.string.learn_level_g910_subtitle,
         ageRange = "14–16",
     ),
     GRADES_11_12(
         id = "g1112",
         urlSlug = "grade-11-12",
-        titleRes = Res.string.learn_level_g1112,
-        subtitleRes = Res.string.learn_level_g1112_subtitle,
         ageRange = "16–18",
     ),
     ;

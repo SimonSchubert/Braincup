@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Suurmeister</string>
     <string name="achievements_button">Saavutused (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Kustuta viimane number</string>
-    <string name="normal_sudoku_button">Klassikaline Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Algaja</string>
     <string name="normal_sudoku_difficulty_easy">Kerge</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Ratsu</string>
     <string name="normal_chess_draw_warning">= patt (viik, mitte võit)</string>
 
-    <string name="matchstick_riddles_button">Tikuküsimused (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Tikuküsimused</string>
     <string name="matchstick_riddle_prompt_move_one">Liiguta 1 tikk, et võrrand klapiks.</string>
     <string name="matchstick_riddle_prompt_move_two">Liiguta 2 tikku, et võrrand klapiks.</string>
@@ -421,7 +419,6 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="game_flash_crowd_which_more">Kummal poolel oli rohkem?</string>
     <string name="game_flash_crowd_blue">Sinine</string>
     <string name="game_flash_crowd_yellow">Kollane</string>
-    <string name="button_done">Valmis</string>
 
     <string name="color_red">Punane</string>
     <string name="color_green">Roheline</string>
@@ -925,16 +922,6 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_topic_certificates">%1$d / %2$d tunnistusega</string>
     <string name="learn_ages">Vanus %1$s</string>
 
-    <string name="learn_level_g12">1.–2. klass</string>
-    <string name="learn_level_g12_subtitle">6–8 a · loendamine, kujundid ja esimesed mõõdud</string>
-    <string name="learn_level_g35">3.–5. klass</string>
-    <string name="learn_level_g35_subtitle">8–11 a · korrutustabel, murrud ja graafikud</string>
-    <string name="learn_level_g68">6.–8. klass</string>
-    <string name="learn_level_g68_subtitle">11–14 a · suhe, protsent ja esimene algebra</string>
-    <string name="learn_level_g910">9. klass – gümnaasium 1</string>
-    <string name="learn_level_g910_subtitle">14–16 a · ruutvõrrandid, tõestus ja trigonomeetria</string>
-    <string name="learn_level_g1112">Gümnaasium 2–3</string>
-    <string name="learn_level_g1112_subtitle">16–18 a · logaritmid, ühikringjoon ja analüüs</string>
 
     <string name="learn_topic_arithmetic">Aritmeetika</string>
     <string name="learn_topic_arithmetic_subtitle">Arvud ja tehted</string>
@@ -964,7 +951,6 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_correct">Õige!</string>
     <string name="learn_revealed_answer">Siin on vastus</string>
     <string name="learn_show_answer">Näita mulle vastust</string>
-    <string name="learn_incorrect">Veel mitte</string>
     <string name="learn_your_answer">Sinu vastus</string>
 
     <string name="learn_take_test">Tee test</string>

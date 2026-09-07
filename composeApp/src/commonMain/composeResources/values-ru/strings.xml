@@ -17,7 +17,6 @@
     <string name="button_cancel">Отмена</string>
     <string name="button_quit_game">Выйти</string>
     <string name="button_backspace">Удалить</string>
-    <string name="button_done">Готово</string>
 
     <string name="achievements_button">Достижения (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Удалить последнюю цифру</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Сохранено в Play Играх</string>
     <string name="accounts_game_center_desc">Сохранено в Game Center</string>
     <string name="accounts_local_desc">Сохранено на этом устройстве. Пропадёт при удалении приложения.</string>
-    <string name="normal_sudoku_button">Обычное судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Начинающий</string>
     <string name="normal_sudoku_difficulty_easy">Лёгкий</string>
     <string name="normal_sudoku_difficulty_medium">Средний</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">Конь</string>
     <string name="normal_chess_draw_warning">= пат (ничья, не победа)</string>
 
-    <string name="matchstick_riddles_button">Головоломки со спичками (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Головоломки со спичками</string>
     <string name="matchstick_riddle_prompt_move_one">Переместите 1 спичку, чтобы исправить уравнение.</string>
     <string name="matchstick_riddle_prompt_move_two">Переместите 2 спички, чтобы исправить уравнение.</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%1$d из %2$d с сертификатом</string>
     <string name="learn_ages">Возраст %1$s</string>
 
-    <string name="learn_level_g12">Классы 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 лет · счёт, фигуры и первые измерения</string>
-    <string name="learn_level_g35">Классы 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 лет · таблица умножения, дроби и графики</string>
-    <string name="learn_level_g68">Классы 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 лет · отношения, проценты и начала алгебры</string>
-    <string name="learn_level_g910">Классы 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 лет · квадратные уравнения, доказательства и тригонометрия</string>
-    <string name="learn_level_g1112">Классы 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 лет · логарифмы, единичная окружность и анализ</string>
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">Верно!</string>
     <string name="learn_revealed_answer">Вот ответ</string>
     <string name="learn_show_answer">Показать ответ</string>
-    <string name="learn_incorrect">Не совсем</string>
     <string name="learn_your_answer">Твой ответ</string>
 
     <string name="learn_take_test">Пройти тест</string>

@@ -17,7 +17,6 @@
     <string name="button_cancel">Annulla</string>
     <string name="button_quit_game">Esci</string>
     <string name="button_backspace">Cancella</string>
-    <string name="button_done">Fatto</string>
 
     <string name="achievements_button">Obiettivi (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Cancella l'ultima cifra</string>
@@ -634,7 +633,6 @@
     <string name="accounts_game_center_desc">Salvato su Game Center</string>
     <string name="accounts_local_desc">Salvato su questo dispositivo. Perso se disinstalli.</string>
 
-    <string name="normal_sudoku_button">Sudoku normale (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Principiante</string>
     <string name="normal_sudoku_difficulty_easy">Facile</string>
     <string name="normal_sudoku_difficulty_medium">Medio</string>
@@ -681,7 +679,6 @@
     <string name="normal_chess_promotion_knight">Cavallo</string>
     <string name="normal_chess_draw_warning">= stallo (patta, non vittoria)</string>
 
-    <string name="matchstick_riddles_button">Indovinelli con fiammiferi (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Indovinelli con fiammiferi</string>
     <string name="matchstick_riddle_prompt_move_one">Sposta 1 fiammifero per correggere l'equazione.</string>
     <string name="matchstick_riddle_prompt_move_two">Sposta 2 fiammiferi per correggere l'equazione.</string>
@@ -908,16 +905,6 @@
     <string name="learn_topic_certificates">%1$d su %2$d certificati</string>
     <string name="learn_ages">Età %1$s</string>
 
-    <string name="learn_level_g12">Classi 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 anni · contare, forme e prime misure</string>
-    <string name="learn_level_g35">Classi 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 anni · tabelline, frazioni e grafici</string>
-    <string name="learn_level_g68">Classi 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 anni · rapporti, percentuali e prima algebra</string>
-    <string name="learn_level_g910">Classi 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 anni · equazioni di secondo grado, dimostrazioni e trigonometria</string>
-    <string name="learn_level_g1112">Classi 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 anni · logaritmi, circonferenza goniometrica e analisi</string>
 
     <string name="learn_topic_arithmetic">Aritmetica</string>
     <string name="learn_topic_arithmetic_subtitle">Numeri &amp; operazioni</string>
@@ -947,7 +934,6 @@
     <string name="learn_correct">Corretto!</string>
     <string name="learn_revealed_answer">Ecco la risposta</string>
     <string name="learn_show_answer">Mostrami la risposta</string>
-    <string name="learn_incorrect">Non proprio</string>
     <string name="learn_your_answer">La tua risposta</string>
 
     <string name="learn_take_test">Fai il test</string>

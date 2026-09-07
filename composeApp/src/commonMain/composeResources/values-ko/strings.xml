@@ -17,7 +17,6 @@
     <string name="button_cancel">취소</string>
     <string name="button_quit_game">종료</string>
     <string name="button_backspace">지우기</string>
-    <string name="button_done">완료</string>
 
     <string name="achievements_button">업적 (%1$d/%2$d)</string>
     <string name="number_pad_backspace">마지막 숫자 지우기</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Play 게임에 저장됨</string>
     <string name="accounts_game_center_desc">Game Center에 저장됨</string>
     <string name="accounts_local_desc">이 기기에 저장됩니다. 앱을 삭제하면 사라집니다.</string>
-    <string name="normal_sudoku_button">스도쿠 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">입문</string>
     <string name="normal_sudoku_difficulty_easy">쉬움</string>
     <string name="normal_sudoku_difficulty_medium">보통</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">나이트</string>
     <string name="normal_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
 
-    <string name="matchstick_riddles_button">성냥개비 퍼즐 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">성냥개비 퍼즐</string>
     <string name="matchstick_riddle_prompt_move_one">성냥개비 1개를 옮겨 식을 맞추세요.</string>
     <string name="matchstick_riddle_prompt_move_two">성냥개비 2개를 옮겨 식을 맞추세요.</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%2$d개 중 %1$d개 수료</string>
     <string name="learn_ages">%1$s세</string>
 
-    <string name="learn_level_g12">1~2학년</string>
-    <string name="learn_level_g12_subtitle">6~8세 · 수 세기, 도형, 첫 측정</string>
-    <string name="learn_level_g35">3~5학년</string>
-    <string name="learn_level_g35_subtitle">8~11세 · 구구단, 분수, 그래프</string>
-    <string name="learn_level_g68">6~8학년</string>
-    <string name="learn_level_g68_subtitle">11~14세 · 비, 백분율, 첫 대수</string>
-    <string name="learn_level_g910">9~10학년</string>
-    <string name="learn_level_g910_subtitle">14~16세 · 이차방정식, 증명, 삼각법</string>
-    <string name="learn_level_g1112">11~12학년</string>
-    <string name="learn_level_g1112_subtitle">16~18세 · 로그, 단위원, 미적분</string>
 
     <string name="learn_topic_arithmetic">산술</string>
     <string name="learn_topic_arithmetic_subtitle">수와 연산</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">정답!</string>
     <string name="learn_revealed_answer">정답은 이것입니다</string>
     <string name="learn_show_answer">답 보여주기</string>
-    <string name="learn_incorrect">아쉬워요</string>
     <string name="learn_your_answer">내 답</string>
 
     <string name="learn_take_test">시험 보기</string>

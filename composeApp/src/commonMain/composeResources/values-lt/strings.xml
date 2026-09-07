@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Didysis meistras</string>
     <string name="achievements_button">Pasiekimai (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Ištrinti paskutinį skaitmenį</string>
-    <string name="normal_sudoku_button">Klasikinis Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Pradedantysis</string>
     <string name="normal_sudoku_difficulty_easy">Lengva</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Žirgas</string>
     <string name="normal_chess_draw_warning">= patas (lygiosios, ne pergalė)</string>
 
-    <string name="matchstick_riddles_button">Degtukų galvosūkiai (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Degtukų galvosūkiai</string>
     <string name="matchstick_riddle_prompt_move_one">Perkelk 1 degtuką, kad lygtis būtų teisinga.</string>
     <string name="matchstick_riddle_prompt_move_two">Perkelk 2 degtukus, kad lygtis būtų teisinga.</string>
@@ -421,7 +419,6 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="game_flash_crowd_which_more">Kurioje pusėje jų buvo daugiau?</string>
     <string name="game_flash_crowd_blue">Mėlyna</string>
     <string name="game_flash_crowd_yellow">Geltona</string>
-    <string name="button_done">Atlikta</string>
 
     <string name="color_red">Raudona</string>
     <string name="color_green">Žalia</string>
@@ -925,16 +922,6 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_topic_certificates">%1$d iš %2$d su sertifikatu</string>
     <string name="learn_ages">Amžius %1$s</string>
 
-    <string name="learn_level_g12">1–2 klasė</string>
-    <string name="learn_level_g12_subtitle">6–8 m. · skaičiavimas, formos ir pirmi matai</string>
-    <string name="learn_level_g35">3–5 klasė</string>
-    <string name="learn_level_g35_subtitle">8–11 m. · daugybos lentelė, trupmenos ir grafikai</string>
-    <string name="learn_level_g68">6–8 klasė</string>
-    <string name="learn_level_g68_subtitle">11–14 m. · santykis, procentai ir pirma algebra</string>
-    <string name="learn_level_g910">9–10 klasė</string>
-    <string name="learn_level_g910_subtitle">14–16 m. · kvadratinės lygtys, įrodymas ir trigonometrija</string>
-    <string name="learn_level_g1112">11–12 klasė</string>
-    <string name="learn_level_g1112_subtitle">16–18 m. · logaritmai, vienetinis apskritimas ir analizė</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Skaičiai ir veiksmai</string>
@@ -964,7 +951,6 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_correct">Teisingai!</string>
     <string name="learn_revealed_answer">Štai atsakymas</string>
     <string name="learn_show_answer">Parodyk atsakymą</string>
-    <string name="learn_incorrect">Dar ne</string>
     <string name="learn_your_answer">Tavo atsakymas</string>
 
     <string name="learn_take_test">Laikyti testą</string>

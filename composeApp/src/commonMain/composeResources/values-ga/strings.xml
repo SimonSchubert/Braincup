@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Ardmháistir</string>
     <string name="achievements_button">Éachtaí (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Scrios an digit deireanach</string>
-    <string name="normal_sudoku_button">Sudoku clasaiceach (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Tosaitheoir</string>
     <string name="normal_sudoku_difficulty_easy">Éasca</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Ridire</string>
     <string name="normal_chess_draw_warning">= sáinn (comhscór, ní bua)</string>
 
-    <string name="matchstick_riddles_button">Tomhais lasán (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Tomhais lasán</string>
     <string name="matchstick_riddle_prompt_move_one">Bog 1 lasán chun an chothromóid a dheisiú.</string>
     <string name="matchstick_riddle_prompt_move_two">Bog 2 lasán chun an chothromóid a dheisiú.</string>
@@ -421,7 +419,6 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="game_flash_crowd_which_more">Cén taobh a raibh níos mó orthu?</string>
     <string name="game_flash_crowd_blue">Gorm</string>
     <string name="game_flash_crowd_yellow">Buí</string>
-    <string name="button_done">Déanta</string>
 
     <string name="color_red">Dearg</string>
     <string name="color_green">Glas</string>
@@ -925,16 +922,6 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_topic_certificates">%1$d as %2$d deimhnithe</string>
     <string name="learn_ages">Aoiseanna %1$s</string>
 
-    <string name="learn_level_g12">Rang 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 mbliana · comhaireamh, cruthanna agus na chéad thomhais</string>
-    <string name="learn_level_g35">Rang 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 bliana · táblaí iolraithe, codáin agus graif</string>
-    <string name="learn_level_g68">Rang 6 – 2ú bliain</string>
-    <string name="learn_level_g68_subtitle">11–14 bliana · cóimheas, céatadán agus an chéad ailgéabar</string>
-    <string name="learn_level_g910">3ú–4ú bliain</string>
-    <string name="learn_level_g910_subtitle">14–16 bliana · cothromóidí cearnaithe, cruthúnas agus triantánacht</string>
-    <string name="learn_level_g1112">5ú–6ú bliain</string>
-    <string name="learn_level_g1112_subtitle">16–18 mbliana · logaidirmí, an t-aonadchiorcal agus calcalas</string>
 
     <string name="learn_topic_arithmetic">Uimhríocht</string>
     <string name="learn_topic_arithmetic_subtitle">Uimhreacha agus oibríochtaí</string>
@@ -964,7 +951,6 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_correct">Ceart!</string>
     <string name="learn_revealed_answer">Seo é an freagra</string>
     <string name="learn_show_answer">Taispeáin an freagra dom</string>
-    <string name="learn_incorrect">Ní go díreach</string>
     <string name="learn_your_answer">Do fhreagra</string>
 
     <string name="learn_take_test">Déan an tástáil</string>

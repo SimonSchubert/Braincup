@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Stórmeistari</string>
     <string name="achievements_button">Afrek (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Eyða síðasta tölustaf</string>
-    <string name="normal_sudoku_button">Klassískt Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Byrjandi</string>
     <string name="normal_sudoku_difficulty_easy">Létt</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Riddari</string>
     <string name="normal_chess_draw_warning">= patt (jafntefli, ekki sigur)</string>
 
-    <string name="matchstick_riddles_button">Eldspýtugátur (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Eldspýtugátur</string>
     <string name="matchstick_riddle_prompt_move_one">Færðu 1 eldspýtu til að jafna jöfnuna.</string>
     <string name="matchstick_riddle_prompt_move_two">Færðu 2 eldspýtur til að jafna jöfnuna.</string>
@@ -421,7 +419,6 @@ Færðu Cow — hann verður Bull.</string>
     <string name="game_flash_crowd_which_more">Hvor hliðin hafði fleiri?</string>
     <string name="game_flash_crowd_blue">Blátt</string>
     <string name="game_flash_crowd_yellow">Gult</string>
-    <string name="button_done">Lokið</string>
 
     <string name="color_red">Rautt</string>
     <string name="color_green">Grænt</string>
@@ -925,16 +922,6 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_topic_certificates">%1$d af %2$d með skírteini</string>
     <string name="learn_ages">Aldur %1$s</string>
 
-    <string name="learn_level_g12">1.–2. bekkur</string>
-    <string name="learn_level_g12_subtitle">6–8 ára · talning, form og fyrstu mælingar</string>
-    <string name="learn_level_g35">3.–5. bekkur</string>
-    <string name="learn_level_g35_subtitle">8–11 ára · margföldunartafla, brot og gröf</string>
-    <string name="learn_level_g68">6.–8. bekkur</string>
-    <string name="learn_level_g68_subtitle">11–14 ára · hlutfall, prósent og fyrsta algebra</string>
-    <string name="learn_level_g910">9.–10. bekkur</string>
-    <string name="learn_level_g910_subtitle">14–16 ára · ferningsjöfnur, sönnun og hornafræði</string>
-    <string name="learn_level_g1112">1.–2. ár framhaldsskóla</string>
-    <string name="learn_level_g1112_subtitle">16–18 ára · lógaritmar, einingarhringur og stærðfræðigreining</string>
 
     <string name="learn_topic_arithmetic">Reikningur</string>
     <string name="learn_topic_arithmetic_subtitle">Tölur og aðgerðir</string>
@@ -964,7 +951,6 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_correct">Rétt!</string>
     <string name="learn_revealed_answer">Hér er svarið</string>
     <string name="learn_show_answer">Sýndu mér svarið</string>
-    <string name="learn_incorrect">Ekki alveg</string>
     <string name="learn_your_answer">Svar þitt</string>
 
     <string name="learn_take_test">Taka prófið</string>

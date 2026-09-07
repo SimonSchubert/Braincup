@@ -17,7 +17,6 @@
     <string name="button_cancel">Abbrechen</string>
     <string name="button_quit_game">Beenden</string>
     <string name="button_backspace">Löschen</string>
-    <string name="button_done">Fertig</string>
 
     <string name="achievements_button">Erfolge (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Letzte Ziffer löschen</string>
@@ -607,7 +606,6 @@
     <string name="accounts_play_desc">In Play Games gespeichert</string>
     <string name="accounts_game_center_desc">In Game Center gespeichert</string>
     <string name="accounts_local_desc">Auf diesem Gerät gespeichert. Weg, wenn du die App löschst.</string>
-    <string name="normal_sudoku_button">Normal-Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Anfänger</string>
     <string name="normal_sudoku_difficulty_easy">Einfach</string>
     <string name="normal_sudoku_difficulty_medium">Mittel</string>
@@ -654,7 +652,6 @@
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
 
-    <string name="matchstick_riddles_button">Streichholz-Rätsel (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Streichholz-Rätsel</string>
     <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, damit die Gleichung stimmt.</string>
     <string name="matchstick_riddle_prompt_move_two">Verschiebe 2 Streichhölzer, damit die Gleichung stimmt.</string>
@@ -908,16 +905,6 @@
     <string name="learn_topic_certificates">%1$d von %2$d zertifiziert</string>
     <string name="learn_ages">Alter %1$s</string>
 
-    <string name="learn_level_g12">Klasse 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 Jahre · Zählen, Formen und erste Maße</string>
-    <string name="learn_level_g35">Klasse 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 Jahre · Einmaleins, Brüche und Diagramme</string>
-    <string name="learn_level_g68">Klasse 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 Jahre · Verhältnis, Prozent und erste Algebra</string>
-    <string name="learn_level_g910">Klasse 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 Jahre · Quadratische Gleichungen, Beweise und Trigonometrie</string>
-    <string name="learn_level_g1112">Klasse 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 Jahre · Logarithmen, Einheitskreis und Analysis</string>
 
     <string name="learn_topic_arithmetic">Arithmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Zahlen &amp; Rechenarten</string>
@@ -1258,7 +1245,6 @@
     <string name="learn_correct">Richtig!</string>
     <string name="learn_revealed_answer">Hier ist die Antwort</string>
     <string name="learn_show_answer">Zeig mir die Antwort</string>
-    <string name="learn_incorrect">Nicht ganz</string>
     <string name="learn_your_answer">Deine Antwort</string>
 
     <string name="learn_take_test">Test machen</string>

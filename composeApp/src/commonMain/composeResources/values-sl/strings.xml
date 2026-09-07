@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Velemojster</string>
     <string name="achievements_button">Dosežki (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Izbriši zadnjo števko</string>
-    <string name="normal_sudoku_button">Klasični Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Začetnik</string>
     <string name="normal_sudoku_difficulty_easy">Lahko</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Skakač</string>
     <string name="normal_chess_draw_warning">= pat (remi, ne zmaga)</string>
 
-    <string name="matchstick_riddles_button">Uganke z vžigalicami (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Uganke z vžigalicami</string>
     <string name="matchstick_riddle_prompt_move_one">Premakni 1 vžigalico, da bo enačba pravilna.</string>
     <string name="matchstick_riddle_prompt_move_two">Premakni 2 vžigalici, da bo enačba pravilna.</string>
@@ -421,7 +419,6 @@ Premakni Cow — postal bo Bull.</string>
     <string name="game_flash_crowd_which_more">Katera stran jih je imela več?</string>
     <string name="game_flash_crowd_blue">Modra</string>
     <string name="game_flash_crowd_yellow">Rumena</string>
-    <string name="button_done">Končano</string>
 
     <string name="color_red">Rdeča</string>
     <string name="color_green">Zelena</string>
@@ -925,16 +922,6 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s potrdilom</string>
     <string name="learn_ages">Starost %1$s</string>
 
-    <string name="learn_level_g12">1.–2. razred</string>
-    <string name="learn_level_g12_subtitle">6–8 let · štetje, liki in prva merjenja</string>
-    <string name="learn_level_g35">3.–5. razred</string>
-    <string name="learn_level_g35_subtitle">8–11 let · poštevanka, ulomki in grafi</string>
-    <string name="learn_level_g68">6.–8. razred</string>
-    <string name="learn_level_g68_subtitle">11–14 let · razmerje, odstotki in prva algebra</string>
-    <string name="learn_level_g910">9. razred – 1. letnik</string>
-    <string name="learn_level_g910_subtitle">14–16 let · kvadratne enačbe, dokaz in trigonometrija</string>
-    <string name="learn_level_g1112">2.–3. letnik</string>
-    <string name="learn_level_g1112_subtitle">16–18 let · logaritmi, enotska krožnica in kalkulus</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Števila in operacije</string>
@@ -964,7 +951,6 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_correct">Pravilno!</string>
     <string name="learn_revealed_answer">Tukaj je odgovor</string>
     <string name="learn_show_answer">Pokaži mi odgovor</string>
-    <string name="learn_incorrect">Še ne</string>
     <string name="learn_your_answer">Tvoj odgovor</string>
 
     <string name="learn_take_test">Opravi test</string>

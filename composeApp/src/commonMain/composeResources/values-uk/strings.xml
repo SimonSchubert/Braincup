@@ -17,7 +17,6 @@
     <string name="button_cancel">Скасувати</string>
     <string name="button_quit_game">Вийти</string>
     <string name="button_backspace">Видалити</string>
-    <string name="button_done">Готово</string>
 
     <string name="achievements_button">Досягнення (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Видалити останню цифру</string>
@@ -634,7 +633,6 @@
     <string name="accounts_game_center_desc">Збережено в Game Center</string>
     <string name="accounts_local_desc">Збережено на цьому пристрої. Зникне, якщо видалити програму.</string>
 
-    <string name="normal_sudoku_button">Звичайний судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Початківець</string>
     <string name="normal_sudoku_difficulty_easy">Легкий</string>
     <string name="normal_sudoku_difficulty_medium">Середній</string>
@@ -681,7 +679,6 @@
     <string name="normal_chess_promotion_knight">Кінь</string>
     <string name="normal_chess_draw_warning">= пат (нічия, не перемога)</string>
 
-    <string name="matchstick_riddles_button">Головоломки з сірниками (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Головоломки з сірниками</string>
     <string name="matchstick_riddle_prompt_move_one">Перемістіть 1 сірник, щоб виправити рівняння.</string>
     <string name="matchstick_riddle_prompt_move_two">Перемістіть 2 сірники, щоб виправити рівняння.</string>
@@ -908,16 +905,6 @@
     <string name="learn_topic_certificates">%1$d з %2$d із сертифікатом</string>
     <string name="learn_ages">Вік %1$s</string>
 
-    <string name="learn_level_g12">Класи 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 років · лічба, фігури та перші вимірювання</string>
-    <string name="learn_level_g35">Класи 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 років · таблиця множення, дроби та графіки</string>
-    <string name="learn_level_g68">Класи 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 років · відношення, відсотки та початки алгебри</string>
-    <string name="learn_level_g910">Класи 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 років · квадратні рівняння, доведення та тригонометрія</string>
-    <string name="learn_level_g1112">Класи 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 років · логарифми, одиничне коло та аналіз</string>
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; дії</string>
@@ -947,7 +934,6 @@
     <string name="learn_correct">Правильно!</string>
     <string name="learn_revealed_answer">Ось відповідь</string>
     <string name="learn_show_answer">Покажи відповідь</string>
-    <string name="learn_incorrect">Не зовсім</string>
     <string name="learn_your_answer">Твоя відповідь</string>
 
     <string name="learn_take_test">Скласти тест</string>

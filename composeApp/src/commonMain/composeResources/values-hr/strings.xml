@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Veliki majstor</string>
     <string name="achievements_button">Postignuća (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Izbriši zadnju znamenku</string>
-    <string name="normal_sudoku_button">Klasični Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Početnik</string>
     <string name="normal_sudoku_difficulty_easy">Lako</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Skakač</string>
     <string name="normal_chess_draw_warning">= pat (remi, ne pobjeda)</string>
 
-    <string name="matchstick_riddles_button">Zagonetke sa šibicama (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Zagonetke sa šibicama</string>
     <string name="matchstick_riddle_prompt_move_one">Premjesti 1 šibicu da jednadžba bude točna.</string>
     <string name="matchstick_riddle_prompt_move_two">Premjesti 2 šibice da jednadžba bude točna.</string>
@@ -421,7 +419,6 @@ Premjesti Cow — postat će Bull.</string>
     <string name="game_flash_crowd_which_more">Koja strana ih je imala više?</string>
     <string name="game_flash_crowd_blue">Plava</string>
     <string name="game_flash_crowd_yellow">Žuta</string>
-    <string name="button_done">Gotovo</string>
 
     <string name="color_red">Crvena</string>
     <string name="color_green">Zelena</string>
@@ -925,16 +922,6 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s certifikatom</string>
     <string name="learn_ages">Dob %1$s</string>
 
-    <string name="learn_level_g12">1.–2. razred</string>
-    <string name="learn_level_g12_subtitle">6–8 godina · brojanje, oblici i prva mjerenja</string>
-    <string name="learn_level_g35">3.–5. razred</string>
-    <string name="learn_level_g35_subtitle">8–11 godina · tablica množenja, razlomci i grafovi</string>
-    <string name="learn_level_g68">6.–8. razred</string>
-    <string name="learn_level_g68_subtitle">11–14 godina · omjer, postoci i prva algebra</string>
-    <string name="learn_level_g910">1.–2. razred srednje</string>
-    <string name="learn_level_g910_subtitle">14–16 godina · kvadratne jednadžbe, dokaz i trigonometrija</string>
-    <string name="learn_level_g1112">3.–4. razred srednje</string>
-    <string name="learn_level_g1112_subtitle">16–18 godina · logaritmi, jedinična kružnica i kalkulus</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Brojevi i operacije</string>
@@ -964,7 +951,6 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_correct">Točno!</string>
     <string name="learn_revealed_answer">Evo odgovora</string>
     <string name="learn_show_answer">Pokaži mi odgovor</string>
-    <string name="learn_incorrect">Još ne</string>
     <string name="learn_your_answer">Tvoj odgovor</string>
 
     <string name="learn_take_test">Položi test</string>

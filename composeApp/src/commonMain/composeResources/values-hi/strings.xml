@@ -17,7 +17,6 @@
     <string name="button_cancel">रद्द करें</string>
     <string name="button_quit_game">छोड़ें</string>
     <string name="button_backspace">बैकस्पेस</string>
-    <string name="button_done">पूर्ण</string>
 
     <string name="achievements_button">उपलब्धियां (%1$d/%2$d)</string>
     <string name="number_pad_backspace">आखिरी अंक मिटाएँ</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Play Games में सहेजा गया</string>
     <string name="accounts_game_center_desc">Game Center में सहेजा गया</string>
     <string name="accounts_local_desc">इस डिवाइस पर सहेजा गया। अनइंस्टॉल करने पर चला जाएगा।</string>
-    <string name="normal_sudoku_button">सामान्य सुडोकू (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">शुरुआती</string>
     <string name="normal_sudoku_difficulty_easy">आसान</string>
     <string name="normal_sudoku_difficulty_medium">मध्यम</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">घोड़ा</string>
     <string name="normal_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
 
-    <string name="matchstick_riddles_button">माचिस की पहेलियाँ (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">माचिस की पहेलियाँ</string>
     <string name="matchstick_riddle_prompt_move_one">समीकरण ठीक करने के लिए 1 माचिस की तीली हटाएँ।</string>
     <string name="matchstick_riddle_prompt_move_two">समीकरण ठीक करने के लिए 2 माचिस की तीलियाँ हटाएँ।</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%2$d में से %1$d प्रमाणित</string>
     <string name="learn_ages">आयु %1$s</string>
 
-    <string name="learn_level_g12">कक्षा 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 वर्ष · गिनती, आकृतियाँ और पहली माप</string>
-    <string name="learn_level_g35">कक्षा 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 वर्ष · पहाड़े, भिन्न और ग्राफ़</string>
-    <string name="learn_level_g68">कक्षा 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 वर्ष · अनुपात, प्रतिशत और आरंभिक बीजगणित</string>
-    <string name="learn_level_g910">कक्षा 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 वर्ष · द्विघात समीकरण, उपपत्ति और त्रिकोणमिति</string>
-    <string name="learn_level_g1112">कक्षा 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 वर्ष · लघुगणक, इकाई वृत्त और कलन</string>
 
     <string name="learn_topic_arithmetic">अंकगणित</string>
     <string name="learn_topic_arithmetic_subtitle">संख्याएँ &amp; संक्रियाएँ</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">सही!</string>
     <string name="learn_revealed_answer">यह रहा उत्तर</string>
     <string name="learn_show_answer">मुझे उत्तर दिखाएं</string>
-    <string name="learn_incorrect">बिल्कुल नहीं</string>
     <string name="learn_your_answer">आपका उत्तर</string>
 
     <string name="learn_take_test">परीक्षा दें</string>

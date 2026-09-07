@@ -25,7 +25,6 @@
     <string name="title_grandmaster">மாபெரும் நிபுணர்</string>
     <string name="achievements_button">சாதனைகள் (%1$d/%2$d)</string>
     <string name="number_pad_backspace">கடைசி இலக்கத்தை அழி</string>
-    <string name="normal_sudoku_button">சாதாரண சுடோகு (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">சுடோகு</string>
     <string name="normal_sudoku_difficulty_beginner">தொடக்கநிலை</string>
     <string name="normal_sudoku_difficulty_easy">எளிது</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">குதிரை</string>
     <string name="normal_chess_draw_warning">= முட்டுக்கட்டு (சமநிலை, வெற்றி அல்ல)</string>
 
-    <string name="matchstick_riddles_button">தீக்குச்சி புதிர்கள் (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">தீக்குச்சி புதிர்கள்</string>
     <string name="matchstick_riddle_prompt_move_one">சமன்பாட்டைச் சரிசெய்ய 1 தீக்குச்சியை நகர்த்துங்கள்.</string>
     <string name="matchstick_riddle_prompt_move_two">சமன்பாட்டைச் சரிசெய்ய 2 தீக்குச்சிகளை நகர்த்துங்கள்.</string>
@@ -403,7 +401,6 @@
     <string name="game_flash_crowd_which_more">எந்தப் பக்கத்தில் அதிகம் இருந்தது?</string>
     <string name="game_flash_crowd_blue">நீலம்</string>
     <string name="game_flash_crowd_yellow">மஞ்சள்</string>
-    <string name="button_done">முடிந்தது</string>
 
     <string name="color_red">சிவப்பு</string>
     <string name="color_green">பச்சை</string>
@@ -894,16 +891,6 @@
     <string name="learn_topic_certificates">%2$d இல் %1$d சான்றளிக்கப்பட்டது</string>
     <string name="learn_ages">வயது %1$s</string>
 
-    <string name="learn_level_g12">வகுப்புகள் 1–2</string>
-    <string name="learn_level_g12_subtitle">வயது 6–8 · எண்ணுதல், வடிவங்கள், முதல் அளவைகள்</string>
-    <string name="learn_level_g35">வகுப்புகள் 3–5</string>
-    <string name="learn_level_g35_subtitle">வயது 8–11 · வாய்ப்பாடுகள், பின்னங்கள், வரைபடங்கள்</string>
-    <string name="learn_level_g68">வகுப்புகள் 6–8</string>
-    <string name="learn_level_g68_subtitle">வயது 11–14 · விகிதம், சதவீதம், முதல் இயற்கணிதம்</string>
-    <string name="learn_level_g910">வகுப்புகள் 9–10</string>
-    <string name="learn_level_g910_subtitle">வயது 14–16 · இருபடிச் சமன்பாடுகள், நிரூபணம், முக்கோணவியல்</string>
-    <string name="learn_level_g1112">வகுப்புகள் 11–12</string>
-    <string name="learn_level_g1112_subtitle">வயது 16–18 · மடக்கைகள், அலகு வட்டம், நுண்கணிதம்</string>
 
     <string name="learn_topic_arithmetic">எண்கணிதம்</string>
     <string name="learn_topic_arithmetic_subtitle">எண் &amp; செயல்கள்</string>
@@ -933,7 +920,6 @@
     <string name="learn_correct">சரி!</string>
     <string name="learn_revealed_answer">இதோ விடை</string>
     <string name="learn_show_answer">விடையைக் காட்டு</string>
-    <string name="learn_incorrect">சரியாக இல்லை</string>
     <string name="learn_your_answer">உங்கள் விடை</string>
 
     <string name="learn_take_test">தேர்வு எழுது</string>

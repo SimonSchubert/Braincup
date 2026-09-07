@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Mare maestru</string>
     <string name="achievements_button">Realizări (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Șterge ultima cifră</string>
-    <string name="normal_sudoku_button">Sudoku clasic (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Începător</string>
     <string name="normal_sudoku_difficulty_easy">Ușor</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Cal</string>
     <string name="normal_chess_draw_warning">= pat (remiză, nu victorie)</string>
 
-    <string name="matchstick_riddles_button">Ghicitori cu chibrituri (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Ghicitori cu chibrituri</string>
     <string name="matchstick_riddle_prompt_move_one">Mută 1 chibrit ca să îndrepți ecuația.</string>
     <string name="matchstick_riddle_prompt_move_two">Mută 2 chibrituri ca să îndrepți ecuația.</string>
@@ -421,7 +419,6 @@ Mută Cow — devine Bull.</string>
     <string name="game_flash_crowd_which_more">Care parte a avut mai multe?</string>
     <string name="game_flash_crowd_blue">Albastru</string>
     <string name="game_flash_crowd_yellow">Galben</string>
-    <string name="button_done">Gata</string>
 
     <string name="color_red">Roșu</string>
     <string name="color_green">Verde</string>
@@ -925,16 +922,6 @@ Mută Cow — devine Bull.</string>
     <string name="learn_topic_certificates">%1$d din %2$d certificate</string>
     <string name="learn_ages">Vârste %1$s</string>
 
-    <string name="learn_level_g12">Clasele I–II</string>
-    <string name="learn_level_g12_subtitle">6–8 ani · numărare, forme și primele măsuri</string>
-    <string name="learn_level_g35">Clasele III–V</string>
-    <string name="learn_level_g35_subtitle">8–11 ani · tabla înmulțirii, fracții și grafice</string>
-    <string name="learn_level_g68">Clasele VI–VIII</string>
-    <string name="learn_level_g68_subtitle">11–14 ani · rapoarte, procente și primii pași în algebră</string>
-    <string name="learn_level_g910">Clasele IX–X</string>
-    <string name="learn_level_g910_subtitle">14–16 ani · pătratice, demonstrații și trigonometrie</string>
-    <string name="learn_level_g1112">Clasele XI–XII</string>
-    <string name="learn_level_g1112_subtitle">16–18 ani · logaritmi, cercul trigonometric și analiză</string>
 
     <string name="learn_topic_arithmetic">Aritmetică</string>
     <string name="learn_topic_arithmetic_subtitle">Numere și operații</string>
@@ -964,7 +951,6 @@ Mută Cow — devine Bull.</string>
     <string name="learn_correct">Corect!</string>
     <string name="learn_revealed_answer">Iată răspunsul</string>
     <string name="learn_show_answer">Arată-mi răspunsul</string>
-    <string name="learn_incorrect">Nu chiar</string>
     <string name="learn_your_answer">Răspunsul tău</string>
 
     <string name="learn_take_test">Dă testul</string>

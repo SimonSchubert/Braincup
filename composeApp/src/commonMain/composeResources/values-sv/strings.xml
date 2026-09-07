@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Stormästare</string>
     <string name="achievements_button">Prestationer (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Radera sista siffran</string>
-    <string name="normal_sudoku_button">Vanlig Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Nybörjare</string>
     <string name="normal_sudoku_difficulty_easy">Lätt</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Springare</string>
     <string name="normal_chess_draw_warning">= patt (remi, inte vinst)</string>
 
-    <string name="matchstick_riddles_button">Tändsticksgåtor (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Tändsticksgåtor</string>
     <string name="matchstick_riddle_prompt_move_one">Flytta 1 tändsticka för att rätta ekvationen.</string>
     <string name="matchstick_riddle_prompt_move_two">Flytta 2 tändstickor för att rätta ekvationen.</string>
@@ -419,7 +417,6 @@
     <string name="game_flash_crowd_which_more">Vilken sida hade fler?</string>
     <string name="game_flash_crowd_blue">Blå</string>
     <string name="game_flash_crowd_yellow">Gul</string>
-    <string name="button_done">Klar</string>
 
     <string name="color_red">Röd</string>
     <string name="color_green">Grön</string>
@@ -923,16 +920,6 @@
     <string name="learn_topic_certificates">%1$d av %2$d intygade</string>
     <string name="learn_ages">Ålder %1$s</string>
 
-    <string name="learn_level_g12">Årskurs 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 år · räkning, former och första mått</string>
-    <string name="learn_level_g35">Årskurs 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 år · multiplikationstabeller, bråk och diagram</string>
-    <string name="learn_level_g68">Årskurs 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 år · förhållande, procent och första algebra</string>
-    <string name="learn_level_g910">Årskurs 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 år · andragradare, bevis och trigonometri</string>
-    <string name="learn_level_g1112">Årskurs 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 år · logaritmer, enhetscirkeln och analys</string>
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Tal &amp; räknesätt</string>
@@ -962,7 +949,6 @@
     <string name="learn_correct">Rätt!</string>
     <string name="learn_revealed_answer">Här är svaret</string>
     <string name="learn_show_answer">Visa mig svaret</string>
-    <string name="learn_incorrect">Inte riktigt</string>
     <string name="learn_your_answer">Ditt svar</string>
 
     <string name="learn_take_test">Gör testet</string>

@@ -17,7 +17,6 @@
     <string name="button_cancel">取消</string>
     <string name="button_quit_game">退出</string>
     <string name="button_backspace">退格</string>
-    <string name="button_done">完成</string>
 
     <string name="achievements_button">成就 (%1$d/%2$d)</string>
     <string name="number_pad_backspace">删除最后一位数字</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">已保存到 Play 游戏</string>
     <string name="accounts_game_center_desc">已保存到 Game Center</string>
     <string name="accounts_local_desc">保存在本机。卸载后会丢失。</string>
-    <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入门</string>
     <string name="normal_sudoku_difficulty_easy">简单</string>
     <string name="normal_sudoku_difficulty_medium">中等</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">马</string>
     <string name="normal_chess_draw_warning">= 逼和（平局，非胜利）</string>
 
-    <string name="matchstick_riddles_button">火柴谜题 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">火柴谜题</string>
     <string name="matchstick_riddle_prompt_move_one">移动 1 根火柴来修正等式。</string>
     <string name="matchstick_riddle_prompt_move_two">移动 2 根火柴来修正等式。</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%2$d 项中已认证 %1$d 项</string>
     <string name="learn_ages">%1$s 岁</string>
 
-    <string name="learn_level_g12">1–2 年级</string>
-    <string name="learn_level_g12_subtitle">6–8 岁 · 计数、图形和初步测量</string>
-    <string name="learn_level_g35">3–5 年级</string>
-    <string name="learn_level_g35_subtitle">8–11 岁 · 乘法表、分数和图表</string>
-    <string name="learn_level_g68">6–8 年级</string>
-    <string name="learn_level_g68_subtitle">11–14 岁 · 比、百分数和初步代数</string>
-    <string name="learn_level_g910">9–10 年级</string>
-    <string name="learn_level_g910_subtitle">14–16 岁 · 二次方程、证明和三角</string>
-    <string name="learn_level_g1112">11–12 年级</string>
-    <string name="learn_level_g1112_subtitle">16–18 岁 · 对数、单位圆和微积分</string>
 
     <string name="learn_topic_arithmetic">算术</string>
     <string name="learn_topic_arithmetic_subtitle">数与运算</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">正确！</string>
     <string name="learn_revealed_answer">答案在这里</string>
     <string name="learn_show_answer">给我看答案</string>
-    <string name="learn_incorrect">还差一点</string>
     <string name="learn_your_answer">你的答案</string>
 
     <string name="learn_take_test">参加测验</string>

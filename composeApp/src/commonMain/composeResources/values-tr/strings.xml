@@ -17,7 +17,6 @@
     <string name="button_cancel">İptal</string>
     <string name="button_quit_game">Çık</string>
     <string name="button_backspace">Sil</string>
-    <string name="button_done">Bitti</string>
 
     <string name="achievements_button">Başarılar (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Son rakamı sil</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Play Oyunlar'a kaydedildi</string>
     <string name="accounts_game_center_desc">Game Center'a kaydedildi</string>
     <string name="accounts_local_desc">Bu cihazda kayıtlı. Uygulamayı silersen gider.</string>
-    <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Başlangıç</string>
     <string name="normal_sudoku_difficulty_easy">Kolay</string>
     <string name="normal_sudoku_difficulty_medium">Orta</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">At</string>
     <string name="normal_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
 
-    <string name="matchstick_riddles_button">Kibrit bulmacaları (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Kibrit bulmacaları</string>
     <string name="matchstick_riddle_prompt_move_one">Denklemi düzeltmek için 1 kibrit taşıyın.</string>
     <string name="matchstick_riddle_prompt_move_two">Denklemi düzeltmek için 2 kibrit taşıyın.</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%2$d konudan %1$d tanesi sertifikalı</string>
     <string name="learn_ages">Yaş %1$s</string>
 
-    <string name="learn_level_g12">1–2. sınıf</string>
-    <string name="learn_level_g12_subtitle">6–8 yaş · sayma, şekiller ve ilk ölçüler</string>
-    <string name="learn_level_g35">3–5. sınıf</string>
-    <string name="learn_level_g35_subtitle">8–11 yaş · çarpım tablosu, kesirler ve grafikler</string>
-    <string name="learn_level_g68">6–8. sınıf</string>
-    <string name="learn_level_g68_subtitle">11–14 yaş · oran, yüzde ve ilk cebir</string>
-    <string name="learn_level_g910">9–10. sınıf</string>
-    <string name="learn_level_g910_subtitle">14–16 yaş · ikinci derece denklemler, ispat ve trigonometri</string>
-    <string name="learn_level_g1112">11–12. sınıf</string>
-    <string name="learn_level_g1112_subtitle">16–18 yaş · logaritma, birim çember ve analiz</string>
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Sayılar &amp; işlemler</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">Doğru!</string>
     <string name="learn_revealed_answer">İşte cevap</string>
     <string name="learn_show_answer">Cevabı göster</string>
-    <string name="learn_incorrect">Tam değil</string>
     <string name="learn_your_answer">Cevabın</string>
 
     <string name="learn_take_test">Testi çöz</string>

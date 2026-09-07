@@ -25,7 +25,6 @@
     <string name="title_grandmaster">רב-אמן</string>
     <string name="achievements_button">הישגים (%1$d/%2$d)</string>
     <string name="number_pad_backspace">מחיקת הספרה האחרונה</string>
-    <string name="normal_sudoku_button">סודוקו רגיל (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">סודוקו</string>
     <string name="normal_sudoku_difficulty_beginner">מתחיל</string>
     <string name="normal_sudoku_difficulty_easy">קל</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">פרש</string>
     <string name="normal_chess_draw_warning">= פט (תיקו, לא ניצחון)</string>
 
-    <string name="matchstick_riddles_button">חידות גפרורים (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">חידות גפרורים</string>
     <string name="matchstick_riddle_prompt_move_one">הזז גפרור אחד כדי לתקן את המשוואה.</string>
     <string name="matchstick_riddle_prompt_move_two">הזז 2 גפרורים כדי לתקן את המשוואה.</string>
@@ -421,7 +419,6 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="game_flash_crowd_which_more">באיזה צד היו יותר?</string>
     <string name="game_flash_crowd_blue">כחול</string>
     <string name="game_flash_crowd_yellow">צהוב</string>
-    <string name="button_done">סיום</string>
 
     <string name="color_red">אדום</string>
     <string name="color_green">ירוק</string>
@@ -925,16 +922,6 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_topic_certificates">%1$d מתוך %2$d עם תעודה</string>
     <string name="learn_ages">גילאי %1$s</string>
 
-    <string name="learn_level_g12">כיתות א–ב</string>
-    <string name="learn_level_g12_subtitle">גילאי 6–8 · ספירה, צורות ומדידות ראשונות</string>
-    <string name="learn_level_g35">כיתות ג–ה</string>
-    <string name="learn_level_g35_subtitle">גילאי 8–11 · לוח הכפל, שברים ותרשימים</string>
-    <string name="learn_level_g68">כיתות ו–ח</string>
-    <string name="learn_level_g68_subtitle">גילאי 11–14 · יחס, אחוזים ואלגברה ראשונה</string>
-    <string name="learn_level_g910">כיתות ט–י</string>
-    <string name="learn_level_g910_subtitle">גילאי 14–16 · ריבועים, הוכחה וטריגונומטריה</string>
-    <string name="learn_level_g1112">כיתות יא–יב</string>
-    <string name="learn_level_g1112_subtitle">גילאי 16–18 · לוגים, מעגל היחידה וחשבון דיפרנציאלי</string>
 
     <string name="learn_topic_arithmetic">חשבון</string>
     <string name="learn_topic_arithmetic_subtitle">מספרים ופעולות</string>
@@ -964,7 +951,6 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_correct">נכון!</string>
     <string name="learn_revealed_answer">הנה התשובה</string>
     <string name="learn_show_answer">הראה לי את התשובה</string>
-    <string name="learn_incorrect">עוד לא</string>
     <string name="learn_your_answer">התשובה שלך</string>
 
     <string name="learn_take_test">גש למבחן</string>

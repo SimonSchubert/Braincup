@@ -17,7 +17,6 @@
     <string name="button_cancel">キャンセル</string>
     <string name="button_quit_game">終了</string>
     <string name="button_backspace">バックスペース</string>
-    <string name="button_done">完了</string>
 
     <string name="achievements_button">実績 (%1$d/%2$d)</string>
     <string name="number_pad_backspace">最後の数字を削除</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Play ゲームに保存</string>
     <string name="accounts_game_center_desc">Game Center に保存</string>
     <string name="accounts_local_desc">この端末に保存。アンインストールすると消えます。</string>
-    <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入門</string>
     <string name="normal_sudoku_difficulty_easy">簡単</string>
     <string name="normal_sudoku_difficulty_medium">普通</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">ナイト</string>
     <string name="normal_chess_draw_warning">= ステイルメイト（勝ちではなく引き分け）</string>
 
-    <string name="matchstick_riddles_button">マッチ棒パズル (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">マッチ棒パズル</string>
     <string name="matchstick_riddle_prompt_move_one">マッチ棒を1本動かして式を正しくしてください。</string>
     <string name="matchstick_riddle_prompt_move_two">マッチ棒を2本動かして式を正しくしてください。</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%2$d 件中 %1$d 件が修了</string>
     <string name="learn_ages">%1$s 歳</string>
 
-    <string name="learn_level_g12">1〜2年生</string>
-    <string name="learn_level_g12_subtitle">6〜8歳 · 数え方、図形、はじめての測定</string>
-    <string name="learn_level_g35">3〜5年生</string>
-    <string name="learn_level_g35_subtitle">8〜11歳 · かけ算九九、分数、グラフ</string>
-    <string name="learn_level_g68">6〜8年生</string>
-    <string name="learn_level_g68_subtitle">11〜14歳 · 比、割合、はじめての代数</string>
-    <string name="learn_level_g910">9〜10年生</string>
-    <string name="learn_level_g910_subtitle">14〜16歳 · 二次方程式、証明、三角比</string>
-    <string name="learn_level_g1112">11〜12年生</string>
-    <string name="learn_level_g1112_subtitle">16〜18歳 · 対数、単位円、微積分</string>
 
     <string name="learn_topic_arithmetic">算術</string>
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">正解！</string>
     <string name="learn_revealed_answer">答えはこちら</string>
     <string name="learn_show_answer">答えを見る</string>
-    <string name="learn_incorrect">おしい</string>
     <string name="learn_your_answer">あなたの答え</string>
 
     <string name="learn_take_test">テストを受ける</string>

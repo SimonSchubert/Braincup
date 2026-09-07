@@ -17,7 +17,6 @@
     <string name="button_cancel">Hủy</string>
     <string name="button_quit_game">Thoát</string>
     <string name="button_backspace">Xóa</string>
-    <string name="button_done">Xong</string>
 
     <string name="achievements_button">Thành tích (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Xóa chữ số cuối</string>
@@ -633,7 +632,6 @@
     <string name="accounts_play_desc">Đã lưu vào Play Games</string>
     <string name="accounts_game_center_desc">Đã lưu vào Game Center</string>
     <string name="accounts_local_desc">Lưu trên máy này. Mất nếu gỡ ứng dụng.</string>
-    <string name="normal_sudoku_button">Sudoku Thường (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Mới bắt đầu</string>
     <string name="normal_sudoku_difficulty_easy">Dễ</string>
     <string name="normal_sudoku_difficulty_medium">Trung bình</string>
@@ -680,7 +678,6 @@
     <string name="normal_chess_promotion_knight">Mã</string>
     <string name="normal_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
 
-    <string name="matchstick_riddles_button">Câu đố que diêm (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Câu đố que diêm</string>
     <string name="matchstick_riddle_prompt_move_one">Di chuyển 1 que diêm để sửa phương trình.</string>
     <string name="matchstick_riddle_prompt_move_two">Di chuyển 2 que diêm để sửa phương trình.</string>
@@ -907,16 +904,6 @@
     <string name="learn_topic_certificates">%1$d trên %2$d đã có chứng chỉ</string>
     <string name="learn_ages">Tuổi %1$s</string>
 
-    <string name="learn_level_g12">Lớp 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 tuổi · đếm, hình dạng và phép đo đầu tiên</string>
-    <string name="learn_level_g35">Lớp 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 tuổi · bảng cửu chương, phân số và biểu đồ</string>
-    <string name="learn_level_g68">Lớp 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 tuổi · tỉ số, phần trăm và đại số cơ bản</string>
-    <string name="learn_level_g910">Lớp 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 tuổi · phương trình bậc hai, chứng minh và lượng giác</string>
-    <string name="learn_level_g1112">Lớp 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 tuổi · logarit, đường tròn đơn vị và giải tích</string>
 
     <string name="learn_topic_arithmetic">Số học</string>
     <string name="learn_topic_arithmetic_subtitle">Số &amp; phép tính</string>
@@ -946,7 +933,6 @@
     <string name="learn_correct">Chính xác!</string>
     <string name="learn_revealed_answer">Đây là đáp án</string>
     <string name="learn_show_answer">Cho tôi xem đáp án</string>
-    <string name="learn_incorrect">Chưa đúng lắm</string>
     <string name="learn_your_answer">Câu trả lời của bạn</string>
 
     <string name="learn_take_test">Làm bài kiểm tra</string>

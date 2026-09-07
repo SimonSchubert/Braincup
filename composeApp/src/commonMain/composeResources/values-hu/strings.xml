@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Nagymester</string>
     <string name="achievements_button">Teljesítmények (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Utolsó számjegy törlése</string>
-    <string name="normal_sudoku_button">Klasszikus Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Kezdő</string>
     <string name="normal_sudoku_difficulty_easy">Könnyű</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Huszár</string>
     <string name="normal_chess_draw_warning">= patt (döntetlen, nem győzelem)</string>
 
-    <string name="matchstick_riddles_button">Gyufarejtvények (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Gyufarejtvények</string>
     <string name="matchstick_riddle_prompt_move_one">Mozgass 1 gyufaszálat, hogy stimmeljen az egyenlet.</string>
     <string name="matchstick_riddle_prompt_move_two">Mozgass 2 gyufaszálat, hogy stimmeljen az egyenlet.</string>
@@ -421,7 +419,6 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="game_flash_crowd_which_more">Melyik oldalon volt több?</string>
     <string name="game_flash_crowd_blue">Kék</string>
     <string name="game_flash_crowd_yellow">Sárga</string>
-    <string name="button_done">Kész</string>
 
     <string name="color_red">Piros</string>
     <string name="color_green">Zöld</string>
@@ -925,16 +922,6 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_topic_certificates">%1$d / %2$d bizonyítványozva</string>
     <string name="learn_ages">Életkor %1$s</string>
 
-    <string name="learn_level_g12">1–2. osztály</string>
-    <string name="learn_level_g12_subtitle">6–8 évesek · számolás, alakzatok és első mérések</string>
-    <string name="learn_level_g35">3–5. osztály</string>
-    <string name="learn_level_g35_subtitle">8–11 évesek · szorzótábla, törtek és grafikonok</string>
-    <string name="learn_level_g68">6–8. osztály</string>
-    <string name="learn_level_g68_subtitle">11–14 évesek · arány, százalék és első algebra</string>
-    <string name="learn_level_g910">9–10. osztály</string>
-    <string name="learn_level_g910_subtitle">14–16 évesek · másodfokú, bizonyítás és trigonometria</string>
-    <string name="learn_level_g1112">11–12. osztály</string>
-    <string name="learn_level_g1112_subtitle">16–18 évesek · logaritmus, egységkör és analízis</string>
 
     <string name="learn_topic_arithmetic">Számtan</string>
     <string name="learn_topic_arithmetic_subtitle">Számok és műveletek</string>
@@ -964,7 +951,6 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_correct">Helyes!</string>
     <string name="learn_revealed_answer">Íme a válasz</string>
     <string name="learn_show_answer">Mutasd a választ</string>
-    <string name="learn_incorrect">Még nem</string>
     <string name="learn_your_answer">A válaszod</string>
 
     <string name="learn_take_test">Teszt kitöltése</string>

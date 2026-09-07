@@ -25,7 +25,6 @@
     <string name="title_grandmaster">Μέγας Διδάσκαλος</string>
     <string name="achievements_button">Επιτεύγματα (%1$d/%2$d)</string>
     <string name="number_pad_backspace">Διαγραφή του τελευταίου ψηφίου</string>
-    <string name="normal_sudoku_button">Κανονικό Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Σουντόκου</string>
     <string name="normal_sudoku_difficulty_beginner">Αρχάριος</string>
     <string name="normal_sudoku_difficulty_easy">Εύκολο</string>
@@ -73,7 +72,6 @@
     <string name="normal_chess_promotion_knight">Ίππος</string>
     <string name="normal_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
 
-    <string name="matchstick_riddles_button">Γρίφοι με σπίρτα (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Γρίφοι με σπίρτα</string>
     <string name="matchstick_riddle_prompt_move_one">Μετακινήστε 1 σπίρτο για να διορθώσετε την εξίσωση.</string>
     <string name="matchstick_riddle_prompt_move_two">Μετακινήστε 2 σπίρτα για να διορθώσετε την εξίσωση.</string>
@@ -349,7 +347,6 @@
     <string name="game_flash_crowd_which_more">Ποια πλευρά έχει περισσότερα;</string>
     <string name="game_flash_crowd_blue">Μπλε</string>
     <string name="game_flash_crowd_yellow">Κίτρινη</string>
-    <string name="button_done">Τέλος</string>
 
     <string name="color_red">Κόκκινο</string>
     <string name="color_green">Πράσινο</string>
@@ -908,16 +905,6 @@
     <string name="learn_topic_certificates">%1$d από %2$d πιστοποιημένα</string>
     <string name="learn_ages">Ηλικίες %1$s</string>
 
-    <string name="learn_level_g12">Τάξεις 1–2</string>
-    <string name="learn_level_g12_subtitle">6–8 ετών · μέτρημα, σχήματα και πρώτες μετρήσεις</string>
-    <string name="learn_level_g35">Τάξεις 3–5</string>
-    <string name="learn_level_g35_subtitle">8–11 ετών · προπαίδεια, κλάσματα και γραφήματα</string>
-    <string name="learn_level_g68">Τάξεις 6–8</string>
-    <string name="learn_level_g68_subtitle">11–14 ετών · λόγοι, ποσοστά και πρώτη άλγεβρα</string>
-    <string name="learn_level_g910">Τάξεις 9–10</string>
-    <string name="learn_level_g910_subtitle">14–16 ετών · δευτεροβάθμιες εξισώσεις, αποδείξεις και τριγωνομετρία</string>
-    <string name="learn_level_g1112">Τάξεις 11–12</string>
-    <string name="learn_level_g1112_subtitle">16–18 ετών · λογάριθμοι, μοναδιαίος κύκλος και ανάλυση</string>
 
     <string name="learn_topic_arithmetic">Αριθμητική</string>
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
@@ -947,7 +934,6 @@
     <string name="learn_correct">Σωστά!</string>
     <string name="learn_revealed_answer">Ορίστε η απάντηση</string>
     <string name="learn_show_answer">Δείξε μου την απάντηση</string>
-    <string name="learn_incorrect">Όχι ακριβώς</string>
     <string name="learn_your_answer">Η απάντησή σου</string>
 
     <string name="learn_take_test">Δώσε το τεστ</string>
