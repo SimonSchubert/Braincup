@@ -445,6 +445,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameQuickSumReveal() {
+        snapGame(createQuickSumRevealUiState(), 52_000L)
+    }
+
+    @Test
     fun gameNBack() {
         snapGame(createNBackUiState(), 55_000L)
     }

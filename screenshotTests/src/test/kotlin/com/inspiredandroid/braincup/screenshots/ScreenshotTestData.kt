@@ -110,6 +110,17 @@ fun createQuickSumUiState(): GameUiState = QuickSumUiState(
     answerResult = null,
 )
 
+/** The reveal that follows the flash sequence, which has to read as an answer and not a term. */
+fun createQuickSumRevealUiState(): GameUiState = QuickSumUiState(
+    phase = QuickSumGame.Phase.ANSWER,
+    currentTerm = null,
+    termIndex = 3,
+    termCount = 4,
+    answerLength = 2,
+    revealedSum = "16",
+    answerResult = RevealResult.CORRECT,
+)
+
 // Built directly rather than from a game: the stream is random, and a snapshot needs a fixed frame.
 fun createNBackUiState(): GameUiState = NBackUiState(
     level = 3,

@@ -34,6 +34,7 @@ import braincup.composeapp.generated.resources.quick_sum_demo_title
 import braincup.composeapp.generated.resources.quick_sum_demo_total
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
@@ -109,6 +110,9 @@ fun QuickSumDemo(modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center,
         ) {
             Canvas(modifier = Modifier.fillMaxWidth().aspectRatio(1f)) {
+                // The tinted face is the tutorial's half of the same cue the game uses: the total
+                // arrives boxed and coloured, so it is never mistaken for one more flashed term.
+                if (phase == QuickSumDemoPhase.REVEAL) drawRect(color = SuccessGreenSoft)
                 drawRect(color = outlineColor, style = Stroke(width = 2.dp.toPx()))
             }
             when (phase) {

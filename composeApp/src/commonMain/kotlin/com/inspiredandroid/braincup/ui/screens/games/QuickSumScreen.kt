@@ -9,18 +9,29 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import org.jetbrains.compose.resources.stringResource
 
 /** Height of the flash slot. Fixed so the layout never shifts as terms appear and clear. */
-private val FlashSlotHeight = 96.dp
+private val FlashSlotHeight = 136.dp
+private val CompactFlashSlotHeight = 88.dp
+
+/**
+ * The flashed term is set well above `displayLarge`, which the rest of the app tops out at. It is
+ * on screen for well under a second, it is the only thing on that screen, and its size is also
+ * half of what tells a flashed term apart from the total revealed a second later.
+ */
+private val FlashFontSize = 100.sp
+private val CompactFlashFontSize = 64.sp
 
 @Composable
 internal fun ColumnScope.QuickSumContent(
@@ -37,6 +48,8 @@ internal fun ColumnScope.QuickSumContent(
 
 @Composable
 private fun QuickSumFlashingContent(uiState: QuickSumUiState) {
+    val compact = LocalIsCompactHeight.current
+    val fontSize = if (compact) CompactFlashFontSize else FlashFontSize
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -47,7 +60,7 @@ private fun QuickSumFlashingContent(uiState: QuickSumUiState) {
         )
         Spacer(Modifier.height(20.dp))
         Box(
-            modifier = Modifier.height(FlashSlotHeight),
+            modifier = Modifier.height(if (compact) CompactFlashSlotHeight else FlashSlotHeight),
             contentAlignment = Alignment.Center,
         ) {
             // Null during the blank gap between terms; the slot keeps its height so the number
@@ -55,7 +68,10 @@ private fun QuickSumFlashingContent(uiState: QuickSumUiState) {
             uiState.currentTerm?.let { term ->
                 MathText(
                     text = term.toString(),
-                    style = MaterialTheme.typography.displayLarge,
+                    style = MaterialTheme.typography.displayLarge.copy(
+                        fontSize = fontSize,
+                        lineHeight = fontSize * 1.1f,
+                    ),
                 )
             }
         }
@@ -85,11 +101,6 @@ private fun QuickSumAnswerContent(
     onAnswer: (String) -> Unit,
 ) {
     val reveal = uiState.revealedSum
-    val revealColor = when (uiState.answerResult) {
-        RevealResult.CORRECT -> SuccessGreen
-        RevealResult.WRONG -> MaterialTheme.colorScheme.error
-        null -> Color.Unspecified
-    }
     val onInputChange: (String) -> Unit = { typed ->
         if (reveal == null && typed.length == uiState.answerLength) onAnswer(typed)
     }
@@ -103,10 +114,10 @@ private fun QuickSumAnswerContent(
                 )
                 if (reveal != null) {
                     Spacer(Modifier.height(12.dp))
-                    MathText(
-                        text = reveal,
-                        style = MaterialTheme.typography.displayMedium,
-                        color = revealColor,
+                    QuickSumTotalCard(
+                        total = reveal,
+                        correct = uiState.answerResult == RevealResult.CORRECT,
+                        compact = true,
                     )
                 }
             }
@@ -125,16 +136,47 @@ private fun QuickSumAnswerContent(
             )
             if (reveal != null) {
                 Spacer(Modifier.height(20.dp))
-                MathText(
-                    text = reveal,
-                    style = MaterialTheme.typography.displayLarge,
-                    color = revealColor,
+                QuickSumTotalCard(
+                    total = reveal,
+                    correct = uiState.answerResult == RevealResult.CORRECT,
+                    compact = false,
                 )
             } else {
                 Spacer(Modifier.height(16.dp))
                 NumberPadWithInput(onInputChange = onInputChange)
             }
         }
+    }
+}
+
+/**
+ * The revealed total, boxed and tinted.
+ *
+ * The reveal lands about a second after the last flashed term, and while both were a bare number
+ * centred on an empty screen players read the total as one more term to add. The card gives the
+ * answer an edge and a coloured face the flash phase never has, and the leading `=` says it is the
+ * end of a sum rather than another number to add to one.
+ */
+@Composable
+private fun QuickSumTotalCard(
+    total: String,
+    correct: Boolean,
+    compact: Boolean,
+) {
+    Surface(
+        shape = PrismSlot,
+        color = if (correct) SuccessGreenSoft else MaterialTheme.colorScheme.errorContainer,
+    ) {
+        MathText(
+            text = "= $total",
+            style = if (compact) {
+                MaterialTheme.typography.displayMedium
+            } else {
+                MaterialTheme.typography.displayLarge
+            },
+            color = if (correct) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
+            modifier = Modifier.padding(horizontal = 28.dp, vertical = if (compact) 10.dp else 16.dp),
+        )
     }
 }
 
@@ -170,6 +212,25 @@ private fun QuickSumAnswerPreview() {
                 answerLength = 2,
                 revealedSum = null,
                 answerResult = null,
+            ),
+            onAnswer = {},
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun QuickSumRevealPreview() {
+    GamePreviewHost {
+        QuickSumContent(
+            uiState = QuickSumUiState(
+                phase = QuickSumGame.Phase.ANSWER,
+                currentTerm = null,
+                termIndex = 3,
+                termCount = 4,
+                answerLength = 2,
+                revealedSum = "16",
+                answerResult = RevealResult.CORRECT,
             ),
             onAnswer = {},
         )
