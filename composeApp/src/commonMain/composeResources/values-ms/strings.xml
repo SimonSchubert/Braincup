@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Dua rajah di atas berkongsi satu ciri, bentuk atau warna. Ketik jubin yang sepadan dengan sasaran pada ciri yang sama itu. Satu jubin sentiasa sepadan pada ciri yang lain.</string>
     <string name="game_mental_flex_rule_shape">Bentuk</string>
     <string name="game_mental_flex_rule_color">Warna</string>
-    <string name="game_mental_flex_howto">Kenal pasti apa yang dikongsi pasangan itu.</string>
     <string name="game_rule_shift_desc">Susun setiap kad ke salah satu daripada empat kad kunci. Tiada siapa memberitahu anda peraturannya, dan ia bertukar sebaik sahaja anda menemuinya.</string>
     <string name="game_rule_shift_howto">Kad kunci mana tempatnya?</string>
     <string name="game_rule_shift_cards_left">Kad berbaki: %1$d</string>

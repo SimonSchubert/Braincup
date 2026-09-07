@@ -18,8 +18,5 @@ object MatchstickColors {
     val PipSpentSide = Color(0xFFAFA591)
     val PipSpentHead = Color(0xFF9E978B)
 
-    /** Category tile accent on the overview screen. */
-    const val TileAccentArgb = 0xFFCB8A43L
-
     fun woodHead(solved: Boolean): Color = if (solved) WoodHeadSolved else WoodHead
 }

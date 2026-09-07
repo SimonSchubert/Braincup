@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.FeedbackMessage
-import com.inspiredandroid.braincup.app.MentalFlexUiState
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -214,7 +213,7 @@ class MentalFlexGameTest {
     fun `the ui state exposes the candidates as one feedback-ready row`() {
         val game = MentalFlexGame(Random(10L))
         game.nextRound()
-        val ui = game.toUiState() as MentalFlexUiState
+        val ui = game.toUiState()
 
         assertEquals(game.rule, ui.rule)
         assertEquals(game.cueExemplar, ui.cueExemplar)

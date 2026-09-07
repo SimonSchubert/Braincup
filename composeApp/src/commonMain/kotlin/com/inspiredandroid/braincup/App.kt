@@ -894,12 +894,7 @@ fun App(
                                     uiState = current,
                                     onPrevious = remember(iqTestController) { { iqTestController.reviewPrevious() } },
                                     onNext = remember(iqTestController) { { iqTestController.reviewNext() } },
-                                    onBack = remember(navController) {
-                                        {
-                                            navController.popBackStack()
-                                            Unit
-                                        }
-                                    },
+                                    onBack = remember(navController) { { navController.popBackStack() } },
                                 )
                             }
                         }

@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Дві фігури вгорі мають одну спільну ознаку, форму або колір. Натисніть плитку, яка збігається з ціллю за цією самою ознакою. Одна плитка завжди збігається за іншою ознакою.</string>
     <string name="game_mental_flex_rule_shape">Форма</string>
     <string name="game_mental_flex_rule_color">Колір</string>
-    <string name="game_mental_flex_howto">Помітьте, що спільного в цієї пари.</string>
     <string name="game_rule_shift_desc">Розкладіть кожну карту до однієї з чотирьох ключових карт. Правила вам ніхто не каже, і воно змінюється, щойно ви його зрозуміли.</string>
     <string name="game_rule_shift_howto">До якої ключової карти вона належить?</string>
     <string name="game_rule_shift_cards_left">Залишилося карт: %1$d</string>

@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Divas figūras augšā dala vienu īpašību, formu vai krāsu. Pieskaries flīzei, kas sakrīt ar mērķi tieši šajā īpašībā. Viena flīze vienmēr sakrīt otrā īpašībā.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Krāsa</string>
-    <string name="game_mental_flex_howto">Pamani, kas pārim ir kopīgs.</string>
     <string name="game_rule_shift_desc">Sakārto katru kārti pie vienas no četrām atslēgas kārtīm. Noteikumu tev neviens nepasaka, un tas mainās, tiklīdz tu to esi sapratis.</string>
     <string name="game_rule_shift_howto">Pie kuras atslēgas kārts tā pieder?</string>
     <string name="game_rule_shift_cards_left">Atlikušas kārtis: %1$d</string>

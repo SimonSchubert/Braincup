@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">वरच्या दोन आकृतींचा एक गुणधर्म समान आहे, आकार किंवा रंग. त्याच गुणधर्मात लक्ष्याशी जुळणाऱ्या चौकटीवर टॅप करा. एक चौकट नेहमी दुसऱ्या गुणधर्मात जुळते.</string>
     <string name="game_mental_flex_rule_shape">आकार</string>
     <string name="game_mental_flex_rule_color">रंग</string>
-    <string name="game_mental_flex_howto">जोडीत काय समान आहे ते ओळखा.</string>
     <string name="game_rule_shift_desc">प्रत्येक पत्ता चार मुख्य पत्त्यांपैकी एकाशी लावा. नियम तुम्हाला कोणी सांगत नाही, आणि तुम्ही तो ओळखताच तो बदलतो.</string>
     <string name="game_rule_shift_howto">हा कोणत्या मुख्य पत्त्याशी जुळतो?</string>
     <string name="game_rule_shift_cards_left">उरलेली पत्ते: %1$d</string>

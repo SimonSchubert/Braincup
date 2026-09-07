@@ -65,7 +65,7 @@ private fun PatternSequenceContentPreview() {
         PatternSequenceGame(Random(7L)).apply {
             round = 6
             nextRound()
-        }.toUiState() as PatternSequenceUiState
+        }.toUiState()
     }
     GamePreviewHost {
         PatternSequenceContent(uiState = uiState, onAnswer = {})

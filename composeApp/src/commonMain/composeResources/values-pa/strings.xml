@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">ਉੱਪਰਲੀਆਂ ਦੋ ਆਕ੍ਰਿਤੀਆਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ, ਆਕਾਰ ਜਾਂ ਰੰਗ। ਉਸੇ ਗੁਣ ਵਿੱਚ ਨਿਸ਼ਾਨੇ ਨਾਲ ਮਿਲਦੇ ਖਾਨੇ ਉੱਤੇ ਟੈਪ ਕਰੋ। ਇੱਕ ਖਾਨਾ ਹਮੇਸ਼ਾ ਦੂਜੇ ਗੁਣ ਵਿੱਚ ਮਿਲਦਾ ਹੈ।</string>
     <string name="game_mental_flex_rule_shape">ਆਕਾਰ</string>
     <string name="game_mental_flex_rule_color">ਰੰਗ</string>
-    <string name="game_mental_flex_howto">ਜੋੜੇ ਵਿੱਚ ਕੀ ਸਾਂਝਾ ਹੈ, ਪਛਾਣੋ।</string>
     <string name="game_rule_shift_desc">ਹਰ ਪੱਤਾ ਚਾਰ ਮੁੱਖ ਪੱਤਿਆਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਨਾਲ ਰੱਖੋ। ਨਿਯਮ ਤੁਹਾਨੂੰ ਕੋਈ ਨਹੀਂ ਦੱਸਦਾ, ਅਤੇ ਜਿਵੇਂ ਹੀ ਤੁਸੀਂ ਸਮਝ ਲੈਂਦੇ ਹੋ, ਉਹ ਬਦਲ ਜਾਂਦਾ ਹੈ।</string>
     <string name="game_rule_shift_howto">ਇਹ ਕਿਸ ਮੁੱਖ ਪੱਤੇ ਨਾਲ ਜਾਂਦਾ ਹੈ?</string>
     <string name="game_rule_shift_cards_left">ਬਾਕੀ ਪੱਤੇ: %1$d</string>

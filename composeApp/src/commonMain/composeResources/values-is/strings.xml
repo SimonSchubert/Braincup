@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Myndirnar tvær efst deila einum eiginleika, formi eða lit. Ýttu á flísina sem passar við markið í sama eiginleika. Ein flís passar alltaf við hinn eiginleikann.</string>
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Litur</string>
-    <string name="game_mental_flex_howto">Finndu hvað parið á sameiginlegt.</string>
     <string name="game_rule_shift_desc">Raðaðu hverju spili við eitt af fjórum lykilspilum. Enginn segir þér regluna, og hún breytist um leið og þú hefur hana.</string>
     <string name="game_rule_shift_howto">Við hvaða lykilspil á það?</string>
     <string name="game_rule_shift_cards_left">Spil eftir: %1$d</string>

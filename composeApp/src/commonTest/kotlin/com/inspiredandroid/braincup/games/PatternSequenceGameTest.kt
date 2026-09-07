@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.games.matrix.MAX_ENTITIES
 import com.inspiredandroid.braincup.games.matrix.MatrixAttribute
 import com.inspiredandroid.braincup.games.matrix.MatrixGenerator
@@ -134,7 +133,7 @@ class PatternSequenceGameTest {
                 this.round = round
                 nextRound()
             }
-            val uiState = game.toUiState() as PatternSequenceUiState
+            val uiState = game.toUiState()
             val flattened = uiState.optionRows.flatten().map { it.panel }
             assertEquals(game.problem.options, flattened, "round $round: option order changed")
             assertEquals(

@@ -63,7 +63,7 @@ class AdaptiveDifficultyResumeTest {
                 nextRound()
             }
             return findTrioSets(game.cards).any { indices ->
-                trioSetHardness(game.cards[indices[0]], game.cards[indices[1]], game.cards[indices[2]]) == hardness
+                trioSetHardness(game.cards[indices[0]], game.cards[indices[1]]) == hardness
             }
         }
 

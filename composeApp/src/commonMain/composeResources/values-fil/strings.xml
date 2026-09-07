@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Ang dalawang figure sa itaas ay may iisang katangian, hugis o kulay. I-tap ang tile na tugma sa target sa parehong katangian. May isang tile na palaging tugma sa kabilang katangian.</string>
     <string name="game_mental_flex_rule_shape">Hugis</string>
     <string name="game_mental_flex_rule_color">Kulay</string>
-    <string name="game_mental_flex_howto">Tuklasin kung ano ang pareho sa dalawa.</string>
     <string name="game_rule_shift_desc">Iuri ang bawat baraha sa isa sa apat na pangunahing baraha. Walang magsasabi sa iyo ng panuntunan, at nagbabago ito sa sandaling matutunan mo.</string>
     <string name="game_rule_shift_howto">Saang pangunahing baraha ito kabilang?</string>
     <string name="game_rule_shift_cards_left">Natitirang baraha: %1$d</string>

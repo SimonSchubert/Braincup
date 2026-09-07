@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">Hai hình ở trên có chung một đặc điểm, hình dạng hoặc màu sắc. Chạm vào ô khớp với hình mẫu ở đúng đặc điểm đó. Luôn có một ô khớp ở đặc điểm còn lại.</string>
     <string name="game_mental_flex_rule_shape">Hình dạng</string>
     <string name="game_mental_flex_rule_color">Màu sắc</string>
-    <string name="game_mental_flex_howto">Nhận ra điểm chung của cặp hình.</string>
     <string name="game_rule_shift_desc">Xếp mỗi lá bài về một trong bốn lá chủ. Không ai nói cho bạn biết luật, và nó đổi ngay khi bạn nắm được.</string>
     <string name="game_rule_shift_howto">Lá này thuộc về lá chủ nào?</string>
     <string name="game_rule_shift_cards_left">Còn lại: %1$d lá</string>

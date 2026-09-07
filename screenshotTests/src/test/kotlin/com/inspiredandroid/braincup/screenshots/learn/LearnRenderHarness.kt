@@ -118,16 +118,6 @@ fun LessonStep.kindTag(): String = when (this) {
 }
 
 /**
- * An option this step rejects, as the text the miss state records. Every authored step has at
- * least two.
- *
- * Resolved here rather than handed back as a key: `LessonAnswer.Missed` holds what the learner
- * tapped, and the option tiles are matched against it by text.
- */
-fun LessonStep.Choice.wrongOption(): String =
-    options.filterIndexed { index, _ -> index != correctIndex }.first().render()
-
-/**
  * Every option this step rejects, up to [count]. Two of them is what the reveal is offered after,
  * so it is the state the "Show me the answer" button has to be rendered in.
  */

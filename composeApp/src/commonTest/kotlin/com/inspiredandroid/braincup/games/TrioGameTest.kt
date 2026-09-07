@@ -14,7 +14,7 @@ class TrioGameTest {
         val b = TrioCard(TrioShape.CIRCLE, 2, TrioFill.SOLID)
         val c = TrioCard(TrioShape.CIRCLE, 3, TrioFill.SOLID)
         assertTrue(isTrioSet(a, b, c))
-        assertEquals(1, trioSetHardness(a, b, c))
+        assertEquals(1, trioSetHardness(a, b))
     }
 
     @Test
@@ -23,7 +23,7 @@ class TrioGameTest {
         val b = TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED)
         val c = TrioCard(TrioShape.TRIANGLE, 3, TrioFill.OUTLINE)
         assertFalse(isTrioSet(a, b, c))
-        assertEquals(3, trioSetHardness(a, b, c))
+        assertEquals(3, trioSetHardness(a, b))
     }
 
     @Test
@@ -69,7 +69,7 @@ class TrioGameTest {
                 nextRound()
             }
             val sets = findTrioSets(game.cards)
-            assertTrue(sets.any { trioSetHardness(game.cards[it[0]], game.cards[it[1]], game.cards[it[2]]) == 1 })
+            assertTrue(sets.any { trioSetHardness(game.cards[it[0]], game.cards[it[1]]) == 1 })
         }
     }
 
@@ -81,7 +81,7 @@ class TrioGameTest {
                 nextRound()
             }
             val sets = findTrioSets(game.cards)
-            assertTrue(sets.any { trioSetHardness(game.cards[it[0]], game.cards[it[1]], game.cards[it[2]]) == 2 })
+            assertTrue(sets.any { trioSetHardness(game.cards[it[0]], game.cards[it[1]]) == 2 })
         }
     }
 

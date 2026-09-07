@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">يشترك الشكلان في الأعلى في سمة واحدة، الشكل أو اللون. المس المربع الذي يطابق الهدف في السمة نفسها. مربع واحد يطابق دائمًا السمة الأخرى بدلاً منها.</string>
     <string name="game_mental_flex_rule_shape">الشكل</string>
     <string name="game_mental_flex_rule_color">اللون</string>
-    <string name="game_mental_flex_howto">اكتشف ما يشترك فيه الشكلان.</string>
     <string name="game_rule_shift_desc">صنّف كل بطاقة إلى واحدة من البطاقات المفتاحية الأربع. لا أحد يخبرك بالقاعدة، وهي تتغير ما إن تعرفها.</string>
     <string name="game_rule_shift_howto">إلى أي بطاقة مفتاحية تنتمي؟</string>
     <string name="game_rule_shift_cards_left">البطاقات المتبقية: %1$d</string>

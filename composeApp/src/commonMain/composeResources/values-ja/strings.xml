@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">上の2つの図形は、形か色のどちらか1つの特徴を共有しています。その同じ特徴で見本と一致するタイルをタップしてください。1枚のタイルは必ずもう一方の特徴で一致します。</string>
     <string name="game_mental_flex_rule_shape">形</string>
     <string name="game_mental_flex_rule_color">色</string>
-    <string name="game_mental_flex_howto">2つに共通するものを見つけよう。</string>
     <string name="game_rule_shift_desc">各カードを4枚のキーカードのどれかに分類してください。ルールは誰も教えてくれず、つかんだ途端に変わります。</string>
     <string name="game_rule_shift_howto">どのキーカードに属しますか？</string>
     <string name="game_rule_shift_cards_left">残りのカード: %1$d</string>

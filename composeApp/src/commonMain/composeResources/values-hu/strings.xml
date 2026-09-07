@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">A fenti két alakzat egy tulajdonságon osztozik, formán vagy színen. Koppints arra a mezőre, amely ugyanabban a tulajdonságban egyezik a céllal. Egy mező mindig a másik tulajdonságban egyezik.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Szín</string>
-    <string name="game_mental_flex_howto">Vedd észre, mi közös a párban.</string>
     <string name="game_rule_shift_desc">Rendezd minden lapot a négy kulcslap egyike alá. A szabályt senki nem mondja meg, és megváltozik, amint rájöttél.</string>
     <string name="game_rule_shift_howto">Melyik kulcslaphoz tartozik?</string>
     <string name="game_rule_shift_cards_left">Hátralévő lapok: %1$d</string>

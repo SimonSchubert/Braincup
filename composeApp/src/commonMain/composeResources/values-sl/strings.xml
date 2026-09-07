@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Lika zgoraj si delita eno lastnost, obliko ali barvo. Dotakni se ploščice, ki se s ciljem ujema v isti lastnosti. Ena ploščica se vedno ujema v drugi lastnosti.</string>
     <string name="game_mental_flex_rule_shape">Oblika</string>
     <string name="game_mental_flex_rule_color">Barva</string>
-    <string name="game_mental_flex_howto">Opazi, kaj imata skupnega.</string>
     <string name="game_rule_shift_desc">Razvrsti vsako karto k eni od štirih ključnih kart. Pravila ti nihče ne pove, spremeni pa se takoj, ko ga imaš.</string>
     <string name="game_rule_shift_howto">H kateri ključni karti sodi?</string>
     <string name="game_rule_shift_cards_left">Preostalo kart: %1$d</string>

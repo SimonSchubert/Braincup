@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">Две фигуры сверху имеют один общий признак, форму или цвет. Нажмите плитку, которая совпадает с целью по этому же признаку. Одна плитка всегда совпадает по другому признаку.</string>
     <string name="game_mental_flex_rule_shape">Форма</string>
     <string name="game_mental_flex_rule_color">Цвет</string>
-    <string name="game_mental_flex_howto">Заметьте, что общего у этой пары.</string>
     <string name="game_rule_shift_desc">Разложите каждую карту к одной из четырёх ключевых карт. Правило вам никто не говорит, и оно меняется, как только вы его поняли.</string>
     <string name="game_rule_shift_howto">К какой ключевой карте она относится?</string>
     <string name="game_rule_shift_cards_left">Осталось карт: %1$d</string>

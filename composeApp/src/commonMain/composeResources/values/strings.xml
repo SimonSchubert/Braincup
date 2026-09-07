@@ -317,7 +317,6 @@
     <string name="game_mental_flex_desc">Two figures at the top share one trait, shape or color. Tap the tile matching the target on that same trait. One tile always matches the other trait instead.</string>
     <string name="game_mental_flex_rule_shape">Shape</string>
     <string name="game_mental_flex_rule_color">Color</string>
-    <string name="game_mental_flex_howto">Spot what the pair has in common.</string>
     <string name="game_rule_shift_desc">Sort each card onto one of the four key cards. Nobody tells you the rule, and it changes once you have it.</string>
     <string name="game_rule_shift_howto">Which key card does it belong with?</string>
     <string name="game_rule_shift_cards_left">Cards left: %1$d</string>

@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Dvije figure gore dijele jedno svojstvo, oblik ili boju. Dodirni pločicu koja se s ciljem podudara u tom istom svojstvu. Jedna pločica uvijek se podudara u drugom svojstvu.</string>
     <string name="game_mental_flex_rule_shape">Oblik</string>
     <string name="game_mental_flex_rule_color">Boja</string>
-    <string name="game_mental_flex_howto">Uoči što par ima zajedničko.</string>
     <string name="game_rule_shift_desc">Razvrstaj svaku kartu uz jednu od četiri ključne karte. Nitko ti ne kaže pravilo, a ono se mijenja čim ga imaš.</string>
     <string name="game_rule_shift_howto">Uz koju ključnu kartu ide?</string>
     <string name="game_rule_shift_cards_left">Preostalo karata: %1$d</string>

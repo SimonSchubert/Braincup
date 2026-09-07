@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Le due figure in alto condividono un tratto, forma o colore. Tocca la casella che corrisponde al bersaglio in quello stesso tratto. Una casella corrisponde sempre all'altro tratto.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Colore</string>
-    <string name="game_mental_flex_howto">Individua cosa ha in comune la coppia.</string>
     <string name="game_rule_shift_desc">Sistema ogni carta sotto una delle quattro carte chiave. Nessuno ti dice la regola, e cambia appena l'hai trovata.</string>
     <string name="game_rule_shift_howto">A quale carta chiave appartiene?</string>
     <string name="game_rule_shift_cards_left">Carte rimaste: %1$d</string>

@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">மேலே உள்ள இரு உருவங்களும் ஒரே பண்பைப் பகிர்கின்றன, வடிவம் அல்லது நிறம். அதே பண்பில் இலக்குடன் பொருந்தும் கட்டத்தைத் தட்டுங்கள். ஒரு கட்டம் எப்போதும் மற்றொரு பண்பில் பொருந்தும்.</string>
     <string name="game_mental_flex_rule_shape">வடிவம்</string>
     <string name="game_mental_flex_rule_color">நிறம்</string>
-    <string name="game_mental_flex_howto">இந்த இணை எதைப் பகிர்கிறது என்பதைக் கண்டறியுங்கள்.</string>
     <string name="game_rule_shift_desc">ஒவ்வொரு சீட்டையும் நான்கு முக்கியச் சீட்டுகளில் ஒன்றுடன் வையுங்கள். விதியை யாரும் சொல்வதில்லை, நீங்கள் அதைப் பிடித்தவுடன் அது மாறிவிடும்.</string>
     <string name="game_rule_shift_howto">இது எந்த முக்கியச் சீட்டுடன் சேரும்?</string>
     <string name="game_rule_shift_cards_left">மீதமுள்ள சீட்டுகள்: %1$d</string>

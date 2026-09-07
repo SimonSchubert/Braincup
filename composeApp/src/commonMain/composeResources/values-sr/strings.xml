@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Две фигуре горе деле једну особину, облик или боју. Додирни плочицу која се са циљем поклапа у истој особини. Једна плочица увек се поклапа у другој особини.</string>
     <string name="game_mental_flex_rule_shape">Облик</string>
     <string name="game_mental_flex_rule_color">Боја</string>
-    <string name="game_mental_flex_howto">Уочи шта пар има заједничко.</string>
     <string name="game_rule_shift_desc">Разврстај сваку карту уз једну од четири кључне карте. Нико ти не каже правило, а оно се мења чим га имаш.</string>
     <string name="game_rule_shift_howto">Уз коју кључну карту иде?</string>
     <string name="game_rule_shift_cards_left">Преостало карата: %1$d</string>

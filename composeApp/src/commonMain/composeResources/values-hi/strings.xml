@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">ऊपर की दो आकृतियों का एक गुण समान है, आकार या रंग। उसी गुण में लक्ष्य से मेल खाती टाइल पर टैप करें। एक टाइल हमेशा दूसरे गुण में मेल खाती है।</string>
     <string name="game_mental_flex_rule_shape">आकार</string>
     <string name="game_mental_flex_rule_color">रंग</string>
-    <string name="game_mental_flex_howto">पहचानें कि जोड़ी में क्या समान है।</string>
     <string name="game_rule_shift_desc">हर कार्ड को चार कुंजी कार्डों में से किसी एक के साथ रखें। नियम आपको कोई नहीं बताता, और जैसे ही आप समझ जाते हैं वह बदल जाता है।</string>
     <string name="game_rule_shift_howto">यह किस कुंजी कार्ड से मेल खाता है?</string>
     <string name="game_rule_shift_cards_left">शेष कार्ड: %1$d</string>

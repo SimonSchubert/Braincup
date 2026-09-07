@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">שתי הצורות למעלה חולקות תכונה אחת, צורה או צבע. הקש על המשבצת שמתאימה למטרה באותה תכונה. משבצת אחת תמיד מתאימה בתכונה האחרת.</string>
     <string name="game_mental_flex_rule_shape">צורה</string>
     <string name="game_mental_flex_rule_color">צבע</string>
-    <string name="game_mental_flex_howto">זהה מה משותף לזוג.</string>
     <string name="game_rule_shift_desc">מיין כל קלף לאחד מארבעת קלפי המפתח. אף אחד לא מגלה לך את החוק, והוא משתנה ברגע שתפסת אותו.</string>
     <string name="game_rule_shift_howto">לאיזה קלף מפתח הוא שייך?</string>
     <string name="game_rule_shift_cards_left">קלפים שנותרו: %1$d</string>

@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">മുകളിലെ രണ്ട് രൂപങ്ങൾക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്, ആകൃതി അല്ലെങ്കിൽ നിറം. അതേ ഗുണത്തിൽ ലക്ഷ്യവുമായി യോജിക്കുന്ന കള്ളിയിൽ ടാപ്പ് ചെയ്യുക. ഒരു കള്ളി എപ്പോഴും മറ്റേ ഗുണത്തിൽ യോജിക്കും.</string>
     <string name="game_mental_flex_rule_shape">ആകൃതി</string>
     <string name="game_mental_flex_rule_color">നിറം</string>
-    <string name="game_mental_flex_howto">ജോഡിക്ക് പൊതുവായുള്ളത് കണ്ടെത്തുക.</string>
     <string name="game_rule_shift_desc">ഓരോ കാർഡും നാല് പ്രധാന കാർഡുകളിൽ ഒന്നിനൊപ്പം ചേർക്കുക. നിയമം ആരും നിങ്ങളോട് പറയില്ല, നിങ്ങൾ അത് പിടിച്ചാൽ ഉടൻ അത് മാറും.</string>
     <string name="game_rule_shift_howto">ഇത് ഏത് പ്രധാന കാർഡിനൊപ്പമാണ്?</string>
     <string name="game_rule_shift_cards_left">ബാക്കി കാർഡുകൾ: %1$d</string>

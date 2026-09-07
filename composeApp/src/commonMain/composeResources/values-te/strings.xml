@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">పైన ఉన్న రెండు ఆకృతులు ఒకే లక్షణాన్ని పంచుకుంటాయి, ఆకారం లేదా రంగు. అదే లక్షణంలో లక్ష్యంతో సరిపోయే టైల్‌ను నొక్కండి. ఒక టైల్ ఎప్పుడూ మరో లక్షణంలో సరిపోతుంది.</string>
     <string name="game_mental_flex_rule_shape">ఆకారం</string>
     <string name="game_mental_flex_rule_color">రంగు</string>
-    <string name="game_mental_flex_howto">జతలో ఏది ఉమ్మడిగా ఉందో గుర్తించండి.</string>
     <string name="game_rule_shift_desc">ప్రతి కార్డును నాలుగు కీలక కార్డుల్లో ఒకదాని దగ్గర ఉంచండి. నియమం మీకు ఎవరూ చెప్పరు, మీరు దాన్ని పట్టుకున్న వెంటనే అది మారిపోతుంది.</string>
     <string name="game_rule_shift_howto">ఇది ఏ కీలక కార్డుకు చెందుతుంది?</string>
     <string name="game_rule_shift_cards_left">మిగిలిన కార్డులు: %1$d</string>

@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">ઉપરની બે આકૃતિઓનું એક લક્ષણ સરખું છે, આકાર કે રંગ. એ જ લક્ષણમાં લક્ષ્ય સાથે મળતા ખાના પર ટેપ કરો. એક ખાનું હંમેશાં બીજા લક્ષણમાં મળે છે.</string>
     <string name="game_mental_flex_rule_shape">આકાર</string>
     <string name="game_mental_flex_rule_color">રંગ</string>
-    <string name="game_mental_flex_howto">જોડીમાં શું સરખું છે તે શોધો.</string>
     <string name="game_rule_shift_desc">દરેક પત્તું ચાર મુખ્ય પત્તાંમાંથી એકની સાથે ગોઠવો. નિયમ તમને કોઈ કહેતું નથી, અને તમે સમજી જાઓ કે તરત તે બદલાઈ જાય છે.</string>
     <string name="game_rule_shift_howto">એ કયા મુખ્ય પત્તા સાથે જાય છે?</string>
     <string name="game_rule_shift_cards_left">બાકી પત્તાં: %1$d</string>

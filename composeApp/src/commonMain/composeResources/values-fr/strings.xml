@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Les deux figures du haut ont un trait en commun : forme ou couleur. Touche la case qui correspond à la cible sur ce même trait. Une case correspond toujours à l'autre trait.</string>
     <string name="game_mental_flex_rule_shape">Forme</string>
     <string name="game_mental_flex_rule_color">Couleur</string>
-    <string name="game_mental_flex_howto">Repère ce que la paire a en commun.</string>
     <string name="game_rule_shift_desc">Range chaque carte sous l'une des quatre cartes clés. Personne ne te dit la règle, et elle change dès que tu l'as trouvée.</string>
     <string name="game_rule_shift_howto">À quelle carte clé appartient-elle ?</string>
     <string name="game_rule_shift_cards_left">Cartes restantes : %1$d</string>

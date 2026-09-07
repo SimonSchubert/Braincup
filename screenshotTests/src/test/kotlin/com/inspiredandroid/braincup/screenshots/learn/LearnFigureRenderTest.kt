@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnVisual
-import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
 import org.jetbrains.compose.resources.ExperimentalResourceApi

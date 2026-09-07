@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">รูปสองรูปด้านบนมีลักษณะร่วมกันหนึ่งอย่าง รูปร่างหรือสี แตะช่องที่ตรงกับเป้าหมายในลักษณะเดียวกันนั้น มีหนึ่งช่องที่ตรงกับอีกลักษณะเสมอ</string>
     <string name="game_mental_flex_rule_shape">รูปร่าง</string>
     <string name="game_mental_flex_rule_color">สี</string>
-    <string name="game_mental_flex_howto">สังเกตว่าคู่นี้มีอะไรเหมือนกัน</string>
     <string name="game_rule_shift_desc">จัดไพ่แต่ละใบไปยังหนึ่งในสี่ไพ่หลัก ไม่มีใครบอกกฎกับคุณ และกฎจะเปลี่ยนทันทีที่คุณจับทางได้</string>
     <string name="game_rule_shift_howto">ใบนี้เข้ากับไพ่หลักใบไหน</string>
     <string name="game_rule_shift_cards_left">ไพ่ที่เหลือ: %1$d</string>

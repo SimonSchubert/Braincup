@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">ಮೇಲಿನ ಎರಡು ಆಕೃತಿಗಳು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ, ಆಕಾರ ಅಥವಾ ಬಣ್ಣ. ಅದೇ ಗುಣದಲ್ಲಿ ಗುರಿಗೆ ಹೊಂದುವ ಚೌಕವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಒಂದು ಚೌಕ ಯಾವಾಗಲೂ ಇನ್ನೊಂದು ಗುಣದಲ್ಲಿ ಹೊಂದುತ್ತದೆ.</string>
     <string name="game_mental_flex_rule_shape">ಆಕಾರ</string>
     <string name="game_mental_flex_rule_color">ಬಣ್ಣ</string>
-    <string name="game_mental_flex_howto">ಜೋಡಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾದದ್ದನ್ನು ಗುರುತಿಸಿ.</string>
     <string name="game_rule_shift_desc">ಪ್ರತಿ ಕಾರ್ಡ್ ಅನ್ನು ನಾಲ್ಕು ಪ್ರಮುಖ ಕಾರ್ಡ್‌ಗಳಲ್ಲಿ ಒಂದರ ಬಳಿ ಜೋಡಿಸಿ. ನಿಯಮವನ್ನು ಯಾರೂ ನಿಮಗೆ ಹೇಳುವುದಿಲ್ಲ, ಮತ್ತು ನೀವು ಅದನ್ನು ತಿಳಿದ ಕೂಡಲೇ ಅದು ಬದಲಾಗುತ್ತದೆ.</string>
     <string name="game_rule_shift_howto">ಇದು ಯಾವ ಪ್ರಮುಖ ಕಾರ್ಡ್‌ಗೆ ಸೇರುತ್ತದೆ?</string>
     <string name="game_rule_shift_cards_left">ಉಳಿದ ಕಾರ್ಡ್‌ಗಳು: %1$d</string>

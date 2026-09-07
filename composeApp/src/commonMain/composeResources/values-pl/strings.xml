@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Dwie figury u góry mają wspólną jedną cechę, kształt albo kolor. Dotknij kafelka, który zgadza się z celem w tej samej cesze. Jeden kafelek zawsze zgadza się w tej drugiej cesze.</string>
     <string name="game_mental_flex_rule_shape">Kształt</string>
     <string name="game_mental_flex_rule_color">Kolor</string>
-    <string name="game_mental_flex_howto">Zauważ, co łączy tę parę.</string>
     <string name="game_rule_shift_desc">Dopasuj każdą kartę do jednej z czterech kart kluczowych. Nikt nie mówi ci reguły, a ona zmienia się, gdy tylko ją masz.</string>
     <string name="game_rule_shift_howto">Do której karty kluczowej pasuje?</string>
     <string name="game_rule_shift_cards_left">Pozostało kart: %1$d</string>

@@ -1,25 +1,12 @@
 package com.inspiredandroid.braincup.screenshots
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalInspectionMode
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.android.resources.Density
 import com.android.resources.ScreenOrientation
 import com.android.resources.ScreenRatio
 import com.android.resources.ScreenSize
-import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.ui.screens.GameScreen
-import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestResultScreen
-import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
-import com.inspiredandroid.braincup.ui.theme.BraincupTheme
-import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
-import com.inspiredandroid.braincup.ui.theme.LightColorScheme
-import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.After

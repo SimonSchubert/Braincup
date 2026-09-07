@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">De to figurer øverst deler én egenskab, form eller farve. Tryk på den brik, der matcher målet på netop den egenskab. Én brik matcher altid den anden egenskab i stedet.</string>
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Farve</string>
-    <string name="game_mental_flex_howto">Find ud af, hvad parret har til fælles.</string>
     <string name="game_rule_shift_desc">Sortér hvert kort hen til et af de fire nøglekort. Ingen fortæller dig reglen, og den skifter, så snart du har den.</string>
     <string name="game_rule_shift_howto">Hvilket nøglekort hører det til?</string>
     <string name="game_rule_shift_cards_left">Kort tilbage: %1$d</string>

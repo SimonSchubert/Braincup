@@ -39,8 +39,13 @@ fun completingTrioCard(a: TrioCard, b: TrioCard): TrioCard = TrioCard(
     fill = TrioFill.entries[completeAttribute(a.fill.ordinal, b.fill.ordinal)],
 )
 
-/** Number of attributes that differ across the three cards (1 = easiest, 3 = hardest). */
-fun trioSetHardness(a: TrioCard, b: TrioCard, c: TrioCard): Int {
+/**
+ * Number of attributes that differ across the three cards (1 = easiest, 3 = hardest).
+ *
+ * The third card is determined by the first two, so it cannot change the count: where [a] and [b]
+ * differ it differs from both, and where they agree it agrees too.
+ */
+fun trioSetHardness(a: TrioCard, b: TrioCard): Int {
     var different = 0
     for (i in 0..2) {
         if (a.attribute(i) != b.attribute(i)) different++
@@ -196,7 +201,7 @@ class TrioGame(
             val a = deck.random(random)
             val b = deck.filter { it != a }.random(random)
             val c = completingTrioCard(a, b)
-            if (c != a && c != b && trioSetHardness(a, b, c) == hardness) {
+            if (c != a && c != b && trioSetHardness(a, b) == hardness) {
                 return listOf(a, b, c)
             }
         }

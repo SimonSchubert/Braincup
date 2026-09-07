@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">Üstteki iki şekil bir özelliği paylaşır, biçim ya da renk. Hedefle aynı özellikte eşleşen kareye dokunun. Bir kare her zaman diğer özellikte eşleşir.</string>
     <string name="game_mental_flex_rule_shape">Biçim</string>
     <string name="game_mental_flex_rule_color">Renk</string>
-    <string name="game_mental_flex_howto">Çiftin ortak yanını bulun.</string>
     <string name="game_rule_shift_desc">Her kartı dört anahtar karttan birine yerleştir. Kuralı kimse sana söylemez ve kuralı bulur bulmaz değişir.</string>
     <string name="game_rule_shift_howto">Hangi anahtar karta ait?</string>
     <string name="game_rule_shift_cards_left">Kalan kart: %1$d</string>

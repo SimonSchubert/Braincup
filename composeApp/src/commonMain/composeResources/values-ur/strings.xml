@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">اوپر کی دو شکلوں میں ایک خصوصیت مشترک ہے، صورت یا رنگ۔ اسی خصوصیت میں ہدف سے ملنے والے خانے پر دبائیں۔ ایک خانہ ہمیشہ دوسری خصوصیت میں ملتا ہے۔</string>
     <string name="game_mental_flex_rule_shape">صورت</string>
     <string name="game_mental_flex_rule_color">رنگ</string>
-    <string name="game_mental_flex_howto">پہچانیں کہ جوڑے میں کیا مشترک ہے۔</string>
     <string name="game_rule_shift_desc">ہر کارڈ کو چار کلیدی کارڈوں میں سے کسی ایک کے ساتھ رکھیں۔ قاعدہ آپ کو کوئی نہیں بتاتا، اور جیسے ہی آپ سمجھ لیں یہ بدل جاتا ہے۔</string>
     <string name="game_rule_shift_howto">یہ کس کلیدی کارڈ سے تعلق رکھتا ہے؟</string>
     <string name="game_rule_shift_cards_left">باقی کارڈ: %1$d</string>

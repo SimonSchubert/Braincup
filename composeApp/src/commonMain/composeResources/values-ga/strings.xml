@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Roinneann an dá fhigiúr ag barr tréith amháin, cruth nó dath. Tapáil an tíl a mheaitseálann an sprioc sa tréith chéanna. Meaitseálann tíl amháin an tréith eile i gcónaí.</string>
     <string name="game_mental_flex_rule_shape">Cruth</string>
     <string name="game_mental_flex_rule_color">Dath</string>
-    <string name="game_mental_flex_howto">Aimsigh cad atá i gcoiteann ag an bpéire.</string>
     <string name="game_rule_shift_desc">Sórtáil gach cárta le ceann de na ceithre eochairchárta. Ní insíonn éinne an riail duit, agus athraíonn sí a luaithe atá sí agat.</string>
     <string name="game_rule_shift_howto">Cén eochairchárta lena mbaineann sé?</string>
     <string name="game_rule_shift_cards_left">Cártaí fágtha: %1$d</string>

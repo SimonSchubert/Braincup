@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Kaks kujundit üleval jagavad ühte omadust, kuju või värvi. Puuduta plaati, mis vastab sihtmärgile just selles omaduses. Üks plaat vastab alati teisele omadusele.</string>
     <string name="game_mental_flex_rule_shape">Kuju</string>
     <string name="game_mental_flex_rule_color">Värv</string>
-    <string name="game_mental_flex_howto">Leia, mis on paaril ühist.</string>
     <string name="game_rule_shift_desc">Paiguta iga kaart ühe nelja võtmekaardi juurde. Reeglit ei ütle sulle keegi ja see muutub kohe, kui oled selle leidnud.</string>
     <string name="game_rule_shift_howto">Millise võtmekaardi juurde see kuulub?</string>
     <string name="game_rule_shift_cards_left">Kaarte jäänud: %1$d</string>

@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">Las dos figuras de arriba comparten un rasgo, forma o color. Toca la casilla que coincide con el objetivo en ese mismo rasgo. Una casilla siempre coincide en el otro rasgo.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Color</string>
-    <string name="game_mental_flex_howto">Descubre qué comparte la pareja.</string>
     <string name="game_rule_shift_desc">Coloca cada carta bajo una de las cuatro cartas clave. Nadie te dice la regla, y cambia en cuanto la tienes.</string>
     <string name="game_rule_shift_howto">¿A qué carta clave pertenece?</string>
     <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>

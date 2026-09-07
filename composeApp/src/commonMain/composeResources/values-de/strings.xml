@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Die zwei Figuren oben haben ein Merkmal gemeinsam: Form oder Farbe. Tippe das Feld an, das dem Ziel in genau diesem Merkmal gleicht. Ein Feld passt immer zum anderen Merkmal.</string>
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Farbe</string>
-    <string name="game_mental_flex_howto">Erkenne, was das Paar gemeinsam hat.</string>
     <string name="game_rule_shift_desc">Sortiere jede Karte zu einer der vier Schlüsselkarten. Niemand nennt dir die Regel, und sie ändert sich, sobald du sie hast.</string>
     <string name="game_rule_shift_howto">Zu welcher Schlüsselkarte gehört sie?</string>
     <string name="game_rule_shift_cards_left">Karten übrig: %1$d</string>

@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Les dues figures de dalt comparteixen una propietat, forma o color. Toca la fitxa que coincideix amb l'objectiu en aquesta mateixa propietat. Una fitxa sempre coincideix en l'altra propietat.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Color</string>
-    <string name="game_mental_flex_howto">Descobreix què comparteix la parella.</string>
     <string name="game_rule_shift_desc">Col·loca cada carta sota una de les quatre cartes clau. Ningú no et diu la regla, i canvia així que la tens.</string>
     <string name="game_rule_shift_howto">A quina carta clau pertany?</string>
     <string name="game_rule_shift_cards_left">Cartes restants: %1$d</string>

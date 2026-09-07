@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Cele două figuri de sus împart o trăsătură, forma sau culoarea. Apasă dala care se potrivește cu ținta pe aceeași trăsătură. O dală se potrivește mereu pe cealaltă trăsătură.</string>
     <string name="game_mental_flex_rule_shape">Formă</string>
     <string name="game_mental_flex_rule_color">Culoare</string>
-    <string name="game_mental_flex_howto">Observă ce au în comun cele două.</string>
     <string name="game_rule_shift_desc">Așază fiecare carte la una dintre cele patru cărți-cheie. Nimeni nu îți spune regula, iar ea se schimbă imediat ce ai prins-o.</string>
     <string name="game_rule_shift_howto">Cărei cărți-cheie îi aparține?</string>
     <string name="game_rule_shift_cards_left">Cărți rămase: %1$d</string>

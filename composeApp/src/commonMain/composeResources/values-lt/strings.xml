@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Dvi figūros viršuje dalijasi viena savybe, forma arba spalva. Paliesk plytelę, kuri sutampa su taikiniu ta pačia savybe. Viena plytelė visada sutampa kita savybe.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Spalva</string>
-    <string name="game_mental_flex_howto">Pastebėk, kas poroje bendra.</string>
     <string name="game_rule_shift_desc">Kiekvieną kortą priskirk vienai iš keturių raktinių kortų. Taisyklės niekas tau nesako, o ji pasikeičia vos tik ją supranti.</string>
     <string name="game_rule_shift_howto">Kuriai raktinei kortai ji priklauso?</string>
     <string name="game_rule_shift_cards_left">Liko kortų: %1$d</string>

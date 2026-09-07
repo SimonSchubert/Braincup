@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Kaksi ylintä hahmoa jakavat yhden ominaisuuden, muodon tai värin. Napauta ruutua, joka vastaa kohdetta juuri siinä ominaisuudessa. Yksi ruutu vastaa aina toista ominaisuutta.</string>
     <string name="game_mental_flex_rule_shape">Muoto</string>
     <string name="game_mental_flex_rule_color">Väri</string>
-    <string name="game_mental_flex_howto">Huomaa, mikä parilla on yhteistä.</string>
     <string name="game_rule_shift_desc">Lajittele jokainen kortti yhden neljästä avainkortista luo. Kukaan ei kerro sinulle sääntöä, ja se vaihtuu heti kun olet sen oivaltanut.</string>
     <string name="game_rule_shift_howto">Minkä avainkortin luo se kuuluu?</string>
     <string name="game_rule_shift_cards_left">Kortteja jäljellä: %1$d</string>

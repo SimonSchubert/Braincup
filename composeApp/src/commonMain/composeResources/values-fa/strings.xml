@@ -284,7 +284,6 @@
     <string name="game_mental_flex_desc">دو شکل بالا در یک ویژگی مشترک‌اند، شکل یا رنگ. روی خانه‌ای بزن که در همان ویژگی با هدف یکی است. یک خانه همیشه در ویژگی دیگر یکی است.</string>
     <string name="game_mental_flex_rule_shape">شکل</string>
     <string name="game_mental_flex_rule_color">رنگ</string>
-    <string name="game_mental_flex_howto">پیدا کن این دو چه چیزی مشترک دارند.</string>
     <string name="game_rule_shift_desc">هر کارت را زیر یکی از چهار کارت کلیدی بگذار. کسی قاعده را به تو نمی‌گوید و همین که پیدایش کردی عوض می‌شود.</string>
     <string name="game_rule_shift_howto">به کدام کارت کلیدی تعلق دارد؟</string>
     <string name="game_rule_shift_cards_left">کارت‌های باقی‌مانده: %1$d</string>

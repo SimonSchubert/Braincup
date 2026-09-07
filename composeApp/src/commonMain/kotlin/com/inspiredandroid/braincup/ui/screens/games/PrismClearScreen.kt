@@ -137,7 +137,7 @@ internal fun ColumnScope.PrismClearContent(
 
         inputLocked = true
 
-        if (hasSwap && swapFrom != null && swapTo != null) {
+        if (hasSwap) {
             // Start from pre-swap board, then slide the two tiles into each other's cells.
             tiles = mergeIntoBoard(tiles, uiState.tileOrdinalsBeforeSwap, rows, cols) { nextId++ }
             delay(16) // let composition pick up pre-swap positions

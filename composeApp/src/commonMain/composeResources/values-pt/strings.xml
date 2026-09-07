@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">As duas figuras no topo compartilham um traço, forma ou cor. Toque no bloco que combina com o alvo nesse mesmo traço. Um bloco combina sempre com o outro traço.</string>
     <string name="game_mental_flex_rule_shape">Forma</string>
     <string name="game_mental_flex_rule_color">Cor</string>
-    <string name="game_mental_flex_howto">Perceba o que o par tem em comum.</string>
     <string name="game_rule_shift_desc">Coloque cada carta sob uma das quatro cartas-chave. Ninguém diz qual é a regra, e ela muda assim que você a descobre.</string>
     <string name="game_rule_shift_howto">A que carta-chave pertence?</string>
     <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>

@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Dvě figurky nahoře sdílejí jednu vlastnost, tvar nebo barvu. Klepni na dlaždici, která se s cílem shoduje v téže vlastnosti. Jedna dlaždice se vždy shoduje v té druhé vlastnosti.</string>
     <string name="game_mental_flex_rule_shape">Tvar</string>
     <string name="game_mental_flex_rule_color">Barva</string>
-    <string name="game_mental_flex_howto">Odhal, co má dvojice společné.</string>
     <string name="game_rule_shift_desc">Zařaď každou kartu k jedné ze čtyř klíčových karet. Pravidlo ti nikdo neřekne a změní se, jakmile ho máš.</string>
     <string name="game_rule_shift_howto">Ke které klíčové kartě patří?</string>
     <string name="game_rule_shift_cards_left">Zbývá karet: %1$d</string>

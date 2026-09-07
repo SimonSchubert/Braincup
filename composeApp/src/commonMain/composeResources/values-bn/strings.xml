@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">উপরের দুটি চিত্রের একটি বৈশিষ্ট্য মিলে যায়, আকৃতি বা রঙ। সেই একই বৈশিষ্ট্যে লক্ষ্যের সঙ্গে মেলে এমন টাইলে ট্যাপ করুন। একটি টাইল সবসময় অন্য বৈশিষ্ট্যে মেলে।</string>
     <string name="game_mental_flex_rule_shape">আকৃতি</string>
     <string name="game_mental_flex_rule_color">রঙ</string>
-    <string name="game_mental_flex_howto">জোড়াটির মধ্যে কী মিল আছে খুঁজুন।</string>
     <string name="game_rule_shift_desc">প্রতিটি কার্ড চারটি মূল কার্ডের একটির সঙ্গে সাজান। নিয়মটা কেউ আপনাকে বলে না, আর ধরে ফেললেই সেটা বদলে যায়।</string>
     <string name="game_rule_shift_howto">এটি কোন মূল কার্ডের সঙ্গে যায়?</string>
     <string name="game_rule_shift_cards_left">বাকি কার্ড: %1$d</string>

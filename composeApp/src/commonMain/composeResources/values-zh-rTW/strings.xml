@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">上方兩個圖形共享一項特徵，形狀或顏色。點選在同一特徵上與目標相符的圖塊。總有一個圖塊符合的是另一項特徵。</string>
     <string name="game_mental_flex_rule_shape">形狀</string>
     <string name="game_mental_flex_rule_color">顏色</string>
-    <string name="game_mental_flex_howto">看出這一對的共同點。</string>
     <string name="game_rule_shift_desc">把每張卡片歸到四張關鍵卡片之一。沒有人告訴你規則，而你一旦掌握它就會改變。</string>
     <string name="game_rule_shift_howto">它屬於哪張關鍵卡片？</string>
     <string name="game_rule_shift_cards_left">剩餘卡片：%1$d</string>

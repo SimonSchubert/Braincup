@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">Двете фигури горе споделят едно свойство, форма или цвят. Докосни плочката, която съвпада с целта по същото свойство. Една плочка винаги съвпада по другото свойство.</string>
     <string name="game_mental_flex_rule_shape">Форма</string>
     <string name="game_mental_flex_rule_color">Цвят</string>
-    <string name="game_mental_flex_howto">Открий какво е общото на двойката.</string>
     <string name="game_rule_shift_desc">Подреди всяка карта към една от четирите ключови карти. Никой не ти казва правилото, а то се сменя веднага щом го схванеш.</string>
     <string name="game_rule_shift_howto">Към коя ключова карта спада?</string>
     <string name="game_rule_shift_cards_left">Остават карти: %1$d</string>

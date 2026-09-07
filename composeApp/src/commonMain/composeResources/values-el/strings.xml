@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">Τα δύο σχήματα επάνω μοιράζονται ένα γνώρισμα, σχήμα ή χρώμα. Πάτα το πλακίδιο που ταιριάζει με τον στόχο στο ίδιο γνώρισμα. Ένα πλακίδιο ταιριάζει πάντα στο άλλο γνώρισμα.</string>
     <string name="game_mental_flex_rule_shape">Σχήμα</string>
     <string name="game_mental_flex_rule_color">Χρώμα</string>
-    <string name="game_mental_flex_howto">Βρες τι έχει κοινό το ζευγάρι.</string>
     <string name="game_rule_shift_desc">Ταξινόμησε κάθε κάρτα σε μία από τις τέσσερις κάρτες-κλειδιά. Κανείς δεν σου λέει τον κανόνα, και αλλάζει μόλις τον βρεις.</string>
     <string name="game_rule_shift_howto">Σε ποια κάρτα-κλειδί ανήκει;</string>
     <string name="game_rule_shift_cards_left">Κάρτες που μένουν: %1$d</string>

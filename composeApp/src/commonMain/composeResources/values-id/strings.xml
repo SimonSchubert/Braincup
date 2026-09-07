@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">Dua gambar di atas berbagi satu sifat, bentuk atau warna. Ketuk ubin yang cocok dengan target pada sifat yang sama itu. Satu ubin selalu cocok pada sifat yang lain.</string>
     <string name="game_mental_flex_rule_shape">Bentuk</string>
     <string name="game_mental_flex_rule_color">Warna</string>
-    <string name="game_mental_flex_howto">Temukan apa yang sama dari pasangan itu.</string>
     <string name="game_rule_shift_desc">Kelompokkan tiap kartu ke salah satu dari empat kartu kunci. Tidak ada yang memberitahumu aturannya, dan aturan itu berubah begitu kamu menemukannya.</string>
     <string name="game_rule_shift_howto">Kartu kunci mana tempatnya?</string>
     <string name="game_rule_shift_cards_left">Kartu tersisa: %1$d</string>

@@ -807,7 +807,6 @@
     <string name="game_mental_flex_desc">위쪽 두 도형은 모양이나 색상 중 한 가지 특징을 공유합니다. 같은 특징으로 목표와 일치하는 타일을 탭하세요. 한 타일은 항상 다른 특징으로 일치합니다.</string>
     <string name="game_mental_flex_rule_shape">모양</string>
     <string name="game_mental_flex_rule_color">색상</string>
-    <string name="game_mental_flex_howto">두 도형의 공통점을 찾으세요.</string>
     <string name="game_rule_shift_desc">카드를 네 장의 기준 카드 중 하나에 분류하세요. 규칙은 아무도 알려주지 않고, 알아차리는 순간 바뀝니다.</string>
     <string name="game_rule_shift_howto">어느 기준 카드에 속할까요?</string>
     <string name="game_rule_shift_cards_left">남은 카드: %1$d</string>

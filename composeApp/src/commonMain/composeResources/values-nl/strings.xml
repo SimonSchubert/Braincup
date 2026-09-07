@@ -808,7 +808,6 @@
     <string name="game_mental_flex_desc">De twee figuren bovenaan delen één kenmerk, vorm of kleur. Tik de tegel aan die op datzelfde kenmerk bij het doel past. Eén tegel past altijd op het andere kenmerk.</string>
     <string name="game_mental_flex_rule_shape">Vorm</string>
     <string name="game_mental_flex_rule_color">Kleur</string>
-    <string name="game_mental_flex_howto">Zie wat het paar gemeen heeft.</string>
     <string name="game_rule_shift_desc">Sorteer elke kaart bij een van de vier sleutelkaarten. Niemand vertelt je de regel, en zodra je hem hebt verandert hij.</string>
     <string name="game_rule_shift_howto">Bij welke sleutelkaart hoort hij?</string>
     <string name="game_rule_shift_cards_left">Kaarten over: %1$d</string>

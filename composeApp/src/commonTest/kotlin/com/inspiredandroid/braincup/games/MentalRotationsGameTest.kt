@@ -353,9 +353,9 @@ class MentalRotationsGameTest {
         assertTrue(projected.cubes.isEmpty())
     }
 
-    private fun MentalRotationsGame.reference() = (toUiState() as MentalRotationsUiState).reference
+    private fun MentalRotationsGame.reference() = toUiState().reference
 
-    private fun MentalRotationsGame.candidate() = (toUiState() as MentalRotationsUiState).candidate
+    private fun MentalRotationsGame.candidate() = toUiState().candidate
 
     /** How many cubes the drawing actually shows: coincident ones land on one another. */
     private fun MentalRotationsUiState.Figure.drawnPositions() = cubes.mapTo(mutableSetOf()) { it.x to it.y }.size

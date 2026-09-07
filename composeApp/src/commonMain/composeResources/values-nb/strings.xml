@@ -300,7 +300,6 @@
     <string name="game_mental_flex_desc">De to figurene øverst deler én egenskap, form eller farge. Trykk på brikken som matcher målet på nettopp den egenskapen. Én brikke matcher alltid den andre egenskapen i stedet.</string>
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Farge</string>
-    <string name="game_mental_flex_howto">Finn ut hva paret har til felles.</string>
     <string name="game_rule_shift_desc">Sorter hvert kort til ett av de fire nøkkelkortene. Ingen sier deg regelen, og den endrer seg så snart du har den.</string>
     <string name="game_rule_shift_howto">Hvilket nøkkelkort hører det til?</string>
     <string name="game_rule_shift_cards_left">Kort igjen: %1$d</string>

@@ -223,8 +223,6 @@ class MiniChessGame(
             else -> 10
         }
 
-        fun encodeMove(from: Square, to: Square): String = "${from.toIndex()}>${to.toIndex()}"
-
         fun Square.toIndex(): Int = row * MINI_CHESS_SIZE + file
     }
 }
