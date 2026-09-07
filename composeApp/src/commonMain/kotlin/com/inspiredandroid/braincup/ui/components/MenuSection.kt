@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -52,6 +54,11 @@ fun MenuSectionHeader(
         modifier = modifier
             .fillMaxWidth()
             .background(MaterialTheme.colorScheme.surface)
+            // A pinned heading is opaque but not solid: without this, a tap anywhere on the strip
+            // falls straight through to whichever tile happens to be scrolling underneath it, and
+            // the menu launches a game the user never aimed at. Only taps are swallowed, so a drag
+            // that starts on the heading still scrolls the grid.
+            .pointerInput(Unit) { detectTapGestures { } }
             // Asymmetric, and tighter than it looks: the grid already spaces every item by 12dp,
             // so this is only what the heading adds on top. More above than below, because the
             // heading belongs to the tiles under it and should read as attached to them. The
