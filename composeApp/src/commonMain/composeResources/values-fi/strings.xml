@@ -550,7 +550,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_sudoku_expert">Sudokuhallitsija</string>
     <string name="achievement_sudoku_expert_desc">Ratkaise kaikki 10 asiantuntijatehtävää</string>
     <string name="game_flags">Liput</string>
-    <string name="game_flags_desc">Tunnista maa lipusta. Jokainen kierros lisää vaihtoehtoja, ja kello käy.</string>
+    <string name="game_flags_desc">Tunnista maa lipusta. Jokainen kierros lisää vaihtoehtoja, ja yksi väärä vastaus päättää pelin.</string>
     <string name="game_flags_score">Pisteet: %1$d</string>
     <string name="game_flags_best">Paras: %1$d</string>
     <string name="game_digit_memory">Numeromuisti</string>

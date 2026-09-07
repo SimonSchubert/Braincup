@@ -550,7 +550,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku valdovas</string>
     <string name="achievement_sudoku_expert_desc">Išspręsk visus 10 ekspertų galvosūkių</string>
     <string name="game_flags">Vėliavos</string>
-    <string name="game_flags_desc">Atpažink šalį pagal vėliavą. Kiekvienas raundas prideda daugiau variantų, o laikrodis tiksi.</string>
+    <string name="game_flags_desc">Atpažink šalį pagal vėliavą. Kiekvienas raundas prideda daugiau variantų, o vienas neteisingas atsakymas baigia žaidimą.</string>
     <string name="game_flags_score">Rezultatas: %1$d</string>
     <string name="game_flags_best">Geriausia: %1$d</string>
     <string name="game_digit_memory">Skaitmenų atmintis</string>

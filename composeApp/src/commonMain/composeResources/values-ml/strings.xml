@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">സുഡോകു ചക്രവർത്തി</string>
     <string name="achievement_sudoku_expert_desc">10 വിദഗ്ധ കടങ്കഥകളും പരിഹരിക്കുക</string>
     <string name="game_flags">പതാകകൾ</string>
-    <string name="game_flags_desc">പതാക നോക്കി രാജ്യം തിരിച്ചറിയുക. ഓരോ റൗണ്ടിലും കൂടുതൽ ഓപ്ഷനുകൾ ചേരുന്നു, ഘടികാരം ഓടുന്നു.</string>
+    <string name="game_flags_desc">പതാക നോക്കി രാജ്യം തിരിച്ചറിയുക. ഓരോ റൗണ്ടിലും കൂടുതൽ ഓപ്ഷനുകൾ ചേരുന്നു, തെറ്റായ ഒരു ഉത്തരം കളി അവസാനിപ്പിക്കും.</string>
     <string name="game_flags_score">സ്കോർ: %1$d</string>
     <string name="game_flags_best">മികച്ചത്: %1$d</string>
     <string name="game_digit_memory">അക്ക ഓർമ്മ</string>

@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">சுடோகு பேரரசர்</string>
     <string name="achievement_sudoku_expert_desc">10 நிபுணர் புதிர்களையும் தீருங்கள்</string>
     <string name="game_flags">கொடிகள்</string>
-    <string name="game_flags_desc">கொடியைக் கொண்டு நாட்டை அடையாளம் காணுங்கள். ஒவ்வொரு சுற்றும் மேலும் விருப்பங்களைச் சேர்க்கிறது, கடிகாரம் ஓடுகிறது.</string>
+    <string name="game_flags_desc">கொடியைக் கொண்டு நாட்டை அடையாளம் காணுங்கள். ஒவ்வொரு சுற்றும் மேலும் விருப்பங்களைச் சேர்க்கிறது, ஒரு தவறான பதில் ஆட்டத்தை முடித்துவிடும்.</string>
     <string name="game_flags_score">மதிப்பெண்: %1$d</string>
     <string name="game_flags_best">சிறந்தது: %1$d</string>
     <string name="game_digit_memory">இலக்க நினைவாற்றல்</string>

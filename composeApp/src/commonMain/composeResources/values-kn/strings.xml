@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">ಸುಡೋಕು ಚಕ್ರವರ್ತಿ</string>
     <string name="achievement_sudoku_expert_desc">ಎಲ್ಲಾ 10 ಪರಿಣತ ಒಗಟುಗಳನ್ನು ಬಿಡಿಸಿ</string>
     <string name="game_flags">ಧ್ವಜಗಳು</string>
-    <string name="game_flags_desc">ಧ್ವಜದಿಂದ ದೇಶವನ್ನು ಗುರುತಿಸಿ. ಪ್ರತಿ ಸುತ್ತಿನಲ್ಲಿ ಹೆಚ್ಚು ಆಯ್ಕೆಗಳು ಸೇರುತ್ತವೆ ಮತ್ತು ಗಡಿಯಾರ ಓಡುತ್ತಿದೆ.</string>
+    <string name="game_flags_desc">ಧ್ವಜದಿಂದ ದೇಶವನ್ನು ಗುರುತಿಸಿ. ಪ್ರತಿ ಸುತ್ತಿನಲ್ಲಿ ಹೆಚ್ಚು ಆಯ್ಕೆಗಳು ಸೇರುತ್ತವೆ ಮತ್ತು ಒಂದು ತಪ್ಪು ಉತ್ತರ ಆಟವನ್ನು ಮುಗಿಸುತ್ತದೆ.</string>
     <string name="game_flags_score">ಅಂಕ: %1$d</string>
     <string name="game_flags_best">ಶ್ರೇಷ್ಠ: %1$d</string>
     <string name="game_digit_memory">ಅಂಕಿ ಸ್ಮರಣೆ</string>

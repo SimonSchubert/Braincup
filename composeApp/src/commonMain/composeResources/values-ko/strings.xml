@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">스도쿠 군주</string>
     <string name="achievement_sudoku_expert_desc">전문가 난이도 퍼즐 10개를 모두 풀기</string>
     <string name="game_flags">국기</string>
-    <string name="game_flags_desc">국기를 보고 나라를 맞혀보세요. 라운드마다 선택지가 늘어나고 시간이 흘러갑니다.</string>
+    <string name="game_flags_desc">국기를 보고 나라를 맞혀보세요. 라운드마다 선택지가 늘어나고, 한 번만 틀려도 게임이 끝납니다.</string>
     <string name="game_flags_score">점수: %1$d</string>
     <string name="game_flags_best">최고: %1$d</string>
     <string name="game_digit_memory">숫자 기억</string>

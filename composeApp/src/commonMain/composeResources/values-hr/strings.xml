@@ -550,7 +550,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku vladar</string>
     <string name="achievement_sudoku_expert_desc">Riješi svih 10 stručnih zagonetki</string>
     <string name="game_flags">Zastave</string>
-    <string name="game_flags_desc">Prepoznaj zemlju po zastavi. Svaka runda dodaje više opcija, a sat otkucava.</string>
+    <string name="game_flags_desc">Prepoznaj zemlju po zastavi. Svaka runda dodaje više opcija, a jedan pogrešan odgovor završava igru.</string>
     <string name="game_flags_score">Rezultat: %1$d</string>
     <string name="game_flags_best">Najbolje: %1$d</string>
     <string name="game_digit_memory">Pamćenje znamenki</string>

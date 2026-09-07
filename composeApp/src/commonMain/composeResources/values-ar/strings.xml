@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">سيد سودوكو</string>
     <string name="achievement_sudoku_expert_desc">حل جميع الألغاز العشرة لمستوى خبير</string>
     <string name="game_flags">الأعلام</string>
-    <string name="game_flags_desc">تعرّف على الدولة من علمها. كل جولة تضيف المزيد من الخيارات والوقت يمضي.</string>
+    <string name="game_flags_desc">تعرّف على الدولة من علمها. كل جولة تضيف المزيد من الخيارات، وإجابة خاطئة واحدة تُنهي المحاولة.</string>
     <string name="game_flags_score">النتيجة: %1$d</string>
     <string name="game_flags_best">الأفضل: %1$d</string>
     <string name="game_digit_memory">ذاكرة الأرقام</string>

@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">数独の覇者</string>
     <string name="achievement_sudoku_expert_desc">上級レベルのパズルを10問すべて解く</string>
     <string name="game_flags">国旗</string>
-    <string name="game_flags_desc">国旗から国を当てよう。ラウンドごとに選択肢が増え、時間も限られています。</string>
+    <string name="game_flags_desc">国旗から国を当てよう。ラウンドごとに選択肢が増え、1回でも間違えるとゲーム終了です。</string>
     <string name="game_flags_score">スコア: %1$d</string>
     <string name="game_flags_best">ベスト: %1$d</string>
     <string name="game_digit_memory">数字記憶</string>

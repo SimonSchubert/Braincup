@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Soberano del Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Resuelve los 10 puzzles del nivel Experto</string>
     <string name="game_flags">Banderas</string>
-    <string name="game_flags_desc">Identifica el país por su bandera. Cada ronda añade más opciones y el reloj corre.</string>
+    <string name="game_flags_desc">Identifica el país por su bandera. Cada ronda añade más opciones y una respuesta incorrecta termina la partida.</string>
     <string name="game_flags_score">Puntuación: %1$d</string>
     <string name="game_flags_best">Mejor: %1$d</string>
     <string name="game_digit_memory">Memoria de Dígitos</string>

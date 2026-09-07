@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">数独霸主</string>
     <string name="achievement_sudoku_expert_desc">解开全部10个专家难度数独</string>
     <string name="game_flags">国旗</string>
-    <string name="game_flags_desc">通过国旗辨认国家。每一轮选项更多，时间也在流逝。</string>
+    <string name="game_flags_desc">通过国旗辨认国家。每一轮选项更多，答错一次就结束。</string>
     <string name="game_flags_score">得分：%1$d</string>
     <string name="game_flags_best">最佳：%1$d</string>
     <string name="game_digit_memory">数字记忆</string>

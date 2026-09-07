@@ -548,7 +548,7 @@
     <string name="achievement_sudoku_expert">Sudokuhärskare</string>
     <string name="achievement_sudoku_expert_desc">Lös alla 10 expertpussel</string>
     <string name="game_flags">Flaggor</string>
-    <string name="game_flags_desc">Identifiera landet utifrån flaggan. Varje runda lägger till fler alternativ och klockan tickar.</string>
+    <string name="game_flags_desc">Identifiera landet utifrån flaggan. Varje runda lägger till fler alternativ och ett felaktigt svar avslutar spelet.</string>
     <string name="game_flags_score">Poäng: %1$d</string>
     <string name="game_flags_best">Bästa: %1$d</string>
     <string name="game_digit_memory">Sifferminne</string>

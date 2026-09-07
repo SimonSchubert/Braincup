@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">เจ้าแห่งซูโดกุ</string>
     <string name="achievement_sudoku_expert_desc">ไขปริศนาระดับผู้เชี่ยวชาญครบทั้ง 10 ข้อ</string>
     <string name="game_flags">ธง</string>
-    <string name="game_flags_desc">ทายประเทศจากธงของมัน แต่ละรอบมีตัวเลือกเพิ่มขึ้นและเวลากำลังนับถอยหลัง</string>
+    <string name="game_flags_desc">ทายประเทศจากธงของมัน แต่ละรอบมีตัวเลือกเพิ่มขึ้น และตอบผิดครั้งเดียวก็จบเกม</string>
     <string name="game_flags_score">คะแนน: %1$d</string>
     <string name="game_flags_best">ดีที่สุด: %1$d</string>
     <string name="game_digit_memory">ความจำตัวเลข</string>

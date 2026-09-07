@@ -548,7 +548,7 @@
     <string name="achievement_sudoku_expert">Soberano ng Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Lutasin ang lahat ng 10 Eksperto na puzzle</string>
     <string name="game_flags">Mga Watawat</string>
-    <string name="game_flags_desc">Kilalanin ang bansa sa watawat nito. Dumadami ang options bawat round at tumatakbo ang oras.</string>
+    <string name="game_flags_desc">Kilalanin ang bansa sa watawat nito. Dumadami ang options bawat round at isang maling sagot ang magtatapos sa laro.</string>
     <string name="game_flags_score">Iskor: %1$d</string>
     <string name="game_flags_best">Pinakamataas: %1$d</string>
     <string name="game_digit_memory">Memorya ng Numero</string>

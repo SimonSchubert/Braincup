@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Penguasa Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Selesaikan semua 10 teka-teki level Ahli</string>
     <string name="game_flags">Bendera</string>
-    <string name="game_flags_desc">Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.</string>
+    <string name="game_flags_desc">Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan satu jawaban salah mengakhiri permainan.</string>
     <string name="game_flags_score">Skor: %1$d</string>
     <string name="game_flags_best">Terbaik: %1$d</string>
     <string name="game_digit_memory">Memori Angka</string>

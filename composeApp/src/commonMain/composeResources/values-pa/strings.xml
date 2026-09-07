@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">ਸੁਡੋਕੂ ਸਮਰਾਟ</string>
     <string name="achievement_sudoku_expert_desc">ਸਾਰੀਆਂ 10 ਮਾਹਰ ਬੁਝਾਰਤਾਂ ਹੱਲ ਕਰੋ</string>
     <string name="game_flags">ਝੰਡੇ</string>
-    <string name="game_flags_desc">ਝੰਡੇ ਤੋਂ ਦੇਸ਼ ਪਛਾਣੋ। ਹਰ ਗੇੜ ਵਿੱਚ ਹੋਰ ਵਿਕਲਪ ਜੁੜਦੇ ਹਨ ਅਤੇ ਘੜੀ ਚੱਲ ਰਹੀ ਹੈ।</string>
+    <string name="game_flags_desc">ਝੰਡੇ ਤੋਂ ਦੇਸ਼ ਪਛਾਣੋ। ਹਰ ਗੇੜ ਵਿੱਚ ਹੋਰ ਵਿਕਲਪ ਜੁੜਦੇ ਹਨ ਅਤੇ ਇੱਕ ਗਲਤ ਜਵਾਬ ਖੇਡ ਖਤਮ ਕਰ ਦਿੰਦਾ ਹੈ।</string>
     <string name="game_flags_score">ਅੰਕ: %1$d</string>
     <string name="game_flags_best">ਸਭ ਤੋਂ ਵਧੀਆ: %1$d</string>
     <string name="game_digit_memory">ਅੰਕ ਯਾਦਦਾਸ਼ਤ</string>

@@ -550,7 +550,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_sudoku_expert">Suveran Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Rezolvă toate cele 10 puzzle-uri de expert</string>
     <string name="game_flags">Steaguri</string>
-    <string name="game_flags_desc">Identifică țara după steag. Fiecare rundă adaugă mai multe opțiuni, iar ceasul ticăie.</string>
+    <string name="game_flags_desc">Identifică țara după steag. Fiecare rundă adaugă mai multe opțiuni, iar un singur răspuns greșit încheie jocul.</string>
     <string name="game_flags_score">Scor: %1$d</string>
     <string name="game_flags_best">Cel mai bun: %1$d</string>
     <string name="game_digit_memory">Memorie de cifre</string>

@@ -548,7 +548,7 @@
     <string name="achievement_sudoku_expert">سوڈوکو سلطان</string>
     <string name="achievement_sudoku_expert_desc">تمام 10 ماہر پہیلیاں حل کریں</string>
     <string name="game_flags">جھنڈے</string>
-    <string name="game_flags_desc">جھنڈے سے ملک پہچانیں۔ ہر راؤنڈ میں آپشن بڑھتے ہیں اور گھڑی چل رہی ہے۔</string>
+    <string name="game_flags_desc">جھنڈے سے ملک پہچانیں۔ ہر راؤنڈ میں آپشن بڑھتے ہیں اور ایک غلط جواب کھیل ختم کر دیتا ہے۔</string>
     <string name="game_flags_score">اسکور: %1$d</string>
     <string name="game_flags_best">بہترین: %1$d</string>
     <string name="game_digit_memory">ہندسوں کی یادداشت</string>

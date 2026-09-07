@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">شهریار سودوکو</string>
     <string name="achievement_sudoku_expert_desc">هر 10 معمای حرفه‌ای را حل کن</string>
     <string name="game_flags">پرچم‌ها</string>
-    <string name="game_flags_desc">کشور را از روی پرچمش تشخیص بده. هر دور گزینه‌های بیشتری می‌آید و زمان هم می‌گذرد.</string>
+    <string name="game_flags_desc">کشور را از روی پرچمش تشخیص بده. هر دور گزینه‌های بیشتری می‌آید و یک پاسخ اشتباه بازی را تمام می‌کند.</string>
     <string name="game_flags_score">امتیاز: %1$d</string>
     <string name="game_flags_best">بهترین: %1$d</string>
     <string name="game_digit_memory">حافظه عددی</string>

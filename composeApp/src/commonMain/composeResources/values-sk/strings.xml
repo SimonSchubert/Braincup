@@ -550,7 +550,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku panovník</string>
     <string name="achievement_sudoku_expert_desc">Vyrieš všetkých 10 expertných hádaniek</string>
     <string name="game_flags">Vlajky</string>
-    <string name="game_flags_desc">Poznaj krajinu podľa vlajky. Každé kolo pridá viac možností a hodiny tikajú.</string>
+    <string name="game_flags_desc">Poznaj krajinu podľa vlajky. Každé kolo pridá viac možností a jediná nesprávna odpoveď hru ukončí.</string>
     <string name="game_flags_score">Skóre: %1$d</string>
     <string name="game_flags_best">Najlepšie: %1$d</string>
     <string name="game_digit_memory">Pamäť číslic</string>

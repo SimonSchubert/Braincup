@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">সুডোকু সম্রাট</string>
     <string name="achievement_sudoku_expert_desc">বিশেষজ্ঞ স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
     <string name="game_flags">পতাকা</string>
-    <string name="game_flags_desc">পতাকা দেখে দেশ শনাক্ত করুন। প্রতিটি রাউন্ডে আরও বিকল্প যোগ হয় এবং সময় চলতে থাকে।</string>
+    <string name="game_flags_desc">পতাকা দেখে দেশ শনাক্ত করুন। প্রতিটি রাউন্ডে আরও বিকল্প যোগ হয় এবং একটি ভুল উত্তরেই খেলা শেষ।</string>
     <string name="game_flags_score">স্কোর: %1$d</string>
     <string name="game_flags_best">সেরা: %1$d</string>
     <string name="game_digit_memory">অঙ্ক স্মৃতি</string>

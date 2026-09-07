@@ -550,7 +550,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku valitseja</string>
     <string name="achievement_sudoku_expert_desc">Lahenda kõik 10 eksperdi mõistatust</string>
     <string name="game_flags">Lipud</string>
-    <string name="game_flags_desc">Tuvasta riik lipu järgi. Iga voor lisab valikuid ja kell tiksub.</string>
+    <string name="game_flags_desc">Tuvasta riik lipu järgi. Iga voor lisab valikuid ja üksainus vale vastus lõpetab mängu.</string>
     <string name="game_flags_score">Tulemus: %1$d</string>
     <string name="game_flags_best">Parim: %1$d</string>
     <string name="game_digit_memory">Numbrimälu</string>

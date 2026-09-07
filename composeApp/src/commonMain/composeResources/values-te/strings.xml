@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">సుడోకు చక్రవర్తి</string>
     <string name="achievement_sudoku_expert_desc">10 నిపుణ పజిల్స్ అన్నీ పరిష్కరించండి</string>
     <string name="game_flags">పతాకాలు</string>
-    <string name="game_flags_desc">పతాకాన్ని బట్టి దేశాన్ని గుర్తించండి. ప్రతి రౌండ్ మరిన్ని ఎంపికలు జోడిస్తుంది, గడియారం నడుస్తోంది.</string>
+    <string name="game_flags_desc">పతాకాన్ని బట్టి దేశాన్ని గుర్తించండి. ప్రతి రౌండ్ మరిన్ని ఎంపికలు జోడిస్తుంది, ఒక తప్పు సమాధానం ఆటను ముగిస్తుంది.</string>
     <string name="game_flags_score">స్కోరు: %1$d</string>
     <string name="game_flags_best">అత్యుత్తమం: %1$d</string>
     <string name="game_digit_memory">అంకెల జ్ఞాపకశక్తి</string>

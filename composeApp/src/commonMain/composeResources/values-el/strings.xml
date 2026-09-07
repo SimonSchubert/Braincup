@@ -460,7 +460,7 @@
     <string name="achievement_sudoku_expert">Κυρίαρχος του Σουντόκου</string>
     <string name="achievement_sudoku_expert_desc">Λύσε και τους 10 γρίφους επιπέδου Υπερβολικό</string>
     <string name="game_flags">Σημαίες</string>
-    <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και ο χρόνος κυλάει..</string>
+    <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και μία λάθος απάντηση τερματίζει το παιχνίδι.</string>
     <string name="game_flags_score">Σκορ: %1$d</string>
     <string name="game_flags_best">Ρεκόρ: %1$d</string>
     <string name="game_digit_memory">Μνήμη Ψηφίων</string>

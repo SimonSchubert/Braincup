@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Sudoku Hükümdarı</string>
     <string name="achievement_sudoku_expert_desc">Uzman seviyesindeki 10 bulmacanın tümünü çöz</string>
     <string name="game_flags">Bayraklar</string>
-    <string name="game_flags_desc">Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve süre işliyor.</string>
+    <string name="game_flags_desc">Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve tek bir yanlış cevap oyunu bitirir.</string>
     <string name="game_flags_score">Puan: %1$d</string>
     <string name="game_flags_best">En iyi: %1$d</string>
     <string name="game_digit_memory">Rakam Hafızası</string>

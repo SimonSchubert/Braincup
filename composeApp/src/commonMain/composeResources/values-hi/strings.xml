@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">सुडोकू सम्राट</string>
     <string name="achievement_sudoku_expert_desc">विशेषज्ञ स्तर की सभी 10 पहेलियाँ हल करें</string>
     <string name="game_flags">झंडे</string>
-    <string name="game_flags_desc">झंडे से देश पहचानें। हर राउंड में और विकल्प जुड़ते हैं और घड़ी चल रही है।</string>
+    <string name="game_flags_desc">झंडे से देश पहचानें। हर राउंड में और विकल्प जुड़ते हैं और एक गलत जवाब खेल खत्म कर देता है।</string>
     <string name="game_flags_score">स्कोर: %1$d</string>
     <string name="game_flags_best">सर्वश्रेष्ठ: %1$d</string>
     <string name="game_digit_memory">अंक स्मृति</string>

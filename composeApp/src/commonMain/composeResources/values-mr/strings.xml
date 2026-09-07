@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">सुडोकू सम्राट</string>
     <string name="achievement_sudoku_expert_desc">सर्व 10 तज्ज्ञ कोडी सोडवा</string>
     <string name="game_flags">ध्वज</string>
-    <string name="game_flags_desc">ध्वजावरून देश ओळखा. प्रत्येक फेरीत अधिक पर्याय जोडले जातात आणि घड्याळ चालू असते.</string>
+    <string name="game_flags_desc">ध्वजावरून देश ओळखा. प्रत्येक फेरीत अधिक पर्याय जोडले जातात आणि एक चुकीचे उत्तर खेळ संपवते.</string>
     <string name="game_flags_score">गुण: %1$d</string>
     <string name="game_flags_best">सर्वोत्तम: %1$d</string>
     <string name="game_digit_memory">अंक स्मरणशक्ती</string>

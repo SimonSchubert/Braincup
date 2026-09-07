@@ -566,7 +566,7 @@
     <string name="achievement_sudoku_expert">Sudoku Sovereign</string>
     <string name="achievement_sudoku_expert_desc">Solve all 10 Expert puzzles</string>
     <string name="game_flags">Flags</string>
-    <string name="game_flags_desc">Identify the country by its flag. Each round adds more options and the clock is ticking.</string>
+    <string name="game_flags_desc">Identify the country by its flag. Each round adds more options, and one wrong answer ends the run.</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Best: %1$d</string>
     <string name="game_digit_memory">Digit Memory</string>

@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Bá chủ Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Giải tất cả 10 câu đố cấp Chuyên gia</string>
     <string name="game_flags">Cờ</string>
-    <string name="game_flags_desc">Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.</string>
+    <string name="game_flags_desc">Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và một câu trả lời sai sẽ kết thúc lượt chơi.</string>
     <string name="game_flags_score">Điểm: %1$d</string>
     <string name="game_flags_best">Cao nhất: %1$d</string>
     <string name="game_digit_memory">Trí Nhớ Số</string>

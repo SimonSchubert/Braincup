@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Властелин судоку</string>
     <string name="achievement_sudoku_expert_desc">Решите все 10 головоломок уровня «Эксперт»</string>
     <string name="game_flags">Флаги</string>
-    <string name="game_flags_desc">Угадайте страну по её флагу. Каждый раунд добавляет больше вариантов, и время идёт.</string>
+    <string name="game_flags_desc">Угадайте страну по её флагу. Каждый раунд добавляет больше вариантов, а один неверный ответ завершает игру.</string>
     <string name="game_flags_score">Очки: %1$d</string>
     <string name="game_flags_best">Лучший: %1$d</string>
     <string name="game_digit_memory">Память на цифры</string>

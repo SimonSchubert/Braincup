@@ -550,7 +550,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_sudoku_expert">Rialtóir Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Réitigh na 10 dtomhas saineolaí</string>
     <string name="game_flags">Bratacha</string>
-    <string name="game_flags_desc">Aithin an tír ón mbratach. Cuireann gach babhta níos mó roghanna leis, agus tá an clog ag ticeáil.</string>
+    <string name="game_flags_desc">Aithin an tír ón mbratach. Cuireann gach babhta níos mó roghanna leis, agus cuireann freagra mícheart amháin deireadh leis an gcluiche.</string>
     <string name="game_flags_score">Scór: %1$d</string>
     <string name="game_flags_best">Is fearr: %1$d</string>
     <string name="game_digit_memory">Cuimhne digití</string>

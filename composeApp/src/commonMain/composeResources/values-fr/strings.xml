@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Souverain du Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Résous les 10 grilles du niveau Expert</string>
     <string name="game_flags">Drapeaux</string>
-    <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et le temps s'écoule.</string>
+    <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et une seule mauvaise réponse met fin à la partie.</string>
     <string name="game_flags_score">Score : %1$d</string>
     <string name="game_flags_best">Meilleur : %1$d</string>
     <string name="game_digit_memory">Mémoire des Chiffres</string>

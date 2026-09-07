@@ -550,7 +550,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_sudoku_expert">Sobirà del Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Resol els 10 enigmes d'expert</string>
     <string name="game_flags">Banderes</string>
-    <string name="game_flags_desc">Identifica el país per la bandera. Cada ronda afegeix més opcions i el rellotge corre.</string>
+    <string name="game_flags_desc">Identifica el país per la bandera. Cada ronda afegeix més opcions i una resposta incorrecta acaba la partida.</string>
     <string name="game_flags_score">Puntuació: %1$d</string>
     <string name="game_flags_best">Millor: %1$d</string>
     <string name="game_digit_memory">Memòria de dígits</string>

@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Sudoku-soeverein</string>
     <string name="achievement_sudoku_expert_desc">Los alle 10 puzzels van niveau Expert op</string>
     <string name="game_flags">Vlaggen</string>
-    <string name="game_flags_desc">Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.</string>
+    <string name="game_flags_desc">Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en één fout antwoord beëindigt het spel.</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
     <string name="game_digit_memory">Cijfergeheugen</string>

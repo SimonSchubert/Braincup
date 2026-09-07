@@ -107,7 +107,6 @@ class GameController(
     private var inSessionMode = false
     val isInSessionMode: Boolean get() = inSessionMode
     private var miniChessAiJob: Job? = null
-    private var flagsTimerJob: Job? = null
     private var timerJob: Job? = null
     private var stopwatchJob: Job? = null
 
@@ -116,7 +115,7 @@ class GameController(
     private var pausedRemainingMillis: Long = 0L
     private var pausedElapsedMillis: Long = 0L
 
-    private enum class TimerKind { GAME_COUNTDOWN, FLAGS_COUNTDOWN, STOPWATCH }
+    private enum class TimerKind { GAME_COUNTDOWN, STOPWATCH }
 
     private data class WordleWordLists(val answers: List<String>, val guesses: Set<String>)
 
@@ -155,7 +154,6 @@ class GameController(
 
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
-        const val FLAGS_ROUND_TIME_MILLIS = FlagsGame.ROUND_TIME_MILLIS
 
         /** Pause with wrong operator slots marked red before the first correct reveal. */
         private const val MISSING_OPS_FEEDBACK_INITIAL_MS = 700L
@@ -794,28 +792,18 @@ class GameController(
         }
     }
 
+    /** Ticks [_timeRemaining] down from [GAME_TIME_MILLIS] since [startTime]. */
     private fun startTimer() {
         timerJob?.cancel()
-        timerJob = launchCountdown(GAME_TIME_MILLIS)
-    }
+        timerJob = scope.launch {
+            while (true) {
+                val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+                val remaining = (GAME_TIME_MILLIS - elapsed).coerceAtLeast(0)
+                _timeRemaining.value = remaining
 
-    /**
-     * Ticks [_timeRemaining] down from [totalMillis] since [startTime], then runs [onExpired].
-     *
-     * The run clock and the Flags per-round clock count the same way and differ only in how long
-     * they run and what happens at zero, so they share the loop.
-     */
-    private fun launchCountdown(totalMillis: Long, onExpired: () -> Unit = {}): Job = scope.launch {
-        while (true) {
-            val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
-            val remaining = (totalMillis - elapsed).coerceAtLeast(0)
-            _timeRemaining.value = remaining
-
-            if (remaining <= 0) {
-                onExpired()
-                return@launch
+                if (remaining <= 0) return@launch
+                delay(100.milliseconds)
             }
-            delay(100.milliseconds)
         }
     }
 
@@ -831,11 +819,6 @@ class GameController(
 
         timersPaused = true
         when {
-            flagsTimerJob != null -> {
-                pausedTimerKind = TimerKind.FLAGS_COUNTDOWN
-                pausedRemainingMillis = _timeRemaining.value
-                cancelFlagsTimer()
-            }
             stopwatchRunning -> {
                 pausedTimerKind = TimerKind.STOPWATCH
                 pausedElapsedMillis = _elapsedTime.value
@@ -868,13 +851,6 @@ class GameController(
                     (GAME_TIME_MILLIS - pausedRemainingMillis)
                 _timeRemaining.value = pausedRemainingMillis
                 startTimer()
-            }
-            TimerKind.FLAGS_COUNTDOWN -> {
-                val game = state.game as? FlagsGame ?: return
-                startTime = Clock.System.now().toEpochMilliseconds() -
-                    (FLAGS_ROUND_TIME_MILLIS - pausedRemainingMillis)
-                _timeRemaining.value = pausedRemainingMillis
-                startFlagsRoundTimer(state.gameType, game)
             }
             TimerKind.STOPWATCH -> {
                 startTime = Clock.System.now().toEpochMilliseconds() - pausedElapsedMillis
@@ -2236,9 +2212,8 @@ class GameController(
      */
     private fun cancelPendingJobs(game: Game) {
         (game as? TimedPhaseGame)?.cancelTimedPhase()
-        // The chess search and the Flags round clock are owned by the controller, not the game.
+        // The chess search is owned by the controller, not the game.
         if (game is MiniChessGame) cancelMiniChessAi()
-        if (game is FlagsGame) cancelFlagsTimer()
     }
 
     private fun cancelMiniChessAi() {
@@ -2252,7 +2227,6 @@ class GameController(
         _gameState.value = GameState.Active(gameType, game)
         _gameUiState.value = buildFlagsUiState(gameType, game)
         navController.navigate(Playing(gameType.id))
-        startFlagsRoundTimer(gameType, game)
     }
 
     private fun buildFlagsUiState(
@@ -2268,19 +2242,6 @@ class GameController(
         )
     }
 
-    private fun startFlagsRoundTimer(gameType: GameType, game: FlagsGame) {
-        flagsTimerJob?.cancel()
-        cancelTimer()
-        startTime = Clock.System.now().toEpochMilliseconds()
-        _timeRemaining.value = FLAGS_ROUND_TIME_MILLIS
-        flagsTimerJob = launchCountdown(FLAGS_ROUND_TIME_MILLIS) { finishCurrentGame(gameType, game) }
-    }
-
-    private fun cancelFlagsTimer() {
-        flagsTimerJob?.cancel()
-        flagsTimerJob = null
-    }
-
     private fun handleFlagsAnswer(
         currentState: GameState.Active,
         game: FlagsGame,
@@ -2289,10 +2250,6 @@ class GameController(
         val correctAnswer = game.correctCountry
         val currentUiState = _gameUiState.value as? FlagsUiState ?: return
         val isCorrect = game.isCorrect(input)
-
-        // Freeze the timer during feedback so the 1s delay isn't counted against the player
-        // (correct case) or the timeout doesn't race the game-over transition (wrong case).
-        cancelFlagsTimer()
 
         if (isCorrect) {
             points++
@@ -2322,7 +2279,6 @@ class GameController(
             game.nextRound()
             _gameState.value = GameState.Active(currentState.gameType, game)
             _gameUiState.value = buildFlagsUiState(currentState.gameType, game)
-            startFlagsRoundTimer(currentState.gameType, game)
         }
     }
 }

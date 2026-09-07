@@ -550,7 +550,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku-höfðingi</string>
     <string name="achievement_sudoku_expert_desc">Leystu allar 10 sérfræðigáturnar</string>
     <string name="game_flags">Fánar</string>
-    <string name="game_flags_desc">Þekktu landið af fánanum. Hver umferð bætir við valkostum og klukkan tifar.</string>
+    <string name="game_flags_desc">Þekktu landið af fánanum. Hver umferð bætir við valkostum og eitt rangt svar bindur enda á leikinn.</string>
     <string name="game_flags_score">Stig: %1$d</string>
     <string name="game_flags_best">Besta: %1$d</string>
     <string name="game_digit_memory">Tölustafaminni</string>

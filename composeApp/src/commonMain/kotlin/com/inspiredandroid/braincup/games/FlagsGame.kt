@@ -47,7 +47,6 @@ class FlagsGame : Game() {
     )
 
     companion object {
-        const val ROUND_TIME_MILLIS: Long = 8_000L
         const val MAX_BUTTONS: Int = 6
         const val POPULAR_POOL_ROUNDS: Int = 50
 

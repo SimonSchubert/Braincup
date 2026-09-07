@@ -550,7 +550,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_sudoku_expert">Sudoku-uralkodó</string>
     <string name="achievement_sudoku_expert_desc">Oldd meg mind a 10 szakértő rejtvényt</string>
     <string name="game_flags">Zászlók</string>
-    <string name="game_flags_desc">Ismerd fel az országot a zászlójáról. Minden körben több a választás, és ketyeg az óra.</string>
+    <string name="game_flags_desc">Ismerd fel az országot a zászlójáról. Minden körben több a választás, és egyetlen rossz válasz véget vet a játéknak.</string>
     <string name="game_flags_score">Pont: %1$d</string>
     <string name="game_flags_best">Legjobb: %1$d</string>
     <string name="game_digit_memory">Számjegyemlékezet</string>

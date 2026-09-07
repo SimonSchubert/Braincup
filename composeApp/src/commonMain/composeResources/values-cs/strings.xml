@@ -550,7 +550,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku panovník</string>
     <string name="achievement_sudoku_expert_desc">Vyřeš všech 10 expertských hádanek</string>
     <string name="game_flags">Vlajky</string>
-    <string name="game_flags_desc">Poznej zemi podle vlajky. Každé kolo přidá víc možností a hodiny tikají.</string>
+    <string name="game_flags_desc">Poznej zemi podle vlajky. Každé kolo přidá víc možností a jediná špatná odpověď hru ukončí.</string>
     <string name="game_flags_score">Skóre: %1$d</string>
     <string name="game_flags_best">Nejlepší: %1$d</string>
     <string name="game_digit_memory">Paměť číslic</string>

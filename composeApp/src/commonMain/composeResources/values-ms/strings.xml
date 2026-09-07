@@ -548,7 +548,7 @@
     <string name="achievement_sudoku_expert">Raja Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Selesaikan semua 10 teka-teki Pakar</string>
     <string name="game_flags">Bendera</string>
-    <string name="game_flags_desc">Kenal pasti negara daripada benderanya. Setiap pusingan menambah lebih banyak pilihan dan masa sedang berjalan.</string>
+    <string name="game_flags_desc">Kenal pasti negara daripada benderanya. Setiap pusingan menambah lebih banyak pilihan dan satu jawapan salah menamatkan permainan.</string>
     <string name="game_flags_score">Skor: %1$d</string>
     <string name="game_flags_best">Terbaik: %1$d</string>
     <string name="game_digit_memory">Ingatan Digit</string>

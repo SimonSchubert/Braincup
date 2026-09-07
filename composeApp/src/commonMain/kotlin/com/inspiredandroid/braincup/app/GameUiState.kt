@@ -496,7 +496,7 @@ data class FlagsUiState(
     val possibleAnswers: ImmutableList<AnswerButton>,
     val currentScore: Int,
     val bestScore: Int,
-) : GameUiState
+) : UntimedUiState
 
 @Immutable
 data class VisualMemoryUiState(

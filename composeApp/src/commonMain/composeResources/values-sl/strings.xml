@@ -550,7 +550,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku vladar</string>
     <string name="achievement_sudoku_expert_desc">Reši vseh 10 strokovnih ugank</string>
     <string name="game_flags">Zastave</string>
-    <string name="game_flags_desc">Prepoznaj državo po zastavi. Vsak krog doda več možnosti, ura pa tiktaka.</string>
+    <string name="game_flags_desc">Prepoznaj državo po zastavi. Vsak krog doda več možnosti, en napačen odgovor pa konča igro.</string>
     <string name="game_flags_score">Rezultat: %1$d</string>
     <string name="game_flags_best">Najbolje: %1$d</string>
     <string name="game_digit_memory">Spomin na števke</string>

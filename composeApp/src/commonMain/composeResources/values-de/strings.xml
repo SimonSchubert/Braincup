@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Sudoku-Souverän</string>
     <string name="achievement_sudoku_expert_desc">Löse alle 10 Rätsel der Stufe Experte</string>
     <string name="game_flags">Flaggen</string>
-    <string name="game_flags_desc">Erkenne das Land an der Flagge. Jede Runde gibt es mehr Auswahl, und die Zeit läuft.</string>
+    <string name="game_flags_desc">Erkenne das Land an der Flagge. Jede Runde gibt es mehr Auswahl, und eine falsche Antwort beendet den Durchgang.</string>
     <string name="game_flags_score">Punkte: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
     <string name="game_digit_memory">Zifferngedächtnis</string>

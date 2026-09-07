@@ -550,7 +550,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_sudoku_expert">Sudoku valdnieks</string>
     <string name="achievement_sudoku_expert_desc">Atrisini visas 10 ekspertu mīklas</string>
     <string name="game_flags">Karogi</string>
-    <string name="game_flags_desc">Atpazīsti valsti pēc karoga. Katra kārta pievieno vairāk variantu, un pulkstenis tikšķ.</string>
+    <string name="game_flags_desc">Atpazīsti valsti pēc karoga. Katra kārta pievieno vairāk variantu, un viena nepareiza atbilde beidz spēli.</string>
     <string name="game_flags_score">Rezultāts: %1$d</string>
     <string name="game_flags_best">Labākais: %1$d</string>
     <string name="game_digit_memory">Ciparu atmiņa</string>

@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Володар судоку</string>
     <string name="achievement_sudoku_expert_desc">Розв'яжіть усі 10 головоломок рівня «Експерт»</string>
     <string name="game_flags">Прапори</string>
-    <string name="game_flags_desc">Вгадай країну за її прапором. Кожен раунд додає більше варіантів, а час спливає.</string>
+    <string name="game_flags_desc">Вгадай країну за її прапором. Кожен раунд додає більше варіантів, а одна неправильна відповідь завершує гру.</string>
     <string name="game_flags_score">Очки: %1$d</string>
     <string name="game_flags_best">Найкращий: %1$d</string>
     <string name="game_digit_memory">Пам'ять на цифри</string>

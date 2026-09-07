@@ -288,7 +288,7 @@
     <string name="achievement_sudoku_expert">Władca Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Ekspert</string>
     <string name="game_flags">Flagi</string>
-    <string name="game_flags_desc">Rozpoznaj kraj po jego fladze. Każda runda dodaje więcej opcji, a czas ucieka.</string>
+    <string name="game_flags_desc">Rozpoznaj kraj po jego fladze. Każda runda dodaje więcej opcji, a jedna zła odpowiedź kończy grę.</string>
     <string name="game_flags_score">Wynik: %1$d</string>
     <string name="game_flags_best">Najlepszy: %1$d</string>
     <string name="game_digit_memory">Pamięć Cyfr</string>

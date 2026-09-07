@@ -550,7 +550,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_sudoku_expert">Sudokuhersker</string>
     <string name="achievement_sudoku_expert_desc">Løs alle 10 ekspertpuslespil</string>
     <string name="game_flags">Flag</string>
-    <string name="game_flags_desc">Identificer landet ud fra flaget. Hver runde tilføjer flere valg, og uret tikker.</string>
+    <string name="game_flags_desc">Identificer landet ud fra flaget. Hver runde tilføjer flere valg, og ét forkert svar slutter spillet.</string>
     <string name="game_flags_score">Point: %1$d</string>
     <string name="game_flags_best">Bedste: %1$d</string>
     <string name="game_digit_memory">Cifferhukommelse</string>

@@ -93,7 +93,7 @@ Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
 - **Mental Flex** — A cue pair sets the rule each round; match the target on that trait
 - **Flash Crowd** — Tap the side that flashed more dots
 - **Schulte Table** — Tap numbers in order as fast as you can
-- **Flags** — Identify countries by their flags against the clock
+- **Flags** — Identify countries by their flags; one wrong answer ends the run
 - **Trio** — Find three cards that share a shape, a count or a fill
 
 ### Extra modes

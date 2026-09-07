@@ -23,7 +23,6 @@ import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlagsUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.FractionCalculationUiState
-import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.GhostGridUiState
 import com.inspiredandroid.braincup.app.KnotUiState
@@ -302,15 +301,6 @@ private fun GameProgressBar(
         gameUiState is SchulteTableUiState -> {
             val elapsed by elapsedTime.collectAsStateWithLifecycle()
             StopwatchDisplay(elapsedMillis = elapsed, modifier = modifier)
-        }
-        gameUiState is FlagsUiState -> {
-            // Kept as State and read in the bar's draw phase, so a tick repaints the bar without
-            // recomposing even this wrapper.
-            val remaining = timeRemaining.collectAsStateWithLifecycle()
-            TimeProgressIndicator(
-                progress = { remaining.value / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat() },
-                modifier = modifier,
-            )
         }
         else -> {
             val remaining = timeRemaining.collectAsStateWithLifecycle()

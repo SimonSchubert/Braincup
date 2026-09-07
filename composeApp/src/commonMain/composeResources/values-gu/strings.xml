@@ -532,7 +532,7 @@
     <string name="achievement_sudoku_expert">સુડોકુ સમ્રાટ</string>
     <string name="achievement_sudoku_expert_desc">બધા 10 નિષ્ણાત કોયડા ઉકેલો</string>
     <string name="game_flags">ધ્વજ</string>
-    <string name="game_flags_desc">ધ્વજ પરથી દેશ ઓળખો. દરેક રાઉન્ડમાં વધુ વિકલ્પો ઉમેરાય છે અને ઘડિયાળ ચાલુ છે.</string>
+    <string name="game_flags_desc">ધ્વજ પરથી દેશ ઓળખો. દરેક રાઉન્ડમાં વધુ વિકલ્પો ઉમેરાય છે અને એક ખોટો જવાબ રમત પૂરી કરી દે છે.</string>
     <string name="game_flags_score">ગુણ: %1$d</string>
     <string name="game_flags_best">શ્રેષ્ઠ: %1$d</string>
     <string name="game_digit_memory">અંક યાદશક્તિ</string>
