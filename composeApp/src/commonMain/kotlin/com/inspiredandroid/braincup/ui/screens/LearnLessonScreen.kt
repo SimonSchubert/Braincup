@@ -34,7 +34,7 @@ import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
+import com.inspiredandroid.braincup.ui.components.NumberPad
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
@@ -208,6 +208,9 @@ fun LearnLessonScreenContent(
             onCorrectAnswer()
             LessonAnswer.Correct(firstTry = previous.isEmpty())
         } else {
+            // Cleared, because what was typed is now on nothing but the retry note's word: the
+            // question mark comes back rather than the card holding a number already rejected.
+            typedAnswer = ""
             LessonAnswer.Missed(previous + attempt)
         }
     }
@@ -265,13 +268,19 @@ fun LearnLessonScreenContent(
 
                 is LessonStep.Numeric -> NumericStep(
                     step = step,
-                    stepIndex = stepIndex,
                     typedAnswer = typedAnswer,
                     answer = answer,
-                    onInputChange = { typedAnswer = it },
                 )
             }
             Spacer(Modifier.height(16.dp))
+        }
+
+        if (step is LessonStep.Numeric && !answer.isResolved) {
+            NumericAnswerPad(
+                step = step,
+                typed = typedAnswer,
+                onTypedChange = { typedAnswer = it },
+            )
         }
 
         LessonActionBar(
@@ -502,6 +511,13 @@ private fun questionHeadingParts(
 }
 
 /**
+ * Whether the step's question is set as notation on a card of its own - which is the card the
+ * typed answer lands on. [questionHeadingParts] decides the same thing when it lays the heading
+ * out; this reads it off the step, for the pad that has to know whether to carry a slot itself.
+ */
+private fun LessonStep.Numeric.leadsWithFormula(): Boolean = formula != null || question.isNotation
+
+/**
  * The question itself. When the step carries a formula that leads, in the same card the teaching
  * steps use for theirs, and the prose drops underneath to say how to read the picture.
  *
@@ -515,6 +531,8 @@ private fun QuestionHeading(
     formula: String?,
     question: String?,
     solved: String? = null,
+    /** What is on the pad so far, which lands on the question mark as it is typed. */
+    typed: String = "",
     roles: FigureRoles? = null,
 ) {
     Column(
@@ -523,7 +541,14 @@ private fun QuestionHeading(
     ) {
         if (formula != null) {
             LearnFormulaCard(
-                if (solved == null) formula else formula.replace("?", "{c:$solved}"),
+                when {
+                    solved != null -> formula.replace("?", "{c:$solved}")
+                    // Neutral, the colour the question mark it replaces was printed in: what is
+                    // being typed has no role on the card yet. It turns green on the same spot
+                    // once it is checked and right.
+                    typed.isNotEmpty() -> formula.replace("?", "{n:$typed}")
+                    else -> formula
+                },
                 roles = roles,
             )
             if (question != null) Spacer(Modifier.height(10.dp))
@@ -564,10 +589,8 @@ private fun RetryNote() {
 @Composable
 private fun NumericStep(
     step: LessonStep.Numeric,
-    stepIndex: Int,
     typedAnswer: String,
     answer: LessonAnswer,
-    onInputChange: (String) -> Unit,
 ) {
     step.visual?.let {
         LearnFigurePanel(
@@ -582,6 +605,7 @@ private fun NumericStep(
         formula = formula,
         question = prose,
         solved = step.answer.takeIf { answer.isResolved },
+        typed = typedAnswer.takeUnless { answer.isResolved }.orEmpty(),
         roles = step.visual?.roles(),
     )
     if (answer.isResolved) {
@@ -601,18 +625,57 @@ private fun NumericStep(
         }
         Spacer(Modifier.height(8.dp))
         FeedbackCard(step.explanation.resolve(), revealed = revealed)
-    } else {
-        // Keyed so the pad's buffer starts empty on a new question, and again after a miss so the
-        // rejected number is cleared rather than needing backspacing away.
-        val missCount = (answer as? LessonAnswer.Missed)?.attempts?.size ?: 0
-        key(stepIndex, missCount) {
-            NumberPadWithInput(onInputChange = onInputChange)
-        }
-        if (answer is LessonAnswer.Missed) {
-            Spacer(Modifier.height(8.dp))
-            RetryNote()
+    } else if (answer is LessonAnswer.Missed) {
+        Spacer(Modifier.height(8.dp))
+        RetryNote()
+    }
+}
+
+/**
+ * As long as an answer can get, so a stuck thumb cannot grow the card it is being typed into.
+ * The longest answer in the catalog is five digits.
+ */
+private const val MaxTypedAnswer = 8
+
+/**
+ * The number pad, pinned under the scrolling step body and above [LessonActionBar] rather than
+ * scrolling with the question.
+ *
+ * It used to sit at the bottom of the step body, which put it last in a column that overflows on
+ * an ordinary phone: a figure, a formula card and a question ahead of it add up to more than the
+ * body of a 1080x2400 screen holds once a status bar and a three-button navigation bar have taken
+ * their share. The row that went under the fold was the one holding the 0, so a step answered
+ * "10" had a key that was reachable only by scrolling, with nothing on the screen to say so.
+ * Pinned, the keys are always all there, and what scrolls is the question - which shows a cut line
+ * of text when it does, and so asks to be scrolled.
+ *
+ * The keys are the whole of it. What is typed is shown where the question asked for it, on the
+ * question mark, so the readout the pad used to carry above itself - 84dp of mostly empty row for
+ * one number - is gone, and the backspace has moved into the spare cell beside the 0, which was
+ * empty anyway. It appears only once there is something to delete.
+ */
+@Composable
+private fun ColumnScope.NumericAnswerPad(
+    step: LessonStep.Numeric,
+    typed: String,
+    onTypedChange: (String) -> Unit,
+) {
+    // A question asked in words has no question mark to type into, so it is given one, and it is
+    // pinned with the keys rather than left at the end of the body: a learner has to be able to
+    // see what they are typing, and on the tightest screens the body is where the scrolling
+    // happens. A question asked as a formula needs none of this - it already shows the number in
+    // the place it asked for it.
+    if (!step.leadsWithFormula()) {
+        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp)) {
+            LearnFormulaCard(if (typed.isEmpty()) "?" else "{n:$typed}")
         }
     }
+    NumberPad(
+        onInputChange = { digit ->
+            if (typed.length < MaxTypedAnswer) onTypedChange(typed + digit)
+        },
+        onBackspace = { onTypedChange(typed.dropLast(1)) }.takeIf { typed.isNotEmpty() },
+    )
 }
 
 /**

@@ -24,6 +24,12 @@ fun ColumnScope.NumberPad(
     onInputChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     showOperators: Boolean = false,
+    /**
+     * Deletes the last thing typed, on a key in the bottom row's spare cell. Null leaves that cell
+     * empty, which is what a caller that shows its own backspace - or has nothing to delete yet -
+     * passes. The row already reserves the space either way, so the key costs no height.
+     */
+    onBackspace: (() -> Unit)? = null,
 ) {
     // Number rows from top to bottom in the default (calculator) layout. Each row pairs its
     // digits with the operator anchored to that row position (top to bottom: / * -).
@@ -82,7 +88,7 @@ fun ColumnScope.NumberPad(
                 NumberPadButtonCell("0") {
                     onInputChange(it)
                 }
-                EmptyCell()
+                if (onBackspace != null) BackspaceCell(onBackspace) else EmptyCell()
             }
         }
     }
@@ -100,8 +106,11 @@ fun NumberPadWithInput(
         Row(
             horizontalArrangement = Arrangement.End,
             modifier = Modifier
-                .padding(12.dp)
-                .defaultMinSize(minHeight = 60.dp)
+                .padding(horizontal = 12.dp, vertical = 8.dp)
+                // Tall enough to hold the backspace tile and no taller. The row reserves its
+                // height whether or not anything has been typed, so every dp of it is height the
+                // pad underneath does not get on a short screen.
+                .defaultMinSize(minHeight = 48.dp)
                 .align(Alignment.CenterHorizontally),
         ) {
             Text(
@@ -158,6 +167,33 @@ private fun RowScope.NumberPadButtonCell(
             onClick = { onClick(value) },
             value = value,
         )
+    }
+}
+
+/**
+ * The backspace, keyed like a digit but in the quiet face: it corrects the answer rather than
+ * being part of it.
+ */
+@Composable
+private fun RowScope.BackspaceCell(onClick: () -> Unit) {
+    Box(
+        modifier = Modifier.weight(1f, fill = true),
+        contentAlignment = Alignment.Center,
+    ) {
+        PrismTile(
+            face = MaterialTheme.colorScheme.surfaceVariant,
+            modifier = Modifier
+                .sizeIn(56.dp, 56.dp)
+                .hoverHand(),
+            onClick = onClick,
+        ) {
+            Icon(
+                painterResource(Res.drawable.baseline_backspace_24),
+                contentDescription = stringResource(Res.string.number_pad_backspace),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(24.dp),
+            )
+        }
     }
 }
 
