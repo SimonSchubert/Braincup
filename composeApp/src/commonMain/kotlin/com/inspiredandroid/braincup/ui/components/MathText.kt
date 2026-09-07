@@ -77,12 +77,18 @@ private fun String.spaceSubtraction(): String {
  * answer, and the section spends it nowhere else: it is the one green on the screen, matching the
  * option tile that turns green and the value the figure marks once the learner has it right.
  *
- * `{c:}` is not authored into the content. It is substituted at render time, when a question
- * resolves and its formula finishes in front of the learner.
+ * `{n:}` claims no role at all: it prints in whatever colour the line around it is set in. It is
+ * for a number that is on the card without the figure having anything to say about it - the one
+ * being typed onto the question mark, which is not a given, not a step of the working, and not
+ * the answer until it has been checked. Left blue it collided with a working value on the same
+ * line: "9 - {b:4} = {b:15}" printed the step taken and the guess at it in one colour.
+ *
+ * Neither `{c:}` nor `{n:}` is authored into the content. Both are substituted at render time,
+ * when a question resolves in front of the learner or while they are typing at it.
  */
 // Every brace is escaped, inside the character class too: Android's ICU engine rejects bare
 // braces that the JVM regex accepts.
-private val GroupTag = Regex("""\{([abc]):([^\}]*)\}""")
+private val GroupTag = Regex("""\{([abcn]):([^\}]*)\}""")
 
 /**
  * Resolves [GroupTag] markup into coloured, bold runs. Everything outside a tag is left exactly as
@@ -100,12 +106,14 @@ fun String.withGroupColors(
     var cursor = 0
     GroupTag.findAll(this@withGroupColors).forEach { match ->
         append(this@withGroupColors.substring(cursor, match.range.first))
+        // Null is `{n:}`: a value with no role, which keeps the colour the run is already set in.
         val color = when (match.groupValues[1]) {
             "a" -> groupA
             "b" -> groupB
+            "n" -> null
             else -> groupC
         }
-        withStyle(SpanStyle(color = color, fontWeight = FontWeight.Bold)) {
+        withStyle(SpanStyle(color = color ?: Color.Unspecified, fontWeight = FontWeight.Bold)) {
             append(match.groupValues[2])
         }
         cursor = match.range.last + 1
@@ -202,6 +210,7 @@ fun String.withFormulaColors(
         val color = when (match.groupValues[1]) {
             "a" -> given
             "b" -> working
+            "n" -> structure
             else -> answer
         }
         withStyle(SpanStyle(color = color, fontWeight = FontWeight.Bold)) {
