@@ -12,6 +12,8 @@ import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
 import com.inspiredandroid.braincup.app.PegSolitaire
 import com.inspiredandroid.braincup.app.Playing
+import com.inspiredandroid.braincup.app.ReversiMenu
+import com.inspiredandroid.braincup.app.ReversiPlay
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
@@ -100,11 +102,15 @@ class AppUrlRoutesTest {
     @Test
     fun navRouteToPathSuffix_pegSolitaire() {
         assertEquals("peg-solitaire", navRouteToPathSuffix(PegSolitaire))
+        assertEquals("reversi", navRouteToPathSuffix(ReversiMenu))
+        assertEquals("reversi/VS_CPU/HARD", navRouteToPathSuffix(ReversiPlay(mode = "VS_CPU", difficulty = "HARD")))
     }
 
     @Test
     fun pathSuffixToNavRoute_pegSolitaire() {
         assertEquals(PegSolitaire, pathSuffixToNavRoute("peg-solitaire"))
+        assertEquals(ReversiMenu, pathSuffixToNavRoute("reversi"))
+        assertEquals(ReversiPlay(mode = "VS_CPU", difficulty = "HARD"), pathSuffixToNavRoute("reversi/VS_CPU/HARD"))
     }
 
     @Test

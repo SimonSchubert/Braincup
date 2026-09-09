@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">പെഗ് നിപുണൻ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ഇംഗ്ലീഷ് പെഗ് സോളിറ്റെയർ നടുവിൽ ഒരു പെഗുമായി പൂർത്തിയാക്കുക</string>
 
+    <string name="reversi_button">റിവേഴ്സി</string>
+    <string name="reversi_title">റിവേഴ്സി</string>
+    <string name="reversi_mode_cpu">CPU യ്ക്കെതിരെ കളിക്കുക</string>
+    <string name="reversi_mode_human">മനുഷ്യനോട് കളിക്കുക</string>
+    <string name="reversi_mode_human_subtitle">ഒരേ ഉപകരണത്തിൽ മാറി മാറി കളിക്കുക</string>
+    <string name="reversi_howto">എതിരാളിയുടെ കായ്കളുടെ ഒരു നിരയെ നിന്റെ രണ്ട് കായ്കൾക്കിടയിൽ കുടുക്കി മറിക്കുക. അവസാനം കൂടുതൽ കായ്കളുള്ളയാൾ ജയിക്കും.</string>
+    <string name="reversi_difficulty">കാഠിന്യം</string>
+    <string name="reversi_difficulty_normal">സാധാരണ</string>
+    <string name="reversi_difficulty_hard">കഠിനം</string>
+    <string name="reversi_start">കളി തുടങ്ങുക</string>
+    <string name="reversi_thinking">CPU ചിന്തിക്കുന്നു…</string>
+    <string name="reversi_turn_you">നിന്റെ ഊഴം</string>
+    <string name="reversi_turn_cpu">CPU യുടെ ഊഴം</string>
+    <string name="reversi_pass_you">നിനക്ക് നീക്കമില്ല. നീ ഒഴിവാക്കുന്നു.</string>
+    <string name="reversi_pass_cpu">CPU യ്ക്ക് നീക്കമില്ല. അത് ഒഴിവാക്കുന്നു.</string>
+    <string name="reversi_won">നീ %1$d - %2$d ന് ജയിച്ചു.</string>
+    <string name="reversi_lost">CPU %1$d - %2$d ന് ജയിച്ചു.</string>
+    <string name="reversi_draw">സമനില, രണ്ടുപേർക്കും %1$d.</string>
+    <string name="reversi_resign">തോൽവി സമ്മതിക്കുക</string>
+    <string name="reversi_resigned">നീ കീഴടങ്ങി. CPU ജയിച്ചു.</string>
+    <string name="reversi_resigned_black">കറുപ്പ് കീഴടങ്ങി. വെള്ള ജയിച്ചു.</string>
+    <string name="reversi_resigned_white">വെള്ള കീഴടങ്ങി. കറുപ്പ് ജയിച്ചു.</string>
+    <string name="reversi_new_game">പുതിയ കളി</string>
+    <string name="reversi_quit">പുറത്തുകടക്കുക</string>
+    <string name="reversi_turn_black">കറുപ്പിന്റെ ഊഴം</string>
+    <string name="reversi_turn_white">വെള്ളയുടെ ഊഴം</string>
+    <string name="reversi_pass_black">കറുപ്പിന് നീക്കമില്ല. അത് ഒഴിവാക്കുന്നു.</string>
+    <string name="reversi_pass_white">വെള്ളയ്ക്ക് നീക്കമില്ല. അത് ഒഴിവാക്കുന്നു.</string>
+    <string name="reversi_black_wins">കറുപ്പ് %1$d - %2$d ന് ജയിച്ചു.</string>
+    <string name="reversi_white_wins">വെള്ള %1$d - %2$d ന് ജയിച്ചു.</string>
+
     <string name="settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_open">ക്രമീകരണങ്ങൾ തുറക്കുക</string>
     <string name="settings_sound">ശബ്ദം</string>
@@ -1010,7 +1041,8 @@
     <string name="menu_best_score">മികച്ചത് %1$s</string>
     <string name="menu_iq_untaken">ഇതുവരെ ചെയ്തിട്ടില്ല</string>
     <string name="menu_not_played">ഇതുവരെ കളിച്ചിട്ടില്ല</string>
-    <string name="menu_chess_caption">CPU യ്ക്കെതിരെ</string>
+    <string name="menu_chess_caption">CPU യ്ക്കോ കൂട്ടുകാരനോ എതിരെ</string>
+    <string name="menu_reversi_caption">CPU യ്ക്കോ കൂട്ടുകാരനോ എതിരെ</string>
     <string name="menu_peg_caption">ഒരു കായ് മാത്രം ബാക്കിയാക്കൂ</string>
     <string name="category_memory">ഓർമ</string>
     <string name="category_logic">യുക്തി</string>

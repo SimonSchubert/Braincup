@@ -102,6 +102,7 @@ Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
 - **Peg Solitaire** — Jump pegs until one remains
 - **Sudoku** — Classic full-size Sudoku with multiple difficulties
 - **Chess** — Full chess vs CPU or pass-and-play
+- **Reversi** — 6x6 Reversi vs CPU (normal or hard) or pass-and-play
 
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.

@@ -45,6 +45,8 @@ import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.navigation.ExternalRouteRequests
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.reversi.ReversiDifficulty
+import com.inspiredandroid.braincup.reversi.ReversiMode
 import com.inspiredandroid.braincup.ui.components.LocalNumberPadAscending
 import com.inspiredandroid.braincup.ui.components.PrismDialog
 import com.inspiredandroid.braincup.ui.components.QuitGameDialog
@@ -627,6 +629,40 @@ fun App(
                             PegSolitairePlayScreen(
                                 storage = controller.storage,
                                 onBack = onBackPegSolitaire,
+                            )
+                        }
+
+                        composable<ReversiMenu> {
+                            val onStartReversi = remember(controller) {
+                                { mode: ReversiMode, difficulty: ReversiDifficulty ->
+                                    controller.navigateToReversiPlay(mode, difficulty)
+                                }
+                            }
+                            val onBackReversiMenu = remember(controller) { { controller.navigateToMainMenu() } }
+                            ReversiMenuScreen(
+                                storage = controller.storage,
+                                onStart = onStartReversi,
+                                onBack = onBackReversiMenu,
+                            )
+                        }
+
+                        composable<ReversiPlay> { backStackEntry ->
+                            val route: ReversiPlay = backStackEntry.toRoute()
+                            val mode = ReversiMode.entries.firstOrNull { it.name == route.mode }
+                                ?: ReversiMode.VS_CPU
+                            val difficulty = ReversiDifficulty.entries.firstOrNull { it.name == route.difficulty }
+                                ?: ReversiDifficulty.NORMAL
+                            val onBackReversiPlay = remember(navController) {
+                                {
+                                    navController.popBackStack(ReversiMenu, inclusive = false)
+                                    Unit
+                                }
+                            }
+                            ReversiPlayScreen(
+                                mode = mode,
+                                difficulty = difficulty,
+                                storage = controller.storage,
+                                onBack = onBackReversiPlay,
                             )
                         }
 

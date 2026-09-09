@@ -1,3 +1,15 @@
+## Unreleased
+
+### Features
+- Add Reversi on a 6x6 board, against the CPU or pass-and-play on one device. Trap a line of your
+  opponent's discs between two of yours to flip them; most discs at the end wins. Against the CPU
+  you pick Normal or Hard: Normal grabs whatever discs are going, which is the mistake the game
+  punishes, while Hard plays for corners and mobility and works the last twelve squares out exactly.
+
+### Improvements
+- Say on the Chess tile that it can be played against a friend as well as the CPU, which it always
+  could
+
 ## v3.5.0 - 2026-09-02
 
 ### Features

@@ -14,6 +14,15 @@ val PegBoardSurface = Color(0xFFD7CCC8)
 val PegHole = Color(0xFF8D6E63)
 val PegTarget = PegBoardFrame
 
+/** Reversi board palette, shared by the play screen and its menu tile preview. */
+val ReversiBoardFrame = Color(0xFF2E4A33)
+val ReversiFelt = Color(0xFF3E7A4E)
+val ReversiGridLine = Color(0xFF25402B)
+val ReversiBlackDisc = Color(0xFF1B1B1F)
+val ReversiWhiteDisc = Color(0xFFF4F1EA)
+val ReversiLegalDot = Color(0x8CFFFFFF)
+val ReversiLastMove = Color(0x66FFD54F)
+
 /** Shared slate tray used by Shikaku and Knot boards. */
 val PuzzleSlateFrame = Color(0xFF3E4450)
 

@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Tapu meistars</string>
     <string name="achievement_peg_solitaire_perfect_desc">Pabeidz angļu tapu solitēru ar vienu tapu centrā</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Spēlēt pret CPU</string>
+    <string name="reversi_mode_human">Spēlēt pret cilvēku</string>
+    <string name="reversi_mode_human_subtitle">Gājienu maiņa vienā ierīcē</string>
+    <string name="reversi_howto">Iespied pretinieka kauliņu rindu starp diviem saviem, lai tos apgrieztu. Uzvar tas, kam beigās ir vairāk kauliņu.</string>
+    <string name="reversi_difficulty">Grūtība</string>
+    <string name="reversi_difficulty_normal">Parasts</string>
+    <string name="reversi_difficulty_hard">Grūta</string>
+    <string name="reversi_start">Sākt partiju</string>
+    <string name="reversi_thinking">CPU domā…</string>
+    <string name="reversi_turn_you">Tavs gājiens</string>
+    <string name="reversi_turn_cpu">CPU gājiens</string>
+    <string name="reversi_pass_you">Tev nav gājiena. Tu izlaid.</string>
+    <string name="reversi_pass_cpu">CPU nav gājiena. Tas izlaiž.</string>
+    <string name="reversi_won">Tu uzvari %1$d pret %2$d.</string>
+    <string name="reversi_lost">CPU uzvar %1$d pret %2$d.</string>
+    <string name="reversi_draw">Neizšķirts, katram %1$d.</string>
+    <string name="reversi_resign">Padoties</string>
+    <string name="reversi_resigned">Tu padevies. Uzvar CPU.</string>
+    <string name="reversi_resigned_black">Melnie padevās. Uzvar baltie.</string>
+    <string name="reversi_resigned_white">Baltie padevās. Uzvar melnie.</string>
+    <string name="reversi_new_game">Jauna partija</string>
+    <string name="reversi_quit">Beigt</string>
+    <string name="reversi_turn_black">Melno gājiens</string>
+    <string name="reversi_turn_white">Balto gājiens</string>
+    <string name="reversi_pass_black">Melnajiem nav gājiena. Viņi izlaiž.</string>
+    <string name="reversi_pass_white">Baltajiem nav gājiena. Viņi izlaiž.</string>
+    <string name="reversi_black_wins">Melnie uzvar %1$d pret %2$d.</string>
+    <string name="reversi_white_wins">Baltie uzvar %1$d pret %2$d.</string>
+
     <string name="settings_title">Iestatījumi</string>
     <string name="settings_open">Atvērt iestatījumus</string>
     <string name="settings_sound">Skaņa</string>
@@ -906,7 +937,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="menu_best_score">Labākais %1$s</string>
     <string name="menu_iq_untaken">Vēl nav veikts</string>
     <string name="menu_not_played">Vēl nav spēlēts</string>
-    <string name="menu_chess_caption">Pret CPU</string>
+    <string name="menu_chess_caption">Pret CPU vai draugu</string>
+    <string name="menu_reversi_caption">Pret CPU vai draugu</string>
     <string name="menu_peg_caption">Atstāj vienu kauliņu</string>
     <string name="category_memory">Atmiņa</string>
     <string name="category_logic">Loģika</string>

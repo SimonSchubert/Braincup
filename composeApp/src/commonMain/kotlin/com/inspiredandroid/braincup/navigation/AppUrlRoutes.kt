@@ -30,6 +30,8 @@ import com.inspiredandroid.braincup.app.NormalSudokuMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
 import com.inspiredandroid.braincup.app.PegSolitaire
 import com.inspiredandroid.braincup.app.Playing
+import com.inspiredandroid.braincup.app.ReversiMenu
+import com.inspiredandroid.braincup.app.ReversiPlay
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.SessionComplete
 import com.inspiredandroid.braincup.app.SessionInterstitial
@@ -65,6 +67,8 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is MatchstickRiddlesMenu -> "matchstick"
     is MatchstickRiddlesPlay -> "matchstick/${route.riddleId}"
     is PegSolitaire -> "peg-solitaire"
+    is ReversiMenu -> "reversi"
+    is ReversiPlay -> "reversi/${route.mode}/${route.difficulty}"
     is IqTestIntro -> "iq-test"
     is IqTestPlay -> "iq-test/play"
     is IqTestResult -> "iq-test/result"
@@ -98,6 +102,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "chess" -> NormalChessMenu
         "matchstick" -> MatchstickRiddlesMenu
         "peg-solitaire" -> PegSolitaire
+        "reversi" -> ReversiMenu
         "iq-test" -> IqTestIntro
         "iq-test/play" -> IqTestPlay
         "iq-test/result" -> IqTestResult
@@ -127,6 +132,8 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<MatchstickRiddlesMenu>() -> navRouteToPathSuffix(MatchstickRiddlesMenu)
         destination.hasRoute<MatchstickRiddlesPlay>() -> navRouteToPathSuffix(toRoute<MatchstickRiddlesPlay>())
         destination.hasRoute<PegSolitaire>() -> navRouteToPathSuffix(PegSolitaire)
+        destination.hasRoute<ReversiMenu>() -> navRouteToPathSuffix(ReversiMenu)
+        destination.hasRoute<ReversiPlay>() -> navRouteToPathSuffix(toRoute<ReversiPlay>())
         destination.hasRoute<IqTestIntro>() -> navRouteToPathSuffix(IqTestIntro)
         destination.hasRoute<IqTestPlay>() -> navRouteToPathSuffix(IqTestPlay)
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
@@ -159,6 +166,13 @@ private fun parseParameterizedPath(suffix: String): Any? {
         val parts = suffix.removePrefix("chess/").split('/')
         if (parts.size == 2 && parts[0].isNotEmpty() && parts[1].isNotEmpty()) {
             return NormalChessPlay(mode = parts[0], difficulty = parts[1])
+        }
+        return null
+    }
+    if (suffix.startsWith("reversi/")) {
+        val parts = suffix.removePrefix("reversi/").split('/')
+        if (parts.size == 2 && parts[0].isNotEmpty() && parts[1].isNotEmpty()) {
+            return ReversiPlay(mode = parts[0], difficulty = parts[1])
         }
         return null
     }

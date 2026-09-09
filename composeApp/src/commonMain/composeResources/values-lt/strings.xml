@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Smeigtukų meistras</string>
     <string name="achievement_peg_solitaire_perfect_desc">Užbaik anglišką smeigtukų solitaire su vienu smeigtuku centre</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Žaisti prieš CPU</string>
+    <string name="reversi_mode_human">Žaisti prieš žmogų</string>
+    <string name="reversi_mode_human_subtitle">Ėjimų keitimasis viename įrenginyje</string>
+    <string name="reversi_howto">Suspausk priešininko kauliukų eilę tarp dviejų savųjų ir apversk juos. Laimi tas, kas pabaigoje turi daugiau kauliukų.</string>
+    <string name="reversi_difficulty">Sudėtingumas</string>
+    <string name="reversi_difficulty_normal">Įprastas</string>
+    <string name="reversi_difficulty_hard">Sunkus</string>
+    <string name="reversi_start">Pradėti partiją</string>
+    <string name="reversi_thinking">CPU galvoja…</string>
+    <string name="reversi_turn_you">Tavo ėjimas</string>
+    <string name="reversi_turn_cpu">CPU ėjimas</string>
+    <string name="reversi_pass_you">Neturi ėjimo. Praleidi.</string>
+    <string name="reversi_pass_cpu">CPU neturi ėjimo. Jis praleidžia.</string>
+    <string name="reversi_won">Laimi %1$d prieš %2$d.</string>
+    <string name="reversi_lost">CPU laimi %1$d prieš %2$d.</string>
+    <string name="reversi_draw">Lygiosios, po %1$d.</string>
+    <string name="reversi_resign">Pasiduoti</string>
+    <string name="reversi_resigned">Pasidavei. Laimi CPU.</string>
+    <string name="reversi_resigned_black">Juodieji pasidavė. Laimi baltieji.</string>
+    <string name="reversi_resigned_white">Baltieji pasidavė. Laimi juodieji.</string>
+    <string name="reversi_new_game">Nauja partija</string>
+    <string name="reversi_quit">Baigti</string>
+    <string name="reversi_turn_black">Juodųjų ėjimas</string>
+    <string name="reversi_turn_white">Baltųjų ėjimas</string>
+    <string name="reversi_pass_black">Juodieji neturi ėjimo. Praleidžia.</string>
+    <string name="reversi_pass_white">Baltieji neturi ėjimo. Praleidžia.</string>
+    <string name="reversi_black_wins">Juodieji laimi %1$d prieš %2$d.</string>
+    <string name="reversi_white_wins">Baltieji laimi %1$d prieš %2$d.</string>
+
     <string name="settings_title">Nustatymai</string>
     <string name="settings_open">Atidaryti nustatymus</string>
     <string name="settings_sound">Garsas</string>
@@ -906,7 +937,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="menu_best_score">Geriausias %1$s</string>
     <string name="menu_iq_untaken">Dar neatlikta</string>
     <string name="menu_not_played">Dar nežaista</string>
-    <string name="menu_chess_caption">Prieš CPU</string>
+    <string name="menu_chess_caption">Prieš CPU arba draugą</string>
+    <string name="menu_reversi_caption">Prieš CPU arba draugą</string>
     <string name="menu_peg_caption">Palik vieną kaištį</string>
     <string name="category_memory">Atmintis</string>
     <string name="category_logic">Logika</string>

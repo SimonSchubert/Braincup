@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">पेग निपुण</string>
     <string name="achievement_peg_solitaire_perfect_desc">इंग्रजी पेग सॉलिटेअर मध्यभागी एका पेगसह संपवा</string>
 
+    <string name="reversi_button">रिव्हर्सी</string>
+    <string name="reversi_title">रिव्हर्सी</string>
+    <string name="reversi_mode_cpu">CPU विरुद्ध खेळा</string>
+    <string name="reversi_mode_human">माणसाविरुद्ध खेळा</string>
+    <string name="reversi_mode_human_subtitle">एकाच उपकरणावर आळीपाळीने खेळा</string>
+    <string name="reversi_howto">प्रतिस्पर्ध्याच्या सोंगट्यांची एक रांग तुझ्या दोन सोंगट्यांमध्ये अडकवून उलटव. शेवटी ज्याच्याकडे जास्त सोंगट्या असतील तो जिंकतो.</string>
+    <string name="reversi_difficulty">काठिण्य</string>
+    <string name="reversi_difficulty_normal">सामान्य</string>
+    <string name="reversi_difficulty_hard">कठीण</string>
+    <string name="reversi_start">खेळ सुरू करा</string>
+    <string name="reversi_thinking">CPU विचार करत आहे…</string>
+    <string name="reversi_turn_you">तुझी पाळी</string>
+    <string name="reversi_turn_cpu">CPU ची चाल</string>
+    <string name="reversi_pass_you">तुझ्याकडे चाल नाही. तू वगळतोस.</string>
+    <string name="reversi_pass_cpu">CPU कडे चाल नाही. तो वगळतो.</string>
+    <string name="reversi_won">तू %1$d - %2$d ने जिंकलास.</string>
+    <string name="reversi_lost">CPU %1$d - %2$d ने जिंकला.</string>
+    <string name="reversi_draw">बरोबरी, दोघांचे %1$d.</string>
+    <string name="reversi_resign">हार मानतो</string>
+    <string name="reversi_resigned">तू हार मानलीस. CPU जिंकला.</string>
+    <string name="reversi_resigned_black">काळ्याने हार मानली. पांढरा जिंकला.</string>
+    <string name="reversi_resigned_white">पांढऱ्याने हार मानली. काळा जिंकला.</string>
+    <string name="reversi_new_game">नवीन खेळ</string>
+    <string name="reversi_quit">बाहेर पडा</string>
+    <string name="reversi_turn_black">काळ्याची चाल</string>
+    <string name="reversi_turn_white">पांढऱ्याची चाल</string>
+    <string name="reversi_pass_black">काळ्याकडे चाल नाही. तो वगळतो.</string>
+    <string name="reversi_pass_white">पांढऱ्याकडे चाल नाही. तो वगळतो.</string>
+    <string name="reversi_black_wins">काळा %1$d - %2$d ने जिंकला.</string>
+    <string name="reversi_white_wins">पांढरा %1$d - %2$d ने जिंकला.</string>
+
     <string name="settings_title">सेटिंग्ज</string>
     <string name="settings_open">सेटिंग्ज उघडा</string>
     <string name="settings_sound">ध्वनी</string>
@@ -1010,7 +1041,8 @@
     <string name="menu_best_score">सर्वोत्तम %1$s</string>
     <string name="menu_iq_untaken">अद्याप दिलेली नाही</string>
     <string name="menu_not_played">अद्याप खेळले नाही</string>
-    <string name="menu_chess_caption">CPU विरुद्ध</string>
+    <string name="menu_chess_caption">CPU किंवा मित्राविरुद्ध</string>
+    <string name="menu_reversi_caption">CPU किंवा मित्राविरुद्ध</string>
     <string name="menu_peg_caption">एकच सोंगटी ठेवा</string>
     <string name="category_memory">स्मरण</string>
     <string name="category_logic">तर्क</string>

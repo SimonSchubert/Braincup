@@ -88,6 +88,12 @@ data class MatchstickRiddlesPlay(val riddleId: String)
 object PegSolitaire
 
 @Serializable
+object ReversiMenu
+
+@Serializable
+data class ReversiPlay(val mode: String, val difficulty: String)
+
+@Serializable
 object IqTestIntro
 
 @Serializable

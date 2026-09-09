@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">ಪೆಗ್ ನಿಪುಣ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ಇಂಗ್ಲಿಷ್ ಪೆಗ್ ಸಾಲಿಟೇರ್ ಅನ್ನು ಮಧ್ಯದಲ್ಲಿ ಒಂದು ಪೆಗ್‌ನೊಂದಿಗೆ ಮುಗಿಸಿ</string>
 
+    <string name="reversi_button">ರಿವರ್ಸಿ</string>
+    <string name="reversi_title">ರಿವರ್ಸಿ</string>
+    <string name="reversi_mode_cpu">CPU ವಿರುದ್ಧ ಆಡಿ</string>
+    <string name="reversi_mode_human">ಮನುಷ್ಯನ ವಿರುದ್ಧ ಆಡಿ</string>
+    <string name="reversi_mode_human_subtitle">ಒಂದೇ ಸಾಧನದಲ್ಲಿ ಸರದಿಯಂತೆ ಆಡಿ</string>
+    <string name="reversi_howto">ಎದುರಾಳಿಯ ಕಾಯಿಗಳ ಒಂದು ಸಾಲನ್ನು ನಿನ್ನ ಎರಡು ಕಾಯಿಗಳ ನಡುವೆ ಸಿಲುಕಿಸಿ ತಿರುಗಿಸು. ಕೊನೆಗೆ ಹೆಚ್ಚು ಕಾಯಿಗಳಿದ್ದವರು ಗೆಲ್ಲುತ್ತಾರೆ.</string>
+    <string name="reversi_difficulty">ಕಠಿಣತೆ</string>
+    <string name="reversi_difficulty_normal">ಸಾಮಾನ್ಯ</string>
+    <string name="reversi_difficulty_hard">ಕಷ್ಟ</string>
+    <string name="reversi_start">ಆಟ ಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="reversi_thinking">CPU ಯೋಚಿಸುತ್ತಿದೆ…</string>
+    <string name="reversi_turn_you">ನಿನ್ನ ಸರದಿ</string>
+    <string name="reversi_turn_cpu">CPU ಸರದಿ</string>
+    <string name="reversi_pass_you">ನಿನಗೆ ನಡೆ ಇಲ್ಲ. ಬಿಟ್ಟುಬಿಡುತ್ತೀಯ.</string>
+    <string name="reversi_pass_cpu">CPU ಗೆ ನಡೆ ಇಲ್ಲ. ಅದು ಬಿಟ್ಟುಬಿಡುತ್ತದೆ.</string>
+    <string name="reversi_won">ನೀನು %1$d - %2$d ಅಂತರದಿಂದ ಗೆದ್ದೆ.</string>
+    <string name="reversi_lost">CPU %1$d - %2$d ಅಂತರದಿಂದ ಗೆದ್ದಿತು.</string>
+    <string name="reversi_draw">ಸಮಬಲ, ಇಬ್ಬರಿಗೂ %1$d.</string>
+    <string name="reversi_resign">ಸೋಲೊಪ್ಪಿಕೊಳ್ಳಿ</string>
+    <string name="reversi_resigned">ನೀನು ಶರಣಾದೆ. CPU ಗೆದ್ದಿತು.</string>
+    <string name="reversi_resigned_black">ಕಪ್ಪು ಶರಣಾಯಿತು. ಬಿಳಿ ಗೆದ್ದಿತು.</string>
+    <string name="reversi_resigned_white">ಬಿಳಿ ಶರಣಾಯಿತು. ಕಪ್ಪು ಗೆದ್ದಿತು.</string>
+    <string name="reversi_new_game">ಹೊಸ ಆಟ</string>
+    <string name="reversi_quit">ನಿರ್ಗಮಿಸಿ</string>
+    <string name="reversi_turn_black">ಕಪ್ಪಿನ ಸರದಿ</string>
+    <string name="reversi_turn_white">ಬಿಳಿಯ ಸರದಿ</string>
+    <string name="reversi_pass_black">ಕಪ್ಪಿಗೆ ನಡೆ ಇಲ್ಲ. ಅದು ಬಿಟ್ಟುಬಿಡುತ್ತದೆ.</string>
+    <string name="reversi_pass_white">ಬಿಳಿಗೆ ನಡೆ ಇಲ್ಲ. ಅದು ಬಿಟ್ಟುಬಿಡುತ್ತದೆ.</string>
+    <string name="reversi_black_wins">ಕಪ್ಪು %1$d - %2$d ಅಂತರದಿಂದ ಗೆದ್ದಿತು.</string>
+    <string name="reversi_white_wins">ಬಿಳಿ %1$d - %2$d ಅಂತರದಿಂದ ಗೆದ್ದಿತು.</string>
+
     <string name="settings_title">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_open">ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
     <string name="settings_sound">ಧ್ವನಿ</string>
@@ -1010,7 +1041,8 @@
     <string name="menu_best_score">ಅತ್ಯುತ್ತಮ %1$s</string>
     <string name="menu_iq_untaken">ಇನ್ನೂ ಮಾಡಿಲ್ಲ</string>
     <string name="menu_not_played">ಇನ್ನೂ ಆಡಿಲ್ಲ</string>
-    <string name="menu_chess_caption">CPU ವಿರುದ್ಧ</string>
+    <string name="menu_chess_caption">CPU ಅಥವಾ ಗೆಳೆಯನ ವಿರುದ್ಧ</string>
+    <string name="menu_reversi_caption">CPU ಅಥವಾ ಗೆಳೆಯನ ವಿರುದ್ಧ</string>
     <string name="menu_peg_caption">ಒಂದೇ ಕಾಯಿ ಉಳಿಸಿ</string>
     <string name="category_memory">ಸ್ಮರಣೆ</string>
     <string name="category_logic">ತರ್ಕ</string>

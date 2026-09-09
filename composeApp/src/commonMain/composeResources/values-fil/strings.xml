@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Dalubhasa sa Peg</string>
     <string name="achievement_peg_solitaire_perfect_desc">Tapusin ang English peg solitaire nang isang peg sa gitna</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Laban sa CPU</string>
+    <string name="reversi_mode_human">Laban sa tao</string>
+    <string name="reversi_mode_human_subtitle">Pass and play sa isang device</string>
+    <string name="reversi_howto">Ipitin ang hanay ng piyesa ng kalaban sa pagitan ng dalawa mong piyesa para baliktarin ang mga ito. Panalo ang may pinakamaraming piyesa sa dulo.</string>
+    <string name="reversi_difficulty">Hirap</string>
+    <string name="reversi_difficulty_normal">Normal</string>
+    <string name="reversi_difficulty_hard">Mahirap</string>
+    <string name="reversi_start">Simulan ang laro</string>
+    <string name="reversi_thinking">Nag-iisip ang CPU…</string>
+    <string name="reversi_turn_you">Turn mo</string>
+    <string name="reversi_turn_cpu">Turn ng CPU</string>
+    <string name="reversi_pass_you">Wala kang magalaw. Pumapasa ka.</string>
+    <string name="reversi_pass_cpu">Walang magalaw ang CPU. Pumapasa ito.</string>
+    <string name="reversi_won">Panalo ka %1$d - %2$d.</string>
+    <string name="reversi_lost">Panalo ang CPU %1$d - %2$d.</string>
+    <string name="reversi_draw">Tabla, tig-%1$d.</string>
+    <string name="reversi_resign">Suko</string>
+    <string name="reversi_resigned">Sumuko ka. Panalo ang CPU.</string>
+    <string name="reversi_resigned_black">Sumuko ang Black. Panalo ang White.</string>
+    <string name="reversi_resigned_white">Sumuko ang White. Panalo ang Black.</string>
+    <string name="reversi_new_game">Bagong laro</string>
+    <string name="reversi_quit">Lumabas</string>
+    <string name="reversi_turn_black">Galaw ng Black</string>
+    <string name="reversi_turn_white">Galaw ng White</string>
+    <string name="reversi_pass_black">Walang magalaw ang Black. Pumapasa ito.</string>
+    <string name="reversi_pass_white">Walang magalaw ang White. Pumapasa ito.</string>
+    <string name="reversi_black_wins">Panalo ang Black %1$d - %2$d.</string>
+    <string name="reversi_white_wins">Panalo ang White %1$d - %2$d.</string>
+
     <string name="settings_title">Mga Setting</string>
     <string name="settings_open">Buksan ang settings</string>
     <string name="settings_sound">Tunog</string>
@@ -904,7 +935,8 @@
     <string name="menu_best_score">Pinakamahusay %1$s</string>
     <string name="menu_iq_untaken">Hindi pa nasusubukan</string>
     <string name="menu_not_played">Hindi pa nalalaro</string>
-    <string name="menu_chess_caption">Laban sa CPU</string>
+    <string name="menu_chess_caption">Laban sa CPU o kaibigan</string>
+    <string name="menu_reversi_caption">Laban sa CPU o kaibigan</string>
     <string name="menu_peg_caption">Mag-iwan ng isang piyesa</string>
     <string name="category_memory">Memorya</string>
     <string name="category_logic">Lohika</string>

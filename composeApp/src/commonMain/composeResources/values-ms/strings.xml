@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Guru Pasak</string>
     <string name="achievement_peg_solitaire_perfect_desc">Tamatkan solitaire pasak Inggeris dengan satu pasak di tengah</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Main lawan CPU</string>
+    <string name="reversi_mode_human">Main lawan manusia</string>
+    <string name="reversi_mode_human_subtitle">Main bergilir pada satu peranti</string>
+    <string name="reversi_howto">Apit sederet buah lawan antara dua buahmu untuk membalikkannya. Siapa paling banyak buah di akhir menang.</string>
+    <string name="reversi_difficulty">Kesukaran</string>
+    <string name="reversi_difficulty_normal">Biasa</string>
+    <string name="reversi_difficulty_hard">Sukar</string>
+    <string name="reversi_start">Mula permainan</string>
+    <string name="reversi_thinking">CPU sedang berfikir…</string>
+    <string name="reversi_turn_you">Giliran kamu</string>
+    <string name="reversi_turn_cpu">Giliran CPU</string>
+    <string name="reversi_pass_you">Kamu tiada langkah. Langkau.</string>
+    <string name="reversi_pass_cpu">CPU tiada langkah. Langkau.</string>
+    <string name="reversi_won">Kamu menang %1$d - %2$d.</string>
+    <string name="reversi_lost">CPU menang %1$d - %2$d.</string>
+    <string name="reversi_draw">Seri, masing-masing %1$d.</string>
+    <string name="reversi_resign">Menyerah</string>
+    <string name="reversi_resigned">Kamu mengalah. CPU menang.</string>
+    <string name="reversi_resigned_black">Hitam mengalah. Putih menang.</string>
+    <string name="reversi_resigned_white">Putih mengalah. Hitam menang.</string>
+    <string name="reversi_new_game">Permainan baharu</string>
+    <string name="reversi_quit">Keluar</string>
+    <string name="reversi_turn_black">Giliran hitam</string>
+    <string name="reversi_turn_white">Giliran putih</string>
+    <string name="reversi_pass_black">Hitam tiada langkah. Langkau.</string>
+    <string name="reversi_pass_white">Putih tiada langkah. Langkau.</string>
+    <string name="reversi_black_wins">Hitam menang %1$d - %2$d.</string>
+    <string name="reversi_white_wins">Putih menang %1$d - %2$d.</string>
+
     <string name="settings_title">Tetapan</string>
     <string name="settings_open">Buka tetapan</string>
     <string name="settings_sound">Bunyi</string>
@@ -904,7 +935,8 @@
     <string name="menu_best_score">Terbaik %1$s</string>
     <string name="menu_iq_untaken">Belum diambil</string>
     <string name="menu_not_played">Belum dimainkan</string>
-    <string name="menu_chess_caption">Lawan CPU</string>
+    <string name="menu_chess_caption">Lawan CPU atau kawan</string>
+    <string name="menu_reversi_caption">Lawan CPU atau kawan</string>
     <string name="menu_peg_caption">Tinggalkan satu buah</string>
     <string name="category_memory">Memori</string>
     <string name="category_logic">Logik</string>

@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">ਪੈੱਗ ਨਿਪੁੰਨ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ਅੰਗਰੇਜ਼ੀ ਪੈੱਗ ਸੌਲੀਟੇਅਰ ਵਿਚਕਾਰ ਇੱਕ ਪੈੱਗ ਨਾਲ ਪੂਰਾ ਕਰੋ</string>
 
+    <string name="reversi_button">ਰਿਵਰਸੀ</string>
+    <string name="reversi_title">ਰਿਵਰਸੀ</string>
+    <string name="reversi_mode_cpu">CPU ਨਾਲ ਖੇਡੋ</string>
+    <string name="reversi_mode_human">ਬੰਦੇ ਨਾਲ ਖੇਡੋ</string>
+    <string name="reversi_mode_human_subtitle">ਇੱਕੋ ਡਿਵਾਈਸ ਉੱਤੇ ਵਾਰੀ-ਵਾਰੀ ਖੇਡੋ</string>
+    <string name="reversi_howto">ਵਿਰੋਧੀ ਦੀਆਂ ਗੋਟੀਆਂ ਦੀ ਇੱਕ ਕਤਾਰ ਨੂੰ ਆਪਣੀਆਂ ਦੋ ਗੋਟੀਆਂ ਵਿਚਕਾਰ ਫਸਾ ਕੇ ਪਲਟ ਦੇ। ਅੰਤ ਵਿੱਚ ਜਿਸ ਕੋਲ ਵੱਧ ਗੋਟੀਆਂ ਹੋਣ ਉਹ ਜਿੱਤਦਾ ਹੈ।</string>
+    <string name="reversi_difficulty">ਔਖਿਆਈ</string>
+    <string name="reversi_difficulty_normal">ਸਧਾਰਨ</string>
+    <string name="reversi_difficulty_hard">ਔਖਾ</string>
+    <string name="reversi_start">ਖੇਡ ਸ਼ੁਰੂ ਕਰੋ</string>
+    <string name="reversi_thinking">CPU ਸੋਚ ਰਿਹਾ ਹੈ…</string>
+    <string name="reversi_turn_you">ਤੇਰੀ ਵਾਰੀ</string>
+    <string name="reversi_turn_cpu">CPU ਦੀ ਵਾਰੀ</string>
+    <string name="reversi_pass_you">ਤੇਰੇ ਕੋਲ ਚਾਲ ਨਹੀਂ। ਤੂੰ ਛੱਡ ਰਿਹਾ ਹੈਂ।</string>
+    <string name="reversi_pass_cpu">CPU ਕੋਲ ਚਾਲ ਨਹੀਂ। ਉਹ ਛੱਡ ਰਿਹਾ ਹੈ।</string>
+    <string name="reversi_won">ਤੂੰ %1$d - %2$d ਨਾਲ ਜਿੱਤਿਆ।</string>
+    <string name="reversi_lost">CPU %1$d - %2$d ਨਾਲ ਜਿੱਤਿਆ।</string>
+    <string name="reversi_draw">ਬਰਾਬਰੀ, ਦੋਵਾਂ ਦੇ %1$d।</string>
+    <string name="reversi_resign">ਹਾਰ ਮੰਨੋ</string>
+    <string name="reversi_resigned">ਤੂੰ ਹਾਰ ਮੰਨ ਲਈ। CPU ਜਿੱਤਿਆ।</string>
+    <string name="reversi_resigned_black">ਕਾਲੇ ਨੇ ਹਾਰ ਮੰਨ ਲਈ। ਚਿੱਟਾ ਜਿੱਤਿਆ।</string>
+    <string name="reversi_resigned_white">ਚਿੱਟੇ ਨੇ ਹਾਰ ਮੰਨ ਲਈ। ਕਾਲਾ ਜਿੱਤਿਆ।</string>
+    <string name="reversi_new_game">ਨਵੀਂ ਖੇਡ</string>
+    <string name="reversi_quit">ਬਾਹਰ ਨਿਕਲੋ</string>
+    <string name="reversi_turn_black">ਕਾਲੇ ਦੀ ਵਾਰੀ</string>
+    <string name="reversi_turn_white">ਚਿੱਟੇ ਦੀ ਵਾਰੀ</string>
+    <string name="reversi_pass_black">ਕਾਲੇ ਕੋਲ ਚਾਲ ਨਹੀਂ। ਉਹ ਛੱਡ ਰਿਹਾ ਹੈ।</string>
+    <string name="reversi_pass_white">ਚਿੱਟੇ ਕੋਲ ਚਾਲ ਨਹੀਂ। ਉਹ ਛੱਡ ਰਿਹਾ ਹੈ।</string>
+    <string name="reversi_black_wins">ਕਾਲਾ %1$d - %2$d ਨਾਲ ਜਿੱਤਿਆ।</string>
+    <string name="reversi_white_wins">ਚਿੱਟਾ %1$d - %2$d ਨਾਲ ਜਿੱਤਿਆ।</string>
+
     <string name="settings_title">ਸੈਟਿੰਗਾਂ</string>
     <string name="settings_open">ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
     <string name="settings_sound">ਆਵਾਜ਼</string>
@@ -1010,7 +1041,8 @@
     <string name="menu_best_score">ਸਭ ਤੋਂ ਵਧੀਆ %1$s</string>
     <string name="menu_iq_untaken">ਹਾਲੇ ਨਹੀਂ ਦਿੱਤਾ</string>
     <string name="menu_not_played">ਹਾਲੇ ਨਹੀਂ ਖੇਡਿਆ</string>
-    <string name="menu_chess_caption">CPU ਨਾਲ</string>
+    <string name="menu_chess_caption">CPU ਜਾਂ ਦੋਸਤ ਨਾਲ</string>
+    <string name="menu_reversi_caption">CPU ਜਾਂ ਦੋਸਤ ਨਾਲ</string>
     <string name="menu_peg_caption">ਇੱਕ ਹੀ ਗੋਟੀ ਛੱਡੋ</string>
     <string name="category_memory">ਯਾਦਦਾਸ਼ਤ</string>
     <string name="category_logic">ਤਰਕ</string>

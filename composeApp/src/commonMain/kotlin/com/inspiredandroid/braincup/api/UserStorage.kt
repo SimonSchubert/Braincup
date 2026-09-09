@@ -16,6 +16,9 @@ import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
+import com.inspiredandroid.braincup.reversi.ReversiDifficulty
+import com.inspiredandroid.braincup.reversi.ReversiMode
+import com.inspiredandroid.braincup.reversi.ReversiResult
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import com.russhwolf.settings.MapSettings
 import com.russhwolf.settings.Settings
@@ -187,6 +190,8 @@ class UserStorage(
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
+        const val KEY_REVERSI_DIFFICULTY = "reversi_difficulty"
+        const val KEY_REVERSI_MODE = "reversi_mode"
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
         const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
         const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
@@ -313,6 +318,21 @@ class UserStorage(
             NormalChessDifficulty.EASY -> 10
             NormalChessDifficulty.MEDIUM -> 20
             NormalChessDifficulty.HARD -> 40
+        }
+
+        /** XP for a finished Reversi game, as the human playing black. Half a win for a draw,
+         *  nothing for a loss. A 6x6 board is a shorter game than Normal Chess, so the ladder
+         *  sits below it. */
+        fun reversiXp(difficulty: ReversiDifficulty, result: ReversiResult): Int {
+            val win = when (difficulty) {
+                ReversiDifficulty.NORMAL -> 10
+                ReversiDifficulty.HARD -> 20
+            }
+            return when (result) {
+                ReversiResult.BLACK_WINS -> win
+                ReversiResult.DRAW -> win / 2
+                ReversiResult.WHITE_WINS, ReversiResult.ONGOING -> 0
+            }
         }
 
         /** XP for first-time completion of a Normal Sudoku puzzle. Scaled by clue count
@@ -484,12 +504,41 @@ class UserStorage(
         store.putString(KEY_NORMAL_CHESS_MODE, mode.name)
     }
 
+    /** Reversi CPU difficulty. Defaults to NORMAL. */
+    fun getReversiDifficulty(): ReversiDifficulty {
+        val name = store.getStringOrNull(KEY_REVERSI_DIFFICULTY)
+        return ReversiDifficulty.entries.firstOrNull { it.name == name } ?: ReversiDifficulty.NORMAL
+    }
+
+    fun setReversiDifficulty(difficulty: ReversiDifficulty) {
+        store.putString(KEY_REVERSI_DIFFICULTY, difficulty.name)
+    }
+
+    /** Reversi play mode. Defaults to VS_CPU. */
+    fun getReversiMode(): ReversiMode {
+        val name = store.getStringOrNull(KEY_REVERSI_MODE)
+        return ReversiMode.entries.firstOrNull { it.name == name } ?: ReversiMode.VS_CPU
+    }
+
+    fun setReversiMode(mode: ReversiMode) {
+        store.putString(KEY_REVERSI_MODE, mode.name)
+    }
+
     data class XpAward(val xpGained: Int, val levelChange: LevelChange?)
 
     /** Award XP for a Normal Chess win against the CPU. Caller passes the AI difficulty that
      *  was beaten so we can scale the reward. Returns the amount granted and any level-up. */
     fun awardNormalChessWinXp(difficulty: NormalChessDifficulty): XpAward {
         val amount = normalChessWinXp(difficulty)
+        val levelChange = addXp(amount)
+        return XpAward(amount, levelChange)
+    }
+
+    /** Award XP for a finished Reversi game. Returns a zero award for a loss, which the caller
+     *  can hand straight to the XP chip: it draws nothing at zero. */
+    fun awardReversiXp(difficulty: ReversiDifficulty, result: ReversiResult): XpAward {
+        val amount = reversiXp(difficulty, result)
+        if (amount == 0) return XpAward(0, null)
         val levelChange = addXp(amount)
         return XpAward(amount, levelChange)
     }

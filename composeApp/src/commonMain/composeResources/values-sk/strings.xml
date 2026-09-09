@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Majster kolíkov</string>
     <string name="achievement_peg_solitaire_perfect_desc">Dokonči anglický kolíkový solitér s jedným kolíkom v strede</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Hrať proti CPU</string>
+    <string name="reversi_mode_human">Hrať proti človeku</string>
+    <string name="reversi_mode_human_subtitle">Striedanie ťahov na jednom zariadení</string>
+    <string name="reversi_howto">Zovri rad súperových kameňov medzi dva svoje a otoč ich. Vyhráva ten, kto má na konci viac kameňov.</string>
+    <string name="reversi_difficulty">Obtiažnosť</string>
+    <string name="reversi_difficulty_normal">Normálna</string>
+    <string name="reversi_difficulty_hard">Ťažká</string>
+    <string name="reversi_start">Začať partiu</string>
+    <string name="reversi_thinking">CPU premýšľa…</string>
+    <string name="reversi_turn_you">Si na ťahu</string>
+    <string name="reversi_turn_cpu">Na ťahu je CPU</string>
+    <string name="reversi_pass_you">Nemáš ťah. Vynechávaš.</string>
+    <string name="reversi_pass_cpu">CPU nemá ťah. Vynecháva.</string>
+    <string name="reversi_won">Vyhrávaš %1$d ku %2$d.</string>
+    <string name="reversi_lost">CPU vyhráva %1$d ku %2$d.</string>
+    <string name="reversi_draw">Remíza, %1$d na každej strane.</string>
+    <string name="reversi_resign">Vzdať sa</string>
+    <string name="reversi_resigned">Vzdal si sa. Vyhráva CPU.</string>
+    <string name="reversi_resigned_black">Čierny sa vzdal. Vyhráva biely.</string>
+    <string name="reversi_resigned_white">Biely sa vzdal. Vyhráva čierny.</string>
+    <string name="reversi_new_game">Nová partia</string>
+    <string name="reversi_quit">Koniec</string>
+    <string name="reversi_turn_black">Ťahá čierny</string>
+    <string name="reversi_turn_white">Ťahá biely</string>
+    <string name="reversi_pass_black">Čierny nemá ťah. Vynecháva.</string>
+    <string name="reversi_pass_white">Biely nemá ťah. Vynecháva.</string>
+    <string name="reversi_black_wins">Čierny vyhráva %1$d ku %2$d.</string>
+    <string name="reversi_white_wins">Biely vyhráva %1$d ku %2$d.</string>
+
     <string name="settings_title">Nastavenia</string>
     <string name="settings_open">Otvoriť nastavenia</string>
     <string name="settings_sound">Zvuk</string>
@@ -906,7 +937,8 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="menu_best_score">Najlepší %1$s</string>
     <string name="menu_iq_untaken">Zatiaľ neabsolvované</string>
     <string name="menu_not_played">Zatiaľ nehrané</string>
-    <string name="menu_chess_caption">Proti CPU</string>
+    <string name="menu_chess_caption">Proti CPU alebo kamarátovi</string>
+    <string name="menu_reversi_caption">Proti CPU alebo kamarátovi</string>
     <string name="menu_peg_caption">Nechaj jeden kolík</string>
     <string name="category_memory">Pamäť</string>
     <string name="category_logic">Logika</string>

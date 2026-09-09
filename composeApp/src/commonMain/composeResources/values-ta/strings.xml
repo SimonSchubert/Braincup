@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">ஆணி நிபுணர்</string>
     <string name="achievement_peg_solitaire_perfect_desc">ஆங்கில ஆணி விளையாட்டை நடுவில் ஒரு ஆணியுடன் முடியுங்கள்</string>
 
+    <string name="reversi_button">ரிவர்சி</string>
+    <string name="reversi_title">ரிவர்சி</string>
+    <string name="reversi_mode_cpu">CPU உடன் விளையாடு</string>
+    <string name="reversi_mode_human">மனிதருடன் விளையாடு</string>
+    <string name="reversi_mode_human_subtitle">ஒரே சாதனத்தில் மாறி மாறி விளையாடுங்கள்</string>
+    <string name="reversi_howto">எதிராளியின் காய்களின் ஒரு வரிசையை உன் இரண்டு காய்களுக்கு இடையே சிக்க வைத்துப் புரட்டு. இறுதியில் அதிக காய்கள் உள்ளவர் வெல்கிறார்.</string>
+    <string name="reversi_difficulty">சிரமநிலை</string>
+    <string name="reversi_difficulty_normal">சாதாரண</string>
+    <string name="reversi_difficulty_hard">கடினம்</string>
+    <string name="reversi_start">விளையாட்டைத் தொடங்கு</string>
+    <string name="reversi_thinking">CPU யோசிக்கிறது…</string>
+    <string name="reversi_turn_you">உன் முறை</string>
+    <string name="reversi_turn_cpu">CPU இன் முறை</string>
+    <string name="reversi_pass_you">உனக்கு நகர்வு இல்லை. தவிர்க்கிறாய்.</string>
+    <string name="reversi_pass_cpu">CPU க்கு நகர்வு இல்லை. அது தவிர்க்கிறது.</string>
+    <string name="reversi_won">நீ %1$d - %2$d என வென்றாய்.</string>
+    <string name="reversi_lost">CPU %1$d - %2$d என வென்றது.</string>
+    <string name="reversi_draw">சமநிலை, இருவருக்கும் %1$d.</string>
+    <string name="reversi_resign">சரணடை</string>
+    <string name="reversi_resigned">நீ விட்டுக்கொடுத்தாய். CPU வென்றது.</string>
+    <string name="reversi_resigned_black">கருப்பு விட்டுக்கொடுத்தது. வெள்ளை வென்றது.</string>
+    <string name="reversi_resigned_white">வெள்ளை விட்டுக்கொடுத்தது. கருப்பு வென்றது.</string>
+    <string name="reversi_new_game">புதிய விளையாட்டு</string>
+    <string name="reversi_quit">வெளியேறு</string>
+    <string name="reversi_turn_black">கருப்பின் முறை</string>
+    <string name="reversi_turn_white">வெள்ளையின் முறை</string>
+    <string name="reversi_pass_black">கருப்புக்கு நகர்வு இல்லை. அது தவிர்க்கிறது.</string>
+    <string name="reversi_pass_white">வெள்ளைக்கு நகர்வு இல்லை. அது தவிர்க்கிறது.</string>
+    <string name="reversi_black_wins">கருப்பு %1$d - %2$d என வென்றது.</string>
+    <string name="reversi_white_wins">வெள்ளை %1$d - %2$d என வென்றது.</string>
+
     <string name="settings_title">அமைப்புகள்</string>
     <string name="settings_open">அமைப்புகளைத் திற</string>
     <string name="settings_sound">ஒலி</string>
@@ -1010,7 +1041,8 @@
     <string name="menu_best_score">சிறந்தது %1$s</string>
     <string name="menu_iq_untaken">இன்னும் எடுக்கவில்லை</string>
     <string name="menu_not_played">இன்னும் விளையாடவில்லை</string>
-    <string name="menu_chess_caption">CPU உடன்</string>
+    <string name="menu_chess_caption">CPU அல்லது நண்பருடன்</string>
+    <string name="menu_reversi_caption">CPU அல்லது நண்பருடன்</string>
     <string name="menu_peg_caption">ஒரே காயை விடு</string>
     <string name="category_memory">நினைவாற்றல்</string>
     <string name="category_logic">தர்க்கம்</string>

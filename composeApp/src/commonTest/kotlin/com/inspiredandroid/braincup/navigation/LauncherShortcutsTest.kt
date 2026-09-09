@@ -7,6 +7,7 @@ import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
 import com.inspiredandroid.braincup.app.NormalChessMenu
 import com.inspiredandroid.braincup.app.NormalSudokuMenu
 import com.inspiredandroid.braincup.app.PegSolitaire
+import com.inspiredandroid.braincup.app.ReversiMenu
 import com.inspiredandroid.braincup.app.SessionInterstitial
 import com.inspiredandroid.braincup.games.GameType
 import kotlin.test.Test
@@ -32,7 +33,7 @@ class LauncherShortcutsTest {
 
     @Test
     fun everyUntimedGameRoundTripsToItsMenu() {
-        listOf(NormalSudokuMenu, NormalChessMenu, MatchstickRiddlesMenu, PegSolitaire, IqTestIntro)
+        listOf(NormalSudokuMenu, NormalChessMenu, MatchstickRiddlesMenu, PegSolitaire, ReversiMenu, IqTestIntro)
             .forEach { route ->
                 val suffix = navRouteToPathSuffix(route)
                 assertTrue(suffix.isNotEmpty(), "$route has no path suffix")

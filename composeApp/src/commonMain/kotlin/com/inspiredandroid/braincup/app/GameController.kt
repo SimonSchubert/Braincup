@@ -21,6 +21,8 @@ import com.inspiredandroid.braincup.navigation.navRouteToPathSuffix
 import com.inspiredandroid.braincup.navigation.pathSuffixToNavRoute
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.reversi.ReversiDifficulty
+import com.inspiredandroid.braincup.reversi.ReversiMode
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.collections.immutable.toImmutableList
@@ -334,6 +336,15 @@ class GameController(
     fun navigateToPegSolitaire() {
         storage.putRecentGame(navRouteToPathSuffix(PegSolitaire))
         navController.navigate(PegSolitaire)
+    }
+
+    fun navigateToReversiMenu() {
+        navController.navigate(ReversiMenu)
+    }
+
+    fun navigateToReversiPlay(mode: ReversiMode, difficulty: ReversiDifficulty) {
+        storage.putRecentGame(navRouteToPathSuffix(ReversiMenu))
+        navController.navigate(ReversiPlay(mode = mode.name, difficulty = difficulty.name))
     }
 
     fun navigateToLearnMenu() {

@@ -89,6 +89,11 @@ import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
+import com.inspiredandroid.braincup.ui.theme.ReversiBlackDisc
+import com.inspiredandroid.braincup.ui.theme.ReversiBoardFrame
+import com.inspiredandroid.braincup.ui.theme.ReversiFelt
+import com.inspiredandroid.braincup.ui.theme.ReversiGridLine
+import com.inspiredandroid.braincup.ui.theme.ReversiWhiteDisc
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -574,6 +579,17 @@ fun PegSolitaireTile(onClick: () -> Unit) {
         onClick = onClick,
         caption = stringResource(Res.string.menu_peg_caption),
     ) { PegSolitairePreview() }
+}
+
+/** The 6x6 Reversi entry. Endless play against the CPU, so a description rather than progress. */
+@Composable
+fun ReversiTile(onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.reversi_button),
+        accentColor = UntimedSectionAccent,
+        onClick = onClick,
+        caption = stringResource(Res.string.menu_reversi_caption),
+    ) { ReversiPreview() }
 }
 
 /**
@@ -1394,6 +1410,51 @@ private fun MatchstickRiddlesPreview() {
             stick(0.29f, 0.35f, 0.29f, 0.65f)
             stick(0.58f, 0.40f, 0.84f, 0.40f)
             stick(0.58f, 0.60f, 0.84f, 0.60f)
+        }
+    }
+}
+
+// A mid-game 6x6 position rather than the opening four discs: the tile has to read as Reversi at
+// thumbnail size, and two discs on an empty board read as nothing at all.
+private val ReversiPreviewBlack: Set<Int> = setOf(8, 9, 14, 15, 20, 21, 26, 27, 28)
+private val ReversiPreviewWhite: Set<Int> = setOf(7, 13, 16, 19, 22, 25)
+
+@Composable
+private fun ReversiPreview() {
+    PrismCard(
+        face = ReversiBoardFrame,
+        facet = PrismFacet.Preview,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Column(modifier = Modifier.fillMaxSize().background(ReversiGridLine)) {
+            for (row in 0 until 6) {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    for (col in 0 until 6) {
+                        val index = row * 6 + col
+                        Box(
+                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Box(Modifier.matchParentSize().padding(0.5.dp).background(ReversiFelt))
+                            val face = when (index) {
+                                in ReversiPreviewBlack -> ReversiBlackDisc
+                                in ReversiPreviewWhite -> ReversiWhiteDisc
+                                else -> null
+                            }
+                            if (face != null) {
+                                ColorPrismCell(
+                                    face = face,
+                                    facet = PrismFacet.Dot,
+                                    modifier = Modifier.fillMaxSize(0.78f),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

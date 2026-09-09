@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Mestre de clavilles</string>
     <string name="achievement_peg_solitaire_perfect_desc">Acaba el solitari anglès de clavilles amb una clavilla al centre</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Juga contra la CPU</string>
+    <string name="reversi_mode_human">Juga contra una persona</string>
+    <string name="reversi_mode_human_subtitle">Torns alternats en un sol dispositiu</string>
+    <string name="reversi_howto">Tanca una línia de fitxes rivals entre dues de teves per girar-les. Guanya qui tingui més fitxes al final.</string>
+    <string name="reversi_difficulty">Dificultat</string>
+    <string name="reversi_difficulty_normal">Normal</string>
+    <string name="reversi_difficulty_hard">Difícil</string>
+    <string name="reversi_start">Comença la partida</string>
+    <string name="reversi_thinking">La CPU pensa…</string>
+    <string name="reversi_turn_you">Et toca</string>
+    <string name="reversi_turn_cpu">Toca a la CPU</string>
+    <string name="reversi_pass_you">No tens jugada. Passes.</string>
+    <string name="reversi_pass_cpu">La CPU no té jugada. Passa.</string>
+    <string name="reversi_won">Guanyes %1$d a %2$d.</string>
+    <string name="reversi_lost">La CPU guanya %1$d a %2$d.</string>
+    <string name="reversi_draw">Empat, %1$d cadascú.</string>
+    <string name="reversi_resign">Rendició</string>
+    <string name="reversi_resigned">T'has rendit. Guanya la CPU.</string>
+    <string name="reversi_resigned_black">Les negres es rendeixen. Guanyen les blanques.</string>
+    <string name="reversi_resigned_white">Les blanques es rendeixen. Guanyen les negres.</string>
+    <string name="reversi_new_game">Nova partida</string>
+    <string name="reversi_quit">Surt</string>
+    <string name="reversi_turn_black">Toca a les negres</string>
+    <string name="reversi_turn_white">Toca a les blanques</string>
+    <string name="reversi_pass_black">Les negres no tenen jugada. Passen.</string>
+    <string name="reversi_pass_white">Les blanques no tenen jugada. Passen.</string>
+    <string name="reversi_black_wins">Guanyen les negres %1$d a %2$d.</string>
+    <string name="reversi_white_wins">Guanyen les blanques %1$d a %2$d.</string>
+
     <string name="settings_title">Ajustos</string>
     <string name="settings_open">Obre els ajustos</string>
     <string name="settings_sound">So</string>
@@ -906,7 +937,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="menu_best_score">Millor %1$s</string>
     <string name="menu_iq_untaken">Encara no fet</string>
     <string name="menu_not_played">Encara no jugat</string>
-    <string name="menu_chess_caption">Contra la CPU</string>
+    <string name="menu_chess_caption">Contra la CPU o un amic</string>
+    <string name="menu_reversi_caption">Contra la CPU o un amic</string>
     <string name="menu_peg_caption">Deixa només una fitxa</string>
     <string name="category_memory">Memòria</string>
     <string name="category_logic">Lògica</string>

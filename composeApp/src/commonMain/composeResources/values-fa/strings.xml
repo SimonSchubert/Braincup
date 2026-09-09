@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">استاد مهره</string>
     <string name="achievement_peg_solitaire_perfect_desc">سالیتر میخی انگلیسی را با یک مهره در مرکز تمام کن</string>
 
+    <string name="reversi_button">ریورسی</string>
+    <string name="reversi_title">ریورسی</string>
+    <string name="reversi_mode_cpu">بازی با رایانه</string>
+    <string name="reversi_mode_human">بازی با حریف</string>
+    <string name="reversi_mode_human_subtitle">نوبتی روی یک دستگاه</string>
+    <string name="reversi_howto">یک ردیف از مهره‌های حریف را بین دو مهره خودت گیر بینداز تا برگردند. هر کس در پایان مهره بیشتری داشته باشد برنده است.</string>
+    <string name="reversi_difficulty">درجه سختی</string>
+    <string name="reversi_difficulty_normal">معمولی</string>
+    <string name="reversi_difficulty_hard">سخت</string>
+    <string name="reversi_start">شروع بازی</string>
+    <string name="reversi_thinking">رایانه در حال فکر کردن است…</string>
+    <string name="reversi_turn_you">نوبت توست</string>
+    <string name="reversi_turn_cpu">نوبت رایانه</string>
+    <string name="reversi_pass_you">حرکتی نداری. رد می‌کنی.</string>
+    <string name="reversi_pass_cpu">رایانه حرکتی ندارد. رد می‌کند.</string>
+    <string name="reversi_won">تو %1$d به %2$d بردی.</string>
+    <string name="reversi_lost">رایانه %1$d به %2$d برد.</string>
+    <string name="reversi_draw">مساوی، هر کدام %1$d.</string>
+    <string name="reversi_resign">تسلیم</string>
+    <string name="reversi_resigned">تسلیم شدی. رایانه برد.</string>
+    <string name="reversi_resigned_black">سیاه تسلیم شد. سفید برد.</string>
+    <string name="reversi_resigned_white">سفید تسلیم شد. سیاه برد.</string>
+    <string name="reversi_new_game">بازی جدید</string>
+    <string name="reversi_quit">خروج</string>
+    <string name="reversi_turn_black">نوبت سیاه</string>
+    <string name="reversi_turn_white">نوبت سفید</string>
+    <string name="reversi_pass_black">سیاه حرکتی ندارد. رد می‌کند.</string>
+    <string name="reversi_pass_white">سفید حرکتی ندارد. رد می‌کند.</string>
+    <string name="reversi_black_wins">سیاه %1$d به %2$d برد.</string>
+    <string name="reversi_white_wins">سفید %1$d به %2$d برد.</string>
+
     <string name="settings_title">تنظیمات</string>
     <string name="settings_open">باز کردن تنظیمات</string>
     <string name="settings_sound">صدا</string>
@@ -889,7 +920,8 @@
     <string name="menu_best_score">بهترین %1$s</string>
     <string name="menu_iq_untaken">هنوز انجام نشده</string>
     <string name="menu_not_played">هنوز بازی نشده</string>
-    <string name="menu_chess_caption">در برابر رایانه</string>
+    <string name="menu_chess_caption">در برابر رایانه یا یک دوست</string>
+    <string name="menu_reversi_caption">در برابر رایانه یا یک دوست</string>
     <string name="menu_peg_caption">یک مهره باقی بگذار</string>
     <string name="category_memory">حافظه</string>
     <string name="category_logic">منطق</string>

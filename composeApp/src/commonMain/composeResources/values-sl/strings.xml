@@ -93,6 +93,37 @@
     <string name="achievement_peg_solitaire_perfect">Mojster klinčkov</string>
     <string name="achievement_peg_solitaire_perfect_desc">Dokončaj angleški solitaire s klinčki z enim klinčkom na sredini</string>
 
+    <string name="reversi_button">Reversi</string>
+    <string name="reversi_title">Reversi</string>
+    <string name="reversi_mode_cpu">Igraj proti CPU-ju</string>
+    <string name="reversi_mode_human">Igraj proti človeku</string>
+    <string name="reversi_mode_human_subtitle">Izmenične poteze na eni napravi</string>
+    <string name="reversi_howto">Ujemi vrsto nasprotnikovih ploščkov med dva svoja in jih obrni. Zmaga tisti, ki ima na koncu več ploščkov.</string>
+    <string name="reversi_difficulty">Težavnost</string>
+    <string name="reversi_difficulty_normal">Običajna</string>
+    <string name="reversi_difficulty_hard">Težka</string>
+    <string name="reversi_start">Začni partijo</string>
+    <string name="reversi_thinking">CPU razmišlja…</string>
+    <string name="reversi_turn_you">Na potezi si</string>
+    <string name="reversi_turn_cpu">Na potezi je CPU</string>
+    <string name="reversi_pass_you">Nimaš poteze. Izpustiš.</string>
+    <string name="reversi_pass_cpu">CPU nima poteze. Izpusti.</string>
+    <string name="reversi_won">Zmagaš %1$d proti %2$d.</string>
+    <string name="reversi_lost">CPU zmaga %1$d proti %2$d.</string>
+    <string name="reversi_draw">Remi, po %1$d.</string>
+    <string name="reversi_resign">Predaj se</string>
+    <string name="reversi_resigned">Predal si se. Zmaga CPU.</string>
+    <string name="reversi_resigned_black">Črni se je predal. Zmaga beli.</string>
+    <string name="reversi_resigned_white">Beli se je predal. Zmaga črni.</string>
+    <string name="reversi_new_game">Nova partija</string>
+    <string name="reversi_quit">Konec</string>
+    <string name="reversi_turn_black">Na potezi je črni</string>
+    <string name="reversi_turn_white">Na potezi je beli</string>
+    <string name="reversi_pass_black">Črni nima poteze. Izpusti.</string>
+    <string name="reversi_pass_white">Beli nima poteze. Izpusti.</string>
+    <string name="reversi_black_wins">Črni zmaga %1$d proti %2$d.</string>
+    <string name="reversi_white_wins">Beli zmaga %1$d proti %2$d.</string>
+
     <string name="settings_title">Nastavitve</string>
     <string name="settings_open">Odpri nastavitve</string>
     <string name="settings_sound">Zvok</string>
@@ -906,7 +937,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="menu_best_score">Najboljši %1$s</string>
     <string name="menu_iq_untaken">Še ni opravljen</string>
     <string name="menu_not_played">Še ni igrano</string>
-    <string name="menu_chess_caption">Proti CPU-ju</string>
+    <string name="menu_chess_caption">Proti CPU-ju ali prijatelju</string>
+    <string name="menu_reversi_caption">Proti CPU-ju ali prijatelju</string>
     <string name="menu_peg_caption">Pusti en žeton</string>
     <string name="category_memory">Spomin</string>
     <string name="category_logic">Logika</string>

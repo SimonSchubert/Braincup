@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.ui.components.PegSolitaireTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
+import com.inspiredandroid.braincup.ui.components.ReversiTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -114,6 +115,7 @@ fun MainMenuScreen(
     val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
     val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
+    val onReversi = remember(controller) { { controller.navigateToReversiMenu() } }
     val onLearnTopic = remember(controller) { { topic: MathTopic -> controller.navigateToLearnTopic(topic) } }
     val onShowBrainCup = remember(controller) {
         if (PlayGamesBridge.onShowBrainCup != null) {
@@ -145,6 +147,7 @@ fun MainMenuScreen(
         onNormalChess = onNormalChess,
         onMatchstickRiddles = onMatchstickRiddles,
         onPegSolitaire = onPegSolitaire,
+        onReversi = onReversi,
         learnProgress = learnProgress,
         onLearnTopic = onLearnTopic,
         onShowBrainCup = onShowBrainCup,
@@ -181,6 +184,7 @@ fun MainMenuScreenContent(
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
     onPegSolitaire: () -> Unit = {},
+    onReversi: () -> Unit = {},
     /** Learn section state, one entry per topic. Empty hides the section (store screenshots). */
     learnProgress: ImmutableList<LearnTopicProgress> = persistentListOf(),
     onLearnTopic: (MathTopic) -> Unit = {},
@@ -382,6 +386,9 @@ fun MainMenuScreenContent(
             item(contentType = "peg_solitaire") {
                 PegSolitaireTile(onClick = onPegSolitaire)
             }
+            item(contentType = "reversi") {
+                ReversiTile(onClick = onReversi)
+            }
         } else {
             // One section per skill, every game in it on screen. The categories already drove the
             // ordering here; naming them and pinning the name is what turns a run of 39 tiles into
@@ -435,6 +442,9 @@ fun MainMenuScreenContent(
             }
             item(contentType = "untimed_tile") {
                 PegSolitaireTile(onClick = onPegSolitaire)
+            }
+            item(contentType = "untimed_tile") {
+                ReversiTile(onClick = onReversi)
             }
             // Real [GameType]s that belong here by pace rather than by skill. They keep their
             // medal and highscore, and take this section's taller tile so the row stays even.
