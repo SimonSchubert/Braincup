@@ -1609,5 +1609,6 @@ string|wordle_legend_correct|TGV0dGVyYSBnaXVzdGEsIHBvc2l6aW9uZSBnaXVzdGE=
 string|wordle_legend_present|TGV0dGVyYSBnaXVzdGEsIHBvc2l6aW9uZSBzYmFnbGlhdGE=
 string|wordle_not_enough_letters|Tm9uIGFiYmFzdGFuemEgbGV0dGVyZQ==
 string|wordle_not_in_word_list|Tm9uIMOoIG5lbGxhIGxpc3RhIGRlbGxlIHBhcm9sZQ==
+string|wordle_solved_in|Umlzb2x0byBpbiAlMSRkLyUyJGQ=
 string|xp_gained|KyUxJGQgWFA=
 string|xp_progress|JTEkZCAvICUyJGQgWFA=

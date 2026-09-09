@@ -958,5 +958,6 @@ string|wordle_legend_correct|VGFtYW5nIGxldHJhLCB0YW1hbmcgcHV3ZXN0bw==
 string|wordle_legend_present|VGFtYW5nIGxldHJhLCBtYWxpbmcgcHV3ZXN0bw==
 string|wordle_not_enough_letters|S3VsYW5nIGFuZyBtZ2EgbGV0cmE=
 string|wordle_not_in_word_list|V2FsYSBzYSBsaXN0YWhhbiBuZyBzYWxpdGE=
+string|wordle_solved_in|TmFsdXRhcyBzYSAlMSRkLyUyJGQ=
 string|xp_gained|KyUxJGQgWFA=
 string|xp_progress|JTEkZCAvICUyJGQgWFA=

@@ -2517,5 +2517,6 @@ string|wordle_legend_correct|SnVpc3RlIGxldHRlciwganVpc3RlIHBsZWs=
 string|wordle_legend_present|SnVpc3RlIGxldHRlciwgdmVya2VlcmRlIHBsZWs=
 string|wordle_not_enough_letters|TmlldCBnZW5vZWcgbGV0dGVycw==
 string|wordle_not_in_word_list|TmlldCBpbiBkZSB3b29yZGVubGlqc3Q=
+string|wordle_solved_in|T3BnZWxvc3QgaW4gJTEkZC8lMiRk
 string|xp_gained|KyUxJGQgWFA=
 string|xp_progress|JTEkZCAvICUyJGQgWFA=

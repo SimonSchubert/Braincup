@@ -1521,5 +1521,6 @@ string|wordle_legend_correct|SHVydWYgYmVuYXIsIHBvc2lzaSBiZW5hcg==
 string|wordle_legend_present|SHVydWYgYmVuYXIsIHBvc2lzaSBzYWxhaA==
 string|wordle_not_enough_letters|SHVydWYgYmVsdW0gY3VrdXA=
 string|wordle_not_in_word_list|VGlkYWsgYWRhIGRhbGFtIGRhZnRhciBrYXRh
+string|wordle_solved_in|VGVycGVjYWhrYW4gZGFsYW0gJTEkZC8lMiRk
 string|xp_gained|KyUxJGQgWFA=
 string|xp_progress|JTEkZCAvICUyJGQgWFA=
