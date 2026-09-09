@@ -1,8 +1,8 @@
-Neu: Regelwechsel, Karten sortieren nach einer Regel, die niemand nennt
-Neu: Algebra in Mathe lernen, 21 Lektionen mit je einem Zertifikat
-Farbverwirrung als echte Stroop-Aufgabe neu gebaut, mit Kongruenzkosten
-N-Back als echte Aufgabe neu gebaut, jetzt eine Leiter, deren Level das n ist
-Startsymbol-Kurzbefehle für die Tagesaufgabe und zuletzt gespielte Spiele
-Fünf weitere Level für Prisma räumen
-Sudoku bekommt Zurücksetzen, Trio bekommt Aufgeben
-Alle neuen Texte in alle 51 Sprachen übersetzt
+Neu: Reversi auf 6x6, gegen die CPU oder zu zweit an einem Gerät
+Wordle sagt jetzt, dass du gewonnen hast, wenn die letzte Zeile sitzt
+Sherlock-Rechnung wächst dir nicht mehr über den Kopf, und Überspringen macht es nicht schwerer
+Fehlende Operatoren passt die ganze Gleichung auf den Bildschirm
+Mathe lernen zeigt alle Zifferntasten, ohne dass du scrollen musst
+Blitzsumme hebt die Summe deutlich von den aufblitzenden Zahlen ab
+Flaggen läuft jetzt ohne Zeitlimit
+Menü-Überschriften starten beim Antippen kein Spiel mehr

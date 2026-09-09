@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.6.0" date="2026-09-09">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.6.0</url>
+      <description>
+        <ul>
+          <li>Add Reversi on a 6x6 board, against the CPU or a friend on one device</li>
+          <li>Wordle now says you solved it when the last row is a win</li>
+          <li>Sherlock Calculation stops ramping out of reach, and skipping no longer raises the difficulty</li>
+          <li>Missing Operators keeps the whole equation on the screen</li>
+          <li>Flags is now untimed</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.5.0" date="2026-09-02">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.5.0</url>
       <description>
@@ -157,17 +169,6 @@
       <description>
         <ul>
           <li>Add Prism Clear game</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.30.0" date="2026-07-20">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.30.0</url>
-      <description>
-        <ul>
-          <li>Add Simon Says game</li>
-          <li>Add N-Shapes game</li>
-          <li>Adjust gold medal scoring logic</li>
-          <li>Improve Tower of Hanoi</li>
         </ul>
       </description>
     </release>

@@ -1,4 +1,4 @@
-## Unreleased
+## v3.6.0 - 2026-09-09
 
 ### Features
 - Add Reversi on a 6x6 board, against the CPU or pass-and-play on one device. Trap a line of your
@@ -6,9 +6,31 @@
   you pick Normal or Hard: Normal grabs whatever discs are going, which is the mistake the game
   punishes, while Hard plays for corners and mobility and works the last twelve squares out exactly.
 
+### Fixes
+- Say when a Wordle win was a win. A solve on the sixth row filled the board like a loss and the
+  status line read "The word was ...", so the win read as a reveal after a failure. It now says
+  "Solved in 6/6" in green, and only a real loss or a give-up keeps the reveal.
+- Stop Sherlock Calculation ramping out of reach. The tile pool tops out at six, only a solved
+  round steps the difficulty so a run of skips no longer banks rounds nobody solved, and a resumed
+  run applies its stored bounds before dealing the first round rather than after it.
+- Keep the whole Missing Operators equation on the screen. From round 10 the line ran past a 411dp
+  phone and the last slot was cut off; it is now scaled to fit rather than wrapped or scrolled.
+- Keep every Learn Math number key on the screen. The pad is pinned above the Check button instead
+  of scrolling with the step, so the row holding the 0 no longer falls under the fold, and what is
+  typed lands on the question mark in the card that asked for it.
+- Stop menu section headings from passing taps through to the tile underneath and launching a game
+  nobody aimed at. A drag that starts on the heading still scrolls the grid.
+
 ### Improvements
+- Flags drops its per-round countdown, so a run is now bounded only by a wrong answer
+- Tell the Quick Sum total apart from a flashed term: the flashed number is set well above the type
+  scale the rest of the app tops out at, and the total is boxed in a tinted card with a leading "="
 - Say on the Chess tile that it can be played against a friend as well as the CPU, which it always
   could
+- Give a Learn Math value being typed the colour of the line around it, so it no longer collides
+  with the blue that marks a working value on the same line
+- Remove unused resources, dead code, unused imports and redundant casts
+- Upgrade dependencies
 
 ## v3.5.0 - 2026-09-02
 
