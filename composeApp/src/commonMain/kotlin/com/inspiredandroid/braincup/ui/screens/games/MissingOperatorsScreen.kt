@@ -33,31 +33,34 @@ internal fun ColumnScope.MissingOperatorsContent(
         mutableIntStateOf(0)
     }
 
+    // Five numbers and four slots is wider than a phone, so the row is scaled down to fit rather
+    // than being cut off at the right edge.
     @Composable
     fun EquationRow() {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(horizontal = 16.dp),
-        ) {
-            uiState.numbers.forEachIndexed { index, number ->
-                MathText(
-                    text = number.toString(),
-                    style = MaterialTheme.typography.displaySmall,
-                )
-                if (index < uiState.operatorsCount) {
-                    OperatorSlot(
-                        index = index,
-                        uiState = uiState,
-                        enteredOperators = enteredOperators,
-                        selectedSlotIndex = selectedSlotIndex,
-                        isFeedback = isFeedback,
-                        onSelect = {
-                            if (!isFeedback) {
-                                selectedSlotIndex = index
-                            }
-                        },
+        ScaleToFit(modifier = Modifier.padding(horizontal = 16.dp)) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                uiState.numbers.forEachIndexed { index, number ->
+                    MathText(
+                        text = number.toString(),
+                        style = MaterialTheme.typography.displaySmall,
                     )
+                    if (index < uiState.operatorsCount) {
+                        OperatorSlot(
+                            index = index,
+                            uiState = uiState,
+                            enteredOperators = enteredOperators,
+                            selectedSlotIndex = selectedSlotIndex,
+                            isFeedback = isFeedback,
+                            onSelect = {
+                                if (!isFeedback) {
+                                    selectedSlotIndex = index
+                                }
+                            },
+                        )
+                    }
                 }
             }
         }
@@ -100,8 +103,11 @@ internal fun ColumnScope.MissingOperatorsContent(
 
     if (LocalIsCompactHeight.current) {
         CompactGameRow {
+            // The weight bounds the equation to the width the keys leave it, which is what
+            // ScaleToFit measures against.
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
+                modifier = Modifier.weight(1f, fill = false),
             ) {
                 GoalHeader(value = uiState.targetResult)
                 Spacer(Modifier.height(8.dp))

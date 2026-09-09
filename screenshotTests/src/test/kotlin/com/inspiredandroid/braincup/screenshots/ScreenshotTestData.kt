@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
+import com.inspiredandroid.braincup.app.MissingOperatorsUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.SequenceCellType
@@ -28,6 +29,7 @@ import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
@@ -119,6 +121,16 @@ fun createQuickSumRevealUiState(): GameUiState = QuickSumUiState(
     answerLength = 2,
     revealedSum = "16",
     answerResult = RevealResult.CORRECT,
+)
+
+/**
+ * The widest round the game reaches: five numbers and four slots, which is what overran the right
+ * edge of a phone before the equation was scaled to fit.
+ */
+fun createMissingOperatorsUiState(): GameUiState = MissingOperatorsUiState(
+    numbers = persistentListOf(11, 3, 7, 10, 3),
+    targetResult = 75,
+    operatorsCount = 4,
 )
 
 // Built directly rather than from a game: the stream is random, and a snapshot needs a fixed frame.

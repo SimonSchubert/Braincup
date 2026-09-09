@@ -465,6 +465,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameMissingOperators() {
+        snapGame(createMissingOperatorsUiState(), 50_000L)
+    }
+
+    @Test
     fun gameFractionCalculation() {
         snapGame(createFractionCalculationUiState(), 50_000L)
     }
