@@ -570,6 +570,7 @@
     <string name="wordle_not_enough_letters">Huruf tidak mencukupi</string>
     <string name="wordle_not_in_word_list">Tiada dalam senarai perkataan</string>
     <string name="wordle_answer_was">Perkataan itu ialah %1$s</string>
+    <string name="wordle_solved_in">Selesai dalam %1$d/%2$d</string>
     <string name="wordle_enter">Masuk</string>
     <string name="wordle_legend_correct">Huruf betul, tempat betul</string>
     <string name="wordle_legend_present">Huruf betul, tempat salah</string>

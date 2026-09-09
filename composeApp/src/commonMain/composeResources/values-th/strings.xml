@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">ตัวอักษรไม่เพียงพอ</string>
     <string name="wordle_not_in_word_list">ไม่อยู่ในรายการคำ</string>
     <string name="wordle_answer_was">คำคือ %1$s</string>
+    <string name="wordle_solved_in">แก้ได้ใน %1$d/%2$d</string>
     <string name="wordle_enter">ยืนยัน</string>
     <string name="wordle_legend_correct">ตัวอักษรถูก ตำแหน่งถูก</string>
     <string name="wordle_legend_present">ตัวอักษรถูก ตำแหน่งผิด</string>

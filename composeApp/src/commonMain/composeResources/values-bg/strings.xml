@@ -572,6 +572,7 @@ Cow = вярна цифра, грешно място.</string>
     <string name="wordle_not_enough_letters">Твърде малко букви</string>
     <string name="wordle_not_in_word_list">Не е в списъка с думи</string>
     <string name="wordle_answer_was">Думата беше %1$s</string>
+    <string name="wordle_solved_in">Решено с %1$d/%2$d</string>
     <string name="wordle_enter">Изпрати</string>
     <string name="wordle_legend_correct">Вярна буква, вярно място</string>
     <string name="wordle_legend_present">Вярна буква, грешно място</string>

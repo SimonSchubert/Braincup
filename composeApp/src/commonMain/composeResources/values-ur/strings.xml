@@ -570,6 +570,7 @@
     <string name="wordle_not_enough_letters">حروف کم ہیں</string>
     <string name="wordle_not_in_word_list">فہرست میں نہیں</string>
     <string name="wordle_answer_was">لفظ %1$s تھا</string>
+    <string name="wordle_solved_in">%1$d/%2$d میں حل ہو گیا</string>
     <string name="wordle_enter">داخل</string>
     <string name="wordle_legend_correct">درست حرف، درست جگہ</string>
     <string name="wordle_legend_present">درست حرف، غلط جگہ</string>

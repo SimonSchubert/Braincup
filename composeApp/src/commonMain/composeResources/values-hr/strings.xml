@@ -572,6 +572,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="wordle_not_enough_letters">Premalo slova</string>
     <string name="wordle_not_in_word_list">Nije na popisu riječi</string>
     <string name="wordle_answer_was">Riječ je bila %1$s</string>
+    <string name="wordle_solved_in">Riješeno u %1$d/%2$d</string>
     <string name="wordle_enter">Pošalji</string>
     <string name="wordle_legend_correct">Točno slovo, točno mjesto</string>
     <string name="wordle_legend_present">Točno slovo, krivo mjesto</string>

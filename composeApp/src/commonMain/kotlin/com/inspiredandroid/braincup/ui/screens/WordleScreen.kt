@@ -29,6 +29,7 @@ import braincup.composeapp.generated.resources.session_continue
 import braincup.composeapp.generated.resources.wordle_answer_was
 import braincup.composeapp.generated.resources.wordle_not_enough_letters
 import braincup.composeapp.generated.resources.wordle_not_in_word_list
+import braincup.composeapp.generated.resources.wordle_solved_in
 import com.inspiredandroid.braincup.app.KeyboardCommand
 import com.inspiredandroid.braincup.app.WordleLetter
 import com.inspiredandroid.braincup.app.WordleLetterState
@@ -42,6 +43,7 @@ import com.inspiredandroid.braincup.ui.components.boxedTextSize
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.keyFace
 import com.inspiredandroid.braincup.ui.theme.keyTextColor
 import com.inspiredandroid.braincup.ui.theme.tileFace
@@ -248,11 +250,23 @@ private fun WordleTile(
 
 @Composable
 private fun WordleStatusLine(uiState: WordleUiState, modifier: Modifier = Modifier) {
+    // A win on the last row fills the board exactly like a loss, so the line has to say which it
+    // was: "The word was ..." on its own reads as a reveal after a failure.
     val text = when {
+        uiState.solved -> stringResource(
+            Res.string.wordle_solved_in,
+            uiState.guessesUsed,
+            uiState.rows.size,
+        )
         uiState.answer != null -> stringResource(Res.string.wordle_answer_was, uiState.answer)
         uiState.notInWordList -> stringResource(Res.string.wordle_not_in_word_list)
         uiState.notEnoughLetters -> stringResource(Res.string.wordle_not_enough_letters)
         else -> ""
+    }
+    val color = when {
+        uiState.solved -> SuccessGreen
+        uiState.answer != null -> MaterialTheme.colorScheme.error
+        else -> MaterialTheme.colorScheme.onSurface
     }
     // Reserve the line height so the board/keyboard don't jump when the message appears.
     Box(modifier = modifier.height(24.dp), contentAlignment = Alignment.Center) {
@@ -260,7 +274,7 @@ private fun WordleStatusLine(uiState: WordleUiState, modifier: Modifier = Modifi
             Text(
                 text = text,
                 style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface,
+                color = color,
                 textAlign = TextAlign.Center,
             )
         }
@@ -356,6 +370,7 @@ private fun WordleContentPreview() {
                 keyboardRows = persistentListOf("QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"),
                 keyStates = persistentMapOf(),
                 wordLength = 5,
+                guessesUsed = 0,
                 solved = false,
                 finished = false,
                 answer = null,

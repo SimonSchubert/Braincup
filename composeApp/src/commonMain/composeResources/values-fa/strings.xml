@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">حروف کافی نیست</string>
     <string name="wordle_not_in_word_list">در فهرست واژه‌ها نیست</string>
     <string name="wordle_answer_was">واژه %1$s بود</string>
+    <string name="wordle_solved_in">در %1$d/%2$d حل شد</string>
     <string name="wordle_enter">تأیید</string>
     <string name="wordle_legend_correct">حرف درست، جای درست</string>
     <string name="wordle_legend_present">حرف درست، جای نادرست</string>

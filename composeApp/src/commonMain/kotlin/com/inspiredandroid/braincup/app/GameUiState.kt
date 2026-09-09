@@ -575,6 +575,8 @@ data class WordleUiState(
     val keyboardRows: ImmutableList<String>,
     val keyStates: ImmutableMap<Char, WordleLetterState>,
     val wordLength: Int,
+    /** Guesses submitted so far; the winning guess number once [solved]. */
+    val guessesUsed: Int,
     val solved: Boolean,
     val finished: Boolean,
     val answer: String?,

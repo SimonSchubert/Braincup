@@ -572,6 +572,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="wordle_not_enough_letters">Túl kevés betű</string>
     <string name="wordle_not_in_word_list">Nincs a szólistában</string>
     <string name="wordle_answer_was">A szó ez volt: %1$s</string>
+    <string name="wordle_solved_in">Megoldva %1$d/%2$d</string>
     <string name="wordle_enter">Bevitel</string>
     <string name="wordle_legend_correct">Jó betű, jó hely</string>
     <string name="wordle_legend_present">Jó betű, rossz hely</string>

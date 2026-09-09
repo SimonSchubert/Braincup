@@ -602,6 +602,16 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameWordleSolved() {
+        snapGame(createWordleSolvedUiState(), 50_000L)
+    }
+
+    @Test
+    fun gameWordleLost() {
+        snapGame(createWordleLostUiState(), 50_000L)
+    }
+
+    @Test
     fun gameSimonSays() {
         snapGame(createSimonSaysUiState(), 50_000L)
     }

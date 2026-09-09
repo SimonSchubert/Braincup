@@ -570,6 +570,7 @@
     <string name="wordle_not_enough_letters">Kulang ang mga letra</string>
     <string name="wordle_not_in_word_list">Wala sa listahan ng salita</string>
     <string name="wordle_answer_was">Ang salita ay %1$s</string>
+    <string name="wordle_solved_in">Nalutas sa %1$d/%2$d</string>
     <string name="wordle_enter">Ipasok</string>
     <string name="wordle_legend_correct">Tamang letra, tamang puwesto</string>
     <string name="wordle_legend_present">Tamang letra, maling puwesto</string>

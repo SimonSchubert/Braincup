@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">字母不够</string>
     <string name="wordle_not_in_word_list">不在词库中</string>
     <string name="wordle_answer_was">答案是 %1$s</string>
+    <string name="wordle_solved_in">第 %1$d/%2$d 次猜中</string>
     <string name="wordle_enter">确认</string>
     <string name="wordle_legend_correct">字母正确，位置正确</string>
     <string name="wordle_legend_present">字母正确，位置错误</string>

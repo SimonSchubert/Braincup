@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">Huruf belum cukup</string>
     <string name="wordle_not_in_word_list">Tidak ada dalam daftar kata</string>
     <string name="wordle_answer_was">Kata yang benar adalah %1$s</string>
+    <string name="wordle_solved_in">Terpecahkan dalam %1$d/%2$d</string>
     <string name="wordle_enter">Masukkan</string>
     <string name="wordle_legend_correct">Huruf benar, posisi benar</string>
     <string name="wordle_legend_present">Huruf benar, posisi salah</string>

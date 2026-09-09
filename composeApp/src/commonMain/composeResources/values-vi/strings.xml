@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">Chưa đủ chữ cái</string>
     <string name="wordle_not_in_word_list">Không có trong danh sách từ</string>
     <string name="wordle_answer_was">Từ đúng là %1$s</string>
+    <string name="wordle_solved_in">Giải trong %1$d/%2$d</string>
     <string name="wordle_enter">Xác nhận</string>
     <string name="wordle_legend_correct">Đúng chữ, đúng vị trí</string>
     <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>

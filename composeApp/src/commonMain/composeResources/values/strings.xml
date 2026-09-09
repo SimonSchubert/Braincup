@@ -588,6 +588,7 @@
     <string name="wordle_not_enough_letters">Not enough letters</string>
     <string name="wordle_not_in_word_list">Not in word list</string>
     <string name="wordle_answer_was">The word was %1$s</string>
+    <string name="wordle_solved_in">Solved in %1$d/%2$d</string>
     <string name="wordle_enter">Enter</string>
     <string name="wordle_legend_correct">Right letter, right spot</string>
     <string name="wordle_legend_present">Right letter, wrong spot</string>

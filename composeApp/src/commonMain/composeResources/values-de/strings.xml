@@ -679,6 +679,7 @@
     <string name="wordle_not_enough_letters">Nicht genug Buchstaben</string>
     <string name="wordle_not_in_word_list">Nicht in der Wortliste</string>
     <string name="wordle_answer_was">Das Wort war %1$s</string>
+    <string name="wordle_solved_in">Gelöst in %1$d/%2$d</string>
     <string name="wordle_enter">Eingabe</string>
     <string name="wordle_legend_correct">Richtiger Buchstabe, richtige Stelle</string>
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>

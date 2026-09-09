@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">తగినన్ని అక్షరాలు లేవు</string>
     <string name="wordle_not_in_word_list">పద జాబితాలో లేదు</string>
     <string name="wordle_answer_was">ఆ పదం %1$s</string>
+    <string name="wordle_solved_in">%1$d/%2$d లో పరిష్కరించారు</string>
     <string name="wordle_enter">నమోదు</string>
     <string name="wordle_legend_correct">సరైన అక్షరం, సరైన స్థానం</string>
     <string name="wordle_legend_present">సరైన అక్షరం, తప్పు స్థానం</string>

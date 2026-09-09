@@ -81,6 +81,26 @@ class WordleGameTest {
     }
 
     @Test
+    fun winOnTheLastGuessStillCountsAsSolved() {
+        // The board is full either way, so the ui state has to carry the win: issue #40 read the
+        // filled board plus "The word was ..." as a loss.
+        val game = game("CRANE")
+        repeat(WordleGame.MAX_GUESSES - 1) {
+            "WORD".forEach { c -> assertFalse(game.typeLetter(c)) }
+            assertTrue(game.typeLetter('S'))
+        }
+        "CRAN".forEach { assertFalse(game.typeLetter(it)) }
+        assertTrue(game.typeLetter('E'))
+        assertTrue(game.solved)
+        assertEquals(WordleGame.MAX_GUESSES, game.guessesUsed)
+        // 7 - 6 = 1: the last row is worth the fewest points, not zero.
+        assertEquals(1, game.score)
+        val ui = game.toUiState() as WordleUiState
+        assertTrue(ui.solved)
+        assertEquals(WordleGame.MAX_GUESSES, ui.guessesUsed)
+    }
+
+    @Test
     fun lossAfterSixWrongGuessesScoresZeroAndRevealsAnswer() {
         val game = game("CRANE")
         repeat(WordleGame.MAX_GUESSES) {

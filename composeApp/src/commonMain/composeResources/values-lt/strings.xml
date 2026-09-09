@@ -572,6 +572,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="wordle_not_enough_letters">Per mažai raidžių</string>
     <string name="wordle_not_in_word_list">Nėra žodžių sąraše</string>
     <string name="wordle_answer_was">Žodis buvo %1$s</string>
+    <string name="wordle_solved_in">Išspręsta per %1$d/%2$d</string>
     <string name="wordle_enter">Siųsti</string>
     <string name="wordle_legend_correct">Teisinga raidė, teisinga vieta</string>
     <string name="wordle_legend_present">Teisinga raidė, neteisinga vieta</string>

@@ -143,6 +143,7 @@ class WordleGame(
             keyboardRows = keyboardRows.toImmutableList(),
             keyStates = keyStates.toImmutableMap(),
             wordLength = wordLength,
+            guessesUsed = submitted.size,
             solved = solved,
             finished = finished,
             answer = if (finished) target else null,

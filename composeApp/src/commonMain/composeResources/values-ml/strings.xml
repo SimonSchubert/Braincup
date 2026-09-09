@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">മതിയായ അക്ഷരങ്ങളില്ല</string>
     <string name="wordle_not_in_word_list">പദപ്പട്ടികയിലില്ല</string>
     <string name="wordle_answer_was">ആ വാക്ക് %1$s ആയിരുന്നു</string>
+    <string name="wordle_solved_in">%1$d/%2$d ൽ പരിഹരിച്ചു</string>
     <string name="wordle_enter">നൽകുക</string>
     <string name="wordle_legend_correct">ശരിയായ അക്ഷരം, ശരിയായ സ്ഥാനം</string>
     <string name="wordle_legend_present">ശരിയായ അക്ഷരം, തെറ്റായ സ്ഥാനം</string>

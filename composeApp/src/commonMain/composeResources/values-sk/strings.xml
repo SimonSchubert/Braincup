@@ -572,6 +572,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="wordle_not_enough_letters">Málo písmen</string>
     <string name="wordle_not_in_word_list">Nie je v zozname slov</string>
     <string name="wordle_answer_was">Slovo bolo %1$s</string>
+    <string name="wordle_solved_in">Vyriešené na %1$d/%2$d</string>
     <string name="wordle_enter">Odoslať</string>
     <string name="wordle_legend_correct">Správne písmeno, správne miesto</string>
     <string name="wordle_legend_present">Správne písmeno, zlé miesto</string>

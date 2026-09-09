@@ -572,6 +572,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="wordle_not_enough_letters">Liian vähän kirjaimia</string>
     <string name="wordle_not_in_word_list">Ei sanalistassa</string>
     <string name="wordle_answer_was">Sana oli %1$s</string>
+    <string name="wordle_solved_in">Ratkaistu %1$d/%2$d</string>
     <string name="wordle_enter">Enter</string>
     <string name="wordle_legend_correct">Oikea kirjain, oikea paikka</string>
     <string name="wordle_legend_present">Oikea kirjain, väärä paikka</string>

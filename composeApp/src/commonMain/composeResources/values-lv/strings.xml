@@ -572,6 +572,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="wordle_not_enough_letters">Pārāk maz burtu</string>
     <string name="wordle_not_in_word_list">Nav vārdu sarakstā</string>
     <string name="wordle_answer_was">Vārds bija %1$s</string>
+    <string name="wordle_solved_in">Atrisināts %1$d/%2$d</string>
     <string name="wordle_enter">Sūtīt</string>
     <string name="wordle_legend_correct">Pareizs burts, pareizā vieta</string>
     <string name="wordle_legend_present">Pareizs burts, nepareizā vieta</string>

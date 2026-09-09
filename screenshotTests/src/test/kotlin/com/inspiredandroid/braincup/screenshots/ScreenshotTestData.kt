@@ -29,6 +29,8 @@ import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.wordle.WordleGame
+import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableList
@@ -598,4 +600,25 @@ fun createIqTestResultUiState(
         levelChange = levelChange,
         isPersonalBest = isPersonalBest,
     )
+}
+
+/** A win on the very last row - the board is full, so only the status line says it was a win. */
+fun createWordleSolvedUiState(): GameUiState = wordleUiState(
+    guesses = listOf("SLATE", "CRONE", "DRAIN", "GROIN", "BROIL", "BRAIN"),
+)
+
+/** The same board, one letter wrong on the last row: a loss. */
+fun createWordleLostUiState(): GameUiState = wordleUiState(
+    guesses = listOf("SLATE", "CRONE", "DRAIN", "GROIN", "BROIL", "TRAIN"),
+)
+
+private fun wordleUiState(guesses: List<String>): GameUiState {
+    val game = WordleGame(
+        language = WordleLanguages.resolve("en")!!,
+        target = "BRAIN",
+        validWords = guesses.toSet() + "BRAIN",
+    )
+    // Typing the fifth letter submits the row, so the guesses land exactly as a player enters them.
+    guesses.forEach { guess -> guess.forEach { game.typeLetter(it) } }
+    return game.toUiState()
 }

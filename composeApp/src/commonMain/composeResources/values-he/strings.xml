@@ -572,6 +572,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="wordle_not_enough_letters">אין מספיק אותיות</string>
     <string name="wordle_not_in_word_list">לא ברשימת המילים</string>
     <string name="wordle_answer_was">המילה הייתה %1$s</string>
+    <string name="wordle_solved_in">נפתר ב-%1$d/%2$d</string>
     <string name="wordle_enter">אישור</string>
     <string name="wordle_legend_correct">אות נכונה, מקום נכון</string>
     <string name="wordle_legend_present">אות נכונה, מקום לא נכון</string>

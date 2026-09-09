@@ -572,6 +572,7 @@ Mută Cow — devine Bull.</string>
     <string name="wordle_not_enough_letters">Prea puține litere</string>
     <string name="wordle_not_in_word_list">Nu e în lista de cuvinte</string>
     <string name="wordle_answer_was">Cuvântul a fost %1$s</string>
+    <string name="wordle_solved_in">Rezolvat în %1$d/%2$d</string>
     <string name="wordle_enter">Trimite</string>
     <string name="wordle_legend_correct">Litera corectă, locul corect</string>
     <string name="wordle_legend_present">Litera corectă, locul greșit</string>

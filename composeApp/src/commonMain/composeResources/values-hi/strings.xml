@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">पर्याप्त अक्षर नहीं</string>
     <string name="wordle_not_in_word_list">शब्द सूची में नहीं है</string>
     <string name="wordle_answer_was">शब्द था %1$s</string>
+    <string name="wordle_solved_in">%1$d/%2$d में हल</string>
     <string name="wordle_enter">दर्ज करें</string>
     <string name="wordle_legend_correct">सही अक्षर, सही जगह</string>
     <string name="wordle_legend_present">सही अक्षर, गलत जगह</string>

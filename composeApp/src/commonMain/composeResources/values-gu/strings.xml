@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">પૂરતા અક્ષરો નથી</string>
     <string name="wordle_not_in_word_list">શબ્દયાદીમાં નથી</string>
     <string name="wordle_answer_was">એ શબ્દ %1$s હતો</string>
+    <string name="wordle_solved_in">%1$d/%2$d માં ઉકેલાયું</string>
     <string name="wordle_enter">દાખલ કરો</string>
     <string name="wordle_legend_correct">સાચો અક્ષર, સાચી જગ્યા</string>
     <string name="wordle_legend_present">સાચો અક્ષર, ખોટી જગ્યા</string>

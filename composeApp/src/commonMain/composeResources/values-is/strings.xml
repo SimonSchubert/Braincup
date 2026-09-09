@@ -572,6 +572,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="wordle_not_enough_letters">Of fáir stafir</string>
     <string name="wordle_not_in_word_list">Ekki á orðalistanum</string>
     <string name="wordle_answer_was">Orðið var %1$s</string>
+    <string name="wordle_solved_in">Leyst í %1$d/%2$d</string>
     <string name="wordle_enter">Senda</string>
     <string name="wordle_legend_correct">Réttur stafur, réttur staður</string>
     <string name="wordle_legend_present">Réttur stafur, rangur staður</string>

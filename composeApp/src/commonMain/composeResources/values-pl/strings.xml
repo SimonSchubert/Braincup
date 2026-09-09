@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">Za mało liter</string>
     <string name="wordle_not_in_word_list">Nie ma w liście słów</string>
     <string name="wordle_answer_was">Słowem było %1$s</string>
+    <string name="wordle_solved_in">Rozwiązane w %1$d/%2$d</string>
     <string name="wordle_enter">Zatwierdź</string>
     <string name="wordle_legend_correct">Dobra litera, dobre miejsce</string>
     <string name="wordle_legend_present">Dobra litera, złe miejsce</string>

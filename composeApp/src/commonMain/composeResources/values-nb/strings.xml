@@ -572,6 +572,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="wordle_not_enough_letters">Ikke nok bokstaver</string>
     <string name="wordle_not_in_word_list">Ikke i ordlisten</string>
     <string name="wordle_answer_was">Ordet var %1$s</string>
+    <string name="wordle_solved_in">Løst på %1$d/%2$d</string>
     <string name="wordle_enter">Enter</string>
     <string name="wordle_legend_correct">Riktig bokstav, riktig plass</string>
     <string name="wordle_legend_present">Riktig bokstav, feil plass</string>

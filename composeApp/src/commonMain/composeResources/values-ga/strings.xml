@@ -572,6 +572,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="wordle_not_enough_letters">Easpa litreacha</string>
     <string name="wordle_not_in_word_list">Níl ar an liosta focal</string>
     <string name="wordle_answer_was">Ba é %1$s an focal</string>
+    <string name="wordle_solved_in">Réitithe i %1$d/%2$d</string>
     <string name="wordle_enter">Cuir isteach</string>
     <string name="wordle_legend_correct">Litir cheart, áit cheart</string>
     <string name="wordle_legend_present">Litir cheart, áit mhícheart</string>

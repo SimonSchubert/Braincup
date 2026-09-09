@@ -679,6 +679,7 @@
     <string name="wordle_not_enough_letters">Pas assez de lettres</string>
     <string name="wordle_not_in_word_list">Absent de la liste</string>
     <string name="wordle_answer_was">Le mot était %1$s</string>
+    <string name="wordle_solved_in">Résolu en %1$d/%2$d</string>
     <string name="wordle_enter">Entrée</string>
     <string name="wordle_legend_correct">Bonne lettre, bonne place</string>
     <string name="wordle_legend_present">Bonne lettre, mauvaise place</string>

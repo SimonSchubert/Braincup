@@ -572,6 +572,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="wordle_not_enough_letters">Premalo črk</string>
     <string name="wordle_not_in_word_list">Ni na seznamu besed</string>
     <string name="wordle_answer_was">Beseda je bila %1$s</string>
+    <string name="wordle_solved_in">Rešeno v %1$d/%2$d</string>
     <string name="wordle_enter">Pošlji</string>
     <string name="wordle_legend_correct">Pravilna črka, pravo mesto</string>
     <string name="wordle_legend_present">Pravilna črka, napačno mesto</string>

@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">போதிய எழுத்துகள் இல்லை</string>
     <string name="wordle_not_in_word_list">சொற்பட்டியலில் இல்லை</string>
     <string name="wordle_answer_was">அந்தச் சொல் %1$s</string>
+    <string name="wordle_solved_in">%1$d/%2$d இல் தீர்க்கப்பட்டது</string>
     <string name="wordle_enter">உள்ளிடு</string>
     <string name="wordle_legend_correct">சரியான எழுத்து, சரியான இடம்</string>
     <string name="wordle_legend_present">சரியான எழுத்து, தவறான இடம்</string>

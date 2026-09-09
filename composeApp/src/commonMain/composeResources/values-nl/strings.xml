@@ -679,6 +679,7 @@
     <string name="wordle_not_enough_letters">Niet genoeg letters</string>
     <string name="wordle_not_in_word_list">Niet in de woordenlijst</string>
     <string name="wordle_answer_was">Het woord was %1$s</string>
+    <string name="wordle_solved_in">Opgelost in %1$d/%2$d</string>
     <string name="wordle_enter">Enter</string>
     <string name="wordle_legend_correct">Juiste letter, juiste plek</string>
     <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>

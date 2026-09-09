@@ -570,6 +570,7 @@
     <string name="wordle_not_enough_letters">Inte tillräckligt många bokstäver</string>
     <string name="wordle_not_in_word_list">Finns inte i ordlistan</string>
     <string name="wordle_answer_was">Ordet var %1$s</string>
+    <string name="wordle_solved_in">Löst på %1$d/%2$d</string>
     <string name="wordle_enter">Enter</string>
     <string name="wordle_legend_correct">Rätt bokstav, rätt plats</string>
     <string name="wordle_legend_present">Rätt bokstav, fel plats</string>

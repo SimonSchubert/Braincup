@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">Yeterli harf yok</string>
     <string name="wordle_not_in_word_list">Kelime listesinde yok</string>
     <string name="wordle_answer_was">Kelime %1$s idi</string>
+    <string name="wordle_solved_in">%1$d/%2$d denemede çözüldü</string>
     <string name="wordle_enter">Gir</string>
     <string name="wordle_legend_correct">Doğru harf, doğru yer</string>
     <string name="wordle_legend_present">Doğru harf, yanlış yer</string>

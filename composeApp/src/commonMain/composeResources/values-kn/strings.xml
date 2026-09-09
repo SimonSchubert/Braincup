@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">ಸಾಕಷ್ಟು ಅಕ್ಷರಗಳಿಲ್ಲ</string>
     <string name="wordle_not_in_word_list">ಪದಪಟ್ಟಿಯಲ್ಲಿ ಇಲ್ಲ</string>
     <string name="wordle_answer_was">ಆ ಪದ %1$s ಆಗಿತ್ತು</string>
+    <string name="wordle_solved_in">%1$d/%2$d ರಲ್ಲಿ ಬಿಡಿಸಲಾಯಿತು</string>
     <string name="wordle_enter">ನಮೂದಿಸಿ</string>
     <string name="wordle_legend_correct">ಸರಿಯಾದ ಅಕ್ಷರ, ಸರಿಯಾದ ಸ್ಥಳ</string>
     <string name="wordle_legend_present">ಸರಿಯಾದ ಅಕ್ಷರ, ತಪ್ಪಾದ ಸ್ಥಳ</string>

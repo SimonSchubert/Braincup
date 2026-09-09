@@ -679,6 +679,7 @@
     <string name="wordle_not_enough_letters">حروف غير كافية</string>
     <string name="wordle_not_in_word_list">غير موجودة في قائمة الكلمات</string>
     <string name="wordle_answer_was">الكلمة كانت %1$s</string>
+    <string name="wordle_solved_in">تم الحل في %1$d/%2$d</string>
     <string name="wordle_enter">إدخال</string>
     <string name="wordle_legend_correct">الحرف صحيح والمكان صحيح</string>
     <string name="wordle_legend_present">الحرف صحيح والمكان خاطئ</string>

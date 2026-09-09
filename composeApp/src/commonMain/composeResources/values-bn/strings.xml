@@ -679,6 +679,7 @@
     <string name="wordle_not_enough_letters">যথেষ্ট অক্ষর নেই</string>
     <string name="wordle_not_in_word_list">শব্দ তালিকায় নেই</string>
     <string name="wordle_answer_was">শব্দটি ছিল %1$s</string>
+    <string name="wordle_solved_in">%1$d/%2$d চেষ্টায় সমাধান</string>
     <string name="wordle_enter">এন্টার</string>
     <string name="wordle_legend_correct">সঠিক অক্ষর, সঠিক স্থান</string>
     <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>

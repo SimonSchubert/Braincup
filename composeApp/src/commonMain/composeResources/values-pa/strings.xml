@@ -554,6 +554,7 @@
     <string name="wordle_not_enough_letters">ਲੋੜੀਂਦੇ ਅੱਖਰ ਨਹੀਂ</string>
     <string name="wordle_not_in_word_list">ਸ਼ਬਦ ਸੂਚੀ ਵਿੱਚ ਨਹੀਂ</string>
     <string name="wordle_answer_was">ਉਹ ਸ਼ਬਦ %1$s ਸੀ</string>
+    <string name="wordle_solved_in">%1$d/%2$d ਵਿੱਚ ਹੱਲ ਹੋਇਆ</string>
     <string name="wordle_enter">ਭਰੋ</string>
     <string name="wordle_legend_correct">ਸਹੀ ਅੱਖਰ, ਸਹੀ ਥਾਂ</string>
     <string name="wordle_legend_present">ਸਹੀ ਅੱਖਰ, ਗਲਤ ਥਾਂ</string>

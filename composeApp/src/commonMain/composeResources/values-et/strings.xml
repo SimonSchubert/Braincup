@@ -572,6 +572,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="wordle_not_enough_letters">Liiga vähe tähti</string>
     <string name="wordle_not_in_word_list">Pole sõnaloendis</string>
     <string name="wordle_answer_was">Sõna oli %1$s</string>
+    <string name="wordle_solved_in">Lahendatud %1$d/%2$d</string>
     <string name="wordle_enter">Sisesta</string>
     <string name="wordle_legend_correct">Õige täht, õige koht</string>
     <string name="wordle_legend_present">Õige täht, vale koht</string>

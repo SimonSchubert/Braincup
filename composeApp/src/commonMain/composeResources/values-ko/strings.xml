@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">글자가 부족합니다</string>
     <string name="wordle_not_in_word_list">단어 목록에 없습니다</string>
     <string name="wordle_answer_was">정답은 %1$s 이었습니다</string>
+    <string name="wordle_solved_in">%2$d번 중 %1$d번에 정답</string>
     <string name="wordle_enter">입력</string>
     <string name="wordle_legend_correct">정확한 글자, 정확한 위치</string>
     <string name="wordle_legend_present">정확한 글자, 잘못된 위치</string>

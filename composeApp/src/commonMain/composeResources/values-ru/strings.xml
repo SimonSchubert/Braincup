@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">Недостаточно букв</string>
     <string name="wordle_not_in_word_list">Нет в списке слов</string>
     <string name="wordle_answer_was">Слово было %1$s</string>
+    <string name="wordle_solved_in">Решено за %1$d/%2$d</string>
     <string name="wordle_enter">Ввод</string>
     <string name="wordle_legend_correct">Верная буква, верная позиция</string>
     <string name="wordle_legend_present">Верная буква, неверная позиция</string>

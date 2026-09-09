@@ -308,6 +308,7 @@
     <string name="wordle_not_enough_letters">No hay suficientes letras</string>
     <string name="wordle_not_in_word_list">No está en la lista de palabras</string>
     <string name="wordle_answer_was">La palabra era %1$s</string>
+    <string name="wordle_solved_in">Resuelto en %1$d/%2$d</string>
     <string name="wordle_enter">Intro</string>
     <string name="wordle_legend_correct">Letra correcta, posición correcta</string>
     <string name="wordle_legend_present">Letra correcta, posición incorrecta</string>
