@@ -592,7 +592,7 @@ class GameController(
         game.answeredAllCorrect = false
         val current = _gameUiState.value as? S ?: return
         _gameUiState.value = markWrong(current) ?: return
-        scheduleNextRound(currentState.gameType, game, after = wrongFeedback)
+        scheduleNextRound(currentState.gameType, game, after = wrongFeedback, advanceDifficulty = false)
     }
 
     /**
@@ -623,10 +623,15 @@ class GameController(
     }
 
     /** Leave the board feedback up for [after], then advance the round (or finish the run). */
-    private fun scheduleNextRound(gameType: GameType, game: Game, after: Duration) {
+    private fun scheduleNextRound(
+        gameType: GameType,
+        game: Game,
+        after: Duration,
+        advanceDifficulty: Boolean = true,
+    ) {
         scope.launch {
             delay(after)
-            advanceToNextRound(gameType, game)
+            advanceToNextRound(gameType, game, advanceDifficulty)
         }
     }
 
@@ -665,12 +670,12 @@ class GameController(
             is TrioGame -> {
                 if (!game.revealSolution()) return
                 emitUiState(game)
-                scheduleNextRound(gameType, game, after = 1.seconds)
+                scheduleNextRound(gameType, game, after = 1.seconds, advanceDifficulty = false)
             }
             is SherlockCalculationGame -> {
                 val ui = _gameUiState.value as? SherlockCalculationUiState ?: return
                 _gameUiState.value = ui.copy(solutionTokens = game.solutionTokens.toImmutableList())
-                scheduleNextRound(gameType, game, after = 1.seconds)
+                scheduleNextRound(gameType, game, after = 1.seconds, advanceDifficulty = false)
             }
             is MissingOperatorsGame -> {
                 val ui = _gameUiState.value as? MissingOperatorsUiState ?: return
@@ -696,7 +701,7 @@ class GameController(
     private fun proceedAfterFeedback() {
         val currentState = _gameState.value
         if (currentState !is GameState.Feedback) return
-        advanceToNextRound(currentState.gameType, currentState.game)
+        advanceToNextRound(currentState.gameType, currentState.game, currentState.isCorrect)
     }
 
     /**
@@ -706,14 +711,20 @@ class GameController(
      * Both feedback paths land here, the full feedback screen and the inline mark some games show
      * on their own board, so the run clock is checked in one place. Bubble Sum is the only game
      * whose motion was stopped for the beat, so it is the only one that needs restarting.
+     *
+     * [advanceDifficulty] is what the round earned, the same rule the reveal-round games already
+     * follow: only a solved round steps the ramp. A wrong answer or a give-up deals another round
+     * at the difficulty the player is already stuck on, instead of a harder one - and since the
+     * round reached is what gets stored for the next session, skipping can no longer ratchet a
+     * game out of reach.
      */
-    private fun advanceToNextRound(gameType: GameType, game: Game) {
+    private fun advanceToNextRound(gameType: GameType, game: Game, advanceDifficulty: Boolean = true) {
         val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
         if (elapsed > GAME_TIME_MILLIS) {
             finishGame(gameType, game)
             return
         }
-        game.nextRound()
+        if (advanceDifficulty) game.nextRound() else game.repeatRound()
         _gameState.value = GameState.Active(gameType, game)
         emitUiState(game)
         if (game is BubbleSumGame) {
@@ -1169,6 +1180,7 @@ class GameController(
         }
     }
 
+    /** Only reached by a wrong answer or a give-up, so the ramp never steps from here. */
     private suspend fun revealMissingOperatorsSequentially(
         gameType: GameType,
         game: MissingOperatorsGame,
@@ -1187,7 +1199,7 @@ class GameController(
             }
         }
         delay(MISSING_OPS_FEEDBACK_HOLD_MS.milliseconds)
-        advanceToNextRound(gameType, game)
+        advanceToNextRound(gameType, game, advanceDifficulty = false)
     }
 
     private fun handleTrioAnswer(

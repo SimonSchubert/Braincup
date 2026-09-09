@@ -15,7 +15,7 @@ import kotlin.random.Random
  * - Allowed operators = +-*
  * - Result of subtraction can't be under 0
  * - Result of multiplication can't be over 140
- * - Each round increases the count of available numbers by 1
+ * - Each round increases the count of available numbers by 1, up to [MAX_NUMBERS_NEEDED]
  * - Available numbers can't contain the result number
  */
 class SherlockCalculationGame : Game() {
@@ -44,6 +44,10 @@ class SherlockCalculationGame : Game() {
     }
 
     override fun generateRound() {
+        // Before the numbers are drawn, not after. Updating at the end left a resumed run dealing
+        // its first round at the starting difficulty and its second at the stored one: the jump
+        // from a two-number puzzle straight to a wall of tiles.
+        updateNumberBounds()
         calculation = ""
         numbers.clear()
         numbers.add(Random.nextInt(2, 5))
@@ -76,8 +80,6 @@ class SherlockCalculationGame : Game() {
         numbers.shuffle()
 
         solutionTokens = buildSolutionTokens()
-
-        updateNumberBounds()
     }
 
     override fun solution(): String = calculation
@@ -107,9 +109,11 @@ class SherlockCalculationGame : Game() {
     }
 
     // Derived from round (not stepped on exact matches) so a resumed session
-    // starts at the difficulty the round implies.
+    // starts at the difficulty the round implies. Capped, because the pool is what the player has
+    // to search: past half a dozen tiles the round stops being a calculation and turns into a
+    // hunt that no longer fits on a phone screen.
     private fun updateNumberBounds() {
-        maxNumbersNeeded = round + 3
+        maxNumbersNeeded = (round + 3).coerceAtMost(MAX_NUMBERS_NEEDED)
         minNumbersNeeded = when {
             round >= 5 -> 4
             round >= 2 -> 3
@@ -129,5 +133,10 @@ class SherlockCalculationGame : Game() {
             operator = Operator.PLUS
         }
         return operator.char
+    }
+
+    companion object {
+        /** Exclusive, so the ramp tops out at six tiles before the goal-collision top-up. */
+        const val MAX_NUMBERS_NEEDED = 7
     }
 }

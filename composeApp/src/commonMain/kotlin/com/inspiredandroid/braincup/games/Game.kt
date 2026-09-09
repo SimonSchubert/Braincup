@@ -15,11 +15,11 @@ abstract class Game {
 
     /**
      * Re-generate the current round at the same difficulty. Games that ramp per round use this
-     * after a wrong answer so the pace never runs ahead of the player, and so a re-shown round is
-     * never the same puzzle twice.
+     * after a wrong answer or a give-up so the pace never runs ahead of the player, and so a
+     * re-shown round is never the same puzzle twice.
      */
     fun repeatRound() {
-        round -= 1
+        round = (round - 1).coerceAtLeast(0)
         nextRound()
     }
 
