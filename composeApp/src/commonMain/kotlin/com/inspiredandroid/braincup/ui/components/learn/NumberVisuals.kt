@@ -420,6 +420,7 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
         val taken = mutableMapOf<Int, MutableList<Pair<Float, Float>>>()
         fun fits(band: Int, lo: Float, hi: Float) = taken[band].orEmpty()
             .none { lo < it.second + candidateGap && hi > it.first - candidateGap }
+
         // Preference order: the ordinary row, then above the line, then downwards.
         fun bandFor(attempt: Int) = when (attempt) {
             0 -> 0

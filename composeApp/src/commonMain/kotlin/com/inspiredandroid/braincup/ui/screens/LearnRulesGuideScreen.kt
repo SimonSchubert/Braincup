@@ -22,9 +22,9 @@ import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.GuideSectionHeader
 import com.inspiredandroid.braincup.ui.components.MathText
-import com.inspiredandroid.braincup.ui.components.learn.learnDecimalSeparator
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
+import com.inspiredandroid.braincup.ui.components.learn.learnDecimalSeparator
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary

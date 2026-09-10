@@ -66,8 +66,10 @@ fun String.withDecimalSeparator(separator: Char): String {
     val out = StringBuilder(length)
     forEachIndexed { index, char ->
         val betweenDigits = char == '.' &&
-            index > 0 && this[index - 1].isDigit() &&
-            index + 1 < length && this[index + 1].isDigit()
+            index > 0 &&
+            this[index - 1].isDigit() &&
+            index + 1 < length &&
+            this[index + 1].isDigit()
         out.append(if (betweenDigits) separator else char)
     }
     return out.toString()
