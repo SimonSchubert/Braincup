@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">수와 연산</string>
     <string name="learn_topic_geometry">기하</string>
     <string name="learn_topic_geometry_subtitle">각, 삼각형, 원</string>
+    <string name="learn_topic_measurement">측정</string>
+    <string name="learn_topic_measurement_subtitle">길이, 시간, 질량, 속력</string>
     <string name="learn_topic_algebra">대수</string>
     <string name="learn_topic_algebra_subtitle">식과 방정식</string>
 

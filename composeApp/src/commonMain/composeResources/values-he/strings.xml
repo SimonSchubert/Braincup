@@ -959,6 +959,8 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_topic_arithmetic_subtitle">מספרים ופעולות</string>
     <string name="learn_topic_geometry">גאומטריה</string>
     <string name="learn_topic_geometry_subtitle">זוויות, משולשים ומעגלים</string>
+    <string name="learn_topic_measurement">מדידה</string>
+    <string name="learn_topic_measurement_subtitle">אורך, זמן, מסה ומהירות</string>
     <string name="learn_topic_algebra">אלגברה</string>
     <string name="learn_topic_algebra_subtitle">ביטויים ומשוואות</string>
 

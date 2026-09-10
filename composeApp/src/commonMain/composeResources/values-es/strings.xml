@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">Números &amp; operaciones</string>
     <string name="learn_topic_geometry">Geometría</string>
     <string name="learn_topic_geometry_subtitle">Ángulos, triángulos &amp; círculos</string>
+    <string name="learn_topic_measurement">Medición</string>
+    <string name="learn_topic_measurement_subtitle">Longitud, tiempo, masa &amp; velocidad</string>
     <string name="learn_topic_algebra">Álgebra</string>
     <string name="learn_topic_algebra_subtitle">Expresiones &amp; ecuaciones</string>
     <string name="learn_unit_algebra_expressions_title">Expresiones y variables</string>

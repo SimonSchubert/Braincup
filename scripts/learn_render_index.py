@@ -23,9 +23,10 @@ RENDER = ROOT / "screenshotTests" / "build" / "learn-render"
 SPECIAL_ORDER = ["_section", "_figurephase"]
 
 FIGURE_FAMILIES = {
-    "AngleFigure", "AreaGrid", "ArrayDots", "BarChart", "CircleFigure", "CyclicQuad",
-    "DecimalGrid", "Fraction", "NumberLine", "PlaceValue", "Plot", "Polygon", "Quadrilateral",
-    "RatioBar", "RightTriangle", "Solid", "Steps", "Symmetry", "TenFrame", "Triangle",
+    "AngleFigure", "AreaGrid", "ArrayDots", "BarChart", "CircleFigure", "Clock", "Coins",
+    "CyclicQuad", "DecimalGrid", "Fraction", "Gauge", "NumberLine", "PlaceValue", "Plot",
+    "Polygon", "Quadrilateral", "RatioBar", "RightTriangle", "Ruler", "Solid", "Steps",
+    "Symmetry", "TenFrame", "Triangle",
 }
 
 
@@ -42,10 +43,12 @@ def group_of(folder: str) -> str:
         return "Arithmetic"
     if folder.startswith("geometry-"):
         return "Geometry"
+    if folder.startswith("measurement-"):
+        return "Measurement"
     return "Other"
 
 
-GROUP_ORDER = ["Section", "Arithmetic", "Geometry", "Algebra", "Themes", "Figures", "Other"]
+GROUP_ORDER = ["Section", "Arithmetic", "Geometry", "Measurement", "Algebra", "Themes", "Figures", "Other"]
 
 # Frame names are ordered so a sub-topic reads as a walkthrough; these turn the prefix into a
 # heading a human can scan.

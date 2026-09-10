@@ -15,6 +15,7 @@ import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.getPluralString
 import org.jetbrains.compose.resources.getString
 import org.jetbrains.compose.resources.getSystemResourceEnvironment
+import kotlin.math.abs
 import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
@@ -383,6 +384,62 @@ class LearnContentTextTest {
         val colored = formatMathSymbols(fractionSlash = true)
             .withFormulaColors(structure = STRUCTURE, roles = roles)
         return colored.spanStyles.map { colored.text.substring(it.start, it.end) to it.item.color }
+    }
+
+    /**
+     * A typed answer may not be a number the figure beside it already prints.
+     *
+     * The companion to [testFiguresDoNotDrawTheirOwnAnswer], and deliberately wider in one way and
+     * narrower in another: it covers **lesson** steps too, because `reveal` is not the whole of
+     * what a figure gives away, and it only looks at [LessonStep.Numeric], where the answer is a
+     * bare string that cannot be confused with prose.
+     *
+     * Two families print a value `reveal` does not gate, and both were got wrong while Measurement
+     * was being written. A number line's hop carries its own label, so "20 minutes past to 50
+     * minutes past, how long?" drawn as a hop of 30 printed the answer on the arc. A gauge numbers
+     * its marks, so "what does this scale read?" with the needle parked on a numbered mark printed
+     * the answer beside the needle. Both look hidden in the catalog, because both say
+     * `reveal = false`.
+     */
+    @Test
+    fun typedAnswersAreNotPrintedOnTheFigure() {
+        val offenders = LearnCatalog.allLessons.flatMap { lesson ->
+            lesson.steps.mapIndexedNotNull { index, step ->
+                val numeric = step as? LessonStep.Numeric ?: return@mapIndexedNotNull null
+                val visual = numeric.visual ?: return@mapIndexedNotNull null
+                if (numeric.answer in visual.printedValues()) {
+                    "${lesson.id} step $index: the figure prints ${numeric.answer}"
+                } else {
+                    null
+                }
+            }
+        }
+        assertTrue(offenders.isEmpty(), "figures printing their own answer:\n" + offenders.joinToString("\n"))
+    }
+
+    /**
+     * Numbers a figure draws on itself whatever `reveal` says: the hop labels of a number line and
+     * the numbered marks of a gauge. [readableValues] is about what a figure lets you *read off*;
+     * this is about what it spells out.
+     */
+    private fun LearnVisual.printedValues(): Set<String> = when (this) {
+        // How far the whole hop reaches, which is what a single arc is labelled with. The legs of
+        // a *multi*-hop line are deliberately not counted: bridging -7 + 12 through zero is +7
+        // then +5, and the second leg always lands on the answer because that is what bridging
+        // means. Forbidding that would forbid the method the figure exists to teach.
+        is LearnVisual.NumberLine -> {
+            val travel = if (hopSteps.isNotEmpty()) hopSteps.sum() else jump
+            if (travel == 0) emptySet() else setOf(abs(travel).toString())
+        }
+        // A gauge only gives its reading away when the needle parks on a *numbered* mark. The
+        // point of an unnumbered tick is that the learner has to work out what it is worth, which
+        // is the whole of what a scale-reading lesson teaches, and the rest of the numbers on the
+        // face are the scale rather than a claim about the value.
+        is LearnVisual.Gauge -> {
+            val onANumber = (0..ticks).any { isNumbered(it) && valueAt(it) == value }
+            if (onANumber) setOf(value.toString()) else emptySet()
+        }
+        else -> emptySet()
     }
 
     private fun LearnVisual.readableValues(): Set<String> = when (this) {

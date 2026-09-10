@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">Liczby &amp; działania</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kąty, trójkąty &amp; okręgi</string>
+    <string name="learn_topic_measurement">Miary</string>
+    <string name="learn_topic_measurement_subtitle">Długość, czas, masa &amp; prędkość</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Wyrażenia &amp; równania</string>
 

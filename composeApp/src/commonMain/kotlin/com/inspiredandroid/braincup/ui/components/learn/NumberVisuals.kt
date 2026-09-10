@@ -4,6 +4,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import com.inspiredandroid.braincup.learn.GaugeKind
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlin.math.PI
@@ -1242,13 +1243,17 @@ internal fun VisualScope.drawCoins(visual: LearnVisual.Coins) {
     if (values.isEmpty()) return
     val maxValue = values.max().toFloat()
     val baseRadius = minOf(width / (values.size * 2.6f), height * 0.24f)
+    // The running totals are a row of captions rather than one centred line, so the row of coins
+    // and the row of readings are laid out as one block. Pinned to fractions of the height they
+    // sat high on the panel whenever the step withheld the count, which is every question step.
+    val room = captionsUnder(if (visual.reveal) 1 else 0, baseRadius * 2f)
     var x = width / 2f - (values.size - 1) * baseRadius * 1.25f
     var running = 0
 
     values.forEachIndexed { index, value ->
         val radius = baseRadius * (0.62f + 0.38f * (value / maxValue))
         val alpha = item(index, values.size)
-        val center = Offset(x, height * 0.42f)
+        val center = Offset(x, room.centerY)
         circle(
             center = center,
             radius = radius,
@@ -1260,9 +1265,9 @@ internal fun VisualScope.drawCoins(visual: LearnVisual.Coins) {
         if (alpha > 0.5f && visual.reveal) {
             label(
                 text = running.toString() + visual.currency,
-                center = Offset(x, height * 0.78f),
+                center = Offset(x, room.y(0)),
                 color = Accent,
-                factor = 0.1f,
+                factor = CaptionFactor,
                 alpha = (alpha - 0.5f) * 2f,
             )
         }
@@ -1270,39 +1275,199 @@ internal fun VisualScope.drawCoins(visual: LearnVisual.Coins) {
     }
 }
 
+/** The size a ruler numbers its marks at. */
+private const val RulerMarkFactor = 0.085f
+
+/** Where the rule's body starts and stops, as a share of the canvas. */
+private const val RulerBodyLeft = 0.04f
+private const val RulerBodyRight = 0.96f
+
 /** A ruler with the object being measured growing along it from zero. */
 internal fun VisualScope.drawRuler(visual: LearnVisual.Ruler) {
     val span = visual.span.coerceAtLeast(1)
-    // A ruler reads from zero and takes narrower margins than the number line does.
-    val axis = valueAxis(from = 0, to = span, leftFraction = 0.08f, rightFraction = 0.92f)
-    val left = axis.left
-    val right = axis.right
-    val top = height * 0.46f
-    val rulerHeight = height * 0.3f
+    // The body overhangs its scale by about a unit at each end, the way a real rule does. With the
+    // scale running edge to edge the first and last numbers were printed over the outline they
+    // stood on. Capped, so a short scale does not spend half the figure on its margins.
+    val overhang = minOf((RulerBodyRight - RulerBodyLeft) / (span + 2f), 0.07f)
+    val axis = valueAxis(
+        from = 0,
+        to = span,
+        leftFraction = RulerBodyLeft + overhang,
+        rightFraction = RulerBodyRight - overhang,
+    )
     fun xOf(value: Float) = axis.xOf(value)
 
-    box(Offset(left, top), Size(right - left, rulerHeight), fill = null, outline = ink)
+    // The object, a gap and the rule are one block, centred together with the reading under them.
+    val barHeight = height * 0.16f
+    val rulerHeight = height * 0.3f
+    val shapeHeight = barHeight + labelGap + rulerHeight
+    val room = captionsUnder(if (visual.reveal) 1 else 0, shapeHeight)
+    val barTop = room.centerY - shapeHeight / 2f
+    val top = barTop + barHeight + labelGap
+
+    box(
+        topLeft = Offset(width * RulerBodyLeft, top),
+        size = Size(width * (RulerBodyRight - RulerBodyLeft), rulerHeight),
+        fill = null,
+        outline = ink,
+    )
     for (i in 0..span) {
         val x = xOf(i.toFloat())
         line(Offset(x, top), Offset(x, top + rulerHeight * 0.42f), ink, stroke * 0.7f)
-        label(i.toString(), Offset(x, top + rulerHeight * 0.72f), faint, 0.085f, bold = false)
+        label(i.toString(), Offset(x, top + rulerHeight * 0.72f), faint, RulerMarkFactor, bold = false)
     }
 
     // The measured object grows from zero, so the reading is the length, not the end position.
     val shown = visual.length * progress
     box(
-        topLeft = Offset(left, top - height * 0.24f),
-        size = Size(xOf(shown) - left, height * 0.16f),
+        topLeft = Offset(axis.left, barTop),
+        size = Size(xOf(shown) - axis.left, barHeight),
         fill = Accent.copy(alpha = 0.75f),
         outline = ink,
     )
     if (!visual.reveal) return
-    // The reading names the bar laid along the ruler, so it is written in that bar's colour.
+    // Under the rule, not on the bar. The reading names that bar so it takes the bar's colour, and
+    // the bar is filled in the same accent - which put orange lettering on an orange fill.
     label(
         text = "${visual.length} ${visual.unit}",
-        center = Offset(xOf(visual.length / 2f), top - height * 0.16f),
+        center = Offset(width / 2f, room.y(0)),
         color = Accent,
-        factor = 0.1f,
+        factor = CaptionFactor,
+        alpha = revealBeat,
+    )
+}
+
+/** The size a gauge sets its numbered marks at, small enough that ten of them do not collide. */
+private const val GaugeMarkFactor = 0.075f
+
+/**
+ * A jug filling to its level, or a dial whose needle swings round to a reading.
+ *
+ * Three beats, which is what a scale is actually read in: the empty instrument with its
+ * graduations, the quantity arriving, and only then the reading. A figure that arrived with the
+ * needle already parked says nothing about where the number came from.
+ */
+internal fun VisualScope.drawGauge(visual: LearnVisual.Gauge) {
+    val ticks = visual.ticks
+    val instrument = stage(0, 3)
+    val filling = stage(1, 3)
+    val lines = if (visual.reveal) 1 else 0
+    // A tick's number, or null when it is one of the unnumbered ones between them.
+    val markTexts = List(ticks + 1) { if (visual.isNumbered(it)) visual.valueAt(it).toString() else null }
+    // Every number measured, not just the last: "1000" is wider than "750" but a scale running
+    // 0, 2, 4, 6 is widest at its foot.
+    val numbered = markTexts.filterNotNull()
+
+    when (visual.kind) {
+        GaugeKind.JUG -> {
+            val markWidth = numbered.maxOf { labelBand(it, GaugeMarkFactor) }
+            val bodyHeight = height * 0.6f
+            val bodyWidth = bodyHeight * 0.66f
+            val room = captionsUnder(lines, bodyHeight)
+            // The marks are part of the drawing, so the block that gets centred is jug plus labels
+            // plus the handle standing off the far side.
+            val handle = bodyHeight * 0.2f
+            val left = (width - (markWidth + bodyWidth + handle)) / 2f + markWidth
+            val bottom = room.centerY + bodyHeight / 2f
+            val top = bottom - bodyHeight
+
+            // The level first, so the outline and its marks sit over the liquid rather than under.
+            val level = bodyHeight * visual.fraction * filling
+            if (level > 0f) {
+                box(
+                    topLeft = Offset(left, bottom - level),
+                    size = Size(bodyWidth, level),
+                    fill = Accent.copy(alpha = 0.35f),
+                    outline = null,
+                )
+            }
+            box(Offset(left, top), Size(bodyWidth, bodyHeight), fill = null, outline = ink, alpha = instrument)
+            arc(
+                center = Offset(left + bodyWidth, top + bodyHeight * 0.38f),
+                radius = handle,
+                startAngle = -70f,
+                sweepAngle = 140f,
+                outline = ink,
+                alpha = instrument,
+                width = stroke * 0.8f,
+            )
+            for (i in 0..ticks) {
+                // Placed by what the tick is worth, not by its index, so a scale whose step does
+                // not divide its top still draws every tick where that value really falls.
+                val y = bottom - bodyHeight * visual.valueAt(i) / visual.max
+                val text = markTexts[i]
+                // A numbered tick reaches further in, so the two kinds read apart at a glance.
+                val reach = if (text == null) 0.13f else 0.24f
+                line(Offset(left, y), Offset(left + bodyWidth * reach, y), ink, stroke * 0.7f, alpha = instrument)
+                if (text != null) {
+                    labelLeftOf(
+                        text = text,
+                        at = Offset(left, y),
+                        color = faint,
+                        factor = GaugeMarkFactor,
+                        alpha = instrument,
+                        bold = false,
+                    )
+                }
+            }
+            gaugeReading(visual, room)
+        }
+
+        GaugeKind.DIAL -> {
+            // The numbers stand outside the rim. Inside they collide twice over: a four-digit
+            // mark runs across the tick it belongs to, and the needle, which has to reach nearly
+            // to the rim to be read, is drawn straight through whichever number it is pointing at.
+            val markBand = labelBand(GaugeMarkFactor)
+            val radius = minOf((height * 0.66f - markBand * 2f) / 2f, width * 0.2f)
+            val room = captionsUnder(lines, radius * 2f + markBand * 2f)
+            val center = Offset(width / 2f, room.centerY)
+            circle(center, radius, outline = ink, alpha = instrument, width = stroke * 1.2f)
+            // Zero sits at the top and the scale runs clockwise, the way every kitchen dial does.
+            // The last mark would land back on zero, so it is not drawn twice.
+            for (i in 0 until ticks) {
+                val degrees = 90f - 360f * visual.valueAt(i) / visual.max
+                val rim = polar(center, radius, degrees)
+                val text = markTexts[i]
+                line(
+                    from = polar(center, radius * (if (text == null) 0.92f else 0.86f), degrees),
+                    to = rim,
+                    color = ink,
+                    width = stroke * 0.7f,
+                    alpha = instrument,
+                )
+                if (text != null) {
+                    labelOutside(
+                        text = text,
+                        at = rim,
+                        outward = unitAlong(center, rim),
+                        color = faint,
+                        factor = GaugeMarkFactor,
+                        alpha = instrument,
+                        bold = false,
+                    )
+                }
+            }
+            val swept = 90f - 360f * visual.fraction * filling
+            line(center, polar(center, radius * 0.82f, swept), Accent, stroke * 1.6f)
+            dot(center, stroke * 1.4f, ink)
+            gaugeReading(visual, room)
+        }
+    }
+}
+
+/**
+ * What the instrument is showing, written under it in the given colour.
+ *
+ * The reading is what the question hands over on a teaching step and what it is asking for on a
+ * question step, which is why it is behind `reveal` rather than always printed.
+ */
+private fun VisualScope.gaugeReading(visual: LearnVisual.Gauge, room: CaptionStrip) {
+    if (!visual.reveal) return
+    label(
+        text = "${visual.value} ${visual.unit}",
+        center = Offset(width / 2f, room.y(0)),
+        color = Accent,
+        factor = CaptionFactor,
         alpha = revealBeat,
     )
 }

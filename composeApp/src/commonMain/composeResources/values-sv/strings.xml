@@ -957,6 +957,8 @@
     <string name="learn_topic_arithmetic_subtitle">Tal &amp; räknesätt</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinklar, trianglar &amp; cirklar</string>
+    <string name="learn_topic_measurement">Mätning</string>
+    <string name="learn_topic_measurement_subtitle">Längd, tid, massa &amp; fart</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Uttryck &amp; ekvationer</string>
 

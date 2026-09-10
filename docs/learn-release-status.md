@@ -3,22 +3,23 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-09-01 (Algebra being unparked; see section 10)
+Last updated: 2026-09-10 (Measurement authored from scratch; see section 11)
 
 ---
 
 ## 1. Release scope
 
-The first release shipped **two topics**: Arithmetic and Geometry. **Algebra is being unparked
-on top of that** (section 10); the other five stay parked.
+The first release shipped **two topics**: Arithmetic and Geometry. **Algebra was unparked on top
+of that** (section 10) and **Measurement was written from scratch** (section 11); the other four
+stay parked.
 
 | Topic | v1 | Sub-topics | State |
 |---|---|---|---|
 | Arithmetic | **ships** | 10 | all ready bar the render check |
 | Geometry | **ships** | 12 | all ready bar the render check |
-| Measurement | parked | 0 | perimeter + area moved into Geometry, rest cut |
+| Measurement | **ships** | 6 | authored 2026-09-10, section 11 |
 | Data & Probability | parked | 3 | grade slices |
-| Algebra | **shipping** | 7 | unparking in progress, section 10 |
+| Algebra | **ships** | 7 | unparked 2026-09-01, section 10 |
 | Trigonometry | parked | 2 | grade slices |
 | Pre-calculus | parked | 2 | grade slices |
 | Calculus | parked | 1 | grade slices |
@@ -30,7 +31,8 @@ Decisions taken (2026-08-26):
   `LearnVisual` or `LessonStep` change will need porting when a topic is unparked.
 * **Perimeter and area move from Measurement into Geometry.** Without them v1 would jump
   from naming shapes straight to Pythagoras, and area is what a learner meets next.
-  Length, time, money and metric units stay parked.
+  Length, time, money and metric units stayed parked, and were **not** unparked later:
+  Measurement was rewritten from nothing on 2026-09-10 rather than restored (section 11).
 * **Geometry splits into real sub-topics**, one coherent subject per unit, the way Algebra
   reads. It does not stay as four grade slices with three unrelated lessons each.
 * Algebra is fully reworked and is parked regardless. It is the reference for what a
@@ -657,6 +659,73 @@ left to right, the reverse of the order the prose works them in. The animation p
 and the arrowheads now say which way each one goes; numbering the hops on top of that is more
 furniture than the figure can carry.
 
+### The correctness audit (2026-09-10)
+
+Every one of the 144 answerable items was extracted fully resolved - prompt, options with the
+correct one marked, typed answer, explanation and figure - and read by hand, the way section 4
+note 6 did for the first two topics. The arithmetic was auto-verified as well: 16 typed-answer
+formulas, 9 multiple-choice formulas and 8 stated results all re-derived and correct. No wrong
+answer, no implausible distractor and no false statement came out of it.
+
+**What it did find was six figures giving their own answer away**, five of them in a way `reveal`
+cannot stop, which is the finding worth keeping:
+
+| What | Where | Fix |
+|---|---|---|
+| **A number line's hop carries its own label whatever `reveal` says.** `reveal` gates the green landing dot, not the arc. So a "how big is the gap" question drawn as a hop of 30 printed "+30" over the gap it was asking for. | `measurement-time-how-long` s3, `measurement-money-change` s5 and s6 | Both ends marked with `start` and `compare`, no hop between them. The Concept and Worked steps before them still draw the hops, which is where the method is taught. |
+| **A gauge numbers its marks, so a needle parked on one prints the reading.** Four "what does this scale read?" questions had the value on a numbered mark. | `measurement-mass-scales` s5, `measurement-capacity-jugs` s5, and the `mass-and-capacity` test q1 and q2 | `Gauge` gained `minorStep`, an unnumbered tick between the numbers, and every such reading moved onto one. |
+| The same, for the two "0.25 l / 0.75 l" questions, whose jug was numbered in quarters. | `measurement-metric-decimals` s5, `metric-units` test q3 | Numbers at 0, 500 and 1000 only, quarters as ticks. |
+| A "which is faster" figure marked **both** 30 km/h and the converted 36, which is the whole of the working. | `measurement-speed-units` s5, `speed` test q5 | Only the speed already in km/h; the learner places the other. |
+| A worked example counted up in **two** hops (+5, then +10) over a figure drawing **three** equal hops of 5. | `measurement-money-change` s1 and s2 | `hopSteps = listOf(5, 10)`. |
+| A clock at exactly 8 o'clock illustrated a body about the short hand *creeping on between* the numbers. | `measurement-time-clock` s2 | 8:20. |
+
+Numbering every mark also made the unit's own premise false: "work out what one step between the
+numbers is worth" had nothing to work out. With `minorStep` the dial and the jug now read like real
+instruments, and the lesson is about something.
+
+**A new guard holds all of it**: `LearnContentTextTest.typedAnswersAreNotPrintedOnTheFigure`. It is
+deliberately wider than `testFiguresDoNotDrawTheirOwnAnswer` in covering lesson steps, and narrower
+in only looking at `LessonStep.Numeric`, where the answer is a bare string. It counts a number line's
+**total** travel and not its individual legs, because bridging -7 + 12 through zero is +7 then +5 and
+the second leg always lands on the answer - that is what bridging means, and forbidding it would
+forbid the method. For a gauge it counts the reading only when the needle is on a numbered mark.
+
+It found **one pre-existing instance of the same defect** outside this change:
+`g68-arithmetic-negatives` step 6 asked `-2 - (-18) = ?` over a single hop labelled "+16". Fixed the
+same way, and called out here because it is the one edit this work makes to shipped Arithmetic
+content.
+
+### Legibility fixes on the two revived figures
+
+Found by reading the rendered frames rather than by any test, and both in figures that had been
+dead code since Measurement was parked:
+
+| What | Fix |
+|---|---|
+| **A ruler wrote its reading on the bar it was measuring.** The bar is filled in the accent and the reading is written in the accent, so it was orange lettering on an orange fill, worst in the dark theme. | The reading moved under the rule, into a proper caption strip, and the whole block - object, rule, caption - is centred through `captionsUnder` like every other family. |
+| **A ruler's scale ran edge to edge of its own body**, so the first and last numbers printed over the outline they stood on. | The body overhangs the scale by about a unit at each end, the way a real rule does, capped so a short scale does not spend half the figure on margins. |
+| **A compared value that could not fit the number row stacked into a second row underneath.** That pushed one of the two values being compared a row away from its own tick, where it read as a footnote, and left it crowding the plain numbering it had displaced. | A value that cannot have the ordinary row now steps **above** the line. Values landing on a numbered tick are placed first, so the number a reader expects to find in the row below keeps it. |
+| **A compared value between two ticks claimed no space at all**, because the collision test was built from the ticks a called-out value fell on and those values fall on none. Four values compared on one line printed straight through the 800, 1000 and 1200 they stood among. | The test is built from the compared values themselves, so the plain numbering gives way to them the way it already gave way to a start and a landing. |
+
+### The decimal separator (2026-09-11)
+
+Found on a real device with the app set to German: every number in the section printed a decimal
+point, so a German learner read `0.35 = 3 Zehntel + 5 Hundertstel`. It was section-wide and had
+been shipping since v1, and `check_localizations.py` was actively enforcing it, because
+`changed_numbers` compared the matched strings and a translator writing `0,35` failed the check.
+
+Content stays authored with a point; the swap happens at the four render seams the whole section
+funnels through, driven by `decimalSeparatorFor(language)` in `locale/AppLocale.kt`. The seams are
+`LearnText` (all three branches; the prose branch does not go through `formatMathSymbols`, which is
+the one easy to miss), `LearnFormulaCard`, `LearnAnswerCard` and `VisualScope.annotate` for the
+figure captions. `MathText` takes the separator as a parameter defaulting to a point, so the
+mini-games are deliberately untouched: they parse typed numeric input and have not been audited.
+
+`formatDecimal` stays canonical, because `LearnVisual.roles()` reads it as well as the drawing does;
+`FigureRoles.roleOf` canonicalises the run it is handed instead, so the colour code still matches in
+a comma language. `DecimalSeparatorTest` covers all of it, and `numbers_in` in the localization
+check now compares numbers rather than spellings of them.
+
 ### Known and left alone
 
 | What | Where | Note |
@@ -793,3 +862,80 @@ filling them. Game Center takes its icons through the script. Points go 670 of 1
 Three shapes were drawn and thrown away before the set worked, all for the same reason - one
 closed outline cannot hold two separate rings: a bracket *pair* came out as an annulus, nested
 squares as a spiral, and a level beam on a fulcrum rendered as the same tilted T as `BALANCE`.
+
+
+---
+
+## 11. Measurement, written from scratch (2026-09-10)
+
+Measurement is the fourth shipping topic. It was **not** unparked: the frozen branch held two
+grade-slice units whose best third - perimeter and area - had already been moved into Geometry, so
+what was left was one compound unit of length/time/money and a metric-units lesson. Rewriting to
+the topic-first shape in section 3 was less work than porting that forward, and the parked file
+stays where it is.
+
+### The ladder
+
+| # | Unit id | Title | Level | Lessons | Test |
+|---|---|---|---|---|---|
+| 1 | `measurement-length` | Measuring length | g12 | 3 | 6 |
+| 2 | `measurement-time` | Telling the time | g12 | 3 | 6 |
+| 3 | `measurement-money` | Money and change | g12 | 3 | 6 |
+| 4 | `measurement-mass-and-capacity` | Mass and capacity | g35 | 3 | 6 |
+| 5 | `measurement-metric-units` | Metric units | g35 | 3 | 6 |
+| 6 | `measurement-speed` | Speed, distance and time | g68 | 3 | 6 |
+
+108 steps and 36 test questions, every one of them with a figure, so the ratchet in
+`LearnCatalogTest` is untouched at 14. Perimeter and area stay in Geometry; the topic is about
+reading a quantity off an instrument, which is a different subject from a property of a shape.
+
+### One new figure, and three brought back into use
+
+`LearnVisual.Gauge` is new: a jug filling to a level (`GaugeKind.JUG`) or a dial with a needle
+(`GaugeKind.DIAL`). Mass and capacity had no drawing anywhere in the library, and what they are
+actually taught with is a scale whose marks are **not** worth one unit each - so the figure has to
+draw the graduation, which is why `Ruler` could not be borrowed: it lays an object along a scale
+from zero and reads how far the object reaches.
+
+`Ruler`, `Clock` and `Coins` were dead code from the moment Measurement was parked. They still
+drew, and they are back in use unchanged apart from one layout fix (below).
+
+### Defects found by the render check, and fixed
+
+Item 9 was done for this topic as it was written, through
+`./gradlew :screenshotTests:renderLearnScreens -PlearnOnly='LearnFigureRenderTest'` and then
+`-PlearnOnly='LearnUnitRenderTest.*[measurement-*]'`.
+
+| What | Where | Fix |
+|---|---|---|
+| The dial's needle was drawn straight through whichever number it was pointing at, and a four-digit mark ran across its own tick. | `drawGauge` | The numbers moved outside the rim, where `labelOutside` places them radially. |
+| `drawCoins` pinned its coins to `height * 0.42` and its running totals to `0.78`, so a question step - which withholds the totals - left the bottom third of the panel empty and the coins sitting high. | `drawCoins` | Laid out through `captionsUnder`, like every other family. |
+| A rate question ("300 km in 4 hours, what speed?") was drawn as `RatioBar(parts = listOf(1, 1, 1, 1))`. That comes out as four runs in three different colours, each captioned "1", which reads as a ratio between four things rather than as one journey cut into four equal hours. | `measurement-speed` x3 | `RatioBar(parts = listOf(4))`: one run, one colour, `reveal = false`. |
+
+### Known and left alone
+
+**Figure captions are set in the display face, which has only capitals**, so the ruler captions
+itself "6 CM" and the jug "600 ML". That is the shipped style for every figure caption in the
+section - Geometry has been printing "PERIMETER = 20 CM" since v1 - and the test review card sets
+its answers the same way, so "20 m/s" reads back as "20 M/S". It is worth a decision at some point,
+because a unit symbol is the one kind of caption where case carries meaning (ML is megalitres), but
+it is a section-wide typography choice rather than a Measurement defect and it is not changed here.
+
+### Store achievements: six certificates, console work outstanding
+
+The six unit ids are registered in `LearnStoreAchievements.certifiedUnitIds`, so
+`LearnStoreAchievementsTest` passes, and the icons are generated
+(`media/achievements/png/81..86_learn_measurement_*.png`, prefixes resuming after the Rule Shift
+medal at 80). **Nothing has been created on either store.** `learnCertificateResIdFor` in
+`PlayGamesAchievements.kt` returns null for an unknown unit id, so Play Games is a silent no-op;
+Game Center derives its id and will report one the store does not know. That is the same state
+Algebra's seven were in when they were authored. Creating them needs
+`scripts/store_achievements.rb` run against live credentials, which is a decision for a release, not
+for an authoring session.
+
+### Guides
+
+Measurement reads the **rules guide**, which gained a `units` section for it: the ten conversion
+facts (mm/cm/m/km, g/kg, ml/l, s/min/h/day) plus the speed relationship. That is the one table a
+learner mid-conversion actually wants to look up, and it is why the topic did not need a guide of
+its own.

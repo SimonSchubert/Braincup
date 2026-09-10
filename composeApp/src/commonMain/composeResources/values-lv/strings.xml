@@ -959,6 +959,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Skaitļi un darbības</string>
     <string name="learn_topic_geometry">Ģeometrija</string>
     <string name="learn_topic_geometry_subtitle">Leņķi, trijstūri un riņķi</string>
+    <string name="learn_topic_measurement">Mērīšana</string>
+    <string name="learn_topic_measurement_subtitle">Garums, laiks, masa un ātrums</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Izteiksmes un vienādojumi</string>
 

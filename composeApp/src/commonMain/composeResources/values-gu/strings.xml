@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">સંખ્યા &amp; ક્રિયાઓ</string>
     <string name="learn_topic_geometry">ભૂમિતિ</string>
     <string name="learn_topic_geometry_subtitle">ખૂણા, ત્રિકોણ &amp; વર્તુળ</string>
+    <string name="learn_topic_measurement">માપન</string>
+    <string name="learn_topic_measurement_subtitle">લંબાઈ, સમય, દળ &amp; ઝડપ</string>
     <string name="learn_topic_algebra">બીજગણિત</string>
     <string name="learn_topic_algebra_subtitle">પદાવલિ &amp; સમીકરણ</string>
 

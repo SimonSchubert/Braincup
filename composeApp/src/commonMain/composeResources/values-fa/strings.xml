@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">اعداد &amp; عملیات</string>
     <string name="learn_topic_geometry">هندسه</string>
     <string name="learn_topic_geometry_subtitle">زاویه‌ها، مثلث‌ها &amp; دایره‌ها</string>
+    <string name="learn_topic_measurement">اندازه‌گیری</string>
+    <string name="learn_topic_measurement_subtitle">طول، زمان، جرم &amp; سرعت</string>
     <string name="learn_topic_algebra">جبر</string>
     <string name="learn_topic_algebra_subtitle">عبارت‌ها &amp; معادله‌ها</string>
 

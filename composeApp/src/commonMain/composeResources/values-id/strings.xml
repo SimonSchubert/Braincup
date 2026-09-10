@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Sudut, segitiga &amp; lingkaran</string>
+    <string name="learn_topic_measurement">Pengukuran</string>
+    <string name="learn_topic_measurement_subtitle">Panjang, waktu, massa &amp; kecepatan</string>
     <string name="learn_topic_algebra">Aljabar</string>
     <string name="learn_topic_algebra_subtitle">Bentuk aljabar &amp; persamaan</string>
 

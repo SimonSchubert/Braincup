@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.ui.components.learn
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -7,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -42,6 +44,7 @@ internal fun TopicTilePreview(topic: MathTopic) {
     when (topic) {
         MathTopic.ARITHMETIC -> OperatorGridPreview()
         MathTopic.GEOMETRY -> PentagonPreview()
+        MathTopic.MEASUREMENT -> RulerPreview()
         MathTopic.ALGEBRA -> UnknownSlotPreview()
     }
 }
@@ -144,6 +147,40 @@ private fun UnknownSlotPreview() {
                 style = MaterialTheme.typography.displaySmall,
                 color = Color.White,
             )
+        }
+    }
+}
+
+/** How many marks the ruler sketch carries. Five reads as a scale; more turns into a comb. */
+private const val RulerTicks = 5
+
+/**
+ * A rule with its marks, for the topic whose whole subject is reading one.
+ *
+ * Alternating long and short marks rather than five of a length: what makes a scale a scale is
+ * that some of its marks are counted and the ones between them are not.
+ */
+@Composable
+private fun RulerPreview() {
+    PreviewBox {
+        PrismCard(
+            face = Primary,
+            facet = PrismFacet.Cell,
+            modifier = Modifier.fillMaxWidth().aspectRatio(2.6f),
+        ) {
+            Canvas(modifier = Modifier.fillMaxSize()) {
+                val gap = size.width / (RulerTicks + 1)
+                repeat(RulerTicks) { index ->
+                    val x = gap * (index + 1)
+                    val length = if (index % 2 == 0) size.height * 0.55f else size.height * 0.32f
+                    drawLine(
+                        color = Color.White,
+                        start = Offset(x, 0f),
+                        end = Offset(x, length),
+                        strokeWidth = size.height * 0.1f,
+                    )
+                }
+            }
         }
     }
 }

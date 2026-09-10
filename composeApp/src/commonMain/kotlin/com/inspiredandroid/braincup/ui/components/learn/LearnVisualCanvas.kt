@@ -881,6 +881,7 @@ private fun VisualScope.draw(visual: LearnVisual) {
         is LearnVisual.Coins -> drawCoins(visual)
         is LearnVisual.Ruler -> drawRuler(visual)
         is LearnVisual.Clock -> drawClock(visual)
+        is LearnVisual.Gauge -> drawGauge(visual)
         is LearnVisual.Steps -> drawSteps(visual)
         is LearnVisual.Polygon -> drawPolygon(visual)
         is LearnVisual.Triangle -> drawTriangle(visual)

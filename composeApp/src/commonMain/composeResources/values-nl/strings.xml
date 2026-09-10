@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">Getallen &amp; bewerkingen</string>
     <string name="learn_topic_geometry">Meetkunde</string>
     <string name="learn_topic_geometry_subtitle">Hoeken, driehoeken &amp; cirkels</string>
+    <string name="learn_topic_measurement">Meten</string>
+    <string name="learn_topic_measurement_subtitle">Lengte, tijd, massa &amp; snelheid</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Uitdrukkingen &amp; vergelijkingen</string>
     <string name="learn_unit_algebra_expressions_title">Uitdrukkingen en variabelen</string>

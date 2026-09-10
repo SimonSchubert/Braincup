@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">സംഖ്യ &amp; ക്രിയകൾ</string>
     <string name="learn_topic_geometry">ജ്യാമിതി</string>
     <string name="learn_topic_geometry_subtitle">കോണുകൾ, ത്രികോണങ്ങൾ &amp; വൃത്തങ്ങൾ</string>
+    <string name="learn_topic_measurement">അളവ്</string>
+    <string name="learn_topic_measurement_subtitle">നീളം, സമയം, പിണ്ഡം &amp; വേഗത</string>
     <string name="learn_topic_algebra">ബീജഗണിതം</string>
     <string name="learn_topic_algebra_subtitle">വ്യഞ്ജകങ്ങൾ &amp; സമവാക്യങ്ങൾ</string>
 

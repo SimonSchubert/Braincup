@@ -131,6 +131,9 @@ class LearnCatalogTest {
         is LearnVisual.Counters, is LearnVisual.TenFrame, is LearnVisual.NumberLine,
         is LearnVisual.PlaceValue, is LearnVisual.DecimalGrid,
         is LearnVisual.Coins, is LearnVisual.Ruler, is LearnVisual.Polygon, is LearnVisual.Solid,
+        // A gauge writes the reading it is showing, which is exactly what a "how much is in the
+        // jug" question is asking for.
+        is LearnVisual.Gauge,
         is LearnVisual.Symmetry, is LearnVisual.CircleFigure,
         is LearnVisual.AngleFigure, is LearnVisual.BarChart, is LearnVisual.PieChart,
         is LearnVisual.Pictogram, is LearnVisual.Tally, is LearnVisual.UnitCircleFigure,

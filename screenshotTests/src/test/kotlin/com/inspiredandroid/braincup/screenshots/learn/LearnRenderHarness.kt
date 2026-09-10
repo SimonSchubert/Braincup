@@ -48,7 +48,10 @@ val LearnPhone: DeviceConfig = DeviceConfig.PIXEL_9A.copy(softButtons = false)
  */
 const val LearnTallPx: Int = 7_000
 
-const val LearnGuidePx: Int = 13_000
+// 13,000 held the rules guide until Measurement gave it a tenth section of ten conversion facts,
+// which pushed the last two sections off the bottom of the frame - silently, because the harness
+// simply renders a viewport and the guide scrolls inside the app either way.
+const val LearnGuidePx: Int = 21_000
 
 /**
  * A viewport the width of the phone but only deep enough for one figure panel.

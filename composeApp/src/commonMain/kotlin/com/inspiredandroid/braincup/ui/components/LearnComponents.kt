@@ -94,7 +94,7 @@ fun LearnGuideButton(
             ShapeGuideGlyphs(modifier = Modifier.height(GuideGlyphHeight))
         }
 
-        MathTopic.ARITHMETIC, MathTopic.ALGEBRA -> GuideButton(
+        MathTopic.ARITHMETIC, MathTopic.ALGEBRA, MathTopic.MEASUREMENT -> GuideButton(
             label = stringResource(Res.string.learn_rules_guide_title),
             onClick = onClick,
             modifier = modifier,

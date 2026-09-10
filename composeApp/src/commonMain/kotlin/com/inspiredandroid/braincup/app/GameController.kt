@@ -366,7 +366,9 @@ class GameController(
                 MathTopic.GEOMETRY -> LearnShapeGuide
                 // Algebra reads the same rules guide: it is written in letters already -
                 // a + b = b + a, a x (b + c) = a x b + a x c - so it is the algebra reference too.
-                MathTopic.ARITHMETIC, MathTopic.ALGEBRA -> LearnRulesGuide
+                // Measurement reads it for its units section, which is the one table a learner
+                // mid-conversion actually wants to look up.
+                MathTopic.ARITHMETIC, MathTopic.ALGEBRA, MathTopic.MEASUREMENT -> LearnRulesGuide
             },
         )
     }

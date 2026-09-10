@@ -306,7 +306,82 @@ object RulesGuide {
         ),
     )
 
-    val sections: List<GuideSection<Entry>> = listOf(signs, order, zeroAndOne, rearranging, fractions, decimals, powers, rounding)
+    /**
+     * The conversion facts, which are the one table a learner mid-conversion actually wants to
+     * look up. They are the reason Measurement reads this guide rather than the shape guide: the
+     * sub-topics teach each ladder where it comes up, which is no help to someone who only needs
+     * to check which way round grams and kilograms go.
+     */
+    private val units = GuideSection(
+        id = "units",
+        title = Res.string.learn_rulesguide_units_title,
+        blurb = Res.string.learn_rulesguide_units_blurb,
+        entries = listOf(
+            Entry(
+                id = "mm-cm",
+                rule = math("10 mm = 1 cm"),
+                meaning = Res.string.learn_rule_mm_cm_meaning,
+                example = math("35 mm = 3.5 cm"),
+            ),
+            Entry(
+                id = "cm-m",
+                rule = math("100 cm = 1 m"),
+                meaning = Res.string.learn_rule_cm_m_meaning,
+                example = math("2.4 m = 240 cm"),
+            ),
+            Entry(
+                id = "m-km",
+                rule = math("1000 m = 1 km"),
+                meaning = Res.string.learn_rule_m_km_meaning,
+                example = math("1500 m = 1.5 km"),
+            ),
+            Entry(
+                id = "g-kg",
+                rule = math("1000 g = 1 kg"),
+                meaning = Res.string.learn_rule_g_kg_meaning,
+                example = math("250 g = 0.25 kg"),
+            ),
+            Entry(
+                id = "ml-litre",
+                rule = math("1000 ml = 1 l"),
+                meaning = Res.string.learn_rule_ml_litre_meaning,
+                example = math("1.5 l = 1500 ml"),
+            ),
+            Entry(
+                id = "which-way",
+                rule = words(Res.string.learn_rule_which_way_rule),
+                meaning = Res.string.learn_rule_which_way_meaning,
+                example = math("3 m = 300 cm"),
+            ),
+            Entry(
+                id = "seconds-minute",
+                rule = math("60 s = 1 min"),
+                meaning = Res.string.learn_rule_seconds_minute_meaning,
+                example = math("90 s = 1.5 min"),
+            ),
+            Entry(
+                id = "minutes-hour",
+                rule = math("60 min = 1 h"),
+                meaning = Res.string.learn_rule_minutes_hour_meaning,
+                example = math("2 h = 120 min"),
+            ),
+            Entry(
+                id = "hours-day",
+                rule = math("24 h = 1 day"),
+                meaning = Res.string.learn_rule_hours_day_meaning,
+                example = math("36 h = 1.5 days"),
+            ),
+            Entry(
+                id = "speed",
+                rule = words(Res.string.learn_rule_speed_rule),
+                meaning = Res.string.learn_rule_speed_meaning,
+                example = math("120 km / 2 h = 60 km/h"),
+            ),
+        ),
+    )
+
+    val sections: List<GuideSection<Entry>> =
+        listOf(signs, order, zeroAndOne, rearranging, fractions, decimals, powers, rounding, units)
 
     val ruleCount: Int = sections.sumOf { it.entries.size }
 }

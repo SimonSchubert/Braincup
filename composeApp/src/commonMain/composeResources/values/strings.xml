@@ -2814,4 +2814,351 @@
     <string name="learn_shared_where_lines_cross">Where do these two lines cross?</string>
     <string name="learn_shared_which_equation_scale">Which equation does this scale show?</string>
     <string name="learn_shared_which_inequality_line">Which inequality does this line show?</string>
+
+    <!-- Measurement -->
+    <string name="learn_topic_measurement">Measurement</string>
+    <string name="learn_topic_measurement_subtitle">Length, time, mass &amp; speed</string>
+
+    <!-- Measurement: measuring length -->
+    <string name="learn_unit_measurement_length_title">Measuring length</string>
+    <string name="learn_unit_measurement_length_summary">Reading a ruler from zero, and the units a length is counted in.</string>
+
+    <string name="learn_measurement_length_ruler_title">Reading a ruler</string>
+    <string name="learn_measurement_length_ruler_summary">Start at zero and read the far end.</string>
+    <string name="learn_measurement_length_ruler_s1_body">A ruler is marked in equal steps, so a length is never more than a count of how many of those steps the object covers.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Line the object up with 0 and read the mark its far end reaches. Start it anywhere else and the reading is short by whatever you skipped.</string>
+    <string name="learn_measurement_length_ruler_s3_question">How long is this pencil?</string>
+    <string name="learn_measurement_length_ruler_s3_explanation">Its far end reaches the ninth mark, counted from zero.</string>
+    <string name="learn_measurement_length_ruler_s4_question">This stick is measured, then a 4 cm piece is sawn off. How many centimetres are left?</string>
+    <string name="learn_measurement_length_ruler_s4_explanation">Sawing a piece off takes it away, so the stick loses four of its twelve centimetres.</string>
+    <string name="learn_measurement_length_ruler_s5_body">Between the numbered marks sit smaller ones. Ten of those millimetres fill a single centimetre, which is why a ruler looks so busy.</string>
+    <string name="learn_measurement_length_ruler_s6_question">How many millimetres long is a line of 3 cm?</string>
+    <string name="learn_measurement_length_ruler_s6_explanation">Every centimetre holds ten millimetres, so three centimetres hold three tens.</string>
+
+    <string name="learn_measurement_length_units_title">Millimetres to kilometres</string>
+    <string name="learn_measurement_length_units_summary">Bigger lengths need bigger units.</string>
+    <string name="learn_measurement_length_units_s1_body">Length units climb by tens: ten millimetres make a centimetre, a hundred centimetres make a metre, a thousand metres make a kilometre.</string>
+    <string name="learn_measurement_length_units_s2_body">A smaller unit takes more of them to cover the same length, so stepping down the ladder multiplies.</string>
+    <string name="learn_measurement_length_units_s3_question">A ribbon is 3 m long. How many centimetres is that?</string>
+    <string name="learn_measurement_length_units_s3_explanation">One metre is a hundred centimetres, so three metres are three of those hundreds.</string>
+    <string name="learn_measurement_length_units_s4_body">Going the other way divides. A thousand metres gather up into one kilometre, which is why a road sign never counts in metres.</string>
+    <string name="learn_measurement_length_units_s5_question">A road sign says 2 km to the next town. How many metres is that?</string>
+    <string name="learn_measurement_length_units_s5_explanation">Every kilometre is a thousand metres, so two of them are two thousand.</string>
+    <string name="learn_measurement_length_units_s6_question">Which unit fits the distance between two towns?</string>
+    <string name="learn_measurement_length_units_s6_explanation">Towns stand thousands of metres apart, and gathering those up is what a kilometre is for.</string>
+
+    <string name="learn_measurement_length_comparing_title">Comparing lengths</string>
+    <string name="learn_measurement_length_comparing_summary">Same unit first, then compare.</string>
+    <string name="learn_measurement_length_comparing_s1_body">Two lengths cannot be compared until they are counted in the same unit. 90 cm and 1 m look nothing alike until the metre is written as 100 cm.</string>
+    <string name="learn_measurement_length_comparing_s2_explanation">One metre is 100 cm, and a hundred beats ninety once both are counted the same way.</string>
+    <string name="learn_measurement_length_comparing_s3_question">A blue ribbon is 45 cm and a red one is 30 cm. How many centimetres longer is the blue one?</string>
+    <string name="learn_measurement_length_comparing_s3_explanation">The difference is how much further the blue one reaches, so take the shorter length off it.</string>
+    <string name="learn_measurement_length_comparing_s4_body">Laid end to end, lengths add the way plain numbers do.</string>
+    <string name="learn_measurement_length_comparing_s5_question">Two sticks, 30 cm and 25 cm, are laid end to end. How long are they together?</string>
+    <string name="learn_measurement_length_comparing_s5_explanation">End to end, the second stick starts where the first stops, so the two lengths add.</string>
+    <string name="learn_measurement_length_comparing_s6_question">A 1 m plank has 35 cm sawn off. How many centimetres are left?</string>
+    <string name="learn_measurement_length_comparing_s6_explanation">The metre has to be written as 100 cm before anything can be taken off it.</string>
+
+    <string name="learn_unit_measurement_length_q1_prompt">How long is this pen?</string>
+    <string name="learn_unit_measurement_length_q1_explanation">Read the mark the far end reaches, counting from zero.</string>
+    <string name="learn_unit_measurement_length_q2_prompt">How many millimetres are in 5 cm?</string>
+    <string name="learn_unit_measurement_length_q2_explanation">Ten millimetres fit inside every centimetre, so five centimetres hold five tens.</string>
+    <string name="learn_unit_measurement_length_q3_prompt">Which unit fits the height of a door?</string>
+    <string name="learn_unit_measurement_length_q3_explanation">A door stands about two metres; in centimetres the reading would run into hundreds.</string>
+    <string name="learn_unit_measurement_length_q4_prompt">Which of these is the same length as 250 cm?</string>
+    <string name="learn_unit_measurement_length_q4_explanation">A hundred centimetres to the metre, so 250 of them are two and a half.</string>
+    <string name="learn_unit_measurement_length_q5_explanation">One metre comes to 100 cm, and eighty falls short of that.</string>
+    <string name="learn_unit_measurement_length_q6_explanation">The number is the same in all four, so the unit decides, and the kilometre is the biggest.</string>
+
+    <!-- Measurement: telling the time -->
+    <string name="learn_unit_measurement_time_title">Telling the time</string>
+    <string name="learn_unit_measurement_time_summary">Both hands on a clock face, and how long things take.</string>
+
+    <string name="learn_measurement_time_clock_title">The two hands</string>
+    <string name="learn_measurement_time_clock_summary">Short hand hours, long hand minutes.</string>
+    <string name="learn_measurement_time_clock_s1_body">A clock carries two hands. The short one points at the hour, and the long one counts the minutes gone by since it.</string>
+    <string name="learn_measurement_time_clock_s2_body">The long hand takes a whole turn to cover one hour, and the short hand creeps on to the next number while it does.</string>
+    <string name="learn_measurement_time_clock_s3_explanation">The long hand is standing straight up, so no minutes have gone by yet.</string>
+    <string name="learn_measurement_time_clock_s4_body">Half a turn of the long hand is thirty minutes, which is what half past means.</string>
+    <string name="learn_measurement_time_clock_s5_explanation">The long hand points straight down, half a turn on from the top.</string>
+    <string name="learn_measurement_time_clock_s6_question">How many minutes does the long hand take to go all the way round?</string>
+    <string name="learn_measurement_time_clock_s6_explanation">One whole turn of the long hand is one hour, and an hour is sixty minutes.</string>
+
+    <string name="learn_measurement_time_quarters_title">Quarter past and quarter to</string>
+    <string name="learn_measurement_time_quarters_summary">The long hand's four resting places.</string>
+    <string name="learn_measurement_time_quarters_s1_body">A quarter turn of the long hand is fifteen minutes, and it lands on the 3.</string>
+    <string name="learn_measurement_time_quarters_s2_body">Three quarters round, the long hand sits on the 9. Counting the quarter still to come is easier than counting the three gone by, so this reading is called quarter to, and it takes the name of the hour ahead.</string>
+    <string name="learn_measurement_time_quarters_s3_explanation">The long hand has gone a quarter of the way round, so it is fifteen minutes past.</string>
+    <string name="learn_measurement_time_quarters_s4_body">Each quarter of the face is fifteen minutes, so the four of them add up to the sixty in an hour.</string>
+    <string name="learn_measurement_time_quarters_s5_explanation">The hand is a quarter short of the top, so it names the hour ahead, not the one behind.</string>
+    <string name="learn_measurement_time_quarters_s6_question">How many minutes are in a quarter of an hour?</string>
+    <string name="learn_measurement_time_quarters_s6_explanation">Sixty minutes shared into four equal quarters.</string>
+
+    <string name="learn_measurement_time_how_long_title">How long is that?</string>
+    <string name="learn_measurement_time_how_long_summary">Seconds into minutes, minutes into hours.</string>
+    <string name="learn_measurement_time_how_long_s1_body">Time does not climb by tens. Sixty seconds make a minute, sixty minutes make an hour, and twenty-four hours make a day.</string>
+    <string name="learn_measurement_time_how_long_s2_body">How long something takes is counted on rather than taken away. A hand travelling from 10 minutes past to 45 minutes past covers 35 of them.</string>
+    <string name="learn_measurement_time_how_long_s3_question">A film starts at 20 minutes past and ends at 50 minutes past. How many minutes long is it?</string>
+    <string name="learn_measurement_time_how_long_s3_explanation">Counting on from twenty to fifty is the stretch the film fills.</string>
+    <string name="learn_measurement_time_how_long_s4_body">Turning a big unit into a small one multiplies: two hours are two lots of sixty minutes.</string>
+    <string name="learn_measurement_time_how_long_s5_explanation">Every hour is another sixty minutes, and three sixties come to a hundred and eighty.</string>
+    <string name="learn_measurement_time_how_long_s6_explanation">A day is twenty-four hours, and two days are twice that.</string>
+
+    <string name="learn_unit_measurement_time_q1_explanation">The long hand has not moved off the top, so the hour stands on its own.</string>
+    <string name="learn_unit_measurement_time_q2_explanation">A quarter of a turn is still to come, and the reading names the hour it is running towards.</string>
+    <string name="learn_unit_measurement_time_q3_prompt">How many minutes are in half an hour?</string>
+    <string name="learn_unit_measurement_time_q3_explanation">Half an hour is half of the sixty minutes an hour holds.</string>
+    <string name="learn_unit_measurement_time_q4_explanation">Each hour brings another sixty minutes, so four hours bring four of them.</string>
+    <string name="learn_unit_measurement_time_q5_prompt">A lesson runs from 15 minutes past to 55 minutes past. How many minutes is that?</string>
+    <string name="learn_unit_measurement_time_q5_explanation">Counting on from fifteen to fifty-five is the stretch the lesson fills.</string>
+    <string name="learn_unit_measurement_time_q6_explanation">Every day is twenty-four hours, so three days are three lots of it.</string>
+
+    <!-- Measurement: money and change -->
+    <string name="learn_unit_measurement_money_title">Money and change</string>
+    <string name="learn_unit_measurement_money_summary">Counting coins by value, and counting up to find the change.</string>
+
+    <string name="learn_measurement_money_coins_title">Counting coins</string>
+    <string name="learn_measurement_money_coins_summary">Count value, not coins.</string>
+    <string name="learn_measurement_money_coins_s1_body">Coins are not worth the same as one another, so a handful is counted by value rather than by how many pieces there are.</string>
+    <string name="learn_measurement_money_coins_s2_body">Start with the biggest coin and count the rest on. The other way round means carrying a bigger number in your head at every step.</string>
+    <string name="learn_measurement_money_coins_s3_question">How many cents is this?</string>
+    <string name="learn_measurement_money_coins_s3_explanation">Fifty, then seventy, then eighty as each coin is counted on.</string>
+    <string name="learn_measurement_money_coins_s4_body">Each coin brings its own value, so counting the coins tells you nothing until you know what every one of them is worth.</string>
+    <string name="learn_measurement_money_coins_s5_explanation">Twenty, forty, fifty, then fifty-five as the last coin goes on.</string>
+    <string name="learn_measurement_money_coins_s6_question">Which single coin is worth the same as these three together?</string>
+    <string name="learn_measurement_money_coins_s6_explanation">Twenty and twenty and ten come to fifty, and there is a coin for exactly that.</string>
+
+    <string name="learn_measurement_money_euros_title">Cents and euros</string>
+    <string name="learn_measurement_money_euros_summary">A hundred cents make one euro.</string>
+    <string name="learn_measurement_money_euros_s1_body">A hundred cents are gathered into one euro, the same way a hundred centimetres are gathered into one metre.</string>
+    <string name="learn_measurement_money_euros_s2_body">There is more than one way to make a euro: two coins of fifty, five of twenty or ten of ten all come to the same hundred cents.</string>
+    <string name="learn_measurement_money_euros_s3_explanation">Each euro is a hundred cents, so two euro are two of those hundreds.</string>
+    <string name="learn_measurement_money_euros_s4_body">Going back the other way, every hundred cents folds into a euro and whatever is left over stays in cents.</string>
+    <string name="learn_measurement_money_euros_s5_question">How much is 175 cents, written in euro and cents?</string>
+    <string name="learn_measurement_money_euros_s5_explanation">A hundred of the cents make the euro, and the seventy-five left over stay as cents.</string>
+    <string name="learn_measurement_money_euros_s6_question">Which of these is the same as 3 euro?</string>
+    <string name="learn_measurement_money_euros_s6_explanation">Each euro is worth a hundred cents, so three of them come to three hundred.</string>
+
+    <string name="learn_measurement_money_change_title">Working out change</string>
+    <string name="learn_measurement_money_change_summary">Count up from the price.</string>
+    <string name="learn_measurement_money_change_s1_body">Change is the gap between what something costs and what you handed over. Counting up from the price is easier than taking one number off the other.</string>
+    <string name="learn_measurement_money_change_s2_l1">Count up from 35 to 40: that is five cents.</string>
+    <string name="learn_measurement_money_change_s2_l2">From 40 up to 50 is ten more.</string>
+    <string name="learn_measurement_money_change_s2_l3">Five and ten together make fifteen.</string>
+    <string name="learn_measurement_money_change_s3_question">You have 40c and the toy costs 65c. How much more do you need?</string>
+    <string name="learn_measurement_money_change_s3_explanation">Counting up from 40 to 65 is the gap still to be filled.</string>
+    <string name="learn_measurement_money_change_s4_body">The same counting works whatever you hand over. From 65 up to 100 is 35, so a whole euro leaves 35c of change.</string>
+    <string name="learn_measurement_money_change_s5_question">A pencil costs 45c and you pay with 100c. How many cents is the change?</string>
+    <string name="learn_measurement_money_change_s5_explanation">Counting up from 45 to 100 fills the gap the change has to cover.</string>
+    <string name="learn_measurement_money_change_s6_question">You buy two 20c stickers with 50c. How much change is there?</string>
+    <string name="learn_measurement_money_change_s6_explanation">The two stickers come to forty together, and forty up to fifty leaves ten.</string>
+
+    <string name="learn_unit_measurement_money_q1_explanation">Twenty, forty, then forty-five as the small coin goes on.</string>
+    <string name="learn_unit_measurement_money_q2_explanation">A hundred cents to the euro, so four euro come to four hundred.</string>
+    <string name="learn_unit_measurement_money_q3_prompt">You pay 50c for a 30c pencil. What change do you get?</string>
+    <string name="learn_unit_measurement_money_q3_explanation">Counting up from the price to the fifty leaves twenty behind.</string>
+    <string name="learn_unit_measurement_money_q4_prompt">Which of these is the same as 250 cents?</string>
+    <string name="learn_unit_measurement_money_q4_explanation">Two hundreds make the two euro, and fifty cents are left over.</string>
+    <string name="learn_unit_measurement_money_q5_prompt">Which single coin is worth the same as these two together?</string>
+    <string name="learn_unit_measurement_money_q5_explanation">Two tens are twenty, and the twenty-cent coin does that job on its own.</string>
+    <string name="learn_unit_measurement_money_q6_prompt">A ticket costs 85c. How many cents more do you need if you have 60c?</string>
+    <string name="learn_unit_measurement_money_q6_explanation">Counting up from sixty to eighty-five is what is still missing.</string>
+
+    <!-- Measurement: mass and capacity -->
+    <string name="learn_unit_measurement_mass_title">Mass and capacity</string>
+    <string name="learn_unit_measurement_mass_summary">Reading a scale and a jug, in grams and millilitres.</string>
+
+    <string name="learn_measurement_mass_scales_title">Reading a scale</string>
+    <string name="learn_measurement_mass_scales_summary">Find what one mark is worth.</string>
+    <string name="learn_measurement_mass_scales_s1_body">A scale is not marked in single units. Work out what one step between the numbers is worth before reading anything off it.</string>
+    <string name="learn_measurement_mass_scales_s2_body">Count the marks around the whole turn and share the top reading between them. Four marks to a kilogram means every mark is worth 250 g.</string>
+    <string name="learn_measurement_mass_scales_s3_explanation">The needle is on the tick halfway between the 400 and the 600.</string>
+    <string name="learn_measurement_mass_scales_s4_body">A thousand grams are gathered into one kilogram, so a heavy thing is weighed in kilograms and a light one in grams.</string>
+    <string name="learn_measurement_mass_scales_s5_question">This scale reads in grams. How many grams is the needle showing?</string>
+    <string name="learn_measurement_mass_scales_s5_explanation">The numbers step by 200 g, and a small tick between two of them is another hundred.</string>
+    <string name="learn_measurement_mass_scales_s6_question">A parcel weighs 2 kg. How many grams is that?</string>
+    <string name="learn_measurement_mass_scales_s6_explanation">A kilogram is a thousand grams, so two kilograms are two thousand.</string>
+
+    <string name="learn_measurement_capacity_jugs_title">Reading a jug</string>
+    <string name="learn_measurement_capacity_jugs_summary">Read the level, not the marks.</string>
+    <string name="learn_measurement_capacity_jugs_s1_body">Capacity is how much a container holds. A jug is marked up its side, and the level the liquid reaches is the reading.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">The numbers up a jug are usually two hundred millilitres apart, not one. Counting them instead of reading them is how 400 ml turns into 2.</string>
+    <string name="learn_measurement_capacity_jugs_s3_explanation">The level stands on the tick midway between the 400 and the 600.</string>
+    <string name="learn_measurement_capacity_jugs_s4_body">A thousand millilitres fill one litre, the same thousand that turns grams into kilograms.</string>
+    <string name="learn_measurement_capacity_jugs_s5_question">How many millilitres are in this jug?</string>
+    <string name="learn_measurement_capacity_jugs_s5_explanation">The jug is numbered every 200 ml, and the level is one small tick past 800.</string>
+    <string name="learn_measurement_capacity_jugs_s6_explanation">A litre is a thousand millilitres, and the half brings five hundred more.</string>
+
+    <string name="learn_measurement_mass_compare_title">Comparing and adding</string>
+    <string name="learn_measurement_mass_compare_summary">Same unit first, then weigh them up.</string>
+    <string name="learn_measurement_mass_compare_s1_body">Two amounts can only be compared once they are in the same unit. 800 g and 1 kg are not close at all until the kilogram is written as 1000 g.</string>
+    <string name="learn_measurement_mass_compare_s2_explanation">A kilogram is 1000 g, which beats 800 once both are counted in grams.</string>
+    <string name="learn_measurement_mass_compare_s3_body">Half a kilogram is 500 g and a quarter is 250 g, because a thousand splits the way any other number does.</string>
+    <string name="learn_measurement_mass_compare_s4_question">Two tins weigh 400 g each. How many grams do they weigh together?</string>
+    <string name="learn_measurement_mass_compare_s4_explanation">Two tins of the same mass come to that mass doubled.</string>
+    <string name="learn_measurement_mass_compare_s5_question">A jug holds 300 ml and another holds 450 ml. How much is that together?</string>
+    <string name="learn_measurement_mass_compare_s5_explanation">Poured into one container the two amounts simply add.</string>
+    <string name="learn_measurement_mass_compare_s6_explanation">A litre is 1000 ml, more than any of the others once they are all in millilitres.</string>
+
+    <string name="learn_unit_measurement_mass_q1_explanation">A small tick is half of the 200 the numbers step by, so the needle is on 300.</string>
+    <string name="learn_unit_measurement_mass_q2_explanation">The numbers are 200 ml apart, and the level is on the tick just past the first.</string>
+    <string name="learn_unit_measurement_mass_q3_explanation">A thousand grams to the kilogram, so three kilograms are three thousand.</string>
+    <string name="learn_unit_measurement_mass_q4_prompt">Which unit fits the mass of an apple?</string>
+    <string name="learn_unit_measurement_mass_q4_explanation">An apple is a couple of hundred grams; millilitres and litres measure liquid.</string>
+    <string name="learn_unit_measurement_mass_q5_explanation">A kilogram stops at 1000 g, and 1200 goes past it.</string>
+    <string name="learn_unit_measurement_mass_q6_explanation">Every litre is a thousand millilitres, so two litres are two thousand of them.</string>
+
+    <!-- Measurement: metric units -->
+    <string name="learn_unit_measurement_metric_title">Metric units</string>
+    <string name="learn_unit_measurement_metric_summary">Every conversion is a jump of ten, a hundred or a thousand.</string>
+
+    <string name="learn_measurement_metric_ladder_title">The ladder of ten</string>
+    <string name="learn_measurement_metric_ladder_summary">One system, three quantities.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Metric units are built on tens, so a conversion is never anything but a multiply or a divide by 10, 100 or 1000.</string>
+    <string name="learn_measurement_metric_ladder_s2_body">The prefix says how far along the ladder a unit sits. Milli is a thousandth, centi a hundredth, and kilo a thousand.</string>
+    <string name="learn_measurement_metric_ladder_s3_explanation">Milli is a thousandth, the smallest step any of these prefixes names.</string>
+    <string name="learn_measurement_metric_ladder_s4_body">Length, mass and capacity all share the ladder, so one set of facts covers all three: a thousand metres in a kilometre, a thousand grams in a kilogram, a thousand millilitres in a litre.</string>
+    <string name="learn_measurement_metric_ladder_s5_explanation">Centimetre is a hundredth of a metre, so every metre brings another hundred.</string>
+    <string name="learn_measurement_metric_ladder_s6_question">Which of these is the same as 1500 g?</string>
+    <string name="learn_measurement_metric_ladder_s6_explanation">A thousand of the grams make the kilogram, and the five hundred left are half of another.</string>
+
+    <string name="learn_measurement_metric_converting_title">Which way to go</string>
+    <string name="learn_measurement_metric_converting_summary">Smaller unit, more of them.</string>
+    <string name="learn_measurement_metric_converting_s1_body">The trap is not the number, it is the direction. Going to a smaller unit always gives a bigger count, and going to a bigger unit always gives a smaller one.</string>
+    <string name="learn_measurement_metric_converting_s2_l1">A kilometre is a thousand metres.</string>
+    <string name="learn_measurement_metric_converting_s2_l2">So the question is how many thousands are in the distance.</string>
+    <string name="learn_measurement_metric_converting_s3_explanation">Kilogram is the bigger unit, so the count has to come out smaller: divide by a thousand.</string>
+    <string name="learn_measurement_metric_converting_s4_body">A two-step conversion is two rungs at once: ten millimetres to the centimetre and a hundred centimetres to the metre make a thousand millimetres to the metre.</string>
+    <string name="learn_measurement_metric_converting_s5_question">How many millimetres are in 2 m?</string>
+    <string name="learn_measurement_metric_converting_s5_explanation">There are a thousand millimetres in every metre, so two metres hold two thousand.</string>
+    <string name="learn_measurement_metric_converting_s6_question">Which conversion divides rather than multiplies?</string>
+    <string name="learn_measurement_metric_converting_s6_explanation">Kilograms are the bigger unit, and going to a bigger unit always leaves fewer.</string>
+
+    <string name="learn_measurement_metric_decimals_title">Decimals in a conversion</string>
+    <string name="learn_measurement_metric_decimals_summary">The point moves, the amount does not.</string>
+    <string name="learn_measurement_metric_decimals_s1_body">Multiplying by ten moves every digit one place up, so the point appears to slide. The amount has not changed; only the unit counting it has.</string>
+    <string name="learn_measurement_metric_decimals_s2_explanation">A thousand grams to the kilogram moves every digit three places up.</string>
+    <string name="learn_measurement_metric_decimals_s3_body">Dividing runs it backwards. 750 g becomes 0.75 kg, because three quarters of the thousand is three quarters of one.</string>
+    <string name="learn_measurement_metric_decimals_s4_explanation">Four tenths of the thousand grams a kilogram holds.</string>
+    <string name="learn_measurement_metric_decimals_s5_question">Which of these is the same as 0.25 l?</string>
+    <string name="learn_measurement_metric_decimals_s5_explanation">A litre holds a thousand millilitres, and 0.25 is a quarter of them.</string>
+    <string name="learn_measurement_metric_decimals_s6_explanation">In grams they come to 900, 950, 1100 and 90, so the 1.1 kg is the heaviest.</string>
+
+    <string name="learn_unit_measurement_metric_q1_explanation">Going to the smaller unit multiplies, and metres to centimetres is a hundred.</string>
+    <string name="learn_unit_measurement_metric_q2_explanation">Kilogram is the bigger unit, so 2500 g has to come out as a smaller count.</string>
+    <string name="learn_unit_measurement_metric_q3_prompt">How many millilitres are in 0.75 l?</string>
+    <string name="learn_unit_measurement_metric_q3_explanation">Three quarters of the thousand millilitres a litre holds.</string>
+    <string name="learn_unit_measurement_metric_q4_explanation">In millilitres they are 500, 400, 1000 and 750, so the 0.4 l is the least.</string>
+    <string name="learn_unit_measurement_metric_q5_prompt">Which conversion makes the number bigger?</string>
+    <string name="learn_unit_measurement_metric_q5_explanation">Centimetres are smaller than metres, and it always takes more of a smaller unit.</string>
+    <string name="learn_unit_measurement_metric_q6_prompt">A recipe needs 1.2 kg of flour. How many grams is that?</string>
+    <string name="learn_unit_measurement_metric_q6_explanation">A kilogram is a thousand grams, and the extra 0.2 brings two hundred more.</string>
+
+    <!-- Measurement: speed, distance and time -->
+    <string name="learn_unit_measurement_speed_title">Speed, distance and time</string>
+    <string name="learn_unit_measurement_speed_summary">Distance covered in equal steps of time, and the three that link.</string>
+
+    <string name="learn_measurement_speed_rate_title">Distance each hour</string>
+    <string name="learn_measurement_speed_rate_summary">Speed is distance in one unit of time.</string>
+    <string name="learn_measurement_speed_rate_s1_body">Speed says how much distance is covered in one unit of time. A car at 60 km/h adds another 60 km for every hour it keeps going.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Equal steps are what makes it a speed. Once the steps stop being equal the number is an average rather than a reading.</string>
+    <string name="learn_measurement_speed_rate_s3_question">A cyclist rides 15 km every hour. How many kilometres in 4 hours?</string>
+    <string name="learn_measurement_speed_rate_s3_explanation">Each hour adds another 15 km, so four hours add four of them.</string>
+    <string name="learn_measurement_speed_rate_s4_body">Turn it round and the distance divides: 150 km covered in 3 hours is 50 km in each of them.</string>
+    <string name="learn_measurement_speed_rate_s5_question">A train runs at 90 km/h. How far does it go in 4 hours?</string>
+    <string name="learn_measurement_speed_rate_s5_explanation">Every hour adds another 90 km, and four of them add four times as much.</string>
+    <string name="learn_measurement_speed_rate_s6_question">A car travels at 80 km/h. How many hours does it take to cover 240 km?</string>
+    <string name="learn_measurement_speed_rate_s6_explanation">Each hour eats 80 km out of the 240, and three of them clear it.</string>
+
+    <string name="learn_measurement_speed_formula_title">The three that link</string>
+    <string name="learn_measurement_speed_formula_summary">Speed is distance shared over time.</string>
+    <string name="learn_measurement_speed_formula_s1_body">Speed, distance and time are one relationship written three ways, with s for the speed, d for the distance and t for the time. Know two of them and the third follows.</string>
+    <string name="learn_measurement_speed_formula_s2_body">Rearranged, the distance is the speed multiplied by the time it is kept up for.</string>
+    <string name="learn_measurement_speed_formula_s3_question">Which of these gives the time?</string>
+    <string name="learn_measurement_speed_formula_s3_explanation">Time is what the distance divides into when it is shared out at that speed.</string>
+    <string name="learn_measurement_speed_formula_s4_l1">Distance is the speed multiplied by the time.</string>
+    <string name="learn_measurement_speed_formula_s4_l3">Three hours at sixty kilometres in each of them.</string>
+    <string name="learn_measurement_speed_formula_s5_question">A runner covers 12 km in 2 hours. What is the speed in km/h?</string>
+    <string name="learn_measurement_speed_formula_s5_explanation">Sharing the distance equally between the hours gives what one hour is worth.</string>
+    <string name="learn_measurement_speed_formula_s6_question">How long does 240 km take at 60 km/h?</string>
+    <string name="learn_measurement_speed_formula_s6_explanation">Every hour clears 60 km, and it takes four of them to clear 240.</string>
+
+    <string name="learn_measurement_speed_units_title">Units of speed</string>
+    <string name="learn_measurement_speed_units_summary">Read the unit and the sum reads itself.</string>
+    <string name="learn_measurement_speed_units_s1_body">A speed always names both units: km/h is kilometres for every hour and m/s is metres for every second. The slash is the word per.</string>
+    <string name="learn_measurement_speed_units_s2_body">The unit tells you which numbers may go into the sum. A distance in metres and a time in hours cannot make m/s until one of them is converted.</string>
+    <string name="learn_measurement_speed_units_s3_question">A car travels 100 m in 5 s. What is its speed?</string>
+    <string name="learn_measurement_speed_units_s3_explanation">Metres shared between the seconds gives the metres covered in each one.</string>
+    <string name="learn_measurement_speed_units_s4_body">Turning km/h into m/s is two conversions at once: a thousand metres up and three thousand six hundred seconds down.</string>
+    <string name="learn_measurement_speed_units_s5_explanation">Ten metres a second works out at 36 km/h once the units match, ahead of thirty.</string>
+    <string name="learn_measurement_speed_units_s6_question">A walker keeps up 5 km/h for 3 hours. How many kilometres is that?</string>
+    <string name="learn_measurement_speed_units_s6_explanation">Every hour adds another five kilometres to the total.</string>
+
+    <string name="learn_unit_measurement_speed_q1_prompt">A cyclist keeps up 20 km/h. How long does 60 km take?</string>
+    <string name="learn_unit_measurement_speed_q1_explanation">Each hour clears 20 km, and three of them clear the 60.</string>
+    <string name="learn_unit_measurement_speed_q2_prompt">Which of these gives the distance?</string>
+    <string name="learn_unit_measurement_speed_q2_explanation">Distance piles up at the speed for as long as the time lasts, so the two multiply.</string>
+    <string name="learn_unit_measurement_speed_q3_prompt">A train covers 300 km in 4 hours. What is its average speed?</string>
+    <string name="learn_unit_measurement_speed_q3_explanation">The whole distance shared equally between the four hours.</string>
+    <string name="learn_unit_measurement_speed_q4_prompt">Which of these is a speed?</string>
+    <string name="learn_unit_measurement_speed_q4_explanation">A speed names a distance and a time together; the other three name only one.</string>
+    <string name="learn_unit_measurement_speed_q5_explanation">Twenty metres a second works out at 72 km/h, ahead of the sixty.</string>
+    <string name="learn_unit_measurement_speed_q6_prompt">A walker covers 6 km in 90 minutes. How many kilometres per hour is that?</string>
+    <string name="learn_unit_measurement_speed_q6_explanation">Ninety minutes is an hour and a half, so the six kilometres share between one and a half.</string>
+
+    <!-- Measurement: units and phrases the options are built from -->
+    <string name="learn_opt_unit_millimetres">Millimetres</string>
+    <string name="learn_opt_unit_centimetres">Centimetres</string>
+    <string name="learn_opt_unit_metres">Metres</string>
+    <string name="learn_opt_unit_kilometres">Kilometres</string>
+    <string name="learn_opt_unit_grams">Grams</string>
+    <string name="learn_opt_unit_kilograms">Kilograms</string>
+    <string name="learn_opt_unit_millilitres">Millilitres</string>
+    <string name="learn_opt_unit_litres">Litres</string>
+    <string name="learn_opt_m_to_cm">Metres to centimetres</string>
+    <string name="learn_opt_m_to_km">Metres to kilometres</string>
+    <string name="learn_opt_km_to_m">Kilometres to metres</string>
+    <string name="learn_opt_g_to_kg">Grams to kilograms</string>
+    <string name="learn_opt_l_to_ml">Litres to millilitres</string>
+    <string name="learn_opt_ml_to_l">Millilitres to litres</string>
+    <string name="learn_opt_oclock">%1$s o'clock</string>
+    <string name="learn_opt_half_past">Half past %1$s</string>
+    <string name="learn_opt_quarter_past">Quarter past %1$s</string>
+    <string name="learn_opt_quarter_to">Quarter to %1$s</string>
+
+    <!-- Measurement: sentences the catalog asks more than once, filled with the numbers at
+         the call site so a translator writes each one once -->
+    <string name="learn_t_which_is_longer">Which is longer, %1$s cm or %2$s m?</string>
+    <string name="learn_t_which_is_heavier">Which is heavier, %1$s g or %2$s kg?</string>
+    <string name="learn_t_minutes_in_hours">How many minutes are in %1$s hours?</string>
+    <string name="learn_t_hours_in_days">How many hours are in %1$s days?</string>
+    <string name="learn_t_cents_in_euro">How many cents are in %1$s euro?</string>
+    <string name="learn_t_centimetres_in_metres">How many centimetres are in %1$s m?</string>
+    <string name="learn_t_grams_in_kilograms">How many grams are in %1$s kg?</string>
+    <string name="learn_t_kilograms_in_grams">How many kilograms is %1$s g?</string>
+    <string name="learn_t_millilitres_in_litres">A bottle holds %1$s litres. How many millilitres is that?</string>
+
+    <!-- Measurement: a sentence a lesson and its test both ask, held once -->
+    <string name="learn_shared_which_these_longest">Which of these is the longest?</string>
+    <string name="learn_shared_which_faster">Which of these is the faster?</string>
+    <string name="learn_shared_what_time_is_this">What time is this?</string>
+    <string name="learn_shared_how_much_altogether">How much is this altogether?</string>
+    <string name="learn_shared_what_does_scale_read">What does this scale read?</string>
+    <string name="learn_shared_how_much_in_jug">How much liquid is in this jug?</string>
+
+    <!-- Rules guide: the conversion table -->
+    <string name="learn_rulesguide_units_title">Units</string>
+    <string name="learn_rulesguide_units_blurb">What turns into what, for the moment you cannot remember which way round it goes.</string>
+    <string name="learn_rule_mm_cm_meaning">Ten millimetres in every centimetre</string>
+    <string name="learn_rule_cm_m_meaning">A hundred centimetres in every metre</string>
+    <string name="learn_rule_m_km_meaning">A thousand metres in every kilometre</string>
+    <string name="learn_rule_g_kg_meaning">A thousand grams in every kilogram</string>
+    <string name="learn_rule_ml_litre_meaning">A thousand millilitres in every litre</string>
+    <string name="learn_rule_which_way_rule">Smaller unit, bigger number</string>
+    <string name="learn_rule_which_way_meaning">Going to a smaller unit multiplies, going to a bigger one divides</string>
+    <string name="learn_rule_seconds_minute_meaning">Sixty seconds in every minute</string>
+    <string name="learn_rule_minutes_hour_meaning">Sixty minutes in every hour</string>
+    <string name="learn_rule_hours_day_meaning">Twenty-four hours in every day</string>
+    <string name="learn_rule_speed_rule">speed = distance ÷ time</string>
+    <string name="learn_rule_speed_meaning">Speed is the distance covered in one unit of time</string>
 </resources>

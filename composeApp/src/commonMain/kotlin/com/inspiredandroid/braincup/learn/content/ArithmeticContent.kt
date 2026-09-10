@@ -922,7 +922,9 @@ internal object ArithmeticContent {
                         formula = math("-2 - {b:(-18)} = ?"),
                         answer = "16",
                         explanation = words(Res.string.learn_g68_arithmetic_negatives_s6_explanation),
-                        visual = NumberLine(from = -20, to = 2, start = -18, tickStep = 2, hopSteps = listOf(16), reveal = false),
+                        // Both ends of the gap, and no arc between them: a single hop carries its
+                        // own label whatever `reveal` says, and here that label was the answer.
+                        visual = NumberLine(from = -20, to = 2, start = -18, tickStep = 2, compare = listOf(-2), reveal = false),
                     ),
                 ),
             ),

@@ -957,6 +957,8 @@
     <string name="learn_topic_arithmetic_subtitle">عدد اور اعمال</string>
     <string name="learn_topic_geometry">ہندسیہ</string>
     <string name="learn_topic_geometry_subtitle">زاویے، مثلثیں اور دائرے</string>
+    <string name="learn_topic_measurement">پیمائش</string>
+    <string name="learn_topic_measurement_subtitle">لمبائی، وقت، کمیت اور رفتار</string>
     <string name="learn_topic_algebra">الجبرا</string>
     <string name="learn_topic_algebra_subtitle">عبارتیں اور مساوات</string>
 

@@ -959,6 +959,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Arvud ja tehted</string>
     <string name="learn_topic_geometry">Geomeetria</string>
     <string name="learn_topic_geometry_subtitle">Nurgad, kolmnurgad ja ringjooned</string>
+    <string name="learn_topic_measurement">Mõõtmine</string>
+    <string name="learn_topic_measurement_subtitle">Pikkus, aeg, mass ja kiirus</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Avaldised ja võrrandid</string>
 

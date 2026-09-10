@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
     <string name="learn_topic_geometry">เรขาคณิต</string>
     <string name="learn_topic_geometry_subtitle">มุม สามเหลี่ยม และวงกลม</string>
+    <string name="learn_topic_measurement">การวัด</string>
+    <string name="learn_topic_measurement_subtitle">ความยาว เวลา มวล และความเร็ว</string>
     <string name="learn_topic_algebra">พีชคณิต</string>
     <string name="learn_topic_algebra_subtitle">นิพจน์และสมการ</string>
 

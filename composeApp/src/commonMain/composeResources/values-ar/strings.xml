@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">الأعداد &amp; العمليات</string>
     <string name="learn_topic_geometry">الهندسة</string>
     <string name="learn_topic_geometry_subtitle">الزوايا &amp; المثلثات &amp; الدوائر</string>
+    <string name="learn_topic_measurement">القياس</string>
+    <string name="learn_topic_measurement_subtitle">الطول &amp; الزمن &amp; الكتلة &amp; السرعة</string>
     <string name="learn_topic_algebra">الجبر</string>
     <string name="learn_topic_algebra_subtitle">العبارات &amp; المعادلات</string>
 

@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">সংখ্যা &amp; প্রক্রিয়া</string>
     <string name="learn_topic_geometry">জ্যামিতি</string>
     <string name="learn_topic_geometry_subtitle">কোণ, ত্রিভুজ &amp; বৃত্ত</string>
+    <string name="learn_topic_measurement">পরিমাপ</string>
+    <string name="learn_topic_measurement_subtitle">দৈর্ঘ্য, সময়, ভর &amp; গতি</string>
     <string name="learn_topic_algebra">বীজগণিত</string>
     <string name="learn_topic_algebra_subtitle">রাশিমালা &amp; সমীকরণ</string>
 

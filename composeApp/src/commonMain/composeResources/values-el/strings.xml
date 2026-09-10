@@ -942,6 +942,8 @@
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
     <string name="learn_topic_geometry">Γεωμετρία</string>
     <string name="learn_topic_geometry_subtitle">Γωνίες, τρίγωνα &amp; κύκλοι</string>
+    <string name="learn_topic_measurement">Μέτρηση</string>
+    <string name="learn_topic_measurement_subtitle">Μήκος, χρόνος, μάζα &amp; ταχύτητα</string>
     <string name="learn_topic_algebra">Άλγεβρα</string>
     <string name="learn_topic_algebra_subtitle">Παραστάσεις &amp; εξισώσεις</string>
 

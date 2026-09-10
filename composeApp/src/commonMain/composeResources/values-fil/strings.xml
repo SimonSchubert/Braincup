@@ -957,6 +957,8 @@
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>
     <string name="learn_topic_geometry">Heometriya</string>
     <string name="learn_topic_geometry_subtitle">Anggulo, tatsulok, at bilog</string>
+    <string name="learn_topic_measurement">Pagsukat</string>
+    <string name="learn_topic_measurement_subtitle">Haba, oras, masa, at bilis</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Mga expression at equation</string>
 

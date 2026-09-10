@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">数与运算</string>
     <string name="learn_topic_geometry">几何</string>
     <string name="learn_topic_geometry_subtitle">角、三角形与圆</string>
+    <string name="learn_topic_measurement">测量</string>
+    <string name="learn_topic_measurement_subtitle">长度、时间、质量与速度</string>
     <string name="learn_topic_algebra">代数</string>
     <string name="learn_topic_algebra_subtitle">代数式与方程</string>
 

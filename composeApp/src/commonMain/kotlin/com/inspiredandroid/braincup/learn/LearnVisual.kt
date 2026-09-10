@@ -196,6 +196,55 @@ sealed interface LearnVisual {
     data class Clock(val hour: Int, val minute: Int) : LearnVisual
 
     /**
+     * A measuring instrument read off its own graduations: a jug filling to a level, or a dial
+     * with a needle swinging round to a reading.
+     *
+     * Mass and capacity had no figure at all, and the skill they are taught with is reading a
+     * scale whose marks are *not* single units - a jug marked every 200 ml, a kitchen dial marked
+     * every 250 g - so what a figure has to draw is the graduation, not a bar of a length.
+     * [Ruler] is the same idea for length and stays separate: it lays an object along a scale from
+     * zero and reads how far the object reaches, where this reads a level or a needle against one.
+     *
+     * [step] is what one numbered mark is worth, and it is the whole lesson: a learner who assumes
+     * every mark is one unit reads 600 ml off a jug showing 3. It is deliberately not derived from
+     * [max], so a step can draw a scale that is awkward to read on purpose.
+     *
+     * [minorStep] is the unnumbered tick between the numbers, and it is what makes a *question*
+     * about a reading answerable rather than readable. Numbering every tick leaves nothing to work
+     * out - the needle simply points at the answer - so a step asking what a scale reads puts the
+     * value on a minor tick and lets the learner halve the gap.
+     */
+    data class Gauge(
+        val kind: GaugeKind,
+        /** The reading the instrument is showing, in [unit]. */
+        val value: Int,
+        /** The top of the scale, which is also where a dial's needle comes back round to. */
+        val max: Int,
+        /** What one numbered mark is worth. */
+        val step: Int,
+        /** Written on the reading, so "g" and "ml" read the same in every language. */
+        val unit: String,
+        /** What one tick is worth. Zero, or anything from [step] up, numbers every tick. */
+        val minorStep: Int = 0,
+        override val reveal: Boolean = true,
+    ) : LearnVisual {
+        /** What one tick is worth, which is [minorStep] only when it is finer than the numbering. */
+        val tickEvery: Int get() = if (minorStep in 1 until step) minorStep else step.coerceAtLeast(1)
+
+        /** Ticks the scale carries above zero, bounded so a typo cannot hang a frame. */
+        val ticks: Int get() = (max / tickEvery).coerceIn(1, MaxGaugeTicks)
+
+        /** What the tick [index] is worth. */
+        fun valueAt(index: Int): Int = index * tickEvery
+
+        /** Whether tick [index] carries a number, which only the multiples of [step] do. */
+        fun isNumbered(index: Int): Boolean = valueAt(index) % step.coerceAtLeast(1) == 0
+
+        /** How far up the scale the reading sits, as a fraction of the whole. */
+        val fraction: Float get() = if (max <= 0) 0f else (value.toFloat() / max).coerceIn(0f, 1f)
+    }
+
+    /**
      * A solution set on a number line: every value on one side of [value], drawn as a ray. The end
      * is hollow for a strict inequality and solid for [orEqual], which is the whole difference
      * between `x > 3` and `x >= 3` and the thing learners most often lose a mark on.
@@ -546,6 +595,18 @@ enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM, TRIANGULAR_PRISM, PY
 
 /** The flat shapes a [LearnVisual.FlatShape] can draw. */
 enum class FlatShapeKind { OVAL, SEMICIRCLE, STAR }
+
+/**
+ * The two instruments a [LearnVisual.Gauge] can draw.
+ *
+ * [JUG] reads a level up a straight scale, which is how capacity is met; [DIAL] reads a needle
+ * round a circular one, which is how mass is. They are one figure because the reading is the same
+ * act either way round, and two kinds because a jug drawn as a dial teaches nobody to read a jug.
+ */
+enum class GaugeKind { JUG, DIAL }
+
+/** As many ticks as a 180dp panel can carry before they close up into a band. */
+private const val MaxGaugeTicks = 20
 
 /**
  * What a bar on a [LearnVisual.BarChart] stands for.

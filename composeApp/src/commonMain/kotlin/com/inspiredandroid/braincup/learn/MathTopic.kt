@@ -7,6 +7,8 @@ import braincup.composeapp.generated.resources.learn_topic_arithmetic
 import braincup.composeapp.generated.resources.learn_topic_arithmetic_subtitle
 import braincup.composeapp.generated.resources.learn_topic_geometry
 import braincup.composeapp.generated.resources.learn_topic_geometry_subtitle
+import braincup.composeapp.generated.resources.learn_topic_measurement
+import braincup.composeapp.generated.resources.learn_topic_measurement_subtitle
 import org.jetbrains.compose.resources.StringResource
 
 /**
@@ -17,8 +19,8 @@ import org.jetbrains.compose.resources.StringResource
  * [id] is persisted (as part of unit ids and certificates) and [urlSlug] appears in the web build's
  * address bar, so neither may be renamed once shipped.
  *
- * Arithmetic, Geometry and Algebra ship. The remaining five topics were written, then cut to the
- * frozen `learn-parked` branch; see `docs/learn-release-status.md` to restore one.
+ * Arithmetic, Geometry, Measurement and Algebra ship. The remaining four topics were written,
+ * then cut to the frozen `learn-parked` branch; see `docs/learn-release-status.md` to restore one.
  */
 enum class MathTopic(
     val id: String,
@@ -41,6 +43,13 @@ enum class MathTopic(
         titleRes = Res.string.learn_topic_geometry,
         subtitleRes = Res.string.learn_topic_geometry_subtitle,
         accentColor = 0xFFFFEDD5,
+    ),
+    MEASUREMENT(
+        id = "measurement",
+        urlSlug = "measurement",
+        titleRes = Res.string.learn_topic_measurement,
+        subtitleRes = Res.string.learn_topic_measurement_subtitle,
+        accentColor = 0xFFD1FAE5,
     ),
     ALGEBRA(
         id = "algebra",

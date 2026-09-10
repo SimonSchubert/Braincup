@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>
     <string name="learn_topic_geometry">図形</string>
     <string name="learn_topic_geometry_subtitle">角、三角形、円</string>
+    <string name="learn_topic_measurement">測定</string>
+    <string name="learn_topic_measurement_subtitle">長さ、時間、重さ、速さ</string>
     <string name="learn_topic_algebra">代数</string>
     <string name="learn_topic_algebra_subtitle">式と方程式</string>
 

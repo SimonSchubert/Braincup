@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">எண் &amp; செயல்கள்</string>
     <string name="learn_topic_geometry">வடிவியல்</string>
     <string name="learn_topic_geometry_subtitle">கோணங்கள், முக்கோணங்கள் &amp; வட்டங்கள்</string>
+    <string name="learn_topic_measurement">அளவீடு</string>
+    <string name="learn_topic_measurement_subtitle">நீளம், நேரம், நிறை &amp; வேகம்</string>
     <string name="learn_topic_algebra">இயற்கணிதம்</string>
     <string name="learn_topic_algebra_subtitle">கோவைகள் &amp; சமன்பாடுகள்</string>
 

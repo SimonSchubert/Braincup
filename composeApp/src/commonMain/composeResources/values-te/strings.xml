@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">సంఖ్యలు &amp; పరిక్రియలు</string>
     <string name="learn_topic_geometry">జ్యామితి</string>
     <string name="learn_topic_geometry_subtitle">కోణాలు, త్రిభుజాలు &amp; వృత్తాలు</string>
+    <string name="learn_topic_measurement">కొలత</string>
+    <string name="learn_topic_measurement_subtitle">పొడవు, సమయం, ద్రవ్యరాశి &amp; వేగం</string>
     <string name="learn_topic_algebra">బీజగణితం</string>
     <string name="learn_topic_algebra_subtitle">వ్యంజకాలు &amp; సమీకరణాలు</string>
 

@@ -959,6 +959,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_topic_arithmetic_subtitle">Számok és műveletek</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Szögek, háromszögek és körök</string>
+    <string name="learn_topic_measurement">Mérés</string>
+    <string name="learn_topic_measurement_subtitle">Hossz, idő, tömeg és sebesség</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Kifejezések és egyenletek</string>
 

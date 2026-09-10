@@ -959,6 +959,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres i operacions</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Angles, triangles i cercles</string>
+    <string name="learn_topic_measurement">Mesura</string>
+    <string name="learn_topic_measurement_subtitle">Longitud, temps, massa i velocitat</string>
     <string name="learn_topic_algebra">Àlgebra</string>
     <string name="learn_topic_algebra_subtitle">Expressions i equacions</string>
 

@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">संख्या &amp; क्रिया</string>
     <string name="learn_topic_geometry">भूमिती</string>
     <string name="learn_topic_geometry_subtitle">कोन, त्रिकोण &amp; वर्तुळे</string>
+    <string name="learn_topic_measurement">मापन</string>
+    <string name="learn_topic_measurement_subtitle">लांबी, वेळ, वस्तुमान &amp; वेग</string>
     <string name="learn_topic_algebra">बीजगणित</string>
     <string name="learn_topic_algebra_subtitle">पदावली &amp; समीकरणे</string>
 

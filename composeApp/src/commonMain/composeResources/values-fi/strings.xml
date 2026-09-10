@@ -959,6 +959,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kulmat, kolmiot ja ympyrät</string>
+    <string name="learn_topic_measurement">Mittaaminen</string>
+    <string name="learn_topic_measurement_subtitle">Pituus, aika, massa ja nopeus</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Lausekkeet ja yhtälöt</string>
 

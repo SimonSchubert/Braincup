@@ -927,6 +927,8 @@
     <string name="learn_topic_arithmetic_subtitle">ਸੰਖਿਆ &amp; ਕਿਰਿਆਵਾਂ</string>
     <string name="learn_topic_geometry">ਰੇਖਾ ਗਣਿਤ</string>
     <string name="learn_topic_geometry_subtitle">ਕੋਣ, ਤਿਕੋਣ &amp; ਚੱਕਰ</string>
+    <string name="learn_topic_measurement">ਮਾਪ</string>
+    <string name="learn_topic_measurement_subtitle">ਲੰਬਾਈ, ਸਮਾਂ, ਪੁੰਜ &amp; ਗਤੀ</string>
     <string name="learn_topic_algebra">ਬੀਜਗਣਿਤ</string>
     <string name="learn_topic_algebra_subtitle">ਵਿਅੰਜਕ &amp; ਸਮੀਕਰਨ</string>
 

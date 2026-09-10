@@ -941,6 +941,8 @@
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>
     <string name="learn_topic_geometry">Геометрия</string>
     <string name="learn_topic_geometry_subtitle">Углы, треугольники &amp; окружности</string>
+    <string name="learn_topic_measurement">Измерения</string>
+    <string name="learn_topic_measurement_subtitle">Длина, время, масса &amp; скорость</string>
     <string name="learn_topic_algebra">Алгебра</string>
     <string name="learn_topic_algebra_subtitle">Выражения &amp; уравнения</string>
 
