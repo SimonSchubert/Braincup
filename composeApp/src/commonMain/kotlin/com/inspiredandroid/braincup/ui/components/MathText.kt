@@ -40,7 +40,10 @@ private val SpacedSlash = Regex(" +/ +")
  * and a fractions lesson writes "3/4" for three quarters, so the caller says which language it is
  * writing in and the default stays with division.
  */
-fun String.formatMathSymbols(fractionSlash: Boolean = false): String = this.replace(">=", " \u2265 ")
+fun String.formatMathSymbols(
+    fractionSlash: Boolean = false,
+    decimalSeparator: Char = '.',
+): String = this.replace(">=", " \u2265 ")
     .replace("<=", " \u2264 ")
     .replace("*", " \u00D7 ")
     .let { if (fractionSlash) it.replace(SpacedSlash, " \u00F7 ") else it.replace("/", " \u00F7 ") }
@@ -48,6 +51,27 @@ fun String.formatMathSymbols(fractionSlash: Boolean = false): String = this.repl
     .spaceSubtraction()
     .replace("  ", " ")
     .trim()
+    .withDecimalSeparator(decimalSeparator)
+
+/**
+ * Rewrites a decimal point to [separator], for the languages that write one as a comma.
+ *
+ * Only a point standing **between two digits** is touched. A full stop ending a sentence, the one
+ * in "3.4.5", and the point in a bare "cm." all stay exactly as they are, which is what makes this
+ * safe to run over prose as well as over notation. Content is authored with a point either way, so
+ * this is the only place the two spellings differ and nothing downstream has to know.
+ */
+fun String.withDecimalSeparator(separator: Char): String {
+    if (separator == '.' || !contains('.')) return this
+    val out = StringBuilder(length)
+    forEachIndexed { index, char ->
+        val betweenDigits = char == '.' &&
+            index > 0 && this[index - 1].isDigit() &&
+            index + 1 < length && this[index + 1].isDigit()
+        out.append(if (betweenDigits) separator else char)
+    }
+    return out.toString()
+}
 
 /** Characters a minus can follow and still be subtracting: something has to come before it. */
 private fun Char.endsAValue(): Boolean = isDigit() || isLetter() || this == ')' || this == '%'
@@ -302,9 +326,10 @@ fun MathText(
     textAlign: TextAlign? = null,
     color: Color = Color.Unspecified,
     fractionSlash: Boolean = false,
+    decimalSeparator: Char = '.',
 ) {
     Text(
-        text = text.formatMathSymbols(fractionSlash).withGroupColors().withRaisedExponents(),
+        text = text.formatMathSymbols(fractionSlash, decimalSeparator).withGroupColors().withRaisedExponents(),
         modifier = modifier,
         style = style.numeric(),
         textAlign = textAlign,

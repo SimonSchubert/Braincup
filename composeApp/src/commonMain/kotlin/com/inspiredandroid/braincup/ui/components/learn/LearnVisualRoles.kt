@@ -17,8 +17,11 @@ import kotlin.math.abs
  * So the figure says, and the text reads it off. Which is the tie-break the section already
  * documented for the cases where the two disagree, applied before they can disagree.
  *
- * Values are held as **the text the figure prints**, so they can be matched against the runs of a
- * formula without either side parsing the other.
+ * Values are held as **the text the figure prints**, with a decimal point whatever the language
+ * writes, so they can be matched against the runs of a formula without either side parsing the
+ * other. [roleOf] canonicalises what it is asked about, because by the time a run reaches it the
+ * render seam has already turned "0.35" into "0,35" for the half of the app's languages that
+ * write it that way.
  *
  * An empty [FigureRoles] means "no help": the text falls back to its own inference and the guard
  * test skips the pair. Any figure whose values do not divide cleanly into these three roles should
@@ -40,7 +43,9 @@ data class FigureRoles(
      * "-4" and marks where it lands "-4": the same text is the working and the answer, and green is
      * the one that says something the reader cannot get from anywhere else.
      */
-    fun roleOf(value: String): FigureRole? = when {
+    fun roleOf(value: String): FigureRole? = roleOfCanonical(value.replace(',', '.'))
+
+    private fun roleOfCanonical(value: String): FigureRole? = when {
         // The given and the working are two different quantities. When the figure prints the same
         // text for both, nothing here can tell which of them a line is naming, so it says nothing
         // and the line keeps its own judgement: "0.4 = 0.40" is two squares whose captions differ

@@ -50,3 +50,28 @@ private val rightToLeftLanguages = setOf("ar", "fa", "he", "iw", "ji", "ur", "yi
 
 /** True when [language] (an ISO 639 code, as `Locale.current.language` reports it) reads right to left. */
 fun isRightToLeftLanguage(language: String): Boolean = language in rightToLeftLanguages
+
+/**
+ * Languages that write a number's fractional part after a comma.
+ *
+ * A hand-kept table rather than a platform lookup, for the same reason [rightToLeftLanguages] is
+ * one: the app ships a fixed list of languages, so the answer is knowable here and testable
+ * against `supportedAppLanguages` without four `actual`s and a mock locale per target.
+ *
+ * Arabic and Persian are deliberately **not** in it. ICU gives them U+066B, the Arabic decimal
+ * separator, which belongs with Arabic-Indic digits; every number in this app is drawn in Western
+ * digits in the Rubik number face, which does not carry that glyph, so it would come out as tofu
+ * beside a Western numeral. A full stop is what those locales get with Western digits anyway.
+ */
+private val decimalCommaLanguages = setOf(
+    "bg", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hr", "hu", "id", "is", "it",
+    "lt", "lv", "nb", "nl", "pl", "pt", "ro", "ru", "sk", "sl", "sr", "sv", "tr", "uk", "vi",
+)
+
+/**
+ * What [language] writes between a number's whole part and its fraction.
+ *
+ * This is a correctness question rather than a cosmetic one in a maths app: a German learner
+ * reading "0.35" on a formula card is reading a number written the way they are taught not to.
+ */
+fun decimalSeparatorFor(language: String): Char = if (language in decimalCommaLanguages) ',' else '.'

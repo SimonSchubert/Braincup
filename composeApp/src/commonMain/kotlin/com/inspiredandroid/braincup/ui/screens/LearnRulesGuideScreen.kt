@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.GuideSectionHeader
 import com.inspiredandroid.braincup.ui.components.MathText
+import com.inspiredandroid.braincup.ui.components.learn.learnDecimalSeparator
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
@@ -113,6 +114,7 @@ private fun RuleCell(rule: RulesGuide.Entry) {
                 textAlign = TextAlign.Start,
                 modifier = Modifier.fillMaxWidth(),
                 fractionSlash = true,
+                decimalSeparator = learnDecimalSeparator(),
             )
             Spacer(Modifier.height(4.dp))
             // Two lines are reserved whether or not the sentence needs them, so cells sitting side

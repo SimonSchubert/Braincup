@@ -55,7 +55,10 @@ NUMBER_PATTERN = re.compile(r'-?\d+(?:[.,]\d+)*')
 
 
 def numbers_in(text: str) -> list[str]:
-    return sorted(NUMBER_PATTERN.findall(text))
+    # Compared as numbers, not as spellings of them. Half the languages here write a decimal comma,
+    # and the render seam swaps the separator for them, so a locale may legitimately carry either
+    # "0.35" or "0,35" for the same value. What must not change is the value.
+    return sorted(n.replace(",", ".") for n in NUMBER_PATTERN.findall(text))
 
 
 # A format slot is the lesson handing the sentence a value. Losing one drops the value silently and

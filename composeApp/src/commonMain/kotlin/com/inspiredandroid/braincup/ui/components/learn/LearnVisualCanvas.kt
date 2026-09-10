@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.TextUnit
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.phaseCount
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.withDecimalSeparator
 import com.inspiredandroid.braincup.ui.theme.GroupPlum
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -129,10 +130,12 @@ fun LearnVisualCanvas(
     val numberFont = numberFontFamily()
     val displayFont = displayFontFamily()
     val strings = learnVisualStrings(visual)
+    // Figure captions are numbers as much as the cards are, so they take the same separator.
+    val decimalSeparator = learnDecimalSeparator()
     // A figure draws the same handful of labels on every frame, and splitting one into its word
     // and notation runs is a scan plus a builder each time. Cached per figure, so the split is
     // paid once per distinct string rather than once per label per frame.
-    val annotations = remember(visual, numberFont) { mutableMapOf<String, AnnotatedString>() }
+    val annotations = remember(visual, numberFont, decimalSeparator) { mutableMapOf<String, AnnotatedString>() }
     // Three sets built from the figure, and the figure does not change between frames.
     val figureRoles = remember(visual) { visual.roles() }
 
@@ -154,6 +157,7 @@ fun LearnVisualCanvas(
                 figureRoles = figureRoles,
                 paper = paper,
                 strings = strings,
+                decimalSeparator = decimalSeparator,
                 answer = answer,
                 wrongColor = wrongColor,
                 phase = phase,
@@ -184,6 +188,14 @@ internal class VisualScope(
     val paper: Color,
     /** The words a figure captions itself with, looked up before the canvas opened. */
     val strings: LearnVisualStrings,
+    /**
+     * What this language writes between a number's whole part and its fraction.
+     *
+     * Applied in [annotate], which every caption goes through on its way to glyphs, so a figure
+     * never has to think about it and `formatDecimal` stays canonical for the role matching that
+     * reads its output.
+     */
+    val decimalSeparator: Char = '.',
     /** Null while the question is open, or on a step that asks nothing. */
     val answer: VisualAnswer? = null,
     val wrongColor: Color = Color.Red,
@@ -274,7 +286,9 @@ internal class VisualScope(
      */
     fun annotate(text: String): AnnotatedString = annotations.getOrPut(text) { buildAnnotation(text) }
 
-    private fun buildAnnotation(text: String): AnnotatedString {
+    private fun buildAnnotation(raw: String): AnnotatedString {
+        // A one-for-one swap, so every index below still lines up with the string it came from.
+        val text = raw.withDecimalSeparator(decimalSeparator)
         val isWord = BooleanArray(text.length)
         var i = 0
         while (i < text.length) {

@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.learn.LearnVisual
+import com.inspiredandroid.braincup.locale.decimalSeparatorFor
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
@@ -31,6 +32,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.formatMathSymbols
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.readsAsNotation
+import com.inspiredandroid.braincup.ui.components.withDecimalSeparator
 import com.inspiredandroid.braincup.ui.components.withFormulaColors
 import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.components.withRaisedExponents
@@ -39,6 +41,7 @@ import com.inspiredandroid.braincup.ui.theme.LearnWrongFace
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numeric
+import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 /**
  * The measures the Learn section lays its screens out on.
@@ -104,6 +107,17 @@ internal enum class LearnOptionState { NORMAL, CORRECT, WRONG, DIMMED }
  * sentences in the number face as well, so the same wording read one way in a lesson and another
  * in a test.
  */
+/**
+ * What this language writes between a number's whole part and its fraction.
+ *
+ * Read here rather than baked into the content, because the catalog is authored once with a point
+ * and every locale renders the same string. Held at the render seams the whole section funnels
+ * through - this file's [LearnText] and [LearnFormulaCard], and `LearnVisualCanvas` for the
+ * figures - so nothing else has to remember.
+ */
+@Composable
+internal fun learnDecimalSeparator(): Char = decimalSeparatorFor(ComposeLocale.current.language)
+
 @Composable
 internal fun LearnText(
     text: String,
@@ -127,9 +141,10 @@ internal fun LearnText(
      */
     notation: Boolean = text.readsAsNotation(),
 ) {
+    val decimalSeparator = learnDecimalSeparator()
     if (roleColors && notation) {
         Text(
-            text = text.formatMathSymbols(fractionSlash = true)
+            text = text.formatMathSymbols(fractionSlash = true, decimalSeparator = decimalSeparator)
                 .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles)
                 .withRaisedExponents(),
             style = style.numeric(),
@@ -144,12 +159,13 @@ internal fun LearnText(
             color = color,
             textAlign = textAlign,
             fractionSlash = true,
+            decimalSeparator = decimalSeparator,
         )
     } else {
         Text(
             // Prose raises its indices too: a sentence quoting "10^4" beside a card printing 10\u2074
             // is the same split between a caret and a superscript, one line further down.
-            text = text.withGroupColors().withRaisedExponents(),
+            text = text.withDecimalSeparator(decimalSeparator).withGroupColors().withRaisedExponents(),
             style = style,
             modifier = modifier,
             color = color,
@@ -177,7 +193,7 @@ internal fun LearnFormulaCard(formula: String, roles: FigureRoles? = null) {
         modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
     ) {
         Text(
-            text = formula.formatMathSymbols(fractionSlash = true)
+            text = formula.formatMathSymbols(fractionSlash = true, decimalSeparator = learnDecimalSeparator())
                 .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles)
                 .withRaisedExponents(),
             style = MaterialTheme.typography.titleLarge.numeric(),
@@ -210,7 +226,9 @@ internal fun LearnAnswerCard(label: String, value: String) {
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             Text(
-                text = value,
+                // A worked example's result is a number like any other: "4.5 km" is "4,5 km" in
+                // the languages that write it that way.
+                text = value.withDecimalSeparator(learnDecimalSeparator()),
                 style = MaterialTheme.typography.headlineSmall,
                 color = SuccessGreen,
                 fontWeight = FontWeight.Bold,
