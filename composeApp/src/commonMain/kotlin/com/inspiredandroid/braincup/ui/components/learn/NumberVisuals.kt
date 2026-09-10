@@ -226,6 +226,9 @@ private fun VisualScope.valueAxis(
     span = (to - from).coerceAtLeast(1).toFloat(),
 )
 
+/** The band a compared value takes when the ordinary number row under the axis is spoken for. */
+private const val AboveTheLine = -1
+
 /** Half the angle between an arrowhead's two barbs, in radians. */
 private const val ArrowSpread = 0.52f
 
@@ -394,28 +397,46 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
 
     // A candidate is set at the called-out size, and four of them on one line will not always
     // clear each other: -1 and 0 are neighbouring ticks, and side by side they print as "-10".
-    // Each number takes the first row it fits in, left to right, so a crowded pair steps down a
-    // line instead of overprinting. Worked out before anything is drawn, because how many rows it
-    // comes to is part of how much room the figure needs under its axis.
+    //
+    // One that cannot have the ordinary number row steps **above** the line rather than stacking
+    // into a second row underneath. Stacking put one of the two values being compared a row away
+    // from its own tick, where it read as a footnote, and left it crowding the plain numbering it
+    // had displaced: 90 and 100 on a line numbered every 20 came out as a bold 90 jammed against
+    // the 80 with the 100 dropped below both.
+    //
+    // The ones that land on a numbered tick are placed first, so the number a reader expects to
+    // find in the row below is the one that keeps it. Worked out before anything is drawn, because
+    // which bands are used is part of how much room the figure needs above and below its axis.
     val candidateStyle = labelStyle(AccentLabelFactor, bold = true)
     // A whole digit of clearance rather than the hairline [labelPadding] a plain label gets. Two
     // candidates only need to *touch* to be misread: "-1" and "0" set a few pixels apart print as
     // "-10", which is one of the other options on the very step this exists for.
     val candidateGap = measure("0", candidateStyle).size.width.toFloat()
+    // Which band a candidate's number goes in: [AboveTheLine], 0 for the ordinary row, then 1 and
+    // up for the extra rows under it that a genuinely crowded line still needs.
     val candidateRows = mutableMapOf<Int, Int>()
     run {
-        val rowRight = mutableListOf<Float>()
-        candidates.filter { roleColor(it) == null }.sorted().forEach { value ->
-            val x = xOf(value.toFloat())
-            val half = measure(value.toString(), candidateStyle).size.width / 2f
-            var row = rowRight.indexOfFirst { x - half > it + candidateGap }
-            if (row < 0) {
-                rowRight.add(0f)
-                row = rowRight.lastIndex
-            }
-            rowRight[row] = x + half
-            candidateRows[value] = row
+        val taken = mutableMapOf<Int, MutableList<Pair<Float, Float>>>()
+        fun fits(band: Int, lo: Float, hi: Float) = taken[band].orEmpty()
+            .none { lo < it.second + candidateGap && hi > it.first - candidateGap }
+        // Preference order: the ordinary row, then above the line, then downwards.
+        fun bandFor(attempt: Int) = when (attempt) {
+            0 -> 0
+            1 -> AboveTheLine
+            else -> attempt - 1
         }
+        val onATick = { value: Int -> (value - visual.from) % step == 0 }
+        candidates.filter { roleColor(it) == null }
+            .sortedWith(compareByDescending(onATick).thenBy { it })
+            .forEach { value ->
+                val x = xOf(value.toFloat())
+                val half = measure(value.toString(), candidateStyle).size.width / 2f
+                var attempt = 0
+                while (!fits(bandFor(attempt), x - half, x + half)) attempt++
+                val band = bandFor(attempt)
+                taken.getOrPut(band) { mutableListOf() } += (x - half) to (x + half)
+                candidateRows[value] = band
+            }
     }
 
     // The axis sits where it has to for everything hung off it to be centred: hops and their step
@@ -423,12 +444,12 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // 0.62 of the height, a line with no hops on it drew itself entirely in the bottom half of
     // the panel with a third of it empty above.
     val hops = start != null && travel != 0
-    val overAxis = if (hops) {
-        height * HopLabelRise + capHeight(HopLabelFactor) / 2f
-    } else {
-        height * 0.06f
-    }
-    val underAxis = height * (0.16f + (candidateRows.values.maxOrNull() ?: 0) * 0.13f) +
+    val candidateBand = height * 0.16f + capHeight(AccentLabelFactor) / 2f
+    val overAxis = maxOf(
+        if (hops) height * HopLabelRise + capHeight(HopLabelFactor) / 2f else height * 0.06f,
+        if (candidateRows.containsValue(AboveTheLine)) candidateBand else 0f,
+    )
+    val underAxis = height * (0.16f + (candidateRows.values.filter { it >= 0 }.maxOrNull() ?: 0) * 0.13f) +
         capHeight(AccentLabelFactor) / 2f
     val axisY = (height - overAxis - underAxis) / 2f + overAxis
 
@@ -440,11 +461,18 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // use, and `tickStep > 1` numbers every tick without consulting the fit test at all. Rather
     // than let the two collide, the plain neighbour gives way: an axis reading "-20-18" is worse
     // than one that starts at -18, and the called-out number is the one the step is about.
-    val accentSpans = ticks.filter { isAccented(it) }.map { value ->
-        val x = xOf(value.toFloat())
-        val half = measure(value.toString(), widestStyle).size.width / 2f
-        (x - half) to (x + half)
-    }
+    //
+    // Built from the candidates themselves rather than from the ticks they happen to fall on. A
+    // compared value is very often *between* two ticks - 90 and 950 on a line numbered every 200 -
+    // and while this filtered `ticks` those simply never claimed any space: four values compared
+    // on one line printed straight through the 800, 1000 and 1200 they were standing among.
+    val accentSpans = (ticks.filter { roleColor(it) != null } + candidateRows.filterValues { it >= 0 }.keys)
+        .distinct()
+        .map { value ->
+            val x = xOf(value.toFloat())
+            val half = measure(value.toString(), widestStyle).size.width / 2f
+            (x - half) to (x + half)
+        }
     val labelPadding = stroke * 2f
 
     fun clearOfAccents(x: Float, width: Int): Boolean {
@@ -514,10 +542,15 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
         dot(Offset(xOf(value.toFloat()), axisY), stroke * 1.5f, ink)
     }
 
-    candidateRows.forEach { (value, row) ->
+    candidateRows.forEach { (value, band) ->
+        val y = if (band == AboveTheLine) {
+            axisY - height * 0.16f
+        } else {
+            axisY + height * (0.16f + band * 0.13f)
+        }
         label(
             text = value.toString(),
-            center = Offset(xOf(value.toFloat()), axisY + height * (0.16f + row * 0.13f)),
+            center = Offset(xOf(value.toFloat()), y),
             color = ink,
             factor = AccentLabelFactor,
         )
