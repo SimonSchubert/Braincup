@@ -135,7 +135,7 @@
     <string name="settings_keypad">Brojčanik kao na telefonu</string>
     <string name="settings_keypad_desc">Stavi 1, 2, 3 u gornji red umjesto 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Odaberi kako Brain Cup izgleda.</string>
+    <string name="settings_theme_desc">Odaberi kako Braincup izgleda.</string>
     <string name="settings_theme_system">Sustav</string>
     <string name="settings_theme_light">Svijetla</string>
     <string name="settings_theme_dark">Tamna</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Promijeni</string>
     <string name="settings_play_games_switch_cancel">Ne sada</string>
     <string name="licenses_title">Licence</string>
-    <string name="licenses_desc">Biblioteke, fontovi, zvukovi i grafika korišteni u Brain Cupu.</string>
+    <string name="licenses_desc">Biblioteke, fontovi, zvukovi i grafika korišteni u Braincupu.</string>
     <string name="licenses_section_libraries">Biblioteke</string>
     <string name="licenses_section_fonts">Fontovi</string>
     <string name="licenses_section_sound">Zvuk</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Popisi riječi</string>
     <string name="licenses_view_source">Prikaži izvor</string>
     <string name="licenses_view_license">Prikaži licencu</string>
-    <string name="licenses_app_notice">Brain Cup je open source, licenciran pod Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup je open source, licenciran pod Apache License 2.0.</string>
     <string name="accounts_title">Računi</string>
     <string name="accounts_create">Stvori račun</string>
     <string name="accounts_create_title">Novi račun</string>
@@ -662,7 +662,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="science_rule_shift_summary">Standardna mjera stvaranja pojmova: pronaći pravilo razvrstavanja samo iz točno-ili-netočno, a zatim primijetiti kad se tiho promijeni.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojski toranj</string>
     <string name="science_tower_of_hanoi_summary">Standardna mjera planiranja: slagalica traži poteze koji napredak najprije ponište prije nego što se cilj može dosegnuti.</string>
-    <string name="brain_cup_button">Ljestvica Brain Cup</string>
+    <string name="brain_cup_button">Ljestvica Braincup</string>
     <string name="sponsors_title">Sponzori</string>
     <string name="sponsors_subtitle">Podrži besplatno obrazovanje za sve</string>
     <string name="sponsors_become">Postani sponzor</string>

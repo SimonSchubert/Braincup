@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">Thước đo chuẩn cho sự hình thành khái niệm: tìm ra quy tắc phân loại chỉ từ phản hồi đúng-hay-sai, rồi nhận ra khi nó lặng lẽ thay đổi.</string>
     <string name="science_tower_of_hanoi_paradigm">Tháp Hà Nội</string>
     <string name="science_tower_of_hanoi_summary">Thước đo chuẩn cho khả năng lập kế hoạch: câu đố đòi hỏi những nước đi làm mất tiến độ trước khi có thể đạt mục tiêu.</string>
-    <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>
+    <string name="brain_cup_button">Bảng xếp hạng Braincup</string>
     <string name="sponsors_title">Nhà tài trợ</string>
     <string name="sponsors_subtitle">Hỗ trợ giáo dục miễn phí cho mọi người</string>
 <string name="sponsors_become">Trở thành nhà tài trợ</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">Bàn phím kiểu điện thoại</string>
     <string name="settings_keypad_desc">Đặt 1, 2, 3 ở hàng trên thay vì 7, 8, 9.</string>
     <string name="settings_theme">Giao diện</string>
-    <string name="settings_theme_desc">Chọn cách Brain Cup hiển thị.</string>
+    <string name="settings_theme_desc">Chọn cách Braincup hiển thị.</string>
     <string name="settings_theme_system">Hệ thống</string>
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">Đổi</string>
     <string name="settings_play_games_switch_cancel">Để sau</string>
     <string name="licenses_title">Giấy phép</string>
-    <string name="licenses_desc">Thư viện, phông chữ, âm thanh và hình ảnh mà Brain Cup sử dụng.</string>
+    <string name="licenses_desc">Thư viện, phông chữ, âm thanh và hình ảnh mà Braincup sử dụng.</string>
     <string name="licenses_section_libraries">Thư viện</string>
     <string name="licenses_section_fonts">Phông chữ</string>
     <string name="licenses_section_sound">Âm thanh</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">Danh sách từ</string>
     <string name="licenses_view_source">Xem nguồn</string>
     <string name="licenses_view_license">Xem giấy phép</string>
-    <string name="licenses_app_notice">Brain Cup là mã nguồn mở, theo giấy phép Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup là mã nguồn mở, theo giấy phép Apache License 2.0.</string>
     <string name="accounts_title">Tài khoản</string>
     <string name="accounts_create">Tạo tài khoản</string>
     <string name="accounts_create_title">Tài khoản mới</string>

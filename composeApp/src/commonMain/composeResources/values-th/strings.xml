@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">มาตรวัดมาตรฐานของการก่อรูปมโนทัศน์: หากฎการจัดเรียงจากเพียงคำตอบถูกหรือผิด แล้วสังเกตว่ามันเปลี่ยนไปเงียบ ๆ เมื่อใด</string>
     <string name="science_tower_of_hanoi_paradigm">หอคอยฮานอย</string>
     <string name="science_tower_of_hanoi_summary">มาตรวัดมาตรฐานของการวางแผน: ปริศนานี้ต้องใช้การเดินที่ย้อนความคืบหน้าก่อน จึงจะไปถึงเป้าหมายได้</string>
-    <string name="brain_cup_button">ตารางอันดับ Brain Cup</string>
+    <string name="brain_cup_button">ตารางอันดับ Braincup</string>
     <string name="sponsors_title">ผู้สนับสนุน</string>
     <string name="sponsors_subtitle">สนับสนุนการศึกษาฟรีสำหรับทุกคน</string>
 <string name="sponsors_become">เป็นผู้สนับสนุน</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">แป้นตัวเลขแบบโทรศัพท์</string>
     <string name="settings_keypad_desc">วาง 1, 2, 3 ไว้แถวบนแทน 7, 8, 9</string>
     <string name="settings_theme">ธีม</string>
-    <string name="settings_theme_desc">เลือกรูปแบบของ Brain Cup</string>
+    <string name="settings_theme_desc">เลือกรูปแบบของ Braincup</string>
     <string name="settings_theme_system">ระบบ</string>
     <string name="settings_theme_light">สว่าง</string>
     <string name="settings_theme_dark">มืด</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">สลับ</string>
     <string name="settings_play_games_switch_cancel">ไว้ทีหลัง</string>
     <string name="licenses_title">ใบอนุญาต</string>
-    <string name="licenses_desc">ไลบรารี ฟอนต์ เสียง และภาพที่ Brain Cup ใช้</string>
+    <string name="licenses_desc">ไลบรารี ฟอนต์ เสียง และภาพที่ Braincup ใช้</string>
     <string name="licenses_section_libraries">ไลบรารี</string>
     <string name="licenses_section_fonts">ฟอนต์</string>
     <string name="licenses_section_sound">เสียง</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">รายการคำ</string>
     <string name="licenses_view_source">ดูแหล่งที่มา</string>
     <string name="licenses_view_license">ดูใบอนุญาต</string>
-    <string name="licenses_app_notice">Brain Cup เป็นโอเพนซอร์สภายใต้ Apache License 2.0</string>
+    <string name="licenses_app_notice">Braincup เป็นโอเพนซอร์สภายใต้ Apache License 2.0</string>
     <string name="accounts_title">บัญชี</string>
     <string name="accounts_create">สร้างบัญชี</string>
     <string name="accounts_create_title">บัญชีใหม่</string>

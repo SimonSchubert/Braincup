@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">Ukuran baku untuk pembentukan konsep: menemukan aturan penyortiran hanya dari umpan balik benar-atau-salah, lalu menyadari kapan aturan itu diam-diam berubah.</string>
     <string name="science_tower_of_hanoi_paradigm">Menara Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ukuran baku untuk perencanaan: teka-teki ini menuntut langkah yang justru membatalkan kemajuan sebelum tujuan bisa dicapai.</string>
-    <string name="brain_cup_button">Papan peringkat Brain Cup</string>
+    <string name="brain_cup_button">Papan peringkat Braincup</string>
     <string name="sponsors_title">Sponsor</string>
     <string name="sponsors_subtitle">Dukung pendidikan gratis untuk semua</string>
 <string name="sponsors_become">Jadilah Sponsor</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">Papan angka gaya ponsel</string>
     <string name="settings_keypad_desc">Letakkan 1, 2, 3 di baris atas, bukan 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Pilih tampilan Brain Cup.</string>
+    <string name="settings_theme_desc">Pilih tampilan Braincup.</string>
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Terang</string>
     <string name="settings_theme_dark">Gelap</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">Ganti</string>
     <string name="settings_play_games_switch_cancel">Nanti saja</string>
     <string name="licenses_title">Lisensi</string>
-    <string name="licenses_desc">Pustaka, fon, suara, dan gambar yang dipakai Brain Cup.</string>
+    <string name="licenses_desc">Pustaka, fon, suara, dan gambar yang dipakai Braincup.</string>
     <string name="licenses_section_libraries">Pustaka</string>
     <string name="licenses_section_fonts">Fon</string>
     <string name="licenses_section_sound">Suara</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">Daftar kata</string>
     <string name="licenses_view_source">Lihat sumber</string>
     <string name="licenses_view_license">Lihat lisensi</string>
-    <string name="licenses_app_notice">Brain Cup bersifat sumber terbuka dengan Lisensi Apache 2.0.</string>
+    <string name="licenses_app_notice">Braincup bersifat sumber terbuka dengan Lisensi Apache 2.0.</string>
     <string name="accounts_title">Akun</string>
     <string name="accounts_create">Buat akun</string>
     <string name="accounts_create_title">Akun baru</string>

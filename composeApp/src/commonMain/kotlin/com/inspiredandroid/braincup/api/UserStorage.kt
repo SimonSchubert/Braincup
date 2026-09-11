@@ -398,7 +398,7 @@ class UserStorage(
 
     /**
      * Raise local XP to [remoteXp] if it's higher than the current value (e.g. restoring
-     * progress from the Brain Cup leaderboard on a fresh install).
+     * progress from the Braincup leaderboard on a fresh install).
      *
      * Returns true if the local value was changed.
      */
@@ -922,7 +922,7 @@ class UserStorage(
      * Merge certificates restored from a store (Play Games / Game Center) into local progress.
      *
      * A store only records *that* a certificate was earned, never when, so a restored one is dated
-     * today. No XP is paid either: cumulative XP comes back from the Brain Cup leaderboard, so
+     * today. No XP is paid either: cumulative XP comes back from the Braincup leaderboard, so
      * paying [LEARN_CERTIFICATE_XP] again here would count every restored certificate twice.
      */
     fun restoreLearnCertificates(unitIds: Set<String>) {

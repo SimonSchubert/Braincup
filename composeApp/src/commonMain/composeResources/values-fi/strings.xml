@@ -135,7 +135,7 @@
     <string name="settings_keypad">Puhelimen numeronäppäimistö</string>
     <string name="settings_keypad_desc">Laita 1, 2, 3 ylimmälle riville 7, 8, 9 sijaan.</string>
     <string name="settings_theme">Teema</string>
-    <string name="settings_theme_desc">Valitse, miltä Brain Cup näyttää.</string>
+    <string name="settings_theme_desc">Valitse, miltä Braincup näyttää.</string>
     <string name="settings_theme_system">Järjestelmä</string>
     <string name="settings_theme_light">Vaalea</string>
     <string name="settings_theme_dark">Tumma</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Vaihda</string>
     <string name="settings_play_games_switch_cancel">Ei nyt</string>
     <string name="licenses_title">Lisenssit</string>
-    <string name="licenses_desc">Brain Cupissa käytetyt kirjastot, fontit, äänet ja grafiikka.</string>
+    <string name="licenses_desc">Braincupissa käytetyt kirjastot, fontit, äänet ja grafiikka.</string>
     <string name="licenses_section_libraries">Kirjastot</string>
     <string name="licenses_section_fonts">Fontit</string>
     <string name="licenses_section_sound">Ääni</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Sanalistat</string>
     <string name="licenses_view_source">Näytä lähde</string>
     <string name="licenses_view_license">Näytä lisenssi</string>
-    <string name="licenses_app_notice">Brain Cup on avointa lähdekoodia, lisensoitu Apache License 2.0 -lisenssillä.</string>
+    <string name="licenses_app_notice">Braincup on avointa lähdekoodia, lisensoitu Apache License 2.0 -lisenssillä.</string>
     <string name="accounts_title">Tilit</string>
     <string name="accounts_create">Luo tili</string>
     <string name="accounts_create_title">Uusi tili</string>
@@ -658,7 +658,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="science_rule_shift_summary">Vakiomittari käsitteenmuodostukselle: löytää lajittelusääntö pelkästä oikein-tai-väärin ja huomata sitten, milloin se vaihtuu äänettömästi.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoin torni</string>
     <string name="science_tower_of_hanoi_summary">Vakiomittari suunnittelulle: pulma vaatii siirtoja, jotka purkavat edistystä ennen kuin maaliin pääsee.</string>
-    <string name="brain_cup_button">Brain Cup -tulostaulukko</string>
+    <string name="brain_cup_button">Braincup -tulostaulukko</string>
     <string name="sponsors_title">Sponsorit</string>
     <string name="sponsors_subtitle">Tue ilmaista koulutusta kaikille</string>
     <string name="sponsors_become">Ryhdy sponsoriksi</string>

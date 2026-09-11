@@ -366,7 +366,7 @@
     <string name="science_rule_shift_summary">Стандартная мера формирования понятий: найти правило сортировки только по «верно или неверно», а затем заметить, когда оно молча меняется.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханойские башни</string>
     <string name="science_tower_of_hanoi_summary">Стандартная мера планирования: головоломка требует ходов, которые сначала отменяют прогресс, прежде чем цель станет достижимой.</string>
-    <string name="brain_cup_button">Таблица лидеров Brain Cup</string>
+    <string name="brain_cup_button">Таблица лидеров Braincup</string>
     <string name="sponsors_title">Спонсоры</string>
     <string name="sponsors_subtitle">Поддержите бесплатное образование для всех</string>
 <string name="sponsors_become">Стать спонсором</string>
@@ -614,7 +614,7 @@
     <string name="settings_keypad">Цифровая клавиатура как на телефоне</string>
     <string name="settings_keypad_desc">Располагает 1, 2, 3 в верхнем ряду вместо 7, 8, 9.</string>
     <string name="settings_theme">Тема</string>
-    <string name="settings_theme_desc">Выберите внешний вид Brain Cup.</string>
+    <string name="settings_theme_desc">Выберите внешний вид Braincup.</string>
     <string name="settings_theme_system">Системная</string>
     <string name="settings_theme_light">Светлая</string>
     <string name="settings_theme_dark">Тёмная</string>
@@ -624,7 +624,7 @@
     <string name="settings_play_games_profile_switch">Сменить</string>
     <string name="settings_play_games_switch_cancel">Не сейчас</string>
     <string name="licenses_title">Лицензии</string>
-    <string name="licenses_desc">Библиотеки, шрифты, звуки и графика, которые использует Brain Cup.</string>
+    <string name="licenses_desc">Библиотеки, шрифты, звуки и графика, которые использует Braincup.</string>
     <string name="licenses_section_libraries">Библиотеки</string>
     <string name="licenses_section_fonts">Шрифты</string>
     <string name="licenses_section_sound">Звуки</string>
@@ -632,7 +632,7 @@
     <string name="licenses_section_word_lists">Списки слов</string>
     <string name="licenses_view_source">Открыть источник</string>
     <string name="licenses_view_license">Открыть лицензию</string>
-    <string name="licenses_app_notice">Brain Cup — проект с открытым кодом под лицензией Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup — проект с открытым кодом под лицензией Apache License 2.0.</string>
     <string name="accounts_title">Аккаунты</string>
     <string name="accounts_create">Создать аккаунт</string>
     <string name="accounts_create_title">Новый аккаунт</string>

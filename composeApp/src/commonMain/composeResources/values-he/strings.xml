@@ -135,7 +135,7 @@
     <string name="settings_keypad">מקלדת ספרות בסגנון טלפון</string>
     <string name="settings_keypad_desc">שים 1, 2, 3 בשורה העליונה במקום 7, 8, 9.</string>
     <string name="settings_theme">ערכת נושא</string>
-    <string name="settings_theme_desc">בחר איך Brain Cup נראה.</string>
+    <string name="settings_theme_desc">בחר איך Braincup נראה.</string>
     <string name="settings_theme_system">מערכת</string>
     <string name="settings_theme_light">בהיר</string>
     <string name="settings_theme_dark">כהה</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">החלף</string>
     <string name="settings_play_games_switch_cancel">לא עכשיו</string>
     <string name="licenses_title">רישיונות</string>
-    <string name="licenses_desc">ספריות, גופנים, צלילים ויצירות אמנות בשימוש ב-Brain Cup.</string>
+    <string name="licenses_desc">ספריות, גופנים, צלילים ויצירות אמנות בשימוש ב-Braincup.</string>
     <string name="licenses_section_libraries">ספריות</string>
     <string name="licenses_section_fonts">גופנים</string>
     <string name="licenses_section_sound">צליל</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">רשימות מילים</string>
     <string name="licenses_view_source">הצג מקור</string>
     <string name="licenses_view_license">הצג רישיון</string>
-    <string name="licenses_app_notice">Brain Cup הוא קוד פתוח, ברישיון Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup הוא קוד פתוח, ברישיון Apache License 2.0.</string>
     <string name="accounts_title">חשבונות</string>
     <string name="accounts_create">צור חשבון</string>
     <string name="accounts_create_title">חשבון חדש</string>
@@ -662,7 +662,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="science_rule_shift_summary">מדד סטנדרטי ליצירת מושגים: למצוא את חוק המיון מתוך נכון-או-לא-נכון בלבד, ואז לשים לב מתי הוא משתנה בשקט.</string>
     <string name="science_tower_of_hanoi_paradigm">מגדל האנוי</string>
     <string name="science_tower_of_hanoi_summary">מדד סטנדרטי לתכנון: החידה דורשת מהלכים שמחזירים את ההתקדמות לאחור לפני שאפשר להגיע ליעד.</string>
-    <string name="brain_cup_button">טבלת מובילים של Brain Cup</string>
+    <string name="brain_cup_button">טבלת מובילים של Braincup</string>
     <string name="sponsors_title">נותני חסות</string>
     <string name="sponsors_subtitle">תמכו בחינוך חינם לכולם</string>
     <string name="sponsors_become">הפכו לנותני חסות</string>

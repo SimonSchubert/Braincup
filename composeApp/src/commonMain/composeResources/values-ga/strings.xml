@@ -135,7 +135,7 @@
     <string name="settings_keypad">Eochaircheap stíl gutháin</string>
     <string name="settings_keypad_desc">Cuir 1, 2, 3 ar an tsraith uachtarach in ionad 7, 8, 9.</string>
     <string name="settings_theme">Téama</string>
-    <string name="settings_theme_desc">Roghnaigh cuma Brain Cup.</string>
+    <string name="settings_theme_desc">Roghnaigh cuma Braincup.</string>
     <string name="settings_theme_system">Córas</string>
     <string name="settings_theme_light">Geal</string>
     <string name="settings_theme_dark">Dorcha</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Athraigh</string>
     <string name="settings_play_games_switch_cancel">Ní anois</string>
     <string name="licenses_title">Ceadúnais</string>
-    <string name="licenses_desc">Leabharlanna, clónna, fuaimeanna agus ealaín a úsáidtear i Brain Cup.</string>
+    <string name="licenses_desc">Leabharlanna, clónna, fuaimeanna agus ealaín a úsáidtear i Braincup.</string>
     <string name="licenses_section_libraries">Leabharlanna</string>
     <string name="licenses_section_fonts">Clónna</string>
     <string name="licenses_section_sound">Fuaim</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Liostaí focal</string>
     <string name="licenses_view_source">Féach an fhoinse</string>
     <string name="licenses_view_license">Féach an ceadúnas</string>
-    <string name="licenses_app_notice">Is open source é Brain Cup, ceadúnaithe faoin Apache License 2.0.</string>
+    <string name="licenses_app_notice">Is open source é Braincup, ceadúnaithe faoin Apache License 2.0.</string>
     <string name="accounts_title">Cuntais</string>
     <string name="accounts_create">Cruthaigh cuntas</string>
     <string name="accounts_create_title">Cuntas nua</string>
@@ -670,7 +670,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="science_rule_shift_summary">Gnáthbheart ar fhoirmiú coincheap: an riail sórtála a aimsiú ó cheart-nó-mícheart amháin, agus a thabhairt faoi deara ansin nuair a athraíonn sí go ciúin.</string>
     <string name="science_tower_of_hanoi_paradigm">Túr Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Gnáthbheart ar an bpleanáil: éilíonn an puzal bearta a chuireann an dul chun cinn ar gcúl sular féidir an sprioc a bhaint amach.</string>
-    <string name="brain_cup_button">Clár scóir Brain Cup</string>
+    <string name="brain_cup_button">Clár scóir Braincup</string>
     <string name="sponsors_title">Urraitheoirí</string>
     <string name="sponsors_subtitle">Tacaigh le hoideachas saor in aisce do chách</string>
     <string name="sponsors_become">Bí i d’urraitheoir</string>

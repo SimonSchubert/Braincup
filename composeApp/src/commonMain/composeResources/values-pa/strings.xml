@@ -135,7 +135,7 @@
     <string name="settings_keypad">ਫ਼ੋਨ ਵਰਗਾ ਨੰਬਰ ਪੈਡ</string>
     <string name="settings_keypad_desc">ਉੱਪਰਲੀ ਕਤਾਰ ਵਿੱਚ 7, 8, 9 ਦੀ ਥਾਂ 1, 2, 3 ਰੱਖੋ।</string>
     <string name="settings_theme">ਥੀਮ</string>
-    <string name="settings_theme_desc">Brain Cup ਕਿਹੋ ਜਿਹਾ ਦਿਖੇ, ਚੁਣੋ।</string>
+    <string name="settings_theme_desc">Braincup ਕਿਹੋ ਜਿਹਾ ਦਿਖੇ, ਚੁਣੋ।</string>
     <string name="settings_theme_system">ਸਿਸਟਮ</string>
     <string name="settings_theme_light">ਹਲਕਾ</string>
     <string name="settings_theme_dark">ਗੂੜ੍ਹਾ</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">ਬਦਲੋ</string>
     <string name="settings_play_games_switch_cancel">ਹੁਣੇ ਨਹੀਂ</string>
     <string name="licenses_title">ਲਾਇਸੰਸ</string>
-    <string name="licenses_desc">Brain Cup ਵਿੱਚ ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ, ਫੌਂਟ, ਆਵਾਜ਼ਾਂ ਅਤੇ ਕਲਾਕ੍ਰਿਤੀਆਂ।</string>
+    <string name="licenses_desc">Braincup ਵਿੱਚ ਵਰਤੀਆਂ ਲਾਇਬ੍ਰੇਰੀਆਂ, ਫੌਂਟ, ਆਵਾਜ਼ਾਂ ਅਤੇ ਕਲਾਕ੍ਰਿਤੀਆਂ।</string>
     <string name="licenses_section_libraries">ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
     <string name="licenses_section_fonts">ਫੌਂਟ</string>
     <string name="licenses_section_sound">ਆਵਾਜ਼</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">ਸ਼ਬਦ ਸੂਚੀਆਂ</string>
     <string name="licenses_view_source">ਸਰੋਤ ਵੇਖੋ</string>
     <string name="licenses_view_license">ਲਾਇਸੰਸ ਵੇਖੋ</string>
-    <string name="licenses_app_notice">Brain Cup ਓਪਨ ਸੋਰਸ ਹੈ, Apache License 2.0 ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ।</string>
+    <string name="licenses_app_notice">Braincup ਓਪਨ ਸੋਰਸ ਹੈ, Apache License 2.0 ਅਧੀਨ ਲਾਇਸੰਸਸ਼ੁਦਾ।</string>
     <string name="accounts_title">ਖਾਤੇ</string>
     <string name="accounts_create">ਖਾਤਾ ਬਣਾਓ</string>
     <string name="accounts_create_title">ਨਵਾਂ ਖਾਤਾ</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">ਸੰਕਲਪ ਬਣਾਉਣ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਸਿਰਫ਼ ਸਹੀ-ਜਾਂ-ਗਲਤ ਤੋਂ ਛਾਂਟੀ ਦਾ ਨਿਯਮ ਲੱਭਣਾ, ਫਿਰ ਇਹ ਭਾਂਪਣਾ ਕਿ ਉਹ ਕਦੋਂ ਚੁੱਪ-ਚਾਪ ਬਦਲ ਗਿਆ।</string>
     <string name="science_tower_of_hanoi_paradigm">ਹਨੋਈ ਦਾ ਮੀਨਾਰ</string>
     <string name="science_tower_of_hanoi_summary">ਯੋਜਨਾਬੰਦੀ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਟੀਚੇ ਤੱਕ ਪਹੁੰਚਣ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਬੁਝਾਰਤ ਵਿੱਚ ਅਜਿਹੀਆਂ ਚਾਲਾਂ ਲੋੜੀਂਦੀਆਂ ਹਨ ਜੋ ਤਰੱਕੀ ਪਿੱਛੇ ਲੈ ਜਾਂਦੀਆਂ ਹਨ।</string>
-    <string name="brain_cup_button">Brain Cup ਲੀਡਰਬੋਰਡ</string>
+    <string name="brain_cup_button">Braincup ਲੀਡਰਬੋਰਡ</string>
     <string name="sponsors_title">ਸਪਾਂਸਰ</string>
     <string name="sponsors_subtitle">ਸਭ ਲਈ ਮੁਫ਼ਤ ਸਿੱਖਿਆ ਦਾ ਸਮਰਥਨ ਕਰੋ</string>
     <string name="sponsors_become">ਸਪਾਂਸਰ ਬਣੋ</string>

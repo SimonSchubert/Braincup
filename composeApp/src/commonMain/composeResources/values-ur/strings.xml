@@ -135,7 +135,7 @@
     <string name="settings_keypad">فون والا نمبر پیڈ</string>
     <string name="settings_keypad_desc">اوپری قطار میں 7، 8، 9 کی بجائے 1، 2، 3 رکھیں۔</string>
     <string name="settings_theme">تھیم</string>
-    <string name="settings_theme_desc">Brain Cup کی ظاہری شکل منتخب کریں۔</string>
+    <string name="settings_theme_desc">Braincup کی ظاہری شکل منتخب کریں۔</string>
     <string name="settings_theme_system">نظام</string>
     <string name="settings_theme_light">روشن</string>
     <string name="settings_theme_dark">تاریک</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">تبدیل کریں</string>
     <string name="settings_play_games_switch_cancel">ابھی نہیں</string>
     <string name="licenses_title">لائسنس</string>
-    <string name="licenses_desc">Brain Cup میں استعمال ہونے والی لائبریریاں، فونٹس، آوازیں اور آرٹ ورک۔</string>
+    <string name="licenses_desc">Braincup میں استعمال ہونے والی لائبریریاں، فونٹس، آوازیں اور آرٹ ورک۔</string>
     <string name="licenses_section_libraries">لائبریریاں</string>
     <string name="licenses_section_fonts">فونٹس</string>
     <string name="licenses_section_sound">آواز</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">الفاظ کی فہرستیں</string>
     <string name="licenses_view_source">سورس دیکھیں</string>
     <string name="licenses_view_license">لائسنس دیکھیں</string>
-    <string name="licenses_app_notice">Brain Cup اوپن سورس ہے، Apache License 2.0 کے تحت۔</string>
+    <string name="licenses_app_notice">Braincup اوپن سورس ہے، Apache License 2.0 کے تحت۔</string>
     <string name="accounts_title">اکاؤنٹس</string>
     <string name="accounts_create">اکاؤنٹ بنائیں</string>
     <string name="accounts_create_title">نیا اکاؤنٹ</string>
@@ -656,7 +656,7 @@
     <string name="science_rule_shift_summary">تصور سازی کا معیاری پیمانہ: صرف درست یا غلط کی بنیاد پر ترتیب کا قاعدہ ڈھونڈنا، پھر یہ محسوس کرنا کہ وہ کب خاموشی سے بدل گیا۔</string>
     <string name="science_tower_of_hanoi_paradigm">ہنوئی کا مینار</string>
     <string name="science_tower_of_hanoi_summary">منصوبہ بندی کا معیاری پیمانہ: منزل تک پہنچنے سے پہلے اس پہیلی میں ایسی چالیں درکار ہوتی ہیں جو پیش رفت کو پیچھے لے جاتی ہیں۔</string>
-    <string name="brain_cup_button">Brain Cup لیڈر بورڈ</string>
+    <string name="brain_cup_button">Braincup لیڈر بورڈ</string>
     <string name="sponsors_title">اسپانسرز</string>
     <string name="sponsors_subtitle">سب کے لیے مفت تعلیم کی حمایت کریں</string>
     <string name="sponsors_become">اسپانسر بنیں</string>

@@ -135,7 +135,7 @@
     <string name="settings_keypad">Číselník jako na telefonu</string>
     <string name="settings_keypad_desc">Dát 1, 2, 3 na horní řadu místo 7, 8, 9.</string>
     <string name="settings_theme">Motiv</string>
-    <string name="settings_theme_desc">Vyber, jak má Brain Cup vypadat.</string>
+    <string name="settings_theme_desc">Vyber, jak má Braincup vypadat.</string>
     <string name="settings_theme_system">Systém</string>
     <string name="settings_theme_light">Světlý</string>
     <string name="settings_theme_dark">Tmavý</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Přepnout</string>
     <string name="settings_play_games_switch_cancel">Teď ne</string>
     <string name="licenses_title">Licence</string>
-    <string name="licenses_desc">Knihovny, písma, zvuky a grafika použité v Brain Cup.</string>
+    <string name="licenses_desc">Knihovny, písma, zvuky a grafika použité v Braincup.</string>
     <string name="licenses_section_libraries">Knihovny</string>
     <string name="licenses_section_fonts">Písma</string>
     <string name="licenses_section_sound">Zvuk</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Seznamy slov</string>
     <string name="licenses_view_source">Zobrazit zdroj</string>
     <string name="licenses_view_license">Zobrazit licenci</string>
-    <string name="licenses_app_notice">Brain Cup je open source, licencovaný pod Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup je open source, licencovaný pod Apache License 2.0.</string>
     <string name="accounts_title">Účty</string>
     <string name="accounts_create">Vytvořit účet</string>
     <string name="accounts_create_title">Nový účet</string>
@@ -662,7 +662,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="science_rule_shift_summary">Standardní míra tvorby pojmů: najít třídicí pravidlo jen ze správně-nebo-špatně a pak si všimnout, kdy se tiše změní.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojská věž</string>
     <string name="science_tower_of_hanoi_summary">Standardní míra plánování: hlavolam vyžaduje tahy, které pokrok nejdřív vrátí zpět, než se dá dosáhnout cíle.</string>
-    <string name="brain_cup_button">Žebříček Brain Cup</string>
+    <string name="brain_cup_button">Žebříček Braincup</string>
     <string name="sponsors_title">Sponzoři</string>
     <string name="sponsors_subtitle">Podpoř bezplatné vzdělávání pro všechny</string>
     <string name="sponsors_become">Staň se sponzorem</string>

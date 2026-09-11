@@ -135,7 +135,7 @@
     <string name="settings_keypad">ഫോൺ മാതൃകയിലുള്ള നമ്പർ പാഡ്</string>
     <string name="settings_keypad_desc">മുകളിലെ വരിയിൽ 7, 8, 9 നു പകരം 1, 2, 3 വയ്ക്കുക.</string>
     <string name="settings_theme">തീം</string>
-    <string name="settings_theme_desc">Brain Cup എങ്ങനെ കാണണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
+    <string name="settings_theme_desc">Braincup എങ്ങനെ കാണണമെന്ന് തിരഞ്ഞെടുക്കുക.</string>
     <string name="settings_theme_system">സിസ്റ്റം</string>
     <string name="settings_theme_light">ഇളം</string>
     <string name="settings_theme_dark">കടും</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">മാറ്റുക</string>
     <string name="settings_play_games_switch_cancel">ഇപ്പോൾ വേണ്ട</string>
     <string name="licenses_title">ലൈസൻസുകൾ</string>
-    <string name="licenses_desc">Brain Cup ൽ ഉപയോഗിച്ച ലൈബ്രറികൾ, ഫോണ്ടുകൾ, ശബ്ദങ്ങൾ, കലാസൃഷ്ടികൾ.</string>
+    <string name="licenses_desc">Braincup ൽ ഉപയോഗിച്ച ലൈബ്രറികൾ, ഫോണ്ടുകൾ, ശബ്ദങ്ങൾ, കലാസൃഷ്ടികൾ.</string>
     <string name="licenses_section_libraries">ലൈബ്രറികൾ</string>
     <string name="licenses_section_fonts">ഫോണ്ടുകൾ</string>
     <string name="licenses_section_sound">ശബ്ദം</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">പദപ്പട്ടികകൾ</string>
     <string name="licenses_view_source">സോഴ്സ് കാണുക</string>
     <string name="licenses_view_license">ലൈസൻസ് കാണുക</string>
-    <string name="licenses_app_notice">Brain Cup ഓപ്പൺ സോഴ്സ് ആണ്, Apache License 2.0 പ്രകാരം ലൈസൻസ് ചെയ്തത്.</string>
+    <string name="licenses_app_notice">Braincup ഓപ്പൺ സോഴ്സ് ആണ്, Apache License 2.0 പ്രകാരം ലൈസൻസ് ചെയ്തത്.</string>
     <string name="accounts_title">അക്കൗണ്ടുകൾ</string>
     <string name="accounts_create">അക്കൗണ്ട് ഉണ്ടാക്കുക</string>
     <string name="accounts_create_title">പുതിയ അക്കൗണ്ട്</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">ആശയരൂപീകരണത്തിന്റെ മാനക അളവ്: ശരി-അല്ലെങ്കിൽ-തെറ്റ് എന്നതിൽ നിന്ന് മാത്രം തരംതിരിക്കൽ നിയമം കണ്ടെത്തുക, പിന്നെ അത് എപ്പോൾ നിശ്ശബ്ദമായി മാറി എന്ന് തിരിച്ചറിയുക.</string>
     <string name="science_tower_of_hanoi_paradigm">ഹനോയ് ഗോപുരം</string>
     <string name="science_tower_of_hanoi_summary">ആസൂത്രണത്തിന്റെ മാനക അളവ്: ലക്ഷ്യത്തിലെത്തും മുമ്പ് പുരോഗതി പിന്നോട്ടാക്കുന്ന നീക്കങ്ങൾ ഈ കടങ്കഥയിൽ വേണ്ടിവരുന്നു.</string>
-    <string name="brain_cup_button">Brain Cup ലീഡർബോർഡ്</string>
+    <string name="brain_cup_button">Braincup ലീഡർബോർഡ്</string>
     <string name="sponsors_title">സ്പോൺസർമാർ</string>
     <string name="sponsors_subtitle">എല്ലാവർക്കും സൗജന്യ വിദ്യാഭ്യാസത്തെ പിന്തുണയ്ക്കുക</string>
     <string name="sponsors_become">സ്പോൺസർ ആകുക</string>

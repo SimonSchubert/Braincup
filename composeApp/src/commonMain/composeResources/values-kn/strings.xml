@@ -135,7 +135,7 @@
     <string name="settings_keypad">ಫೋನ್ ಮಾದರಿಯ ಸಂಖ್ಯಾ ಪ್ಯಾಡ್</string>
     <string name="settings_keypad_desc">ಮೇಲಿನ ಸಾಲಿನಲ್ಲಿ 7, 8, 9 ಬದಲಿಗೆ 1, 2, 3 ಇರಿಸಿ.</string>
     <string name="settings_theme">ಥೀಮ್</string>
-    <string name="settings_theme_desc">Brain Cup ಹೇಗೆ ಕಾಣಬೇಕೆಂದು ಆರಿಸಿ.</string>
+    <string name="settings_theme_desc">Braincup ಹೇಗೆ ಕಾಣಬೇಕೆಂದು ಆರಿಸಿ.</string>
     <string name="settings_theme_system">ಸಿಸ್ಟಂ</string>
     <string name="settings_theme_light">ತಿಳಿ</string>
     <string name="settings_theme_dark">ಗಾಢ</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">ಬದಲಿಸಿ</string>
     <string name="settings_play_games_switch_cancel">ಈಗ ಬೇಡ</string>
     <string name="licenses_title">ಪರವಾನಗಿಗಳು</string>
-    <string name="licenses_desc">Brain Cup ನಲ್ಲಿ ಬಳಸಿದ ಲೈಬ್ರರಿಗಳು, ಫಾಂಟ್‌ಗಳು, ಧ್ವನಿಗಳು ಮತ್ತು ಕಲಾಕೃತಿಗಳು.</string>
+    <string name="licenses_desc">Braincup ನಲ್ಲಿ ಬಳಸಿದ ಲೈಬ್ರರಿಗಳು, ಫಾಂಟ್‌ಗಳು, ಧ್ವನಿಗಳು ಮತ್ತು ಕಲಾಕೃತಿಗಳು.</string>
     <string name="licenses_section_libraries">ಲೈಬ್ರರಿಗಳು</string>
     <string name="licenses_section_fonts">ಫಾಂಟ್‌ಗಳು</string>
     <string name="licenses_section_sound">ಧ್ವನಿ</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">ಪದಪಟ್ಟಿಗಳು</string>
     <string name="licenses_view_source">ಮೂಲ ನೋಡಿ</string>
     <string name="licenses_view_license">ಪರವಾನಗಿ ನೋಡಿ</string>
-    <string name="licenses_app_notice">Brain Cup ಮುಕ್ತ ಮೂಲ ತಂತ್ರಾಂಶ, Apache License 2.0 ಅಡಿಯಲ್ಲಿ ಪರವಾನಗಿ ಪಡೆದಿದೆ.</string>
+    <string name="licenses_app_notice">Braincup ಮುಕ್ತ ಮೂಲ ತಂತ್ರಾಂಶ, Apache License 2.0 ಅಡಿಯಲ್ಲಿ ಪರವಾನಗಿ ಪಡೆದಿದೆ.</string>
     <string name="accounts_title">ಖಾತೆಗಳು</string>
     <string name="accounts_create">ಖಾತೆ ರಚಿಸಿ</string>
     <string name="accounts_create_title">ಹೊಸ ಖಾತೆ</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">ಪರಿಕಲ್ಪನೆ ರಚನೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಸರಿ-ಅಥವಾ-ತಪ್ಪು ಎಂಬುದರಿಂದಷ್ಟೇ ವಿಂಗಡಣೆಯ ನಿಯಮವನ್ನು ಕಂಡುಕೊಳ್ಳುವುದು, ನಂತರ ಅದು ಯಾವಾಗ ಮೌನವಾಗಿ ಬದಲಾಯಿತೆಂದು ಗಮನಿಸುವುದು.</string>
     <string name="science_tower_of_hanoi_paradigm">ಹನೋಯಿ ಗೋಪುರ</string>
     <string name="science_tower_of_hanoi_summary">ಯೋಜನೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಗುರಿ ತಲುಪುವ ಮೊದಲು ಪ್ರಗತಿಯನ್ನು ಹಿಂದಕ್ಕೆ ಒಯ್ಯುವ ನಡೆಗಳು ಈ ಒಗಟಿನಲ್ಲಿ ಬೇಕಾಗುತ್ತವೆ.</string>
-    <string name="brain_cup_button">Brain Cup ಅಗ್ರಪಟ್ಟಿ</string>
+    <string name="brain_cup_button">Braincup ಅಗ್ರಪಟ್ಟಿ</string>
     <string name="sponsors_title">ಪ್ರಾಯೋಜಕರು</string>
     <string name="sponsors_subtitle">ಎಲ್ಲರಿಗೂ ಉಚಿತ ಶಿಕ್ಷಣವನ್ನು ಬೆಂಬಲಿಸಿ</string>
     <string name="sponsors_become">ಪ್ರಾಯೋಜಕರಾಗಿ</string>

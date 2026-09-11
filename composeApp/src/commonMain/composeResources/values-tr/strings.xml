@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">Kavram oluşturmanın standart ölçüsü: sıralama kuralını yalnızca doğru-ya-da-yanlış geri bildiriminden bulmak, sonra da sessizce değiştiğini fark etmek.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi Kuleleri</string>
     <string name="science_tower_of_hanoi_summary">Planlamanın standart ölçüsü: bulmaca, hedefe ulaşılabilmesi için ilerlemeyi geri alan hamleler gerektirir.</string>
-    <string name="brain_cup_button">Brain Cup skor tablosu</string>
+    <string name="brain_cup_button">Braincup skor tablosu</string>
     <string name="sponsors_title">Sponsorlar</string>
     <string name="sponsors_subtitle">Herkes için ücretsiz eğitimi destekleyin</string>
 <string name="sponsors_become">Sponsor ol</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">Telefon tarzı sayı tuş takımı</string>
     <string name="settings_keypad_desc">Üst sıraya 7, 8, 9 yerine 1, 2, 3 koyar.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Brain Cup'un görünümünü seçin.</string>
+    <string name="settings_theme_desc">Braincup'un görünümünü seçin.</string>
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Açık</string>
     <string name="settings_theme_dark">Koyu</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">Değiştir</string>
     <string name="settings_play_games_switch_cancel">Şimdi değil</string>
     <string name="licenses_title">Lisanslar</string>
-    <string name="licenses_desc">Brain Cup'ta kullanılan kütüphaneler, yazı tipleri, sesler ve görseller.</string>
+    <string name="licenses_desc">Braincup'ta kullanılan kütüphaneler, yazı tipleri, sesler ve görseller.</string>
     <string name="licenses_section_libraries">Kütüphaneler</string>
     <string name="licenses_section_fonts">Yazı tipleri</string>
     <string name="licenses_section_sound">Sesler</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">Kelime listeleri</string>
     <string name="licenses_view_source">Kaynağa git</string>
     <string name="licenses_view_license">Lisansa git</string>
-    <string name="licenses_app_notice">Brain Cup açık kaynaklıdır ve Apache License 2.0 ile lisanslanmıştır.</string>
+    <string name="licenses_app_notice">Braincup açık kaynaklıdır ve Apache License 2.0 ile lisanslanmıştır.</string>
     <string name="accounts_title">Hesaplar</string>
     <string name="accounts_create">Hesap oluştur</string>
     <string name="accounts_create_title">Yeni hesap</string>

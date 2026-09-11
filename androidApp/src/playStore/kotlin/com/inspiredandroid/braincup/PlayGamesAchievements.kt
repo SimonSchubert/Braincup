@@ -260,7 +260,7 @@ private const val IRON_STREAK_TARGET = 30
 private const val LEADERBOARD_REQUEST_CODE = 9001
 
 /**
- * Two-way sync of cumulative XP with the Brain Cup leaderboard:
+ * Two-way sync of cumulative XP with the Braincup leaderboard:
  *  - If the player's remote score is higher than local (fresh install, reinstall, multi-device),
  *    restore local XP up to the remote value.
  *  - Submit the (possibly restored) local XP back. Play Games keeps the max, so a smaller submit

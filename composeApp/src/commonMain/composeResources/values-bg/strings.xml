@@ -135,7 +135,7 @@
     <string name="settings_keypad">Клавиатура като на телефон</string>
     <string name="settings_keypad_desc">Сложи 1, 2, 3 на горния ред вместо 7, 8, 9.</string>
     <string name="settings_theme">Тема</string>
-    <string name="settings_theme_desc">Избери как да изглежда Brain Cup.</string>
+    <string name="settings_theme_desc">Избери как да изглежда Braincup.</string>
     <string name="settings_theme_system">Системна</string>
     <string name="settings_theme_light">Светла</string>
     <string name="settings_theme_dark">Тъмна</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Смени</string>
     <string name="settings_play_games_switch_cancel">Не сега</string>
     <string name="licenses_title">Лицензи</string>
-    <string name="licenses_desc">Библиотеки, шрифтове, звуци и графика, използвани в Brain Cup.</string>
+    <string name="licenses_desc">Библиотеки, шрифтове, звуци и графика, използвани в Braincup.</string>
     <string name="licenses_section_libraries">Библиотеки</string>
     <string name="licenses_section_fonts">Шрифтове</string>
     <string name="licenses_section_sound">Звук</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Списъци с думи</string>
     <string name="licenses_view_source">Виж изходния код</string>
     <string name="licenses_view_license">Виж лиценза</string>
-    <string name="licenses_app_notice">Brain Cup е open source, лицензиран под Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup е open source, лицензиран под Apache License 2.0.</string>
     <string name="accounts_title">Профили</string>
     <string name="accounts_create">Създай профил</string>
     <string name="accounts_create_title">Нов профил</string>
@@ -658,7 +658,7 @@ Cow = вярна цифра, грешно място.</string>
     <string name="science_rule_shift_summary">Стандартна мярка за формиране на понятия: да откриеш правилото за подреждане само от вярно-или-грешно и после да забележиш кога то се сменя безшумно.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханойска кула</string>
     <string name="science_tower_of_hanoi_summary">Стандартна мярка за планиране: пъзелът изисква ходове, които първо връщат напредъка назад, преди целта да стане достижима.</string>
-    <string name="brain_cup_button">Класиране Brain Cup</string>
+    <string name="brain_cup_button">Класиране Braincup</string>
     <string name="sponsors_title">Спонсори</string>
     <string name="sponsors_subtitle">Подкрепи безплатното образование за всички</string>
     <string name="sponsors_become">Стани спонсор</string>

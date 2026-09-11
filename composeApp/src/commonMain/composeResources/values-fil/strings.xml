@@ -135,7 +135,7 @@
     <string name="settings_keypad">Number pad na parang telepono</string>
     <string name="settings_keypad_desc">Ilagay ang 1, 2, 3 sa itaas imbes na 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Piliin kung paano magmumukha ang Brain Cup.</string>
+    <string name="settings_theme_desc">Piliin kung paano magmumukha ang Braincup.</string>
     <string name="settings_theme_system">Sistema</string>
     <string name="settings_theme_light">Maliwanag</string>
     <string name="settings_theme_dark">Madilim</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Palitan</string>
     <string name="settings_play_games_switch_cancel">Huwag muna</string>
     <string name="licenses_title">Mga Lisensya</string>
-    <string name="licenses_desc">Mga library, font, tunog, at artwork na ginagamit sa Brain Cup.</string>
+    <string name="licenses_desc">Mga library, font, tunog, at artwork na ginagamit sa Braincup.</string>
     <string name="licenses_section_libraries">Mga Library</string>
     <string name="licenses_section_fonts">Mga Font</string>
     <string name="licenses_section_sound">Tunog</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Mga listahan ng salita</string>
     <string name="licenses_view_source">Tingnan ang source</string>
     <string name="licenses_view_license">Tingnan ang lisensya</string>
-    <string name="licenses_app_notice">Open source ang Brain Cup, lisensyado sa ilalim ng Apache License 2.0.</string>
+    <string name="licenses_app_notice">Open source ang Braincup, lisensyado sa ilalim ng Apache License 2.0.</string>
     <string name="accounts_title">Mga Account</string>
     <string name="accounts_create">Gumawa ng account</string>
     <string name="accounts_create_title">Bagong account</string>
@@ -656,7 +656,7 @@
     <string name="science_rule_shift_summary">Karaniwang sukatan ng pagbuo ng konsepto: hanapin ang panuntunan sa pag-uuri mula lamang sa tama-o-mali, at mapansin kung kailan ito tahimik na nagbago.</string>
     <string name="science_tower_of_hanoi_paradigm">Tore ng Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Karaniwang sukatan ng pagpaplano: hinihingi ng palaisipan ang mga galaw na nagpapaurong muna sa progreso bago maabot ang layunin.</string>
-    <string name="brain_cup_button">Leaderboard ng Brain Cup</string>
+    <string name="brain_cup_button">Leaderboard ng Braincup</string>
     <string name="sponsors_title">Mga Sponsor</string>
     <string name="sponsors_subtitle">Suportahan ang libreng edukasyon para sa lahat</string>
     <string name="sponsors_become">Maging Sponsor</string>

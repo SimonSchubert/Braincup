@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">개념 형성의 표준 측정법. 맞고 틀림이라는 신호만으로 분류 규칙을 찾아내고, 그것이 조용히 바뀌는 때를 알아차린다.</string>
     <string name="science_tower_of_hanoi_paradigm">하노이 탑</string>
     <string name="science_tower_of_hanoi_summary">계획 능력의 표준 측정법. 목표에 이르기 전에 진행을 되돌리는 수를 두어야 하는 퍼즐.</string>
-    <string name="brain_cup_button">Brain Cup 순위표</string>
+    <string name="brain_cup_button">Braincup 순위표</string>
     <string name="sponsors_title">후원자</string>
     <string name="sponsors_subtitle">모두를 위한 무료 교육을 지원하세요</string>
 <string name="sponsors_become">후원자 되기</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">전화기 스타일 숫자 패드</string>
     <string name="settings_keypad_desc">7, 8, 9 대신 1, 2, 3을 위쪽 행에 표시합니다.</string>
     <string name="settings_theme">테마</string>
-    <string name="settings_theme_desc">Brain Cup의 외관을 선택하세요.</string>
+    <string name="settings_theme_desc">Braincup의 외관을 선택하세요.</string>
     <string name="settings_theme_system">시스템</string>
     <string name="settings_theme_light">라이트</string>
     <string name="settings_theme_dark">다크</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">전환</string>
     <string name="settings_play_games_switch_cancel">나중에</string>
     <string name="licenses_title">라이선스</string>
-    <string name="licenses_desc">Brain Cup에서 사용하는 라이브러리, 글꼴, 사운드, 이미지입니다.</string>
+    <string name="licenses_desc">Braincup에서 사용하는 라이브러리, 글꼴, 사운드, 이미지입니다.</string>
     <string name="licenses_section_libraries">라이브러리</string>
     <string name="licenses_section_fonts">글꼴</string>
     <string name="licenses_section_sound">사운드</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">단어 목록</string>
     <string name="licenses_view_source">출처 보기</string>
     <string name="licenses_view_license">라이선스 보기</string>
-    <string name="licenses_app_notice">Brain Cup은 오픈 소스이며 Apache License 2.0을 따릅니다.</string>
+    <string name="licenses_app_notice">Braincup은 오픈 소스이며 Apache License 2.0을 따릅니다.</string>
     <string name="accounts_title">계정</string>
     <string name="accounts_create">계정 만들기</string>
     <string name="accounts_create_title">새 계정</string>

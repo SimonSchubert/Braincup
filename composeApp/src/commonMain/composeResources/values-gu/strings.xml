@@ -135,7 +135,7 @@
     <string name="settings_keypad">ફોન જેવું નંબર પેડ</string>
     <string name="settings_keypad_desc">ઉપરની હરોળમાં 7, 8, 9 ને બદલે 1, 2, 3 મૂકો.</string>
     <string name="settings_theme">થીમ</string>
-    <string name="settings_theme_desc">Brain Cup કેવું દેખાય તે પસંદ કરો.</string>
+    <string name="settings_theme_desc">Braincup કેવું દેખાય તે પસંદ કરો.</string>
     <string name="settings_theme_system">સિસ્ટમ</string>
     <string name="settings_theme_light">આછું</string>
     <string name="settings_theme_dark">ઘેરું</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">બદલો</string>
     <string name="settings_play_games_switch_cancel">અત્યારે નહીં</string>
     <string name="licenses_title">લાઇસન્સ</string>
-    <string name="licenses_desc">Brain Cup માં વપરાયેલી લાઇબ્રેરી, ફોન્ટ, અવાજ અને કલાકૃતિઓ.</string>
+    <string name="licenses_desc">Braincup માં વપરાયેલી લાઇબ્રેરી, ફોન્ટ, અવાજ અને કલાકૃતિઓ.</string>
     <string name="licenses_section_libraries">લાઇબ્રેરી</string>
     <string name="licenses_section_fonts">ફોન્ટ</string>
     <string name="licenses_section_sound">અવાજ</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">શબ્દયાદીઓ</string>
     <string name="licenses_view_source">સ્રોત જુઓ</string>
     <string name="licenses_view_license">લાઇસન્સ જુઓ</string>
-    <string name="licenses_app_notice">Brain Cup ઓપન સોર્સ છે, Apache License 2.0 હેઠળ લાઇસન્સ પ્રાપ્ત.</string>
+    <string name="licenses_app_notice">Braincup ઓપન સોર્સ છે, Apache License 2.0 હેઠળ લાઇસન્સ પ્રાપ્ત.</string>
     <string name="accounts_title">ખાતાં</string>
     <string name="accounts_create">ખાતું બનાવો</string>
     <string name="accounts_create_title">નવું ખાતું</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">સંકલ્પના રચનાનું પ્રમાણભૂત માપ: માત્ર સાચું-કે-ખોટું પરથી ગોઠવણીનો નિયમ શોધવો, અને પછી ધ્યાનમાં લેવું કે તે ક્યારે ચૂપચાપ બદલાયો.</string>
     <string name="science_tower_of_hanoi_paradigm">હનોઈનો મિનારો</string>
     <string name="science_tower_of_hanoi_summary">આયોજનનું પ્રમાણભૂત માપ: લક્ષ્ય સુધી પહોંચતા પહેલાં પ્રગતિ પાછી લઈ જતી ચાલ આ કોયડામાં જરૂરી બને છે.</string>
-    <string name="brain_cup_button">Brain Cup ગુણતાલિકા</string>
+    <string name="brain_cup_button">Braincup ગુણતાલિકા</string>
     <string name="sponsors_title">પ્રાયોજકો</string>
     <string name="sponsors_subtitle">સૌ માટે મફત શિક્ષણને ટેકો આપો</string>
     <string name="sponsors_become">પ્રાયોજક બનો</string>

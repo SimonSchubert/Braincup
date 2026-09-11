@@ -135,7 +135,7 @@
     <string name="settings_keypad">Telefono stiliaus klaviatūra</string>
     <string name="settings_keypad_desc">Dėk 1, 2, 3 į viršutinę eilę vietoj 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Pasirink, kaip atrodo Brain Cup.</string>
+    <string name="settings_theme_desc">Pasirink, kaip atrodo Braincup.</string>
     <string name="settings_theme_system">Sistemos</string>
     <string name="settings_theme_light">Šviesi</string>
     <string name="settings_theme_dark">Tamsi</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Keisti</string>
     <string name="settings_play_games_switch_cancel">Ne dabar</string>
     <string name="licenses_title">Licencijos</string>
-    <string name="licenses_desc">Bibliotekos, šriftai, garsai ir grafika, naudojami Brain Cup.</string>
+    <string name="licenses_desc">Bibliotekos, šriftai, garsai ir grafika, naudojami Braincup.</string>
     <string name="licenses_section_libraries">Bibliotekos</string>
     <string name="licenses_section_fonts">Šriftai</string>
     <string name="licenses_section_sound">Garsas</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Žodžių sąrašai</string>
     <string name="licenses_view_source">Žiūrėti šaltinį</string>
     <string name="licenses_view_license">Žiūrėti licenciją</string>
-    <string name="licenses_app_notice">Brain Cup yra open source, licencijuotas pagal Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup yra open source, licencijuotas pagal Apache License 2.0.</string>
     <string name="accounts_title">Paskyros</string>
     <string name="accounts_create">Sukurti paskyrą</string>
     <string name="accounts_create_title">Nauja paskyra</string>
@@ -662,7 +662,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="science_rule_shift_summary">Standartinis sąvokų formavimo matas: rasti rūšiavimo taisyklę vien iš teisingo-ar-neteisingo, o paskui pastebėti, kada ji tyliai pasikeičia.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojaus bokštas</string>
     <string name="science_tower_of_hanoi_summary">Standartinis planavimo matas: dėlionė reikalauja ėjimų, kurie pirma atšaukia pažangą, kol tikslas tampa pasiekiamas.</string>
-    <string name="brain_cup_button">Brain Cup rezultatų lenta</string>
+    <string name="brain_cup_button">Braincup rezultatų lenta</string>
     <string name="sponsors_title">Rėmėjai</string>
     <string name="sponsors_subtitle">Paremk nemokamą mokymą visiems</string>
     <string name="sponsors_become">Tapk rėmėju</string>

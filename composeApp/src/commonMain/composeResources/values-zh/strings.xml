@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">概念形成的标准测量：仅凭对与错的反馈找出分类规则，再察觉它何时悄然改变。</string>
     <string name="science_tower_of_hanoi_paradigm">汉诺塔</string>
     <string name="science_tower_of_hanoi_summary">计划能力的标准测量：这个谜题要求先走一些让进度倒退的步子，才能到达目标。</string>
-    <string name="brain_cup_button">Brain Cup 排行榜</string>
+    <string name="brain_cup_button">Braincup 排行榜</string>
     <string name="sponsors_title">赞助商</string>
     <string name="sponsors_subtitle">支持人人享有免费教育</string>
 <string name="sponsors_become">成为赞助商</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">电话式数字键盘</string>
     <string name="settings_keypad_desc">将 1、2、3 置于顶行，而不是 7、8、9。</string>
     <string name="settings_theme">主题</string>
-    <string name="settings_theme_desc">选择 Brain Cup 的外观。</string>
+    <string name="settings_theme_desc">选择 Braincup 的外观。</string>
     <string name="settings_theme_system">跟随系统</string>
     <string name="settings_theme_light">浅色</string>
     <string name="settings_theme_dark">深色</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">切换</string>
     <string name="settings_play_games_switch_cancel">暂不</string>
     <string name="licenses_title">许可</string>
-    <string name="licenses_desc">Brain Cup 使用的库、字体、音效和图像。</string>
+    <string name="licenses_desc">Braincup 使用的库、字体、音效和图像。</string>
     <string name="licenses_section_libraries">库</string>
     <string name="licenses_section_fonts">字体</string>
     <string name="licenses_section_sound">音效</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">词库</string>
     <string name="licenses_view_source">查看来源</string>
     <string name="licenses_view_license">查看许可</string>
-    <string name="licenses_app_notice">Brain Cup 是开源项目，采用 Apache License 2.0 许可。</string>
+    <string name="licenses_app_notice">Braincup 是开源项目，采用 Apache License 2.0 许可。</string>
     <string name="accounts_title">账号</string>
     <string name="accounts_create">创建账号</string>
     <string name="accounts_create_title">新账号</string>

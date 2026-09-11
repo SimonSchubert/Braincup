@@ -333,7 +333,7 @@
     <string name="science_rule_shift_summary">Ein Standardmaß für Begriffsbildung: die Sortierregel allein aus Richtig-oder-falsch-Rückmeldung zu finden und dann zu bemerken, wenn sie sich stillschweigend ändert.</string>
     <string name="science_tower_of_hanoi_paradigm">Turm von Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ein Standardmaß für Planung: das Puzzle braucht Züge, die den Fortschritt erst einmal rückgängig machen, bevor das Ziel erreichbar ist.</string>
-    <string name="brain_cup_button">Brain Cup Bestenliste</string>
+    <string name="brain_cup_button">Braincup Bestenliste</string>
     <string name="sponsors_title">Sponsoren</string>
     <string name="sponsors_subtitle">Unterstütze kostenlose Bildung für alle</string>
     <string name="sponsors_become">Sponsor werden</string>
@@ -581,7 +581,7 @@
     <string name="settings_keypad">Telefon-Ziffernblock</string>
     <string name="settings_keypad_desc">1, 2, 3 oben statt 7, 8, 9 (wie bei einem Telefon).</string>
     <string name="settings_theme">Erscheinungsbild</string>
-    <string name="settings_theme_desc">Wähle, wie Brain Cup aussieht.</string>
+    <string name="settings_theme_desc">Wähle, wie Braincup aussieht.</string>
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Hell</string>
     <string name="settings_theme_dark">Dunkel</string>
@@ -591,7 +591,7 @@
     <string name="settings_play_games_profile_switch">Wechseln</string>
     <string name="settings_play_games_switch_cancel">Nicht jetzt</string>
     <string name="licenses_title">Lizenzen</string>
-    <string name="licenses_desc">Bibliotheken, Schriften, Klänge und Grafiken, die Brain Cup verwendet.</string>
+    <string name="licenses_desc">Bibliotheken, Schriften, Klänge und Grafiken, die Braincup verwendet.</string>
     <string name="licenses_section_libraries">Bibliotheken</string>
     <string name="licenses_section_fonts">Schriften</string>
     <string name="licenses_section_sound">Klänge</string>
@@ -599,7 +599,7 @@
     <string name="licenses_section_word_lists">Wortlisten</string>
     <string name="licenses_view_source">Quelle ansehen</string>
     <string name="licenses_view_license">Lizenz ansehen</string>
-    <string name="licenses_app_notice">Brain Cup ist Open Source und steht unter der Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup ist Open Source und steht unter der Apache License 2.0.</string>
     <string name="accounts_title">Konten</string>
     <string name="accounts_create">Konto erstellen</string>
     <string name="accounts_create_title">Neues Konto</string>

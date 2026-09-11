@@ -135,7 +135,7 @@
     <string name="settings_keypad">फोनसारखा अंक पॅड</string>
     <string name="settings_keypad_desc">वरच्या रांगेत 7, 8, 9 ऐवजी 1, 2, 3 ठेवा.</string>
     <string name="settings_theme">थीम</string>
-    <string name="settings_theme_desc">Brain Cup कसे दिसावे ते निवडा.</string>
+    <string name="settings_theme_desc">Braincup कसे दिसावे ते निवडा.</string>
     <string name="settings_theme_system">सिस्टम</string>
     <string name="settings_theme_light">फिकट</string>
     <string name="settings_theme_dark">गडद</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">बदला</string>
     <string name="settings_play_games_switch_cancel">आता नको</string>
     <string name="licenses_title">परवाने</string>
-    <string name="licenses_desc">Brain Cup मध्ये वापरलेली लायब्ररी, फॉन्ट, ध्वनी आणि कलाकृती.</string>
+    <string name="licenses_desc">Braincup मध्ये वापरलेली लायब्ररी, फॉन्ट, ध्वनी आणि कलाकृती.</string>
     <string name="licenses_section_libraries">लायब्ररी</string>
     <string name="licenses_section_fonts">फॉन्ट</string>
     <string name="licenses_section_sound">ध्वनी</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">शब्दयाद्या</string>
     <string name="licenses_view_source">स्रोत पहा</string>
     <string name="licenses_view_license">परवाना पहा</string>
-    <string name="licenses_app_notice">Brain Cup हे ओपन सोर्स आहे, Apache License 2.0 अंतर्गत परवानाकृत.</string>
+    <string name="licenses_app_notice">Braincup हे ओपन सोर्स आहे, Apache License 2.0 अंतर्गत परवानाकृत.</string>
     <string name="accounts_title">खाती</string>
     <string name="accounts_create">खाते तयार करा</string>
     <string name="accounts_create_title">नवीन खाते</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">संकल्पना निर्मितीचे प्रमाणित माप: फक्त बरोबर-की-चूक यावरून वर्गीकरणाचा नियम शोधणे, आणि मग तो कधी गुपचूप बदलला हे ओळखणे.</string>
     <string name="science_tower_of_hanoi_paradigm">हनोईचा मनोरा</string>
     <string name="science_tower_of_hanoi_summary">नियोजनाचे प्रमाणित माप: ध्येयापर्यंत पोहोचण्याआधी प्रगती मागे नेणाऱ्या चाली या कोड्यात कराव्या लागतात.</string>
-    <string name="brain_cup_button">Brain Cup गुणतालिका</string>
+    <string name="brain_cup_button">Braincup गुणतालिका</string>
     <string name="sponsors_title">प्रायोजक</string>
     <string name="sponsors_subtitle">सर्वांसाठी मोफत शिक्षणाला पाठिंबा द्या</string>
     <string name="sponsors_become">प्रायोजक व्हा</string>

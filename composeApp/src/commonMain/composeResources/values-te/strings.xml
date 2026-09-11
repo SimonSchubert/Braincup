@@ -135,7 +135,7 @@
     <string name="settings_keypad">ఫోన్ తరహా సంఖ్యా ప్యాడ్</string>
     <string name="settings_keypad_desc">పై వరుసలో 7, 8, 9 బదులు 1, 2, 3 ఉంచు.</string>
     <string name="settings_theme">థీమ్</string>
-    <string name="settings_theme_desc">Brain Cup ఎలా కనిపించాలో ఎంచుకోండి.</string>
+    <string name="settings_theme_desc">Braincup ఎలా కనిపించాలో ఎంచుకోండి.</string>
     <string name="settings_theme_system">సిస్టమ్</string>
     <string name="settings_theme_light">లేత</string>
     <string name="settings_theme_dark">ముదురు</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">మార్చు</string>
     <string name="settings_play_games_switch_cancel">ఇప్పుడు వద్దు</string>
     <string name="licenses_title">లైసెన్సులు</string>
-    <string name="licenses_desc">Brain Cup లో వాడిన లైబ్రరీలు, ఫాంట్లు, ధ్వనులు, కళాకృతులు.</string>
+    <string name="licenses_desc">Braincup లో వాడిన లైబ్రరీలు, ఫాంట్లు, ధ్వనులు, కళాకృతులు.</string>
     <string name="licenses_section_libraries">లైబ్రరీలు</string>
     <string name="licenses_section_fonts">ఫాంట్లు</string>
     <string name="licenses_section_sound">ధ్వని</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">పద జాబితాలు</string>
     <string name="licenses_view_source">సోర్స్ చూడు</string>
     <string name="licenses_view_license">లైసెన్స్ చూడు</string>
-    <string name="licenses_app_notice">Brain Cup ఓపెన్ సోర్స్, Apache License 2.0 కింద లైసెన్స్ పొందింది.</string>
+    <string name="licenses_app_notice">Braincup ఓపెన్ సోర్స్, Apache License 2.0 కింద లైసెన్స్ పొందింది.</string>
     <string name="accounts_title">ఖాతాలు</string>
     <string name="accounts_create">ఖాతా సృష్టించు</string>
     <string name="accounts_create_title">కొత్త ఖాతా</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">భావన నిర్మాణానికి ప్రామాణిక కొలత: సరి-లేదా-తప్పు అనే దాని నుంచే క్రమబద్ధీకరణ నియమాన్ని కనుగొనడం, ఆపై అది ఎప్పుడు నిశ్శబ్దంగా మారిందో గమనించడం.</string>
     <string name="science_tower_of_hanoi_paradigm">హనోయి గోపురం</string>
     <string name="science_tower_of_hanoi_summary">ప్రణాళికకు ప్రామాణిక కొలత: లక్ష్యాన్ని చేరకముందు పురోగతిని వెనక్కి తీసుకెళ్లే ఎత్తుగడలు ఈ పజిల్‌లో అవసరమవుతాయి.</string>
-    <string name="brain_cup_button">Brain Cup లీడర్‌బోర్డు</string>
+    <string name="brain_cup_button">Braincup లీడర్‌బోర్డు</string>
     <string name="sponsors_title">స్పాన్సర్లు</string>
     <string name="sponsors_subtitle">అందరికీ ఉచిత విద్యకు మద్దతు ఇవ్వండి</string>
     <string name="sponsors_become">స్పాన్సర్ అవ్వండి</string>

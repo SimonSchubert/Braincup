@@ -135,7 +135,7 @@
     <string name="settings_keypad">Sifferknapp som på telefon</string>
     <string name="settings_keypad_desc">Sätt 1, 2, 3 överst i stället för 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Välj hur Brain Cup ser ut.</string>
+    <string name="settings_theme_desc">Välj hur Braincup ser ut.</string>
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Ljust</string>
     <string name="settings_theme_dark">Mörkt</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Byt</string>
     <string name="settings_play_games_switch_cancel">Inte nu</string>
     <string name="licenses_title">Licenser</string>
-    <string name="licenses_desc">Bibliotek, typsnitt, ljud och bilder som används i Brain Cup.</string>
+    <string name="licenses_desc">Bibliotek, typsnitt, ljud och bilder som används i Braincup.</string>
     <string name="licenses_section_libraries">Bibliotek</string>
     <string name="licenses_section_fonts">Typsnitt</string>
     <string name="licenses_section_sound">Ljud</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Ordlistor</string>
     <string name="licenses_view_source">Visa källa</string>
     <string name="licenses_view_license">Visa licens</string>
-    <string name="licenses_app_notice">Brain Cup är öppen källkod, licensierad under Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup är öppen källkod, licensierad under Apache License 2.0.</string>
     <string name="accounts_title">Konton</string>
     <string name="accounts_create">Skapa konto</string>
     <string name="accounts_create_title">Nytt konto</string>
@@ -656,7 +656,7 @@
     <string name="science_rule_shift_summary">Ett standardmått på begreppsbildning: att hitta sorteringsregeln utifrån inget annat än rätt-eller-fel, och sedan märka när den tyst ändras.</string>
     <string name="science_tower_of_hanoi_paradigm">Tornet i Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ett standardmått på planering: pusslet kräver drag som först river upp framstegen innan målet kan nås.</string>
-    <string name="brain_cup_button">Brain Cup-topplista</string>
+    <string name="brain_cup_button">Braincup-topplista</string>
     <string name="sponsors_title">Sponsorer</string>
     <string name="sponsors_subtitle">Stöd gratis utbildning för alla</string>
     <string name="sponsors_become">Bli sponsor</string>

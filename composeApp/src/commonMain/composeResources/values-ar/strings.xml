@@ -345,7 +345,7 @@
     <string name="science_rule_shift_summary">مقياس قياسي لتكوين المفاهيم: العثور على قاعدة الفرز من مجرد صواب أو خطأ، ثم ملاحظة متى تتغير في صمت.</string>
     <string name="science_tower_of_hanoi_paradigm">أبراج هانوي</string>
     <string name="science_tower_of_hanoi_summary">مقياس قياسي للتخطيط: يتطلب اللغز نقلات تُرجع التقدم إلى الوراء قبل أن يصبح الهدف قابلًا للبلوغ.</string>
-    <string name="brain_cup_button">لوحة متصدري Brain Cup</string>
+    <string name="brain_cup_button">لوحة متصدري Braincup</string>
     <string name="sponsors_title">الرعاة</string>
     <string name="sponsors_subtitle">ادعم التعليم المجاني للجميع</string>
 <string name="sponsors_become">كن راعياً</string>
@@ -593,7 +593,7 @@
     <string name="settings_keypad">لوحة أرقام بأسلوب الهاتف</string>
     <string name="settings_keypad_desc">ضع 1, 2, 3 في الصف العلوي بدلاً من 7, 8, 9.</string>
     <string name="settings_theme">المظهر</string>
-    <string name="settings_theme_desc">اختر كيف يبدو Brain Cup.</string>
+    <string name="settings_theme_desc">اختر كيف يبدو Braincup.</string>
     <string name="settings_theme_system">النظام</string>
     <string name="settings_theme_light">فاتح</string>
     <string name="settings_theme_dark">داكن</string>
@@ -603,7 +603,7 @@
     <string name="settings_play_games_profile_switch">تبديل</string>
     <string name="settings_play_games_switch_cancel">ليس الآن</string>
     <string name="licenses_title">التراخيص</string>
-    <string name="licenses_desc">المكتبات والخطوط والأصوات والرسومات التي يستخدمها Brain Cup.</string>
+    <string name="licenses_desc">المكتبات والخطوط والأصوات والرسومات التي يستخدمها Braincup.</string>
     <string name="licenses_section_libraries">المكتبات</string>
     <string name="licenses_section_fonts">الخطوط</string>
     <string name="licenses_section_sound">الأصوات</string>
@@ -611,7 +611,7 @@
     <string name="licenses_section_word_lists">قوائم الكلمات</string>
     <string name="licenses_view_source">عرض المصدر</string>
     <string name="licenses_view_license">عرض الترخيص</string>
-    <string name="licenses_app_notice">Brain Cup مفتوح المصدر بموجب رخصة Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup مفتوح المصدر بموجب رخصة Apache License 2.0.</string>
     <string name="accounts_title">الحسابات</string>
     <string name="accounts_create">إنشاء حساب</string>
     <string name="accounts_create_title">حساب جديد</string>

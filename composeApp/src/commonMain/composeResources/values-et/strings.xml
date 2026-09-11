@@ -135,7 +135,7 @@
     <string name="settings_keypad">Telefoni numbriklahvistik</string>
     <string name="settings_keypad_desc">Pane 1, 2, 3 ülemisele reale 7, 8, 9 asemel.</string>
     <string name="settings_theme">Teema</string>
-    <string name="settings_theme_desc">Vali, kuidas Brain Cup välja näeb.</string>
+    <string name="settings_theme_desc">Vali, kuidas Braincup välja näeb.</string>
     <string name="settings_theme_system">Süsteem</string>
     <string name="settings_theme_light">Hele</string>
     <string name="settings_theme_dark">Tume</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Vaheta</string>
     <string name="settings_play_games_switch_cancel">Mitte praegu</string>
     <string name="licenses_title">Litsentsid</string>
-    <string name="licenses_desc">Teegid, fondid, helid ja graafika, mida Brain Cupis kasutatakse.</string>
+    <string name="licenses_desc">Teegid, fondid, helid ja graafika, mida Braincupis kasutatakse.</string>
     <string name="licenses_section_libraries">Teegid</string>
     <string name="licenses_section_fonts">Fondid</string>
     <string name="licenses_section_sound">Heli</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Sõnaloendid</string>
     <string name="licenses_view_source">Vaata lähtekoodi</string>
     <string name="licenses_view_license">Vaata litsentsi</string>
-    <string name="licenses_app_notice">Brain Cup on open source, litsentsitud Apache License 2.0 alusel.</string>
+    <string name="licenses_app_notice">Braincup on open source, litsentsitud Apache License 2.0 alusel.</string>
     <string name="accounts_title">Kontod</string>
     <string name="accounts_create">Loo konto</string>
     <string name="accounts_create_title">Uus konto</string>
@@ -658,7 +658,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="science_rule_shift_summary">Mõistete kujunemise standardmõõt: leida sortimisreegel ainult õige-või-vale põhjal ja siis märgata, millal see vaikselt muutub.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi torn</string>
     <string name="science_tower_of_hanoi_summary">Planeerimise standardmõõt: mõistatus nõuab käike, mis tühistavad edasimineku, enne kui eesmärgini jõuab.</string>
-    <string name="brain_cup_button">Brain Cupi edetabel</string>
+    <string name="brain_cup_button">Braincupi edetabel</string>
     <string name="sponsors_title">Sponsorid</string>
     <string name="sponsors_subtitle">Toeta tasuta haridust kõigile</string>
     <string name="sponsors_become">Hakka sponsoriks</string>

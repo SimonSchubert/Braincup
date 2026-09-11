@@ -333,7 +333,7 @@
     <string name="science_rule_shift_summary">Een standaardmaat voor begripsvorming: de sorteerregel vinden uit niets dan goed-of-fout, en dan merken wanneer die stilletjes verandert.</string>
     <string name="science_tower_of_hanoi_paradigm">Torens van Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Een standaardmaat voor plannen: de puzzel vraagt zetten die de voortgang eerst ongedaan maken voordat het doel bereikbaar is.</string>
-    <string name="brain_cup_button">Brain Cup klassement</string>
+    <string name="brain_cup_button">Braincup klassement</string>
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Steun gratis onderwijs voor iedereen</string>
 <string name="sponsors_become">Word sponsor</string>
@@ -581,7 +581,7 @@
     <string name="settings_keypad">Telefoon-stijl cijfertoetsen</string>
     <string name="settings_keypad_desc">Plaatst 1, 2, 3 bovenaan in plaats van 7, 8, 9.</string>
     <string name="settings_theme">Weergave</string>
-    <string name="settings_theme_desc">Kies hoe Brain Cup eruitziet.</string>
+    <string name="settings_theme_desc">Kies hoe Braincup eruitziet.</string>
     <string name="settings_theme_system">Systeem</string>
     <string name="settings_theme_light">Licht</string>
     <string name="settings_theme_dark">Donker</string>
@@ -591,7 +591,7 @@
     <string name="settings_play_games_profile_switch">Wisselen</string>
     <string name="settings_play_games_switch_cancel">Niet nu</string>
     <string name="licenses_title">Licenties</string>
-    <string name="licenses_desc">Bibliotheken, lettertypen, geluiden en illustraties die Brain Cup gebruikt.</string>
+    <string name="licenses_desc">Bibliotheken, lettertypen, geluiden en illustraties die Braincup gebruikt.</string>
     <string name="licenses_section_libraries">Bibliotheken</string>
     <string name="licenses_section_fonts">Lettertypen</string>
     <string name="licenses_section_sound">Geluiden</string>
@@ -599,7 +599,7 @@
     <string name="licenses_section_word_lists">Woordenlijsten</string>
     <string name="licenses_view_source">Bron bekijken</string>
     <string name="licenses_view_license">Licentie bekijken</string>
-    <string name="licenses_app_notice">Brain Cup is opensource en valt onder de Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup is opensource en valt onder de Apache License 2.0.</string>
     <string name="accounts_title">Accounts</string>
     <string name="accounts_create">Account maken</string>
     <string name="accounts_create_title">Nieuw account</string>

@@ -90,13 +90,13 @@ object PlayGamesBridge {
     /** Launch the per-game leaderboard UI. No-op if the game has none. */
     var onShowLeaderboard: ((GameType) -> Unit)? = null
 
-    /** Submit cumulative XP to the cross-game Brain Cup leaderboard. */
+    /** Submit cumulative XP to the cross-game Braincup leaderboard. */
     var onSubmitTotalXp: ((Int) -> Unit)? = null
 
-    /** Launch the Brain Cup (cross-game XP) leaderboard UI. */
+    /** Launch the Braincup (cross-game XP) leaderboard UI. */
     var onShowBrainCup: (() -> Unit)? = null
 
-    /** Fired when local XP was raised to match a higher value from the Brain Cup leaderboard. */
+    /** Fired when local XP was raised to match a higher value from the Braincup leaderboard. */
     var onTotalXpRestored: ((Int) -> Unit)? = null
 
     /** Fired after Play Games / Game Center progress was written into local storage. */

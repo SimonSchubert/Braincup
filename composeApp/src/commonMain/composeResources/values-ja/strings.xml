@@ -360,7 +360,7 @@
     <string name="science_rule_shift_summary">概念形成の標準的な指標。正誤の手がかりだけから分類規則を見つけ出し、それが黙って変わったことに気づく。</string>
     <string name="science_tower_of_hanoi_paradigm">ハノイの塔</string>
     <string name="science_tower_of_hanoi_summary">計画能力の標準的な指標。この問題では、目標に達する前に進捗を戻す手が必要になる。</string>
-    <string name="brain_cup_button">Brain Cup ランキング</string>
+    <string name="brain_cup_button">Braincup ランキング</string>
     <string name="sponsors_title">スポンサー</string>
     <string name="sponsors_subtitle">すべての人のための無料教育を支援しよう</string>
 <string name="sponsors_become">スポンサーになる</string>
@@ -608,7 +608,7 @@
     <string name="settings_keypad">電話型テンキー</string>
     <string name="settings_keypad_desc">7、8、9の代わりに1、2、3を上の行に表示します。</string>
     <string name="settings_theme">テーマ</string>
-    <string name="settings_theme_desc">Brain Cup の外観を選択してください。</string>
+    <string name="settings_theme_desc">Braincup の外観を選択してください。</string>
     <string name="settings_theme_system">システム</string>
     <string name="settings_theme_light">ライト</string>
     <string name="settings_theme_dark">ダーク</string>
@@ -618,7 +618,7 @@
     <string name="settings_play_games_profile_switch">切り替え</string>
     <string name="settings_play_games_switch_cancel">後で</string>
     <string name="licenses_title">ライセンス</string>
-    <string name="licenses_desc">Brain Cup が使用しているライブラリ、フォント、サウンド、画像です。</string>
+    <string name="licenses_desc">Braincup が使用しているライブラリ、フォント、サウンド、画像です。</string>
     <string name="licenses_section_libraries">ライブラリ</string>
     <string name="licenses_section_fonts">フォント</string>
     <string name="licenses_section_sound">サウンド</string>
@@ -626,7 +626,7 @@
     <string name="licenses_section_word_lists">単語リスト</string>
     <string name="licenses_view_source">ソースを見る</string>
     <string name="licenses_view_license">ライセンスを見る</string>
-    <string name="licenses_app_notice">Brain Cup はオープンソースで、Apache License 2.0 のもとで公開されています。</string>
+    <string name="licenses_app_notice">Braincup はオープンソースで、Apache License 2.0 のもとで公開されています。</string>
     <string name="accounts_title">アカウント</string>
     <string name="accounts_create">アカウントを作成</string>
     <string name="accounts_create_title">新しいアカウント</string>

@@ -135,7 +135,7 @@
     <string name="settings_keypad">Тастатура као на телефону</string>
     <string name="settings_keypad_desc">Стави 1, 2, 3 у горњи ред уместо 7, 8, 9.</string>
     <string name="settings_theme">Тема</string>
-    <string name="settings_theme_desc">Изабери како Brain Cup изгледа.</string>
+    <string name="settings_theme_desc">Изабери како Braincup изгледа.</string>
     <string name="settings_theme_system">Систем</string>
     <string name="settings_theme_light">Светла</string>
     <string name="settings_theme_dark">Тамна</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Промени</string>
     <string name="settings_play_games_switch_cancel">Не сада</string>
     <string name="licenses_title">Лиценце</string>
-    <string name="licenses_desc">Библиотеке, фонтови, звукови и графика коришћени у Brain Cup-у.</string>
+    <string name="licenses_desc">Библиотеке, фонтови, звукови и графика коришћени у Braincup-у.</string>
     <string name="licenses_section_libraries">Библиотеке</string>
     <string name="licenses_section_fonts">Фонтови</string>
     <string name="licenses_section_sound">Звук</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Листе речи</string>
     <string name="licenses_view_source">Прикажи извор</string>
     <string name="licenses_view_license">Прикажи лиценцу</string>
-    <string name="licenses_app_notice">Brain Cup је open source, лиценциран под Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup је open source, лиценциран под Apache License 2.0.</string>
     <string name="accounts_title">Налози</string>
     <string name="accounts_create">Направи налог</string>
     <string name="accounts_create_title">Нови налог</string>
@@ -662,7 +662,7 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="science_rule_shift_summary">Стандардна мера стварања појмова: пронаћи правило разврставања само из тачно-или-нетачно, а затим приметити кад се тихо промени.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханојска кула</string>
     <string name="science_tower_of_hanoi_summary">Стандардна мера планирања: слагалица тражи потезе који напредак прво пониште пре него што се циљ може достићи.</string>
-    <string name="brain_cup_button">Ранг листа Brain Cup</string>
+    <string name="brain_cup_button">Ранг листа Braincup</string>
     <string name="sponsors_title">Спонзори</string>
     <string name="sponsors_subtitle">Подржи бесплатно образовање за све</string>
     <string name="sponsors_become">Постани спонзор</string>

@@ -135,7 +135,7 @@
     <string name="settings_keypad">Talnaborð í símasniði</string>
     <string name="settings_keypad_desc">Settu 1, 2, 3 í efstu röðina í stað 7, 8, 9.</string>
     <string name="settings_theme">Þema</string>
-    <string name="settings_theme_desc">Veldu útlit Brain Cup.</string>
+    <string name="settings_theme_desc">Veldu útlit Braincup.</string>
     <string name="settings_theme_system">Kerfi</string>
     <string name="settings_theme_light">Ljóst</string>
     <string name="settings_theme_dark">Dökkt</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Skipta</string>
     <string name="settings_play_games_switch_cancel">Ekki núna</string>
     <string name="licenses_title">Leyfi</string>
-    <string name="licenses_desc">Söfn, leturgerðir, hljóð og grafík sem notuð eru í Brain Cup.</string>
+    <string name="licenses_desc">Söfn, leturgerðir, hljóð og grafík sem notuð eru í Braincup.</string>
     <string name="licenses_section_libraries">Söfn</string>
     <string name="licenses_section_fonts">Leturgerðir</string>
     <string name="licenses_section_sound">Hljóð</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Orðalistar</string>
     <string name="licenses_view_source">Skoða frumkóða</string>
     <string name="licenses_view_license">Skoða leyfi</string>
-    <string name="licenses_app_notice">Brain Cup er opinn kóði, gefinn út undir Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup er opinn kóði, gefinn út undir Apache License 2.0.</string>
     <string name="accounts_title">Reikningar</string>
     <string name="accounts_create">Búa til reikning</string>
     <string name="accounts_create_title">Nýr reikningur</string>
@@ -658,7 +658,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="science_rule_shift_summary">Staðlað mat á hugtakamyndun: að finna röðunarregluna út frá engu nema rétt-eða-rangt, og taka svo eftir þegar hún breytist hljóðlaust.</string>
     <string name="science_tower_of_hanoi_paradigm">Turninn í Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Staðlað mat á áætlanagerð: þrautin krefst leikja sem vinda ofan af framvindunni áður en markinu verður náð.</string>
-    <string name="brain_cup_button">Stigatafla Brain Cup</string>
+    <string name="brain_cup_button">Stigatafla Braincup</string>
     <string name="sponsors_title">Styrktaraðilar</string>
     <string name="sponsors_subtitle">Styddu ókeypis menntun fyrir alla</string>
     <string name="sponsors_become">Vertu styrktaraðili</string>

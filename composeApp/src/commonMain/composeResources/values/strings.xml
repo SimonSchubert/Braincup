@@ -135,7 +135,7 @@
     <string name="settings_keypad">Phone-style number pad</string>
     <string name="settings_keypad_desc">Put 1, 2, 3 on the top row instead of 7, 8, 9.</string>
     <string name="settings_theme">Theme</string>
-    <string name="settings_theme_desc">Choose how Brain Cup looks.</string>
+    <string name="settings_theme_desc">Choose how Braincup looks.</string>
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Switch</string>
     <string name="settings_play_games_switch_cancel">Not now</string>
     <string name="licenses_title">Licenses</string>
-    <string name="licenses_desc">Libraries, fonts, sounds and artwork used in Brain Cup.</string>
+    <string name="licenses_desc">Libraries, fonts, sounds and artwork used in Braincup.</string>
     <string name="licenses_section_libraries">Libraries</string>
     <string name="licenses_section_fonts">Fonts</string>
     <string name="licenses_section_sound">Sound</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Word lists</string>
     <string name="licenses_view_source">View source</string>
     <string name="licenses_view_license">View license</string>
-    <string name="licenses_app_notice">Brain Cup is open source, licensed under the Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup is open source, licensed under the Apache License 2.0.</string>
     <string name="accounts_title">Accounts</string>
     <string name="accounts_create">Create account</string>
     <string name="accounts_create_title">New account</string>
@@ -682,7 +682,7 @@
     <string name="science_rule_shift_summary">A standard measure of concept formation: finding the sorting rule from nothing but right-or-wrong feedback, then noticing when it silently changes.</string>
     <string name="science_tower_of_hanoi_paradigm">Tower of Hanoi</string>
     <string name="science_tower_of_hanoi_summary">A standard measure of planning: the puzzle needs moves that undo progress before the goal can be reached.</string>
-    <string name="brain_cup_button">Brain Cup leaderboard</string>
+    <string name="brain_cup_button">Braincup leaderboard</string>
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Support free education for everyone</string>
     <string name="sponsors_become">Become a Sponsor</string>

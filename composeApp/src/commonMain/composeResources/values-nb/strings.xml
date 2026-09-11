@@ -135,7 +135,7 @@
     <string name="settings_keypad">Talltastatur som på telefon</string>
     <string name="settings_keypad_desc">Sett 1, 2, 3 øverst i stedet for 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Velg hvordan Brain Cup ser ut.</string>
+    <string name="settings_theme_desc">Velg hvordan Braincup ser ut.</string>
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Lyst</string>
     <string name="settings_theme_dark">Mørkt</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Bytt</string>
     <string name="settings_play_games_switch_cancel">Ikke nå</string>
     <string name="licenses_title">Lisenser</string>
-    <string name="licenses_desc">Biblioteker, skrifter, lyder og grafikk brukt i Brain Cup.</string>
+    <string name="licenses_desc">Biblioteker, skrifter, lyder og grafikk brukt i Braincup.</string>
     <string name="licenses_section_libraries">Biblioteker</string>
     <string name="licenses_section_fonts">Skrifter</string>
     <string name="licenses_section_sound">Lyd</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Ordlister</string>
     <string name="licenses_view_source">Vis kilde</string>
     <string name="licenses_view_license">Vis lisens</string>
-    <string name="licenses_app_notice">Brain Cup er åpen kildekode, lisensiert under Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup er åpen kildekode, lisensiert under Apache License 2.0.</string>
     <string name="accounts_title">Kontoer</string>
     <string name="accounts_create">Opprett konto</string>
     <string name="accounts_create_title">Ny konto</string>
@@ -658,7 +658,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="science_rule_shift_summary">Et standardmål for begrepsdanning: å finne sorteringsregelen ut fra ingenting annet enn riktig-eller-galt, og så merke når den stille endrer seg.</string>
     <string name="science_tower_of_hanoi_paradigm">Tårnet i Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Et standardmål for planlegging: puslespillet krever trekk som først reverserer fremgangen før målet kan nås.</string>
-    <string name="brain_cup_button">Brain Cup-rangering</string>
+    <string name="brain_cup_button">Braincup-rangering</string>
     <string name="sponsors_title">Sponsorer</string>
     <string name="sponsors_subtitle">Støtt gratis utdanning til alle</string>
     <string name="sponsors_become">Bli sponsor</string>

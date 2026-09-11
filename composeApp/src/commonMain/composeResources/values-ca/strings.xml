@@ -135,7 +135,7 @@
     <string name="settings_keypad">Teclat numèric d'estil telèfon</string>
     <string name="settings_keypad_desc">Posa 1, 2, 3 a la fila de dalt en lloc de 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Tria com es veu Brain Cup.</string>
+    <string name="settings_theme_desc">Tria com es veu Braincup.</string>
     <string name="settings_theme_system">Sistema</string>
     <string name="settings_theme_light">Clar</string>
     <string name="settings_theme_dark">Fosc</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Canvia</string>
     <string name="settings_play_games_switch_cancel">Ara no</string>
     <string name="licenses_title">Llicències</string>
-    <string name="licenses_desc">Biblioteques, tipus de lletra, sons i gràfics usats a Brain Cup.</string>
+    <string name="licenses_desc">Biblioteques, tipus de lletra, sons i gràfics usats a Braincup.</string>
     <string name="licenses_section_libraries">Biblioteques</string>
     <string name="licenses_section_fonts">Tipus de lletra</string>
     <string name="licenses_section_sound">So</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Llistes de paraules</string>
     <string name="licenses_view_source">Mostra el codi</string>
     <string name="licenses_view_license">Mostra la llicència</string>
-    <string name="licenses_app_notice">Brain Cup és open source, llicenciat sota l'Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup és open source, llicenciat sota l'Apache License 2.0.</string>
     <string name="accounts_title">Comptes</string>
     <string name="accounts_create">Crea un compte</string>
     <string name="accounts_create_title">Compte nou</string>
@@ -658,7 +658,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="science_rule_shift_summary">Una mesura estàndard de la formació de conceptes: trobar la regla d'ordenació amb res més que un encert-o-error, i després adonar-se de quan canvia en silenci.</string>
     <string name="science_tower_of_hanoi_paradigm">Torre de Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Una mesura estàndard de la planificació: el trencaclosques demana moviments que desfan el progrés abans no es pugui arribar a la meta.</string>
-    <string name="brain_cup_button">Classificació Brain Cup</string>
+    <string name="brain_cup_button">Classificació Braincup</string>
     <string name="sponsors_title">Patrocinadors</string>
     <string name="sponsors_subtitle">Dona suport a l'educació gratuïta per a tothom</string>
     <string name="sponsors_become">Fes-te patrocinador</string>

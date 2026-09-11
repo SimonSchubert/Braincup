@@ -135,7 +135,7 @@
     <string name="settings_keypad">صفحه‌کلید عددی مثل تلفن</string>
     <string name="settings_keypad_desc">به جای 7، 8، 9 اعداد 1، 2، 3 را در ردیف بالا قرار بده.</string>
     <string name="settings_theme">پوسته</string>
-    <string name="settings_theme_desc">ظاهر Brain Cup را انتخاب کن.</string>
+    <string name="settings_theme_desc">ظاهر Braincup را انتخاب کن.</string>
     <string name="settings_theme_system">سیستم</string>
     <string name="settings_theme_light">روشن</string>
     <string name="settings_theme_dark">تیره</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">تعویض</string>
     <string name="settings_play_games_switch_cancel">حالا نه</string>
     <string name="licenses_title">مجوزها</string>
-    <string name="licenses_desc">کتابخانه‌ها، فونت‌ها، صداها و آثار هنری به‌کاررفته در Brain Cup.</string>
+    <string name="licenses_desc">کتابخانه‌ها، فونت‌ها، صداها و آثار هنری به‌کاررفته در Braincup.</string>
     <string name="licenses_section_libraries">کتابخانه‌ها</string>
     <string name="licenses_section_fonts">فونت‌ها</string>
     <string name="licenses_section_sound">صدا</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">فهرست واژه‌ها</string>
     <string name="licenses_view_source">مشاهده کد منبع</string>
     <string name="licenses_view_license">مشاهده مجوز</string>
-    <string name="licenses_app_notice">Brain Cup متن‌باز است و تحت مجوز Apache License 2.0 منتشر می‌شود.</string>
+    <string name="licenses_app_notice">Braincup متن‌باز است و تحت مجوز Apache License 2.0 منتشر می‌شود.</string>
     <string name="accounts_title">حساب‌ها</string>
     <string name="accounts_create">ساخت حساب</string>
     <string name="accounts_create_title">حساب جدید</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">سنجه‌ای استاندارد برای مفهوم‌سازی: یافتن قاعدهٔ دسته‌بندی تنها از بازخورد درست یا نادرست، و سپس دریافتن اینکه کی بی‌صدا عوض می‌شود.</string>
     <string name="science_tower_of_hanoi_paradigm">برج هانوی</string>
     <string name="science_tower_of_hanoi_summary">سنجه‌ای استاندارد برای برنامه‌ریزی: این معما حرکت‌هایی می‌طلبد که پیشرفت را پس می‌برند تا بتوان به هدف رسید.</string>
-    <string name="brain_cup_button">جدول رده‌بندی Brain Cup</string>
+    <string name="brain_cup_button">جدول رده‌بندی Braincup</string>
     <string name="sponsors_title">حامیان</string>
     <string name="sponsors_subtitle">از آموزش رایگان برای همه پشتیبانی کن</string>
     <string name="sponsors_become">حامی شو</string>

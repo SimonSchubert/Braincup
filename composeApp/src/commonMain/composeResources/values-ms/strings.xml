@@ -135,7 +135,7 @@
     <string name="settings_keypad">Pad nombor gaya telefon</string>
     <string name="settings_keypad_desc">Letakkan 1, 2, 3 di baris atas, bukan 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Pilih rupa Brain Cup.</string>
+    <string name="settings_theme_desc">Pilih rupa Braincup.</string>
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Cerah</string>
     <string name="settings_theme_dark">Gelap</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Tukar</string>
     <string name="settings_play_games_switch_cancel">Bukan sekarang</string>
     <string name="licenses_title">Lesen</string>
-    <string name="licenses_desc">Pustaka, fon, bunyi dan karya seni yang digunakan dalam Brain Cup.</string>
+    <string name="licenses_desc">Pustaka, fon, bunyi dan karya seni yang digunakan dalam Braincup.</string>
     <string name="licenses_section_libraries">Pustaka</string>
     <string name="licenses_section_fonts">Fon</string>
     <string name="licenses_section_sound">Bunyi</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Senarai perkataan</string>
     <string name="licenses_view_source">Lihat sumber</string>
     <string name="licenses_view_license">Lihat lesen</string>
-    <string name="licenses_app_notice">Brain Cup ialah sumber terbuka, dilesenkan di bawah Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup ialah sumber terbuka, dilesenkan di bawah Apache License 2.0.</string>
     <string name="accounts_title">Akaun</string>
     <string name="accounts_create">Cipta akaun</string>
     <string name="accounts_create_title">Akaun baharu</string>
@@ -656,7 +656,7 @@
     <string name="science_rule_shift_summary">Ukuran piawai bagi pembentukan konsep: menemui peraturan pengisihan hanya daripada maklum balas betul-atau-salah, kemudian menyedari bila ia berubah secara senyap.</string>
     <string name="science_tower_of_hanoi_paradigm">Menara Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ukuran piawai bagi perancangan: teka-teki ini memerlukan langkah yang membatalkan kemajuan sebelum matlamat dapat dicapai.</string>
-    <string name="brain_cup_button">Papan pendahulu Brain Cup</string>
+    <string name="brain_cup_button">Papan pendahulu Braincup</string>
     <string name="sponsors_title">Penaja</string>
     <string name="sponsors_subtitle">Sokong pendidikan percuma untuk semua</string>
     <string name="sponsors_become">Jadi Penaja</string>

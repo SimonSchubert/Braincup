@@ -135,7 +135,7 @@
     <string name="settings_keypad">Telefonos számbillentyűzet</string>
     <string name="settings_keypad_desc">Az 1, 2, 3 kerüljön a felső sorba a 7, 8, 9 helyett.</string>
     <string name="settings_theme">Téma</string>
-    <string name="settings_theme_desc">Válaszd ki, hogyan nézzen ki a Brain Cup.</string>
+    <string name="settings_theme_desc">Válaszd ki, hogyan nézzen ki a Braincup.</string>
     <string name="settings_theme_system">Rendszer</string>
     <string name="settings_theme_light">Világos</string>
     <string name="settings_theme_dark">Sötét</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Váltás</string>
     <string name="settings_play_games_switch_cancel">Most nem</string>
     <string name="licenses_title">Licencek</string>
-    <string name="licenses_desc">A Brain Cupban használt könyvtárak, betűtípusok, hangok és grafika.</string>
+    <string name="licenses_desc">A Braincupban használt könyvtárak, betűtípusok, hangok és grafika.</string>
     <string name="licenses_section_libraries">Könyvtárak</string>
     <string name="licenses_section_fonts">Betűtípusok</string>
     <string name="licenses_section_sound">Hang</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Szólisták</string>
     <string name="licenses_view_source">Forrás megtekintése</string>
     <string name="licenses_view_license">Licenc megtekintése</string>
-    <string name="licenses_app_notice">A Brain Cup nyílt forráskódú, Apache License 2.0 alatt licencelt.</string>
+    <string name="licenses_app_notice">A Braincup nyílt forráskódú, Apache License 2.0 alatt licencelt.</string>
     <string name="accounts_title">Fiókok</string>
     <string name="accounts_create">Fiók létrehozása</string>
     <string name="accounts_create_title">Új fiók</string>
@@ -658,7 +658,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="science_rule_shift_summary">A fogalomalkotás bevett mérőszáma: megtalálni a rendezési szabályt puszta jó-vagy-rossz visszajelzésből, majd észrevenni, mikor változik meg némán.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi tornya</string>
     <string name="science_tower_of_hanoi_summary">A tervezés bevett mérőszáma: a fejtörő olyan lépéseket kíván, amelyek előbb visszavonják az addigi haladást, mire a cél elérhetővé válik.</string>
-    <string name="brain_cup_button">Brain Cup ranglista</string>
+    <string name="brain_cup_button">Braincup ranglista</string>
     <string name="sponsors_title">Támogatók</string>
     <string name="sponsors_subtitle">Támogasd az ingyenes oktatást mindenkinek</string>
     <string name="sponsors_become">Legyél támogató</string>

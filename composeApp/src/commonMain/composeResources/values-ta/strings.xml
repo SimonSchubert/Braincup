@@ -135,7 +135,7 @@
     <string name="settings_keypad">தொலைபேசி பாணி எண் பலகை</string>
     <string name="settings_keypad_desc">மேல் வரிசையில் 7, 8, 9 க்குப் பதிலாக 1, 2, 3 ஐ வையுங்கள்.</string>
     <string name="settings_theme">தோற்றம்</string>
-    <string name="settings_theme_desc">Brain Cup எப்படித் தெரிய வேண்டும் என்பதைத் தேர்வுசெய்யுங்கள்.</string>
+    <string name="settings_theme_desc">Braincup எப்படித் தெரிய வேண்டும் என்பதைத் தேர்வுசெய்யுங்கள்.</string>
     <string name="settings_theme_system">கணினி</string>
     <string name="settings_theme_light">வெளிர்</string>
     <string name="settings_theme_dark">அடர்</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">மாற்று</string>
     <string name="settings_play_games_switch_cancel">இப்போது வேண்டாம்</string>
     <string name="licenses_title">உரிமங்கள்</string>
-    <string name="licenses_desc">Brain Cup இல் பயன்படுத்தப்பட்ட நூலகங்கள், எழுத்துருக்கள், ஒலிகள், படைப்புகள்.</string>
+    <string name="licenses_desc">Braincup இல் பயன்படுத்தப்பட்ட நூலகங்கள், எழுத்துருக்கள், ஒலிகள், படைப்புகள்.</string>
     <string name="licenses_section_libraries">நூலகங்கள்</string>
     <string name="licenses_section_fonts">எழுத்துருக்கள்</string>
     <string name="licenses_section_sound">ஒலி</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">சொற்பட்டியல்கள்</string>
     <string name="licenses_view_source">மூலக்குறியீட்டைக் காண்</string>
     <string name="licenses_view_license">உரிமத்தைக் காண்</string>
-    <string name="licenses_app_notice">Brain Cup ஒரு திறந்த மூல மென்பொருள், Apache License 2.0 இன் கீழ் உரிமம் பெற்றது.</string>
+    <string name="licenses_app_notice">Braincup ஒரு திறந்த மூல மென்பொருள், Apache License 2.0 இன் கீழ் உரிமம் பெற்றது.</string>
     <string name="accounts_title">கணக்குகள்</string>
     <string name="accounts_create">கணக்கை உருவாக்கு</string>
     <string name="accounts_create_title">புதிய கணக்கு</string>
@@ -640,7 +640,7 @@
     <string name="science_rule_shift_summary">கருத்துருவாக்கத்தின் நியமமான அளவீடு: சரி-அல்லது-தவறு என்பதிலிருந்து மட்டுமே வரிசைப்படுத்தும் விதியைக் கண்டறிவது, பிறகு அது எப்போது அமைதியாக மாறியது என்பதைக் கவனிப்பது.</string>
     <string name="science_tower_of_hanoi_paradigm">ஹனோய் கோபுரம்</string>
     <string name="science_tower_of_hanoi_summary">திட்டமிடலின் நியமமான அளவீடு: இலக்கை அடைவதற்கு முன் முன்னேற்றத்தைப் பின்னுக்குத் தள்ளும் நகர்வுகள் இந்தப் புதிரில் தேவைப்படுகின்றன.</string>
-    <string name="brain_cup_button">Brain Cup தலைவர் பலகை</string>
+    <string name="brain_cup_button">Braincup தலைவர் பலகை</string>
     <string name="sponsors_title">ஆதரவாளர்கள்</string>
     <string name="sponsors_subtitle">அனைவருக்கும் இலவசக் கல்வியை ஆதரியுங்கள்</string>
     <string name="sponsors_become">ஆதரவாளராகுங்கள்</string>

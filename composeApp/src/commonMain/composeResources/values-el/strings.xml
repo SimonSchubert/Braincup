@@ -134,7 +134,7 @@
     <string name="settings_keypad">Αριθμητικό πληκτρολόγιο τηλεφώνου</string>
     <string name="settings_keypad_desc">Τοποθετήστε το 1, 2, 3 στην πάνω σειρά αντί για το 7, 8, 9.</string>
     <string name="settings_theme">Θέμα</string>
-    <string name="settings_theme_desc">Επιλέξτε την εμφάνιση του Brain Cup.</string>
+    <string name="settings_theme_desc">Επιλέξτε την εμφάνιση του Braincup.</string>
     <string name="settings_theme_system">Συστήματος</string>
     <string name="settings_theme_light">Φωτεινό</string>
     <string name="settings_theme_dark">Σκοτεινό</string>
@@ -144,7 +144,7 @@
     <string name="settings_play_games_profile_switch">Αλλαγή</string>
     <string name="settings_play_games_switch_cancel">Όχι τώρα</string>
     <string name="licenses_title">Άδειες</string>
-    <string name="licenses_desc">Βιβλιοθήκες, γραμματοσειρές, ήχοι και γραφικά που χρησιμοποιεί το Brain Cup.</string>
+    <string name="licenses_desc">Βιβλιοθήκες, γραμματοσειρές, ήχοι και γραφικά που χρησιμοποιεί το Braincup.</string>
     <string name="licenses_section_libraries">Βιβλιοθήκες</string>
     <string name="licenses_section_fonts">Γραμματοσειρές</string>
     <string name="licenses_section_sound">Ήχοι</string>
@@ -152,7 +152,7 @@
     <string name="licenses_section_word_lists">Λίστες λέξεων</string>
     <string name="licenses_view_source">Προβολή πηγής</string>
     <string name="licenses_view_license">Προβολή άδειας</string>
-    <string name="licenses_app_notice">Το Brain Cup είναι ανοιχτού κώδικα, με άδεια Apache License 2.0.</string>
+    <string name="licenses_app_notice">Το Braincup είναι ανοιχτού κώδικα, με άδεια Apache License 2.0.</string>
     <string name="accounts_title">Λογαριασμοί</string>
     <string name="accounts_create">Δημιουργία λογαριασμού</string>
     <string name="accounts_create_title">Νέος λογαριασμός</string>
@@ -566,7 +566,7 @@
     <string name="science_rule_shift_summary">Τυπικό μέτρο του σχηματισμού εννοιών: να βρεις τον κανόνα ταξινόμησης μόνο από το σωστό-ή-λάθος και μετά να προσέξεις πότε αλλάζει σιωπηλά.</string>
     <string name="science_tower_of_hanoi_paradigm">Πύργοι του Ανόι</string>
     <string name="science_tower_of_hanoi_summary">Τυπικό μέτρο του σχεδιασμού: ο γρίφος απαιτεί κινήσεις που αναιρούν την πρόοδο πριν γίνει εφικτός ο στόχος.</string>
-    <string name="brain_cup_button">Πίνακας Brain Cup</string>
+    <string name="brain_cup_button">Πίνακας Braincup</string>
     <string name="sponsors_title">Χορηγοί</string>
     <string name="sponsors_subtitle">Στηρίξτε τη δωρεάν εκπαίδευση για όλους</string>
     <string name="sponsors_become">Γίνετε χορηγός</string>

@@ -135,7 +135,7 @@
     <string name="settings_keypad">Tipkovnica kot na telefonu</string>
     <string name="settings_keypad_desc">Postavi 1, 2, 3 v zgornjo vrsto namesto 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Izberi, kako naj izgleda Brain Cup.</string>
+    <string name="settings_theme_desc">Izberi, kako naj izgleda Braincup.</string>
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Svetla</string>
     <string name="settings_theme_dark">Temna</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Zamenjaj</string>
     <string name="settings_play_games_switch_cancel">Ne zdaj</string>
     <string name="licenses_title">Licence</string>
-    <string name="licenses_desc">Knjižnice, pisave, zvoki in grafika, uporabljeni v Brain Cupu.</string>
+    <string name="licenses_desc">Knjižnice, pisave, zvoki in grafika, uporabljeni v Braincupu.</string>
     <string name="licenses_section_libraries">Knjižnice</string>
     <string name="licenses_section_fonts">Pisave</string>
     <string name="licenses_section_sound">Zvok</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Seznami besed</string>
     <string name="licenses_view_source">Prikaži izvor</string>
     <string name="licenses_view_license">Prikaži licenco</string>
-    <string name="licenses_app_notice">Brain Cup je open source, licenciran pod Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup je open source, licenciran pod Apache License 2.0.</string>
     <string name="accounts_title">Računi</string>
     <string name="accounts_create">Ustvari račun</string>
     <string name="accounts_create_title">Nov račun</string>
@@ -666,7 +666,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="science_rule_shift_summary">Standardna mera tvorbe pojmov: najti pravilo razvrščanja zgolj iz prav-ali-narobe in nato opaziti, kdaj se tiho spremeni.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojski stolp</string>
     <string name="science_tower_of_hanoi_summary">Standardna mera načrtovanja: uganka zahteva poteze, ki napredek najprej razveljavijo, preden je cilj dosegljiv.</string>
-    <string name="brain_cup_button">Lestvica Brain Cup</string>
+    <string name="brain_cup_button">Lestvica Braincup</string>
     <string name="sponsors_title">Sponzorji</string>
     <string name="sponsors_subtitle">Podpri brezplačno izobraževanje za vse</string>
     <string name="sponsors_become">Postani sponzor</string>

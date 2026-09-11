@@ -333,7 +333,7 @@
     <string name="science_rule_shift_summary">ধারণা গঠনের প্রমিত পরিমাপ: শুধু ঠিক-না-ভুল থেকে সাজানোর নিয়ম খুঁজে বার করা, তারপর টের পাওয়া কখন সেটা নীরবে বদলে গেল।</string>
     <string name="science_tower_of_hanoi_paradigm">হ্যানয়ের টাওয়ার</string>
     <string name="science_tower_of_hanoi_summary">পরিকল্পনার প্রমিত পরিমাপ: লক্ষ্যে পৌঁছানোর আগে এই ধাঁধায় এমন চাল দরকার যা অগ্রগতিকে পিছিয়ে দেয়।</string>
-    <string name="brain_cup_button">Brain Cup লিডারবোর্ড</string>
+    <string name="brain_cup_button">Braincup লিডারবোর্ড</string>
     <string name="sponsors_title">স্পনসর</string>
     <string name="sponsors_subtitle">সবার জন্য বিনামূল্যে শিক্ষাকে সমর্থন করুন</string>
 <string name="sponsors_become">স্পনসর হন</string>
@@ -581,7 +581,7 @@
     <string name="settings_keypad">ফোনের মতো নম্বর প্যাড</string>
     <string name="settings_keypad_desc">উপরের সারিতে 7, 8, 9-এর বদলে 1, 2, 3 রাখুন।</string>
     <string name="settings_theme">থিম</string>
-    <string name="settings_theme_desc">Brain Cup কেমন দেখাবে তা বেছে নিন।</string>
+    <string name="settings_theme_desc">Braincup কেমন দেখাবে তা বেছে নিন।</string>
     <string name="settings_theme_system">সিস্টেম</string>
     <string name="settings_theme_light">হালকা</string>
     <string name="settings_theme_dark">গাঢ়</string>
@@ -591,7 +591,7 @@
     <string name="settings_play_games_profile_switch">বদলান</string>
     <string name="settings_play_games_switch_cancel">এখন না</string>
     <string name="licenses_title">লাইসেন্স</string>
-    <string name="licenses_desc">Brain Cup-এ ব্যবহৃত লাইব্রেরি, ফন্ট, সাউন্ড ও ছবি।</string>
+    <string name="licenses_desc">Braincup-এ ব্যবহৃত লাইব্রেরি, ফন্ট, সাউন্ড ও ছবি।</string>
     <string name="licenses_section_libraries">লাইব্রেরি</string>
     <string name="licenses_section_fonts">ফন্ট</string>
     <string name="licenses_section_sound">সাউন্ড</string>
@@ -599,7 +599,7 @@
     <string name="licenses_section_word_lists">শব্দতালিকা</string>
     <string name="licenses_view_source">উৎস দেখুন</string>
     <string name="licenses_view_license">লাইসেন্স দেখুন</string>
-    <string name="licenses_app_notice">Brain Cup ওপেন সোর্স, Apache License 2.0 এর অধীনে।</string>
+    <string name="licenses_app_notice">Braincup ওপেন সোর্স, Apache License 2.0 এর অধীনে।</string>
     <string name="accounts_title">অ্যাকাউন্ট</string>
     <string name="accounts_create">অ্যাকাউন্ট তৈরি করুন</string>
     <string name="accounts_create_title">নতুন অ্যাকাউন্ট</string>

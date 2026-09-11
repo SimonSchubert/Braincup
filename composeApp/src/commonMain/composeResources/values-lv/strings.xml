@@ -135,7 +135,7 @@
     <string name="settings_keypad">Tālruņa stila cipartastatūra</string>
     <string name="settings_keypad_desc">Liec 1, 2, 3 augšējā rindā, nevis 7, 8, 9.</string>
     <string name="settings_theme">Tēma</string>
-    <string name="settings_theme_desc">Izvēlies, kā izskatās Brain Cup.</string>
+    <string name="settings_theme_desc">Izvēlies, kā izskatās Braincup.</string>
     <string name="settings_theme_system">Sistēmas</string>
     <string name="settings_theme_light">Gaiša</string>
     <string name="settings_theme_dark">Tumša</string>
@@ -145,7 +145,7 @@
     <string name="settings_play_games_profile_switch">Mainīt</string>
     <string name="settings_play_games_switch_cancel">Ne tagad</string>
     <string name="licenses_title">Licences</string>
-    <string name="licenses_desc">Bibliotēkas, fonti, skaņas un grafika, kas izmantota Brain Cup.</string>
+    <string name="licenses_desc">Bibliotēkas, fonti, skaņas un grafika, kas izmantota Braincup.</string>
     <string name="licenses_section_libraries">Bibliotēkas</string>
     <string name="licenses_section_fonts">Fonti</string>
     <string name="licenses_section_sound">Skaņa</string>
@@ -153,7 +153,7 @@
     <string name="licenses_section_word_lists">Vārdu saraksti</string>
     <string name="licenses_view_source">Skatīt avotu</string>
     <string name="licenses_view_license">Skatīt licenci</string>
-    <string name="licenses_app_notice">Brain Cup ir open source, licencēts saskaņā ar Apache License 2.0.</string>
+    <string name="licenses_app_notice">Braincup ir open source, licencēts saskaņā ar Apache License 2.0.</string>
     <string name="accounts_title">Konti</string>
     <string name="accounts_create">Izveidot kontu</string>
     <string name="accounts_create_title">Jauns konts</string>
@@ -662,7 +662,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="science_rule_shift_summary">Standarta jēdzienu veidošanas mērs: atrast šķirošanas noteikumu tikai no pareizi-vai-nepareizi un tad pamanīt, kad tas klusi mainās.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojas tornis</string>
     <string name="science_tower_of_hanoi_summary">Standarta mērs plānošanai: mīkla prasa gājienus, kas vispirms atceļ progresu, pirms mērķis kļūst sasniedzams.</string>
-    <string name="brain_cup_button">Brain Cup rezultātu tabula</string>
+    <string name="brain_cup_button">Braincup rezultātu tabula</string>
     <string name="sponsors_title">Sponsori</string>
     <string name="sponsors_subtitle">Atbalsti bezmaksas izglītību visiem</string>
     <string name="sponsors_become">Kļūsti par sponsoru</string>
