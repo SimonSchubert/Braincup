@@ -7,16 +7,17 @@ Scope per locale: **1,242 strings and 9 plural sets**, about 12,300 words of Eng
 (`values-de/strings.xml`) and Spanish (`values-es/strings.xml`) are done in full and are the
 worked references for anything this brief leaves open.
 
-## Where this stands (2026-08-29)
+## Where this stands (2026-09-11)
 
 | | |
 |---|---|
-| Complete | `de`, `es`, `fr`, `nl` |
-| Partly done, 36% to 52% | `it` `ru` `pt` `zh` `zh-TW` `id` `hi` `ja` `ko` |
+| Complete | `de`, `es`, `fr`, `nl`, `ru` |
+| Partly done, 24% to 35% | `it` `pt` `zh` `zh-TW` `id` `hi` `ja` `ko` |
 | Not started | the remaining 38 locales |
 
-A run of ten agents stopped mid-catalog on an account spend limit, which is why nine locales are
-still half done; `fr` was finished on 2026-08-29 by resuming that loop, and `nl` was taken from
+The partial percentages fell when Algebra and Measurement landed and the catalog grew to 1,848
+strings. A run of ten agents stopped mid-catalog on an account spend limit, which is why eight
+locales are still part done; `fr` was finished on 2026-08-29 by resuming that loop, and `nl` was taken from
 nothing to complete the same day. **Nothing is broken by that.** A key that never arrived falls
 back to English at runtime, `check_localizations.py` counts it as pending rather than failing,
 and `pending` reports exactly what is left. Resuming is just running the loop below again for a
