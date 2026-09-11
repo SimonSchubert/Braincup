@@ -1,131 +1,144 @@
-Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 42 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+Minigiochi per memoria, focus, logica e matematica, più Impara la matematica con lezioni e certificati.
 
 <b>Calcolo mentale</b>:
-<b>Missing Operators</b>:
-Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.
-
-<b>Bulls & Cows</b>:
-Indovina il numero segreto a 4 cifre con cifre uniche.
-
-Segui le espressioni matematiche. Usa il risultato come base del calcolo successivo.
+Segui le espressioni; ogni risultato è la base del successivo.
 
 <b>Calcolo a catena</b>:
-Risolvi formule complesse passo dopo passo.
+Risolvi la formula passo dopo passo.
 
 <b>Calcolo Sherlock</b>:
-Trova una formula per l’obiettivo solo con i numeri e gli operatori dati.
+Raggiungi l'obiettivo con i numeri e gli operatori dati.
 
 <b>Calcolo di frazioni</b>:
 Risolvi le frazioni.
 
 <b>Confronto di valori</b>:
-Scegli l’espressione con il valore più alto.
+Scegli l'espressione con il valore più alto.
 
 <b>Somma bolle</b>:
 Somma i numeri sulle bolle.
 
 <b>Somma lampo</b>:
-I numeri lampeggiano uno alla volta. Sommali e inserisci il totale.
+I numeri lampeggiano uno alla volta; inserisci il totale.
 
 <b>Puzzle dell'anomalia</b>:
-Trova la figura che spicca per colore e forma.
+Trova la figura che stona.
 
 <b>Sequenza di schemi</b>:
-Scopri la regola che percorre ogni riga della griglia, poi scegli il pezzo che la completa.
+Trova la regola di ogni riga e completa la griglia.
 
 <b>Trova il percorso</b>:
-Parti dalla casella segnata e segui le frecce fino alla meta.
+Segui le frecce dal via contrassegnato.
 
 <b>Memoria visiva</b>:
-Memorizza le forme e riconosci quella nascosta a tempo scaduto.
+Memorizza le forme, poi riconosci quella nascosta.
 
 <b>Griglia Fantasma</b>:
-Le caselle si illuminano una a una; ritoccale nello stesso ordine.
+Le caselle si illuminano; toccale nello stesso ordine.
 
 <b>Confusione di Colori</b>:
-Tocca il colore in cui è stampata la parola, non quello che dice la parola.
+Tocca il colore dell'inchiostro, non quello che la parola nomina.
 
 <b>Forme colorate</b>:
-Somma i punti delle affermazioni corrette.
+Somma i punti delle affermazioni giuste.
 
 <b>Inseguitore di Orbite</b>:
-Osserva le palline evidenziate, seguile e seleziona i bersagli a fine movimento.
+Segui le palle evidenziate mentre si muovono.
 
 <b>Folla Lampo</b>:
-I punti lampeggiano su ogni lato.
+Tocca il lato che ha mostrato più punti.
 
 <b>Mini Sudoku</b>:
-Riempi la mini griglia: ogni riga, colonna e blocco ogni cifra una volta.
+Ogni riga, colonna e blocco una volta ogni cifra.
 
 <b>Mini Scacchi</b>:
-Dai scacco matto alla CPU prima di lei.
+Chiudi lo scenario con il bianco contro la CPU.
 
 <b>Scacchi in solitaria</b>:
-Cattura i pezzi uno a uno finché resta solo il re. Ogni mossa deve catturare.
+Cattura finché resta solo il re. Ogni mossa deve catturare.
 
 <b>Spegni le luci</b>:
-Spegni tutte le luci. Ogni tocco inverte la cella e i vicini.
+Spegni tutte le luci; un tocco cambia anche le vicine.
 
 <b>Puzzle scorrevole</b>:
-Fai scorrere le tessere nello spazio vuoto per ordinarle.
+Fai scorrere le tessere fino a metterle in ordine.
 
 <b>Shikaku</b>:
-Dividi la griglia in rettangoli. Ognuno ha un numero = alla sua area.
+Dividi la griglia in rettangoli uguali ai loro numeri.
 
 <b>Nurikabe</b>:
-Colora il mare intorno alle isole numerate senza blocchi 2x2.
+Dipingi il mare intorno alle isole numerate, senza blocchi 2x2.
 
 <b>Regine Gatto</b>:
-Un gatto per riga, colonna e zona colore. Non possono toccarsi.
+Un gatto per riga, colonna e zona di colore; non si devono toccare.
 
 <b>Nodo</b>:
-Collega ogni coppia di punti colorati. I percorsi non si incrociano.
+Unisci le coppie colorate senza incroci; copri ogni casella.
 
 <b>Torri di Hanoi</b>:
-Sposta la pila sul piolo destro.
+Sposta la pila sul piolo di destra.
 
 <b>Tabella di Schulte</b>:
-Tocca i numeri in ordine da 1 il più velocemente possibile.
+Tocca i numeri in ordine il più in fretta che puoi.
 
 <b>Bandiere</b>:
-Riconosci il paese dalla bandiera.
+Di' il paese; un errore chiude la partita.
 
 <b>Memoria delle Cifre</b>:
-Memorizza cifre, risolvi un calcolo rapido, poi richiama le cifre.
+Memorizza le cifre, risolvi un calcolo, poi richiamale.
 
 <b>Trova il Nuovo</b>:
-Tocca l’animale che non hai ancora visto.
+Tocca l'animale che non hai ancora visto.
 
 <b>N-Back</b>:
-Guarda le forme, poi tocca quella nella posizione richiesta.
+Tocca Match quando la forma ripete quella di N passi fa.
 
 <b>Wordle</b>:
 Indovina la parola di cinque lettere in sei tentativi.
 
 <b>Indovinelli con fiammiferi</b>:
-Sposta i fiammiferi per correggere equazioni.
+Sposta i fiammiferi finché l'equazione torna.
 
 <b>Solitario</b>:
-Salta i pioli finché ne resta solo uno.
-
-<b>Test del QI</b>:
-30 rompicapi a matrici in 15 minuti, con QI stimato. Solo per divertimento.
+Salta i pioli finché ne resta uno.
 
 <b>Sudoku</b>:
-Sudoku classico completo con più difficoltà.
+Sudoku classico, più difficoltà.
 
 <b>Scacchi</b>:
-Scacchi completi contro la CPU o in pass-and-play.
+Scacchi completi contro la CPU o in due su un dispositivo.
 
-<b>Simon Says</b>:
-Ogni round si illumina un nuovo pulsante. Tocca l'intera sequenza dall'inizio, compresi i pulsanti dei round precedenti.
+<b>Test del QI</b>:
+30 puzzle a matrice in 15 minuti, con un QI stimato. Solo per gioco.
 
-<b>Prism Clear</b>:
-Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.
+<b>Operatori mancanti</b>:
+Trova gli operatori (+, -, *, /) che rendono vera l'equazione.
+
+<b>Bulls & Cows</b>:
+Indovina il numero segreto di 4 cifre.
+
+<b>Simone dice</b>:
+Ripeti tutta la sequenza, che cresce a ogni turno.
+
+<b>Svuota prisma</b>:
+Scambia tessere, pulisci le linee, svuota il tabellone.
 
 <b>Trio</b>:
-Trova tre carte che hanno in comune la forma, il riempimento o il numero di segni.
+Trova tre carte che condividono forma, riempimento o quantità.
 
-Il gioco ha diversi <b>traguardi</b> e ogni esercizio ha <b>medaglie</b> per tenerti motivato.
+<b>Rotazioni mentali</b>:
+Il secondo blocco è il primo ruotato, o il suo specchio?
 
-Nessun tracciamento. <b>Open source</b>.
+<b>Flessibilità mentale</b>:
+La coppia in alto fissa la regola; colpisci il bersaglio su quel tratto.
+
+<b>Cambio di regola</b>:
+Ordina le carte secondo una regola nascosta che cambia appena l'hai.
+
+<b>Reversi</b>:
+6x6 contro la CPU o in due. Chiudi una riga per capovolgerla.
+
+<b>Impara la matematica</b>:
+Lezioni, test e certificati di Aritmetica, Geometria, Misura e Algebra.
+
+Ogni gioco ha <b>medaglie</b>. Vari <b>obiettivi</b>. Nessun tracciamento. <b>Open source</b>.

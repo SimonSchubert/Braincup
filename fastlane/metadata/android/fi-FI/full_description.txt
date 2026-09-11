@@ -1,131 +1,144 @@
-Harjoittele aivojasi hauskoilla minipeleillä, jotka haastavat muistin, keskittymisen, logiikan ja matematiikan. Braincupissa on 42 aivojumppaa.
+Minipelejä muistille, tarkkaavuudelle, logiikalle ja matematiikalle, sekä Matikkaa oppimaan oppitunnein ja todistuksin.
 
 <b>Päässälasku</b>:
-Seuraa matemaattisia lausekkeita. Käytä tulosta seuraavan laskun pohjana.
+Seuraa lausekkeita; tulos on aina seuraavan pohja.
 
 <b>Ketjulasku</b>:
-Ratkaise monimutkaisia kaavoja askel kerrallaan.
+Ratkaise kaava askel kerrallaan.
 
 <b>Sherlock-lasku</b>:
-Löydä kaava tavoitteeseen vain annetuilla luvuilla ja merkeillä.
+Yllä tavoite annetuilla luvuilla ja operaattoreilla.
 
 <b>Murtolasku</b>:
 Ratkaise murtoluvut.
 
 <b>Arvojen vertailu</b>:
-Valitse lauseke, jonka arvo on suurin.
+Valitse suurin arvo.
 
 <b>Kuplasumma</b>:
-Laske kelluvien kuplien numerot yhteen.
+Laske kuplien luvut yhteen.
 
 <b>Pikasumma</b>:
-Numerot vilkkuvat yksi kerrallaan. Laske ne yhteen ja syötä kokonaissumma.
+Luvut välähtävät yksi kerrallaan; syötä summa.
 
 <b>Poikkeamatehtävä</b>:
-Löydä hahmo, joka erottuu.
+Etsi erottuva kuvio.
 
 <b>Kuviosekvenssi</b>:
-Selvitä sääntö jokaisella rivillä ja valitse pala, joka täydentää sen.
+Lue kunkin rivin sääntö ja täytä ruudukko.
 
 <b>Polunetsijä</b>:
-Aloita merkitystä kohdasta ja seuraa nuolia määränpäähän.
+Seuraa nuolia merkitystä alusta.
 
 <b>Visuaalinen muisti</b>:
-Muista muodot ja tunnista piilotettu muoto, kun ajastin päättyy.
+Muista muodot, tunnista piilotettu.
 
 <b>Aaveruudukko</b>:
-Katso, miten ruudut syttyvät yksi kerrallaan, ja napauta ne takaisin samassa järjestyksessä.
+Ruudut syttyvät; napauta samaan järjestykseen.
 
 <b>Värisekaannus</b>:
-Napauta väriä, jolla sana on painettu, ei väriä, jonka sana nimeää.
+Napauta musteen väriä, ei sanan nimeämää.
 
 <b>Värilliset muodot</b>:
-Laske yhteen oikeiden väittämien pisteet.
+Laske oikeiden väitteiden pisteet.
 
 <b>Rataseuraaja</b>:
-Katso korostettuja palloja ja seuraa niitä, kun ne liikkuvat.
+Seuraa merkittyjä palloja niiden liikkuessa.
 
 <b>Salamajoukko</b>:
-Pisteet vilkkuvat lyhyesti kummallakin puolella. Napauta puolta, jossa oli enemmän.
+Napauta puolta, jossa välähti enemmän pisteitä.
 
 <b>Mini-Sudoku</b>:
-Täytä pieni ruudukko niin, että jokainen rivi, sarake ja lohko sisältää jokaisen numeron kerran.
+Jokainen rivi, sarake ja lohko kerran kutakin numeroa.
 
 <b>Minishakki</b>:
-Anna CPU:lle shakkimatti ennen kuin se antaa sen sinulle.
+Päätä tilanne valkeilla CPU:ta vastaan.
 
 <b>Yksinshakki</b>:
-Lyö nappulat yksi kerrallaan, kunnes jäljellä on vain kuningas. Jokaisen siirron on oltava lyönti.
+Lyö kunnes kuningas jää. Jokaisen siirron pitää lyödä.
 
 <b>Valot pois</b>:
-Sammuta jokainen valo. Jokainen napautus vaihtaa ruudun ja sen neljä naapuria.
+Sammuta kaikki valot; napautus kääntää naapuritkin.
 
 <b>Liukupalapeli</b>:
-Liu'uta paloja tyhjään tilaan saadaksesi ne järjestykseen.
+Liu'uta palat järjestykseen.
 
 <b>Shikaku</b>:
-Jaa ruudukko suorakulmioihin. Jokaisessa on tasan yksi luku, sen pinta-ala.
+Jaa ruudukko lukujen mukaisiin suorakaiteisiin.
 
 <b>Nurikabe</b>:
-Maalaa ruutuja meren rakentamiseksi numeroitujen saarten ympärille ilman 2x2-lohkoa.
+Maalaa meri numeroitujen saarten ympärille, ei 2x2.
 
 <b>Kissakuningattaret</b>:
-Aseta yksi kissa jokaiseen riviin, sarakkeeseen ja värialueeseen. Kissat eivät saa koskea toisiinsa, ei edes vinottain.
+Yksi kissa riviin, sarakkeeseen ja värivyöhykkeeseen; eivät saa koskea.
 
 <b>Solmu</b>:
-Yhdistä jokainen värillinen pistepari. Polut eivät saa risteytyä, ja niiden on peitettävä jokainen ruutu.
+Yhdistä värilliset parit risteämättä; täytä jokainen ruutu.
 
 <b>Hanoin torni</b>:
-Siirrä koko pino oikealle tapille.
+Siirrä pino oikeaan tankoon.
 
 <b>Schulte-taulukko</b>:
-Napauta numeroita järjestyksessä ykkösestä ylöspäin niin nopeasti kuin osaat.
+Napauta lukuja järjestyksessä niin nopeasti kuin osaat.
 
 <b>Liput</b>:
-Tunnista maa lipusta.
+Nimeä maa; yksi virhe päättää juoksun.
 
 <b>Numeromuisti</b>:
-Muista numerosarja, ratkaise nopea laskutehtävä ja palauta sitten numerot.
+Muista numerot, ratkaise pieni lasku, palauta ne.
 
 <b>Löydä uusi</b>:
-Napauta eläintä, jota et ole nähnyt aiemmin.
+Napauta eläintä jota et ole vielä nähnyt.
 
 <b>N-Back</b>:
-Katso muotojen vilkkuvan ohi ja napauta sitä, joka oli pyydetyssä kohdassa.
+Napauta Match kun muoto toistaa N askeleen takaisen.
 
 <b>Wordle</b>:
-Arvaa piilotettu viisikirjaiminen sana kuudella yrityksellä.
+Arvaa viisikirjaiminen sana kuudella yrityksellä.
 
 <b>Tulitikkutehtävät</b>:
-Siirrä tulitikkuja korjataksesi rikkinäiset yhtälöt.
+Siirrä tulitikkuja kunnes yhtälö täsmää.
 
 <b>Tappipeli</b>:
-Hyppää tapeilla, kunnes jäljellä on vain yksi.
+Hyppää nappuloita kunnes yksi jää.
 
 <b>Sudoku</b>:
-Klassinen täysikokoinen Sudoku useilla vaikeustasoilla.
+Täysi sudoku, useita vaikeuksia.
 
 <b>Shakki</b>:
-Täysi shakki CPU:ta vastaan tai vuorotellen kaverin kanssa.
+Täysi shakki CPU:ta vastaan tai kahdestaan yhdellä laitteella.
 
 <b>IQ-testi</b>:
-30 matriisitehtävää 15 minuutissa, arvioidulla IQ:lla. Vain huviksi.
+30 matriisipulmaa 15 minuutissa, arvioitu IQ. Vain huviksi.
 
 <b>Puuttuvat operaattorit</b>:
-Löydä puuttuvat merkit (+, -, *, /), jotka tekevät yhtälöstä toden.
+Etsi operaattorit (+, -, *, /) jotka tekevät yhtälön todeksi.
 
 <b>Bulls & Cows</b>:
-Arvaa salainen 4-numeroinen luku eri numeroilla.
+Arvaa salainen 4-numeroinen luku.
 
 <b>Simon Says</b>:
-Jokainen kierros sytyttää yhden uuden ruudun. Napauta koko jakso takaisin alusta.
+Napauta koko kasvava jakso takaisin joka kierros.
 
 <b>Prism Clear</b>:
-Vaihda sopivia paloja tyhjentääksesi vähintään kolmen rivit. Tyhjennä lauta voittaaksesi.
+Vaihda paloja, tyhjennä rivejä, tyhjennä lauta.
 
 <b>Trio</b>:
-Löydä kolme korttia, joilla on yhteinen muoto, täyttö tai merkkien määrä.
+Etsi kolme korttia joilla on sama muoto, täyttö tai määrä.
 
-Pelissä on useita <b>saavutuksia</b>, ja jokaisella harjoituksella on <b>mitaleita</b>, jotka pitävät motivaation yllä.
+<b>Mielikuvakierrot</b>:
+Onko toinen palikka ensimmäinen käännettynä vai peilinä?
 
-Ei seurantaa. <b>Avoin lähdekoodi</b>.
+<b>Ajattelun joustavuus</b>:
+Yläparin vihje asettaa säännön; osu maaliin tuolla piirteellä.
+
+<b>Säännönvaihto</b>:
+Lajittele kortit piilosäännöllä, joka vaihtuu kun sen saat.
+
+<b>Reversi</b>:
+6x6 CPU:ta vastaan tai kahdestaan. Sulje jono kääntääksesi sen.
+
+<b>Opi matematiikkaa</b>:
+Oppitunteja, testejä ja todistuksia: Aritmetiikka, Geometria, Mittaaminen ja Algebra.
+
+Jokaisella pelillä on <b>mitalit</b>. Useita <b>saavutuksia</b>. Ei seurantaa. <b>Avoin lähdekoodi</b>.

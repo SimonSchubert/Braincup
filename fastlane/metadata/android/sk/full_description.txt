@@ -1,131 +1,144 @@
-Trénuj mozog zábavnými minihry, ktoré preveria pamäť, sústredenie, logiku a matematiku. Braincup ponúka 42 cvičení na mozog.
+Minihry na pamäť, sústredenie, logiku a matematiku, a Uč sa matematiku s lekcami a certifikátmi.
 
 <b>Počítanie spamäti</b>:
-Sleduj matematické výrazy. Výsledok použi ako základ ďalšieho výpočtu.
+Sleduj výrazy; každý výsledok je základ ďalšieho.
 
 <b>Reťazové počítanie</b>:
-Rieš zložité vzorce krok za krokom.
+Rieš vzorec krok za krokom.
 
 <b>Sherlockovské počítanie</b>:
-Nájdi vzorec, ktorý dosiahne cieľ len s danými číslami a operátormi.
+Dosiahni cieľ danými číslami a operátormi.
 
 <b>Počítanie zlomkov</b>:
-Vyrieš zlomky.
+Rieš zlomky.
 
 <b>Porovnanie hodnôt</b>:
 Vyber výraz s najvyššou hodnotou.
 
 <b>Súčet bublín</b>:
-Spočítaj čísla na plávajúcich bublinách.
+Sčítaj čísla na bublinách.
 
 <b>Rýchly súčet</b>:
-Čísla blikajú jedno po druhom. Spočítaj ich a zadaj súčet.
+Čísla blikajú jedno po druhom; zadaj súčet.
 
 <b>Hádanka anomálie</b>:
 Nájdi figúrku, ktorá vyčnieva.
 
 <b>Postupnosť vzorov</b>:
-Odhaľ pravidlo v každom riadku a vyber dielik, ktorý ho doplní.
+Nájdi pravidlo v každom riadku a doplň mriežku.
 
 <b>Hľadač cesty</b>:
-Začni na označenej pozícii a nasleduj šípky k cieľu.
+Sleduj šípky od označeného štartu.
 
 <b>Vizuálna pamäť</b>:
-Zapamätaj si tvary a po skončení časovača urči skrytý tvar.
+Zapamätaj si tvary, potom spoznaj skrytý.
 
 <b>Mriežka duchov</b>:
-Sleduj, ako sa dlaždice rozsvietia jedna po druhej, a ťukni na ne v rovnakom poradí.
+Polia sa rozsvietia; ťukni ich v tom istom poradí.
 
 <b>Zámiena farieb</b>:
-Ťukni na farbu, ktorou je slovo napísané, nie na farbu, ktorú slovo hovorí.
+Ťukni farbu atramentu, nie tú, ktorú slovo menuje.
 
 <b>Farebné tvary</b>:
-Spočítaj body z pravdivých tvrdení.
+Sčítaj body zo správnych tvrdení.
 
 <b>Sledovač dráh</b>:
-Sleduj zvýraznené gule a drž ich, keď sa pohybujú.
+Sleduj označené gule, kým sa hýbu.
 
 <b>Zábleskový dav</b>:
-Bodky krátko zablikajú na každej strane. Ťukni na stranu, kde ich bolo viac.
+Ťukni stranu, kde bliklo viac bodiek.
 
 <b>Mini Sudoku</b>:
-Vyplň malú mriežku tak, aby každý riadok, stĺpec a blok obsahoval každé číslo raz.
+Každý riadok, stĺpec a blok raz každá číslica.
 
 <b>Mini šach</b>:
-Daj CPU mata skôr, ako ho dostaneš ty.
+Docehraj scenár bielymi proti CPU.
 
 <b>Solo šach</b>:
-Ber figúry jednu po druhej, kým nezostane len kráľ. Každý ťah musí brať.
+Ber, kým neostane kráľ. Každý ťah musí brať.
 
 <b>Zhasni svetlá</b>:
-Zhasni každé svetlo. Každé ťuknutie prepne bunku a jej štyroch susedov.
+Zhasni všetky svetlá; ťuknutie prepne aj susedov.
 
 <b>Posuvné puzzle</b>:
-Posúvaj dlaždice do prázdneho miesta, aby boli v poradí.
+Posúvaj dlaždice, kým nebudú v poradí.
 
 <b>Shikaku</b>:
-Rozdeľ mriežku na obdĺžniky. Každý obsahuje presne jedno číslo, jeho obsah.
+Rozdeľ mriežku na obdĺžniky podľa ich čísel.
 
 <b>Nurikabe</b>:
-Maľuj bunky a postav more okolo očíslovaných ostrovov bez bloku 2x2.
+Maľuj more okolo očíslovaných ostrovov, bez bloku 2x2.
 
 <b>Mačacie kráľovné</b>:
-Umiestni jednu mačku do každého riadku, stĺpca aj farebnej zóny. Mačky sa nesmú dotýkať, ani uhlopriečne.
+Jedna mačka na riadok, stĺpec a farebnú zónu; nesmú sa dotýkať.
 
 <b>Uzol</b>:
-Spoj každú dvojicu farebných bodiek. Cesty sa nesmú krížiť a musia pokryť každú bunku.
+Spoj farebné páry bez kríženia; vyplň každé pole.
 
 <b>Hanojská veža</b>:
-Presuň celý stĺpec na pravý kolík.
+Presuň vežu na pravý kolík.
 
 <b>Schulteho tabuľka</b>:
-Ťukaj na čísla v poradí od 1 nahor čo najrýchlejšie.
+Ťukaj čísla v poradí tak rýchlo, ako vieš.
 
 <b>Vlajky</b>:
-Poznaj krajinu podľa vlajky.
+Povedz krajinu; jedna chyba končí beh.
 
 <b>Pamäť číslic</b>:
-Zapamätaj si postupnosť číslic, vyrieš rýchly príklad a potom si číslice vybav.
+Zapamätaj si číslice, vyrieš krátky príklad, potom si ich vybav.
 
 <b>Nájdi nové</b>:
-Ťukni na zviera, ktoré ešte nepoznáš.
+Ťukni zviera, ktoré si ešte nevidel.
 
 <b>N-Back</b>:
-Sleduj tvary, ako prelietavajú, a ťukni na ten na požadovanej pozícii.
+Ťukni Match, keď tvar opakuje ten pred N krokmi.
 
 <b>Wordle</b>:
-Hádaj skryté päťpísmenové slovo na šesť pokusov.
+Uhádni päťpísmenové slovo na šesť pokusov.
 
 <b>Zápalkové hádanky</b>:
-Presúvaj zápalky a oprav rozbité rovnice.
+Posúvaj zápalky, kým rovnica nesedí.
 
 <b>Kolíkový solitér</b>:
-Preskakuj kolíky, kým nezostane jeden.
+Preskakuj kolíky, kým neostane jeden.
 
 <b>Sudoku</b>:
-Klasické Sudoku v plnej veľkosti s viacerými obtiažnosťami.
+Klasické sudoku, niekoľko obtiažností.
 
 <b>Šach</b>:
-Plný šach proti CPU alebo striedanie ťahov s kamarátom.
+Plné šachy proti CPU alebo vo dvoch na jednom zariadení.
 
 <b>IQ test</b>:
-30 maticových hádaniek za 15 minút, s odhadovaným IQ. Len pre zábavu.
+30 maticových hádaniek za 15 minút, s odhadom IQ. Len pre zábavu.
 
 <b>Chýbajúce operátory</b>:
-Nájdi chýbajúce operátory (+, -, *, /), ktoré rovnicu splnia.
+Nájdi operátory (+, -, *, /), ktoré rovnicu splnia.
 
 <b>Bulls & Cows</b>:
-Hádaj tajné 4-miestne číslo s unikátnymi číslicami.
+Uhádni tajné 4-miestne číslo.
 
 <b>Simon Says</b>:
-Každé kolo rozsvieti jeden nový panel. Ťukni celú sekvenciu od začiatku.
+Oťukaj celú rastúcu sekvenciu každé kolo.
 
 <b>Prism Clear</b>:
-Vymeň zhodné dlaždice a zmaž rady o troch a viac. Vyprázdni dosku a vyhráš.
+Vymeň dlaždice, čisti rady, vyprázdni dosku.
 
 <b>Trio</b>:
-Nájdi tri karty so spoločným tvarom, výplňou alebo počtom znakov.
+Nájdi tri karty s rovnakým tvarom, výplňou alebo počtom.
 
-Hra má niekoľko <b>úspechov</b> a každé cvičenie má <b>medaily</b>, ktoré ťa motivujú.
+<b>Mentálne rotácie</b>:
+Je druhý blok ten prvý otočený, alebo zrkadlový?
 
-Bez sledovania. <b>Open source</b>.
+<b>Mentálna flexibilita</b>:
+Dvojica hore nastaví pravidlo; trefe cieľ podľa tohto rysu.
+
+<b>Zmena pravidla</b>:
+Tried karty podľa skrytého pravidla, ktoré sa zmení, len čo ho máš.
+
+<b>Reversi</b>:
+6x6 proti CPU alebo vo dvoch. Zovri rad, aby si ho otočil.
+
+<b>Uč sa matematiku</b>:
+Lekcie, testy a certifikáty z Aritmetika, Geometria, Meranie a Algebra.
+
+Každá hra má <b>medaily</b>. Niekoľko <b>úspechov</b>. Bez sledovania. <b>Open source</b>.

@@ -39,6 +39,7 @@ DEFAULT_PLAY_LOCALES = (
     / "screenshotTests/src/test/kotlin/com/inspiredandroid/braincup/screenshots/PlayStoreLocales.kt"
 )
 DEFAULT_METADATA_DIR = REPO_ROOT / "fastlane/metadata/android"
+DEFAULT_UNSUPPORTED_DIR = REPO_ROOT / "fastlane/metadata/android-unsupported"
 DEFAULT_PLAY_KEY = REPO_ROOT / "fastlane/play-store-key.json"
 
 PACKAGE_NAME = "com.inspiredandroid.braincup"
@@ -53,6 +54,59 @@ TEXT_FILES = {
     "short_description.txt": 80,
     "full_description.txt": 4000,
 }
+
+# English names that en-US/full_description.txt must mention, so a new game cannot ship
+# with a listing that still describes the previous catalog. Keep in step with GameType
+# plus the untimed extras and Learn Math.
+REQUIRED_EN_US_NAMES = (
+    "Mental Calculation",
+    "Chain Calculation",
+    "Sherlock Calculation",
+    "Fraction Calculation",
+    "Value Comparison",
+    "Bubble Sum",
+    "Quick Sum",
+    "Anomaly Puzzle",
+    "Pattern Sequence",
+    "Path Finder",
+    "Visual Memory",
+    "Ghost Grid",
+    "Color Confusion",
+    "Colored Shapes",
+    "Orbit Tracker",
+    "Flash Crowd",
+    "Mini Sudoku",
+    "Mini Chess",
+    "Solo Chess",
+    "Lights Out",
+    "Sliding Puzzle",
+    "Shikaku",
+    "Nurikabe",
+    "Cat Queens",
+    "Knot",
+    "Tower of Hanoi",
+    "Schulte Table",
+    "Flags",
+    "Digit Memory",
+    "Spot the New",
+    "N-Back",
+    "Wordle",
+    "Matchstick Riddles",
+    "Peg Solitaire",
+    "Sudoku",
+    "Chess",
+    "IQ Test",
+    "Missing Operators",
+    "Bulls & Cows",
+    "Simon Says",
+    "Prism Clear",
+    "Trio",
+    "Mental Rotations",
+    "Mental Flex",
+    "Rule Shift",
+    "Reversi",
+    "Learn Math",
+)
 
 # Play needs at least two phone screenshots before a listing can be published; the tablet
 # set is what stops the Play tablet tab from falling back to the English images.
@@ -94,11 +148,15 @@ class ListingReport:
     exists: bool
     missing_text: list[str] = field(default_factory=list)
     overlong_text: list[str] = field(default_factory=list)
+    missing_catalog_names: list[str] = field(default_factory=list)
     phone_screenshots: int = 0
     tablet_screenshots: int = 0
+    check_screenshots: bool = True
 
     @property
     def screenshot_issues(self) -> list[str]:
+        if not self.check_screenshots:
+            return []
         issues = []
         if self.phone_screenshots < MIN_PHONE_SCREENSHOTS:
             issues.append(
@@ -116,6 +174,7 @@ class ListingReport:
             self.exists
             and not self.missing_text
             and not self.overlong_text
+            and not self.missing_catalog_names
             and not self.screenshot_issues
         )
 
@@ -127,6 +186,7 @@ class CheckResult:
     bad_codes: list[str]
     orphan_folders: list[str]
     listings: list[ListingReport]
+    unsupported_listings: list[ListingReport] = field(default_factory=list)
     live_locales: list[str] | None = None
     live_error: str | None = None
 
@@ -143,6 +203,7 @@ class CheckResult:
             and not self.bad_codes
             and not self.orphan_folders
             and all(r.ok for r in self.listings)
+            and all(r.ok for r in self.unsupported_listings)
         )
 
     def issue_count(self) -> int:
@@ -151,6 +212,7 @@ class CheckResult:
             + len(self.bad_codes)
             + len(self.orphan_folders)
             + sum(1 for r in self.listings if not r.ok)
+            + sum(1 for r in self.unsupported_listings if not r.ok)
         )
 
 
@@ -169,16 +231,24 @@ def count_pngs(directory: Path) -> int:
     return sum(1 for entry in directory.iterdir() if entry.suffix.lower() == ".png")
 
 
-def check_listing(metadata_dir: Path, resource_locale: str, play_locale: str) -> ListingReport:
+def check_listing(
+    metadata_dir: Path,
+    resource_locale: str,
+    play_locale: str,
+    *,
+    check_screenshots: bool = True,
+) -> ListingReport:
     folder = metadata_dir / play_locale
     report = ListingReport(
         play_locale=play_locale,
         resource_locale=resource_locale,
         exists=folder.is_dir(),
+        check_screenshots=check_screenshots,
     )
     if not report.exists:
         return report
 
+    full_description = ""
     for name, limit in TEXT_FILES.items():
         file = folder / name
         if not file.is_file():
@@ -189,16 +259,38 @@ def check_listing(metadata_dir: Path, resource_locale: str, play_locale: str) ->
             report.missing_text.append(name)
         elif len(text) > limit:
             report.overlong_text.append(f"{name} is {len(text)} chars, limit {limit}")
+        if name == "full_description.txt":
+            full_description = text
 
-    report.phone_screenshots = count_pngs(folder / "images/phoneScreenshots")
-    report.tablet_screenshots = count_pngs(folder / "images/tenInchScreenshots")
+    if play_locale == "en-US" and full_description:
+        # Match the bold heading so "Chess" is not satisfied by "Mini Chess".
+        report.missing_catalog_names = [
+            name
+            for name in REQUIRED_EN_US_NAMES
+            if f"<b>{name}</b>" not in full_description
+        ]
+
+    if check_screenshots:
+        report.phone_screenshots = count_pngs(folder / "images/phoneScreenshots")
+        report.tablet_screenshots = count_pngs(folder / "images/tenInchScreenshots")
     return report
+
+
+def check_unsupported_listings(unsupported_dir: Path) -> list[ListingReport]:
+    if not unsupported_dir.is_dir():
+        return []
+    return [
+        check_listing(unsupported_dir, folder.name, folder.name, check_screenshots=False)
+        for folder in sorted(unsupported_dir.iterdir())
+        if folder.is_dir()
+    ]
 
 
 def check_store_listings(
     locales_config: Path,
     play_locales_file: Path,
     metadata_dir: Path,
+    unsupported_dir: Path = DEFAULT_UNSUPPORTED_DIR,
 ) -> CheckResult:
     supported = load_supported_locales(locales_config)
     mapping = load_play_locale_map(play_locales_file)
@@ -230,6 +322,7 @@ def check_store_listings(
         bad_codes=bad_codes,
         orphan_folders=orphans,
         listings=listings,
+        unsupported_listings=check_unsupported_listings(unsupported_dir),
     )
 
 
@@ -335,6 +428,8 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
         issues = []
         issues += [f"missing {name}" for name in report.missing_text]
         issues += report.overlong_text
+        if report.missing_catalog_names:
+            issues.append("missing from catalog: " + ", ".join(report.missing_catalog_names))
         issues += report.screenshot_issues
         print(f"[{report.play_locale}] " + "; ".join(issues))
         if report.screenshot_issues:
@@ -357,6 +452,21 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             print("  bundle exec fastlane android upload_listing")
         else:
             print(f"All {len(result.live_locales)} listings are live on Play.")
+
+    if result.unsupported_listings:
+        print()
+        for report in result.unsupported_listings:
+            if report.ok:
+                if not quiet:
+                    print(f"[{report.play_locale}] unsupported copy OK (not published)")
+                continue
+            issues = []
+            if not report.exists:
+                print(f"[{report.play_locale}] {DEFAULT_UNSUPPORTED_DIR}/{report.play_locale} missing")
+                continue
+            issues += [f"missing {name}" for name in report.missing_text]
+            issues += report.overlong_text
+            print(f"[{report.play_locale}] " + "; ".join(issues))
 
     if result.unsupported_locales and not quiet:
         print()
@@ -389,11 +499,22 @@ def print_json_report(result: CheckResult) -> None:
                         "exists": r.exists,
                         "missing_text": r.missing_text,
                         "overlong_text": r.overlong_text,
+                        "missing_catalog_names": r.missing_catalog_names,
                         "phone_screenshots": r.phone_screenshots,
                         "tablet_screenshots": r.tablet_screenshots,
                         "ok": r.ok,
                     }
                     for r in result.listings
+                ],
+                "unsupported_listings": [
+                    {
+                        "play_locale": r.play_locale,
+                        "exists": r.exists,
+                        "missing_text": r.missing_text,
+                        "overlong_text": r.overlong_text,
+                        "ok": r.ok,
+                    }
+                    for r in result.unsupported_listings
                 ],
                 "issue_count": result.issue_count(),
             },
@@ -415,6 +536,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--locales-config", type=Path, default=DEFAULT_LOCALES_CONFIG)
     parser.add_argument("--play-locales", type=Path, default=DEFAULT_PLAY_LOCALES)
     parser.add_argument("--metadata-dir", type=Path, default=DEFAULT_METADATA_DIR)
+    parser.add_argument("--unsupported-dir", type=Path, default=DEFAULT_UNSUPPORTED_DIR)
     parser.add_argument("--play-key", type=Path, default=DEFAULT_PLAY_KEY)
     return parser.parse_args()
 
@@ -426,7 +548,12 @@ def main() -> int:
         if not path.is_file():
             raise SystemExit(f"File not found: {path}")
 
-    result = check_store_listings(args.locales_config, args.play_locales, args.metadata_dir)
+    result = check_store_listings(
+        args.locales_config,
+        args.play_locales,
+        args.metadata_dir,
+        args.unsupported_dir,
+    )
 
     if args.live:
         # The live diff is informational: the key is a release secret, so its absence on a

@@ -1,13 +1,13 @@
-Trenuj swój mózg zabawnymi mini grami. Braincup oferuje 42 ćwiczeń treningu mózgu.
+Minigry na pamięć, skupienie, logikę i matematykę, oraz Nauka matematyki z lekcjami i certyfikatami.
 
 <b>Rachunek pamięciowy</b>:
-Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.
+Śledź wyrażenia; każdy wynik jest bazą następnego.
 
 <b>Obliczenia łańcuchowe</b>:
-Śledź wyrażenia matematyczne.
+Rozwiąż wzór krok po kroku.
 
 <b>Obliczenia Sherlocka</b>:
-Znajdź sposób na osiągnięcie celu używając tylko podanych liczb i tych operatorów: + - * / ( ).
+Dotrzyj do celu danymi liczbami i operatorami.
 
 <b>Obliczenia ułamkowe</b>:
 Rozwiąż ułamki.
@@ -16,116 +16,129 @@ Rozwiąż ułamki.
 Wybierz wyrażenie o najwyższej wartości.
 
 <b>Suma baniek</b>:
-Dodaj liczby na unoszących się bańkach.
+Dodaj liczby na bąbelkach.
 
 <b>Szybka suma</b>:
-Liczby pojawiają się pojedynczo. Dodaj je i wpisz sumę.
+Liczby migną po kolei; wpisz sumę.
 
 <b>Łamigłówka anomalii</b>:
 Znajdź figurę, która się wyróżnia.
 
 <b>Sekwencja wzorów</b>:
-Odkryj regułę biegnącą przez każdy wiersz siatki, a potem wybierz element, który ją uzupełnia.
+Odkryj regułę w każdym rzędzie i dokończ siatkę.
 
 <b>Znajdź ścieżkę</b>:
-Zacznij od zaznaczonej pozycji i podążaj za strzałkami, aby znaleźć cel.
+Idź za strzałkami od zaznaczonego startu.
 
 <b>Pamięć wzrokowa</b>:
-Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.
+Zapamiętaj kształty, potem wskaż ukryty.
 
 <b>Siatka Duchów</b>:
-Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.
+Pola się zapalają; stuknij je w tej samej kolejności.
 
 <b>Zamieszanie Kolorów</b>:
-Dotknij koloru, w którym słowo jest napisane, nie koloru, który słowo nazywa.
+Stuknij kolor tuszu, nie ten, który nazywa słowo.
 
 <b>Kolorowe kształty</b>:
-Zsumuj punkty z poprawnych stwierdzeń.
+Dodaj punkty z prawdziwych zdań.
 
 <b>Śledzenie Orbit</b>:
-Obserwuj podświetlone kule, a następnie śledź je podczas ruchu.
+Śledź zaznaczone kule, gdy się ruszają.
 
 <b>Błyskawiczny Tłum</b>:
-Kropki migają krótko po każdej stronie.
+Stuknij stronę, na której mignęło więcej kropek.
 
 <b>Mini Sudoku</b>:
-Wypełnij małą siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą liczbę dokładnie raz.
+Każdy wiersz, kolumna i blok raz każda cyfra.
 
 <b>Mini Szachy</b>:
-Daj mata CPU, zanim ona da mata tobie.
+Dokończ scenariusz białymi przeciw CPU.
 
 <b>Szachy solo</b>:
-Bij figury jedna po drugiej, aż zostanie tylko król.
+Bij aż zostanie tylko król. Każdy ruch musi bić.
 
 <b>Wyłącz światła</b>:
-Wyłącz wszystkie światła. Każde dotknięcie przełącza komórkę i jej czterech sąsiadów.
+Zgaś wszystkie światła; stuknięcie przełącza też sąsiadów.
 
 <b>Układanka przesuwna</b>:
-Przesuwaj kafelki na puste pole, aby ułożyć je po kolei.
+Przesuwaj kafelki, aż będą w porządku.
 
 <b>Shikaku</b>:
-Podziel całą siatkę na prostokąty. Każdy prostokąt musi zawierać dokładnie jedną liczbę, równą jego polu.
+Podziel siatkę na prostokąty zgodne z ich liczbami.
 
 <b>Nurikabe</b>:
-Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp.
+Maluj morze wokół numerowanych wysp, bez bloku 2x2.
 
 <b>Koci Gambit</b>:
-Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów.
+Jeden kot na wiersz, kolumnę i strefę koloru; nie mogą się stykać.
 
 <b>Węzeł</b>:
-Połącz każdą parę kolorowych kropek ścieżką. Ścieżki nie mogą się krzyżować i razem muszą pokryć każde pole.
+Połącz kolorowe pary bez przecięć; wypełnij każde pole.
 
 <b>Wieże Hanoi</b>:
-Przenieś cały stos na prawy kołek.
+Przenieś stos na prawy palik.
 
 <b>Tablica Schulte'a</b>:
-Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.
+Stukaj liczby po kolei tak szybko, jak umiesz.
 
 <b>Flagi</b>:
-Rozpoznaj kraj po jego fladze.
+Podaj kraj; jeden błąd kończy bieg.
 
 <b>Pamięć Cyfr</b>:
-Zapamiętaj ciąg cyfr, rozwiąż krótkie zadanie matematyczne, a następnie przypomnij sobie cyfry.
+Zapamiętaj cyfry, rozwiąż krótkie zadanie, potem je odtwórz.
 
 <b>Znajdź Nowy</b>:
-Dotknij zwierzęcia, którego wcześniej nie widziałeś.
+Stuknij zwierzę, którego jeszcze nie widziałeś.
 
 <b>N-Back</b>:
-Obserwuj kształty, a potem dotknij tego na wskazanej pozycji.
+Stuknij Match, gdy kształt powtarza ten sprzed N kroków.
 
 <b>Wordle</b>:
-Zgadnij ukryte pięcioliterowe słowo w sześciu próbach. Odpowiedź to zawsze rzeczownik.
+Odgadnij pięcioliterowe słowo w sześciu próbach.
 
 <b>Łamigłówki z zapałkami</b>:
-Przesuwaj zapałki, aby naprawić równania.
+Przesuwaj zapałki, aż równanie się zgadza.
 
 <b>Solitaire</b>:
-Skacz pionkami, aż zostanie tylko jeden.
+Skacz pionkami, aż zostanie jeden.
 
 <b>Sudoku</b>:
-Klasyczne pełne Sudoku z wieloma poziomami trudności.
+Klasyczne sudoku, kilka poziomów.
 
 <b>Szachy</b>:
-Pełne szachy przeciwko CPU lub pass-and-play.
+Pełne szachy przeciw CPU albo we dwoje na jednym urządzeniu.
 
 <b>Test IQ</b>:
-30 zagadek macierzowych w 15 minut, z szacowanym IQ. Tylko dla zabawy.
+30 zagadek macierzowych w 15 minut, z szacowanym IQ. Dla zabawy.
 
-<b>Missing Operators</b>:
-Znajdź brakujące operatory (+, -, *, /), które czynią równanie prawdziwym.
+<b>Brakujące działania</b>:
+Znajdź operatory (+, -, *, /), które czynią równanie prawdziwym.
 
 <b>Bulls & Cows</b>:
 Odgadnij tajną 4-cyfrową liczbę.
 
-<b>Simon Says</b>:
-W każdej rundzie zapala się jeden nowy przycisk. Dotknij całej sekwencji od początku, razem z przyciskami z poprzednich rund.
+<b>Szymon mówi</b>:
+Odtwórz całą, rosnącą sekwencję w każdej rundzie.
 
-<b>Prism Clear</b>:
-Zamień pasujące kafelki, by usuwać linie z trzech lub więcej. Opróżnij całą planszę, by wygrać.
+<b>Czyszczenie pryzmatu</b>:
+Zamień kafelki, czyść linie, opróżnij planszę.
 
 <b>Trio</b>:
-Znajdź trzy karty o wspólnym kształcie, wypełnieniu albo liczbie znaków.
+Znajdź trzy karty o wspólnym kształcie, wypełnieniu lub liczbie.
 
-Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
+<b>Rotacje w wyobraźni</b>:
+Drugi klocek to pierwszy obrócony, czy jego lustrzane odbicie?
 
-Bez śledzenia. <b>Open source</b>.
+<b>Elastyczność myślenia</b>:
+Para u góry ustala regułę; traf w cel według tej cechy.
+
+<b>Zmiana reguły</b>:
+Sortuj karty według ukrytej reguły, która zmienia się, gdy ją masz.
+
+<b>Reversi</b>:
+6x6 przeciw CPU albo we dwoje. Zamknij linię, żeby ją odwrócić.
+
+<b>Nauka matematyki</b>:
+Lekcje, testy i certyfikaty z Arytmetyka, Geometria, Miary i Algebra.
+
+Każda gra ma <b>medale</b>. Kilka <b>osiągnięć</b>. Bez śledzenia. <b>Open source</b>.

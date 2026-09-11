@@ -1,131 +1,144 @@
-Trénuj mozek zábavnými minihry, které prověří paměť, soustředění, logiku a matematiku. Braincup nabízí 42 cvičení na mozek, která bystří mysl a zlepšují koncentraci.
+Minihry na paměť, soustředění, logiku a matematiku, a Uč se matematiku s lekcemi a certifikáty.
 
 <b>Počítání z hlavy</b>:
-Sleduj matematické výrazy. Výsledek použij jako základ dalšího výpočtu.
+Sleduj výrazy; každý výsledek je základ dalšího.
 
 <b>Řetězové počítání</b>:
-Řeš složité vzorce krok za krokem.
+Řeš vzorec krok za krokem.
 
 <b>Sherlockovské počítání</b>:
-Najdi vzorec, který dosáhne cíle jen s danými čísly a operátory.
+Dosáhni cíle danými čísly a operátory.
 
 <b>Počítání zlomků</b>:
-Vyřeš zlomky.
+Řeš zlomky.
 
 <b>Porovnání hodnot</b>:
 Vyber výraz s nejvyšší hodnotou.
 
 <b>Součet bublin</b>:
-Sečti čísla na plovoucích bublinách.
+Sečti čísla na bublinách.
 
 <b>Rychlý součet</b>:
-Čísla blikají jedno po druhém. Sečti je a zadej součet.
+Čísla blikají jedno po druhém; zadej součet.
 
 <b>Hádanka anomálie</b>:
 Najdi figurku, která vyčnívá.
 
 <b>Posloupnost vzorů</b>:
-Odhal pravidlo v každém řádku a vyber dílek, který ho doplní.
+Najdi pravidlo v každém řádku a doplň mřížku.
 
 <b>Hledač cesty</b>:
-Začni na označené pozici a následuj šipky k cíli.
+Sleduj šipky od označeného startu.
 
 <b>Vizuální paměť</b>:
-Zapamatuj si tvary v mřížce a po skončení časovače urči skrytý tvar.
+Zapamatuj si tvary, pak poznej skrytý.
 
 <b>Mřížka duchů</b>:
-Sleduj, jak se dlaždice rozsvěcují jedna po druhé, a klepni na ně ve stejném pořadí.
+Pole se rozsvítí; ťukni je ve stejném pořadí.
 
 <b>Zmatek barev</b>:
-Klepni na barvu, kterou je slovo napsané, ne na barvu, kterou slovo říká.
+Ťukni barvu inkoustu, ne tu, kterou slovo jmenuje.
 
 <b>Barevné tvary</b>:
-Sečti body z pravdivých tvrzení.
+Sečti body ze správných tvrzení.
 
 <b>Sledovač drah</b>:
-Sleduj zvýrazněné koule a drž je, když se pohybují.
+Sleduj označené koule, zatímco se hýbou.
 
 <b>Zábleskový dav</b>:
-Tečky krátce bliknou na každé straně. Klepni na stranu, kde jich bylo víc.
+Ťukni stranu, kde bliklo víc teček.
 
 <b>Mini Sudoku</b>:
-Vyplň malou mřížku tak, aby každý řádek, sloupec a blok obsahoval každé číslo přesně jednou.
+Každý řádek, sloupec a blok jednou každá číslice.
 
 <b>Mini šachy</b>:
-Dej CPU mata dřív, než ho dostaneš ty.
+Docehraj scénář bílými proti CPU.
 
 <b>Solo šachy</b>:
-Ber figury jednu po druhé, dokud nezbude jen král.
+Ber, dokud nezbude král. Každý tah musí brát.
 
 <b>Zhasni světla</b>:
-Zhasni každé světlo. Každé klepnutí přepne buňku a její čtyři sousedy.
+Zhasni všechna světla; ťuknutí přepne i sousedy.
 
 <b>Posuvné puzzle</b>:
-Posouvej dlaždice do prázdného místa, aby byly v pořádku.
+Posouvej dlaždice, dokud nebudou v pořádku.
 
 <b>Shikaku</b>:
-Rozděl celou mřížku na obdélníky. Každý obdélník obsahuje přesně jedno číslo, rovné jeho obsahu.
+Rozděl mřížku na obdélníky podle jejich čísel.
 
 <b>Nurikabe</b>:
-Maluj buňky a postav moře kolem očíslovaných ostrovů, bez bloku 2x2.
+Maluj moře kolem očíslovaných ostrovů, bez bloku 2x2.
 
 <b>Kočičí královny</b>:
-Umísti jednu kočku do každého řádku, sloupce i barevné zóny. Kočky se nesmějí dotýkat.
+Jedna kočka na řádek, sloupec a barevnou zónu; nesmí se dotýkat.
 
 <b>Uzel</b>:
-Spoj každou dvojici barevných teček cestou. Cesty se nesmějí křížit a musí pokrýt každou buňku.
+Spoj barevné páry bez křížení; vyplň každé pole.
 
 <b>Hanojská věž</b>:
-Přesuň celý sloupec na pravý kolík.
+Přesuň věž na pravý kolík.
 
 <b>Schultova tabulka</b>:
-Klepej na čísla v pořadí od 1 nahoru co nejrychleji.
+Ťukej čísla v pořadí tak rychle, jak umíš.
 
 <b>Vlajky</b>:
-Poznej zemi podle vlajky.
+Řekni zemi; jedna chyba končí běh.
 
 <b>Paměť číslic</b>:
-Zapamatuj si posloupnost číslic, vyřeš rychlý příklad a pak si číslice vybav.
+Zapamatuj si číslice, vyřeš krátký příklad, pak si je vybav.
 
 <b>Najdi nového</b>:
-Klepni na zvíře, které jsi ještě neviděl.
+Ťukni zvíře, které jsi ještě neviděl.
 
 <b>N-Back</b>:
-Sleduj tvary, jak prolétají, a klepni na ten na požadované pozici.
+Ťukni Match, když tvar opakuje ten před N kroky.
 
 <b>Wordle</b>:
-Hádej skryté pětipísmenné slovo na šest pokusů.
+Uhádni pětipísmenné slovo na šest pokusů.
 
 <b>Sirkové hádanky</b>:
-Přesouvej sirky a oprav rozbité rovnice.
+Posouvej sirky, dokud rovnice nesedí.
 
 <b>Kolíkový solitér</b>:
 Přeskakuj kolíky, dokud nezbude jeden.
 
 <b>Sudoku</b>:
-Klasické Sudoku v plné velikosti s více obtížnostmi.
+Klasické sudoku, několik obtížností.
 
 <b>Šachy</b>:
-Plné šachy proti CPU nebo střídání tahů s kamarádem.
+Plné šachy proti CPU nebo ve dvou na jednom zařízení.
 
 <b>IQ test</b>:
-30 maticových hádanek za 15 minut, s odhadovaným IQ. Jen pro zábavu.
+30 maticových hádanek za 15 minut, s odhadem IQ. Jen pro zábavu.
 
 <b>Chybějící operátory</b>:
-Najdi chybějící operátory (+, -, *, /), které rovnice splní.
+Najdi operátory (+, -, *, /), které rovnice splní.
 
 <b>Bulls & Cows</b>:
-Hádej tajné 4místné číslo s unikátními číslicemi.
+Uhádni tajné 4místné číslo.
 
 <b>Simon Says</b>:
-Každé kolo rozsvítí jeden nový panel. Klepni celou sekvenci od začátku.
+Oťukej celou rostoucí sekvenci každé kolo.
 
 <b>Prism Clear</b>:
-Prohoď shodné dlaždice a smaž řady o třech a více. Vyprázdni desku a vyhraješ.
+Prohoď dlaždice, čisti řady, vyprázdni desku.
 
 <b>Trio</b>:
-Najdi tři karty se společným tvarem, výplní nebo počtem znaků.
+Najdi tři karty se stejným tvarem, výplní nebo počtem.
 
-Hra má několik <b>úspěchů</b> a každé cvičení má <b>medaile</b>, které tě motivují.
+<b>Mentální rotace</b>:
+Je druhý blok ten první otočený, nebo zrcadlový?
 
-Bez sledování. <b>Open source</b>.
+<b>Mentální flexibilita</b>:
+Dvojice nahoře nastaví pravidlo; trefe cíl podle tohoto rysu.
+
+<b>Změna pravidla</b>:
+Třiď karty podle skrytého pravidla, které se změní, jakmile ho máš.
+
+<b>Reversi</b>:
+6x6 proti CPU nebo ve dvou. Sevři řadu, abys ji otočil.
+
+<b>Uč se matematiku</b>:
+Lekce, testy a certifikáty z Aritmetika, Geometrie, Měření a Algebra.
+
+Každá hra má <b>medaile</b>. Několik <b>úspěchů</b>. Bez sledování. <b>Open source</b>.

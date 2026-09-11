@@ -1,140 +1,144 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 45 brain training exercises to sharpen your mind and improve concentration.
+Mini-games for memory, focus, logic and math, plus Learn Math lessons with certificates.
 
 <b>Mental Calculation</b>:
-Follow the math expressions. Use each result as the base for the next.
+Follow expressions; each result is the base for the next.
 
 <b>Chain Calculation</b>:
-Solve complex formulas step by step.
+Solve a formula step by step.
 
 <b>Sherlock Calculation</b>:
-Find a formula to reach the goal using only the given numbers and operators.
+Reach the goal with the given numbers and operators.
 
 <b>Fraction Calculation</b>:
 Solve the fractions.
 
 <b>Value Comparison</b>:
-Select the expression with the highest value.
+Pick the expression with the highest value.
 
 <b>Bubble Sum</b>:
 Add the numbers on the floating bubbles.
 
 <b>Quick Sum</b>:
-Numbers flash one at a time. Add them up and enter the total.
+Numbers flash one at a time; enter the total.
 
 <b>Anomaly Puzzle</b>:
 Find the figure that stands out.
 
 <b>Pattern Sequence</b>:
-Work out the rule running along each row, then pick the piece that completes it.
+Work out the rule along each row and complete the grid.
 
 <b>Path Finder</b>:
-Start at the marked cell and follow the arrows to the destination.
+Follow the arrows from the marked start.
 
 <b>Visual Memory</b>:
-Memorize the shapes, then identify the hidden one when the timer ends.
+Memorize the shapes, then identify the hidden one.
 
 <b>Ghost Grid</b>:
-Watch the tiles light up one by one, then tap them back in the same order.
+Watch tiles light up; tap them back in order.
 
 <b>Color Confusion</b>:
-Tap the color a word is printed in, not the color the word names.
+Tap the ink color, not the color the word names.
 
 <b>Colored Shapes</b>:
-Add up the points from the correct statements.
+Add the points from the correct statements.
 
 <b>Orbit Tracker</b>:
-Watch the highlighted balls, then track them as they move.
+Track the highlighted balls as they move.
 
 <b>Flash Crowd</b>:
-Dots flash briefly on each side. Tap the side that had more dots.
+Tap the side that flashed more dots.
 
 <b>Mini Sudoku</b>:
-Fill the grid so every row, column and block holds each number exactly once.
+Each row, column and block once per digit.
 
 <b>Mini Chess</b>:
-Checkmate the CPU before it checkmates you.
+Finish the scenario as white against the CPU.
 
 <b>Solo Chess</b>:
-Capture pieces until only the king remains. Every move must capture.
+Capture until only the king remains. Every move must capture.
 
 <b>Lights Out</b>:
-Turn off every light. Each tap toggles the cell and its four neighbours.
+Turn off every light; taps toggle neighbours.
 
 <b>Sliding Puzzle</b>:
-Slide tiles into the empty space to put them back in order.
+Slide tiles into order.
 
 <b>Shikaku</b>:
-Divide the grid into rectangles, each holding one number equal to its area.
+Divide the grid into rectangles matching their numbers.
 
 <b>Nurikabe</b>:
-Paint the sea around numbered islands, never forming a 2x2 block.
+Paint the sea around numbered islands, no 2x2 blocks.
 
 <b>Cat Queens</b>:
-Place one cat per row, column and color zone. No two may touch, not even diagonally.
+One cat per row, column and color zone; none may touch.
 
 <b>Knot</b>:
-Connect each pair of colored dots. Paths may not cross and must fill every cell.
+Connect colored pairs without crossing; cover every cell.
 
 <b>Tower of Hanoi</b>:
-Move the full stack to the right peg.
+Move the stack to the right peg.
 
 <b>Schulte Table</b>:
-Tap the numbers in order from 1 upwards as fast as you can.
+Tap the numbers in order as fast as you can.
 
 <b>Flags</b>:
-Identify the country by its flag.
+Name the country; one wrong answer ends the run.
 
 <b>Digit Memory</b>:
-Memorize a digit sequence, solve a quick math problem, then recall it.
+Memorize digits, solve a quick sum, then recall.
 
 <b>Spot the New</b>:
 Tap the animal you have not seen before.
 
 <b>N-Back</b>:
-Tap Match when the shape repeats the one N steps back.
+Tap Match when a shape repeats the one N steps back.
 
 <b>Wordle</b>:
-Guess the hidden five-letter word in six tries.
+Guess the five-letter word in six tries.
 
 <b>Matchstick Riddles</b>:
-Move matchsticks to fix broken equations.
+Move matchsticks to fix equations.
 
 <b>Peg Solitaire</b>:
-Jump pegs to clear the board down to one peg.
+Jump pegs until one remains.
 
 <b>Sudoku</b>:
-Classic full-size Sudoku with multiple difficulties.
+Classic full-size Sudoku, several difficulties.
 
 <b>Chess</b>:
-Full chess vs CPU or pass-and-play with a friend.
+Full chess vs the CPU or pass-and-play.
 
 <b>IQ Test</b>:
 30 matrix puzzles in 15 minutes, with an estimated IQ. Just for fun.
 
 <b>Missing Operators</b>:
-Find the missing operators (+, -, *, /) that make the equation true.
+Find the operators (+, -, *, /) that make the equation true.
 
 <b>Bulls & Cows</b>:
-Guess the secret 4-digit number with unique digits.
+Guess the secret 4-digit number.
 
 <b>Simon Says</b>:
-Each round adds one pad. Tap the whole sequence back from the start.
+Tap the growing pad sequence back each round.
 
 <b>Prism Clear</b>:
-Swap tiles to clear lines of three or more. Empty the board to win.
+Swap matching tiles to clear lines; empty the board.
 
 <b>Trio</b>:
-Find three cards that share a shape, a fill or how many marks they carry.
+Find three cards that share a shape, a fill or a count.
 
 <b>Mental Rotations</b>:
 Is the second block the first one turned, or mirrored?
 
 <b>Mental Flex</b>:
-The pair at the top says which trait counts: shape or color.
+A cue pair sets the rule; match the target on that trait.
 
 <b>Rule Shift</b>:
-Sort each card onto a key card. Nobody tells you the rule, and it changes once you have it.
+Sort cards by a hidden rule that changes once you have it.
 
-Several <b>achievements</b>, and every exercise has <b>medals</b> to keep you motivated.
+<b>Reversi</b>:
+6x6 vs the CPU or pass-and-play. Trap a line to flip it.
 
-No tracking. <b>Open source</b>.
+<b>Learn Math</b>:
+Lessons, tests and certificates in Arithmetic, Geometry, Measurement and Algebra.
+
+Every game has <b>medals</b>. Several <b>achievements</b>. No tracking. <b>Open source</b>.

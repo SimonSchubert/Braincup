@@ -1,13 +1,13 @@
-Trenē smadzenes ar aizraujošām minispēlēm, kas pārbauda atmiņu, uzmanību, loģiku un matemātiku. Braincup piedāvā 42 smadzeņu vingrinājumus.
+Minispēles atmiņai, fokusam, loģikai un matemātikai, un Mācies matemātiku ar nodarbībām un sertifikātiem.
 
 <b>Skaitīšana prātā</b>:
-Seko matemātiskajām izteiksmēm. Izmanto rezultātu kā pamatu nākamajam aprēķinam.
+Seko izteiksmēm; katrs rezultāts ir nākamā pamats.
 
 <b>Ķēdes skaitīšana</b>:
-Atrisini sarežģītas formulas soli pa solim.
+Atrisini formulu soli pa solim.
 
 <b>Šerloka skaitīšana</b>:
-Atrodi formulu, kas sasniedz mērķi tikai ar dotajiem skaitļiem un operatoriem.
+Sasniedz mērķi ar dotajiem skaitļiem un operatoriem.
 
 <b>Daļskaitļu skaitīšana</b>:
 Atrisini daļskaitļus.
@@ -16,116 +16,129 @@ Atrisini daļskaitļus.
 Izvēlies izteiksmi ar vislielāko vērtību.
 
 <b>Burbuļu summa</b>:
-Saskaiti skaitļus uz peldošajiem burbuļiem.
+Saskaiti skaitļus uz burbuļiem.
 
 <b>Ātrā summa</b>:
-Skaitļi mirgo viens pēc otra. Saskaiti tos un ievadi summu.
+Skaitļi uzplaiksnī pa vienam; ievadi summu.
 
 <b>Anomālijas mīkla</b>:
 Atrodi figūru, kas izceļas.
 
 <b>Rakstu secība</b>:
-Atklāj likumu katrā rindā un izvēlies gabalu, kas to papildina.
+Atrodi katras rindas likumu un pabeidz režģi.
 
 <b>Ceļa meklētājs</b>:
-Sāc no atzīmētās vietas un seko bultiņām līdz mērķim.
+Seko bultiņām no atzīmētā sākuma.
 
 <b>Vizuālā atmiņa</b>:
-Atceries formas un pēc taimera beigām nosaki slēpto formu.
+Atceries formas, tad atpazīsti slēpto.
 
 <b>Rēgu režģis</b>:
-Skaties, kā flīzes iedegas viena pēc otras, un pieskaries tām tajā pašā secībā.
+Rūtiņas iedegas; pieskaries tām tajā pašā kārtībā.
 
 <b>Krāsu sajukums</b>:
-Pieskaries krāsai, kādā vārds ir iespiests, nevis krāsai, ko vārds nosauc.
+Pieskaries tintes krāsai, ne tai, ko nosauc vārds.
 
 <b>Krāsainas figūras</b>:
-Saskaiti punktus no patiesajiem apgalvojumiem.
+Saskaiti pareizo apgalvojumu punktus.
 
 <b>Orbītu izsekotājs</b>:
-Skaties izceltās bumbiņas un turi tās, kamēr tās kustas.
+Seko atzīmētajām bumbiņām, kamēr tās kustas.
 
 <b>Mirgojošais pūlis</b>:
-Punkti īsi nomirgo katrā pusē. Pieskaries pusei, kurā to bija vairāk.
+Pieskaries pusei ar vairāk punktiem.
 
 <b>Mini Sudoku</b>:
-Aizpildi mazo režģi tā, lai katrā rindā, kolonnā un blokā būtu katrs skaitlis vienreiz.
+Katra rinda, kolonna un bloks reizi katru ciparu.
 
 <b>Mini šahs</b>:
-Dod CPU matu, pirms tas to dod tev.
+Pabeidz scenāriju ar baltajiem pret CPU.
 
 <b>Solo šahs</b>:
-Ņem figūras vienu pēc otras, līdz paliek tikai karalis. Katram gājienam jāņem.
+Sit, līdz paliek karalis. Katram gājienam jāsit.
 
 <b>Izdzēs gaismas</b>:
-Izdzēs katru gaismu. Katrs pieskāriens pārslēdz šūnu un tās četrus kaimiņus.
+Izslēdz visas gaismas; pieskāriens apgriež arī kaimiņus.
 
 <b>Bīdāmā puzle</b>:
-Bīdi flīzes tukšajā vietā, līdz tās ir kārtībā.
+Bīdi kauliņus vietā.
 
 <b>Shikaku</b>:
-Sadali režģi taisnstūros. Katrā ir tieši viens skaitlis, tā laukums.
+Sadalīt režģi taisnstūros pēc to skaitļiem.
 
 <b>Nurikabe</b>:
-Krāso šūnas un uzbūvē jūru ap numurētajām salām bez 2x2 bloka.
+Krāso jūru ap numurētām salām, bez 2x2 bloka.
 
 <b>Kaķu karalienes</b>:
-Novieto vienu kaķi katrā rindā, kolonnā un krāsas zonā. Kaķi nedrīkst saskarties, pat pa diagonāli.
+Viens kaķis rindā, kolonnā un krāsu zonā; lai neskartos.
 
 <b>Mezgls</b>:
-Savieno katru krāsaino punktu pāri. Ceļi nedrīkst krustoties un tiem jānosedz katra šūna.
+Savieno krāsainus pārus bez krustošanās; aizpildi katru rūtiņu.
 
 <b>Hanojas tornis</b>:
-Pārvieto visu stabiņu uz labo tapiņu.
+Pārvieto kaudzi uz labo stieni.
 
 <b>Šultes tabula</b>:
-Pieskaries skaitļiem pēc kārtas no 1 uz augšu tik ātri, cik vari.
+Pieskaries skaitļiem pēc kārtas cik ātri vari.
 
 <b>Karogi</b>:
-Atpazīsti valsti pēc karoga.
+Nosauc valsti; viena kļūda beidz skrējienu.
 
 <b>Ciparu atmiņa</b>:
-Atceries ciparu secību, atrisini ātru uzdevumu, tad atceries ciparus.
+Atceries ciparus, izrēķini īsu uzdevumu, tad atsauc tos.
 
 <b>Atrodi jauno</b>:
-Pieskaries dzīvniekam, kuru vēl nepazīsti.
+Pieskaries dzīvniekam, ko vēl neesi redzējis.
 
 <b>N-Back</b>:
-Skaties formas, kā tās palido garām, un pieskaries tai vajadzīgajā vietā.
+Pieskaries Match, kad forma atkārto to pirms N soļiem.
 
 <b>Wordle</b>:
-Uzmini slēpto piecu burtu vārdu sešos mēģinājumos.
+Uzmini piecu burtu vārdu sešos mēģinājumos.
 
 <b>Sērkociņu mīklas</b>:
-Pārvieto sērkociņus un izlabo salauztos vienādojumus.
+Pārvieto sērkociņus, līdz vienādojums sader.
 
 <b>Tapu solitērs</b>:
-Pārlēc tapas, līdz paliek viena.
+Lēkā ar knaģiem, līdz paliek viens.
 
 <b>Sudoku</b>:
-Klasiskais pilna izmēra Sudoku ar vairākām grūtībām.
+Klasisks sudoku, vairākas grūtības.
 
 <b>Šahs</b>:
-Pilns šahs pret CPU vai gājienu maiņa ar draugu.
+Pilnas šahs pret CPU vai divatā uz vienas ierīces.
 
 <b>IQ tests</b>:
-30 matricu mīklas 15 minūtēs, ar novērtētu IQ. Tikai izklaidei.
+30 matricu mīklas 15 minūtēs, ar lēstu IQ. Tikai priekam.
 
 <b>Trūkstošie operatori</b>:
-Atrodi trūkstošos operatorus (+, -, *, /), kas padara vienādojumu par patiesu.
+Atrodi operatorus (+, -, *, /), kas padara vienādojumu patiesu.
 
 <b>Bulls & Cows</b>:
-Uzmini slepeno 4 ciparu skaitli ar unikāliem cipariem.
+Uzmini slepeno 4 ciparu skaitli.
 
 <b>Simon Says</b>:
-Katra kārta iedeg vienu jaunu flīzi. Pieskaries visai secībai no sākuma.
+Pieskaries visai augošajai virknei katru raundu.
 
 <b>Prism Clear</b>:
-Apmaini sakrītošas flīzes un izdzēs rindas no trim un vairāk. Iztīri dēli un uzvari.
+Maini kauliņus, tīri rindas, iztukšo dēli.
 
 <b>Trio</b>:
-Atrodi trīs kārtis, kurām ir kopīga forma, pildījums vai zīmju skaits.
+Atrodi trīs kārtis ar kopīgu formu, pildījumu vai skaitu.
 
-Spēlē ir vairāki <b>sasniegumi</b>, un katram vingrinājumam ir <b>medaļas</b>, kas uztur motivāciju.
+<b>Domu rotācijas</b>:
+Vai otrais bloks ir pirmais pagriezts, vai tā spogulis?
 
-Bez izsekošanas. <b>Open source</b>.
+<b>Domu elastība</b>:
+Pāris augšā nosaka likumu; trāpi mērķi pēc šīs pazīmes.
+
+<b>Noteikuma maiņa</b>:
+Kārto kārtis pēc slēpta likuma, kas mainās, tiklīdz tas tev ir.
+
+<b>Reversi</b>:
+6x6 pret CPU vai divatā. Satver līniju, lai to apgrieztu.
+
+<b>Mācies matemātiku</b>:
+Nodarbības, testi un sertifikāti: Aritmētika, Ģeometrija, Mērīšana un Algebra.
+
+Katrai spēlei ir <b>medaļas</b>. Vairāki <b>sasniegumi</b>. Bez izsekošanas. <b>Atvērtais kods</b>.

@@ -1,13 +1,13 @@
-Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 42 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+Minigames voor geheugen, focus, logica en rekenen, en Wiskunde leren met lessen en certificaten.
 
 <b>Hoofdrekenen</b>:
-Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
+Volg de sommen; elk resultaat is de basis voor de volgende.
 
 <b>Kettingberekening</b>:
-Los complexe formules stap voor stap op.
+Los de formule stap voor stap op.
 
 <b>Sherlock berekening</b>:
-Vind een formule voor het doel met alleen de gegeven getallen en operatoren.
+Bereik het doel met de gegeven getallen en operatoren.
 
 <b>Breukberekening</b>:
 Los de breuken op.
@@ -16,116 +16,129 @@ Los de breuken op.
 Kies de uitdrukking met de hoogste waarde.
 
 <b>Bellensom</b>:
-Tel de getallen op de bellen op.
+Tel de getallen op de bellen bij elkaar.
 
 <b>Snelle som</b>:
-Getallen flitsen één voor één. Tel ze op en voer het totaal in.
+Getallen flitsen één voor één; voer het totaal in.
 
 <b>Anomalie puzzel</b>:
-Vind de figuur die opvalt door kleur en vorm.
+Vind de figuur die eruit springt.
 
 <b>Patroonreeks</b>:
-Zoek de regel die door elke rij van het raster loopt en kies dan het stuk dat hem afmaakt.
+Zoek de regel per rij en maak het raster af.
 
 <b>Padvinder</b>:
-Start bij de markering en volg de pijlen naar de bestemming.
+Volg de pijlen vanaf de gemarkeerde start.
 
 <b>Visueel geheugen</b>:
-Onthoud de vormen en herken de verborgen vorm na de timer.
+Onthoud de vormen en herken daarna de verborgen.
 
 <b>Spookraster</b>:
-Tegels lichten één voor één op; tik ze in dezelfde volgorde terug.
+Tegels lichten op; tik ze in dezelfde volgorde na.
 
 <b>Kleurverwarring</b>:
-Tik de kleur aan waarin het woord gedrukt staat, niet de kleur die het woord noemt.
+Tik de inktkleur, niet de kleur die het woord noemt.
 
 <b>Gekleurde vormen</b>:
-Tel de punten van de juiste stellingen op.
+Tel de punten van de juiste uitspraken op.
 
 <b>Baanvolger</b>:
-Bekijk gemarkeerde ballen, volg ze en kies de doelen na stilstand.
+Volg de gemarkeerde ballen terwijl ze bewegen.
 
 <b>Flitsmenigte</b>:
-Stippen flitsen kort.
+Tik de kant die meer stippen flitste.
 
 <b>Mini Sudoku</b>:
-Vul het kleine raster: elke rij, kolom en blok elke cijfer één keer.
+Elke rij, kolom en blok één keer elk cijfer.
 
 <b>Mini-Schaak</b>:
-Mat de CPU voordat die jou mat.
+Speel het scenario als wit uit tegen de CPU.
 
 <b>Solo Schaken</b>:
-Sla stukken één voor één tot alleen de koning overblijft. Elke zet moet slaan.
+Sla tot alleen de koning overblijft. Elke zet moet slaan.
 
 <b>Lichten uit</b>:
-Zet alle lichten uit. Elke tik wisselt de cel en buren.
+Doe alle lichten uit; een tik zet ook de buren om.
 
 <b>Schuifpuzzel</b>:
-Schuif tegels in de lege ruimte om ze te ordenen.
+Schuif de tegels op hun plaats.
 
 <b>Shikaku</b>:
-Verdeel het raster in rechthoeken. Elk bevat één getal = de oppervlakte.
+Verdeel het raster in rechthoeken die bij hun getallen passen.
 
 <b>Nurikabe</b>:
-Kleur de zee rond genummerde eilanden zonder 2x2-blok.
+Verf de zee om genummerde eilanden, zonder 2x2-blok.
 
 <b>Kattenkoninginnen</b>:
-Eén kat per rij, kolom en kleurzone. Ze mogen elkaar niet raken.
+Eén kat per rij, kolom en kleurzone; ze mogen elkaar niet raken.
 
 <b>Knoop</b>:
-Verbind elk paar gekleurde stippen. Paden kruisen niet en vullen alles.
+Verbind gekleurde paren zonder kruisen; vul elk vak.
 
 <b>Torens van Hanoi</b>:
 Verplaats de stapel naar de rechter staaf.
 
 <b>Schulte-tabel</b>:
-Tik de getallen zo snel mogelijk op volgorde vanaf 1.
+Tik de getallen zo snel je kunt op volgorde aan.
 
 <b>Vlaggen</b>:
-Herken het land aan de vlag.
+Noem het land; één fout stopt de run.
 
 <b>Cijfergeheugen</b>:
-Onthoud cijfers, los een snelle som op, herinner daarna de cijfers.
+Onthoud cijfers, los een som op, herinner ze daarna.
 
 <b>Spot het Nieuwe</b>:
-Tik het dier dat je nog niet zag.
+Tik het dier dat je nog niet hebt gezien.
 
 <b>N-Back</b>:
-Bekijk de vormen en tik die op de gevraagde positie.
+Tik Match als de vorm die van N stappen terug herhaalt.
 
 <b>Wordle</b>:
-Raad het verborgen woord van vijf letters in zes pogingen.
+Raad het woord van vijf letters in zes pogingen.
 
 <b>Luciferpuzzels</b>:
-Verplaats lucifers om vergelijkingen te repareren.
+Verplaats lucifers tot de vergelijking klopt.
 
 <b>Solitaire</b>:
-Spring met pionnen tot er nog één over is.
+Spring pionnen tot er één overblijft.
 
 <b>Sudoku</b>:
-Klassieke full-size Sudoku met meerdere niveaus.
+Klassieke sudoku, meerdere niveaus.
 
 <b>Schaken</b>:
-Volledig schaak tegen de CPU of pass-and-play.
+Volledig schaken tegen de CPU of samen op één apparaat.
 
 <b>IQ-test</b>:
-30 matrixpuzzels in 15 minuten, met geschat IQ. Puur voor de lol.
+30 matrixpuzzels in 15 minuten, met een geschat IQ. Voor de fun.
 
-<b>Missing Operators</b>:
-Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.
+<b>Ontbrekende operatoren</b>:
+Vind de operatoren (+, -, *, /) die de vergelijking waar maken.
 
 <b>Bulls & Cows</b>:
-Raad het geheime 4-cijferige getal met unieke cijfers.
+Raad het geheime getal van 4 cijfers.
 
-<b>Simon Says</b>:
-Elke ronde licht er één nieuwe knop op. Tik de hele reeks vanaf het begin terug, inclusief de knoppen uit eerdere rondes.
+<b>Simon zegt</b>:
+Tik elke ronde de hele, groeiende reeks na.
 
-<b>Prism Clear</b>:
-Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.
+<b>Prisma leegmaken</b>:
+Wissel tegels, ruim rijen, maak het bord leeg.
 
 <b>Trio</b>:
-Zoek drie kaarten met dezelfde vorm, dezelfde vulling of evenveel tekens.
+Vind drie kaarten met dezelfde vorm, vulling of hoeveelheid.
 
-Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
+<b>Mentale rotatie</b>:
+Is het tweede blok het eerste gedraaid, of gespiegeld?
 
-Geen tracking. <b>Open source</b>.
+<b>Mentale flexibiliteit</b>:
+Het paar bovenaan zet de regel; match het doel op dat kenmerk.
+
+<b>Regelwissel</b>:
+Sorteer kaarten op een verborgen regel die wisselt zodra je die hebt.
+
+<b>Reversi</b>:
+6x6 tegen de CPU of samen. Sluit een lijn in om die om te draaien.
+
+<b>Wiskunde leren</b>:
+Lessen, toetsen en certificaten in Rekenen, Meetkunde, Meten en Algebra.
+
+Elk spel heeft <b>medailles</b>. Meerdere <b>prestaties</b>. Geen tracking. <b>Open source</b>.

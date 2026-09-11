@@ -1,13 +1,13 @@
-Träna hjärnan med roliga minispel som utmanar minne, fokus, logik och matematik. Braincup har 42 hjärnövningar som skärper sinnet och förbättrar koncentrationen.
+Minispel för minne, fokus, logik och matte, och Lär dig matte med lektioner och intyg.
 
 <b>Huvudräkning</b>:
-Följ de matematiska uttrycken. Använd resultatet som bas för nästa räkning.
+Följ uttrycken; varje resultat är bas för nästa.
 
 <b>Kedjeräkning</b>:
-Lös komplexa formler steg för steg.
+Lös formeln steg för steg.
 
 <b>Sherlock-räkning</b>:
-Hitta en formel som når målet med bara de givna talen och operatorerna.
+Nå målet med de givna talen och operatorerna.
 
 <b>Bråkräkning</b>:
 Lös bråken.
@@ -16,116 +16,129 @@ Lös bråken.
 Välj uttrycket med högst värde.
 
 <b>Bubbelsumma</b>:
-Addera talen på de flytande bubblorna.
+Addera talen på bubblorna.
 
 <b>Snabbsamma</b>:
-Tal blinkar ett i taget. Addera dem och ange totalt.
+Tal blinkar ett i taget; skriv in summan.
 
 <b>Avvikelsepussel</b>:
 Hitta figuren som sticker ut.
 
 <b>Mönstersekvens</b>:
-Lista ut regeln längs varje rad och välj biten som kompletterar den.
+Hitta regeln i varje rad och fyll rutnätet.
 
 <b>Vägvisare</b>:
-Börja vid den markerade positionen och följ pilarna till målet.
+Följ pilarna från den markerade starten.
 
 <b>Visuellt minne</b>:
-Memorera formerna och identifiera den dolda formen när timern tar slut.
+Minns formerna, känn sedan igen den dolda.
 
 <b>Spökruta</b>:
-Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.
+Rutor tänds; tryck dem i samma ordning.
 
 <b>Färgförvirring</b>:
-Tryck på färgen ordet är tryckt med, inte färgen ordet nämner.
+Tryck bläckets färg, inte den ordet nämner.
 
 <b>Färgade former</b>:
-Addera poängen från de sanna påståendena.
+Addera poängen från de rätta påståendena.
 
 <b>Banföljare</b>:
-Titta på de markerade bollarna och följ dem när de rör sig.
+Följ de markerade bollarna medan de rör sig.
 
 <b>Blixtmängd</b>:
-Prickar blinkar kort på varje sida. Tryck på sidan som hade fler.
+Tryck sidan som blinkade flest prickar.
 
 <b>Mini-Sudoku</b>:
-Fyll det lilla rutnätet så att varje rad, kolumn och block har varje siffra en gång.
+Varje rad, kolumn och block en gång varje siffra.
 
 <b>Minischack</b>:
-Sätt CPU i schackmatt innan den sätter dig.
+Spela scenariot klart som vit mot CPU:n.
 
 <b>Soloschack</b>:
-Slå pjäserna en efter en tills bara kungen är kvar.
+Slå tills bara kungen är kvar. Varje drag måste slå.
 
 <b>Släck lamporna</b>:
-Släck varje lampa. Varje tryck växlar rutan och dess fyra grannar.
+Släck alla ljus; ett tryck vänder också grannarna.
 
 <b>Skjutpussel</b>:
-Skjut brickor in i det tomma utrymmet för att lägga dem i ordning.
+Skjut brickorna på plats.
 
 <b>Shikaku</b>:
-Dela rutnätet i rektanglar. Varje rektangel har exakt ett tal, lika med dess area.
+Dela rutnätet i rektanglar som matchar sina tal.
 
 <b>Nurikabe</b>:
-Måla rutor för att bygga havet runt numrerade öar, utan 2x2-block.
+Måla havet runt numrerade öar, utan 2x2-block.
 
 <b>Kattdrottningar</b>:
-Placera en katt i varje rad, kolumn och färgzon. Katter får inte röra varandra.
+En katt per rad, kolumn och färgzon; de får inte röra varandra.
 
 <b>Knut</b>:
-Koppla ihop varje par av färgade prickar. Banorna får inte korsa varandra och måste täcka varje ruta.
+Koppla färgade par utan att korsa; fyll varje ruta.
 
 <b>Tornet i Hanoi</b>:
-Flytta hela högen till den högra pinnen.
+Flytta högen till den högra pinnen.
 
 <b>Schultetabell</b>:
-Tryck på talen i ordning från 1 och uppåt så snabbt du kan.
+Tryck talen i ordning så snabbt du kan.
 
 <b>Flaggor</b>:
-Identifiera landet utifrån flaggan.
+Säg landet; ett fel avslutar rundan.
 
 <b>Sifferminne</b>:
-Memorera en siffersekvens, lös ett snabbt mattetal och återge sedan siffrorna.
+Minns siffror, lös ett litet tal, kom sen ihåg dem.
 
 <b>Hitta den nya</b>:
-Tryck på djuret du inte har sett förut.
+Tryck djuret du inte har sett förut.
 
 <b>N-Back</b>:
-Se formerna blinka förbi och tryck på den på den efterfrågade positionen.
+Tryck Match när formen upprepar den från N steg bak.
 
 <b>Wordle</b>:
-Gissa det dolda fem-bokstavsordet på sex försök.
+Gissa ordet på fem bokstäver på sex försök.
 
 <b>Tändsticksgåtor</b>:
-Flytta tändstickor för att rätta trasiga ekvationer.
+Flytta tändstickor tills ekvationen stämmer.
 
 <b>Pinnsolitär</b>:
-Hoppa med pinnar tills bara en är kvar.
+Hoppa pjäser tills en är kvar.
 
 <b>Sudoku</b>:
-Klassisk Sudoku i full storlek med flera svårighetsgrader.
+Klassisk sudoku, flera svårigheter.
 
 <b>Schack</b>:
-Fullt schack mot CPU eller turvis spel med en vän.
+Fullt schack mot CPU:n eller två på en enhet.
 
 <b>IQ-test</b>:
-30 matrispussel på 15 minuter, med en uppskattad IQ. Bara på skoj.
+30 matrispussel på 15 minuter, med ett uppskattat IQ. Bara på skoj.
 
 <b>Saknade operatorer</b>:
-Hitta de saknade operatorerna (+, -, *, /) som gör ekvationen sann.
+Hitta operatorerna (+, -, *, /) som gör ekvationen sann.
 
 <b>Bulls & Cows</b>:
-Gissa det hemliga fyrsiffriga talet med unika siffror.
+Gissa det hemliga 4-siffriga talet.
 
 <b>Simon Says</b>:
-Varje runda tänder en ny platta. Tryck tillbaka hela sekvensen från början.
+Tryck tillbaka hela den växande sekvensen varje runda.
 
 <b>Prism Clear</b>:
-Byt matchande brickor för att rensa rader med tre eller fler. Töm brädet för att vinna.
+Byt brickor, rensa rader, töm brädet.
 
 <b>Trio</b>:
-Hitta tre kort som har form, fyllning eller hur många tecken de bär gemensamt.
+Hitta tre kort som delar form, fyllning eller antal.
 
-Spelet har flera <b>prestationer</b> och varje övning har <b>medaljer</b> som håller motivationen uppe.
+<b>Mentala rotationer</b>:
+Är det andra blocket det första vridet, eller speglat?
 
-Ingen spårning. <b>Öppen källkod</b>.
+<b>Mental flexibilitet</b>:
+Paret högst upp sätter regeln; träffa målet på det draget.
+
+<b>Regelbyte</b>:
+Sortera kort efter en dold regel som byts när du har den.
+
+<b>Reversi</b>:
+6x6 mot CPU:n eller två tillsammans. Fånga en linje för att vända den.
+
+<b>Lär matematik</b>:
+Lektioner, test och intyg i Aritmetik, Geometri, Mätning och Algebra.
+
+Varje spel har <b>medaljer</b>. Flera <b>prestationer</b>. Ingen spårning. <b>Öppen källkod</b>.

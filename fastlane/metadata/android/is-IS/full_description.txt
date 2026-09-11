@@ -1,132 +1,144 @@
-Æfðu heilann með skemmtilegum smáleikjum sem reyna á minni, einbeitingu, rökhugsun og stærðfræði. Braincup býður upp á 42 heilaæfingar.
+Smáleikir fyrir minni, einbeitingu, rökhugsun og stærðfræði, auk Lærðu stærðfræði með kennslustundum og skírteinum.
 
 <b>Hugarreikningur</b>:
-Fylgdu stærðfræðistæðunum. Notaðu niðurstöðuna sem grunn næsta útreiknings.
+Fylgdu stæðunum; hver niðurstaða er grunnur næstu.
 
 <b>Keðjureikningur</b>:
-Leystu flóknar formúlur skref fyrir skref.
+Leystu formúluna skref fyrir skref.
 
 <b>Sherlock-reikningur</b>:
-Finndu formúlu sem nær markmiðinu aðeins með gefnum tölum og virkjum.
+Náðu markinu með gefnum tölum og virkjum.
 
 <b>Brotareikningur</b>:
 Leystu brotin.
 
 <b>Gildissamanburður</b>:
-Veldu stæðuna með hæsta gildið.
+Veldu stæðuna með hæsta gildi.
 
 <b>Kúlasumma</b>:
-Leggðu saman tölurnar á fljótandi kúlunum.
+Leggðu saman tölurnar á bólunum.
 
 <b>Hraðsumma</b>:
-Tölur blikka ein af annarri. Leggðu þær saman og sláðu inn heildina.
+Tölur blikka ein af annarri; sláðu inn summuna.
 
 <b>Fráviksgáta</b>:
-Finndu myndina sem sker sig úr.
+Finndu myndina sem stendur upp úr.
 
 <b>Mynsturröð</b>:
-Finndu regluna í hverri röð og veldu bitann sem lýkur henni.
+Finndu regluna í hverri línu og ljúktu netinu.
 
 <b>Leiðarleitandi</b>:
-Byrjaðu á merktum stað og fylgdu örvunum að áfangastað.
+Fylgdu örvunum frá merktu upphafi.
 
 <b>Sjónminni</b>:
-Mundu formin og greindu falið formið þegar tímamælirinn rennur út.
+Mundu formin og þekktu svo það fólgna.
 
 <b>Drauganet</b>:
-Horfðu á flísarnar kvikna eina af annarri og ýttu á þær í sömu röð.
+Reitir kvikna; pikkaðu þá í sömu röð.
 
 <b>Litaruglingur</b>:
-Ýttu á litinn sem orðið er prentað með, ekki litinn sem orðið nefnir.
+Pikkaðu lit bleksins, ekki þann sem orðið nefnir.
 
 <b>Litaðar myndir</b>:
-Leggðu saman stigin úr sönnum fullyrðingum.
+Leggðu saman stig réttu fullyrðinganna.
 
 <b>Brautarfylgjandi</b>:
-Horfðu á auðkenndu kúlurnar og fylgdu þeim þegar þær hreyfast.
+Fylgstu með merktu boltunum á meðan þeir hreyfast.
 
 <b>Leifturþyrping</b>:
-Punktar blikka stutt á hvorri hlið. Ýttu á hliðina sem hafði fleiri.
+Pikkaðu hliðina sem blikkaði fleiri punktum.
 
 <b>Mini Sudoku</b>:
-Fylltu litla netið þannig að hver röð, dálkur og blokk innihaldi hverja tölu einu sinni.
+Hver röð, dálkur og blokk einu sinni hver tölustafur.
 
 <b>Míniskák</b>:
-Gefðu CPU mát áður en hann gefur þér það.
+Ljúktu atriðinu sem hvítur gegn CPU.
 
 <b>Einmennisskák</b>:
-Taktu taflmenn einn af öðrum uns aðeins kóngurinn er eftir. Hver leikur verður að taka.
+Taktu uns aðeins kóngurinn er eftir. Hver leikur verður að taka.
 
 <b>Slökktu ljósin</b>:
-Slökktu hvert ljós. Hver ýting snýr við reitnum og fjórum nágrönnum hans.
+Slökktu öll ljós; pikkar snýr líka nágrönnum.
 
 <b>Rennaþraut</b>:
-Renndu flísum í autt plássið þar til þær eru í röð.
+Renndu flísum á sinn stað.
 
 <b>Shikaku</b>:
-Skiptu netinu í rétthyrninga. Hver rétthyrningur hefur nákvæmlega eina tölu, jafna flatarmáli hans.
+Skiptu netinu í rétthyrninga sem passa tölunum.
 
 <b>Nurikabe</b>:
-Málaðu reiti til að byggja hafið utan um númeruð eyjar, án 2x2 blokkar.
+Málaðu hafið um númeruð eyjar, án 2x2-blokk.
 
 <b>Kattardrottningar</b>:
-Settu einn kött í hverja röð, dálk og litasvæði. Kettir mega ekki snertast, jafnvel á ská.
+Einn köttur á röð, dálk og litasvæði; þeir mega ekki snertast.
 
 <b>Hnútur</b>:
-Tengdu hvert litað punktapar. Slóðir mega ekki skerast og verða að þekja hvern reit.
+Tengdu litaðar pör án krossunar; fylltu hvern reit.
 
 <b>Turninn í Hanoi</b>:
-Færðu allan staflann á hægri pinnann.
+Færðu staflann á hægri stöngina.
 
 <b>Schulte-tafla</b>:
-Ýttu á tölur í röð frá 1 og upp eins hratt og þú getur.
+Pikkaðu tölurnar í röð eins hratt og þú getur.
 
 <b>Fánar</b>:
-Þekktu landið af fánanum.
+Nefndu landið; ein villa lýkur hlaupinu.
 
 <b>Tölustafaminni</b>:
-Mundu runu tölustafa, leystu fljótan útreikning og mundu síðan tölustafina.
+Mundu tölustafi, leystu stutt dæmi, rifjaðu svo upp.
 
 <b>Finndu nýja</b>:
-Ýttu á dýrið sem þú hefur ekki séð áður.
+Pikkaðu dýrið sem þú hefur ekki séð enn.
 
 <b>N-Back</b>:
-Horfðu á form fljúga fram hjá og ýttu á það sem var á umbeðnum stað.
+Pikkaðu Match þegar formið endurtekur það frá N skrefum.
 
 <b>Wordle</b>:
-Giskaðu á falda fimm stafa orðið á sex tilraunum.
+Giskaðu á fimm stafa orðið á sex tilraunum.
 
 <b>Eldspýtugátur</b>:
-Færðu eldspýtur til að jafna bilaðar jöfnur.
+Færðu eldspýtur uns jafnan stenst.
 
 <b>Pinnasólitaire</b>:
-Hoppaðu með pinna uns aðeins einn er eftir.
+Hoppaðu pinnum uns einn er eftir.
 
 <b>Sudoku</b>:
-Klassískt Sudoku í fullri stærð með mörgum erfiðleikastigum.
+Klassískt súdóku, nokkur erfiðleikastig.
 
 <b>Skák</b>:
-Full skák gegn CPU eða til skiptis við vin.
+Fullt skák gegn CPU eða tveir á einu tæki.
 
 <b>IQ-próf</b>:
-30 fylkisgátur á 15 mínútum, með áætluðu IQ. Aðeins til skemmtunar.
+30 fylkisþrautir á 15 mínútum, með áætluðu IQ. Bara til gamans.
 
 <b>Vantar virkja</b>:
-Finndu virkjana sem vantar (+, -, *, /) sem gera jöfnuna sanna.
+Finndu virkja (+, -, *, /) sem gera jöfnuna sanna.
 
 <b>Bulls & Cows</b>:
-Giskaðu á leynilega 4 stafa tölu með einstökum tölustöfum.
+Giskaðu á leynilega 4 stafa töluna.
 
 <b>Simon Says</b>:
-Hver umferð kveikir eina nýja flís. Ýttu á alla rununa frá byrjun.
+Pikkaðu alla vaxandi rununa í hverri umferð.
 
 <b>Prism Clear</b>:
-Skiptu um samsvarandi flísar til að hreinsa raðir af þremur eða fleiri. Tæmdu allt borðið til að vinna.
+Skiptu um flísar, hreinsaðu línur, tæmdu borðið.
 
 <b>Trio</b>:
-Finndu þrjú spil sem eiga form, fyllingu eða fjölda tákna sameiginlegt.
+Finndu þrjú spil sem deila formi, fyllingu eða fjölda.
 
-Leikurinn hefur nokkur <b>afrek</b> og hver æfing hefur <b>verðlaun</b> sem halda þér við efnið.
+<b>Hugarsnúningar</b>:
+Er seinni kubburinn sá fyrri snúinn, eða spegill?
 
-Engin rakning. <b>Opinn kóði</b>.
+<b>Hugarsveigjanleiki</b>:
+Parið efst setur regluna; hittu markið á þeim þætti.
 
+<b>Regluskipti</b>:
+Raðaðu spilum eftir falinni reglu sem breytist um leið og þú hefur hana.
+
+<b>Reversi</b>:
+6x6 gegn CPU eða tveir. Lokaðu línu til að snúa henni.
+
+<b>Lærðu stærðfræði</b>:
+Kennslustundir, próf og skírteini í Reikningur, Rúmfræði, Mælingar og Algebra.
+
+Hver leikur hefur <b>verðlaun</b>. Nokkur <b>afrek</b>. Engin rákun. <b>Opinn kóði</b>.

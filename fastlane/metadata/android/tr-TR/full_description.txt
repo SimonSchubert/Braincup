@@ -1,131 +1,144 @@
-Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 42 beyin egzersizi sunar.
+Bellek, odak, mantık ve matematik mini oyunları, artı dersler ve sertifikalarla Matematik öğren.
 
 <b>Zihinsel Hesaplama</b>:
-Matematiksel ifadeleri takip et. Sonucu sonraki hesap için kullan.
+İfadeleri izle; her sonuç bir sonrakinin tabanı.
 
 <b>Zincir Hesaplama</b>:
-Karmaşık formülleri adım adım çöz.
+Formülü adım adım çöz.
 
 <b>Sherlock Hesaplaması</b>:
-Verilen sayılar ve operatörlerle hedefe bir formül bul.
+Verilen sayılar ve işlemlerle hedefe ulaş.
 
 <b>Kesir Hesaplama</b>:
 Kesirleri çöz.
 
 <b>Değer Karşılaştırma</b>:
-En yüksek değere sahip ifadeyi seç.
+En yüksek değerli ifadeyi seç.
 
 <b>Baloncuk Toplamı</b>:
-Balonlardaki sayıları topla.
+Baloncuklardaki sayıları topla.
 
 <b>Hızlı Toplam</b>:
-Sayılar tek tek yanıp söner. Topla ve sonucu gir.
+Sayılar tek tek yanıp söner; toplamı gir.
 
 <b>Anomali Bulmacası</b>:
-Renk ve şekle göre öne çıkan figürü bul.
+Ayrışan şekli bul.
 
 <b>Desen Dizisi</b>:
-Izgaranın her satırında ilerleyen kuralı bul, sonra onu tamamlayan parçayı seç.
+Her satırın kuralını bul ve ızgarayı tamamla.
 
 <b>Yol Bulucu</b>:
-İşaretli yerden başla ve oklara uyarak hedefe git.
+İşaretli başlangıçtan oklara uy.
 
 <b>Görsel Hafıza</b>:
-Şekileri ezberle, süre bitince gizli olanı bul.
+Şekilleri ezberle, sonra gizleneni tanı.
 
 <b>Hayalet Izgara</b>:
-Kareler sırayla yanar; aynı sırayla dokun.
+Kareler yanar; aynı sırada dokun.
 
 <b>Renk Karmaşası</b>:
-Kelimenin basıldığı renge dokun, kelimenin söylediği renge değil.
+Kelimenin söylediği değil, mürekkebin rengine dokun.
 
 <b>Renkli Şekiller</b>:
 Doğru ifadelerin puanlarını topla.
 
 <b>Yörünge Takipçisi</b>:
-İşaretli topları izle, takip et ve durunca hedefleri seç.
+İşaretli topları hareket ederken izle.
 
 <b>Flaş Kalabalık</b>:
-Noktalar kısa parlar.
+Daha çok nokta yanan tarafa dokun.
 
 <b>Mini Sudoku</b>:
-Küçük ızgarayı doldur: her satır, sütun ve blokta her rakam bir kez.
+Her satır, sütun ve blokta her rakam bir kez.
 
 <b>Mini Satranç</b>:
-CPU senden önce mat etmesin.
+Beyazlarla CPU'ya karşı senaryoyu bitir.
 
 <b>Tek Kişilik Satranç</b>:
-Sadece şah kalana kadar taşları tek tek al. Her hamle alma olmalı.
+Yalnız kral kalana dek al. Her hamle alma olmalı.
 
 <b>Işıkları Söndür</b>:
-Tüm ışıkları kapat. Her dokunuş hücreyi ve komşularını değiştirir.
+Tüm ışıkları kapat; dokunuş komşuları da çevirir.
 
 <b>Kaydırma Bulmacası</b>:
-Karoları boş alana kaydırarak sırala.
+Karoları kaydırıp sıraya koy.
 
 <b>Shikaku</b>:
-Izgaraı dikdörtgenlere böl. Her birinde alanına eşit bir sayı var.
+Izgarayı sayılara uyan dikdörtgenlere böl.
 
 <b>Nurikabe</b>:
-Numaralı adaların etrafında 2x2 blok olmadan deniz boya.
+Numaralı adaların etrafına deniz boya, 2x2 yok.
 
 <b>Kedi Kraliçeleri</b>:
-Her satır, sütun ve renk bölgesinde bir kedi. Birbirine değmesinler.
+Satır, sütun ve renk bölgesine bir kedi; birbirine değmesin.
 
 <b>Düğüm</b>:
-Her renkli nokta çiftini yolla birleştir. Yollar kesişmez, tüm hücreleri kaplar.
+Renkli çiftleri kesişmeden bağla; her kareyi doldur.
 
 <b>Hanoi Kuleleri</b>:
 Yığını sağ çubuğa taşı.
 
 <b>Schulte Tablosu</b>:
-Sayıları 1’den itibaren olabildiğince hızlı sırayla dokun.
+Sayıları sırayla olabildiğince hızlı dokun.
 
 <b>Bayraklar</b>:
-Bayraktan ülkeyi tanı.
+Ülkeyi söyle; bir hata koşuyu bitirir.
 
 <b>Rakam Hafızası</b>:
-Rakamları ezberle, hızlı bir işlem yap, sonra rakamları hatırla.
+Rakamları ezberle, kısa bir işlem çöz, sonra anımsa.
 
 <b>Yeniyi Bul</b>:
-Daha önce görmediğin hayvana dokun.
+Henüz görmediğin hayvana dokun.
 
 <b>N-Back</b>:
-Şekilleri izle, istenen konumdakine dokun.
+Şekil N adım öncekiyle aynıysa Match'e dokun.
 
 <b>Wordle</b>:
-Altı denemede gizli beş harfli kelimeyi tahmin et.
+Beş harfli kelimeyi altı denemede bul.
 
 <b>Kibrit bulmacaları</b>:
-Kibritleri hareket ettirerek denklemleri düzeltin.
+Kibritleri denklemi tutana dek kaydır.
 
 <b>Solitaire</b>:
-Tahtada bir çivi kalana kadar zıplayın.
+Bir tane kalana dek tapaları atlat.
 
 <b>Sudoku</b>:
-Birden fazla zorlukta klasik Sudoku.
+Klasik sudoku, birkaç zorluk.
 
 <b>Satranç</b>:
-CPU’ya karşı veya pass-and-play tam satranç.
+Tam satranç, CPU'ya karşı veya aynı cihazda iki kişi.
 
 <b>IQ Testi</b>:
-15 dakikada 30 matris bulmacası, tahmini IQ ile. Sadece eğlence için.
+15 dakikada 30 matris bulmacası, tahmini IQ. Eğlence için.
 
-<b>Missing Operators</b>:
-Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.
+<b>Eksik İşlemler</b>:
+Denklemi doğru kılan işlemleri (+, -, *, /) bul.
 
 <b>Bulls & Cows</b>:
-Benzersiz rakamlardan oluşan gizli 4 basamaklı sayıyı tahmin edin.
+Gizli 4 basamaklı sayıyı tahmin et.
 
-<b>Simon Says</b>:
-Her turda yeni bir düğme yanar. Önceki turların düğmeleri dahil, tüm diziye baştan dokun.
+<b>Simon Diyor ki</b>:
+Her tur büyüyen dizinin hepsini baştan dokun.
 
-<b>Prism Clear</b>:
-Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.
+<b>Prizma Temizliği</b>:
+Karoları değiştir, satırları temizle, tahtayı boşalt.
 
-<b>Trio</b>:
-Şekil, dolgu veya üzerlerindeki işaret sayısı ortak olan üç kart bul.
+<b>Üçlü</b>:
+Şekil, dolgu veya sayı paylaşan üç kart bul.
 
-Oyunda birçok <b>başarı</b> ve her egzersizde sizi motive edecek <b>madalyalar</b> bulunur.
+<b>Zihinsel Döndürme</b>:
+İkinci blok birincinin dönmüş hali mi, aynası mı?
 
-İzleme yok. <b>Açık kaynak</b>.
+<b>Zihinsel Esneklik</b>:
+Üstteki çift kuralı koyar; hedefi o özellikte tuttur.
+
+<b>Kural Değişimi</b>:
+Gizli kurala göre kartları ayır; kuralı bulunca değişir.
+
+<b>Reversi</b>:
+6x6 CPU'ya karşı veya iki kişi. Bir çizgiyi kıstırıp çevir.
+
+<b>Matematik öğren</b>:
+Aritmetik, Geometri, Ölçme ve Cebir dersleri, testleri ve sertifikaları.
+
+Her oyunda <b>madalyalar</b> var. Birkaç <b>başarım</b>. İzleme yok. <b>Açık kaynak</b>.

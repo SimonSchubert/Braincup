@@ -1,13 +1,13 @@
-Antrenează-ți creierul cu minijocuri care pun la încercare memoria, concentrarea, logica și matematica. Braincup are 42 de exerciții gândite să-ți ascută mintea.
+Minijocuri pentru memorie, focus, logică și matematică, și Învață matematică cu lecții și certificate.
 
 <b>Calcul mintal</b>:
-Urmărește expresiile matematice. Folosește rezultatul ca bază pentru calculul următor.
+Urmărește expresiile; fiecare rezultat e baza următorului.
 
 <b>Calcul în lanț</b>:
-Rezolvă formule complexe pas cu pas.
+Rezolvă formula pas cu pas.
 
 <b>Calcul Sherlock</b>:
-Găsește o formulă care ajunge la scop doar cu numerele și operatorii dați.
+Ajungi la țintă cu numerele și operatorii dați.
 
 <b>Calcul cu fracții</b>:
 Rezolvă fracțiile.
@@ -16,116 +16,129 @@ Rezolvă fracțiile.
 Alege expresia cu valoarea cea mai mare.
 
 <b>Suma bulelor</b>:
-Adună numerele de pe bulele care plutesc.
+Adună numerele de pe bule.
 
 <b>Sumă rapidă</b>:
-Numerele apar pe rând. Adună-le și introdu totalul.
+Numerele clipesc unul câte unul; introdu suma.
 
 <b>Puzzle-ul anomaliei</b>:
 Găsește figura care iese în evidență.
 
 <b>Secvență de modele</b>:
-Descoperă regula de pe fiecare rând și alege piesa care o completează.
+Găsește regula fiecărui rând și completează grila.
 
 <b>Căutător de cale</b>:
-Pornește de la poziția marcată și urmează săgețile până la destinație.
+Urmărește săgețile de la startul marcat.
 
 <b>Memorie vizuală</b>:
-Memorează formele din grilă, apoi identifică forma ascunsă.
+Memorează formele, apoi recunoaște-o pe cea ascunsă.
 
 <b>Grila fantomă</b>:
-Urmărește cum se aprind dalele una câte una, apoi apasă-le în aceeași ordine.
+Căsuțele se aprind; atinge-le în aceeași ordine.
 
 <b>Confuzie de culori</b>:
-Apasă culoarea în care e tipărit cuvântul, nu culoarea pe care o spune cuvântul.
+Atinge culoarea cernelii, nu pe cea pe care o numește cuvântul.
 
 <b>Forme colorate</b>:
-Adună punctele din afirmațiile corecte.
+Adună punctele afirmațiilor corecte.
 
 <b>Urmăritor de orbite</b>:
-Urmărește bilele evidențiate, apoi ține-le minte pe măsură ce se mișcă.
+Urmărește mingile marcate cât se mișcă.
 
 <b>Mulțime fulger</b>:
-Punctele clipesc scurt pe fiecare parte. Apasă partea care a avut mai multe.
+Atinge partea cu mai multe puncte.
 
 <b>Mini Sudoku</b>:
-Completează grila mică astfel încât fiecare rând, coloană și bloc să conțină fiecare număr o dată.
+Fiecare rând, coloană și bloc o dată fiecare cifră.
 
 <b>Mini șah</b>:
-Dă șah-mat CPU-ului înainte să ți-l dea el.
+Termină scenariul cu albele împotriva CPU.
 
 <b>Șah solo</b>:
-Capturează piesele una câte una până rămâne doar regele. Fiecare mutare trebuie să captureze.
+Capturează până rămâne regele. Fiecare mutare trebuie să captureze.
 
 <b>Stinge luminile</b>:
-Stinge fiecare lumină. Fiecare apăsare comută celula și cei patru vecini.
+Stinge toate luminile; o atingere schimbă și vecinii.
 
 <b>Puzzle glisant</b>:
-Glisează dalele în spațiul gol ca să le pui în ordine.
+Glisează piesele până stau în ordine.
 
 <b>Shikaku</b>:
-Împarte grila în dreptunghiuri. Fiecare conține exact un număr, egal cu aria sa.
+Împarte grila în dreptunghiuri potrivite numerelor.
 
 <b>Nurikabe</b>:
-Pictează celule ca să construiești marea în jurul insulelor numerotate, fără bloc 2x2.
+Pictează marea în jurul insulelor numerotate, fără bloc 2x2.
 
 <b>Regine pisici</b>:
-Pune o pisică pe fiecare rând, coloană și zonă de culoare. Pisicile nu se pot atinge, nici în diagonală.
+O pisică pe rând, coloană și zonă de culoare; să nu se atingă.
 
 <b>Nod</b>:
-Leagă fiecare pereche de puncte colorate cu o cale. Căile nu se intersectează și acoperă fiecare celulă.
+Leagă perechile colorate fără încrucișări; umple fiecare celulă.
 
 <b>Turnul din Hanoi</b>:
-Mută tot teancul pe cuiul din dreapta.
+Mută teancul pe tija din dreapta.
 
 <b>Tabel Schulte</b>:
-Apasă numerele în ordine de la 1 în sus cât poți de repede.
+Atinge numerele în ordine cât de repede poți.
 
 <b>Steaguri</b>:
-Identifică țara după steag.
+Spune țara; o greșeală încheie alergarea.
 
 <b>Memorie de cifre</b>:
-Memorează o secvență de cifre, rezolvă o problemă rapidă, apoi amintește-ți cifrele.
+Memorează cifre, rezolvă un calcul scurt, apoi adu-le aminte.
 
 <b>Găsește noul</b>:
-Apasă animalul pe care nu l-ai mai văzut.
+Atinge animalul pe care încă nu l-ai văzut.
 
 <b>N-Back</b>:
-Urmărește formele care apar, apoi apasă-o pe cea de la poziția cerută.
+Atinge Match când forma repetă pe cea de acum N pași.
 
 <b>Wordle</b>:
-Ghicește cuvântul ascuns de cinci litere în șase încercări.
+Ghicește cuvântul de cinci litere în șase încercări.
 
 <b>Ghicitori cu chibrituri</b>:
-Mută chibrituri ca să îndrepți ecuațiile stricate.
+Mută chibrituri până ecuația se potrivește.
 
 <b>Solitar cu pioni</b>:
-Sari cu pionii până rămâne unul singur.
+Sari cu pioni până rămâne unul.
 
 <b>Sudoku</b>:
-Sudoku clasic de mărime completă, cu mai multe dificultăți.
+Sudoku clasic, mai multe dificultăți.
 
 <b>Șah</b>:
-Șah complet contra CPU sau pe rând cu un prieten.
+Șah complet contra CPU sau doi pe un dispozitiv.
 
 <b>Test IQ</b>:
-30 de puzzle-uri matriciale în 15 minute, cu un IQ estimat. Doar de distracție.
+30 de puzzle-uri matrice în 15 minute, cu un IQ estimat. Doar de joacă.
 
 <b>Operatori lipsă</b>:
-Găsește operatorii lipsă (+, -, *, /) care fac ecuația adevărată.
+Găsește operatorii (+, -, *, /) care fac ecuația adevărată.
 
 <b>Bulls & Cows</b>:
-Ghicește numărul secret de 4 cifre cu cifre unice.
+Ghicește numărul secret de 4 cifre.
 
 <b>Simon Says</b>:
-Fiecare rundă aprinde un panou nou. Apasă toată secvența de la început.
+Atinge tot șirul care crește în fiecare rundă.
 
 <b>Prism Clear</b>:
-Schimbă dale potrivite ca să ștergi linii de trei sau mai multe. Golește tabla ca să câștigi.
+Schimbă piese, curăță linii, golește tabla.
 
 <b>Trio</b>:
-Găsește trei cărți care au în comun forma, umplerea sau câte semne poartă.
+Găsește trei cărți care împart formă, umplutură sau număr.
 
-Jocul are mai multe <b>realizări</b>, iar fiecare exercițiu are <b>medalii</b> care te țin motivat.
+<b>Rotații mentale</b>:
+Al doilea bloc e primul rotit, sau oglinda lui?
 
-Fără urmărire. <b>Open source</b>.
+<b>Flexibilitate mentală</b>:
+Perechea de sus pune regula; nimerește ținta pe acea trăsătură.
+
+<b>Schimbare de regulă</b>:
+Sortează cărți după o regulă ascunsă care se schimbă de îndată ce o ai.
+
+<b>Reversi</b>:
+6x6 contra CPU sau doi. Prinde o linie ca s-o întorci.
+
+<b>Învață matematică</b>:
+Lecții, teste și certificate de Aritmetică, Geometrie, Măsurare și Algebră.
+
+Fiecare joc are <b>medalii</b>. Câteva <b>realizări</b>. Fără urmărire. <b>Open source</b>.

@@ -1,13 +1,13 @@
-Traenáil d’inchinn le mionchluichí spraíúla a chuireann cuimhne, fócas, loighic agus mata faoi thástáil. Tá 42 cleachtadh ag Braincup.
+Mionchluichí do chuimhne, fócas, loighic agus mata, móide Foghlaim mata le ceachtanna agus teastais.
 
 <b>Áireamh meabhrach</b>:
-Lean slonnanna matamaitice. Úsáid an toradh mar bhonn don chéad áireamh eile.
+Lean na slonnanna; is bun an chéad chinn eile gach toradh.
 
 <b>Áireamh slabhrach</b>:
-Réitigh foirmlí casta céim ar chéim.
+Réitigh an fhoirmle céim ar chéim.
 
 <b>Áireamh Sherlock</b>:
-Faigh an fhoirmle a shroicheann an sprioc leis na huimhreacha agus oibreoirí tugtha.
+Sroich an sprioc leis na huimhreacha agus oibreoirí tugtha.
 
 <b>Áireamh codán</b>:
 Réitigh na codáin.
@@ -16,116 +16,129 @@ Réitigh na codáin.
 Roghnaigh an slonn leis an luach is airde.
 
 <b>Suim boilgeog</b>:
-Suimigh na huimhreacha ar na boilgeoga snámha.
+Suimigh na huimhreacha ar na boilgeoga.
 
 <b>Suim thapa</b>:
-Caochaíonn uimhreacha ceann ar cheann. Suimigh iad agus cuir isteach an t-iomlán.
+Taitníonn uimhreacha ceann ar cheann; cuir an tsuim isteach.
 
 <b>Tomhas aimhrialtachta</b>:
-Faigh an figiúr atá difriúil.
+Faigh an fhíor a sheasann amach.
 
 <b>Seicheamh patrún</b>:
-Faigh an riail i ngach ró agus roghnaigh an píosa a chomhlánaíonn í.
+Oibrigh amach riail gach ró agus críochnaigh an eangach.
 
 <b>Aimsitheoir slí</b>:
-Tosaigh ag an suíomh marcáilte agus lean na saigheada go dtí an ceann scríbe.
+Lean na saigheada ón tús marcáilte.
 
 <b>Cuimhne amhairc</b>:
-Meabhraigh cruthanna agus aithin an cruth folaithe nuair a chríochnaíonn an t-amadóir.
+Meabhraigh na cruthanna, ansin aithin an ceann folaithe.
 
 <b>Eangach thaibhsí</b>:
-Féach ar na tíl ag lasadh ceann i ndiaidh a chéile agus tapáil iad san ord céanna.
+Lasann cealla; tapáil ar ais sa treoir chéanna.
 
 <b>Mearbhall dathanna</b>:
-Tapáil an dath a bhfuil an focal clóite ann, ní an dath a ainmníonn an focal.
+Tapáil dath an dúigh, ní an dath a ainmníonn an focal.
 
 <b>Cruthanna daite</b>:
-Suimigh na pointí ó ráitis fhíora.
+Suimigh pointí na ráiteas cearta.
 
 <b>Lorgaire fithise</b>:
-Féach ar na liathróidí aibhsithe agus lean iad agus iad ag gluaiseacht.
+Lean na liathróidí aibhsithe agus iad ag gluaiseacht.
 
 <b>Slua splanc</b>:
-Caochaíonn poncanna go gairid ar gach taobh. Tapáil an taobh a raibh níos mó orthu.
+Tapáil an taobh a splanc níos mó poncanna.
 
 <b>Mini Sudoku</b>:
-Líon an eangach bheag ionas go bhfuil gach uimhir uair amháin i ngach ró, colún agus bloc.
+Gach ró, colún agus bloc uair amháin an dhigit.
 
 <b>Mionfhicheall</b>:
-Tabhair marbhsháinn don CPU sula dtugann sé duitse í.
+Críochnaigh an cás mar bhán i gcoinne an CPU.
 
 <b>Ficheall aonair</b>:
-Tóg píosaí ceann ar cheann go dtí nach bhfuil fágtha ach an rí.
+Gabh go dtí nach bhfuil fágtha ach an rí. Caithfidh gach beart gabháil.
 
 <b>Múch na soilse</b>:
-Múch gach solas. Gach tapáil aistríonn an chill agus a ceithre comharsa.
+Múch gach solas; casann tapáil na comharsana freisin.
 
 <b>Puzal sleamhnáin</b>:
-Sleamhnaigh tíl isteach sa spás folamh go dtí go bhfuil siad in ord.
+Sleamhnaigh tíleanna ina n-ord.
 
 <b>Shikaku</b>:
-Roinn an eangach ina dronuilleoga. Tá uimhir amháin i ngach ceann, a achar.
+Roinn an eangach ina dronuilleoga a oireann dá n-uimhreacha.
 
 <b>Nurikabe</b>:
-Péinteáil cealla chun an fharraige a thógáil timpeall oileán uimhrithe gan bloc 2x2.
+Péinteáil an fharraige timpeall oileán uimhrithe, gan bloc 2x2.
 
 <b>Banríonacha cait</b>:
-Cuir cat amháin i ngach ró, colún agus crios datha. Ní féidir leo teagmháil a dhéanamh, fiú ar an trasnán.
+Cat amháin in aghaidh ró, colúin agus crios datha; ná teagmhaídís.
 
 <b>Snaidhm</b>:
-Ceangail gach péire ponc daite. Ní féidir leis na cosáin trasnú, agus caithfidh siad gach cill a chlúdach.
+Ceangail péirí daite gan trasnú; clúdaigh gach cill.
 
 <b>Túr Hanoi</b>:
-Bog an carn iomlán chuig an tairne ar dheis.
+Bog an carn go dtí an cuaille ar dheis.
 
 <b>Tábla Schulte</b>:
-Tapáil uimhreacha in ord ó 1 aníos chomh tapa agus is féidir.
+Tapáil na huimhreacha in ord chomh tapa agus is féidir.
 
 <b>Bratacha</b>:
-Aithin an tír ón mbratach.
+Ainmnigh an tír; críochnaíonn botún amháin an rith.
 
 <b>Cuimhne digití</b>:
-Meabhraigh seicheamh digití, réitigh áireamh tapa, ansin meabhraigh na digití.
+Meabhraigh digití, réitigh suim ghairid, ansin meabhraigh arís.
 
 <b>Faigh an ceann nua</b>:
-Tapáil an t-ainmhí nár chonaic tú cheana.
+Tapáil an t-ainmhí nár chonaic tú fós.
 
 <b>N-Back</b>:
-Féach ar chruthanna ag splancadh thart agus tapáil an ceann a bhí sa suíomh iarrtha.
+Tapáil Match nuair a athdhéanann an cruth an ceann N céim siar.
 
 <b>Wordle</b>:
-Buille faoi thuairim an focal folaithe cúig litir i sé iarracht.
+Buille faoi thuairim an focal cúig litir i sé iarracht.
 
 <b>Tomhais lasán</b>:
-Bog lasáin chun cothromóidí briste a dheisiú.
+Bog lasáin go dtí go n-oireann an chothromóid.
 
 <b>Solitaire bioráin</b>:
-Léim bioráin go dtí nach bhfuil fágtha ach ceann amháin.
+Léim bioráin go dtí go bhfuil ceann amháin fágtha.
 
 <b>Sudoku</b>:
-Sudoku clasaiceach lánmhéide le roinnt deacrachtaí.
+Sudoku iomlán, roinnt deacrachtaí.
 
 <b>Ficheall</b>:
-Ficheall iomlán in aghaidh CPU nó bearta ar a seal le cara.
+Ficheall iomlán i gcoinne an CPU nó beirt ar aon ghléas.
 
 <b>Tástáil IQ</b>:
-30 tomhas maitríse i 15 nóiméad, le IQ measta. Le haghaidh spraoi amháin.
+30 puzal maitríse i 15 nóiméad, le IQ measta. Ar spraoi amháin.
 
 <b>Oibreoirí ar iarraidh</b>:
-Faigh na hoibreoirí atá in easnamh (+, -, *, /) a fhágann an chothromóid fíor.
+Faigh na hoibreoirí (+, -, *, /) a dhéanann an chothromóid fíor.
 
 <b>Bulls & Cows</b>:
-Buille faoi thuairim an uimhir rúnda 4 dhigit le digití uathúla.
+Buille faoi thuairim an uimhir rúnda 4 dhigit.
 
 <b>Simon Says</b>:
-Lasann gach babhta tíl nua amháin. Tapáil an seicheamh iomlán ón tús.
+Tapáil an seicheamh iomlán atá ag fás gach babhta.
 
 <b>Prism Clear</b>:
-Malartaigh tíl mheaitseála chun sraitheanna de thrí nó níos mó a ghlanadh. Glan an clár agus buaigh.
+Malartaigh tíleanna, glan línte, folmhaigh an clár.
 
 <b>Trio</b>:
-Faigh trí chárta a bhfuil an cruth céanna, an líonadh céanna nó an líon céanna comharthaí orthu.
+Faigh trí chárta a roinneann cruth, líonadh nó comhaireamh.
 
-Tá <b>éachtaí</b> agus <b>boinn</b> ag gach cleachtadh a choinníonn an spreagadh.
+<b>Rothluithe intinne</b>:
+An dara bloc an chéad cheann iompaithe, nó a scáthán?
 
-Gan rianú. <b>Open source</b>.
+<b>Solúbthacht intinne</b>:
+Socraíonn an péire thuas an riail; buail an sprioc ar an tréith sin.
+
+<b>Athrú Rialach</b>:
+Sórtáil cártaí de réir riail fholaithe a athraíonn nuair atá sí agat.
+
+<b>Reversi</b>:
+6x6 i gcoinne an CPU nó beirt. Gabh líne chun í a chasadh.
+
+<b>Foghlaim mata</b>:
+Ceachtanna, trialacha agus teastais i Uimhríocht, Céimseata, Tomhas agus Ailgéabar.
+
+Tá <b>boinn</b> ag gach cluiche. Roinnt <b>éachtaí</b>. Gan rianú. <b>Foinse oscailte</b>.

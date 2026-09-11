@@ -1,131 +1,144 @@
-Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 42 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
+Mini game cho trí nhớ, tập trung, logic và toán, cộng Học Toán với bài học và chứng chỉ.
 
 <b>Tính nhẩm</b>:
-Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.
+Theo biểu thức; mỗi kết quả là nền cho cái sau.
 
 <b>Tính toán chuỗi</b>:
-Theo dõi các biểu thức toán học.
+Giải công thức từng bước.
 
 <b>Tính toán Sherlock</b>:
-Tìm cách đạt mục tiêu chỉ bằng các số đã cho và các toán tử này: + - * / ( ).
+Đạt mục tiêu với số và phép cho sẵn.
 
 <b>Tính toán phân số</b>:
-Giải các phân số.
+Giải phân số.
 
 <b>So sánh giá trị</b>:
 Chọn biểu thức có giá trị cao nhất.
 
 <b>Tổng bong bóng</b>:
-Cộng các số trên bong bóng bay.
+Cộng số trên bong bóng.
 
 <b>Tổng Nhanh</b>:
-Các số lần lượt hiện ra. Cộng chúng lại và nhập tổng.
+Số nháy lần lượt; nhập tổng.
 
 <b>Câu đố bất thường</b>:
-Tìm hình khác biệt.
+Tìm hình lệch.
 
 <b>Chuỗi mẫu</b>:
-Tìm quy luật chạy dọc mỗi hàng của lưới, rồi chọn mảnh hoàn thiện nó.
+Tìm quy tắc mỗi hàng và hoàn thành lưới.
 
 <b>Tìm đường</b>:
-Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.
+Theo mũi tên từ điểm bắt đầu đánh dấu.
 
 <b>Trí nhớ hình ảnh</b>:
-Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.
+Nhớ hình, rồi nhận hình bị ẩn.
 
 <b>Lưới Ma</b>:
-Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.
+Ô sáng lên; chạm lại đúng thứ tự.
 
 <b>Nhầm lẫn Màu sắc</b>:
-Chạm màu mực in của từ, không phải màu từ gọi tên.
+Chạm màu mực, không phải màu chữ gọi.
 
 <b>Hình dạng màu sắc</b>:
-Cộng điểm từ các phát biểu đúng.
+Cộng điểm các câu đúng.
 
 <b>Theo Dõi Quỹ Đạo</b>:
-Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển.
+Theo bóng được đánh dấu khi chúng chạy.
 
 <b>Đám Đông Chớp</b>:
-Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn.
+Chạm phía nháy nhiều chấm hơn.
 
 <b>Sudoku Mini</b>:
-Điền vào lưới nhỏ sao cho mỗi hàng, cột và khối chứa mỗi số đúng một lần.
+Mỗi hàng, cột và khối một lần mỗi chữ số.
 
 <b>Cờ Vua Mini</b>:
-Chiếu hết CPU trước khi nó chiếu hết bạn.
+Kết thúc thế cờ quân trắng chống CPU.
 
 <b>Cờ vua Solo</b>:
-Bắt các quân lần lượt cho đến khi chỉ còn lại vua. Mỗi nước đi phải ăn quân, và không quân nào được ăn quá hai lần.
+Bắt đến khi chỉ còn vua. Mỗi nước phải bắt.
 
 <b>Tắt Đèn</b>:
-Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.
+Tắt hết đèn; chạm cũng lật ô kề.
 
 <b>Câu Đố Trượt</b>:
-Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.
+Trượt ô cho đúng chỗ.
 
 <b>Shikaku</b>:
-Chia toàn bộ lưới thành các hình chữ nhật. Mỗi hình chữ nhật phải chứa đúng một số, bằng diện tích của nó.
+Chia lưới thành hình chữ nhật khớp số.
 
 <b>Nurikabe</b>:
-Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo phải có số ô liền kề đúng bằng số của nó, biển phải liền nhau và không được chứa khối 2x2 nào.
+Tô biển quanh đảo đánh số, không khối 2x2.
 
 <b>Mèo Hoàng Hậu</b>:
-Đặt một con mèo vào mỗi hàng, mỗi cột và mỗi vùng màu. Không có hai con mèo nào được chạm nhau, kể cả theo đường chéo.
+Một mèo mỗi hàng, cột và vùng màu; đừng chạm nhau.
 
 <b>Nút Thắt</b>:
-Nối từng cặp chấm cùng màu bằng một đường. Các đường không được cắt nhau và cùng nhau phải phủ kín mọi ô.
+Nối cặp màu không cắt; phủ mọi ô.
 
 <b>Tháp Hà Nội</b>:
-Chuyển cả chồng đĩa sang cọc bên phải.
+Chuyển chồng sang cọc phải.
 
 <b>Bảng Schulte</b>:
-Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.
+Chạm số theo thứ tự nhanh hết sức.
 
 <b>Cờ</b>:
-Nhận diện quốc gia qua lá cờ của nó.
+Nói quốc gia; sai một lần là hết lượt.
 
 <b>Trí Nhớ Số</b>:
-Ghi nhớ một dãy số, giải một bài toán nhanh, rồi nhớ lại các số.
+Nhớ chữ số, giải phép ngắn, rồi nhớ lại.
 
 <b>Tìm Cái Mới</b>:
-Chạm vào con vật mà bạn chưa từng thấy.
+Chạm con vật bạn chưa thấy.
 
 <b>N-Back</b>:
-Quan sát các hình, rồi chạm vào hình ở vị trí được hỏi.
+Chạm Match khi hình lặp hình N bước trước.
 
 <b>Wordle</b>:
-Đoán từ năm chữ cái ẩn trong sáu lần thử. Đáp án luôn là danh từ.
+Đoán từ năm chữ trong sáu lần.
 
 <b>Câu đố que diêm</b>:
-Di chuyển que diêm để sửa phương trình.
+Dời diêm đến khi phương trình đúng.
 
 <b>Cờ nhảy</b>:
-Nhảy một quân qua quân khác vào lỗ trống. Chỉ còn một quân trên bàn.
+Nhảy chốt đến khi còn một.
 
 <b>Sudoku</b>:
-Sudoku cổ điển với nhiều mức độ khó.
+Sudoku đủ ô, nhiều độ khó.
 
 <b>Cờ vua</b>:
-Cờ vua đầy đủ với CPU hoặc chơi luân phiên.
+Cờ vua đủ quân, đấu CPU hoặc hai người một máy.
 
-<b>Trắc nghiệm IQ</b>:
-30 câu đố ma trận trong 15 phút, có điểm IQ ước tính. Chỉ để giải trí.
+<b>Bài kiểm tra IQ</b>:
+30 câu ma trận trong 15 phút, IQ ước lượng. Chỉ cho vui.
 
-<b>Missing Operators</b>:
-Tìm các toán tử còn thiếu (+, -, *, /) để phương trình đúng.
+<b>Toán tử còn thiếu</b>:
+Tìm toán tử (+, -, *, /) làm phương trình đúng.
 
 <b>Bulls & Cows</b>:
-Đoán số bí mật 4 chữ số không trùng.
+Đoán số bí mật 4 chữ số.
 
-<b>Simon Says</b>:
-Mỗi vòng có một nút mới sáng lên. Hãy chạm lại toàn bộ chuỗi từ đầu, gồm cả những nút của các vòng trước.
+<b>Simon nói</b>:
+Chạm lại cả chuỗi dài dần mỗi vòng.
 
-<b>Prism Clear</b>:
-Đổi các ô khớp nhau để xóa hàng ba ô trở lên. Làm trống toàn bộ bảng để thắng.
+<b>Dọn lăng kính</b>:
+Đổi ô, xóa hàng, làm trống bàn.
 
-<b>Trio</b>:
-Tìm ba lá bài cùng hình dạng, phần tô hoặc bao nhiêu dấu.
+<b>Bộ ba</b>:
+Tìm ba lá cùng hình, tô hoặc số lượng.
 
-Trò chơi có nhiều <b>thành tựu</b> và mỗi bài tập có <b>huy chương</b> để giữ động lực cho bạn.
+<b>Xoay Hình Trong Đầu</b>:
+Khối thứ hai là khối đầu xoay, hay gương?
 
-Không theo dõi. <b>Mã nguồn mở</b>.
+<b>Linh Hoạt Tư Duy</b>:
+Cặp trên đặt luật; trúng mục tiêu theo đặc điểm đó.
+
+<b>Đổi Luật</b>:
+Xếp bài theo luật ẩn, đổi ngay khi bạn nắm được.
+
+<b>Reversi</b>:
+6x6 đấu CPU hoặc hai người. Kẹp một hàng để lật.
+
+<b>Học Toán</b>:
+Bài học, bài kiểm tra và chứng chỉ Số học, Hình học, Đo lường và Đại số.
+
+Mỗi trò có <b>huy chương</b>. Nhiều <b>thành tựu</b>. Không theo dõi. <b>Mã nguồn mở</b>.

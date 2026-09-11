@@ -1,131 +1,144 @@
-Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 42 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+Mini game untuk memori, fokus, logika, dan matematika, dan Belajar Matematika dengan pelajaran dan sertifikat.
 
 <b>Hitung Mental</b>:
-Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
+Ikuti ekspresi; tiap hasil jadi dasar yang berikutnya.
 
 <b>Perhitungan Berantai</b>:
-Ikuti ekspresi matematika.
+Selesaikan rumus langkah demi langkah.
 
 <b>Perhitungan Sherlock</b>:
-Temukan cara mencapai target hanya dengan angka yang diberikan dan operator ini: + - * / ( ).
+Capai target dengan angka dan operator yang diberi.
 
 <b>Perhitungan Pecahan</b>:
-Selesaikan pecahan.
+Selesaikan pecahannya.
 
 <b>Perbandingan Nilai</b>:
-Pilih ekspresi dengan nilai tertinggi.
+Pilih ekspresi bernilai paling tinggi.
 
 <b>Jumlah Gelembung</b>:
-Jumlahkan angka di gelembung mengambang.
+Jumlahkan angka di gelembung.
 
 <b>Jumlah Kilat</b>:
-Angka muncul satu per satu. Jumlahkan dan masukkan totalnya.
+Angka berkedip satu per satu; masukkan totalnya.
 
 <b>Teka-teki Anomali</b>:
-Temukan gambar yang berbeda.
+Temukan sosok yang mencolok.
 
 <b>Urutan Pola</b>:
-Temukan aturan yang berjalan di setiap baris kisi, lalu pilih kepingan yang melengkapinya.
+Temukan aturan tiap baris dan lengkapi kisi.
 
 <b>Pencari Jalur</b>:
-Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.
+Ikuti panah dari start yang ditandai.
 
 <b>Memori Visual</b>:
-Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.
+Hafalkan bentuk, lalu kenali yang tersembunyi.
 
 <b>Grid Hantu</b>:
-Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.
+Kotak menyala; ketuk kembali dengan urutan sama.
 
 <b>Kebingungan Warna</b>:
-Ketuk warna cetak kata itu, bukan warna yang disebut katanya.
+Ketuk warna tinta, bukan warna yang disebut kata.
 
 <b>Bentuk Berwarna</b>:
 Jumlahkan poin dari pernyataan yang benar.
 
 <b>Pelacak Orbit</b>:
-Perhatikan bola-bola yang disorot, lalu lacak pergerakannya.
+Ikuti bola yang ditandai saat bergerak.
 
 <b>Kerumunan Kilat</b>:
-Titik-titik berkedip sebentar di setiap sisi.
+Ketuk sisi yang memunculkan lebih banyak titik.
 
 <b>Mini Sudoku</b>:
-Isi kotak kecil agar setiap baris, kolom dan blok berisi setiap angka tepat satu kali.
+Tiap baris, kolom, dan blok sekali tiap angka.
 
 <b>Mini Catur</b>:
-Skakmat CPU sebelum ia melakukannya padamu.
+Selesaikan skenario sebagai putih lawan CPU.
 
 <b>Catur Solo</b>:
-Tangkap bidak satu per satu hingga hanya tersisa raja.
+Makan sampai tinggal raja. Setiap langkah harus makan.
 
 <b>Padamkan Lampu</b>:
-Padamkan setiap lampu. Setiap ketukan mengubah sel itu dan empat tetangganya.
+Matikan semua lampu; ketukan juga membalik tetangga.
 
 <b>Teka-teki Geser</b>:
-Geser ubin ke ruang kosong untuk menyusunnya berurutan.
+Geser ubin sampai berurutan.
 
 <b>Shikaku</b>:
-Bagi seluruh kisi menjadi persegi panjang. Setiap persegi panjang harus berisi tepat satu angka, sama dengan luasnya.
+Bagi kisi jadi persegi panjang sesuai angkanya.
 
 <b>Nurikabe</b>:
-Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor.
+Cat laut di sekitar pulau bernomor, tanpa blok 2x2.
 
 <b>Ratu Kucing</b>:
-Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna.
+Satu kucing per baris, kolom, dan zona warna; jangan bersentuhan.
 
 <b>Simpul</b>:
-Hubungkan setiap pasang titik berwarna dengan jalur.
+Hubungkan pasangan warna tanpa silang; isi setiap kotak.
 
 <b>Menara Hanoi</b>:
-Pindahkan seluruh tumpukan ke pasak kanan.
+Pindahkan tumpukan ke tiang kanan.
 
 <b>Tabel Schulte</b>:
-Ketuk angka secara berurutan dari 1 secepat mungkin.
+Ketuk angka berurutan secepat yang kamu bisa.
 
 <b>Bendera</b>:
-Tebak negara dari benderanya.
+Sebut negaranya; satu salah mengakhiri lari.
 
 <b>Memori Angka</b>:
-Hafalkan urutan angka, selesaikan soal matematika cepat, lalu ingat kembali angkanya.
+Hafalkan digit, selesaikan hitungan singkat, lalu ingat lagi.
 
 <b>Temukan yang Baru</b>:
-Ketuk hewan yang belum pernah kamu lihat.
+Ketuk hewan yang belum kamu lihat.
 
 <b>N-Back</b>:
-Perhatikan bentuk-bentuknya, lalu ketuk yang ada di posisi yang diminta.
+Ketuk Match saat bentuk mengulang yang N langkah lalu.
 
 <b>Wordle</b>:
-Tebak kata lima huruf yang tersembunyi dalam enam percobaan. Jawabannya selalu berupa kata benda.
+Tebak kata lima huruf dalam enam percobaan.
 
 <b>Teka-teki korek api</b>:
-Pindahkan korek api untuk memperbaiki persamaan.
+Geser korek sampai persamaan benar.
 
 <b>Solitaire</b>:
-Lompati pasak hingga tersisa satu.
+Loncat pion sampai tinggal satu.
 
 <b>Sudoku</b>:
-Sudoku klasik dengan beberapa tingkat kesulitan.
+Sudoku klasik, beberapa tingkat.
 
 <b>Catur</b>:
-Catur lengkap vs CPU atau pass-and-play.
+Catur lengkap lawan CPU atau berdua di satu perangkat.
 
 <b>Tes IQ</b>:
-30 teka-teki matriks dalam 15 menit, dengan perkiraan IQ. Sekadar hiburan.
+30 teka-teki matriks dalam 15 menit, dengan IQ perkiraan. Cuma iseng.
 
-<b>Missing Operators</b>:
-Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.
+<b>Operator Hilang</b>:
+Temukan operator (+, -, *, /) yang membuat persamaan benar.
 
 <b>Bulls & Cows</b>:
-Tebak angka rahasia 4 digit dengan digit unik.
+Tebak angka rahasia 4 digit.
 
-<b>Simon Says</b>:
-Setiap ronde satu tombol baru menyala. Ketuk seluruh urutan dari awal, termasuk tombol dari ronde sebelumnya.
+<b>Simon Berkata</b>:
+Ketuk seluruh urutan yang memanjang setiap ronde.
 
-<b>Prism Clear</b>:
-Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.
+<b>Bersihkan Prisma</b>:
+Tukar ubin, bersihkan baris, kosongkan papan.
 
 <b>Trio</b>:
-Temukan tiga kartu yang sama bentuk, isian, atau jumlah tandanya.
+Temukan tiga kartu yang berbagi bentuk, isian, atau jumlah.
 
-Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
+<b>Rotasi Mental</b>:
+Blok kedua itu yang pertama diputar, atau cerminnya?
 
-Tanpa pelacakan. <b>Open source</b>.
+<b>Fleksibilitas Mental</b>:
+Pasangan di atas menetapkan aturan; cocokkan target pada ciri itu.
+
+<b>Pergantian Aturan</b>:
+Urutkan kartu menurut aturan tersembunyi yang berubah begitu kamu punya.
+
+<b>Reversi</b>:
+6x6 lawan CPU atau berdua. Kepit satu garis untuk membaliknya.
+
+<b>Belajar Matematika</b>:
+Pelajaran, tes, dan sertifikat Aritmetika, Geometri, Pengukuran, dan Aljabar.
+
+Setiap game punya <b>medali</b>. Beberapa <b>pencapaian</b>. Tanpa pelacakan. <b>Sumber terbuka</b>.

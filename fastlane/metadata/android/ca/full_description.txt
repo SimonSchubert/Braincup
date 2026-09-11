@@ -1,13 +1,13 @@
-Entrena el cervell amb minijocs divertits que posen a prova la memòria, la concentració, la lògica i les matemàtiques. Braincup ofereix 42 exercicis cerebrals.
+Minijocs de memòria, focus, lògica i mates, més Aprèn matemàtiques amb lliçons i certificats.
 
 <b>Càlcul mental</b>:
-Segueix les expressions matemàtiques. Fes servir el resultat com a base del càlcul següent.
+Segueix les expressions; cada resultat és la base del següent.
 
 <b>Càlcul en cadena</b>:
-Resol fórmules complexes pas a pas.
+Resol la fórmula pas a pas.
 
 <b>Càlcul de Sherlock</b>:
-Troba la fórmula cap a l'objectiu només amb els números i operadors donats.
+Arriba a l'objectiu amb els nombres i operadors donats.
 
 <b>Càlcul de fraccions</b>:
 Resol les fraccions.
@@ -16,116 +16,129 @@ Resol les fraccions.
 Tria l'expressió amb el valor més alt.
 
 <b>Suma de bombolles</b>:
-Suma els números de les bombolles flotants.
+Suma els nombres de les bombolles.
 
 <b>Suma ràpida</b>:
-Els números parpellegen un darrere l'altre. Suma'ls i introdueix el total.
+Els nombres parpellegen un a un; introdueix el total.
 
 <b>Enigma de l'anomalia</b>:
 Troba la figura que destaca.
 
 <b>Seqüència de patrons</b>:
-Descobreix la regla de cada fila i tria la peça que la completa.
+Troba la regla de cada fila i completa la graella.
 
 <b>Cercador de camins</b>:
-Comença a la posició marcada i segueix les fletxes fins a la destinació.
+Segueix les fletxes des de l'inici marcat.
 
 <b>Memòria visual</b>:
-Recorda les formes i identifica la forma amagada quan s'acabi el temporitzador.
+Memoritza les formes i després reconeix l'amaga.
 
 <b>Graella fantasma</b>:
-Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.
+Les caselles s'encenen; toca-les en el mateix ordre.
 
 <b>Confusió de colors</b>:
-Toca el color amb què està impresa la paraula, no el que diu la paraula.
+Toca el color de la tinta, no el que anomena la paraula.
 
 <b>Figures de colors</b>:
-Suma els punts de les afirmacions certes.
+Suma els punts de les afirmacions correctes.
 
 <b>Seguidor d'òrbites</b>:
-Mira les boles destacades i segueix-les mentre es mouen.
+Segueix les boles marcades mentre es mouen.
 
 <b>Multitud llampec</b>:
-Els punts parpellegen breument a cada costat. Toca el costat on n'hi havia més.
+Toca el costat que ha mostrat més punts.
 
 <b>Mini Sudoku</b>:
-Omple la graella petita perquè cada fila, columna i bloc contingui cada número un cop.
+Cada fila, columna i bloc un cop cada xifra.
 
 <b>Mini escacs</b>:
-Fes escac i mat a la CPU abans que te'l faci a tu.
+Acaba l'escenari amb blanques contra la CPU.
 
 <b>Escacs en solitari</b>:
-Captura les peces una a una fins que només quedi el rei.
+Captura fins que només quedi el rei. Cada jugada ha de capturar.
 
 <b>Apaga els llums</b>:
-Apaga cada llum. Cada toc commuta la casella i els seus quatre veïns.
+Apaga tots els llums; un toc gira també els veïns.
 
 <b>Trencaclosques lliscant</b>:
-Fes lliscar les fitxes cap a l'espai buit fins que estiguin en ordre.
+Fes lliscar les fitxes fins a deixar-les en ordre.
 
 <b>Shikaku</b>:
-Divideix la graella en rectangles. Cadascun té exactament un número, la seva àrea.
+Divideix la graella en rectangles iguals als seus nombres.
 
 <b>Nurikabe</b>:
-Pinta caselles per fer el mar al voltant de les illes numerades, sense bloc 2x2.
+Pinta el mar al voltant d'illes numerades, sense bloc 2x2.
 
 <b>Reines gat</b>:
-Col·loca un gat a cada fila, columna i zona de color. No es poden tocar, ni en diagonal.
+Un gat per fila, columna i zona de color; que no es toquin.
 
 <b>Nus</b>:
-Connecta cada parell de punts de color. Els camins no es poden creuar i han de cobrir cada casella.
+Uneix els parells de color sense creuar; omple cada casella.
 
 <b>Torre de Hanoi</b>:
-Mou tota la pila al pal dret.
+Mou la pila al pal de la dreta.
 
 <b>Taula de Schulte</b>:
-Toca els números en ordre des de l'1 cap amunt tan ràpid com puguis.
+Toca els nombres en ordre tan ràpid com puguis.
 
 <b>Banderes</b>:
-Identifica el país per la bandera.
+Digues el país; un error acaba la partida.
 
 <b>Memòria de dígits</b>:
-Recorda uns dígits, resol un càlcul ràpid i després torna'ls a dir.
+Memoritza xifres, resol un càlcul i després recorda-les.
 
 <b>Troba el nou</b>:
 Toca l'animal que encara no has vist.
 
 <b>N-Back</b>:
-Mira les formes com passen i toca la que era a la posició demanada.
+Toca Match quan la forma repeteix la de fa N passos.
 
 <b>Wordle</b>:
-Endevina la paraula amagada de cinc lletres en sis intents.
+Endevina la paraula de cinc lletres en sis intents.
 
 <b>Enigmes de llumins</b>:
-Mou llumins i corregeix les equacions trencades.
+Mou llumins fins que l'equació quadri.
 
 <b>Solitari de clavilles</b>:
 Salta clavilles fins que en quedi una.
 
 <b>Sudoku</b>:
-Sudoku clàssic de mida completa amb diverses dificultats.
+Sudoku clàssic, diverses dificultats.
 
 <b>Escacs</b>:
-Escacs complets contra la CPU o torns alternats amb un amic.
+Escacs complets contra la CPU o a dos en un aparell.
 
 <b>Test d'IQ</b>:
-30 enigmes matricials en 15 minuts, amb un IQ estimat. Només per diversió.
+30 puzzles de matriu en 15 minuts, amb un QI estimat. Només per diversió.
 
 <b>Operadors que falten</b>:
-Troba els operadors que falten (+, -, *, /) que fan certa l'equació.
+Troba els operadors (+, -, *, /) que fan l'equació certa.
 
 <b>Bulls & Cows</b>:
-Endevina el número secret de 4 dígits amb dígits únics.
+Endevina el nombre secret de 4 xifres.
 
 <b>Simon Says</b>:
-Cada ronda encén una fitxa nova. Toca tota la seqüència des del principi.
+Repeteix tota la seqüència, que creix cada ronda.
 
 <b>Prism Clear</b>:
-Intercanvia fitxes coincidents per esborrar files de tres o més. Buida el tauler i guanyes.
+Canvia fitxes, neteja línies i buida el tauler.
 
 <b>Trio</b>:
-Troba tres cartes que tinguin en comú la forma, el farciment o quantes marques porten.
+Troba tres cartes que comparteixin forma, farciment o quantitat.
 
-El joc té diversos <b>assoliments</b> i cada exercici té <b>medalles</b> que et motiven.
+<b>Rotacions mentals</b>:
+El segon bloc és el primer girat, o el seu mirall?
 
-Sense seguiment. <b>Open source</b>.
+<b>Flexibilitat mental</b>:
+El parell de dalt fixa la regla; encerta l'objectiu en aquest tret.
+
+<b>Canvi de regla</b>:
+Ordena cartes segons una regla oculta que canvia tan bon punt la tens.
+
+<b>Reversi</b>:
+6x6 contra la CPU o a dos. Tanca una línia per girar-la.
+
+<b>Aprèn matemàtiques</b>:
+Lliçons, tests i certificats d'Aritmètica, Geometria, Mesura i Àlgebra.
+
+Cada joc té <b>medalles</b>. Uns quants <b>assoliments</b>. Sense seguiment. <b>Codi obert</b>.

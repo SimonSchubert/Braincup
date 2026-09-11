@@ -1,131 +1,144 @@
-Treine seu cérebro com mini jogos divertidos. O Braincup oferece 42 exercícios de treino cerebral.
+Minijogos de memória, foco, lógica e matemática, mais Aprender matemática com lições e certificados.
 
 <b>Cálculo mental</b>:
-Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.
+Siga as expressões; cada resultado é a base do próximo.
 
 <b>Cálculo em cadeia</b>:
-Siga as expressões matemáticas.
+Resolva a fórmula passo a passo.
 
 <b>Cálculo Sherlock</b>:
-Descubra como alcançar a meta usando apenas os números dados e estes operadores: + - * / ( ).
+Chegue à meta com os números e operadores dados.
 
 <b>Cálculo de frações</b>:
 Resolva as frações.
 
 <b>Comparação de valores</b>:
-Selecione a expressão com o maior valor.
+Escolha a expressão com o maior valor.
 
 <b>Soma bolhas</b>:
-Some os números nas bolhas flutuantes.
+Some os números das bolhas.
 
 <b>Soma rápida</b>:
-Os números aparecem um de cada vez. Some-os e introduza o total.
+Os números piscam um a um; digite o total.
 
 <b>Quebra-cabeça de anomalia</b>:
-Encontre a figura que se destaca.
+Encontre a figura que destoa.
 
 <b>Sequência de padrões</b>:
-Descubra a regra que percorre cada linha da grade e escolha a peça que a completa.
+Descubra a regra de cada linha e complete a grade.
 
 <b>Busca de caminhos</b>:
-Comece na posição marcada e siga as setas para encontrar o destino.
+Siga as setas a partir do início marcado.
 
 <b>Memória visual</b>:
-Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.
+Memorize as formas e depois reconheça a escondida.
 
 <b>Grade Fantasma</b>:
-Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.
+As casas acendem; toque-as na mesma ordem.
 
 <b>Confusão de Cores</b>:
-Toque na cor em que a palavra está impressa, não na que a palavra diz.
+Toque a cor da tinta, não a que a palavra nomeia.
 
 <b>Formas coloridas</b>:
-Some os pontos das afirmações corretas.
+Some os pontos das afirmações certas.
 
 <b>Rastreador de Órbitas</b>:
-Observe as bolas destacadas e acompanhe-as enquanto se movem.
+Acompanhe as bolas marcadas enquanto elas se movem.
 
 <b>Multidão Relâmpago</b>:
-Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos.
+Toque o lado que mostrou mais pontos.
 
 <b>Mini Sudoku</b>:
-Preencha a pequena grade para que cada linha, coluna e bloco contenha cada número exatamente uma vez.
+Cada linha, coluna e bloco uma vez cada dígito.
 
 <b>Mini Xadrez</b>:
-Dê xeque-mate à CPU antes que ela dê em você.
+Termine o cenário de brancas contra a CPU.
 
 <b>Xadrez Solo</b>:
-Capture as peças uma a uma até sobrar apenas o rei.
+Capture até sobrar só o rei. Cada lance deve capturar.
 
 <b>Apagar as luzes</b>:
-Apague todas as luzes. Cada toque alterna a célula e seus quatro vizinhos.
+Apague todas as luzes; um toque vira também as vizinhas.
 
 <b>Quebra-cabeça deslizante</b>:
-Deslize as peças para o espaço vazio para colocá-las em ordem.
+Deslize as peças até deixá-las em ordem.
 
 <b>Shikaku</b>:
-Divida toda a grade em retângulos. Cada retângulo deve conter exatamente um número, igual à sua área.
+Divida a grade em retângulos iguais aos seus números.
 
 <b>Nurikabe</b>:
-Pinte células para formar o mar ao redor das ilhas numeradas.
+Pinte o mar em volta das ilhas numeradas, sem bloco 2x2.
 
 <b>Rainhas Gato</b>:
-Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não podem se tocar, nem mesmo na diagonal.
+Um gato por linha, coluna e zona de cor; nenhum se toca.
 
 <b>Nó</b>:
-Conecte cada par de pontos coloridos com um caminho.
+Una os pares coloridos sem cruzar; cubra cada casa.
 
 <b>Torres de Hanói</b>:
-Mova a pilha inteira para o pino direito.
+Mova a pilha para o pino da direita.
 
 <b>Tabela de Schulte</b>:
-Toque nos números em ordem a partir de 1 o mais rápido que puder.
+Toque os números em ordem o mais rápido que puder.
 
 <b>Bandeiras</b>:
-Identifique o país pela sua bandeira.
+Diga o país; um erro encerra a partida.
 
 <b>Memória de Dígitos</b>:
-Memorize uma sequência de dígitos, resolva um problema matemático rápido e depois lembre-se dos dígitos.
+Memorize dígitos, resolva uma conta e depois lembre-os.
 
 <b>Encontre o Novo</b>:
-Toque no animal que você nunca viu antes.
+Toque o animal que você ainda não viu.
 
 <b>N-Back</b>:
-Observe as formas e toque na que estava na posição pedida.
+Toque Match quando a forma repetir a de N passos atrás.
 
 <b>Wordle</b>:
-Adivinhe a palavra oculta de cinco letras em seis tentativas. A resposta é sempre um substantivo.
+Adivinhe a palavra de cinco letras em seis tentativas.
 
 <b>Enigmas de palitos</b>:
-Mova palitos para corrigir equações.
+Mova palitos até a equação fechar.
 
 <b>Resta Um</b>:
-Pule pinos até restar apenas um.
+Pule pinos até restar um.
 
 <b>Sudoku</b>:
-Sudoku clássico completo com vários níveis de dificuldade.
+Sudoku clássico, várias dificuldades.
 
 <b>Xadrez</b>:
-Xadrez completo contra a CPU ou pass-and-play.
+Xadrez completo contra a CPU ou em dois no mesmo aparelho.
 
 <b>Teste de QI</b>:
-30 desafios de matrizes em 15 minutos. Só por diversão.
+30 puzzles de matriz em 15 minutos, com um QI estimado. Só por diversão.
 
-<b>Missing Operators</b>:
-Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.
+<b>Operadores ausentes</b>:
+Encontre os operadores (+, -, *, /) que tornam a equação verdadeira.
 
 <b>Bulls & Cows</b>:
 Adivinhe o número secreto de 4 dígitos.
 
-<b>Simon Says</b>:
-A cada rodada, um novo botão se ilumina. Toque em toda a sequência desde o início, incluindo os botões das rodadas anteriores.
+<b>Simão manda</b>:
+Repita a sequência inteira, que cresce a cada rodada.
 
-<b>Prism Clear</b>:
-Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.
+<b>Limpar prisma</b>:
+Troque peças, limpe linhas e esvazie o tabuleiro.
 
 <b>Trio</b>:
-Encontre três cartas que tenham em comum a forma, o preenchimento ou quantas marcas carregam.
+Encontre três cartas que compartilhem forma, preenchimento ou quantidade.
 
-O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
+<b>Rotações mentais</b>:
+O segundo bloco é o primeiro girado, ou o espelho dele?
 
-Sem rastreamento. <b>Código aberto</b>.
+<b>Flexibilidade mental</b>:
+O par de cima define a regra; acerte o alvo nesse traço.
+
+<b>Troca de regra</b>:
+Ordene cartas por uma regra oculta que muda assim que você a tem.
+
+<b>Reversi</b>:
+6x6 contra a CPU ou em dois. Prenda uma linha para virá-la.
+
+<b>Aprender matemática</b>:
+Lições, testes e certificados de Aritmética, Geometria, Medição e Álgebra.
+
+Todo jogo tem <b>medalhas</b>. Várias <b>conquistas</b>. Sem rastreamento. <b>Código aberto</b>.

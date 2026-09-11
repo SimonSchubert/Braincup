@@ -1,131 +1,144 @@
-Tren hjernen med morsomme minispill som utfordrer hukommelse, fokus, logikk og matematikk. Braincup har 42 hjerneøvelser.
+Minispill for hukommelse, fokus, logikk og matte, pluss Lær matte med leksjoner og sertifikater.
 
 <b>Hoderegning</b>:
-Følg de matematiske uttrykkene. Bruk resultatet som grunnlag for neste beregning.
+Følg uttrykkene; hvert resultat er grunnlag for det neste.
 
 <b>Kjederegning</b>:
-Løs komplekse formler trinn for trinn.
+Løs formelen steg for steg.
 
 <b>Sherlock-regning</b>:
-Finn en formel som når målet med bare de gitte tallene og operatorene.
+Nå målet med de gitte tallene og operatorene.
 
 <b>Brøkregning</b>:
 Løs brøkene.
 
 <b>Verdisammenligning</b>:
-Velg uttrykket med den høyeste verdien.
+Velg uttrykket med høyest verdi.
 
 <b>Boblesum</b>:
-Legg sammen tallene på de flytende boblene.
+Legg sammen tallene på boblene.
 
 <b>Hurtigsum</b>:
-Tall blinker ett om gangen. Legg dem sammen, og skriv inn totalen.
+Tall blinker ett om gangen; skriv inn summen.
 
 <b>Avvikelsespuslespill</b>:
 Finn figuren som skiller seg ut.
 
 <b>Mønstersekvens</b>:
-Finn regelen i hver rad, og velg brikken som fullfører den.
+Finn regelen i hver rad og fullfør rutenettet.
 
 <b>Stifinner</b>:
-Start ved den markerte posisjonen, og følg pilene til målet.
+Følg pilene fra den merkede starten.
 
 <b>Visuelt minne</b>:
-Husk formene, og identifiser den skjulte formen når timeren slutter.
+Husk formene, og kjenn igjen den skjulte.
 
 <b>Spøkelsesrutenett</b>:
-Se brikkene lyse én etter én, og trykk dem tilbake i samme rekkefølge.
+Ruter lyser opp; trykk dem i samme rekkefølge.
 
 <b>Fargeforvirring</b>:
-Trykk på fargen ordet er trykt med, ikke fargen ordet nevner.
+Trykk blekkets farge, ikke den ordet nevner.
 
 <b>Fargede former</b>:
-Legg sammen poengene fra de sanne påstandene.
+Legg sammen poengene fra de riktige påstandene.
 
 <b>Banefølger</b>:
-Se de fremhevede ballene, og følg dem mens de beveger seg.
+Følg de merkede ballene mens de beveger seg.
 
 <b>Lynmengde</b>:
-Prikker blinker kort på hver side. Trykk på siden som hadde flest.
+Trykk siden som blinket flest prikker.
 
 <b>Mini-Sudoku</b>:
-Fyll det lille rutenettet slik at hver rad, kolonne og blokk har hvert tall én gang.
+Hver rad, kolonne og blokk én gang hvert siffer.
 
 <b>Minisjakk</b>:
-Sett CPU sjakkmatt før den setter deg.
+Spill scenariet ferdig som hvit mot CPU-en.
 
 <b>Solosjakk</b>:
-Slå brikkene én etter én til bare kongen er igjen. Hvert trekk skal slå.
+Slå til bare kongen er igjen. Hvert trekk må slå.
 
 <b>Slukk lysene</b>:
-Slukk hvert lys. Hvert trykk bytter feltet og de fire naboene.
+Slå av alle lys; et trykk snur også naboene.
 
 <b>Skyvepuslespill</b>:
-Skyv brikker inn i det tomme feltet for å legge dem i rekkefølge.
+Skyv brikkene på plass.
 
 <b>Shikaku</b>:
-Del rutenettet i rektangler. Hvert rektangel har nøyaktig ett tall, lik arealet.
+Del rutenettet i rektangler som matcher tallene.
 
 <b>Nurikabe</b>:
-Mal felter for å bygge havet rundt nummererte øyer, uten 2x2-blokk.
+Mal havet rundt nummererte øyer, uten 2x2-blokk.
 
 <b>Kattedronninger</b>:
-Plasser én katt i hver rad, kolonne og fargesone. Katter må ikke røre hverandre, heller ikke diagonalt.
+Én katt per rad, kolonne og fargesone; de får ikke røre hverandre.
 
 <b>Knute</b>:
-Koble hvert par fargede prikker. Stiene må ikke krysse, og de skal dekke hvert felt.
+Koble fargede par uten å krysse; fyll hver rute.
 
 <b>Tårnet i Hanoi</b>:
-Flytt hele stabelen til den høyre pinnen.
+Flytt stabelen til den høyre pinnen.
 
 <b>Schulte-tabell</b>:
-Trykk på tallene i rekkefølge fra 1 og oppover så fort du kan.
+Trykk tallene i rekkefølge så fort du kan.
 
 <b>Flagg</b>:
-Identifiser landet ut fra flagget.
+Si landet; én feil avslutter løpet.
 
 <b>Sifferminne</b>:
-Husk en siffersekvens, løs et raskt regnestykke, og gjengi deretter sifrene.
+Husk siffer, løs et lite stykke, husk dem så.
 
 <b>Finn den nye</b>:
-Trykk på dyret du ikke har sett før.
+Trykk dyret du ikke har sett før.
 
 <b>N-Back</b>:
-Se formene blinke forbi, og trykk på den på den etterspurte posisjonen.
+Trykk Match når formen gjentar den fra N steg tilbake.
 
 <b>Wordle</b>:
-Gjett det skjulte fem-bokstavsordet på seks forsøk.
+Gjett ordet på fem bokstaver på seks forsøk.
 
 <b>Fyrstikkgåter</b>:
-Flytt fyrstikker for å rette ødelagte likninger.
+Flytt fyrstikker til likningen stemmer.
 
 <b>Pinnesolitær</b>:
-Hopp med pinner til bare én er igjen.
+Hopp brikker til det er én igjen.
 
 <b>Sudoku</b>:
-Klassisk Sudoku i full størrelse med flere vanskelighetsgrader.
+Klassisk sudoku, flere vanskelighetsgrader.
 
 <b>Sjakk</b>:
-Full sjakk mot CPU eller på tur med en venn.
+Full sjakk mot CPU-en eller to på én enhet.
 
 <b>IQ-test</b>:
-30 matrisepuslespill på 15 minutter, med en anslått IQ. Bare for moro skyld.
+30 matriseoppgaver på 15 minutter, med et anslått IQ. Bare for moro.
 
 <b>Manglende operatorer</b>:
-Finn de manglende operatorene (+, -, *, /) som gjør likningen sann.
+Finn operatorene (+, -, *, /) som gjør likningen sann.
 
 <b>Bulls & Cows</b>:
-Gjett det hemmelige 4-sifrede tallet med unike siffer.
+Gjett det hemmelige 4-sifrede tallet.
 
 <b>Simon Says</b>:
-Hver runde lyser én ny plate. Trykk hele sekvensen tilbake fra starten.
+Trykk hele den voksende sekvensen tilbake hver runde.
 
 <b>Prism Clear</b>:
-Bytt like brikker for å tømme rader med tre eller flere. Tøm brettet for å vinne.
+Bytt brikker, rydd rader, tøm brettet.
 
 <b>Trio</b>:
-Finn tre kort som har form, fyll eller hvor mange tegn de bærer til felles.
+Finn tre kort som deler form, fyll eller antall.
 
-Spillet har flere <b>prestasjoner</b>, og hver øvelse har <b>medaljer</b> som holder motivasjonen oppe.
+<b>Mentale rotasjoner</b>:
+Er den andre blokken den første dreid, eller speilet?
 
-Ingen sporing. <b>Åpen kildekode</b>.
+<b>Mental fleksibilitet</b>:
+Paret øverst setter regelen; treff målet på det trekket.
+
+<b>Regelskifte</b>:
+Sorter kort etter en skjult regel som skifter når du har den.
+
+<b>Reversi</b>:
+6x6 mot CPU-en eller to sammen. Lukk en linje for å snu den.
+
+<b>Lær matematikk</b>:
+Leksjoner, tester og sertifikater i Aritmetikk, Geometri, Måling og Algebra.
+
+Hvert spill har <b>medaljer</b>. Flere <b>prestasjoner</b>. Ingen sporing. <b>Open source</b>.

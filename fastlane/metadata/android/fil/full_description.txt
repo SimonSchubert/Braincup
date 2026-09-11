@@ -1,131 +1,144 @@
-Sanayin ang utak mo sa mga masayang mini game para sa memorya, focus, logic, at math. May 42 brain training exercise ang Braincup.
+Mga mini game para sa memorya, focus, lohika at math, at Matuto ng Math na may leksyon at sertipiko.
 
 <b>Mental na Pagbilang</b>:
-Sundin ang expression. Gamitin ang resulta bilang base ng susunod.
+Sundan ang mga expression; bawat resulta ang base ng susunod.
 
 <b>Kadena ng Kalkulasyon</b>:
-Lutasin ang mga kumplikadong formula nang hakbang-hakbang.
+Lutasin ang formula nang hakbang-hakbang.
 
 <b>Kalkulasyong Sherlock</b>:
-Maabot ang goal gamit lang ang ibinigay na numero at operators.
+Abutin ang layunin gamit ang ibinigay na numero at operator.
 
 <b>Kalkulasyon ng Fraction</b>:
 Lutasin ang mga fraction.
 
 <b>Paghahambing ng Value</b>:
-Piliin ang expression na may pinakamataas na value.
+Piliin ang expression na may pinakamataas na halaga.
 
-<b>Bubble Sum</b>:
-Idagdag ang mga numero sa lumulutang na bubbles.
+<b>Suma ng Bula</b>:
+Idagdag ang mga numero sa bula.
 
-<b>Quick Sum</b>:
-Kumikislap ang mga numero isa-isa. Idagdag at i-enter ang total.
+<b>Mabilis na Suma</b>:
+Isang-isang kumikislap ang numero; i-type ang kabuuan.
 
-<b>Anomaly Puzzle</b>:
-Hanapin ang figure na kakaiba.
+<b>Palaisipang Anomalya</b>:
+Hanapin ang hugis na namumukod.
 
-<b>Pattern Sequence</b>:
-Alamin ang rule sa bawat row, tapos piliin ang piraso na kumukumpleto nito.
+<b>Sunod-sunod na Pattern</b>:
+Hanapin ang tuntunin ng bawat hilera at tapusin ang grid.
 
-<b>Path Finder</b>:
-Mula sa marka, sundan ang mga arrow hanggang sa destinasyon.
+<b>Hanap-Landas</b>:
+Sundan ang mga arrow mula sa minarkahang simula.
 
-<b>Visual Memory</b>:
-Isaulo ang mga hugis, tapos kilalanin ang nakatago pagkatapos ng timer.
+<b>Biswal na Memorya</b>:
+Isaulo ang hugis, tapos kilalanin ang nakatago.
 
-<b>Ghost Grid</b>:
-Umiilaw ang tiles isa-isa; i-tap ulit sa parehong ayos.
+<b>Grid ng Multo</b>:
+Umiiilaw ang tile; i-tap pabalik sa parehong ayos.
 
-<b>Color Confusion</b>:
-I-tap ang kulay na pinaglimbagan ng salita, hindi ang kulay na sinasabi nito.
+<b>Guluhan ng Kulay</b>:
+I-tap ang kulay ng tinta, hindi ang kulay na sinasabi ng salita.
 
 <b>Mga Kulay na Hugis</b>:
-Idagdag ang points mula sa mga tamang statement.
+Idagdag ang puntos ng tamang pahayag.
 
-<b>Orbit Tracker</b>:
-Panoorin ang naka-highlight na bola at sundan sila habang gumagalaw.
+<b>Subaybay-Orbit</b>:
+Sundan ang minarkahang bola habang gumagalaw.
 
-<b>Flash Crowd</b>:
-Kumikislap ang dots sa bawat panig. I-tap ang panig na mas marami.
+<b>Biglaang Dami</b>:
+I-tap ang gilid na may mas maraming tuldok.
 
 <b>Mini Sudoku</b>:
-Punuin ang mini grid: bawat row, column, at block isang beses bawat numero.
+Bawat hilera, column at block minsan bawat digit.
 
-<b>Mini Chess</b>:
-I-checkmate ang CPU bago ka nito i-checkmate.
+<b>Mini Ahedres</b>:
+Tapusin ang senaryo bilang puti laban sa CPU.
 
-<b>Solo Chess</b>:
-Kunin ang mga piraso isa-isa hanggang hari na lang ang natitira. Bawat galaw ay dapat kumukuha.
+<b>Solong Ahedres</b>:
+Kumuha hanggang hari na lang. Bawat galaw ay dapat kumuha.
 
-<b>Lights Out</b>:
-Patayin ang lahat ng ilaw. Bawat tap ay nagti-toggle sa cell at kapitbahay nito.
+<b>Patayin ang Ilaw</b>:
+Patayin lahat ng ilaw; ang tap ay bumabaligtad din ng kapitbahay.
 
-<b>Sliding Puzzle</b>:
-I-slide ang mga tile sa bakanteng espasyo para maayos sila.
+<b>Palaisipang Padulas</b>:
+I-slide ang tile hanggang maayos.
 
 <b>Shikaku</b>:
-Hatiin ang buong grid sa mga rectangle. Bawat isa ay may numerong katumbas ng area nito.
+Hatiin ang grid sa parihaba na tumutugma sa numero.
 
 <b>Nurikabe</b>:
-Pinturahan ang dagat sa paligid ng may-numerong isla, walang 2x2 block.
+Pinturahan ang dagat sa paligid ng may-numerong isla, walang 2x2.
 
-<b>Cat Queens</b>:
-Isang pusa bawat row, column, at color zone. Hindi pwedeng magdikit, kahit pahilis.
+<b>Mga Reynang Pusa</b>:
+Isang pusa bawat hilera, column at kulay na zone; huwag magdikit.
 
-<b>Knot</b>:
-Ikonekta ang bawat pares ng may kulay na dots. Hindi magkrus ang paths at sasakop nila ang lahat.
+<b>Buhol</b>:
+Ikabit ang magkaparehong kulay nang hindi nagsasalubong; punuin ang bawat cell.
 
 <b>Tore ng Hanoi</b>:
-Ilipat ang buong stack sa kanang peg.
+Ilipat ang tumpok sa kanang poste.
 
-<b>Schulte Table</b>:
-I-tap ang mga numero nang sunud-sunod mula 1 pataas nang mabilis.
+<b>Talahanayang Schulte</b>:
+I-tap ang numero nang sunod-sunod nang pinakamabilis mo.
 
 <b>Mga Watawat</b>:
-Kilalanin ang bansa sa watawat nito.
+Sabihin ang bansa; isang mali ay nagtatapos ng takbo.
 
-<b>Digit Memory</b>:
-Isaulo ang digits, lutasin ang mabilis na math, tapos alalahanin ang digits.
+<b>Memorya ng Numero</b>:
+Isaulo ang digit, lutasin ang maikling compute, tapos alalahanin.
 
-<b>Spot the New</b>:
+<b>Hanapin ang Bago</b>:
 I-tap ang hayop na hindi mo pa nakikita.
 
 <b>N-Back</b>:
-Panoorin ang mga hugis, tapos i-tap ang nasa tinanong na posisyon.
+I-tap ang Match kapag inuulit ng hugis ang N hakbang ang nakaraan.
 
 <b>Wordle</b>:
-Hulaan ang nakatagong limang-titik na salita sa loob ng anim na subok.
+Hulaan ang limang-titik na salita sa anim na subok.
 
 <b>Mga Palaisipan sa Palito</b>:
-Ilipat ang mga palito para ayusin ang equation.
+Ilipat ang posporo hanggang magtugma ang equation.
 
-<b>Peg Solitaire</b>:
-Lundagin ang mga peg hanggang isa na lang ang matira.
+<b>Solitaryong Peg</b>:
+Tumalon ng piraso hanggang isa na lang.
 
 <b>Sudoku</b>:
-Classic na full-size Sudoku na may iba't ibang hirap.
+Klasikong sudoku, ilang hirap.
 
-<b>Chess</b>:
-Buong chess laban sa CPU o pass-and-play sa kaibigan.
+<b>Ahedres</b>:
+Buong chess laban sa CPU o dalawa sa isang device.
 
 <b>IQ Test</b>:
-30 matrix puzzle sa 15 minuto, na may tinatayang IQ. Pang-aliw lang.
+30 matrix puzzle sa 15 minuto, may tinatayang IQ. Para lang sa saya.
 
 <b>Kulang na Operators</b>:
-Hanapin ang kulang na operators (+, -, *, /) para maging tama ang equation.
+Hanapin ang operator (+, -, *, /) na nagpapatotoo sa equation.
 
 <b>Bulls & Cows</b>:
-Hulaan ang secret na 4-digit na numero na walang umuulit na digit.
+Hulaan ang lihim na 4-digit na numero.
 
 <b>Simon Says</b>:
-Bawat round ay umiilaw ng bagong pad. I-tap ang buong sequence mula sa simula.
+I-tap ang buong lumalaking sequencia bawat round.
 
 <b>Prism Clear</b>:
-Magpalit ng magkatugmang tiles para linisin ang linya ng tatlo o higit pa. Palinisin ang board.
+Magpalit ng tile, linisin ang linya, bakantehin ang board.
 
 <b>Trio</b>:
-Maghanap ng tatlong card na magkapareho ang hugis, fill, o ilang marka ang dala.
+Hanapin ang tatlong kard na may parehong hugis, fill o bilang.
 
-May <b>achievements</b> ang laro at bawat exercise ay may <b>medals</b>.
+<b>Pag-ikot sa Isip</b>:
+Ang pangalawang block ba'y ang una na pinihit, o salamin nito?
 
-Walang tracking. <b>Open source</b>.
+<b>Flexible na Isip</b>:
+Ang pares sa itaas ang nagtatakda ng tuntunin; tamaan ang target sa katangiang iyon.
+
+<b>Palit-Panuntunan</b>:
+Ayusin ang kard ayon sa nakatagong tuntunin na nagbabago kapag nakuha mo na.
+
+<b>Reversi</b>:
+6x6 laban sa CPU o dalawa. Kubkubin ang linya para baligtarin.
+
+<b>Matuto ng Math</b>:
+Mga leksyon, pagsusulit at sertipiko sa Aritmetika, Heometriya, Pagsukat at Algebra.
+
+May <b>medalya</b> ang bawat laro. Ilang <b>achievement</b>. Walang pagsubaybay. <b>Open source</b>.

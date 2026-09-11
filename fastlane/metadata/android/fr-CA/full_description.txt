@@ -1,131 +1,144 @@
-Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 42 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
+Des mini-jeux pour la mémoire, le focus, la logique et le calcul, plus Apprendre les maths avec leçons et certificats.
 
 <b>Calcul mental</b>:
-Suis les expressions mathématiques. Utilise le résultat pour le calcul suivant.
+Suis les expressions; chaque résultat sert de base au suivant.
 
 <b>Calcul en chaîne</b>:
-Résous des formules complexes étape par étape.
+Résous la formule étape par étape.
 
 <b>Calcul Sherlock</b>:
-Trouve une formule pour l’objectif avec les nombres et opérateurs donnés.
+Atteins l'objectif avec les nombres et opérateurs donnés.
 
 <b>Calcul de fractions</b>:
 Résous les fractions.
 
 <b>Comparaison de valeurs</b>:
-Choisis l’expression avec la plus grande valeur.
+Prends l'expression avec la plus grande valeur.
 
 <b>Somme bulles</b>:
 Additionne les nombres sur les bulles.
 
 <b>Somme éclair</b>:
-Les nombres clignotent un par un. Additionne-les et entre le total.
+Les nombres clignotent un par un; entre le total.
 
 <b>Puzzle d'anomalie</b>:
-Trouve la figure qui se démarque par la couleur et la forme.
+Trouve la figure qui détonne.
 
 <b>Séquence de motifs</b>:
-Trouvez la règle qui parcourt chaque ligne de la grille, puis choisissez la pièce qui la complète.
+Trouve la règle de chaque ligne et complète la grille.
 
 <b>Chercheur de chemin</b>:
-Pars de la case marquée et suis les flèches jusqu’à la destination.
+Suis les flèches depuis le départ marqué.
 
 <b>Mémoire visuelle</b>:
-Mémorise les formes, puis repère celle cachée après le minuteur.
+Retiens les formes, puis reconnais celle qui est cachée.
 
 <b>Grille Fantôme</b>:
-Les cases s’allument une à une ; retape-les dans le même ordre.
+Les cases s'allument; retape-les dans le même ordre.
 
 <b>Confusion de Couleurs</b>:
-Touche la couleur de l'encre, pas celle du mot.
+Tape la couleur de l'encre, pas celle que le mot nomme.
 
 <b>Formes colorées</b>:
-Additionne les points des affirmations correctes.
+Additionne les points des affirmations justes.
 
 <b>Traqueur d'Orbites</b>:
-Observe les balles marquées, suis-les et sélectionne les cibles à l’arrêt.
+Suis les balles marquées pendant qu'elles bougent.
 
 <b>Foule Éclair</b>:
-Des points clignotent de chaque côté.
+Tape le côté qui a flashé plus de points.
 
 <b>Mini Sudoku</b>:
-Remplis la petite grille : chaque ligne, colonne et bloc une fois chaque chiffre.
+Chaque ligne, colonne et bloc une fois chaque chiffre.
 
 <b>Mini Échecs</b>:
-Mat le CPU avant qu’il ne te mate.
+Termine le scénario avec les blancs contre le CPU.
 
 <b>Échecs solo</b>:
-Capture les pièces une à une jusqu’au roi seul. Chaque coup doit capturer.
+Prends jusqu'à ce qu'il ne reste que le roi. Chaque coup doit prendre.
 
 <b>Éteins les lumières</b>:
-Éteins toutes les lumières. Chaque tap bascule la case et ses voisins.
+Éteins toutes les lumières; un tap bascule aussi les voisines.
 
 <b>Puzzle coulissant</b>:
-Fais glisser les tuiles dans l’espace vide pour les ordonner.
+Fais glisser les tuiles pour les remettre en ordre.
 
 <b>Shikaku</b>:
-Découpe la grille en rectangles. Chacun contient un nombre = son aire.
+Découpe la grille en rectangles égaux à leurs nombres.
 
 <b>Nurikabe</b>:
-Peins la mer autour d’îles numérotées sans bloc 2x2.
+Peins la mer autour des îles numérotées, sans bloc 2x2.
 
 <b>Reines Chats</b>:
-Un chat par ligne, colonne et zone de couleur. Ils ne peuvent pas se toucher.
+Un chat par ligne, colonne et zone de couleur; aucun ne se touche.
 
 <b>Nœud</b>:
-Relie chaque paire de points colorés. Les chemins ne se croisent pas.
+Relie les paires colorées sans croiser; remplis chaque case.
 
 <b>Tours de Hanoï</b>:
-Déplace la pile vers le plot de droite.
+Déplace la pile sur le pieu de droite.
 
 <b>Table de Schulte</b>:
-Touche les nombres dans l’ordre à partir de 1 le plus vite possible.
+Tape les nombres dans l'ordre aussi vite que tu peux.
 
 <b>Drapeaux</b>:
-Identifie le pays par son drapeau.
+Nomme le pays; une erreur termine la partie.
 
 <b>Mémoire des Chiffres</b>:
-Mémorise des chiffres, résous un calcul rapide, puis rappelle les chiffres.
+Retiens des chiffres, résous un calcul, puis rappelle-les.
 
 <b>Repère le Nouveau</b>:
-Touche l’animal que tu n’as pas encore vu.
+Tape l'animal que tu n'as pas encore vu.
 
 <b>N-Back</b>:
-Regarde les formes, puis touche celle à la position demandée.
+Tape Match quand la forme répète celle d'il y a N pas.
 
 <b>Wordle</b>:
-Devine le mot de cinq lettres en six essais.
+Trouve le mot de cinq lettres en six essais.
 
 <b>Énigmes d'allumettes</b>:
-Déplace des allumettes pour corriger des équations.
+Déplace des allumettes pour que l'équation soit juste.
 
 <b>Solitaire</b>:
-Saute des pions jusqu’à n’en laisser qu’un.
+Saute des pions jusqu'à ce qu'il n'en reste qu'un.
 
 <b>Sudoku</b>:
-Sudoku classique grand format avec plusieurs difficultés.
+Sudoku classique, plusieurs difficultés.
 
 <b>Échecs</b>:
-Échecs complets contre le CPU ou en pass-and-play.
+Échecs complets contre le CPU ou à deux sur un appareil.
 
 <b>Test de QI</b>:
-30 grilles en 15 min. Juste pour le fun.
+30 puzzles de matrices en 15 minutes, avec un QI estimé. Pour le fun.
 
-<b>Missing Operators</b>:
-Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.
+<b>Opérateurs manquants</b>:
+Trouve les opérateurs (+, -, *, /) qui rendent l'équation vraie.
 
 <b>Bulls & Cows</b>:
-Devinez le nombre secret à 4 chiffres avec des chiffres uniques.
+Devine le nombre secret à 4 chiffres.
 
-<b>Simon Says</b>:
-À chaque manche, un nouveau bouton s'allume. Touche toute la séquence depuis le début, y compris les boutons des manches précédentes.
+<b>Jacques a dit</b>:
+Retape toute la séquence, qui s'allonge à chaque tour.
 
-<b>Prism Clear</b>:
-Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.
+<b>Vider le prisme</b>:
+Échange des tuiles, vide des lignes, vide le plateau.
 
 <b>Trio</b>:
-Trouve trois cartes qui ont en commun la forme, le remplissage ou le nombre de marques.
+Trouve trois cartes qui partagent forme, remplissage ou nombre.
 
-Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
+<b>Rotations mentales</b>:
+Le second bloc est le premier tourné, ou son miroir?
 
-Aucun pistage. <b>Open source</b>.
+<b>Flexibilité mentale</b>:
+La paire du haut fixe la règle; vise la cible sur ce trait.
+
+<b>Changement de règle</b>:
+Trie les cartes selon une règle cachée, qui change dès que tu l'as.
+
+<b>Reversi</b>:
+6x6 contre le CPU ou à deux. Encadre une ligne pour la retourner.
+
+<b>Apprendre les maths</b>:
+Leçons, tests et certificats en Arithmétique, Géométrie, Mesure et Algèbre.
+
+Chaque jeu a des <b>médailles</b>. Plusieurs <b>succès</b>. Pas de pistage. <b>Open source</b>.

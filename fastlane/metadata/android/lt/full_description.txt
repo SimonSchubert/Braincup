@@ -1,131 +1,144 @@
-Treniruok smegenis smagiais mini žaidimais, kurie tikrina atmintį, dėmesį, logiką ir matematiką. Braincup siūlo 42 smegenų pratimus.
+Minižaidimai atminčiai, dėmesiui, logikai ir matematikai, ir Mokykis matematikos su pamokomis ir pažymėjimais.
 
 <b>Skaičiavimas mintyse</b>:
-Sek matematinius reiškinius. Rezultatą naudok kaip kito skaičiavimo pagrindą.
+Sek išraiškas; kiekvienas rezultatas yra kito pagrindas.
 
 <b>Grandininis skaičiavimas</b>:
-Spręsk sudėtingas formules žingsnis po žingsnio.
+Spręsk formulę žingsnis po žingsnio.
 
 <b>Šerloko skaičiavimas</b>:
-Rask formulę, kuri pasiekia tikslą tik su duotais skaičiais ir operatoriais.
+Pasiek tikslą duotais skaičiais ir operatoriais.
 
 <b>Trupmenų skaičiavimas</b>:
-Išspręsk trupmenas.
+Spręsk trupmenas.
 
 <b>Verčių palyginimas</b>:
-Pasirink reiškinį su didžiausia verte.
+Pasirink išraišką su didžiausia verte.
 
 <b>Burbulų suma</b>:
-Sudėk skaičius ant plaukiojančių burbulų.
+Sudėk skaičius ant burbuliukų.
 
 <b>Greitoji suma</b>:
-Skaičiai mirksi vienas po kito. Sudėk juos ir įvesk sumą.
+Skaičiai blyksi po vieną; įvesk sumą.
 
 <b>Anomalijos galvosūkis</b>:
 Rask figūrą, kuri išsiskiria.
 
 <b>Raštų seka</b>:
-Atrask taisyklę kiekvienoje eilutėje ir pasirink dalelę, kuri ją papildo.
+Rask kiekvienos eilutės taisyklę ir užbaik tinklelį.
 
 <b>Kelio ieškotojas</b>:
-Pradėk nuo pažymėtos vietos ir sek rodykles iki tikslo.
+Sek rodykles nuo pažymėtos pradžios.
 
 <b>Vaizdinė atmintis</b>:
-Įsimink formas ir pasibaigus laikmačiui nustatyk paslėptą formą.
+Įsimink formas, tada atpažink paslėptą.
 
 <b>Vaiduoklių tinklelis</b>:
-Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.
+Langeliai užsidega; bakstelėk juos ta pačia tvarka.
 
 <b>Spalvų painiava</b>:
-Paliesk spalvą, kuria išspausdintas žodis, ne tą, kurią žodis įvardija.
+Bakstelėk rašalo spalvą, ne tą, kurią vadina žodis.
 
 <b>Spalvotos figūros</b>:
-Sudėk taškus iš teisingų teiginių.
+Sudėk teisingų teiginių taškus.
 
 <b>Orbitų sekiklis</b>:
-Stebėk paryškintus rutuliukus ir sek juos, kol juda.
+Sek pažymėtus kamuolius, kol jie juda.
 
 <b>Blyksinti minia</b>:
-Taškai trumpai sumirksi abiejose pusėse. Paliesk pusę, kurioje jų buvo daugiau.
+Bakstelėk pusę su daugiau taškų.
 
 <b>Mini Sudoku</b>:
-Užpildyk mažą tinklelį taip, kad kiekviena eilutė, stulpelis ir blokas turėtų kiekvieną skaičių vieną kartą.
+Kiekviena eilutė, stulpelis ir blokas kartą kiekvieną skaitmenį.
 
 <b>Mini šachmatai</b>:
-Duok CPU matą, kol jis neduos jo tau.
+Užbaik scenarijų baltaisiais prieš CPU.
 
 <b>Solo šachmatai</b>:
-Imk figūras vieną po kitos, kol liks tik karalius. Kiekvienas ėjimas turi imti.
+Mušk, kol liks karalius. Kiekvienas ėjimas turi mušti.
 
 <b>Užgesink šviesas</b>:
-Užgesink kiekvieną šviesą. Kiekvienas palietimas perjungia langelį ir keturis jo kaimynus.
+Užgesink visas šviesas; bakstelėjimas apverčia ir kaimynus.
 
 <b>Slenkanti dėlionė</b>:
-Stumdyk plyteles į tuščią vietą, kol jos bus tvarkoje.
+Stumk plyteles į vietą.
 
 <b>Shikaku</b>:
-Padalyk tinklelį į stačiakampius. Kiekviename yra lygiai vienas skaičius, jo plotas.
+Padalyk tinklelį į stačiakampius pagal jų skaičius.
 
 <b>Nurikabe</b>:
-Spalvink langelius ir pastatyk jūrą aplink sunumeruotas salas be 2x2 bloko.
+Dažyk jūrą aplink sunumeruotas salas, be 2x2 bloko.
 
 <b>Kačių karalienės</b>:
-Pastatyk po vieną katę kiekvienoje eilutėje, stulpelyje ir spalvos zonoje. Katės negali liestis, net įstrižai.
+Viena katė eilutei, stulpeliui ir spalvos zonai; tegul nesusiliečia.
 
 <b>Mazgas</b>:
-Sujunk kiekvieną spalvotų taškų porą. Keliai negali kirstis ir turi uždengti kiekvieną langelį.
+Sujunk spalvotas poras be kirtimų; užpildyk kiekvieną langelį.
 
 <b>Hanojaus bokštas</b>:
-Perkelk visą stulpelį ant dešinio smeigtuko.
+Perkelk krūvą ant dešinio strypo.
 
 <b>Šultės lentelė</b>:
-Paliesk skaičius iš eilės nuo 1 kuo greičiau.
+Bakstelėk skaičius eilės tvarka kuo greičiau.
 
 <b>Vėliavos</b>:
-Atpažink šalį pagal vėliavą.
+Pasakyk šalį; viena klaida baigia bėgimą.
 
 <b>Skaitmenų atmintis</b>:
-Įsimink skaitmenų seką, išspręsk greitą užduotį, tada prisimink skaitmenis.
+Įsimink skaitmenis, išspręsk trumpą užduotį, tada juos prisimink.
 
 <b>Surask naują</b>:
-Paliesk gyvūną, kurio dar nepažįsti.
+Bakstelėk gyvūną, kurio dar nesi matęs.
 
 <b>N-Back</b>:
-Stebėk formas, kaip jos praskrenda, ir paliesk tą reikiamoje vietoje.
+Bakstelėk Match, kai forma kartoja tą prieš N žingsnių.
 
 <b>Wordle</b>:
-Atspėk paslėptą penkių raidžių žodį per šešis bandymus.
+Atspėk penkių raidžių žodį per šešis bandymus.
 
 <b>Degtukų galvosūkiai</b>:
-Perkelk degtukus ir pataisyk sulaužytas lygtis.
+Stumdyk degtukus, kol lygtis sutaps.
 
 <b>Smeigtukų solitaire</b>:
-Peršok smeigtukus, kol liks vienas.
+Šokinėk kuoliukus, kol liks vienas.
 
 <b>Sudoku</b>:
-Klasikinis viso dydžio Sudoku su keliomis sunkumo pakopomis.
+Klasikinis sudoku, keli sunkumai.
 
 <b>Šachmatai</b>:
-Pilni šachmatai prieš CPU arba ėjimų keitimasis su draugu.
+Pilnos šachmatai prieš CPU arba dviese viename įrenginyje.
 
 <b>IQ testas</b>:
-30 matricinių galvosūkių per 15 minučių, su įvertintu IQ. Tik pramogai.
+30 matricų galvosūkių per 15 minučių, su įvertintu IQ. Tik pramogai.
 
 <b>Trūkstami operatoriai</b>:
-Rask trūkstamus operatorius (+, -, *, /), kurie padaro lygtį teisingą.
+Rask operatorius (+, -, *, /), kurie padaro lygtį teisingą.
 
 <b>Bulls & Cows</b>:
-Atspėk slaptą 4 skaitmenų skaičių su unikaliais skaitmenimis.
+Atspėk slaptą 4 skaitmenų skaičių.
 
 <b>Simon Says</b>:
-Kiekvienas raundas uždega vieną naują plytelę. Paliesk visą seką nuo pradžių.
+Bakstelėk visą augančią seką kiekvieną raundą.
 
 <b>Prism Clear</b>:
-Sukeisk sutampančias plyteles ir išvalyk eiles iš trijų ir daugiau. Ištuštink lentą ir laimėsi.
+Keisk plyteles, valyk eiles, ištuštink lentą.
 
 <b>Trio</b>:
-Rask tris kortas, kurios turi tą pačią formą, užpildą arba ženklų skaičių.
+Rask tris kortas su ta pačia forma, užpildu ar skaičiumi.
 
-Žaidime yra keli <b>pasiekimai</b>, o kiekvienas pratimas turi <b>medalius</b>, kurie palaiko motyvaciją.
+<b>Mintinis sukimas</b>:
+Ar antras blokas yra pirmas pasuktas, ar veidrodis?
 
-Be sekimo. <b>Open source</b>.
+<b>Minties lankstumas</b>:
+Porą viršuje nustato taisyklę; pataikyk į taikinį pagal tą bruožą.
+
+<b>Taisyklės kaita</b>:
+Rūšiuok kortas pagal slaptą taisyklę, kuri keičiasi, kai ją turi.
+
+<b>Reversi</b>:
+6x6 prieš CPU arba dviese. Sugauk liniją, kad ją apverstum.
+
+<b>Mokykis matematikos</b>:
+Pamokos, testai ir pažymėjimai: Aritmetika, Geometrija, Matavimas ir Algebra.
+
+Kiekvienas žaidimas turi <b>medalius</b>. Keli <b>pasiekimai</b>. Be sekimo. <b>Atvirasis kodas</b>.

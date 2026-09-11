@@ -1,13 +1,13 @@
-Treniraj mozak zabavnim miniigrama koje provjeravaju pamćenje, koncentraciju, logiku i matematiku. Braincup nudi 42 vježbe za mozak.
+Miniigre za pamćenje, fokus, logiku i matematiku, i Uči matematiku s lekcijama i certifikatima.
 
 <b>Računanje napamet</b>:
-Prati matematičke izraze. Rezultat koristi kao osnovu sljedećeg izračuna.
+Prati izraze; svaki rezultat je baza sljedećeg.
 
 <b>Lančano računanje</b>:
-Rješavaj složene formule korak po korak.
+Riješi formulu korak po korak.
 
 <b>Sherlockovo računanje</b>:
-Pronađi formulu koja dosegne cilj samo s danim brojevima i operatorima.
+Dođi do cilja danim brojevima i operatorima.
 
 <b>Računanje razlomaka</b>:
 Riješi razlomke.
@@ -16,116 +16,129 @@ Riješi razlomke.
 Odaberi izraz s najvećom vrijednošću.
 
 <b>Zbroj mjehurića</b>:
-Zbroji brojeve na plutajućim mjehurićima.
+Zbroji brojeve na mjehurićima.
 
 <b>Brzi zbroj</b>:
-Brojevi trepere jedan za drugim. Zbroji ih i unesi zbroj.
+Brojevi bljeskaju jedan po jedan; unesi zbroj.
 
 <b>Zagonetka anomalije</b>:
-Pronađi figuru koja odskače.
+Nađi figuru koja odskače.
 
 <b>Niz uzoraka</b>:
-Otkrij pravilo u svakom retku i odaberi dijelić koji ga dopunjuje.
+Nađi pravilo svakog retka i dopuni mrežu.
 
 <b>Tražilac puta</b>:
-Kreni s označenog mjesta i slijedi strelice do cilja.
+Prati strelice od označenog starta.
 
 <b>Vizualno pamćenje</b>:
-Zapamti oblike i nakon isteka vremena odredi skriveni oblik.
+Zapamti oblike, pa prepoznaj skriveni.
 
 <b>Mreža duhova</b>:
-Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.
+Polja se pale; tapni ih istim redom.
 
 <b>Zabuna boja</b>:
-Dodirni boju kojom je riječ ispisana, ne boju koju riječ govori.
+Tapni boju tinte, ne onu koju riječ imenuje.
 
 <b>Obojeni oblici</b>:
-Zbroji bodove iz točnih tvrdnji.
+Zbroji bodove točnih tvrdnji.
 
 <b>Pratitelj orbita</b>:
-Prati istaknute kugle i drži ih dok se kreću.
+Prati označene lopte dok se miču.
 
 <b>Bljeskovita gomila</b>:
-Točkice kratko trepnu na svakoj strani. Dodirni stranu na kojoj ih je bilo više.
+Tapni stranu s više točaka.
 
 <b>Mini Sudoku</b>:
-Ispuni malu mrežu tako da svaki redak, stupac i blok sadrži svaki broj jednom.
+Svaki red, stupac i blok jednom svaku znamenku.
 
 <b>Mini šah</b>:
-Daj CPU-u mat prije nego što ga dobiješ ti.
+Dovrši scenarij bijelima protiv CPU-a.
 
 <b>Solo šah</b>:
-Uzmi figure jednu po jednu dok ne ostane samo kralj. Svaki potez mora uzimati.
+Uzmi dok ne ostane kralj. Svaki potez mora uzeti.
 
 <b>Ugasi svjetla</b>:
-Ugasi svako svjetlo. Svaki dodir prebacuje ćeliju i njezina četiri susjeda.
+Ugasi sva svjetla; tap prebacuje i susjede.
 
 <b>Klizna slagalica</b>:
-Klizi pločice u prazno mjesto dok ne budu u redu.
+Gurni pločice na mjesto.
 
 <b>Shikaku</b>:
-Podijeli mrežu na pravokutnike. Svaki sadrži točno jedan broj, njegovu površinu.
+Podijeli mrežu u pravokutnike prema njihovim brojevima.
 
 <b>Nurikabe</b>:
-Bojaj ćelije i izgradi more oko numeriranih otoka bez bloka 2x2.
+Oboji more oko numeriranih otoka, bez bloka 2x2.
 
 <b>Mačje kraljice</b>:
-Postavi jednu mačku u svaki redak, stupac i zonu boje. Mačke se ne smiju dodirivati, čak ni dijagonalno.
+Jedna mačka po retku, stupcu i zoni boje; ne smiju se dodirivati.
 
 <b>Čvor</b>:
-Spoji svaki par obojenih točaka. Staze se ne smiju križati i moraju pokriti svaku ćeliju.
+Spoji obojene parove bez križanja; ispuni svako polje.
 
 <b>Hanojski toranj</b>:
-Premjesti cijeli stup na desni klin.
+Premjesti stog na desni štap.
 
 <b>Schulteova tablica</b>:
-Dodiruj brojeve redom od 1 naviše što brže možeš.
+Tapni brojeve redom što brže možeš.
 
 <b>Zastave</b>:
-Prepoznaj zemlju po zastavi.
+Reci zemlju; jedna greška prekida trku.
 
 <b>Pamćenje znamenki</b>:
-Zapamti niz znamenki, riješi brzi zadatak, pa se sjeti znamenki.
+Zapamti znamenke, riješi kratki zadatak, pa ih se sjeti.
 
 <b>Pronađi novo</b>:
-Dodirni životinju koju još ne poznaješ.
+Tapni životinju koju još nisi vidio.
 
 <b>N-Back</b>:
-Prati oblike kako prolaze i dodirni onaj na traženom mjestu.
+Tapni Match kad oblik ponovi onaj od prije N koraka.
 
 <b>Wordle</b>:
-Pogodi skrivenu riječ od pet slova u šest pokušaja.
+Pogodi riječ od pet slova u šest pokušaja.
 
 <b>Zagonetke sa šibicama</b>:
-Premještaj šibice i popravi pokvarene jednadžbe.
+Mici šibice dok jednadžba ne sjedne.
 
 <b>Solitaire s klinovima</b>:
-Preskači klinove dok ne ostane jedan.
+Skači klinovima dok ne ostane jedan.
 
 <b>Sudoku</b>:
-Klasični Sudoku pune veličine s više težina.
+Klasični sudoku, više težina.
 
 <b>Šah</b>:
-Puni šah protiv CPU-a ili naizmjenični potezi s prijateljem.
+Puni šah protiv CPU-a ili nas dvoje na jednom uređaju.
 
 <b>IQ test</b>:
 30 matričnih zagonetki u 15 minuta, s procijenjenim IQ-om. Samo za zabavu.
 
 <b>Nedostajući operatori</b>:
-Pronađi nedostajuće operatore (+, -, *, /) koji čine jednadžbu točnom.
+Nađi operatore (+, -, *, /) koji čine jednadžbu točnom.
 
 <b>Bulls & Cows</b>:
-Pogodi tajni 4-znamenkasti broj s jedinstvenim znamenkama.
+Pogodi tajni 4-znamenkasti broj.
 
 <b>Simon Says</b>:
-Svaka runda pali jednu novu pločicu. Dodirni cijeli slijed od početka.
+Tapni cijeli rastući niz svaku rundu.
 
 <b>Prism Clear</b>:
-Zamijeni podudarne pločice i obriši redove od tri i više. Isprazni ploču i pobjeđuješ.
+Zamijeni pločice, čisti redove, isprazni ploču.
 
 <b>Trio</b>:
-Pronađi tri karte koje imaju zajednički oblik, ispunu ili broj znakova.
+Nađi tri karte sa zajedničkim oblikom, ispunom ili brojem.
 
-Igra ima nekoliko <b>postignuća</b> i svaka vježba ima <b>medalje</b> koje te motiviraju.
+<b>Mentalne rotacije</b>:
+Je li drugi blok prvi okrenut, ili zrcalni?
 
-Bez praćenja. <b>Open source</b>.
+<b>Mentalna fleksibilnost</b>:
+Par gore postavlja pravilo; pogodi cilj po toj osobini.
+
+<b>Promjena pravila</b>:
+Slaži karte po skrivenom pravilu koje se mijenja čim ga imaš.
+
+<b>Reversi</b>:
+6x6 protiv CPU-a ili nas dvoje. Uhvati liniju da je okreneš.
+
+<b>Uči matematiku</b>:
+Lekcije, testovi i certifikati iz Aritmetika, Geometrija, Mjerenje i Algebra.
+
+Svaka igra ima <b>medalje</b>. Nekoliko <b>postignuća</b>. Bez praćenja. <b>Otvoreni kod</b>.

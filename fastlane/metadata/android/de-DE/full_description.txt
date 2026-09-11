@@ -1,131 +1,144 @@
-Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 42 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+Minispiele für Gedächtnis, Fokus, Logik und Mathe, und dazu Mathe lernen mit Lektionen und Zertifikaten.
 
 <b>Kopfrechnen</b>:
-Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Basis für die nächste Rechnung.
+Folge den Ausdrücken; jedes Ergebnis ist die Basis für den nächsten.
 
 <b>Kettenrechnung</b>:
-Löse komplexe Formeln Schritt für Schritt.
+Löse die Formel Schritt für Schritt.
 
 <b>Sherlock-Rechnung</b>:
-Finde eine Formel zum Ziel nur mit den gegebenen Zahlen und Operatoren.
+Erreiche das Ziel nur mit den gegebenen Zahlen und Operatoren.
 
 <b>Bruchrechnung</b>:
 Löse die Brüche.
 
 <b>Wertevergleich</b>:
-Wähle den Ausdruck mit dem höchsten Wert.
+Nimm den Ausdruck mit dem höchsten Wert.
 
 <b>Blasensumme</b>:
 Addiere die Zahlen auf den schwebenden Blasen.
 
 <b>Blitzsumme</b>:
-Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.
+Zahlen blitzen nacheinander auf; gib die Summe ein.
 
 <b>Anomalie-Rätsel</b>:
 Finde die Figur, die heraussticht.
 
 <b>Mustersequenz</b>:
-Finde die Regel, die durch jede Zeile des Gitters läuft, und wähle dann das Teil, das sie vervollständigt.
+Finde die Regel in jeder Zeile und vervollständige das Gitter.
 
 <b>Pfadfinder</b>:
-Starte an der Markierung und folge den Pfeilen zum Ziel.
+Folge den Pfeilen vom markierten Start.
 
 <b>Visuelles Gedächtnis</b>:
-Merke dir die Formen und erkenne die versteckte Form nach dem Timer.
+Merk dir die Formen, dann erkenne die versteckte.
 
 <b>Geistergitter</b>:
-Felder leuchten nacheinander auf — tippe sie in derselben Reihenfolge an.
+Felder leuchten auf; tippe sie in derselben Reihenfolge nach.
 
 <b>Farbverwirrung</b>:
-Tippe die Farbe, in der das Wort steht, nicht die Farbe, die das Wort nennt.
+Tippe die Farbe der Tinte, nicht die, die das Wort nennt.
 
 <b>Farbige Formen</b>:
-Addiere die Punkte aus den richtigen Aussagen.
+Addiere die Punkte der richtigen Aussagen.
 
 <b>Orbit-Tracker</b>:
-Beobachte markierte Bälle, verfolge sie und wähle die Ziele danach aus.
+Verfolge die markierten Bälle, während sie sich bewegen.
 
 <b>Blitzmenge</b>:
-Punkte blitzen kurz auf.
+Tippe die Seite mit mehr Punkten.
 
 <b>Mini-Sudoku</b>:
-Fülle das kleine Gitter: jede Zeile, Spalte und jeder Block einmal jede Zahl.
+Jede Zeile, Spalte und jeder Block einmal jede Ziffer.
 
 <b>Mini-Schach</b>:
-Mattsetze die CPU zuerst.
+Spiele das Szenario als Weiß gegen die CPU zu Ende.
 
 <b>Solo-Schach</b>:
-Schlage Figuren nacheinander, bis nur der König übrig ist. Jeder Zug muss schlagen.
+Schlage, bis nur der König bleibt. Jeder Zug muss schlagen.
 
 <b>Lichter aus</b>:
-Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre Nachbarn um.
+Schalte alle Lichter aus; ein Tipp schaltet die Nachbarn mit um.
 
 <b>Schiebepuzzle</b>:
-Schiebe Kacheln in den leeren Raum, um sie zu ordnen.
+Schiebe die Kacheln in die richtige Ordnung.
 
 <b>Shikaku</b>:
-Teile das Gitter in Rechtecke. Jedes enthält genau eine Zahl = seine Fläche.
+Teile das Gitter in Rechtecke passend zu ihren Zahlen.
 
 <b>Nurikabe</b>:
-Male das Meer um nummerierte Inseln — ohne 2x2-Block.
+Male das Meer um nummerierte Inseln, ohne 2x2-Block.
 
 <b>Katzen-Damen</b>:
-Eine Katze pro Zeile, Spalte und Farbzone. Keine zwei dürfen sich berühren.
+Eine Katze pro Zeile, Spalte und Farbzone; keine darf sich berühren.
 
 <b>Knoten</b>:
-Verbinde farbige Punktepaare. Pfade kreuzen sich nicht und füllen jedes Feld.
+Verbinde farbige Paare ohne Kreuzung; jedes Feld muss voll sein.
 
 <b>Türme von Hanoi</b>:
 Verschiebe den Stapel auf den rechten Stab.
 
 <b>Schulte-Tabelle</b>:
-Tippe die Zahlen so schnell wie möglich von 1 aufwärts an.
+Tippe die Zahlen so schnell du kannst der Reihe nach an.
 
 <b>Flaggen</b>:
-Erkenne das Land an seiner Flagge.
+Nenne das Land; ein Fehler beendet den Lauf.
 
 <b>Zifferngedächtnis</b>:
-Merke dir Ziffern, löse kurz eine Rechnung, dann erinnere die Ziffern.
+Merk dir Ziffern, löse kurz eine Rechnung, dann erinnere sie.
 
 <b>Finde das Neue</b>:
-Tippe das Tier an, das du noch nie gesehen hast.
+Tippe das Tier, das du noch nicht gesehen hast.
 
 <b>N-Back</b>:
-Formen blitzen auf — tippe die an der gefragten Position.
+Tippe Match, wenn die Form die von vor N Schritten wiederholt.
 
 <b>Wordle</b>:
-Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen.
+Errate das Fünf-Buchstaben-Wort in sechs Versuchen.
 
 <b>Streichholz-Rätsel</b>:
-Verschiebe Streichhölzer, um Gleichungen zu reparieren.
+Verschiebe Streichhölzer, bis die Gleichung stimmt.
 
 <b>Solitär</b>:
-Springe mit Stiften, bis nur noch einer übrig ist.
+Springe mit Stiften, bis einer übrig bleibt.
 
 <b>Sudoku</b>:
-Klassisches volles Sudoku mit mehreren Schwierigkeitsstufen.
+Klassisches Sudoku, mehrere Schwierigkeitsstufen.
 
 <b>Schach</b>:
-Volles Schach gegen die CPU oder Pass-and-Play.
+Volles Schach gegen die CPU oder zu zweit auf einem Gerät.
 
 <b>IQ-Test</b>:
 30 Matrizenrätsel in 15 Minuten, mit geschätztem IQ. Nur zum Spaß.
 
-<b>Missing Operators</b>:
-Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.
+<b>Fehlende Operatoren</b>:
+Finde die Operatoren (+, -, *, /), damit die Gleichung stimmt.
 
 <b>Bulls & Cows</b>:
-Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern.
+Errate die geheime 4-stellige Zahl.
 
-<b>Simon Says</b>:
-Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Sequenz von vorne ein, samt der Felder aus den Runden davor.
+<b>Simon sagt</b>:
+Tippe die wachsende Sequenz jede Runde von vorn nach.
 
-<b>Prism Clear</b>:
-Tausche passende Kacheln, um Reihen aus drei oder mehr zu räumen. Leere das ganze Spielfeld, um zu gewinnen.
+<b>Prisma räumen</b>:
+Tausche passende Kacheln, räume Reihen, leere das Feld.
 
 <b>Trio</b>:
-Finde drei Karten, die Form, Füllung oder die Zahl der Zeichen gemeinsam haben.
+Finde drei Karten mit gleicher Form, Füllung oder Anzahl.
 
-Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
+<b>Mentale Rotation</b>:
+Ist der zweite Block der erste gedreht, oder gespiegelt?
 
-Kein Tracking. <b>Open Source</b>.
+<b>Mentale Flexibilität</b>:
+Ein Hinweispaar setzt die Regel; treffe das Ziel auf diesem Merkmal.
+
+<b>Regelwechsel</b>:
+Sortiere Karten nach einer versteckten Regel, die sich ändert, sobald du sie hast.
+
+<b>Reversi</b>:
+6x6 gegen die CPU oder zu zweit. Schließe eine Reihe ein, um sie umzudrehen.
+
+<b>Mathe lernen</b>:
+Lektionen, Tests und Zertifikate in Arithmetik, Geometrie, Messen und Algebra.
+
+Jedes Spiel hat <b>Medaillen</b>. Mehrere <b>Erfolge</b>. Kein Tracking. <b>Open Source</b>.
