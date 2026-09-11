@@ -68,12 +68,15 @@ keeps `-3` and `-11` untouched, in any order the sentence needs. The figure besi
 draws those same numbers, so a changed digit is a broken question. Spelled-out numbers in the
 English prose ("eight", "ten") are words and translate normally.
 
-Three ways that rule bites, all of them found the hard way:
+Four ways that rule bites, all of them found the hard way:
 
-* **The decimal separator does not change.** `0.5` stays `0.5` even in a language that writes
-  `0,5`, because the figure beside it draws a point. Your prose has to name it the way the app
-  shows it. Spanish says "el punto" and German says "der Punkt" for exactly this reason. Changing
-  it fails the check with a number mismatch that reads like a mistranslation.
+* **Digits in the XML stay `0.5`.** The app swaps the glyph at render for languages that write a
+  comma. Writing `0,5` fails the check with a number mismatch that reads like a mistranslation.
+* **Name the separator the way the screen now shows it.** Comma languages use their ordinary word
+  (German *Komma*, Dutch *komma*, Spanish *coma*, French *virgule*, Italian *virgola*, Portuguese
+  *vírgula*, Russian *запятая*, Indonesian *koma*). English, and every locale that still draws a
+  point, keep "point". A German learner reading "hinter dem Punkt" beside `0,35` is being taught
+  the wrong mark.
 * **Thousands separators are thin spaces and stay that way.** `3 872 = 3 900`, `45 000`,
   `2 000 000`. Writing `3.872` or `3,872` adds a number and fails.
 * **Watch for idioms that swallow a number.** English "to the nearest 10 cm" has an idiomatic

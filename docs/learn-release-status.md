@@ -726,6 +726,12 @@ mini-games are deliberately untouched: they parse typed numeric input and have n
 a comma language. `DecimalSeparatorTest` covers all of it, and `numbers_in` in the localization
 check now compares numbers rather than spellings of them.
 
+The older Arithmetic and Rules copy in `de` `nl` `es` `fr` `it` `pt` still named the mark a point
+(*Punkt* / *punt* / *punto* / *point*), because the translation brief had told those locales to
+match the glyph the figure used to draw. Measurement, Russian and Indonesian already said comma.
+The word now follows the screen: *Komma*, *komma*, *coma*, *virgule*, *virgola*, *vírgula*. Digits
+in the XML stay `0.5`.
+
 ### Known and left alone
 
 | What | Where | Note |
