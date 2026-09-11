@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">Įsimink tinklelio formas ir pasibaigus laikmačiui nustatyk paslėptą formą.</string>
     <string name="game_pattern_sequence_desc">Atrask taisyklę kiekvienoje tinklelio eilutėje ir pasirink dalelę, kuri ją papildo.</string>
     <string name="game_ghost_grid_desc">Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.</string>
-    <string name="game_color_confusion_desc">Paliesk visas langelius, kuriuose žodis sutampa su šrifto spalva, tada spausk Atlikta.</string>
+    <string name="game_color_confusion_desc">Spalvos žodis pasirodo spalvotu rašalu. Paliesk rašalo spalvą, ne tą, kurią žodis įvardija.</string>
     <string name="game_orbit_tracker_desc">Stebėk paryškintus rutuliukus ir sek juos, kol juda. Kai sustos, pasirink pradinius taikinius.</string>
     <string name="game_bubble_sum_desc">Sudėk skaičius ant plaukiojančių burbulų. Vėliau skaičiai mirksi — įsimink juos.</string>
     <string name="bubble_sum_instruction">Kokia suma?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">Rask trūkstamus operatorius</string>
     <string name="missing_operators_demo_desc">Pasirink operatorius, kad lygtis būtų teisinga. Operatoriai skaičiuojami įprasta tvarka.</string>
     <string name="game_bulls_and_cows_desc">Atspėk slaptą 4 skaitmenų skaičių su unikaliais skaitmenimis. Bulls = teisingas skaitmuo teisingoje vietoje. Cows = teisingas skaitmuo neteisingoje vietoje.</string>
-    <string name="game_trio_desc">Rask tris kortas, kurios dalijasi forma, skaičiumi arba užpildu.</string>
+    <string name="game_trio_desc">Rask tris kortas, kurios turi tą pačią formą, užpildą arba ženklų skaičių.</string>
     <string name="game_mental_rotations_desc">Nuspręsk, ar antrasis blokas yra pirmasis pasuktas, ar jo veidrodinis atvaizdas.</string>
     <string name="game_mental_rotations_question">Tas pats blokas ar veidrodinis atvaizdas?</string>
     <string name="game_mental_rotations_same">Tas pats</string>
@@ -441,7 +441,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="visual_memory_demo_title">Įsimink, kas kur eina</string>
     <string name="digit_memory_demo_title">Įsimink, išsiblaškyk, prisimink</string>
     <string name="pattern_sequence_demo_rule">Kiekviena eilutė naudoja tas pačias tris formas paslinkta tvarka.</string>
-    <string name="color_confusion_demo_title">Paliesk sutampančius žodžius</string>
+    <string name="color_confusion_demo_title">Rašalas lemia, ne žodis</string>
     <string name="flags_demo_title">Atpažink šalį</string>
     <string name="mental_calculation_demo_title">Perkelk rezultatą toliau</string>
     <string name="mental_calculation_demo_keep">%1$d pereina iš ankstesnio rezultato.</string>

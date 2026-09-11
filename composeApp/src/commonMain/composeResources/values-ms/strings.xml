@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Ingat bentuk pada grid, kemudian kenal pasti bentuk tersembunyi selepas pemasa tamat.</string>
     <string name="game_pattern_sequence_desc">Fahami peraturan pada setiap baris grid, kemudian pilih kepingan yang melengkapkannya.</string>
     <string name="game_ghost_grid_desc">Tonton jubin menyala satu demi satu, kemudian ketik semula dalam urutan yang sama.</string>
-    <string name="game_color_confusion_desc">Ketik semua sel yang perkataannya sepadan dengan warna fon, kemudian tekan Selesai.</string>
+    <string name="game_color_confusion_desc">Satu perkataan warna muncul dengan dakwat berwarna. Ketik warna dakwatnya, bukan warna yang disebut perkataan itu.</string>
     <string name="game_orbit_tracker_desc">Tonton bola yang diserlahkan, kemudian jejaki mereka semasa bergerak. Pilih sasaran asal selepas mereka berhenti.</string>
     <string name="game_bubble_sum_desc">Jumlahkan nombor pada gelembung terapung. Kemudian nombor berkelip — ingatinya.</string>
     <string name="bubble_sum_instruction">Berapakah jumlahnya?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Cari operator yang hilang</string>
     <string name="missing_operators_demo_desc">Pilih operator untuk menjadikan persamaan benar. Operator dinilai mengikut keutamaan matematik piawai.</string>
     <string name="game_bulls_and_cows_desc">Teka nombor rahsia 4 digit dengan digit unik. Bulls = digit betul di tempat betul. Cows = digit betul di tempat salah.</string>
-    <string name="game_trio_desc">Cari tiga kad yang berkongsi bentuk, kiraan atau isian.</string>
+    <string name="game_trio_desc">Cari tiga kad yang sama bentuk, isian atau bilangan tandanya.</string>
     <string name="game_mental_rotations_desc">Tentukan sama ada blok kedua ialah blok pertama yang diputar, atau imej cerminnya.</string>
     <string name="game_mental_rotations_question">Blok yang sama atau imej cermin?</string>
     <string name="game_mental_rotations_same">Sama</string>
@@ -435,7 +435,7 @@
     <string name="visual_memory_demo_title">Ingat apa yang di mana</string>
     <string name="digit_memory_demo_title">Ingat, terganggu, ingat semula</string>
     <string name="pattern_sequence_demo_rule">Setiap baris menggunakan tiga bentuk yang sama dalam tertib beralih.</string>
-    <string name="color_confusion_demo_title">Ketik perkataan yang sepadan</string>
+    <string name="color_confusion_demo_title">Dakwatnya yang dikira, bukan perkataannya</string>
     <string name="flags_demo_title">Namakan negara</string>
     <string name="mental_calculation_demo_title">Bawa hasil ke hadapan</string>
     <string name="mental_calculation_demo_keep">%1$d dibawa dari hasil sebelumnya.</string>

@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Recorda les formes de la graella i identifica la forma amagada quan s'acabi el temporitzador.</string>
     <string name="game_pattern_sequence_desc">Descobreix la regla de cada fila i tria la peça que la completa.</string>
     <string name="game_ghost_grid_desc">Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.</string>
-    <string name="game_color_confusion_desc">Toca totes les caselles on la paraula coincideix amb el color de la lletra i després prem Fet.</string>
+    <string name="game_color_confusion_desc">Apareix una paraula de color amb tinta de color. Toca el color de la tinta, no el que diu la paraula.</string>
     <string name="game_orbit_tracker_desc">Mira les boles destacades i segueix-les mentre es mouen. Tria els objectius originals quan s'aturin.</string>
     <string name="game_bubble_sum_desc">Suma els números de les bombolles flotants. Més endavant els números parpellegen: recorda'ls.</string>
     <string name="bubble_sum_instruction">Quina és la suma?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Troba els operadors que falten</string>
     <string name="missing_operators_demo_desc">Tria els signes perquè l'equació quadri. Els operadors es calculen amb l'ordre habitual.</string>
     <string name="game_bulls_and_cows_desc">Endevina el número secret de 4 dígits amb dígits únics. Bulls = dígit correcte al lloc correcte. Cows = dígit correcte al lloc incorrecte.</string>
-    <string name="game_trio_desc">Troba tres cartes que comparteixin forma, quantitat o farciment.</string>
+    <string name="game_trio_desc">Troba tres cartes que tinguin en comú la forma, el farciment o quantes marques porten.</string>
     <string name="game_mental_rotations_desc">Decideix si el segon bloc és el primer girat o la seva imatge especular.</string>
     <string name="game_mental_rotations_question">El mateix bloc o imatge especular?</string>
     <string name="game_mental_rotations_same">El mateix</string>
@@ -437,7 +437,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="visual_memory_demo_title">Recorda què va on</string>
     <string name="digit_memory_demo_title">Memoritza, distreu-te, recorda</string>
     <string name="pattern_sequence_demo_rule">Cada fila fa servir les mateixes tres formes en un ordre desplaçat.</string>
-    <string name="color_confusion_demo_title">Toca les paraules coincidents</string>
+    <string name="color_confusion_demo_title">La tinta compta, no la paraula</string>
     <string name="flags_demo_title">Anomena el país</string>
     <string name="mental_calculation_demo_title">Porta el resultat endavant</string>
     <string name="mental_calculation_demo_keep">%1$d ve del resultat anterior.</string>

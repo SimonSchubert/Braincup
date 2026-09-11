@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Mémorise les formes sur la grille, puis repère la forme cachée une fois le chrono terminé.</string>
     <string name="game_pattern_sequence_desc">Trouve la règle de chaque ligne, puis choisis la pièce qui la complète.</string>
     <string name="game_ghost_grid_desc">Regarde les cases s'allumer une par une, puis touche-les dans le même ordre.</string>
-    <string name="game_color_confusion_desc">Touche toutes les cases où le mot correspond à sa couleur, puis appuie sur Terminé.</string>
+    <string name="game_color_confusion_desc">Un mot de couleur apparaît en encre colorée. Touche la couleur de l'encre, pas celle que le mot dit.</string>
     <string name="game_orbit_tracker_desc">Repère les balles en surbrillance, puis suis-les pendant qu'elles bougent. Quand elles s'arrêtent, touche les cibles de départ.</string>
     <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touche le côté qui en avait plus. Ne compte pas - fie-toi à ton instinct !</string>
     <string name="game_schulte_table_desc">Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.</string>
@@ -780,7 +780,7 @@
     <string name="visual_memory_demo_title">Mémorise ce qui va où</string>
     <string name="digit_memory_demo_title">Mémorise, sois distrait, rappelle-toi</string>
     <string name="pattern_sequence_demo_rule">Chaque ligne utilise les trois mêmes formes dans un ordre décalé.</string>
-    <string name="color_confusion_demo_title">Touche les mots qui correspondent</string>
+    <string name="color_confusion_demo_title">L'encre compte, pas le mot</string>
     <string name="flags_demo_title">Nomme le pays</string>
     <string name="mental_calculation_demo_title">Reporte le résultat</string>
     <string name="mental_calculation_demo_keep">%1$d est reporté du résultat précédent.</string>
@@ -841,7 +841,7 @@
     <string name="game_mental_rotations">Rotations mentales</string>
     <string name="game_mental_flex">Flexibilité mentale</string>
     <string name="game_rule_shift">Changement de règle</string>
-    <string name="game_trio_desc">Trouve trois cartes qui partagent une forme, un nombre ou un remplissage.</string>
+    <string name="game_trio_desc">Trouve trois cartes qui ont en commun la forme, le remplissage ou le nombre de marques.</string>
     <string name="game_mental_rotations_desc">Détermine si le second bloc est le premier pivoté ou son image miroir.</string>
     <string name="game_mental_rotations_question">Même bloc ou image miroir ?</string>
     <string name="game_mental_rotations_same">Identique</string>

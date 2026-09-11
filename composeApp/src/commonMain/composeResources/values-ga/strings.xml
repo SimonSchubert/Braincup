@@ -308,7 +308,7 @@
     <string name="game_visual_memory_desc">Meabhraigh cruthanna na heangaí agus aithin an cruth folaithe nuair a chríochnaíonn an t-amadóir.</string>
     <string name="game_pattern_sequence_desc">Faigh an riail i ngach ró agus roghnaigh an píosa a chomhlánaíonn í.</string>
     <string name="game_ghost_grid_desc">Féach ar na tíl ag lasadh ceann i ndiaidh a chéile, ansin tapáil iad san ord céanna.</string>
-    <string name="game_color_confusion_desc">Tapáil gach cill ina n-oireann an focal le dath an chló, ansin brúigh Déanta.</string>
+    <string name="game_color_confusion_desc">Tagann focal datha i ndúch daite. Tapáil dath an dúigh, ní an dath a ainmníonn an focal.</string>
     <string name="game_orbit_tracker_desc">Féach ar na liathróidí aibhsithe agus lean iad agus iad ag gluaiseacht. Roghnaigh na spriceanna bunaidh nuair a stopann siad.</string>
     <string name="game_bubble_sum_desc">Suimigh na huimhreacha ar na boilgeoga snámha. Níos déanaí caochaíonn na huimhreacha — meabhraigh iad.</string>
     <string name="bubble_sum_instruction">Cad é an tsuim?</string>
@@ -346,7 +346,7 @@
     <string name="missing_operators_demo_title">Faigh na hoibreoirí atá in easnamh</string>
     <string name="missing_operators_demo_desc">Roghnaigh na comharthaí ionas go n-oireann an chothromóid. Ríomhtar oibreoirí de réir an ghnáthordaithe.</string>
     <string name="game_bulls_and_cows_desc">Buille faoi thuairim an uimhir rúnda 4 dhigit le digití uathúla. Bulls = digit cheart san áit cheart. Cows = digit cheart san áit mhícheart.</string>
-    <string name="game_trio_desc">Faigh trí chárta a roinneann cruth, líon nó líonadh.</string>
+    <string name="game_trio_desc">Faigh trí chárta a bhfuil an cruth céanna, an líonadh céanna nó an líon céanna comharthaí orthu.</string>
     <string name="game_mental_rotations_desc">Cinn an é an dara bloc an chéad cheann casta, nó a scátháníomhá.</string>
     <string name="game_mental_rotations_question">An bloc céanna, nó scátháníomhá?</string>
     <string name="game_mental_rotations_same">Mar an gcéanna</string>
@@ -449,7 +449,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="visual_memory_demo_title">Meabhraigh cad a théann cá háit</string>
     <string name="digit_memory_demo_title">Meabhraigh, tarraing aird, meabhraigh arís</string>
     <string name="pattern_sequence_demo_rule">Úsáideann gach ró na trí chruth chéanna in ord aistrithe.</string>
-    <string name="color_confusion_demo_title">Tapáil focail a oireann</string>
+    <string name="color_confusion_demo_title">Freagair an dúch, ní an focal</string>
     <string name="flags_demo_title">Ainmnigh an tír</string>
     <string name="mental_calculation_demo_title">Tabhair an toradh ar aghaidh</string>
     <string name="mental_calculation_demo_keep">Tagann %1$d ón toradh roimhe.</string>

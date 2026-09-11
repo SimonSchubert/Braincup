@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">ग्रिडवरील आकार लक्षात ठेवा, वेळ संपल्यावर लपलेला आकार ओळखा.</string>
     <string name="game_pattern_sequence_desc">ग्रिडच्या प्रत्येक रांगेत चालणारा नियम ओळखा आणि तो पूर्ण करणारा तुकडा निवडा.</string>
     <string name="game_ghost_grid_desc">चौकटी एकामागून एक उजळताना पहा, मग त्याच क्रमाने त्यांवर टॅप करा.</string>
-    <string name="game_color_confusion_desc">जिथे शब्द त्याच्या फॉन्ट रंगाशी जुळतो त्या सर्व घरांवर टॅप करा, मग पूर्ण झाले दाबा.</string>
+    <string name="game_color_confusion_desc">एक रंगशब्द रंगीत शाईत दिसतो. शाईच्या रंगावर टॅप करा, शब्द सांगतो त्या रंगावर नाही.</string>
     <string name="game_orbit_tracker_desc">ठळक केलेले चेंडू पहा, ते हलताना त्यांचा मागोवा घ्या. ते थांबल्यावर मूळ लक्ष्ये निवडा.</string>
     <string name="game_bubble_sum_desc">तरंगत्या बुडबुड्यांवरील अंकांची बेरीज करा. नंतर अंक लुकलुकतात — ते लक्षात ठेवा.</string>
     <string name="bubble_sum_instruction">बेरीज किती?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">हरवलेली चिन्हे शोधा</string>
     <string name="missing_operators_demo_desc">समीकरण खरे करण्यासाठी चिन्हे निवडा. चिन्हांचे मूल्यमापन प्रमाणित गणिती प्राधान्यक्रमाने होते.</string>
     <string name="game_bulls_and_cows_desc">वेगवेगळे अंक असलेल्या गुप्त 4 अंकी संख्येचा अंदाज लावा. Bulls = बरोबर जागी बरोबर अंक. Cows = चुकीच्या जागी बरोबर अंक.</string>
-    <string name="game_trio_desc">एकच आकार, संख्या किंवा भरणी असलेली तीन पत्ते शोधा.</string>
+    <string name="game_trio_desc">आकार, भरणी किंवा चिन्हे किती समान असलेली तीन पत्ते शोधा.</string>
     <string name="game_mental_rotations_desc">दुसरा ठोकळा हा पहिलाच फिरवलेला आहे की त्याचे आरशातील प्रतिबिंब, हे ठरवा.</string>
     <string name="game_mental_rotations_question">तोच ठोकळा की आरशातील प्रतिबिंब?</string>
     <string name="game_mental_rotations_same">तोच</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">काय कुठे आहे ते लक्षात ठेवा</string>
     <string name="digit_memory_demo_title">लक्षात ठेवा, लक्ष विचलित करा, आठवा</string>
     <string name="pattern_sequence_demo_rule">प्रत्येक रांग तेच तीन आकार सरकलेल्या क्रमाने वापरते.</string>
-    <string name="color_confusion_demo_title">जुळणाऱ्या शब्दांवर टॅप करा</string>
+    <string name="color_confusion_demo_title">उत्तर शाईचे, शब्दाचे नाही</string>
     <string name="flags_demo_title">देशाचे नाव सांगा</string>
     <string name="mental_calculation_demo_title">निकाल पुढे न्या</string>
     <string name="mental_calculation_demo_keep">मागील निकालातून %1$d पुढे येतो.</string>

@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">ഗ്രിഡിലെ രൂപങ്ങൾ ഓർമ്മിക്കുക, സമയം കഴിഞ്ഞശേഷം മറഞ്ഞ രൂപം തിരിച്ചറിയുക.</string>
     <string name="game_pattern_sequence_desc">ഗ്രിഡിന്റെ ഓരോ നിരയിലും ഓടുന്ന നിയമം കണ്ടെത്തി, അതിനെ പൂർത്തിയാക്കുന്ന കഷണം തിരഞ്ഞെടുക്കുക.</string>
     <string name="game_ghost_grid_desc">കള്ളികൾ ഒന്നൊന്നായി തെളിയുന്നത് കാണുക, പിന്നെ അതേ ക്രമത്തിൽ അവയിൽ ടാപ്പ് ചെയ്യുക.</string>
-    <string name="game_color_confusion_desc">വാക്ക് അതിന്റെ ഫോണ്ട് നിറവുമായി ചേരുന്ന എല്ലാ കള്ളികളിലും ടാപ്പ് ചെയ്ത ശേഷം കഴിഞ്ഞു അമർത്തുക.</string>
+    <string name="game_color_confusion_desc">ഒരു നിറവാക്ക് നിറമുള്ള മഷിയിൽ കാണാം. മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക, വാക്ക് പറയുന്ന നിറത്തിലല്ല.</string>
     <string name="game_orbit_tracker_desc">എടുത്തുകാട്ടിയ പന്തുകൾ കാണുക, അവ നീങ്ങുമ്പോൾ പിന്തുടരുക. അവ നിന്നശേഷം യഥാർത്ഥ ലക്ഷ്യങ്ങൾ തിരഞ്ഞെടുക്കുക.</string>
     <string name="game_bubble_sum_desc">ഒഴുകുന്ന കുമിളകളിലെ അക്കങ്ങൾ കൂട്ടുക. പിന്നീട് അക്കങ്ങൾ മിന്നും — അവ ഓർത്തുവയ്ക്കുക.</string>
     <string name="bubble_sum_instruction">തുക എത്ര?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">നഷ്ടപ്പെട്ട ചിഹ്നങ്ങൾ കണ്ടെത്തുക</string>
     <string name="missing_operators_demo_desc">സമവാക്യം ശരിയാക്കാൻ ചിഹ്നങ്ങൾ തിരഞ്ഞെടുക്കുക. ചിഹ്നങ്ങൾ സാധാരണ ഗണിത മുൻഗണനാക്രമത്തിലാണ് കണക്കാക്കുന്നത്.</string>
     <string name="game_bulls_and_cows_desc">വ്യത്യസ്ത അക്കങ്ങളുള്ള രഹസ്യ 4 അക്ക സംഖ്യ ഊഹിക്കുക. Bulls = ശരിയായ സ്ഥാനത്ത് ശരിയായ അക്കം. Cows = തെറ്റായ സ്ഥാനത്ത് ശരിയായ അക്കം.</string>
-    <string name="game_trio_desc">ഒരേ ആകൃതിയോ എണ്ണമോ നിറപ്പകർച്ചയോ ഉള്ള മൂന്ന് ചീട്ടുകൾ കണ്ടെത്തുക.</string>
+    <string name="game_trio_desc">രൂപം, നിറയ്ക്കൽ അല്ലെങ്കിൽ അടയാളങ്ങൾ എത്ര എന്നതിൽ ഒരുപോലെയുള്ള മൂന്ന് ചീട്ടുകൾ കണ്ടെത്തുക.</string>
     <string name="game_mental_rotations_desc">രണ്ടാമത്തെ ബ്ലോക്ക് ആദ്യത്തേത് തിരിച്ചതാണോ അതോ അതിന്റെ കണ്ണാടിപ്രതിബിംബമാണോ എന്ന് തീരുമാനിക്കുക.</string>
     <string name="game_mental_rotations_question">അതേ ബ്ലോക്കോ, കണ്ണാടിപ്രതിബിംബമോ?</string>
     <string name="game_mental_rotations_same">അതേ</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">ഏത് എവിടെയെന്ന് ഓർക്കുക</string>
     <string name="digit_memory_demo_title">ഓർക്കുക, ശ്രദ്ധ മാറുക, ഓർത്തെടുക്കുക</string>
     <string name="pattern_sequence_demo_rule">ഓരോ നിരയും അതേ മൂന്ന് രൂപങ്ങൾ മാറിയ ക്രമത്തിൽ ഉപയോഗിക്കുന്നു.</string>
-    <string name="color_confusion_demo_title">ചേരുന്ന വാക്കുകളിൽ ടാപ്പ് ചെയ്യുക</string>
+    <string name="color_confusion_demo_title">ഉത്തരം മഷി, വാക്കല്ല</string>
     <string name="flags_demo_title">രാജ്യത്തിന്റെ പേര് പറയുക</string>
     <string name="mental_calculation_demo_title">ഫലം മുന്നോട്ട് കൊണ്ടുപോകുക</string>
     <string name="mental_calculation_demo_keep">മുൻ ഫലത്തിൽനിന്ന് %1$d മുന്നോട്ട് വരുന്നു.</string>

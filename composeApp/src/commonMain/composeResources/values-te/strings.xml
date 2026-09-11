@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">గ్రిడ్‌లోని ఆకారాలను గుర్తుంచుకోండి, టైమర్ ముగిశాక దాచిన ఆకారాన్ని గుర్తించండి.</string>
     <string name="game_pattern_sequence_desc">గ్రిడ్ ప్రతి వరుసలో నడిచే నియమాన్ని కనిపెట్టి, దాన్ని పూర్తి చేసే ముక్కను ఎంచుకోండి.</string>
     <string name="game_ghost_grid_desc">టైల్స్ ఒక్కొక్కటిగా వెలగడం చూడండి, తర్వాత అదే క్రమంలో వాటిని నొక్కండి.</string>
-    <string name="game_color_confusion_desc">పదం దాని ఫాంట్ రంగుతో సరిపోయే అన్ని గడులను నొక్కి, తర్వాత పూర్తయింది నొక్కండి.</string>
+    <string name="game_color_confusion_desc">ఒక రంగు పదం రంగుల సిరాలో కనిపిస్తుంది. సిరా రంగును నొక్కండి, పదం చెప్పే రంగును కాదు.</string>
     <string name="game_orbit_tracker_desc">హైలైట్ చేసిన బంతులను చూడండి, అవి కదులుతున్నప్పుడు వాటిని గమనించండి. ఆగిన తర్వాత అసలు లక్ష్యాలను ఎంచుకోండి.</string>
     <string name="game_bubble_sum_desc">తేలియాడే బుడగలపై సంఖ్యలను కూడండి. తర్వాత సంఖ్యలు మెరుస్తాయి — వాటిని గుర్తుంచుకోండి.</string>
     <string name="bubble_sum_instruction">మొత్తం ఎంత?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">తప్పిపోయిన ఆపరేటర్లను కనుగొనండి</string>
     <string name="missing_operators_demo_desc">సమీకరణాన్ని నిజం చేయడానికి ఆపరేటర్లను ఎంచుకోండి. ఆపరేటర్లు ప్రామాణిక గణిత ప్రాధాన్యత ప్రకారం లెక్కించబడతాయి.</string>
     <string name="game_bulls_and_cows_desc">ప్రత్యేక అంకెలున్న రహస్య 4 అంకెల సంఖ్యను ఊహించండి. Bulls = సరైన స్థానంలో సరైన అంకె. Cows = తప్పు స్థానంలో సరైన అంకె.</string>
-    <string name="game_trio_desc">ఒకే ఆకారం, సంఖ్య లేదా నింపు పంచుకునే మూడు కార్డులను కనుగొనండి.</string>
+    <string name="game_trio_desc">ఆకారం, నింపు లేదా గుర్తులు ఎన్ని అనేది పంచుకునే మూడు కార్డులను కనుగొనండి.</string>
     <string name="game_mental_rotations_desc">రెండో బ్లాక్ మొదటిదాన్ని తిప్పినదా లేక దాని అద్దపు ప్రతిబింబమా అని నిర్ణయించండి.</string>
     <string name="game_mental_rotations_question">అదే బ్లాకా, అద్దపు ప్రతిబింబమా?</string>
     <string name="game_mental_rotations_same">అదే</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">ఏది ఎక్కడ ఉందో గుర్తుంచుకోండి</string>
     <string name="digit_memory_demo_title">గుర్తుంచుకోండి, పరధ్యానం, మళ్లీ గుర్తుకుతెచ్చుకోండి</string>
     <string name="pattern_sequence_demo_rule">ప్రతి వరుస అవే మూడు ఆకారాలను మారిన క్రమంలో వాడుతుంది.</string>
-    <string name="color_confusion_demo_title">సరిపోయే పదాలను నొక్కండి</string>
+    <string name="color_confusion_demo_title">సమాధానం సిరా, పదం కాదు</string>
     <string name="flags_demo_title">దేశం పేరు చెప్పండి</string>
     <string name="mental_calculation_demo_title">ఫలితాన్ని ముందుకు తీసుకెళ్లండి</string>
     <string name="mental_calculation_demo_keep">మునుపటి ఫలితం నుండి %1$d వస్తుంది.</string>

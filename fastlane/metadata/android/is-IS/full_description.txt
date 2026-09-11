@@ -37,7 +37,7 @@ Mundu formin og greindu falið formið þegar tímamælirinn rennur út.
 Horfðu á flísarnar kvikna eina af annarri og ýttu á þær í sömu röð.
 
 <b>Litaruglingur</b>:
-Ýttu á alla reiti þar sem orðið passar við lit letursins.
+Ýttu á litinn sem orðið er prentað með, ekki litinn sem orðið nefnir.
 
 <b>Litaðar myndir</b>:
 Leggðu saman stigin úr sönnum fullyrðingum.
@@ -124,7 +124,7 @@ Hver umferð kveikir eina nýja flís. Ýttu á alla rununa frá byrjun.
 Skiptu um samsvarandi flísar til að hreinsa raðir af þremur eða fleiri. Tæmdu allt borðið til að vinna.
 
 <b>Trio</b>:
-Finndu þrjú spil sem deila formi, fjölda eða fyllingu.
+Finndu þrjú spil sem eiga form, fyllingu eða fjölda tákna sameiginlegt.
 
 Leikurinn hefur nokkur <b>afrek</b> og hver æfing hefur <b>verðlaun</b> sem halda þér við efnið.
 

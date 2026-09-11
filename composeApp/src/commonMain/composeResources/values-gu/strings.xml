@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">ગ્રિડ પરના આકારો યાદ રાખો, સમય પૂરો થયા પછી છુપાયેલો આકાર ઓળખો.</string>
     <string name="game_pattern_sequence_desc">ગ્રિડની દરેક હરોળમાં ચાલતો નિયમ શોધો, પછી તેને પૂરો કરતો ટુકડો પસંદ કરો.</string>
     <string name="game_ghost_grid_desc">ખાનાં એક પછી એક ઝળહળે તે જુઓ, પછી એ જ ક્રમમાં તેમના પર ટેપ કરો.</string>
-    <string name="game_color_confusion_desc">જ્યાં શબ્દ તેના ફોન્ટ રંગ સાથે મળે તે બધા ખાનાં પર ટેપ કરો, પછી પૂરું થયું દબાવો.</string>
+    <string name="game_color_confusion_desc">એક રંગનો શબ્દ રંગીન શાહીમાં દેખાય છે. શાહીના રંગ પર ટેપ કરો, શબ્દ જે રંગ કહે તેના પર નહીં.</string>
     <string name="game_orbit_tracker_desc">ઉજાગર કરેલા દડા જુઓ, તે ખસે ત્યારે તેમનો પીછો કરો. તે અટકે પછી મૂળ લક્ષ્યો પસંદ કરો.</string>
     <string name="game_bubble_sum_desc">તરતા પરપોટા પરના અંકો સરવાળો. પછી અંકો ઝબકે છે — તે યાદ રાખો.</string>
     <string name="bubble_sum_instruction">સરવાળો કેટલો?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">ખૂટતાં ચિહ્નો શોધો</string>
     <string name="missing_operators_demo_desc">સમીકરણ સાચું બનાવવા ચિહ્નો પસંદ કરો. ચિહ્નોનું મૂલ્યાંકન પ્રમાણભૂત ગણિતના અગ્રતાક્રમ પ્રમાણે થાય છે.</string>
     <string name="game_bulls_and_cows_desc">અલગ અલગ અંકોવાળી ગુપ્ત 4 અંકની સંખ્યાનું અનુમાન કરો. Bulls = સાચી જગ્યાએ સાચો અંક. Cows = ખોટી જગ્યાએ સાચો અંક.</string>
-    <string name="game_trio_desc">એક જ આકાર, સંખ્યા કે ભરણી ધરાવતાં ત્રણ પત્તાં શોધો.</string>
+    <string name="game_trio_desc">આકાર, ભરાવ કે ચિહ્ન કેટલાં સરખાં હોય તેવાં ત્રણ પત્તાં શોધો.</string>
     <string name="game_mental_rotations_desc">નક્કી કરો કે બીજો બ્લોક પહેલો જ ફેરવેલો છે કે તેનું અરીસા-પ્રતિબિંબ.</string>
     <string name="game_mental_rotations_question">એ જ બ્લોક કે અરીસા-પ્રતિબિંબ?</string>
     <string name="game_mental_rotations_same">એ જ</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">શું ક્યાં છે તે યાદ રાખો</string>
     <string name="digit_memory_demo_title">યાદ રાખો, ધ્યાન ભટકાવો, ફરી યાદ કરો</string>
     <string name="pattern_sequence_demo_rule">દરેક હરોળ એ જ ત્રણ આકારો ખસેલા ક્રમમાં વાપરે છે.</string>
-    <string name="color_confusion_demo_title">મળતા શબ્દો પર ટેપ કરો</string>
+    <string name="color_confusion_demo_title">જવાબ શાહીનો, શબ્દનો નહીં</string>
     <string name="flags_demo_title">દેશનું નામ કહો</string>
     <string name="mental_calculation_demo_title">પરિણામ આગળ લઈ જાઓ</string>
     <string name="mental_calculation_demo_keep">પાછલા પરિણામમાંથી %1$d આગળ આવે છે.</string>

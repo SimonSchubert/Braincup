@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
     <string name="game_pattern_sequence_desc">Izgaranın her satırında ilerleyen kuralı bul, sonra onu tamamlayan parçayı seç.</string>
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
-    <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti'ye basın.</string>
+    <string name="game_color_confusion_desc">Bir renk kelimesi renkli mürekkeple görünür. Mürekkebin rengine dokun, kelimenin söylediği renge değil.</string>
     <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
     <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
     <string name="game_schulte_table_desc">Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">Neyin nerede olduğunu hatırla</string>
     <string name="digit_memory_demo_title">Ezberle, dağıl, hatırla</string>
     <string name="pattern_sequence_demo_rule">Her satır aynı üç şekli kaydırılmış bir sırayla kullanır.</string>
-    <string name="color_confusion_demo_title">Eşleşen kelimelere dokun</string>
+    <string name="color_confusion_demo_title">Mürekkebi yanıtla, kelimeyi değil</string>
     <string name="flags_demo_title">Ülkeyi adlandır</string>
     <string name="mental_calculation_demo_title">Sonucu ileriye taşı</string>
     <string name="mental_calculation_demo_keep">%1$d önceki sonuçtan aktarılır.</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">Zihinsel Döndürme</string>
     <string name="game_mental_flex">Zihinsel Esneklik</string>
     <string name="game_rule_shift">Kural Değişimi</string>
-    <string name="game_trio_desc">Şekil, sayı veya dolgusu ortak olan üç kart bulun.</string>
+    <string name="game_trio_desc">Şekil, dolgu veya üzerlerindeki işaret sayısı ortak olan üç kart bul.</string>
     <string name="game_mental_rotations_desc">İkinci bloğun birincinin döndürülmüş hali mi, yoksa ayna görüntüsü mü olduğuna karar ver.</string>
     <string name="game_mental_rotations_question">Aynı blok mu, ayna görüntüsü mü?</string>
     <string name="game_mental_rotations_same">Aynı</string>

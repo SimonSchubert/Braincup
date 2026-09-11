@@ -37,7 +37,7 @@ Recorda les formes i identifica la forma amagada quan s'acabi el temporitzador.
 Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.
 
 <b>Confusió de colors</b>:
-Toca totes les caselles on la paraula coincideix amb el color de la lletra.
+Toca el color amb què està impresa la paraula, no el que diu la paraula.
 
 <b>Figures de colors</b>:
 Suma els punts de les afirmacions certes.
@@ -124,7 +124,7 @@ Cada ronda encén una fitxa nova. Toca tota la seqüència des del principi.
 Intercanvia fitxes coincidents per esborrar files de tres o més. Buida el tauler i guanyes.
 
 <b>Trio</b>:
-Troba tres cartes que comparteixin forma, quantitat o farciment.
+Troba tres cartes que tinguin en comú la forma, el farciment o quantes marques porten.
 
 El joc té diversos <b>assoliments</b> i cada exercici té <b>medalles</b> que et motiven.
 

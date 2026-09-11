@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">گرڈ کی شکلیں یاد رکھیں، پھر ٹائمر ختم ہونے پر چھپی شکل پہچانیں۔</string>
     <string name="game_pattern_sequence_desc">ہر قطار کا قاعدہ معلوم کریں، پھر وہ ٹکڑا چنیں جو اسے مکمل کرے۔</string>
     <string name="game_ghost_grid_desc">خانے ایک ایک کر کے روشن ہوتے دیکھیں، پھر اسی ترتیب میں دبائیں۔</string>
-    <string name="game_color_confusion_desc">وہ تمام خانے دبائیں جہاں لفظ اپنے رنگ سے میل کھاتا ہو، پھر مکمل دبائیں۔</string>
+    <string name="game_color_confusion_desc">ایک رنگ کا لفظ رنگین سیاہی میں آتا ہے۔ سیاہی کا رنگ دبائیں، وہ رنگ نہیں جو لفظ بتاتا ہے۔</string>
     <string name="game_orbit_tracker_desc">نمایاں گیندیں دیکھیں، حرکت میں ان کا پیچھا کریں۔ رکنے کے بعد اصل اہداف منتخب کریں۔</string>
     <string name="game_bubble_sum_desc">تیرتے بلبلوں کے اعداد جمع کریں۔ بعد میں اعداد جھپکیں گے — یاد رکھیں۔</string>
     <string name="bubble_sum_instruction">حاصل جمع کیا ہے؟</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">غائب عامل تلاش کریں</string>
     <string name="missing_operators_demo_desc">مساوات درست کرنے کے لیے عامل منتخب کریں۔ عام ریاضی کی ترتیب سے حساب ہوتا ہے۔</string>
     <string name="game_bulls_and_cows_desc">منفرد ہندسوں والا خفیہ 4 ہندسی عدد اندازہ لگائیں۔ Bulls = درست ہندسہ درست جگہ۔ Cows = درست ہندسہ غلط جگہ۔</string>
-    <string name="game_trio_desc">تین کارڈ تلاش کریں جو شکل، تعداد یا بھرنے میں مشترک ہوں۔</string>
+    <string name="game_trio_desc">تین کارڈ تلاش کریں جو شکل، بھراؤ یا کتنے نشانوں میں مشترک ہوں۔</string>
     <string name="game_mental_rotations_desc">فیصلہ کریں کہ دوسرا بلاک پہلے کو گھما کر بنایا گیا ہے یا اس کا آئینی عکس ہے۔</string>
     <string name="game_mental_rotations_question">وہی بلاک یا آئینی عکس؟</string>
     <string name="game_mental_rotations_same">وہی</string>
@@ -435,7 +435,7 @@
     <string name="visual_memory_demo_title">کیا کہاں ہے یاد رکھیں</string>
     <string name="digit_memory_demo_title">یاد کریں، توجہ ہٹے، پھر یاد لائیں</string>
     <string name="pattern_sequence_demo_rule">ہر قطار تین شکلیں ایک ہٹی ہوئی ترتیب میں استعمال کرتی ہے۔</string>
-    <string name="color_confusion_demo_title">میل کھاتے الفاظ دبائیں</string>
+    <string name="color_confusion_demo_title">سیاہی کا جواب دیں، لفظ کا نہیں</string>
     <string name="flags_demo_title">ملک کا نام بتائیں</string>
     <string name="mental_calculation_demo_title">نتیجہ آگے لے جائیں</string>
     <string name="mental_calculation_demo_keep">پچھلے نتیجے سے %1$d آگے جاتا ہے۔</string>

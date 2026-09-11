@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">ग्रिड पर आकृतियों को याद करें, फिर टाइमर समाप्त होने के बाद छिपी हुई आकृति की पहचान करें।</string>
     <string name="game_pattern_sequence_desc">ग्रिड की हर पंक्ति में चलने वाला नियम पहचानें, फिर उसे पूरा करने वाला टुकड़ा चुनें।</string>
     <string name="game_ghost_grid_desc">टाइलों को एक-एक करके जलते हुए देखें, फिर उन्हें उसी क्रम में टैप करें।</string>
-    <string name="game_color_confusion_desc">उन सभी सेल को टैप करें जहाँ शब्द फ़ॉन्ट रंग से मेल खाता है, फिर पूर्ण दबाएँ।</string>
+    <string name="game_color_confusion_desc">एक रंग का शब्द रंगीन स्याही में दिखता है। स्याही के रंग पर टैप करें, उस रंग पर नहीं जो शब्द बताता है।</string>
     <string name="game_orbit_tracker_desc">हाइलाइट की गई गेंदों को देखें, फिर उनकी गति को ट्रैक करें। रुकने के बाद मूल लक्ष्यों को चुनें।</string>
     <string name="game_flash_crowd_desc">हर तरफ कुछ देर के लिए बिंदु चमकते हैं। जिस तरफ अधिक बिंदु थे, उसे टैप करें। गिनें नहीं — अपनी अंतर्ज्ञान पर भरोसा करें!</string>
     <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">याद रखें क्या कहाँ है</string>
     <string name="digit_memory_demo_title">याद करें, ध्यान भटकाएँ, फिर स्मरण करें</string>
     <string name="pattern_sequence_demo_rule">हर पंक्ति वही तीन आकृतियाँ बदले हुए क्रम में इस्तेमाल करती है।</string>
-    <string name="color_confusion_demo_title">मिलान करने वाले शब्दों पर टैप करें</string>
+    <string name="color_confusion_demo_title">स्याही का उत्तर, शब्द का नहीं</string>
     <string name="flags_demo_title">देश का नाम बताएँ</string>
     <string name="mental_calculation_demo_title">परिणाम आगे ले जाएँ</string>
     <string name="mental_calculation_demo_keep">%1$d पिछले परिणाम से आगे आता है।</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">मानसिक घूर्णन</string>
     <string name="game_mental_flex">मानसिक लचीलापन</string>
     <string name="game_rule_shift">नियम बदल</string>
-    <string name="game_trio_desc">तीन पत्ते खोजें जिनका आकार, संख्या या भराव एक जैसा हो।</string>
+    <string name="game_trio_desc">तीन पत्ते खोजें जो आकृति, भराव या चिह्नों की गिनती साझा करते हों।</string>
     <string name="game_mental_rotations_desc">तय करें कि दूसरा ब्लॉक पहले वाला ही घुमाया हुआ है या उसका दर्पण-प्रतिबिंब।</string>
     <string name="game_mental_rotations_question">वही ब्लॉक या दर्पण-प्रतिबिंब?</string>
     <string name="game_mental_rotations_same">वही</string>

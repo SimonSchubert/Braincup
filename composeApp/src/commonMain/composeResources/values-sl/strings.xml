@@ -304,7 +304,7 @@
     <string name="game_visual_memory_desc">Zapomni si like v mreži in po izteku časovnika določi skriti lik.</string>
     <string name="game_pattern_sequence_desc">Odkrij pravilo v vsaki vrstici mreže in izberi kos, ki ga dopolni.</string>
     <string name="game_ghost_grid_desc">Spremljaj, kako se ploščice prižigajo ena za drugo, in se jih dotakni v istem vrstnem redu.</string>
-    <string name="game_color_confusion_desc">Dotakni se vseh celic, kjer se beseda ujema z barvo pisave, nato pritisni Končano.</string>
+    <string name="game_color_confusion_desc">Barvna beseda se pojavi v obarvanem črnilu. Dotakni se barve črnila, ne barve, ki jo beseda pove.</string>
     <string name="game_orbit_tracker_desc">Spremljaj osvetljene kroglice in jih drži, ko se premikajo. Ko se ustavijo, izberi izvirne cilje.</string>
     <string name="game_bubble_sum_desc">Seštej števila na plavajočih mehurčkih. Kasneje števila utripajo — zapomni si jih.</string>
     <string name="bubble_sum_instruction">Kolikšna je vsota?</string>
@@ -342,7 +342,7 @@
     <string name="missing_operators_demo_title">Najdi manjkajoče operatorje</string>
     <string name="missing_operators_demo_desc">Izberi operatorje, da bo enačba pravilna. Operatorji se računajo po običajnem vrstnem redu.</string>
     <string name="game_bulls_and_cows_desc">Ugani tajno 4-mestno število z enkratnimi števkami. Bulls = pravilna števka na pravem mestu. Cows = pravilna števka na napačnem mestu.</string>
-    <string name="game_trio_desc">Najdi tri karte, ki si delijo obliko, število ali polnilo.</string>
+    <string name="game_trio_desc">Najdi tri karte s skupno obliko, polnilom ali številom znakov.</string>
     <string name="game_mental_rotations_desc">Odloči se, ali je drugi blok prvi, samo zavrten, ali njegova zrcalna slika.</string>
     <string name="game_mental_rotations_question">Isti blok ali zrcalna slika?</string>
     <string name="game_mental_rotations_same">Isti</string>
@@ -445,7 +445,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="visual_memory_demo_title">Zapomni si, kaj kam sodi</string>
     <string name="digit_memory_demo_title">Zapomni si, zmoti se, spomni se</string>
     <string name="pattern_sequence_demo_rule">Vsaka vrstica uporablja iste tri like v zamaknjenem vrstnem redu.</string>
-    <string name="color_confusion_demo_title">Dotakni se ujemajočih se besed</string>
+    <string name="color_confusion_demo_title">Črnilo, ne beseda</string>
     <string name="flags_demo_title">Prepoznaj državo</string>
     <string name="mental_calculation_demo_title">Prenesi rezultat naprej</string>
     <string name="mental_calculation_demo_keep">%1$d se prenese iz prejšnjega rezultata.</string>

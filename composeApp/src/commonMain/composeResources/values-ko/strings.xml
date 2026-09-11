@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">그리드의 도형을 기억한 후 타이머가 끝나면 숨겨진 도형을 식별하세요.</string>
     <string name="game_pattern_sequence_desc">격자의 각 행을 관통하는 규칙을 찾아 이를 완성하는 조각을 고르세요.</string>
     <string name="game_ghost_grid_desc">타일이 하나씩 켜지는 것을 보고, 같은 순서로 탭하세요.</string>
-    <string name="game_color_confusion_desc">단어가 글꼴 색상과 일치하는 모든 셀을 탭한 다음 완료를 누르세요.</string>
+    <string name="game_color_confusion_desc">색 단어가 색깔 잉크로 나타납니다. 글자가 말하는 색이 아니라 잉크의 색을 탭하세요.</string>
     <string name="game_orbit_tracker_desc">강조된 공을 관찰한 후 움직임을 추적하세요. 멈춘 후 원래 목표물을 선택하세요.</string>
     <string name="game_flash_crowd_desc">각 쪽에 점이 잠깐 깜빡입니다. 점이 더 많았던 쪽을 탭하세요. 세지 마세요 — 직감을 믿으세요!</string>
     <string name="game_schulte_table_desc">1부터 순서대로 숫자를 최대한 빠르게 탭하세요.</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">어디에 무엇이 있는지 기억하기</string>
     <string name="digit_memory_demo_title">외우고, 방해받고, 떠올리기</string>
     <string name="pattern_sequence_demo_rule">모든 행은 같은 세 도형을 순서만 바꿔 사용합니다.</string>
-    <string name="color_confusion_demo_title">일치하는 단어 탭하기</string>
+    <string name="color_confusion_demo_title">잉크가 중요, 글자는 아님</string>
     <string name="flags_demo_title">나라 이름 맞추기</string>
     <string name="mental_calculation_demo_title">결과를 계속 이어가기</string>
     <string name="mental_calculation_demo_keep">이전 결과에서 %1$d이 넘어옵니다.</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">심적 회전</string>
     <string name="game_mental_flex">심적 유연성</string>
     <string name="game_rule_shift">규칙 전환</string>
-    <string name="game_trio_desc">모양, 개수, 채우기 중 하나를 공유하는 카드 세 장을 찾으세요.</string>
+    <string name="game_trio_desc">모양, 채우기, 표시 개수가 같은 카드 세 장을 찾으세요.</string>
     <string name="game_mental_rotations_desc">두 번째 블록이 첫 번째를 돌린 것인지, 거울상인지 판단하세요.</string>
     <string name="game_mental_rotations_question">같은 블록일까요, 거울상일까요?</string>
     <string name="game_mental_rotations_same">같음</string>

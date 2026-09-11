@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Merk dir die Formen im Gitter. Wenn die Zeit um ist, tippe auf die versteckte Form.</string>
     <string name="game_pattern_sequence_desc">Finde die Regel in jeder Zeile und wähle das Teil, das sie vervollständigt.</string>
     <string name="game_ghost_grid_desc">Schau, wie die Felder nacheinander aufleuchten, und tippe sie in derselben Reihenfolge nach.</string>
-    <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort zu seiner Farbe passt, und dann auf Fertig.</string>
+    <string name="game_color_confusion_desc">Ein Farbwort erscheint in farbiger Tinte. Tippe die Farbe der Tinte an, nicht die Farbe, die das Wort nennt.</string>
     <string name="game_orbit_tracker_desc">Merk dir die markierten Kugeln und verfolge sie, während sie sich bewegen. Wenn sie stehen, tippe die ursprünglichen Ziele an.</string>
     <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
     <string name="game_schulte_table_desc">Tippe die Zahlen so schnell du kannst der Reihe nach an, von 1 aufwärts.</string>
@@ -780,7 +780,7 @@
     <string name="visual_memory_demo_title">Merk dir, was wohin gehört</string>
     <string name="digit_memory_demo_title">Einprägen, ablenken lassen, erinnern</string>
     <string name="pattern_sequence_demo_rule">Jede Zeile nutzt dieselben drei Formen in verschobener Reihenfolge.</string>
-    <string name="color_confusion_demo_title">Tippe auf die passenden Wörter</string>
+    <string name="color_confusion_demo_title">Die Tinte zählt, nicht das Wort</string>
     <string name="flags_demo_title">Nenne das Land</string>
     <string name="mental_calculation_demo_title">Ergebnis weiterrechnen</string>
     <string name="mental_calculation_demo_keep">%1$d wird vom vorherigen Ergebnis übernommen.</string>
@@ -841,7 +841,7 @@
     <string name="game_mental_rotations">Mentale Rotation</string>
     <string name="game_mental_flex">Mentale Flexibilität</string>
     <string name="game_rule_shift">Regelwechsel</string>
-    <string name="game_trio_desc">Finde drei Karten, die Form, Anzahl oder Füllung gemeinsam haben.</string>
+    <string name="game_trio_desc">Finde drei Karten, die Form, Füllung oder die Zahl der Zeichen gemeinsam haben.</string>
     <string name="game_mental_rotations_desc">Ist der zweite Block derselbe, nur gedreht, oder ein Spiegelbild?</string>
     <string name="game_mental_rotations_question">Gleicher Block oder Spiegelbild?</string>
     <string name="game_mental_rotations_same">Gleich</string>

@@ -37,7 +37,7 @@ Memorize as formas na grade e identifique a forma oculta após o término do cro
 Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.
 
 <b>Confusão de Cores</b>:
-Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.
+Toque na cor em que a palavra está impressa, não na que a palavra diz.
 
 <b>Formas coloridas</b>:
 Some os pontos das afirmações corretas.
@@ -124,7 +124,7 @@ A cada rodada, um novo botão se ilumina. Toque em toda a sequência desde o in�
 Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.
 
 <b>Trio</b>:
-Encontre três cartas que compartilhem forma, quantidade ou preenchimento.
+Encontre três cartas que tenham em comum a forma, o preenchimento ou quantas marcas carregam.
 
 O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
 

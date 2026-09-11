@@ -37,7 +37,7 @@ Atceries formas un pēc taimera beigām nosaki slēpto formu.
 Skaties, kā flīzes iedegas viena pēc otras, un pieskaries tām tajā pašā secībā.
 
 <b>Krāsu sajukums</b>:
-Pieskaries visām šūnām, kur vārds sakrīt ar fonta krāsu.
+Pieskaries krāsai, kādā vārds ir iespiests, nevis krāsai, ko vārds nosauc.
 
 <b>Krāsainas figūras</b>:
 Saskaiti punktus no patiesajiem apgalvojumiem.
@@ -124,7 +124,7 @@ Katra kārta iedeg vienu jaunu flīzi. Pieskaries visai secībai no sākuma.
 Apmaini sakrītošas flīzes un izdzēs rindas no trim un vairāk. Iztīri dēli un uzvari.
 
 <b>Trio</b>:
-Atrodi trīs kārtis, kas dala formu, skaitu vai aizpildījumu.
+Atrodi trīs kārtis, kurām ir kopīga forma, pildījums vai zīmju skaits.
 
 Spēlē ir vairāki <b>sasniegumi</b>, un katram vingrinājumam ir <b>medaļas</b>, kas uztur motivāciju.
 

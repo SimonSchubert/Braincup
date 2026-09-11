@@ -37,7 +37,7 @@ Mémorise les formes, puis repère celle cachée après le minuteur.
 Les cases s’allument une à une ; retape-les dans le même ordre.
 
 <b>Confusion de Couleurs</b>:
-Touche les cases où le mot correspond à la couleur de la police.
+Touche la couleur de l'encre, pas celle du mot.
 
 <b>Formes colorées</b>:
 Additionne les points des affirmations correctes.
@@ -124,7 +124,7 @@ Devinez le nombre secret à 4 chiffres avec des chiffres uniques.
 Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.
 
 <b>Trio</b>:
-Trouve trois cartes qui partagent une forme, un nombre ou un remplissage.
+Trouve trois cartes qui ont en commun la forme, le remplissage ou le nombre de marques.
 
 Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
 

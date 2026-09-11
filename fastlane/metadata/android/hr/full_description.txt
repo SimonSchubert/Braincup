@@ -37,7 +37,7 @@ Zapamti oblike i nakon isteka vremena odredi skriveni oblik.
 Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.
 
 <b>Zabuna boja</b>:
-Dodirni sve ćelije u kojima se riječ podudara s bojom fonta.
+Dodirni boju kojom je riječ ispisana, ne boju koju riječ govori.
 
 <b>Obojeni oblici</b>:
 Zbroji bodove iz točnih tvrdnji.
@@ -124,7 +124,7 @@ Svaka runda pali jednu novu pločicu. Dodirni cijeli slijed od početka.
 Zamijeni podudarne pločice i obriši redove od tri i više. Isprazni ploču i pobjeđuješ.
 
 <b>Trio</b>:
-Pronađi tri karte koje dijele oblik, broj ili ispunu.
+Pronađi tri karte koje imaju zajednički oblik, ispunu ili broj znakova.
 
 Igra ima nekoliko <b>postignuća</b> i svaka vježba ima <b>medalje</b> koje te motiviraju.
 

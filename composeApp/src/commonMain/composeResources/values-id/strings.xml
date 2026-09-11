@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.</string>
     <string name="game_pattern_sequence_desc">Temukan aturan yang berjalan di setiap baris kisi, lalu pilih kepingan yang melengkapinya.</string>
     <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>
-    <string name="game_color_confusion_desc">Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.</string>
+    <string name="game_color_confusion_desc">Sebuah kata warna muncul dengan tinta berwarna. Ketuk warna tintanya, bukan warna yang disebut kata itu.</string>
     <string name="game_orbit_tracker_desc">Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.</string>
     <string name="game_flash_crowd_desc">Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Jangan menghitung — percaya insting Anda!</string>
     <string name="game_schulte_table_desc">Ketuk angka secara berurutan dari 1 secepat mungkin.</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">Ingat apa yang ada di mana</string>
     <string name="digit_memory_demo_title">Hafal, terganggu, lalu ingat kembali</string>
     <string name="pattern_sequence_demo_rule">Setiap baris memakai tiga bentuk yang sama dengan urutan bergeser.</string>
-    <string name="color_confusion_demo_title">Ketuk kata yang cocok</string>
+    <string name="color_confusion_demo_title">Tintanya yang dihitung, bukan katanya</string>
     <string name="flags_demo_title">Sebutkan negaranya</string>
     <string name="mental_calculation_demo_title">Bawa hasil ke depan</string>
     <string name="mental_calculation_demo_keep">%1$d dibawa dari hasil sebelumnya.</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">Rotasi Mental</string>
     <string name="game_mental_flex">Fleksibilitas Mental</string>
     <string name="game_rule_shift">Pergantian Aturan</string>
-    <string name="game_trio_desc">Temukan tiga kartu yang berbagi bentuk, jumlah, atau isian.</string>
+    <string name="game_trio_desc">Temukan tiga kartu yang sama bentuk, isian, atau jumlah tandanya.</string>
     <string name="game_mental_rotations_desc">Tentukan apakah balok kedua adalah balok pertama yang diputar, atau bayangan cerminnya.</string>
     <string name="game_mental_rotations_question">Balok yang sama atau bayangan cermin?</string>
     <string name="game_mental_rotations_same">Sama</string>

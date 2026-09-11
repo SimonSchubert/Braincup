@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
     <string name="game_pattern_sequence_desc">グリッドの各行を貫く規則を見つけ、それを完成させるピースを選んでください。</string>
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
-    <string name="game_color_confusion_desc">単語がフォントの色と一致するすべてのセルをタップし、完了を押してください。</string>
+    <string name="game_color_confusion_desc">色の単語が色つきのインクで現れます。インクの色をタップしてください。言葉が示す色ではありません。</string>
     <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
     <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">どこに何があるか覚える</string>
     <string name="digit_memory_demo_title">覚えて、気を散らして、思い出す</string>
     <string name="pattern_sequence_demo_rule">どの行も同じ3つの形を順番をずらして使います。</string>
-    <string name="color_confusion_demo_title">一致する単語をタップ</string>
+    <string name="color_confusion_demo_title">インクが肝心、言葉ではない</string>
     <string name="flags_demo_title">国名を答える</string>
     <string name="mental_calculation_demo_title">結果を次に持ち越す</string>
     <string name="mental_calculation_demo_keep">前の結果から%1$dが持ち越されます。</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">メンタルローテーション</string>
     <string name="game_mental_flex">思考の切り替え</string>
     <string name="game_rule_shift">ルールチェンジ</string>
-    <string name="game_trio_desc">形・枚数・塗りのどれかを共有する3枚を見つけてください。</string>
+    <string name="game_trio_desc">形・塗り・マークの数が同じ3枚を見つけてください。</string>
     <string name="game_mental_rotations_desc">2つ目の立体が1つ目を回したものか、鏡像かを見分けよう。</string>
     <string name="game_mental_rotations_question">同じ立体？それとも鏡像？</string>
     <string name="game_mental_rotations_same">同じ</string>

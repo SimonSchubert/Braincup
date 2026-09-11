@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Memorera formerna i rutnätet och identifiera den dolda formen när timern tar slut.</string>
     <string name="game_pattern_sequence_desc">Lista ut regeln längs varje rad i rutnätet och välj biten som kompletterar det.</string>
     <string name="game_ghost_grid_desc">Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.</string>
-    <string name="game_color_confusion_desc">Tryck på alla rutor där ordet matchar textfärgen och tryck sedan på Klar.</string>
+    <string name="game_color_confusion_desc">Ett färgord visas i färgat bläck. Tryck på bläckets färg, inte färgen ordet nämner.</string>
     <string name="game_orbit_tracker_desc">Titta på de markerade bollarna och följ dem när de rör sig. Välj originalmålen när de stannar.</string>
     <string name="game_bubble_sum_desc">Addera talen på de flytande bubblorna. Senare blinkar talen — kom ihåg dem.</string>
     <string name="bubble_sum_instruction">Vad blir summan?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Hitta de saknade operatorerna</string>
     <string name="missing_operators_demo_desc">Välj operatorerna så att ekvationen stämmer. Operatorer utvärderas med vanlig matematisk prioritet.</string>
     <string name="game_bulls_and_cows_desc">Gissa det hemliga fyrsiffriga talet med unika siffror. Bulls = rätt siffra på rätt plats. Cows = rätt siffra på fel plats.</string>
-    <string name="game_trio_desc">Hitta tre kort som delar form, antal eller fyllning.</string>
+    <string name="game_trio_desc">Hitta tre kort som har form, fyllning eller hur många tecken de bär gemensamt.</string>
     <string name="game_mental_rotations_desc">Avgör om det andra blocket är det första vridet, eller dess spegelbild.</string>
     <string name="game_mental_rotations_question">Samma block eller spegelbild?</string>
     <string name="game_mental_rotations_same">Samma</string>
@@ -435,7 +435,7 @@
     <string name="visual_memory_demo_title">Kom ihåg vad som ligger var</string>
     <string name="digit_memory_demo_title">Memorera, bli störd, återge</string>
     <string name="pattern_sequence_demo_rule">Varje rad använder samma tre former i en förskjuten ordning.</string>
-    <string name="color_confusion_demo_title">Tryck på matchande ord</string>
+    <string name="color_confusion_demo_title">Bläcket gäller, inte ordet</string>
     <string name="flags_demo_title">Namnge landet</string>
     <string name="mental_calculation_demo_title">Ta med resultatet vidare</string>
     <string name="mental_calculation_demo_keep">%1$d följer med från föregående resultat.</string>

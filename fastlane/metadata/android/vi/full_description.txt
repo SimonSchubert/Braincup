@@ -37,7 +37,7 @@ Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi h�
 Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.
 
 <b>Nhầm lẫn Màu sắc</b>:
-Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.
+Chạm màu mực in của từ, không phải màu từ gọi tên.
 
 <b>Hình dạng màu sắc</b>:
 Cộng điểm từ các phát biểu đúng.
@@ -124,7 +124,7 @@ Mỗi vòng có một nút mới sáng lên. Hãy chạm lại toàn bộ chuỗ
 Đổi các ô khớp nhau để xóa hàng ba ô trở lên. Làm trống toàn bộ bảng để thắng.
 
 <b>Trio</b>:
-Tìm ba lá bài chung hình, số lượng hoặc phần tô.
+Tìm ba lá bài cùng hình dạng, phần tô hoặc bao nhiêu dấu.
 
 Trò chơi có nhiều <b>thành tựu</b> và mỗi bài tập có <b>huy chương</b> để giữ động lực cho bạn.
 

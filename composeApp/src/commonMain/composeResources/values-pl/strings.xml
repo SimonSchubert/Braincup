@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.</string>
     <string name="game_pattern_sequence_desc">Odkryj regułę biegnącą przez każdy wiersz siatki, a potem wybierz element, który ją uzupełnia.</string>
     <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>
-    <string name="game_color_confusion_desc">Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.</string>
+    <string name="game_color_confusion_desc">Kolorowe słowo pojawia się w kolorowym atramencie. Dotknij koloru atramentu, nie koloru, który słowo nazywa.</string>
     <string name="game_orbit_tracker_desc">Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.</string>
     <string name="game_flash_crowd_desc">Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek. Nie licz — zaufaj swojemu instynktowi!</string>
     <string name="game_schulte_table_desc">Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.</string>
@@ -786,7 +786,7 @@
     <string name="visual_memory_demo_title">Zapamiętaj, co gdzie stoi</string>
     <string name="digit_memory_demo_title">Zapamiętaj, daj się rozproszyć, przypomnij</string>
     <string name="pattern_sequence_demo_rule">Każdy wiersz używa tych samych trzech kształtów w przesuniętej kolejności.</string>
-    <string name="color_confusion_demo_title">Dotknij pasujących słów</string>
+    <string name="color_confusion_demo_title">Atrament, nie słowo</string>
     <string name="flags_demo_title">Podaj nazwę kraju</string>
     <string name="mental_calculation_demo_title">Przenoś wynik dalej</string>
     <string name="mental_calculation_demo_keep">%1$d przenosi się z poprzedniego wyniku.</string>
@@ -849,7 +849,7 @@
     <string name="game_mental_rotations">Rotacje w wyobraźni</string>
     <string name="game_mental_flex">Elastyczność myślenia</string>
     <string name="game_rule_shift">Zmiana reguły</string>
-    <string name="game_trio_desc">Znajdź trzy karty, które mają wspólny kształt, liczbę albo wypełnienie.</string>
+    <string name="game_trio_desc">Znajdź trzy karty o wspólnym kształcie, wypełnieniu albo liczbie znaków.</string>
     <string name="game_mental_rotations_desc">Zdecyduj, czy drugi klocek to ten pierwszy obrócony, czy jego lustrzane odbicie.</string>
     <string name="game_mental_rotations_question">Ten sam klocek czy lustrzane odbicie?</string>
     <string name="game_mental_rotations_same">Ten sam</string>

@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">Zapamti oblike u mreži i nakon isteka vremena odredi skriveni oblik.</string>
     <string name="game_pattern_sequence_desc">Otkrij pravilo u svakom retku mreže i odaberi dijelić koji ga dopunjuje.</string>
     <string name="game_ghost_grid_desc">Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.</string>
-    <string name="game_color_confusion_desc">Dodirni sve ćelije u kojima se riječ podudara s bojom fonta, pa pritisni Gotovo.</string>
+    <string name="game_color_confusion_desc">Riječ boje pojavi se u obojenoj tinti. Dodirni boju tinte, ne boju koju riječ govori.</string>
     <string name="game_orbit_tracker_desc">Prati istaknute kugle i drži ih dok se kreću. Kad stanu, odaberi izvorne ciljeve.</string>
     <string name="game_bubble_sum_desc">Zbroji brojeve na plutajućim mjehurićima. Kasnije brojevi trepere — zapamti ih.</string>
     <string name="bubble_sum_instruction">Koliki je zbroj?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">Pronađi nedostajuće operatore</string>
     <string name="missing_operators_demo_desc">Odaberi operatore da jednadžba bude točna. Operatori se računaju prema uobičajenom redoslijedu.</string>
     <string name="game_bulls_and_cows_desc">Pogodi tajni 4-znamenkasti broj s jedinstvenim znamenkama. Bulls = točna znamenka na točnom mjestu. Cows = točna znamenka na krivom mjestu.</string>
-    <string name="game_trio_desc">Pronađi tri karte koje dijele oblik, broj ili ispunu.</string>
+    <string name="game_trio_desc">Pronađi tri karte koje imaju zajednički oblik, ispunu ili broj znakova.</string>
     <string name="game_mental_rotations_desc">Odluči je li drugi blok onaj prvi zakrenut ili njegova zrcalna slika.</string>
     <string name="game_mental_rotations_question">Isti blok ili zrcalna slika?</string>
     <string name="game_mental_rotations_same">Isti</string>
@@ -441,7 +441,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="visual_memory_demo_title">Zapamti što ide kamo</string>
     <string name="digit_memory_demo_title">Zapamti, ometaj, sjeti se</string>
     <string name="pattern_sequence_demo_rule">Svaki redak koristi ista tri oblika u pomaknutom redoslijedu.</string>
-    <string name="color_confusion_demo_title">Dodirni podudarne riječi</string>
+    <string name="color_confusion_demo_title">Tinta, ne riječ</string>
     <string name="flags_demo_title">Prepoznaj zemlju</string>
     <string name="mental_calculation_demo_title">Prenesi rezultat dalje</string>
     <string name="mental_calculation_demo_keep">%1$d se prenosi iz prethodnog rezultata.</string>

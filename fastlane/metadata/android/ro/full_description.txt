@@ -37,7 +37,7 @@ Memorează formele din grilă, apoi identifică forma ascunsă.
 Urmărește cum se aprind dalele una câte una, apoi apasă-le în aceeași ordine.
 
 <b>Confuzie de culori</b>:
-Apasă toate celulele unde cuvântul se potrivește cu culoarea fontului.
+Apasă culoarea în care e tipărit cuvântul, nu culoarea pe care o spune cuvântul.
 
 <b>Forme colorate</b>:
 Adună punctele din afirmațiile corecte.
@@ -124,7 +124,7 @@ Fiecare rundă aprinde un panou nou. Apasă toată secvența de la început.
 Schimbă dale potrivite ca să ștergi linii de trei sau mai multe. Golește tabla ca să câștigi.
 
 <b>Trio</b>:
-Găsește trei cărți care împart o formă, un număr sau o umplere.
+Găsește trei cărți care au în comun forma, umplerea sau câte semne poartă.
 
 Jocul are mai multe <b>realizări</b>, iar fiecare exercițiu are <b>medalii</b> care te țin motivat.
 

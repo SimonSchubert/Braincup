@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">احفظ الأشكال على الشبكة، ثم حدد الشكل المخفي بعد انتهاء المؤقت.</string>
     <string name="game_pattern_sequence_desc">اكتشف القاعدة التي تسري في كل صف من الشبكة، ثم اختر القطعة التي تكملها.</string>
     <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
-    <string name="game_color_confusion_desc">اضغط على جميع الخلايا التي تتطابق فيها الكلمة مع لون الخط، ثم اضغط تم.</string>
+    <string name="game_color_confusion_desc">تظهر كلمة لون بحبر ملوّن. المس لون الحبر، لا اللون الذي تسميه الكلمة.</string>
     <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
     <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
     <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
@@ -792,7 +792,7 @@
     <string name="visual_memory_demo_title">تذكر ما يوجد أين</string>
     <string name="digit_memory_demo_title">احفظ، وانشغل، ثم تذكر</string>
     <string name="pattern_sequence_demo_rule">كل صف يستخدم الأشكال الثلاثة نفسها بترتيب مُزاح.</string>
-    <string name="color_confusion_demo_title">انقر على الكلمات المتطابقة</string>
+    <string name="color_confusion_demo_title">أجب بالحبر، لا بالكلمة</string>
     <string name="flags_demo_title">سمّ الدولة</string>
     <string name="mental_calculation_demo_title">احمل النتيجة للأمام</string>
     <string name="mental_calculation_demo_keep">%1$d ينتقل من النتيجة السابقة.</string>
@@ -857,7 +857,7 @@
     <string name="game_mental_rotations">التدوير الذهني</string>
     <string name="game_mental_flex">المرونة الذهنية</string>
     <string name="game_rule_shift">تبديل القاعدة</string>
-    <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو العدد أو التعبئة.</string>
+    <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو التعبئة أو عدد العلامات عليها.</string>
     <string name="game_mental_rotations_desc">قرّر ما إذا كانت الكتلة الثانية هي الأولى بعد تدويرها، أم صورتها في المرآة.</string>
     <string name="game_mental_rotations_question">نفس الكتلة أم صورة معكوسة؟</string>
     <string name="game_mental_rotations_same">نفسها</string>

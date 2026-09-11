@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">Memorează formele din grilă, apoi identifică forma ascunsă după ce expiră cronometrul.</string>
     <string name="game_pattern_sequence_desc">Descoperă regula de pe fiecare rând al grilei, apoi alege piesa care o completează.</string>
     <string name="game_ghost_grid_desc">Urmărește cum se aprind dalele una câte una, apoi apasă-le în aceeași ordine.</string>
-    <string name="game_color_confusion_desc">Apasă toate celulele unde cuvântul se potrivește cu culoarea fontului, apoi apasă Gata.</string>
+    <string name="game_color_confusion_desc">Un cuvânt de culoare apare în cerneală colorată. Apasă culoarea cernelii, nu culoarea pe care o spune cuvântul.</string>
     <string name="game_orbit_tracker_desc">Urmărește bilele evidențiate, apoi ține-le minte pe măsură ce se mișcă. Selectează țintele originale după ce se opresc.</string>
     <string name="game_bubble_sum_desc">Adună numerele de pe bulele care plutesc. Mai târziu numerele clipesc — ține-le minte.</string>
     <string name="bubble_sum_instruction">Cât e suma?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">Găsește operatorii lipsă</string>
     <string name="missing_operators_demo_desc">Alege operatorii ca să faci ecuația adevărată. Operatorii se evaluează după precedența matematică obișnuită.</string>
     <string name="game_bulls_and_cows_desc">Ghicește numărul secret de 4 cifre cu cifre unice. Bulls = cifră corectă pe poziția corectă. Cows = cifră corectă pe poziția greșită.</string>
-    <string name="game_trio_desc">Găsește trei cărți care împart o formă, un număr sau o umplere.</string>
+    <string name="game_trio_desc">Găsește trei cărți care au în comun forma, umplerea sau câte semne poartă.</string>
     <string name="game_mental_rotations_desc">Decide dacă al doilea bloc este primul rotit sau imaginea lui în oglindă.</string>
     <string name="game_mental_rotations_question">Același bloc sau imagine în oglindă?</string>
     <string name="game_mental_rotations_same">Același</string>
@@ -441,7 +441,7 @@ Mută Cow — devine Bull.</string>
     <string name="visual_memory_demo_title">Ține minte ce stă unde</string>
     <string name="digit_memory_demo_title">Memorează, distrage-te, amintește-ți</string>
     <string name="pattern_sequence_demo_rule">Fiecare rând folosește aceleași trei forme într-o ordine deplasată.</string>
-    <string name="color_confusion_demo_title">Apasă cuvintele care se potrivesc</string>
+    <string name="color_confusion_demo_title">Contează cerneala, nu cuvântul</string>
     <string name="flags_demo_title">Numește țara</string>
     <string name="mental_calculation_demo_title">Du rezultatul mai departe</string>
     <string name="mental_calculation_demo_keep">%1$d trece din rezultatul anterior.</string>

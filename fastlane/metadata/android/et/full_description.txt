@@ -37,7 +37,7 @@ Jäta kujundid meelde ja tuvasta peidetud kujund, kui taimer lõpeb.
 Vaata, kuidas plaadid süttivad ükshaaval, ja puuduta need tagasi samas järjekorras.
 
 <b>Värvisegadus</b>:
-Puuduta kõiki lahtreid, kus sõna vastab fondi värvile.
+Puuduta värvi, millega sõna on trükitud, mitte värvi, mida sõna nimetab.
 
 <b>Värvilised kujundid</b>:
 Liida kokku punktid õigetest väidetest.
@@ -124,7 +124,7 @@ Iga voor süütab ühe uue plaadi. Puuduta kogu jada algusest.
 Vaheta kokkusobivaid plaate, et tühjendada ridu kolmest ja enamast. Tühjenda laud ja võidad.
 
 <b>Trio</b>:
-Leia kolm kaarti, mis jagavad kuju, arvu või täidet.
+Leia kolm kaarti, millel on ühine kuju, täide või märkide arv.
 
 Mängul on mitu <b>saavutust</b> ja igal harjutusel on <b>medalid</b>, mis hoiavad motivatsiooni.
 

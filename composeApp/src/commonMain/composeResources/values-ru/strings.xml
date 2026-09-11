@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Запомните фигуры на сетке, затем определите скрытую фигуру после окончания таймера.</string>
     <string name="game_pattern_sequence_desc">Найдите правило, которое проходит по каждой строке сетки, и выберите фигуру, завершающую её.</string>
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
-    <string name="game_color_confusion_desc">Нажмите на все ячейки, где слово совпадает с цветом шрифта, затем нажмите Готово.</string>
+    <string name="game_color_confusion_desc">Слово цвета появляется цветными чернилами. Нажми цвет чернил, а не цвет, который называет слово.</string>
     <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
     <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
     <string name="game_schulte_table_desc">Нажимайте числа по порядку, начиная с 1, как можно быстрее.</string>
@@ -785,7 +785,7 @@
     <string name="visual_memory_demo_title">Запомни, что где находится</string>
     <string name="digit_memory_demo_title">Запомни, отвлекись, вспомни</string>
     <string name="pattern_sequence_demo_rule">В каждой строке те же три формы, но в сдвинутом порядке.</string>
-    <string name="color_confusion_demo_title">Нажимай на совпадающие слова</string>
+    <string name="color_confusion_demo_title">Чернила, не слово</string>
     <string name="flags_demo_title">Назови страну</string>
     <string name="mental_calculation_demo_title">Переноси результат дальше</string>
     <string name="mental_calculation_demo_keep">%1$d переносится из предыдущего результата.</string>
@@ -848,7 +848,7 @@
     <string name="game_mental_rotations">Мысленное вращение</string>
     <string name="game_mental_flex">Гибкость мышления</string>
     <string name="game_rule_shift">Смена правила</string>
-    <string name="game_trio_desc">Найдите три карты с общей формой, числом или заливкой.</string>
+    <string name="game_trio_desc">Найди три карты с общей формой, заливкой или числом знаков.</string>
     <string name="game_mental_rotations_desc">Определи, является ли второй блок повёрнутым первым или его зеркальным отражением.</string>
     <string name="game_mental_rotations_question">Тот же блок или зеркальное отражение?</string>
     <string name="game_mental_rotations_same">Тот же</string>

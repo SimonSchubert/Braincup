@@ -37,7 +37,7 @@ Isaulo ang mga hugis, tapos kilalanin ang nakatago pagkatapos ng timer.
 Umiilaw ang tiles isa-isa; i-tap ulit sa parehong ayos.
 
 <b>Color Confusion</b>:
-I-tap ang mga cell kung saan tumutugma ang salita sa kulay nito.
+I-tap ang kulay na pinaglimbagan ng salita, hindi ang kulay na sinasabi nito.
 
 <b>Mga Kulay na Hugis</b>:
 Idagdag ang points mula sa mga tamang statement.
@@ -124,7 +124,7 @@ Bawat round ay umiilaw ng bagong pad. I-tap ang buong sequence mula sa simula.
 Magpalit ng magkatugmang tiles para linisin ang linya ng tatlo o higit pa. Palinisin ang board.
 
 <b>Trio</b>:
-Maghanap ng tatlong card na may parehong hugis, bilang, o fill.
+Maghanap ng tatlong card na magkapareho ang hugis, fill, o ilang marka ang dala.
 
 May <b>achievements</b> ang laro at bawat exercise ay may <b>medals</b>.
 

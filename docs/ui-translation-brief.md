@@ -59,6 +59,22 @@ not the English one. Wordle and N-Back stay English everywhere.
 Science notes (`science_*`): paradigm names are what researchers in that language call the task,
 summaries address the player with the same informal *you*, citation lines stay untranslated.
 
+## Rewriting English
+
+`check_localizations.py` only used to fail on a missing key. Rewriting English in place left
+every locale translating the old meaning: Color Confusion's description still taught the grid
+("tap matching cells, then Done") after the game became a Stroop task.
+
+If the meaning of a UI string changes, retranslate that key in every locale. The check compares
+current English to the English that was current when the locale last wrote the key, and fails
+until the locale catches up. Learn catalog keys are out of this: they are pending by design.
+
+To revise a key a locale already has, merge with `--force` rather than editing the XML:
+
+```bash
+./scripts/learn_translate.py merge --locale de --file revised.json --force
+```
+
 ## File conventions
 
 Same as the Learn brief: raw apostrophes, no backslash escapes, no em-dashes (spaced hyphen if

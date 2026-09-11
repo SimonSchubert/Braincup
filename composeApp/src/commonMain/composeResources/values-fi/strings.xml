@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Muista ruudukon muodot ja tunnista piilotettu muoto, kun ajastin päättyy.</string>
     <string name="game_pattern_sequence_desc">Selvitä sääntö jokaisella rivillä ja valitse pala, joka täydentää sen.</string>
     <string name="game_ghost_grid_desc">Katso, miten ruudut syttyvät yksi kerrallaan, ja napauta ne takaisin samassa järjestyksessä.</string>
-    <string name="game_color_confusion_desc">Napauta kaikkia ruutuja, joissa sana vastaa fontin väriä, ja paina sitten Valmis.</string>
+    <string name="game_color_confusion_desc">Värisana ilmestyy värillisellä musteella. Napauta musteen väriä, ei sitä väriä, jonka sana nimeää.</string>
     <string name="game_orbit_tracker_desc">Katso korostettuja palloja ja seuraa niitä, kun ne liikkuvat. Valitse alkuperäiset kohteet, kun ne pysähtyvät.</string>
     <string name="game_bubble_sum_desc">Laske kelluvien kuplien numerot yhteen. Myöhemmin numerot vilkkuvat — muista ne.</string>
     <string name="bubble_sum_instruction">Mikä on summa?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Löydä puuttuvat operaattorit</string>
     <string name="missing_operators_demo_desc">Valitse merkit, jotta yhtälö täsmää. Operaattorit lasketaan tavanomaisella laskujärjestyksellä.</string>
     <string name="game_bulls_and_cows_desc">Arvaa salainen 4-numeroinen luku eri numeroilla. Bulls = oikea numero oikeassa paikassa. Cows = oikea numero väärässä paikassa.</string>
-    <string name="game_trio_desc">Löydä kolme korttia, jotka jakavat muodon, määrän tai täytön.</string>
+    <string name="game_trio_desc">Löydä kolme korttia, joilla on yhteinen muoto, täyttö tai merkkien määrä.</string>
     <string name="game_mental_rotations_desc">Päätä, onko toinen palikka ensimmäinen käännettynä vai sen peilikuva.</string>
     <string name="game_mental_rotations_question">Sama palikka vai peilikuva?</string>
     <string name="game_mental_rotations_same">Sama</string>
@@ -437,7 +437,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="visual_memory_demo_title">Muista, mikä menee minne</string>
     <string name="digit_memory_demo_title">Muista, häiriinny, palauta</string>
     <string name="pattern_sequence_demo_rule">Jokainen rivi käyttää samoja kolmea muotoa siirrettynä.</string>
-    <string name="color_confusion_demo_title">Napauta täsmääviä sanoja</string>
+    <string name="color_confusion_demo_title">Muste ratkaisee, ei sana</string>
     <string name="flags_demo_title">Nimeä maa</string>
     <string name="mental_calculation_demo_title">Vie tulos eteenpäin</string>
     <string name="mental_calculation_demo_keep">%1$d siirtyy edellisestä tuloksesta.</string>

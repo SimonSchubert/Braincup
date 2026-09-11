@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Mundu formin í netinu og greindu falið formið þegar tímamælirinn rennur út.</string>
     <string name="game_pattern_sequence_desc">Finndu regluna í hverri röð og veldu bitann sem lýkur henni.</string>
     <string name="game_ghost_grid_desc">Horfðu á flísarnar kvikna eina af annarri og ýttu á þær í sömu röð.</string>
-    <string name="game_color_confusion_desc">Ýttu á alla reiti þar sem orðið passar við lit letursins og ýttu svo á Lokið.</string>
+    <string name="game_color_confusion_desc">Litarorð birtist í lituðu bleki. Ýttu á lit bleksins, ekki litinn sem orðið nefnir.</string>
     <string name="game_orbit_tracker_desc">Horfðu á auðkenndar kúlur og fylgdu þeim þegar þær hreyfast. Veldu upphaflegu skotmörkin þegar þær stoppa.</string>
     <string name="game_bubble_sum_desc">Leggðu saman tölurnar á fljótandi kúlunum. Síðar blikka tölurnar — mundu þær.</string>
     <string name="bubble_sum_instruction">Hver er summan?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Finndu virkjana sem vantar</string>
     <string name="missing_operators_demo_desc">Veldu merkin svo jafnan passi. Virkjar eru reiknaðir í venjulegri röð.</string>
     <string name="game_bulls_and_cows_desc">Giskaðu á leynilega 4 stafa tölu með einstökum tölustöfum. Bulls = rétt tala á réttum stað. Cows = rétt tala á röngum stað.</string>
-    <string name="game_trio_desc">Finndu þrjú spil sem deila formi, fjölda eða fyllingu.</string>
+    <string name="game_trio_desc">Finndu þrjú spil sem eiga form, fyllingu eða fjölda tákna sameiginlegt.</string>
     <string name="game_mental_rotations_desc">Ákveddu hvort seinni kubburinn sé sá fyrri snúinn eða spegilmynd hans.</string>
     <string name="game_mental_rotations_question">Sami kubbur eða spegilmynd?</string>
     <string name="game_mental_rotations_same">Sami</string>
@@ -437,7 +437,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="visual_memory_demo_title">Mundu hvað fer hvert</string>
     <string name="digit_memory_demo_title">Mundu, truflaðu, mundu aftur</string>
     <string name="pattern_sequence_demo_rule">Hver röð notar sömu þrjú formin í hliðraðri röð.</string>
-    <string name="color_confusion_demo_title">Ýttu á orð sem passa</string>
+    <string name="color_confusion_demo_title">Blekið gildir, ekki orðið</string>
     <string name="flags_demo_title">Nefndu landið</string>
     <string name="mental_calculation_demo_title">Færðu niðurstöðuna áfram</string>
     <string name="mental_calculation_demo_keep">%1$d flyst frá fyrri niðurstöðu.</string>

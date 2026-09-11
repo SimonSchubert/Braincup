@@ -37,7 +37,7 @@ Merke dir die Formen und erkenne die versteckte Form nach dem Timer.
 Felder leuchten nacheinander auf — tippe sie in derselben Reihenfolge an.
 
 <b>Farbverwirrung</b>:
-Tippe alle Zellen an, in denen Wort und Schriftfarbe übereinstimmen.
+Tippe die Farbe, in der das Wort steht, nicht die Farbe, die das Wort nennt.
 
 <b>Farbige Formen</b>:
 Addiere die Punkte aus den richtigen Aussagen.
@@ -124,7 +124,7 @@ Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Sequenz von vorne ein, s
 Tausche passende Kacheln, um Reihen aus drei oder mehr zu räumen. Leere das ganze Spielfeld, um zu gewinnen.
 
 <b>Trio</b>:
-Finde drei Karten, die sich eine Form, eine Anzahl oder eine Füllung teilen.
+Finde drei Karten, die Form, Füllung oder die Zahl der Zeichen gemeinsam haben.
 
 Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
 

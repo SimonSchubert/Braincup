@@ -37,7 +37,7 @@ Izgaranın her satırında ilerleyen kuralı bul, sonra onu tamamlayan parçayı
 Kareler sırayla yanar; aynı sırayla dokun.
 
 <b>Renk Karmaşası</b>:
-Kelime ile yazı rengi eşleşen hücrelere dokun.
+Kelimenin basıldığı renge dokun, kelimenin söylediği renge değil.
 
 <b>Renkli Şekiller</b>:
 Doğru ifadelerin puanlarını topla.
@@ -124,7 +124,7 @@ Her turda yeni bir düğme yanar. Önceki turların düğmeleri dahil, tüm dizi
 Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.
 
 <b>Trio</b>:
-Şekil, sayı veya dolgusu ortak olan üç kart bulun.
+Şekil, dolgu veya üzerlerindeki işaret sayısı ortak olan üç kart bul.
 
 Oyunda birçok <b>başarı</b> ve her egzersizde sizi motive edecek <b>madalyalar</b> bulunur.
 

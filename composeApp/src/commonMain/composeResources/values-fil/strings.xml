@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Isaulo ang mga hugis sa grid, tapos kilalanin ang nakatagong hugis pagkatapos ng timer.</string>
     <string name="game_pattern_sequence_desc">Alamin ang rule sa bawat row ng grid, tapos piliin ang piraso na kumukumpleto nito.</string>
     <string name="game_ghost_grid_desc">Panoorin ang mga tile na umiilaw isa-isa, tapos i-tap ulit sa parehong pagkakasunod.</string>
-    <string name="game_color_confusion_desc">I-tap ang lahat ng cell kung saan tumutugma ang salita sa kulay ng font, tapos pindutin ang Tapos.</string>
+    <string name="game_color_confusion_desc">May salitang kulay na lumilitaw sa may kulay na tinta. I-tap ang kulay ng tinta, hindi ang kulay na sinasabi ng salita.</string>
     <string name="game_orbit_tracker_desc">Panoorin ang mga naka-highlight na bola, tapos sundan sila habang gumagalaw. Piliin ang orihinal na targets paghinto nila.</string>
     <string name="game_bubble_sum_desc">Idagdag ang mga numero sa lumulutang na bubbles. Mamaya, kumikislap ang mga numero — tandaan mo sila.</string>
     <string name="bubble_sum_instruction">Ano ang kabuuan?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Hanapin ang kulang na operators</string>
     <string name="missing_operators_demo_desc">Piliin ang operators para maging tama ang equation. Sinusunod ng operators ang standard mathematical precedence.</string>
     <string name="game_bulls_and_cows_desc">Hulaan ang secret na 4-digit na numero na walang umuulit na digit. Bulls = tamang digit sa tamang puwesto. Cows = tamang digit sa maling puwesto.</string>
-    <string name="game_trio_desc">Maghanap ng tatlong card na may parehong hugis, bilang, o fill.</string>
+    <string name="game_trio_desc">Maghanap ng tatlong card na magkapareho ang hugis, fill, o ilang marka ang dala.</string>
     <string name="game_mental_rotations_desc">Tukuyin kung ang ikalawang bloke ay ang una na iniikot, o ang salamin nito.</string>
     <string name="game_mental_rotations_question">Parehong bloke, o salamin na imahe?</string>
     <string name="game_mental_rotations_same">Pareho</string>
@@ -435,7 +435,7 @@
     <string name="visual_memory_demo_title">Tandaan kung ano ang nasaan</string>
     <string name="digit_memory_demo_title">Isaulo, magambala, alalahanin</string>
     <string name="pattern_sequence_demo_rule">Gumagamit ang bawat row ng parehong tatlong hugis sa inilipat na ayos.</string>
-    <string name="color_confusion_demo_title">I-tap ang magkatugmang salita</string>
+    <string name="color_confusion_demo_title">Tinta ang mahalaga, hindi ang salita</string>
     <string name="flags_demo_title">Pangalanan ang bansa</string>
     <string name="mental_calculation_demo_title">Dalhin ang resulta sa susunod</string>
     <string name="mental_calculation_demo_keep">Ang %1$d ay dala mula sa nakaraang resulta.</string>

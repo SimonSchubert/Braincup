@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">จำรูปร่างบนตาราง แล้วระบุรูปร่างที่ซ่อนอยู่หลังจากหมดเวลา</string>
     <string name="game_pattern_sequence_desc">หากฎที่ทอดผ่านแต่ละแถวของตาราง แล้วเลือกชิ้นส่วนที่เติมเต็มมัน</string>
     <string name="game_ghost_grid_desc">ดูช่องสว่างขึ้นทีละช่อง แล้วแตะตามลำดับเดิม</string>
-    <string name="game_color_confusion_desc">แตะเซลล์ทั้งหมดที่คำตรงกับสีตัวอักษร แล้วกดเสร็จ</string>
+    <string name="game_color_confusion_desc">คำสีปรากฏด้วยหมึกสี แตะสีของหมึก ไม่ใช่สีที่คำบอก</string>
     <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
     <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
     <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">จำว่าอะไรอยู่ที่ไหน</string>
     <string name="digit_memory_demo_title">จำ ถูกรบกวน แล้วนึกขึ้นมาใหม่</string>
     <string name="pattern_sequence_demo_rule">ทุกแถวใช้สามรูปทรงเดิมโดยสลับลำดับ</string>
-    <string name="color_confusion_demo_title">แตะคำที่ตรงกัน</string>
+    <string name="color_confusion_demo_title">หมึกต่างหากที่นับ ไม่ใช่คำ</string>
     <string name="flags_demo_title">บอกชื่อประเทศ</string>
     <string name="mental_calculation_demo_title">นำผลลัพธ์ส่งต่อ</string>
     <string name="mental_calculation_demo_keep">%1$d ถูกส่งต่อมาจากผลลัพธ์ก่อนหน้า</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">หมุนภาพในใจ</string>
     <string name="game_mental_flex">ยืดหยุ่นทางความคิด</string>
     <string name="game_rule_shift">สลับกฎ</string>
-    <string name="game_trio_desc">หาไพ่สามใบที่รูป จำนวน หรือการเติมเหมือนกัน</string>
+    <string name="game_trio_desc">หาไพ่สามใบที่รูปทรง การเติมสี หรือจำนวนสัญลักษณ์เหมือนกัน</string>
     <string name="game_mental_rotations_desc">ตัดสินว่าบล็อกที่สองคือบล็อกแรกที่ถูกหมุน หรือเป็นภาพในกระจก</string>
     <string name="game_mental_rotations_question">บล็อกเดียวกัน หรือภาพในกระจก?</string>
     <string name="game_mental_rotations_same">เหมือนกัน</string>

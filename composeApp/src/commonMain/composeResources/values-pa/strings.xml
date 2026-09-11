@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">ਗਰਿੱਡ ਉੱਤੇ ਆਕਾਰ ਯਾਦ ਰੱਖੋ, ਸਮਾਂ ਖ਼ਤਮ ਹੋਣ ਬਾਅਦ ਲੁਕਿਆ ਆਕਾਰ ਪਛਾਣੋ।</string>
     <string name="game_pattern_sequence_desc">ਗਰਿੱਡ ਦੀ ਹਰ ਕਤਾਰ ਵਿੱਚ ਚੱਲਦਾ ਨਿਯਮ ਲੱਭੋ, ਫਿਰ ਉਸ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਲਾ ਟੁਕੜਾ ਚੁਣੋ।</string>
     <string name="game_ghost_grid_desc">ਖਾਨੇ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਜਗਦੇ ਵੇਖੋ, ਫਿਰ ਉਸੇ ਤਰਤੀਬ ਵਿੱਚ ਉਨ੍ਹਾਂ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
-    <string name="game_color_confusion_desc">ਜਿੱਥੇ ਸ਼ਬਦ ਆਪਣੇ ਫੌਂਟ ਰੰਗ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਹੈ, ਉਹ ਸਾਰੇ ਖਾਨੇ ਟੈਪ ਕਰੋ, ਫਿਰ ਹੋ ਗਿਆ ਦਬਾਓ।</string>
+    <string name="game_color_confusion_desc">ਰੰਗ ਦੱਸਣ ਵਾਲਾ ਸ਼ਬਦ ਰੰਗੀਲੀ ਸਿਆਹੀ ਵਿੱਚ ਆਉਂਦਾ ਹੈ। ਸਿਆਹੀ ਦੇ ਰੰਗ ਉੱਤੇ ਟੈਪ ਕਰੋ, ਉਸ ਰੰਗ ਉੱਤੇ ਨਹੀਂ ਜੋ ਸ਼ਬਦ ਦੱਸਦਾ ਹੈ।</string>
     <string name="game_orbit_tracker_desc">ਉਭਾਰੀਆਂ ਗੇਂਦਾਂ ਵੇਖੋ, ਹਿਲਦਿਆਂ ਉਨ੍ਹਾਂ ਦਾ ਪਿੱਛਾ ਕਰੋ। ਰੁਕਣ ਬਾਅਦ ਅਸਲ ਨਿਸ਼ਾਨੇ ਚੁਣੋ।</string>
     <string name="game_bubble_sum_desc">ਤੈਰਦੇ ਬੁਲਬੁਲਿਆਂ ਉੱਤੇ ਨੰਬਰ ਜੋੜੋ। ਬਾਅਦ ਵਿੱਚ ਨੰਬਰ ਟਿਮਟਿਮਾਉਂਦੇ ਹਨ — ਉਨ੍ਹਾਂ ਨੂੰ ਯਾਦ ਰੱਖੋ।</string>
     <string name="bubble_sum_instruction">ਜੋੜ ਕਿੰਨਾ ਹੈ?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">ਗੁੰਮ ਚਿੰਨ੍ਹ ਲੱਭੋ</string>
     <string name="missing_operators_demo_desc">ਸਮੀਕਰਨ ਨੂੰ ਸਹੀ ਬਣਾਉਣ ਲਈ ਚਿੰਨ੍ਹ ਚੁਣੋ। ਚਿੰਨ੍ਹਾਂ ਦਾ ਮੁੱਲਾਂਕਣ ਆਮ ਗਣਿਤ ਤਰਜੀਹ ਅਨੁਸਾਰ ਹੁੰਦਾ ਹੈ।</string>
     <string name="game_bulls_and_cows_desc">ਵੱਖ-ਵੱਖ ਅੰਕਾਂ ਵਾਲੇ ਗੁਪਤ 4 ਅੰਕਾਂ ਦੇ ਨੰਬਰ ਦਾ ਅਨੁਮਾਨ ਲਾਓ। Bulls = ਸਹੀ ਥਾਂ ਉੱਤੇ ਸਹੀ ਅੰਕ। Cows = ਗਲਤ ਥਾਂ ਉੱਤੇ ਸਹੀ ਅੰਕ।</string>
-    <string name="game_trio_desc">ਇੱਕੋ ਆਕਾਰ, ਗਿਣਤੀ ਜਾਂ ਭਰਾਈ ਵਾਲੇ ਤਿੰਨ ਪੱਤੇ ਲੱਭੋ।</string>
+    <string name="game_trio_desc">ਤਿੰਨ ਪੱਤੇ ਲੱਭੋ ਜਿਨ੍ਹਾਂ ਦਾ ਆਕਾਰ, ਭਰਾਈ ਜਾਂ ਚਿੰਨ੍ਹ ਕਿੰਨੇ ਇੱਕੋ ਹੋਣ।</string>
     <string name="game_mental_rotations_desc">ਤੈਅ ਕਰੋ ਕਿ ਦੂਜਾ ਬਲਾਕ ਪਹਿਲੇ ਨੂੰ ਘੁਮਾ ਕੇ ਬਣਿਆ ਹੈ ਜਾਂ ਉਸ ਦਾ ਸ਼ੀਸ਼ਾ-ਪ੍ਰਤੀਬਿੰਬ ਹੈ।</string>
     <string name="game_mental_rotations_question">ਉਹੀ ਬਲਾਕ ਜਾਂ ਸ਼ੀਸ਼ਾ-ਪ੍ਰਤੀਬਿੰਬ?</string>
     <string name="game_mental_rotations_same">ਉਹੀ</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">ਕੀ ਕਿੱਥੇ ਹੈ, ਯਾਦ ਰੱਖੋ</string>
     <string name="digit_memory_demo_title">ਯਾਦ ਕਰੋ, ਧਿਆਨ ਭਟਕਾਓ, ਮੁੜ ਚੇਤੇ ਕਰੋ</string>
     <string name="pattern_sequence_demo_rule">ਹਰ ਕਤਾਰ ਉਹੀ ਤਿੰਨ ਆਕਾਰ ਖਿਸਕੀ ਤਰਤੀਬ ਵਿੱਚ ਵਰਤਦੀ ਹੈ।</string>
-    <string name="color_confusion_demo_title">ਮੇਲ ਖਾਂਦੇ ਸ਼ਬਦਾਂ ਉੱਤੇ ਟੈਪ ਕਰੋ</string>
+    <string name="color_confusion_demo_title">ਜਵਾਬ ਸਿਆਹੀ ਦਾ, ਸ਼ਬਦ ਦਾ ਨਹੀਂ</string>
     <string name="flags_demo_title">ਦੇਸ਼ ਦਾ ਨਾਂ ਦੱਸੋ</string>
     <string name="mental_calculation_demo_title">ਨਤੀਜਾ ਅੱਗੇ ਲੈ ਜਾਓ</string>
     <string name="mental_calculation_demo_keep">ਪਿਛਲੇ ਨਤੀਜੇ ਤੋਂ %1$d ਅੱਗੇ ਆਉਂਦਾ ਹੈ।</string>

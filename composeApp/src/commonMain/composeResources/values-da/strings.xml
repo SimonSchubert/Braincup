@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Husk formene i gitteret, og identificer den skjulte form, når timeren slutter.</string>
     <string name="game_pattern_sequence_desc">Find reglen i hver række i gitteret, og vælg brikken, der fuldender den.</string>
     <string name="game_ghost_grid_desc">Se brikkerne tænde én efter én, og tryk dem tilbage i samme rækkefølge.</string>
-    <string name="game_color_confusion_desc">Tryk på alle felter, hvor ordet matcher skriftfarven, og tryk derefter på Færdig.</string>
+    <string name="game_color_confusion_desc">Et farveord dukker op i farvet blæk. Tryk på blækkets farve, ikke den farve ordet nævner.</string>
     <string name="game_orbit_tracker_desc">Se de fremhævede bolde, og følg dem, mens de bevæger sig. Vælg de oprindelige mål, når de stopper.</string>
     <string name="game_bubble_sum_desc">Læg tallene på de flydende bobler sammen. Senere blinker tallene — husk dem.</string>
     <string name="bubble_sum_instruction">Hvad er summen?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Find de manglende operatorer</string>
     <string name="missing_operators_demo_desc">Vælg operatorerne, så ligningen stemmer. Operatorer evalueres med almindelig matematisk prioritet.</string>
     <string name="game_bulls_and_cows_desc">Gæt det hemmelige 4-cifrede tal med unikke cifre. Bulls = rigtigt ciffer på rigtig plads. Cows = rigtigt ciffer på forkert plads.</string>
-    <string name="game_trio_desc">Find tre kort, der deler form, antal eller udfyldning.</string>
+    <string name="game_trio_desc">Find tre kort, der har form, fyld eller hvor mange tegn de bærer til fælles.</string>
     <string name="game_mental_rotations_desc">Afgør, om den anden klods er den første drejet rundt eller dens spejlbillede.</string>
     <string name="game_mental_rotations_question">Samme klods eller spejlbillede?</string>
     <string name="game_mental_rotations_same">Samme</string>
@@ -437,7 +437,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="visual_memory_demo_title">Husk, hvad der ligger hvor</string>
     <string name="digit_memory_demo_title">Husk, bliv forstyrret, gengiv</string>
     <string name="pattern_sequence_demo_rule">Hver række bruger de samme tre former i en forskudt rækkefølge.</string>
-    <string name="color_confusion_demo_title">Tryk på de matchende ord</string>
+    <string name="color_confusion_demo_title">Blækket tæller, ikke ordet</string>
     <string name="flags_demo_title">Navngiv landet</string>
     <string name="mental_calculation_demo_title">Tag resultatet med videre</string>
     <string name="mental_calculation_demo_keep">%1$d går videre fra det forrige resultat.</string>

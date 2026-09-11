@@ -37,7 +37,7 @@ Muista muodot ja tunnista piilotettu muoto, kun ajastin päättyy.
 Katso, miten ruudut syttyvät yksi kerrallaan, ja napauta ne takaisin samassa järjestyksessä.
 
 <b>Värisekaannus</b>:
-Napauta kaikkia ruutuja, joissa sana vastaa fontin väriä.
+Napauta väriä, jolla sana on painettu, ei väriä, jonka sana nimeää.
 
 <b>Värilliset muodot</b>:
 Laske yhteen oikeiden väittämien pisteet.
@@ -124,7 +124,7 @@ Jokainen kierros sytyttää yhden uuden ruudun. Napauta koko jakso takaisin alus
 Vaihda sopivia paloja tyhjentääksesi vähintään kolmen rivit. Tyhjennä lauta voittaaksesi.
 
 <b>Trio</b>:
-Löydä kolme korttia, jotka jakavat muodon, määrän tai täytön.
+Löydä kolme korttia, joilla on yhteinen muoto, täyttö tai merkkien määrä.
 
 Pelissä on useita <b>saavutuksia</b>, ja jokaisella harjoituksella on <b>mitaleita</b>, jotka pitävät motivaation yllä.
 

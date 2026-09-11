@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Запам'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
     <string name="game_pattern_sequence_desc">Знайдіть правило, що проходить по кожному рядку сітки, і виберіть фігуру, яка його завершує.</string>
     <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>
-    <string name="game_color_confusion_desc">Натисніть на всі клітинки, де слово збігається з кольором шрифту, потім натисніть Готово.</string>
+    <string name="game_color_confusion_desc">Слово кольору з'являється кольоровим чорнилом. Натисни колір чорнила, а не колір, який називає слово.</string>
     <string name="game_orbit_tracker_desc">Спостерігайте за виділеними кулями, а потім відстежуйте їх рух. Виберіть початкові цілі після зупинки.</string>
     <string name="game_flash_crowd_desc">Точки ненадовго блимають з кожного боку. Натисніть на бік, де було більше точок. Не рахуйте — довіряйте інтуїції!</string>
     <string name="game_schulte_table_desc">Натискайте числа по порядку, починаючи з 1, якомога швидше.</string>
@@ -786,7 +786,7 @@
     <string name="visual_memory_demo_title">Пам'ятай, що де знаходиться</string>
     <string name="digit_memory_demo_title">Запам'ятай, відволікнись, пригадай</string>
     <string name="pattern_sequence_demo_rule">У кожному рядку ті самі три форми, але у зсунутому порядку.</string>
-    <string name="color_confusion_demo_title">Натискай на відповідні слова</string>
+    <string name="color_confusion_demo_title">Чорнило, не слово</string>
     <string name="flags_demo_title">Назви країну</string>
     <string name="mental_calculation_demo_title">Переноси результат далі</string>
     <string name="mental_calculation_demo_keep">%1$d переноситься з попереднього результату.</string>
@@ -849,7 +849,7 @@
     <string name="game_mental_rotations">Уявне обертання</string>
     <string name="game_mental_flex">Гнучкість мислення</string>
     <string name="game_rule_shift">Зміна правила</string>
-    <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
+    <string name="game_trio_desc">Знайди три карти зі спільною формою, заливкою або числом знаків.</string>
     <string name="game_mental_rotations_desc">Визнач, чи другий блок це повернутий перший, чи його дзеркальне відображення.</string>
     <string name="game_mental_rotations_question">Той самий блок чи дзеркальне відображення?</string>
     <string name="game_mental_rotations_same">Той самий</string>

@@ -37,7 +37,7 @@ Zapamätaj si tvary a po skončení časovača urči skrytý tvar.
 Sleduj, ako sa dlaždice rozsvietia jedna po druhej, a ťukni na ne v rovnakom poradí.
 
 <b>Zámiena farieb</b>:
-Ťukni na všetky bunky, kde sa slovo zhoduje s farbou písma.
+Ťukni na farbu, ktorou je slovo napísané, nie na farbu, ktorú slovo hovorí.
 
 <b>Farebné tvary</b>:
 Spočítaj body z pravdivých tvrdení.
@@ -124,7 +124,7 @@ Každé kolo rozsvieti jeden nový panel. Ťukni celú sekvenciu od začiatku.
 Vymeň zhodné dlaždice a zmaž rady o troch a viac. Vyprázdni dosku a vyhráš.
 
 <b>Trio</b>:
-Nájdi tri karty, ktoré zdieľajú tvar, počet alebo výplň.
+Nájdi tri karty so spoločným tvarom, výplňou alebo počtom znakov.
 
 Hra má niekoľko <b>úspechov</b> a každé cvičenie má <b>medaily</b>, ktoré ťa motivujú.
 

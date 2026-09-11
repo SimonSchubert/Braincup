@@ -37,7 +37,7 @@ Onthoud de vormen en herken de verborgen vorm na de timer.
 Tegels lichten één voor één op; tik ze in dezelfde volgorde terug.
 
 <b>Kleurverwarring</b>:
-Tik alle cellen waar het woord overeenkomt met de letterkleur.
+Tik de kleur aan waarin het woord gedrukt staat, niet de kleur die het woord noemt.
 
 <b>Gekleurde vormen</b>:
 Tel de punten van de juiste stellingen op.
@@ -124,7 +124,7 @@ Elke ronde licht er één nieuwe knop op. Tik de hele reeks vanaf het begin teru
 Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.
 
 <b>Trio</b>:
-Zoek drie kaarten die een vorm, aantal of vulling delen.
+Zoek drie kaarten met dezelfde vorm, dezelfde vulling of evenveel tekens.
 
 Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
 

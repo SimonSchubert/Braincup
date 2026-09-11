@@ -37,7 +37,7 @@ Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po up
 Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.
 
 <b>Zamieszanie Kolorów</b>:
-Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.
+Dotknij koloru, w którym słowo jest napisane, nie koloru, który słowo nazywa.
 
 <b>Kolorowe kształty</b>:
 Zsumuj punkty z poprawnych stwierdzeń.
@@ -124,7 +124,7 @@ W każdej rundzie zapala się jeden nowy przycisk. Dotknij całej sekwencji od p
 Zamień pasujące kafelki, by usuwać linie z trzech lub więcej. Opróżnij całą planszę, by wygrać.
 
 <b>Trio</b>:
-Znajdź trzy karty, które mają wspólny kształt, liczbę albo wypełnienie.
+Znajdź trzy karty o wspólnym kształcie, wypełnieniu albo liczbie znaków.
 
 Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
 

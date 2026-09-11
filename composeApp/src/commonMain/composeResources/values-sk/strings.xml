@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">Zapamätaj si tvary v mriežke a po skončení časovača urči skrytý tvar.</string>
     <string name="game_pattern_sequence_desc">Odhaľ pravidlo v každom riadku mriežky a vyber dielik, ktorý ho doplní.</string>
     <string name="game_ghost_grid_desc">Sleduj, ako sa dlaždice rozsvietia jedna po druhej, a ťukni na ne v rovnakom poradí.</string>
-    <string name="game_color_confusion_desc">Ťukni na všetky bunky, kde sa slovo zhoduje s farbou písma, a stlač Hotovo.</string>
+    <string name="game_color_confusion_desc">Farebné slovo sa objaví farebným atramentom. Ťukni na farbu atramentu, nie na farbu, ktorú slovo hovorí.</string>
     <string name="game_orbit_tracker_desc">Sleduj zvýraznené gule a drž ich, keď sa pohybujú. Po zastavení vyber pôvodné ciele.</string>
     <string name="game_bubble_sum_desc">Spočítaj čísla na plávajúcich bublinách. Neskôr čísla blikajú — zapamätaj si ich.</string>
     <string name="bubble_sum_instruction">Aký je súčet?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">Nájdi chýbajúce operátory</string>
     <string name="missing_operators_demo_desc">Vyber operátory, aby rovnica sedela. Operátory sa počítajú podľa bežnej priority.</string>
     <string name="game_bulls_and_cows_desc">Hádaj tajné 4-miestne číslo s unikátnymi číslicami. Bulls = správna číslica na správnom mieste. Cows = správna číslica na zlom mieste.</string>
-    <string name="game_trio_desc">Nájdi tri karty, ktoré zdieľajú tvar, počet alebo výplň.</string>
+    <string name="game_trio_desc">Nájdi tri karty so spoločným tvarom, výplňou alebo počtom znakov.</string>
     <string name="game_mental_rotations_desc">Rozhodni, či je druhý blok ten prvý otočený, alebo jeho zrkadlový obraz.</string>
     <string name="game_mental_rotations_question">Rovnaký blok, alebo zrkadlový obraz?</string>
     <string name="game_mental_rotations_same">Rovnaký</string>
@@ -441,7 +441,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="visual_memory_demo_title">Zapamätaj si, čo kam patrí</string>
     <string name="digit_memory_demo_title">Zapamätaj, rozptyľ, vybav</string>
     <string name="pattern_sequence_demo_rule">Každý riadok používa rovnaké tri tvary v posunutom poradí.</string>
-    <string name="color_confusion_demo_title">Ťukni na zhodné slová</string>
+    <string name="color_confusion_demo_title">Atrament, nie slovo</string>
     <string name="flags_demo_title">Poznaj krajinu</string>
     <string name="mental_calculation_demo_title">Prenášaj výsledok ďalej</string>
     <string name="mental_calculation_demo_keep">%1$d sa prenáša z predchádzajúceho výsledku.</string>

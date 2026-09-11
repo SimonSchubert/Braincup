@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
     <string name="game_pattern_sequence_desc">找出贯穿网格每一行的规律，然后选出补全它的图块。</string>
     <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>
-    <string name="game_color_confusion_desc">点击所有文字与字体颜色匹配的单元格，然后按完成。</string>
+    <string name="game_color_confusion_desc">一个颜色词以彩色墨水出现。点击墨水的颜色，不要点词所说的颜色。</string>
     <string name="game_orbit_tracker_desc">观察高亮的球，然后在它们移动时追踪。停止后选择最初的目标。</string>
     <string name="game_flash_crowd_desc">每侧短暂闪现圆点。点击圆点更多的一侧。不要数 — 相信你的直觉！</string>
     <string name="game_schulte_table_desc">尽快按1到N的顺序点击数字。</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">记住各物的位置</string>
     <string name="digit_memory_demo_title">记忆、分心、回忆</string>
     <string name="pattern_sequence_demo_rule">每一行都用同样的三个形状，只是顺序错开。</string>
-    <string name="color_confusion_demo_title">点击匹配的单词</string>
+    <string name="color_confusion_demo_title">墨色才算，文字不算</string>
     <string name="flags_demo_title">说出国家名称</string>
     <string name="mental_calculation_demo_title">将结果传递下去</string>
     <string name="mental_calculation_demo_keep">%1$d从上一个结果传递过来。</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">心理旋转</string>
     <string name="game_mental_flex">思维转换</string>
     <string name="game_rule_shift">规则转换</string>
-    <string name="game_trio_desc">找出形状、数量或填充相同的三张牌。</string>
+    <string name="game_trio_desc">找出形状、填充或标记数量相同的三张牌。</string>
     <string name="game_mental_rotations_desc">判断第二个方块是第一个转过来的，还是它的镜像。</string>
     <string name="game_mental_rotations_question">同一个方块，还是镜像？</string>
     <string name="game_mental_rotations_same">相同</string>

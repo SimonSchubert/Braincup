@@ -37,7 +37,7 @@ Pradėk nuo pažymėtos vietos ir sek rodykles iki tikslo.
 Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.
 
 <b>Spalvų painiava</b>:
-Paliesk visus langelius, kuriuose žodis sutampa su šrifto spalva.
+Paliesk spalvą, kuria išspausdintas žodis, ne tą, kurią žodis įvardija.
 
 <b>Spalvotos figūros</b>:
 Sudėk taškus iš teisingų teiginių.
@@ -124,7 +124,7 @@ Kiekvienas raundas uždega vieną naują plytelę. Paliesk visą seką nuo prad�
 Sukeisk sutampančias plyteles ir išvalyk eiles iš trijų ir daugiau. Ištuštink lentą ir laimėsi.
 
 <b>Trio</b>:
-Rask tris kortas, kurios dalijasi forma, skaičiumi arba užpildu.
+Rask tris kortas, kurios turi tą pačią formą, užpildą arba ženklų skaičių.
 
 Žaidime yra keli <b>pasiekimai</b>, o kiekvienas pratimas turi <b>medalius</b>, kurie palaiko motyvaciją.
 

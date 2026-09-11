@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
     <string name="game_pattern_sequence_desc">Tìm quy luật chạy dọc mỗi hàng của lưới, rồi chọn mảnh hoàn thiện nó.</string>
     <string name="game_ghost_grid_desc">Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.</string>
-    <string name="game_color_confusion_desc">Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.</string>
+    <string name="game_color_confusion_desc">Một từ màu hiện bằng mực màu. Chạm màu của mực, không phải màu mà từ gọi tên.</string>
     <string name="game_orbit_tracker_desc">Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển. Chọn các mục tiêu ban đầu sau khi dừng lại.</string>
     <string name="game_flash_crowd_desc">Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Đừng đếm — hãy tin vào trực giác!</string>
     <string name="game_schulte_table_desc">Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.</string>
@@ -779,7 +779,7 @@
     <string name="visual_memory_demo_title">Nhớ vị trí của từng thứ</string>
     <string name="digit_memory_demo_title">Ghi nhớ, bị phân tâm, rồi nhớ lại</string>
     <string name="pattern_sequence_demo_rule">Mỗi hàng dùng cùng ba hình dạng theo thứ tự dịch chuyển.</string>
-    <string name="color_confusion_demo_title">Chạm vào từ phù hợp</string>
+    <string name="color_confusion_demo_title">Mực mới tính, chữ thì không</string>
     <string name="flags_demo_title">Đặt tên quốc gia</string>
     <string name="mental_calculation_demo_title">Chuyển kết quả sang bước tiếp theo</string>
     <string name="mental_calculation_demo_keep">%1$d được chuyển từ kết quả trước.</string>
@@ -840,7 +840,7 @@
     <string name="game_mental_rotations">Xoay Hình Trong Đầu</string>
     <string name="game_mental_flex">Linh Hoạt Tư Duy</string>
     <string name="game_rule_shift">Đổi Luật</string>
-    <string name="game_trio_desc">Tìm ba lá bài chung hình, số lượng hoặc phần tô.</string>
+    <string name="game_trio_desc">Tìm ba lá bài cùng hình dạng, phần tô hoặc bao nhiêu dấu.</string>
     <string name="game_mental_rotations_desc">Quyết định xem khối thứ hai là khối đầu tiên được xoay, hay là ảnh trong gương của nó.</string>
     <string name="game_mental_rotations_question">Cùng một khối, hay ảnh gương?</string>
     <string name="game_mental_rotations_same">Giống nhau</string>

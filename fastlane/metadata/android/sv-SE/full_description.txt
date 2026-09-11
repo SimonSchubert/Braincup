@@ -37,7 +37,7 @@ Memorera formerna och identifiera den dolda formen när timern tar slut.
 Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.
 
 <b>Färgförvirring</b>:
-Tryck på alla rutor där ordet matchar textfärgen.
+Tryck på färgen ordet är tryckt med, inte färgen ordet nämner.
 
 <b>Färgade former</b>:
 Addera poängen från de sanna påståendena.
@@ -124,7 +124,7 @@ Varje runda tänder en ny platta. Tryck tillbaka hela sekvensen från början.
 Byt matchande brickor för att rensa rader med tre eller fler. Töm brädet för att vinna.
 
 <b>Trio</b>:
-Hitta tre kort som delar form, antal eller fyllning.
+Hitta tre kort som har form, fyllning eller hur många tecken de bär gemensamt.
 
 Spelet har flera <b>prestationer</b> och varje övning har <b>medaljer</b> som håller motivationen uppe.
 

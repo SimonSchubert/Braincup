@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Jegyezd meg a rács alakzatait, majd az időzítő után azonosítsd a rejtett alakzatot.</string>
     <string name="game_pattern_sequence_desc">Találd ki a szabályt minden sorban, majd válaszd a darabot, amely kiegészíti.</string>
     <string name="game_ghost_grid_desc">Figyeld, ahogy a mezők egymás után kigyulladnak, majd koppints rájuk ugyanabban a sorrendben.</string>
-    <string name="game_color_confusion_desc">Koppints minden cellára, ahol a szó megegyezik a betűszínnel, majd nyomd meg a Kész gombot.</string>
+    <string name="game_color_confusion_desc">Egy színszó jelenik meg színes tintával. Koppints a tinta színére, ne arra, amit a szó mond.</string>
     <string name="game_orbit_tracker_desc">Figyeld a kiemelt golyókat, majd kövesd őket, ahogy mozognak. A megállás után válaszd ki az eredeti célokat.</string>
     <string name="game_bubble_sum_desc">Add össze a lebegő buborékok számait. Később a számok villognak — jegyezd meg őket.</string>
     <string name="bubble_sum_instruction">Mennyi az összeg?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Találd meg a hiányzó jeleket</string>
     <string name="missing_operators_demo_desc">Válaszd a jeleket, hogy igazzá tedd az egyenletet. A műveletek a szokásos matematikai precedencia szerint értékelődnek.</string>
     <string name="game_bulls_and_cows_desc">Találd ki a titkos 4 jegyű számot, csupa különböző jeggyel. Bulls = helyes jegy a helyes helyen. Cows = helyes jegy rossz helyen.</string>
-    <string name="game_trio_desc">Találj három kártyát, amelyek alakban, számban vagy kitöltésben megegyeznek.</string>
+    <string name="game_trio_desc">Találj három kártyát, amelyeknek közös az alakja, a kitöltése vagy a jelek száma.</string>
     <string name="game_mental_rotations_desc">Döntsd el, hogy a második test az első elforgatva, vagy a tükörképe.</string>
     <string name="game_mental_rotations_question">Ugyanaz a test, vagy tükörkép?</string>
     <string name="game_mental_rotations_same">Ugyanaz</string>
@@ -437,7 +437,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="visual_memory_demo_title">Jegyezd meg, mi hova kerül</string>
     <string name="digit_memory_demo_title">Jegyezd meg, tereld el a figyelmed, idézd fel</string>
     <string name="pattern_sequence_demo_rule">Minden sor ugyanazt a három alakzatot használja eltolva.</string>
-    <string name="color_confusion_demo_title">Koppints az egyező szavakra</string>
+    <string name="color_confusion_demo_title">A tinta számít, nem a szó</string>
     <string name="flags_demo_title">Nevezd meg az országot</string>
     <string name="mental_calculation_demo_title">Vidd tovább az eredményt</string>
     <string name="mental_calculation_demo_keep">Az előző eredményből %1$d visz tovább.</string>

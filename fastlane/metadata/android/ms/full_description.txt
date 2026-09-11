@@ -37,7 +37,7 @@ Ingat bentuk pada grid, kemudian kenal pasti bentuk tersembunyi selepas pemasa t
 Tonton jubin menyala satu demi satu, kemudian ketik semula dalam urutan yang sama.
 
 <b>Kekeliruan Warna</b>:
-Ketik semua sel yang perkataannya sepadan dengan warna fon.
+Ketik warna cetakan perkataan itu, bukan warna yang disebutnya.
 
 <b>Bentuk Berwarna</b>:
 Jumlahkan mata daripada pernyataan yang betul.
@@ -124,7 +124,7 @@ Setiap pusingan menyalakan satu pad baharu. Ketik semula seluruh jujukan dari aw
 Tukar jubin sepadan untuk mengosongkan baris tiga atau lebih. Kosongkan papan untuk menang.
 
 <b>Trio</b>:
-Cari tiga kad yang berkongsi bentuk, kiraan atau isian.
+Cari tiga kad yang sama bentuk, isian atau bilangan tandanya.
 
 Terdapat beberapa <b>pencapaian</b> dan setiap latihan mempunyai <b>pingat</b> untuk mengekalkan motivasi.
 

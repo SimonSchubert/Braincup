@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">Memorizza le forme sulla griglia, poi identifica la forma nascosta dopo la fine del timer.</string>
     <string name="game_pattern_sequence_desc">Scopri la regola che percorre ogni riga della griglia, poi scegli il pezzo che la completa.</string>
     <string name="game_ghost_grid_desc">Osserva le caselle illuminarsi una alla volta, poi toccale nello stesso ordine.</string>
-    <string name="game_color_confusion_desc">Tocca tutte le celle in cui la parola corrisponde al colore del carattere, poi premi Fatto.</string>
+    <string name="game_color_confusion_desc">Compare una parola di colore in inchiostro colorato. Tocca il colore dell'inchiostro, non quello che dice la parola.</string>
     <string name="game_orbit_tracker_desc">Osserva le palle evidenziate, poi seguile mentre si muovono. Seleziona i bersagli originali dopo che si fermano.</string>
     <string name="game_flash_crowd_desc">I punti lampeggiano brevemente su ogni lato. Tocca il lato che aveva più punti. Non contare — fidati del tuo istinto!</string>
     <string name="game_schulte_table_desc">Tocca i numeri in ordine dal 1 in su il più velocemente possibile.</string>
@@ -780,7 +780,7 @@
     <string name="visual_memory_demo_title">Ricorda cosa va dove</string>
     <string name="digit_memory_demo_title">Memorizza, distraiti, ricorda</string>
     <string name="pattern_sequence_demo_rule">Ogni riga usa le stesse tre forme in ordine spostato.</string>
-    <string name="color_confusion_demo_title">Tocca le parole corrispondenti</string>
+    <string name="color_confusion_demo_title">Conta l'inchiostro, non la parola</string>
     <string name="flags_demo_title">Nomina il paese</string>
     <string name="mental_calculation_demo_title">Porta avanti il risultato</string>
     <string name="mental_calculation_demo_keep">%1$d viene portato dal risultato precedente.</string>
@@ -841,7 +841,7 @@
     <string name="game_mental_rotations">Rotazioni mentali</string>
     <string name="game_mental_flex">Flessibilità mentale</string>
     <string name="game_rule_shift">Cambio di regola</string>
-    <string name="game_trio_desc">Trova tre carte che condividono forma, numero o riempimento.</string>
+    <string name="game_trio_desc">Trova tre carte che hanno in comune la forma, il riempimento o il numero di segni.</string>
     <string name="game_mental_rotations_desc">Decidi se il secondo blocco è il primo ruotato o la sua immagine speculare.</string>
     <string name="game_mental_rotations_question">Stesso blocco o immagine speculare?</string>
     <string name="game_mental_rotations_same">Stesso</string>

@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">شکل‌های روی جدول را به خاطر بسپار و پس از پایان زمان، شکل پنهان‌شده را تشخیص بده.</string>
     <string name="game_pattern_sequence_desc">قاعده‌ای را که در هر سطر جدول جریان دارد کشف کن و قطعه‌ای را که آن را کامل می‌کند انتخاب کن.</string>
     <string name="game_ghost_grid_desc">ببین خانه‌ها به چه ترتیبی روشن می‌شوند، بعد به همان ترتیب رویشان بزن.</string>
-    <string name="game_color_confusion_desc">روی همه خانه‌هایی بزن که واژه با رنگ نوشته‌اش هماهنگ است، سپس «تمام» را بزن.</string>
+    <string name="game_color_confusion_desc">یک واژهٔ رنگ با جوهر رنگی ظاهر می‌شود. روی رنگ جوهر بزن، نه رنگی که واژه می‌گوید.</string>
     <string name="game_orbit_tracker_desc">توپ‌های نشان‌دار را ببین و در حین حرکت دنبالشان کن. پس از توقف، همان‌ها را انتخاب کن.</string>
     <string name="game_bubble_sum_desc">عددهای روی حباب‌های شناور را جمع کن. بعدتر بعضی عددها چشمک می‌زنند؛ به خاطرشان بسپار.</string>
     <string name="bubble_sum_instruction">حاصل جمع چند است؟</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">عملگرهای گمشده را پیدا کن</string>
     <string name="missing_operators_demo_desc">عملگرها را طوری انتخاب کن که معادله درست شود. عملگرها با تقدم استاندارد ریاضی محاسبه می‌شوند.</string>
     <string name="game_bulls_and_cows_desc">عدد چهاررقمی مخفی با ارقام غیرتکراری را حدس بزن. Bull = رقم درست در جای درست. Cow = رقم درست در جای نادرست.</string>
-    <string name="game_trio_desc">سه کارت پیدا کن که در شکل، تعداد یا نوع پرشدگی مشترک‌اند.</string>
+    <string name="game_trio_desc">سه کارت پیدا کن که شکل، پرشدگی یا تعداد نشانه‌ها را مشترک دارند.</string>
     <string name="game_mental_rotations_desc">تصمیم بگیر که بلوک دوم همان اولی است که چرخانده شده یا تصویر آینه‌ای آن.</string>
     <string name="game_mental_rotations_question">همان بلوک یا تصویر آینه‌ای؟</string>
     <string name="game_mental_rotations_same">همان</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">به یاد بسپار چه چیزی کجاست</string>
     <string name="digit_memory_demo_title">به خاطر بسپار، حواست پرت شود، به یاد بیاور</string>
     <string name="pattern_sequence_demo_rule">هر سطر همان سه شکل را با ترتیبی جابه‌جاشده به کار می‌برد.</string>
-    <string name="color_confusion_demo_title">روی واژه‌های هماهنگ بزن</string>
+    <string name="color_confusion_demo_title">جواب جوهر است، نه واژه</string>
     <string name="flags_demo_title">نام کشور را بگو</string>
     <string name="mental_calculation_demo_title">نتیجه را به مرحله بعد ببر</string>
     <string name="mental_calculation_demo_keep">%1$d از نتیجه قبلی منتقل می‌شود.</string>

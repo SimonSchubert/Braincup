@@ -37,7 +37,7 @@ Zapomni si like in po izteku časovnika določi skriti lik.
 Spremljaj, kako se ploščice prižigajo ena za drugo, in se jih dotakni v istem vrstnem redu.
 
 <b>Zmeda barv</b>:
-Dotakni se vseh celic, kjer se beseda ujema z barvo pisave.
+Dotakni se barve, s katero je beseda natisnjena, ne barve, ki jo beseda pove.
 
 <b>Barvni liki</b>:
 Seštej točke iz resničnih trditev.
@@ -124,7 +124,7 @@ Vsak krog prižge eno novo ploščico. Dotakni se celotnega zaporedja od začetk
 Zamenjaj ujemajoče ploščice in zbriši vrste treh ali več. Izprazni ploščo in zmagaš.
 
 <b>Trio</b>:
-Najdi tri karte, ki si delijo obliko, število ali polnilo.
+Najdi tri karte s skupno obliko, polnilom ali številom znakov.
 
 Igra ima več <b>dosežkov</b> in vsaka vaja ima <b>medalje</b>, ki te motivirajo.
 

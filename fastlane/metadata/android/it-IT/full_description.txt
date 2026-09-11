@@ -43,7 +43,7 @@ Memorizza le forme e riconosci quella nascosta a tempo scaduto.
 Le caselle si illuminano una a una; ritoccale nello stesso ordine.
 
 <b>Confusione di Colori</b>:
-Tocca le celle in cui la parola corrisponde al colore del testo.
+Tocca il colore in cui è stampata la parola, non quello che dice la parola.
 
 <b>Forme colorate</b>:
 Somma i punti delle affermazioni corrette.
@@ -124,7 +124,7 @@ Ogni round si illumina un nuovo pulsante. Tocca l'intera sequenza dall'inizio, c
 Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.
 
 <b>Trio</b>:
-Trova tre carte che condividono forma, numero o riempimento.
+Trova tre carte che hanno in comune la forma, il riempimento o il numero di segni.
 
 Il gioco ha diversi <b>traguardi</b> e ogni esercizio ha <b>medaglie</b> per tenerti motivato.
 

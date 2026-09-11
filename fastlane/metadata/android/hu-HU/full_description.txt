@@ -37,7 +37,7 @@ Jegyezd meg a rács alakzatait, majd azonosítsd a rejtett alakzatot.
 Figyeld, ahogy a mezők egymás után kigyulladnak, majd koppints rájuk ugyanabban a sorrendben.
 
 <b>Színzavar</b>:
-Koppints minden cellára, ahol a szó megegyezik a betűszínnel.
+Koppints arra a színre, amellyel a szó nyomtatva van, ne arra, amit a szó megnevez.
 
 <b>Színes alakzatok</b>:
 Add össze a helyes állítások pontjait.
@@ -124,7 +124,7 @@ Minden körben egy új gomb gyullad ki. Koppintsd vissza az egész sorozatot az 
 Cseréld az egyező lapkákat, hogy legalább hármas sorokat törölj. Ürítsd ki a táblát a győzelemhez.
 
 <b>Trio</b>:
-Találj három kártyát, amelyek alakban, számban vagy kitöltésben megegyeznek.
+Találj három kártyát, amelyeknek közös az alakja, a kitöltése vagy a jelek száma.
 
 A játékban több <b>teljesítmény</b> van, és minden gyakorlatnak vannak <b>érmei</b>, hogy motivált maradj.
 

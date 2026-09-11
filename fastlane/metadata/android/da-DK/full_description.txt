@@ -37,7 +37,7 @@ Husk formene, og identificer den skjulte form, når timeren slutter.
 Se brikkerne tænde én efter én, og tryk dem tilbage i samme rækkefølge.
 
 <b>Farveforvirring</b>:
-Tryk på alle felter, hvor ordet matcher skriftfarven.
+Tryk på farven ordet er trykt med, ikke farven ordet nævner.
 
 <b>Farvede former</b>:
 Læg pointene fra de sande udsagn sammen.
@@ -124,7 +124,7 @@ Hver runde tænder én ny plade. Tryk hele sekvensen tilbage fra starten.
 Byt matchende brikker for at rydde rækker med tre eller flere. Tøm brættet for at vinde.
 
 <b>Trio</b>:
-Find tre kort, der deler form, antal eller udfyldning.
+Find tre kort, der har form, fyld eller hvor mange tegn de bærer til fælles.
 
 Spillet har flere <b>præstationer</b>, og hver øvelse har <b>medaljer</b>, der holder motivationen oppe.
 

@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">זכור את הצורות ברשת, ואז זהה את הצורה המוסתרת כשהטיימר נגמר.</string>
     <string name="game_pattern_sequence_desc">גלה את הכלל לאורך כל שורה ברשת, ואז בחר את החלק שמשלים אותה.</string>
     <string name="game_ghost_grid_desc">צפה במשבצות שנדלקות אחת אחרי השנייה, ואז הקש עליהן באותו סדר.</string>
-    <string name="game_color_confusion_desc">הקש על כל התאים שבהם המילה תואמת לצבע הגופן, ואז לחץ על סיום.</string>
+    <string name="game_color_confusion_desc">מילת צבע מופיעה בדיו צבעוני. הקש על צבע הדיו, לא על הצבע שהמילה מציינת.</string>
     <string name="game_orbit_tracker_desc">צפה בכדורים המסומנים, ואז עקוב אחריהם כשהם זזים. בחר את היעדים המקוריים אחרי שהם עוצרים.</string>
     <string name="game_bubble_sum_desc">חבר את המספרים על הבועות הצפות. אחר כך מספרים מהבהבים — זכור אותם.</string>
     <string name="bubble_sum_instruction">מה הסכום?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">מצא את האופרטורים החסרים</string>
     <string name="missing_operators_demo_desc">בחר את האופרטורים כדי שהמשוואה תהיה נכונה. האופרטורים מחושבים לפי סדר פעולות רגיל.</string>
     <string name="game_bulls_and_cows_desc">נחש את המספר הסודי בן 4 הספרות עם ספרות ייחודיות. Bulls = ספרה נכונה במקום הנכון. Cows = ספרה נכונה במקום הלא נכון.</string>
-    <string name="game_trio_desc">מצא שלושה קלפים שחולקים צורה, כמות או מילוי.</string>
+    <string name="game_trio_desc">מצא שלושה קלפים שיש להם במשותף צורה, מילוי או כמה סימנים.</string>
     <string name="game_mental_rotations_desc">החליטו אם הגוש השני הוא הראשון מסובב, או תמונת הראי שלו.</string>
     <string name="game_mental_rotations_question">אותו גוש או תמונת ראי?</string>
     <string name="game_mental_rotations_same">אותו גוש</string>
@@ -441,7 +441,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="visual_memory_demo_title">זכור מה הולך לאן</string>
     <string name="digit_memory_demo_title">זכור, הסחת דעת, שליפה</string>
     <string name="pattern_sequence_demo_rule">כל שורה משתמשת באותן שלוש צורות בסדר מוזז.</string>
-    <string name="color_confusion_demo_title">הקש על המילים התואמות</string>
+    <string name="color_confusion_demo_title">הדיו קובע, לא המילה</string>
     <string name="flags_demo_title">זהה את המדינה</string>
     <string name="mental_calculation_demo_title">העבר את התוצאה הלאה</string>
     <string name="mental_calculation_demo_keep">%1$d עובר מהתוצאה הקודמת.</string>

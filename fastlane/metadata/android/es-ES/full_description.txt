@@ -37,7 +37,7 @@ Memoriza las formas y reconoce la oculta cuando acabe el tiempo.
 Las casillas se iluminan una a una; tócalas en el mismo orden.
 
 <b>Confusión de Colores</b>:
-Toca las celdas donde la palabra coincide con el color de la fuente.
+Toca el color de la tinta, no el que dice la palabra.
 
 <b>Formas de colores</b>:
 Suma los puntos de las afirmaciones correctas.
@@ -124,7 +124,7 @@ En cada ronda se ilumina un botón nuevo. Toca toda la secuencia desde el princi
 Intercambia fichas iguales para borrar líneas de tres o más. Vacía todo el tablero para ganar.
 
 <b>Trio</b>:
-Encuentra tres cartas que compartan forma, cantidad o relleno.
+Encuentra tres cartas con forma, relleno o cuántas marcas.
 
 El juego tiene varios <b>logros</b> y cada ejercicio tiene <b>medallas</b> para mantenerte motivado.
 

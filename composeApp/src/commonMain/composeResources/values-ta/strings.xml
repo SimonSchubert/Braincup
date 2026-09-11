@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">கட்டத்தில் உள்ள வடிவங்களை மனப்பாடம் செய்யுங்கள், நேரம் முடிந்ததும் மறைந்த வடிவத்தை அடையாளம் காணுங்கள்.</string>
     <string name="game_pattern_sequence_desc">கட்டத்தின் ஒவ்வொரு வரிசையிலும் ஓடும் விதியைக் கண்டறிந்து, அதை நிறைவுசெய்யும் துண்டைத் தேர்வுசெய்யுங்கள்.</string>
     <string name="game_ghost_grid_desc">கட்டங்கள் ஒவ்வொன்றாக ஒளிர்வதைப் பாருங்கள், பிறகு அதே வரிசையில் அவற்றைத் தட்டுங்கள்.</string>
-    <string name="game_color_confusion_desc">சொல்லும் அதன் எழுத்து நிறமும் பொருந்தும் எல்லாக் கட்டங்களையும் தட்டி, பிறகு முடிந்தது என்பதை அழுத்துங்கள்.</string>
+    <string name="game_color_confusion_desc">ஒரு வண்ணச் சொல் வண்ண மையில் தோன்றும். மையின் நிறத்தைத் தட்டுங்கள், சொல் சொல்லும் நிறத்தை அல்ல.</string>
     <string name="game_orbit_tracker_desc">தனித்துக் காட்டப்பட்ட பந்துகளைப் பாருங்கள், அவை நகரும்போது கண்காணியுங்கள். அவை நின்றபிறகு அசல் இலக்குகளைத் தேர்வுசெய்யுங்கள்.</string>
     <string name="game_bubble_sum_desc">மிதக்கும் குமிழிகளில் உள்ள எண்களைக் கூட்டுங்கள். பின்னர் எண்கள் சிமிட்டும் — அவற்றை நினைவில் வையுங்கள்.</string>
     <string name="bubble_sum_instruction">கூட்டுத்தொகை என்ன?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">விடுபட்ட செயற்குறிகளைக் கண்டுபிடியுங்கள்</string>
     <string name="missing_operators_demo_desc">சமன்பாட்டை உண்மையாக்கச் செயற்குறிகளைத் தேர்வுசெய்யுங்கள். செயற்குறிகள் நிலையான கணித முன்னுரிமைப்படி மதிப்பிடப்படுகின்றன.</string>
     <string name="game_bulls_and_cows_desc">தனித்த இலக்கங்களைக் கொண்ட ரகசிய 4 இலக்க எண்ணை யூகியுங்கள். Bulls = சரியான இடத்தில் சரியான இலக்கம். Cows = தவறான இடத்தில் சரியான இலக்கம்.</string>
-    <string name="game_trio_desc">ஒரே வடிவம், எண்ணிக்கை அல்லது நிரப்புதலைப் பகிரும் மூன்று அட்டைகளைக் கண்டுபிடியுங்கள்.</string>
+    <string name="game_trio_desc">வடிவம், நிரப்பல் அல்லது குறிகள் எத்தனை என்பதைப் பகிரும் மூன்று அட்டைகளைக் கண்டுபிடியுங்கள்.</string>
     <string name="game_mental_rotations_desc">இரண்டாவது தொகுதி முதலாவதைச் சுழற்றியதா அல்லது அதன் கண்ணாடிப் பிம்பமா என்பதை முடிவு செய்யுங்கள்.</string>
     <string name="game_mental_rotations_question">அதே தொகுதியா, கண்ணாடிப் பிம்பமா?</string>
     <string name="game_mental_rotations_same">அதுவே</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">எது எங்கே என்பதை நினைவில் வையுங்கள்</string>
     <string name="digit_memory_demo_title">மனப்பாடம், கவனச்சிதறல், மீட்டெடுப்பு</string>
     <string name="pattern_sequence_demo_rule">ஒவ்வொரு வரிசையும் அதே மூன்று வடிவங்களை நகர்த்தப்பட்ட ஒழுங்கில் பயன்படுத்துகிறது.</string>
-    <string name="color_confusion_demo_title">பொருந்தும் சொற்களைத் தட்டுங்கள்</string>
+    <string name="color_confusion_demo_title">விடை மைதான், சொல் அல்ல</string>
     <string name="flags_demo_title">நாட்டின் பெயரைச் சொல்லுங்கள்</string>
     <string name="mental_calculation_demo_title">முடிவை அடுத்ததற்குக் கொண்டு செல்லுங்கள்</string>
     <string name="mental_calculation_demo_keep">முந்தைய முடிவிலிருந்து %1$d கொண்டு வரப்படுகிறது.</string>

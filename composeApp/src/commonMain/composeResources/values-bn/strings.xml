@@ -101,7 +101,7 @@
     <string name="game_visual_memory_desc">গ্রিডে আকৃতিগুলি মুখস্থ করুন, তারপর টাইমার শেষ হওয়ার পরে লুকানো আকৃতিটি সনাক্ত করুন।</string>
     <string name="game_pattern_sequence_desc">গ্রিডের প্রতিটি সারিতে চলা নিয়মটি বের করুন, তারপর সেটি সম্পূর্ণ করা টুকরোটি বেছে নিন।</string>
     <string name="game_ghost_grid_desc">টাইলগুলো একে একে জ্বলতে দেখুন, তারপর একই ক্রমে ট্যাপ করুন।</string>
-    <string name="game_color_confusion_desc">যেসব ঘরে শব্দটি ফন্টের রঙের সাথে মেলে সেগুলোতে ট্যাপ করুন, তারপর সম্পন্ন চাপুন।</string>
+    <string name="game_color_confusion_desc">একটি রঙের শব্দ রঙিন কালিতে দেখা যায়। কালির রঙে ট্যাপ করুন, শব্দ যে রঙ বলে সেটাতে নয়।</string>
     <string name="game_orbit_tracker_desc">হাইলাইট করা বলগুলো দেখুন, তারপর সেগুলো নড়াচড়ার সময় ট্র্যাক করুন। থামার পরে মূল লক্ষ্যগুলো নির্বাচন করুন।</string>
     <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
@@ -780,7 +780,7 @@
     <string name="visual_memory_demo_title">কোনটি কোথায় তা মনে রাখুন</string>
     <string name="digit_memory_demo_title">মুখস্থ করুন, বিক্ষিপ্ত হন, স্মরণ করুন</string>
     <string name="pattern_sequence_demo_rule">প্রতিটি সারিতে একই তিনটি আকৃতি সরানো ক্রমে ব্যবহৃত হয়।</string>
-    <string name="color_confusion_demo_title">মিলের শব্দগুলোতে ট্যাপ করুন</string>
+    <string name="color_confusion_demo_title">উত্তর কালি, শব্দ নয়</string>
     <string name="flags_demo_title">দেশটির নাম বলুন</string>
     <string name="mental_calculation_demo_title">ফলাফল সামনে বহন করুন</string>
     <string name="mental_calculation_demo_keep">%1$d আগের ফলাফল থেকে বহন হয়।</string>
@@ -841,7 +841,7 @@
     <string name="game_mental_rotations">মানসিক আবর্তন</string>
     <string name="game_mental_flex">মানসিক নমনীয়তা</string>
     <string name="game_rule_shift">নিয়ম বদল</string>
-    <string name="game_trio_desc">এমন তিনটি তাস খুঁজুন যাদের আকৃতি, সংখ্যা বা ভরাট এক।</string>
+    <string name="game_trio_desc">তিনটি তাস খুঁজুন যাদের আকৃতি, ভরাট বা চিহ্ন কতগুলো একই।</string>
     <string name="game_mental_rotations_desc">দ্বিতীয় ব্লকটি প্রথমটিরই ঘোরানো রূপ, নাকি তার আয়না-প্রতিবিম্ব, তা ঠিক করুন।</string>
     <string name="game_mental_rotations_question">একই ব্লক, নাকি আয়না-প্রতিবিম্ব?</string>
     <string name="game_mental_rotations_same">একই</string>

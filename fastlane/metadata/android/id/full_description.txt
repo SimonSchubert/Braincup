@@ -37,7 +37,7 @@ Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah wa
 Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.
 
 <b>Kebingungan Warna</b>:
-Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.
+Ketuk warna cetak kata itu, bukan warna yang disebut katanya.
 
 <b>Bentuk Berwarna</b>:
 Jumlahkan poin dari pernyataan yang benar.
@@ -124,7 +124,7 @@ Setiap ronde satu tombol baru menyala. Ketuk seluruh urutan dari awal, termasuk 
 Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.
 
 <b>Trio</b>:
-Temukan tiga kartu yang berbagi bentuk, jumlah, atau isian.
+Temukan tiga kartu yang sama bentuk, isian, atau jumlah tandanya.
 
 Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
 

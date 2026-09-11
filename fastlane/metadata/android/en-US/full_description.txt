@@ -124,7 +124,7 @@ Each round adds one pad. Tap the whole sequence back from the start.
 Swap tiles to clear lines of three or more. Empty the board to win.
 
 <b>Trio</b>:
-Find three cards that share a shape, a count or a fill.
+Find three cards that share a shape, a fill or how many marks they carry.
 
 <b>Mental Rotations</b>:
 Is the second block the first one turned, or mirrored?

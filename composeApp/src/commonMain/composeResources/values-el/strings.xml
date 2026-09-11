@@ -281,7 +281,7 @@
     <string name="game_visual_memory_desc">Απομνημονεύστε τα σχήματα στο πλέγμα, και μετά εντοπίστε το κρυμμένο σχήμα μετά τη λήξη της διορίας.</string>
     <string name="game_pattern_sequence_desc">Βρες τον κανόνα που διατρέχει κάθε γραμμή του πλέγματος και διάλεξε το κομμάτι που τον ολοκληρώνει.</string>
     <string name="game_ghost_grid_desc">Παρακολουθήστε τα πλακίδια να φωτίζονται ένα προς ένα, και μετά πατήστε τα ξανά με την ίδια σειρά.</string>
-    <string name="game_color_confusion_desc">Πατήστε όλα τα κελιά όπου η λέξη ταιριάζει με το χρώμα της γραμματοσειράς της, και μετά πατήστε Τέλος.</string>
+    <string name="game_color_confusion_desc">Εμφανίζεται μια λέξη χρώματος με χρωματιστό μελάνι. Πάτα το χρώμα του μελανιού, όχι το χρώμα που ονομάζει η λέξη.</string>
     <string name="game_orbit_tracker_desc">Παρακολουθήστε τις φωτεινές μπάλες και μετά το πώς κινούνται. Επιλέξτε τους αρχικούς στόχους αφού σταματήσουν.</string>
     <string name="game_flash_crowd_desc">Κουκκίδες αναβοσβήνουν για λίγο σε κάθε πλευρά. Πατήστε την πλευρά που είχε περισσότερες κουκκίδες. Μην μετράτε - μόνο ένστικτο!</string>
     <string name="game_schulte_table_desc">Πατήστε τους αριθμούς με τη σειρά από το 1 και μετά, όσο πιο γρήγορα μπορείτε.</string>
@@ -363,7 +363,7 @@
     <string name="visual_memory_demo_title">Θυμηθείτε τι πάει πού</string>
     <string name="digit_memory_demo_title">Απομνημονεύστε, αποσπαστείτε, ανακαλέστε</string>
     <string name="pattern_sequence_demo_rule">Κάθε γραμμή χρησιμοποιεί τα ίδια τρία σχήματα με μετατοπισμένη σειρά.</string>
-    <string name="color_confusion_demo_title">Πατήστε τις λέξεις που ταιριάζουν</string>
+    <string name="color_confusion_demo_title">Απάντα στο μελάνι, όχι στη λέξη</string>
     <string name="flags_demo_title">Ονομάστε τη χώρα</string>
     <string name="mental_calculation_demo_title">Μεταφέρετε το αποτέλεσμα παρακάτω</string>
     <string name="mental_calculation_demo_keep">%1$d μεταφέρεται από το προηγούμενο αποτέλεσμα.</string>
@@ -841,7 +841,7 @@
     <string name="game_mental_rotations">Νοερές περιστροφές</string>
     <string name="game_mental_flex">Νοητική ευελιξία</string>
     <string name="game_rule_shift">Αλλαγή κανόνα</string>
-    <string name="game_trio_desc">Βρες τρεις κάρτες που μοιράζονται σχήμα, πλήθος ή γέμισμα.</string>
+    <string name="game_trio_desc">Βρες τρεις κάρτες με κοινό σχήμα, γέμισμα ή πόσα σημάδια.</string>
     <string name="game_mental_rotations_desc">Αποφάσισε αν το δεύτερο μπλοκ είναι το πρώτο γυρισμένο ή το κατοπτρικό του είδωλο.</string>
     <string name="game_mental_rotations_question">Ίδιο μπλοκ ή κατοπτρικό είδωλο;</string>
     <string name="game_mental_rotations_same">Ίδιο</string>

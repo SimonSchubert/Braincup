@@ -5,7 +5,8 @@ Reads the canonical locale list from androidApp/src/main/res/xml/locales_config.
 and compares composeApp/.../composeResources/values*/strings.xml against the base
 English file (values/strings.xml).
 
-Exit code 0 when all locales are complete; 1 when any keys or locale files are missing.
+Exit code 0 when all locales are complete; 1 when any keys or locale files are missing,
+or when a locale still translates an older English source for a UI key.
 
 Examples:
   ./scripts/check_localizations.py
@@ -19,7 +20,9 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -165,6 +168,144 @@ def duplicate_families(values: dict[str, str]) -> dict[str, list[str]]:
 def extract_values(path: Path) -> dict[str, str]:
     text = path.read_text(encoding="utf-8")
     return dict(re.findall(r'<string\s+name="([^"]+)"\s*>(.*?)</string>', text, re.S))
+
+
+# A UI key whose English was rewritten in place still exists in every locale, so the missing-key
+# check lets it through. Color Confusion's description kept telling players to tap matching cells
+# after the game became a Stroop task, in all 51 languages. The catch is the English value at the
+# locale's last write of that key, compared to English now.
+STRING_DIFF_LINE = re.compile(r'^([+-])\s*<string\s+name="([^"]+)"\s*>(.*?)</string>\s*$')
+
+
+def parse_value_history(git_log: str) -> dict[str, list[tuple[int, str]]]:
+    """Oldest-first (timestamp, value) per key, from `git log -p -U0 --reverse --format='COMMIT %ct'`."""
+    history: dict[str, list[tuple[int, str]]] = {}
+    date: int | None = None
+    minus: dict[str, str] = {}
+    plus: dict[str, str] = {}
+
+    def flush() -> None:
+        if date is None:
+            minus.clear()
+            plus.clear()
+            return
+        for key in set(minus) | set(plus):
+            if is_pending(key):
+                continue
+            old, new = minus.get(key), plus.get(key)
+            if new is None or old == new:
+                continue
+            prev = history[key][-1][1] if key in history else None
+            if new != prev:
+                history.setdefault(key, []).append((date, new))
+        minus.clear()
+        plus.clear()
+
+    for line in git_log.splitlines():
+        if line.startswith("COMMIT "):
+            flush()
+            date = int(line.split()[1])
+            continue
+        match = STRING_DIFF_LINE.match(line)
+        if not match:
+            continue
+        sign, key, value = match.group(1), match.group(2), match.group(3)
+        (minus if sign == "-" else plus)[key] = value
+    flush()
+    return history
+
+
+def english_at(history: dict[str, list[tuple[int, str]]], key: str, ts: int) -> str | None:
+    """Latest English value with timestamp <= ts, or None if English did not have the key yet."""
+    value = None
+    for when, text in history.get(key, ()):
+        if when <= ts:
+            value = text
+        else:
+            break
+    return value
+
+
+def stale_source_keys(
+    english_now: dict[str, str],
+    english_history: dict[str, list[tuple[int, str]]],
+    locale_now: dict[str, str],
+    locale_history: dict[str, list[tuple[int, str]]],
+) -> list[str]:
+    """UI keys whose English changed after this locale last wrote them.
+
+    A working-tree rewrite of the locale value (it differs from the last committed value)
+    counts as catching up, so uncommitted retranslations pass the check.
+    """
+    stale: list[str] = []
+    for key, now in english_now.items():
+        if is_pending(key) or key not in locale_now:
+            continue
+        loc_hist = locale_history.get(key)
+        if not loc_hist:
+            continue
+        loc_ts, loc_committed = loc_hist[-1]
+        if locale_now[key] != loc_committed:
+            continue
+        then = english_at(english_history, key, loc_ts)
+        if then is None:
+            first = english_history[key][0][1] if key in english_history else None
+            if first != now:
+                stale.append(key)
+        elif then != now:
+            stale.append(key)
+    return sorted(stale)
+
+
+def git_repo_root(path: Path) -> Path | None:
+    result = subprocess.run(
+        ["git", "-C", str(path if path.is_dir() else path.parent), "rev-parse", "--show-toplevel"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    return Path(result.stdout.strip())
+
+
+def git_is_shallow(repo: Path) -> bool:
+    result = subprocess.run(
+        ["git", "-C", str(repo), "rev-parse", "--is-shallow-repository"],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    return result.stdout.strip() == "true"
+
+
+def git_value_history(path: Path) -> dict[str, list[tuple[int, str]]] | None:
+    """Committed value history for a strings file, or None when git cannot answer."""
+    repo = git_repo_root(path)
+    if repo is None or git_is_shallow(repo):
+        return None
+    result = subprocess.run(
+        [
+            "git",
+            "-C",
+            str(repo),
+            "log",
+            "-p",
+            "-U0",
+            "--format=COMMIT %ct",
+            "--reverse",
+            "--",
+            str(path),
+        ],
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    if result.returncode != 0:
+        return None
+    return parse_value_history(result.stdout)
+
+
 PLURALS_NAME_PATTERN = re.compile(r'<plurals\s+name="([^"]+)"')
 LOCALE_NAME_PATTERN = re.compile(r'<locale\s+android:name="([^"]+)"')
 
@@ -191,6 +332,7 @@ class LocaleReport:
     changed_placeholders: list[str] = field(default_factory=list)
     changed_markers: list[str] = field(default_factory=list)
     broken_plurals: list[str] = field(default_factory=list)
+    stale_keys: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -205,6 +347,7 @@ class CheckResult:
     numbered_options: list[str] = field(default_factory=list)
     repeated_sentences: dict[str, list[str]] = field(default_factory=dict)
     repeated_texts: dict[str, list[str]] = field(default_factory=dict)
+    stale_scan_skipped: str | None = None
 
     def issue_count(self) -> int:
         count = len(self.missing_keys_in_base)
@@ -212,7 +355,7 @@ class CheckResult:
         for report in self.locale_reports:
             count += len(report.missing_keys) + len(report.extra_keys) + len(report.changed_numbers)
             count += len(report.changed_placeholders) + len(report.changed_markers)
-            count += len(report.broken_plurals)
+            count += len(report.broken_plurals) + len(report.stale_keys)
         count += len(self.numbered_options) + len(self.repeated_sentences) + len(self.repeated_texts)
         return count
 
@@ -307,6 +450,33 @@ def check_localizations(
     locale_reports: list[LocaleReport] = []
     missing_locale_files: list[str] = []
 
+    english_history = git_value_history(base_file)
+    if english_history is None:
+        repo = git_repo_root(base_file)
+        if repo is None:
+            stale_scan_skipped = "not a git checkout"
+        elif git_is_shallow(repo):
+            stale_scan_skipped = "shallow clone"
+        else:
+            stale_scan_skipped = "git log failed"
+        locale_histories: dict[str, dict[str, list[tuple[int, str]]]] = {}
+    else:
+        stale_scan_skipped = None
+        existing_locale_files = [
+            (locale, strings_file(resources_dir, locale))
+            for locale in supported_locales
+            if strings_file(resources_dir, locale).is_file()
+        ]
+
+        def history_for(item: tuple[str, Path]) -> tuple[str, dict[str, list[tuple[int, str]]]]:
+            locale, path = item
+            return locale, git_value_history(path) or {}
+
+        locale_histories = {}
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            for locale, history in pool.map(history_for, existing_locale_files):
+                locale_histories[locale] = history
+
     for locale in supported_locales:
         path = strings_file(resources_dir, locale)
         folder = locale_folder(locale)
@@ -357,6 +527,16 @@ def check_localizations(
                 changed_placeholders=changed_placeholders,
                 changed_markers=changed_markers,
                 broken_plurals=broken_plurals(extract_plurals(path), base_plurals),
+                stale_keys=(
+                    stale_source_keys(
+                        base_values,
+                        english_history,
+                        locale_values,
+                        locale_histories.get(locale, {}),
+                    )
+                    if english_history is not None
+                    else []
+                ),
             ),
         )
 
@@ -379,6 +559,7 @@ def check_localizations(
             and not report.changed_placeholders
             and not report.changed_markers
             and not report.broken_plurals
+            and not report.stale_keys
             for report in locale_reports
         )
     )
@@ -394,6 +575,7 @@ def check_localizations(
         numbered_options=numbered_options,
         repeated_sentences=repeated_sentences,
         repeated_texts=repeats,
+        stale_scan_skipped=stale_scan_skipped,
     )
 
 
@@ -404,6 +586,8 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             f"in {locale_folder(result.base_locale)}/strings.xml",
         )
         print(f"Supported locales: {', '.join(result.supported_locales)}")
+        if result.stale_scan_skipped:
+            print(f"Skipping stale-source scan: {result.stale_scan_skipped}")
         print()
 
     if result.missing_locale_files:
@@ -458,6 +642,8 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             issues.append(f"{len(report.changed_markers)} with changed colour markers")
         if report.broken_plurals:
             issues.append(f"{len(report.broken_plurals)} broken plural(s)")
+        if report.stale_keys:
+            issues.append(f"{len(report.stale_keys)} stale")
 
         if not issues:
             if not quiet:
@@ -478,6 +664,8 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             print(f"  - colour markers changed: {key}")
         for problem in report.broken_plurals:
             print(f"  - plural: {problem}")
+        for key in report.stale_keys:
+            print(f"  - stale: {key}")
         print()
 
     pending = sum(len(r.pending_keys) for r in result.locale_reports)
@@ -502,6 +690,7 @@ def print_json_report(result: CheckResult) -> None:
         "missing_locale_files": result.missing_locale_files,
         "missing_keys_in_base": result.missing_keys_in_base,
         "pending_translation": sum(len(r.pending_keys) for r in result.locale_reports),
+        "stale_scan_skipped": result.stale_scan_skipped,
         "locales": [
             {
                 "locale": report.locale,
@@ -515,6 +704,7 @@ def print_json_report(result: CheckResult) -> None:
                 "changed_placeholders": report.changed_placeholders,
                 "changed_markers": report.changed_markers,
                 "broken_plurals": report.broken_plurals,
+                "stale_keys": report.stale_keys,
             }
             for report in result.locale_reports
         ],

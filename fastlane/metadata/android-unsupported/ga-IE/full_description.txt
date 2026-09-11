@@ -37,7 +37,7 @@ Meabhraigh cruthanna agus aithin an cruth folaithe nuair a chríochnaíonn an t-
 Féach ar na tíl ag lasadh ceann i ndiaidh a chéile agus tapáil iad san ord céanna.
 
 <b>Mearbhall dathanna</b>:
-Tapáil gach cill ina n-oireann an focal le dath an chló.
+Tapáil an dath a bhfuil an focal clóite ann, ní an dath a ainmníonn an focal.
 
 <b>Cruthanna daite</b>:
 Suimigh na pointí ó ráitis fhíora.
@@ -124,7 +124,7 @@ Lasann gach babhta tíl nua amháin. Tapáil an seicheamh iomlán ón tús.
 Malartaigh tíl mheaitseála chun sraitheanna de thrí nó níos mó a ghlanadh. Glan an clár agus buaigh.
 
 <b>Trio</b>:
-Faigh trí chárta a roinneann cruth, líon nó líonadh.
+Faigh trí chárta a bhfuil an cruth céanna, an líonadh céanna nó an líon céanna comharthaí orthu.
 
 Tá <b>éachtaí</b> agus <b>boinn</b> ag gach cleachtadh a choinníonn an spreagadh.
 

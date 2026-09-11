@@ -37,7 +37,7 @@ Zapamatuj si tvary v mřížce a po skončení časovače urči skrytý tvar.
 Sleduj, jak se dlaždice rozsvěcují jedna po druhé, a klepni na ně ve stejném pořadí.
 
 <b>Zmatek barev</b>:
-Klepni na všechny buňky, kde se slovo shoduje s barvou písma.
+Klepni na barvu, kterou je slovo napsané, ne na barvu, kterou slovo říká.
 
 <b>Barevné tvary</b>:
 Sečti body z pravdivých tvrzení.
@@ -124,7 +124,7 @@ Každé kolo rozsvítí jeden nový panel. Klepni celou sekvenci od začátku.
 Prohoď shodné dlaždice a smaž řady o třech a více. Vyprázdni desku a vyhraješ.
 
 <b>Trio</b>:
-Najdi tři karty, které sdílejí tvar, počet nebo výplň.
+Najdi tři karty se společným tvarem, výplní nebo počtem znaků.
 
 Hra má několik <b>úspěchů</b> a každé cvičení má <b>medaile</b>, které tě motivují.
 

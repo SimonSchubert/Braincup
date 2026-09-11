@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Jäta meelde ruudustiku kujundid ja tuvasta peidetud kujund, kui taimer lõpeb.</string>
     <string name="game_pattern_sequence_desc">Selgita reegel igal real ja vali tükk, mis selle täiendab.</string>
     <string name="game_ghost_grid_desc">Vaata, kuidas plaadid süttivad ükshaaval, ja puuduta need tagasi samas järjekorras.</string>
-    <string name="game_color_confusion_desc">Puuduta kõiki lahtreid, kus sõna vastab fondi värvile, ja vajuta Valmis.</string>
+    <string name="game_color_confusion_desc">Värvisõna ilmub värvilises tindis. Puuduta tindi värvi, mitte seda värvi, mida sõna nimetab.</string>
     <string name="game_orbit_tracker_desc">Vaata esile tõstetud palle ja jälgi neid, kui need liiguvad. Vali algsed sihtmärgid, kui need peatuvad.</string>
     <string name="game_bubble_sum_desc">Liida kokku ujuavate mullide numbrid. Hiljem numbrid vilguvad — jäta need meelde.</string>
     <string name="bubble_sum_instruction">Mis on summa?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Leia puuduvad tehtemärgid</string>
     <string name="missing_operators_demo_desc">Vali märgid, et võrrand klapiks. Tehtemärke arvestatakse tavalise järjekorraga.</string>
     <string name="game_bulls_and_cows_desc">Arva salajane 4-kohaline arv erinevate numbritega. Bulls = õige number õiges kohas. Cows = õige number vales kohas.</string>
-    <string name="game_trio_desc">Leia kolm kaarti, mis jagavad kuju, arvu või täidet.</string>
+    <string name="game_trio_desc">Leia kolm kaarti, millel on ühine kuju, täide või märkide arv.</string>
     <string name="game_mental_rotations_desc">Otsusta, kas teine plokk on esimene pööratuna või selle peegelpilt.</string>
     <string name="game_mental_rotations_question">Sama plokk või peegelpilt?</string>
     <string name="game_mental_rotations_same">Sama</string>
@@ -437,7 +437,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="visual_memory_demo_title">Jäta meelde, mis kuhu läheb</string>
     <string name="digit_memory_demo_title">Jäta meelde, sega, too tagasi</string>
     <string name="pattern_sequence_demo_rule">Iga rida kasutab samu kolme kuju nihutatud järjekorras.</string>
-    <string name="color_confusion_demo_title">Puuduta klappivaid sõnu</string>
+    <string name="color_confusion_demo_title">Tint loeb, mitte sõna</string>
     <string name="flags_demo_title">Nimeta riik</string>
     <string name="mental_calculation_demo_title">Vii tulemus edasi</string>
     <string name="mental_calculation_demo_keep">%1$d kandub eelmise tulemuse pealt.</string>

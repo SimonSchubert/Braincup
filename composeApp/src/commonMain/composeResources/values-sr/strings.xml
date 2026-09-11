@@ -300,7 +300,7 @@
     <string name="game_visual_memory_desc">Запамти облике у мрежи и после истека тајмера одреди скривени облик.</string>
     <string name="game_pattern_sequence_desc">Откриј правило у сваком реду мреже и изабери део који га допуњује.</string>
     <string name="game_ghost_grid_desc">Гледај како се плочице пале једна за другом и додирни их истим редоследом.</string>
-    <string name="game_color_confusion_desc">Додирни све ћелије у којима се реч поклапа са бојом фонта, па притисни Готово.</string>
+    <string name="game_color_confusion_desc">Реч боје појављује се у обојеном мастилу. Додирни боју мастила, не боју коју реч говори.</string>
     <string name="game_orbit_tracker_desc">Прати истакнуте лопте и држи их док се крећу. Кад стану, изабери првобитне циљеве.</string>
     <string name="game_bubble_sum_desc">Сабери бројеве на плутајућим мехурићима. Касније бројеви трепере — запамти их.</string>
     <string name="bubble_sum_instruction">Колики је збир?</string>
@@ -338,7 +338,7 @@
     <string name="missing_operators_demo_title">Нађи недостајуће операторе</string>
     <string name="missing_operators_demo_desc">Изабери операторе да једначина буде тачна. Оператори се рачунају по уобичајеном редоследу.</string>
     <string name="game_bulls_and_cows_desc">Погоди тајни 4-цифрени број са јединственим цифрама. Bulls = тачна цифра на тачном месту. Cows = тачна цифра на погрешном месту.</string>
-    <string name="game_trio_desc">Нађи три карте које деле облик, број или попуну.</string>
+    <string name="game_trio_desc">Нађи три карте са заједничким обликом, испуном или бројем знакова.</string>
     <string name="game_mental_rotations_desc">Одлучи да ли је други блок први заокренут или његов огледални одраз.</string>
     <string name="game_mental_rotations_question">Исти блок или огледални одраз?</string>
     <string name="game_mental_rotations_same">Исти</string>
@@ -441,7 +441,7 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="visual_memory_demo_title">Запамти шта иде куда</string>
     <string name="digit_memory_demo_title">Запамти, омети се, сети се</string>
     <string name="pattern_sequence_demo_rule">Сваки ред користи иста три облика у помакнутом редоследу.</string>
-    <string name="color_confusion_demo_title">Додирни подударне речи</string>
+    <string name="color_confusion_demo_title">Мастило, не реч</string>
     <string name="flags_demo_title">Препознај земљу</string>
     <string name="mental_calculation_demo_title">Пренеси резултат даље</string>
     <string name="mental_calculation_demo_keep">%1$d се преноси из претходног резултата.</string>

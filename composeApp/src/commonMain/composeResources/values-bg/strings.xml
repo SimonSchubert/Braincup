@@ -296,7 +296,7 @@
     <string name="game_visual_memory_desc">Запомни фигурите в мрежата и след края на таймера определи скритата фигура.</string>
     <string name="game_pattern_sequence_desc">Открий правилото във всеки ред на мрежата и избери парчето, което го допълва.</string>
     <string name="game_ghost_grid_desc">Следи как плочките светват една след друга и ги докосни в същия ред.</string>
-    <string name="game_color_confusion_desc">Докосни всички клетки, в които думата съвпада с цвета на шрифта, после натисни Готово.</string>
+    <string name="game_color_confusion_desc">Цветна дума се появява с цветно мастило. Докосни цвета на мастилото, не цвета, който думата казва.</string>
     <string name="game_orbit_tracker_desc">Следи осветените топки и ги дръж, докато се движат. Когато спрат, избери първоначалните цели.</string>
     <string name="game_bubble_sum_desc">Събери числата на плаващите мехурчета. По-късно числата примигват — запомни ги.</string>
     <string name="bubble_sum_instruction">Колко е сборът?</string>
@@ -334,7 +334,7 @@
     <string name="missing_operators_demo_title">Намери липсващите оператори</string>
     <string name="missing_operators_demo_desc">Избери операторите, за да е вярно уравнението. Операторите се смятат по обичайния ред.</string>
     <string name="game_bulls_and_cows_desc">Познай тайното 4-цифрено число с уникални цифри. Bulls = вярна цифра на вярно място. Cows = вярна цифра на грешно място.</string>
-    <string name="game_trio_desc">Намери три карти, които споделят форма, брой или запълване.</string>
+    <string name="game_trio_desc">Намери три карти с обща форма, запълване или брой знаци.</string>
     <string name="game_mental_rotations_desc">Реши дали вторият блок е първият, но завъртян, или огледалният му образ.</string>
     <string name="game_mental_rotations_question">Същият блок или огледален образ?</string>
     <string name="game_mental_rotations_same">Същият</string>
@@ -437,7 +437,7 @@ Cow = вярна цифра, грешно място.</string>
     <string name="visual_memory_demo_title">Запомни кое къде отива</string>
     <string name="digit_memory_demo_title">Запомни, разсей се, припомни си</string>
     <string name="pattern_sequence_demo_rule">Всеки ред използва същите три форми в изместен ред.</string>
-    <string name="color_confusion_demo_title">Докосни съвпадащите думи</string>
+    <string name="color_confusion_demo_title">Мастилото, не думата</string>
     <string name="flags_demo_title">Познай държавата</string>
     <string name="mental_calculation_demo_title">Пренеси резултата напред</string>
     <string name="mental_calculation_demo_keep">%1$d се пренася от предишния резултат.</string>

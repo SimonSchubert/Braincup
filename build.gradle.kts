@@ -12,7 +12,7 @@ plugins {
 tasks.register<Exec>("checkLocalizations") {
     group = "verification"
     description =
-        "Checks that all composeResources string keys exist for every supported locale"
+        "Checks that composeResources keys exist for every locale and that UI translations match current English"
     commandLine(
         "python3",
         layout.projectDirectory.file("scripts/check_localizations.py").asFile.absolutePath,

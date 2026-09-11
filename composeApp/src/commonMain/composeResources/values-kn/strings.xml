@@ -280,7 +280,7 @@
     <string name="game_visual_memory_desc">ಗ್ರಿಡ್‌ನಲ್ಲಿನ ಆಕಾರಗಳನ್ನು ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ, ಸಮಯ ಮುಗಿದ ಮೇಲೆ ಅಡಗಿದ ಆಕಾರವನ್ನು ಗುರುತಿಸಿ.</string>
     <string name="game_pattern_sequence_desc">ಗ್ರಿಡ್‌ನ ಪ್ರತಿ ಸಾಲಿನಲ್ಲಿ ಸಾಗುವ ನಿಯಮವನ್ನು ಕಂಡುಹಿಡಿದು, ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸುವ ತುಂಡನ್ನು ಆರಿಸಿ.</string>
     <string name="game_ghost_grid_desc">ಚೌಕಗಳು ಒಂದೊಂದಾಗಿ ಬೆಳಗುವುದನ್ನು ನೋಡಿ, ನಂತರ ಅದೇ ಕ್ರಮದಲ್ಲಿ ಅವುಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
-    <string name="game_color_confusion_desc">ಪದವು ಅದರ ಫಾಂಟ್ ಬಣ್ಣಕ್ಕೆ ಹೊಂದುವ ಎಲ್ಲ ಮನೆಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ನಂತರ ಮುಗಿದಿದೆ ಒತ್ತಿ.</string>
+    <string name="game_color_confusion_desc">ಒಂದು ಬಣ್ಣದ ಪದ ಬಣ್ಣದ ಶಾಯಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ. ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ಪದ ಹೇಳುವ ಬಣ್ಣವನ್ನು ಅಲ್ಲ.</string>
     <string name="game_orbit_tracker_desc">ಎತ್ತಿ ತೋರಿಸಿದ ಚೆಂಡುಗಳನ್ನು ನೋಡಿ, ಅವು ಚಲಿಸುವಾಗ ಜಾಡು ಹಿಡಿಯಿರಿ. ಅವು ನಿಂತ ಮೇಲೆ ಮೂಲ ಗುರಿಗಳನ್ನು ಆರಿಸಿ.</string>
     <string name="game_bubble_sum_desc">ತೇಲುವ ಗುಳ್ಳೆಗಳ ಮೇಲಿನ ಸಂಖ್ಯೆಗಳನ್ನು ಕೂಡಿಸಿ. ನಂತರ ಸಂಖ್ಯೆಗಳು ಮಿನುಗುತ್ತವೆ — ಅವನ್ನು ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ.</string>
     <string name="bubble_sum_instruction">ಮೊತ್ತ ಎಷ್ಟು?</string>
@@ -318,7 +318,7 @@
     <string name="missing_operators_demo_title">ಕಾಣೆಯಾದ ಚಿಹ್ನೆಗಳನ್ನು ಹುಡುಕಿ</string>
     <string name="missing_operators_demo_desc">ಸಮೀಕರಣವನ್ನು ಸರಿಯಾಗಿಸಲು ಚಿಹ್ನೆಗಳನ್ನು ಆರಿಸಿ. ಚಿಹ್ನೆಗಳನ್ನು ಪ್ರಮಾಣಿತ ಗಣಿತದ ಆದ್ಯತೆಯ ಪ್ರಕಾರ ಲೆಕ್ಕಿಸಲಾಗುತ್ತದೆ.</string>
     <string name="game_bulls_and_cows_desc">ಬೇರೆ ಬೇರೆ ಅಂಕಿಗಳಿರುವ ಗುಪ್ತ 4 ಅಂಕಿಯ ಸಂಖ್ಯೆಯನ್ನು ಊಹಿಸಿ. Bulls = ಸರಿಯಾದ ಸ್ಥಳದಲ್ಲಿ ಸರಿಯಾದ ಅಂಕಿ. Cows = ತಪ್ಪಾದ ಸ್ಥಳದಲ್ಲಿ ಸರಿಯಾದ ಅಂಕಿ.</string>
-    <string name="game_trio_desc">ಒಂದೇ ಆಕಾರ, ಎಣಿಕೆ ಅಥವಾ ತುಂಬುವಿಕೆ ಹೊಂದಿರುವ ಮೂರು ಇಸ್ಪೀಟೆಲೆಗಳನ್ನು ಹುಡುಕಿ.</string>
+    <string name="game_trio_desc">ಆಕಾರ, ತುಂಬುವಿಕೆ ಅಥವಾ ಗುರುತುಗಳು ಎಷ್ಟು ಎಂಬುದರಲ್ಲಿ ಒಂದೇ ಆಗಿರುವ ಮೂರು ಎಲೆಗಳನ್ನು ಹುಡುಕಿ.</string>
     <string name="game_mental_rotations_desc">ಎರಡನೇ ಬ್ಲಾಕ್ ಮೊದಲನೆಯದನ್ನು ತಿರುಗಿಸಿದ್ದೋ ಅಥವಾ ಅದರ ಕನ್ನಡಿ ಪ್ರತಿಬಿಂಬವೋ ಎಂದು ನಿರ್ಧರಿಸಿ.</string>
     <string name="game_mental_rotations_question">ಅದೇ ಬ್ಲಾಕ್ ಅಥವಾ ಕನ್ನಡಿ ಪ್ರತಿಬಿಂಬವೇ?</string>
     <string name="game_mental_rotations_same">ಅದೇ</string>
@@ -419,7 +419,7 @@
     <string name="visual_memory_demo_title">ಯಾವುದು ಎಲ್ಲಿದೆ ಎಂದು ನೆನಪಿಡಿ</string>
     <string name="digit_memory_demo_title">ನೆನಪಿಡಿ, ಗಮನ ಬೇರೆಡೆ, ಮತ್ತೆ ನೆನಪಿಸಿಕೊಳ್ಳಿ</string>
     <string name="pattern_sequence_demo_rule">ಪ್ರತಿ ಸಾಲು ಅದೇ ಮೂರು ಆಕಾರಗಳನ್ನು ಸರಿದ ಕ್ರಮದಲ್ಲಿ ಬಳಸುತ್ತದೆ.</string>
-    <string name="color_confusion_demo_title">ಹೊಂದುವ ಪದಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="color_confusion_demo_title">ಉತ್ತರ ಶಾಯಿ, ಪದವಲ್ಲ</string>
     <string name="flags_demo_title">ದೇಶದ ಹೆಸರು ಹೇಳಿ</string>
     <string name="mental_calculation_demo_title">ಫಲಿತಾಂಶವನ್ನು ಮುಂದಕ್ಕೆ ಒಯ್ಯಿರಿ</string>
     <string name="mental_calculation_demo_keep">ಹಿಂದಿನ ಫಲಿತಾಂಶದಿಂದ %1$d ಮುಂದೆ ಬರುತ್ತದೆ.</string>
