@@ -11,12 +11,12 @@ worked references for anything this brief leaves open.
 
 | | |
 |---|---|
-| Complete | `de`, `es`, `fr`, `nl`, `ru`, `hi`, `id` |
-| Partly done, 24% to 35% | `it` `pt` `zh` `zh-TW` `ja` `ko` |
+| Complete | `de`, `es`, `fr`, `nl`, `ru`, `hi`, `id`, `zh` |
+| Partly done, 24% to 35% | `it` `pt` `zh-TW` `ja` `ko` |
 | Not started | the remaining 38 locales |
 
 The partial percentages fell when Algebra and Measurement landed and the catalog grew to 1,848
-strings. A run of ten agents stopped mid-catalog on an account spend limit, which is why six
+strings. A run of ten agents stopped mid-catalog on an account spend limit, which is why five
 locales are still part done; `fr` was finished on 2026-08-29 by resuming that loop, and `nl` was taken from
 nothing to complete the same day. **Nothing is broken by that.** A key that never arrived falls
 back to English at runtime, `check_localizations.py` counts it as pending rather than failing,
