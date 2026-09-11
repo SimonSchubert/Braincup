@@ -4,6 +4,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.daily_challenge_subtitle_start
 import braincup.composeapp.generated.resources.finish_best_tries
 import braincup.composeapp.generated.resources.session_streak_current
+import braincup.composeapp.generated.resources.solution_column_row
 import braincup.composeapp.generated.resources.solution_figure
 import braincup.composeapp.generated.resources.solution_pointing_right
 import kotlinx.coroutines.runBlocking
@@ -72,5 +73,17 @@ class UiPluralLocaleTest {
         val right = string(Res.string.solution_pointing_right, "Rouge", "Cœur")
         assertTrue(right.contains("vers la droite"), right)
         assertFalse(right.contains("vers le droite"), right)
+    }
+
+    /**
+     * Traditional Chinese swaps 行 and 列 versus Mainland. PathFinder passes column then row;
+     * copying the Simplified wording would name the transposed cell.
+     */
+    @Test
+    fun traditionalChineseDoesNotTransposeThePathFinderCell() {
+        AppLocale.apply("zh-TW")
+        assertEquals("第3行第2列", string(Res.string.solution_column_row, 3, 2))
+        AppLocale.apply("zh")
+        assertEquals("第3列第2行", string(Res.string.solution_column_row, 3, 2))
     }
 }

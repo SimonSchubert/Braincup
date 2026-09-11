@@ -83,3 +83,7 @@ you need a break). `%1$s` / `%1$d` slots survive, all of them.
 A phrase that counts something is a `<plurals>`, same as Learn, so a language that inflects the
 noun can. Do not concatenate colour, shape, or direction words into one phrase; each displayed
 sentence is one string, and colour sits as a name rather than an agreeing adjective.
+
+Traditional Chinese swaps 行 and 列 versus Mainland: 列 is a row, 行 is a column, matching the
+Learn glossary in `values-zh-rTW`. Do not copy `values-zh` for grid axes; PathFinder's solution
+line names a cell, and the Simplified wording points at the transpose.

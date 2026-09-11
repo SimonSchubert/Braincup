@@ -26,7 +26,7 @@
     <string name="game_goal_label">目標</string>
     <string name="game_follow_directions">按照指示操作：</string>
     <string name="game_highest_value">哪個值最大？</string>
-    <string name="game_sudoku_instruction">填充網格，使每行、列和方塊都包含每個數字一次</string>
+    <string name="game_sudoku_instruction">填充網格，使每列、行和方塊都包含每個數字一次</string>
     <string name="game_tap_numbers">點選數字來構建運算式</string>
     <string name="format_seconds">%1$ss</string>
 
@@ -97,9 +97,9 @@
     <string name="game_fraction_calculation_desc">解決分數問題。</string>
     <string name="game_value_comparison_desc">選擇值最大的運算式。</string>
     <string name="game_path_finder_desc">從標記位置開始，按照箭頭找到目的地。</string>
-    <string name="game_mini_sudoku_desc">填充小網格，使每一行、列和方塊都恰好包含每個數字一次。</string>
+    <string name="game_mini_sudoku_desc">填充小網格，使每一列、行和方塊都恰好包含每個數字一次。</string>
     <string name="game_visual_memory_desc">記住網格上的形狀，然後在計時結束後識別隱藏的形狀。</string>
-    <string name="game_pattern_sequence_desc">找出貫穿網格每一行的規律，然後選出補全它的圖塊。</string>
+    <string name="game_pattern_sequence_desc">找出貫穿網格每一列的規律，然後選出補全它的圖塊。</string>
     <string name="game_ghost_grid_desc">觀察方格逐個亮起，然後按相同順序點選它們。</string>
     <string name="game_color_confusion_desc">一個顏色詞以彩色墨水出現。點選墨水的顏色，不要點詞所說的顏色。</string>
     <string name="game_orbit_tracker_desc">觀察高亮的球，然後在它們移動時追蹤。停止後選擇最初的目標。</string>
@@ -114,7 +114,7 @@
     <string name="game_shikaku_howto">拖動以繪製矩形。點按矩形即可移除。</string>
     <string name="game_nurikabe_desc">塗格子在帶數字的島嶼周圍築成海。每個島嶼的相連格子數必須等於它的數字，海必須連成一片，且不能有任何2x2的方塊。</string>
     <string name="game_nurikabe_howto">點按或拖動來塗海。點按已塗的格子可清除。</string>
-    <string name="game_cat_queens_desc">在每一行、每一列和每個顏色區域中各放一隻貓。任意兩隻貓不能相鄰，連對角線也不行。</string>
+    <string name="game_cat_queens_desc">在每一列、每一行和每個顏色區域中各放一隻貓。任意兩隻貓不能相鄰，連對角線也不行。</string>
     <string name="game_cat_queens_howto">點按格子來放置或移除貓。</string>
     <string name="game_knot_desc">用線把每一對同色圓點連線起來。線不能交叉，且必須填滿每個格子。</string>
     <string name="game_knot_howto">從圓點拖動來畫出線條。點按線條可清除。</string>
@@ -123,8 +123,8 @@
     <string name="solo_chess_pieces_left">剩餘棋子：%1$d</string>
     <string name="solo_chess_restart">重來</string>
     <string name="solo_chess_stuck">沒有可吃的棋子了。點選重新開始再次挑戰本關。</string>
-    <string name="cat_queens_error_row">每行只能有一隻貓</string>
-    <string name="cat_queens_error_column">每列只能有一隻貓</string>
+    <string name="cat_queens_error_row">每列只能有一隻貓</string>
+    <string name="cat_queens_error_column">每行只能有一隻貓</string>
     <string name="cat_queens_error_zone">每個顏色區域只能有一隻貓</string>
     <string name="cat_queens_error_touch">兩隻貓不能相互接觸</string>
     <string name="moves_label">步數:%1$d</string>
@@ -177,7 +177,7 @@
     <string name="solution_pointing_down">指向下的%2$s（%1$s）</string>
     <string name="solution_pointing_left">指向左的%2$s（%1$s）</string>
     <string name="solution_figure">%2$s（%1$s）</string>
-    <string name="solution_column_row">第%1$d列第%2$d行</string>
+    <string name="solution_column_row">第%1$d行第%2$d列</string>
     <string name="hint_remember">記住 %1$d</string>
     <string name="solution_left">左邊</string>
     <string name="solution_right">右邊</string>
@@ -770,15 +770,15 @@
     <string name="sliding_puzzle_demo_title">滑動排序</string>
     <string name="tower_of_hanoi_invalid_move">大圓盤不能放在小圓盤上</string>
     <string name="mini_sudoku_demo_title">填入缺失的數字</string>
-    <string name="mini_sudoku_demo_mistake">同一行不能有兩個1。</string>
-    <string name="mini_sudoku_demo_complete">這一行包含1到4。</string>
-    <string name="mini_sudoku_demo_column">這一列也包含1到4。</string>
+    <string name="mini_sudoku_demo_mistake">同一列不能有兩個1。</string>
+    <string name="mini_sudoku_demo_complete">這一列包含1到4。</string>
+    <string name="mini_sudoku_demo_column">這一行也包含1到4。</string>
     <string name="mini_sudoku_demo_box">這個九宮格也包含1到4。</string>
     <string name="colored_shapes_demo_title">加總正確的陳述</string>
     <string name="wordle_demo_title">猜出隱藏單詞</string>
     <string name="visual_memory_demo_title">記住各物的位置</string>
     <string name="digit_memory_demo_title">記憶、分心、回憶</string>
-    <string name="pattern_sequence_demo_rule">每一行都用同樣的三個形狀，只是順序錯開。</string>
+    <string name="pattern_sequence_demo_rule">每一列都用同樣的三個形狀，只是順序錯開。</string>
     <string name="color_confusion_demo_title">墨色才算，文字不算</string>
     <string name="flags_demo_title">說出國家名稱</string>
     <string name="mental_calculation_demo_title">將結果傳遞下去</string>
@@ -881,7 +881,7 @@
     <string name="iq_test_button">智商測試</string>
     <string name="iq_test_title">智商測試</string>
     <string name="iq_test_intro_headline">矩陣推理測試</string>
-    <string name="iq_test_intro_body">%1$d 道題，%2$d 分鐘。每道題是一個缺了一格的 3x3 方陣。找出沿著每一行的規律，再選出該填進空缺角落的那一格。題目會越來越難。</string>
+    <string name="iq_test_intro_body">%1$d 道題，%2$d 分鐘。每道題是一個缺了一格的 3x3 方陣。找出沿著每一列的規律，再選出該填進空缺角落的那一格。題目會越來越難。</string>
     <string name="iq_test_intro_pacing">單題沒有時間限制。在總時間用完之前，你可以返回、跳過並修改答案。</string>
     <string name="iq_test_disclaimer">這只是根據一種推理題得出的估算，做著玩的。它不是臨床評估或診斷，這裡的任何分數都不能說明你的價值或能力。</string>
     <string name="iq_test_retake_note">重做時分數通常會上升，因為你已經見過這類題目。請把第一次的結果當作最誠實的那一個。</string>
