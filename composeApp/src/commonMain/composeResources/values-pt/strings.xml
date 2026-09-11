@@ -172,13 +172,11 @@
     <string name="shape_house">Casa</string>
     <string name="shape_arrow">Seta</string>
 
-    <string name="direction_up">cima</string>
-    <string name="direction_right">direita</string>
-    <string name="direction_down">baixo</string>
-    <string name="direction_left">esquerda</string>
-
-    <string name="solution_pointing">%1$s %2$s apontando para %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s apontando para cima (%1$s)</string>
+    <string name="solution_pointing_right">%2$s apontando para direita (%1$s)</string>
+    <string name="solution_pointing_down">%2$s apontando para baixo (%1$s)</string>
+    <string name="solution_pointing_left">%2$s apontando para esquerda (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">coluna %1$d e linha %2$d</string>
     <string name="hint_remember">Lembra-te de %1$d</string>
     <string name="solution_left">Esquerda</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Desafio diário</string>
-    <string name="daily_challenge_subtitle_start">Jogue %1$d jogos para manter sua sequência</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Jogue %1$d jogos para começar sua sequência</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Jogue %1$d jogo para manter sua sequência</item>
+        <item quantity="other">Jogue %1$d jogos para manter sua sequência</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Jogue %1$d jogo para começar sua sequência</item>
+        <item quantity="other">Jogue %1$d jogos para começar sua sequência</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Em andamento · %1$d de %2$d</string>
     <string name="daily_challenge_subtitle_done">Feito por hoje. Volte amanhã!</string>
     <string name="daily_challenge_streak_label">dias seguidos</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Sessão concluída</string>
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Sequência de dias: %1$d</string>
-    <string name="session_streak_current">Sequência atual: %1$d dias</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Sequência atual: %1$d dia</item>
+        <item quantity="other">Sequência atual: %1$d dias</item>
+    </plurals>
 
     <string name="level_label">Nível %1$d</string>
     <string name="level_up_title">Subiu de nível!</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Quebra-códigos</string>
     <string name="achievement_gold_bulls_and_cows_desc">Ganhe a medalha de ouro em Bulls &amp; Cows</string>
     <string name="finish_tries">Tentativas: %1$s</string>
-    <string name="finish_best_tries">Melhor: %1$s tentativas</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Melhor: %1$d tentativa</item>
+        <item quantity="other">Melhor: %1$d tentativas</item>
+    </plurals>
     <string name="finish_new_best_tries">Novo recorde!</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Percorre-os por ordem. Cada passo assenta no anterior.</string>
     <string name="learn_topic_certificates">%1$d de %2$d certificados</string>
     <string name="learn_ages">Idades %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmética</string>
     <string name="learn_topic_arithmetic_subtitle">Números &amp; operações</string>
@@ -1191,9 +1200,9 @@
     <string name="learn_unit_arithmetic_fractions_q5_explanation">Vão-se dois dos cinco sextos pintados, e os pedaços continuam a ser sextos.</string>
     <string name="learn_unit_arithmetic_fractions_q6_explanation">Um meio são dois quartos, e dois quartos mais um são 3/4.</string>
     <string name="learn_unit_arithmetic_decimals_title">Decimais</string>
-    <string name="learn_unit_arithmetic_decimals_summary">Ler, comparar e somar as casas a seguir ao ponto.</string>
+    <string name="learn_unit_arithmetic_decimals_summary">Ler, comparar e somar as casas a seguir à vírgula.</string>
     <string name="learn_g35_arithmetic_decimals_title">Décimas e centésimas</string>
-    <string name="learn_g35_arithmetic_decimals_summary">O valor posicional continua a seguir ao ponto.</string>
+    <string name="learn_g35_arithmetic_decimals_summary">O valor posicional continua a seguir à vírgula.</string>
     <string name="learn_g35_arithmetic_decimals_s1_body">O quadrado é um inteiro. Uma coluna dele é uma décima, e uma única quadrícula é uma centésima.</string>
     <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 décimas + 5 centésimas</string>
     <string name="learn_g35_arithmetic_decimals_s2_body">Uma fração e um decimal podem ser exatamente a mesma quantidade, escrita de duas maneiras.</string>
@@ -1221,7 +1230,7 @@
     <string name="learn_arithmetic_decimals_add_s2_l1">Escreve {a:0.6} como {a:0.60} para os dois números chegarem às centésimas.</string>
     <string name="learn_arithmetic_decimals_add_s2_l2">Centésimas: 0 + {b:5}.</string>
     <string name="learn_arithmetic_decimals_add_s2_l3">Décimas: {a:6} + {b:2}.</string>
-    <string name="learn_arithmetic_decimals_add_s3_question">Alinha os pontos e depois soma uma coluna de cada vez.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Alinha as vírgulas e depois soma uma coluna de cada vez.</string>
     <string name="learn_arithmetic_decimals_add_s3_explanation">Escreve 0.3 como 0.30, e depois cinco centésimas e sete décimas dão 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s4_body">Uma subtração é o mesmo desenho lido ao contrário: {a:35} centésimas já lá estão, e {b:4} décimas fazem-no subir outra vez até 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s5_question">Um lápis custa 0.45 euros e uma borracha 0.30 euros. Quanto custam juntos?</string>
@@ -1536,7 +1545,7 @@
     <string name="learn_rule_percent_of_rule">x% de n = x/100 x n</string>
     <string name="learn_rule_percent_of_meaning">Para uma percentagem de uma quantidade, divide por 100 e depois multiplica</string>
     <string name="learn_rule_percent_of_example">20% de 80 = 16</string>
-    <string name="learn_rule_times_ten_meaning">Multiplicar por dez desloca o ponto uma casa para a direita</string>
+    <string name="learn_rule_times_ten_meaning">Multiplicar por dez desloca a vírgula uma casa para a direita</string>
     <string name="learn_rule_power_zero_meaning">Elevado a um é o próprio número, e elevado a zero é um</string>
     <string name="learn_rule_root_meaning">A raiz quadrada desfaz um quadrado: o que foi multiplicado por si próprio</string>
     <string name="learn_rule_powers_of_ten_meaning">Uma potência de dez é a unidade seguida desse número de zeros</string>

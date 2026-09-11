@@ -172,13 +172,11 @@
     <string name="shape_house">Haus</string>
     <string name="shape_arrow">Pfeil</string>
 
-    <string name="direction_up">oben</string>
-    <string name="direction_right">rechts</string>
-    <string name="direction_down">unten</string>
-    <string name="direction_left">links</string>
-
-    <string name="solution_pointing">%1$s %2$s zeigt nach %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s nach oben (%1$s)</string>
+    <string name="solution_pointing_right">%2$s nach rechts (%1$s)</string>
+    <string name="solution_pointing_down">%2$s nach unten (%1$s)</string>
+    <string name="solution_pointing_left">%2$s nach links (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">Spalte %1$d und Zeile %2$d</string>
     <string name="hint_remember">Merk dir %1$d</string>
     <string name="solution_left">Links</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Tägliche Herausforderung</string>
-    <string name="daily_challenge_subtitle_start">Spiele %1$d Spiele, um deine Serie zu halten</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Spiele %1$d Spiele, um deine Serie zu starten</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Spiele %1$d Spiel, um deine Serie zu halten</item>
+        <item quantity="other">Spiele %1$d Spiele, um deine Serie zu halten</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Spiele %1$d Spiel, um deine Serie zu starten</item>
+        <item quantity="other">Spiele %1$d Spiele, um deine Serie zu starten</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Läuft · %1$d von %2$d</string>
     <string name="daily_challenge_subtitle_done">Für heute erledigt. Komm morgen wieder!</string>
     <string name="daily_challenge_streak_label">Tage in Folge</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Durchgang abgeschlossen</string>
     <string name="session_total_score">Gesamt: %1$d</string>
     <string name="session_streak_increased">Tage-Serie: %1$d</string>
-    <string name="session_streak_current">Aktuelle Serie: %1$d Tage</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Aktuelle Serie: %1$d Tag</item>
+        <item quantity="other">Aktuelle Serie: %1$d Tage</item>
+    </plurals>
 
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Level-Aufstieg!</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Codeknacker</string>
     <string name="achievement_gold_bulls_and_cows_desc">Gewinne die Goldmedaille in Bulls &amp; Cows</string>
     <string name="finish_tries">Versuche: %1$s</string>
-    <string name="finish_best_tries">Bestes: %1$s Versuche</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Bestes: %1$d Versuch</item>
+        <item quantity="other">Bestes: %1$d Versuche</item>
+    </plurals>
     <string name="finish_new_best_tries">Neuer Bestwert!</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Arbeite sie der Reihe nach durch. Jeder Schritt baut auf dem vorherigen auf.</string>
     <string name="learn_topic_certificates">%1$d von %2$d zertifiziert</string>
     <string name="learn_ages">Alter %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Arithmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Zahlen &amp; Rechenarten</string>
@@ -1803,9 +1812,9 @@
     <string name="learn_unit_arithmetic_fractions_q5_explanation">Zwei der fünf gefärbten Sechstel gehen weg, und die Stücke bleiben Sechstel.</string>
     <string name="learn_unit_arithmetic_fractions_q6_explanation">Eine Hälfte sind zwei Viertel, und zwei Viertel plus eins mehr sind 3/4.</string>
     <string name="learn_unit_arithmetic_decimals_title">Dezimalzahlen</string>
-    <string name="learn_unit_arithmetic_decimals_summary">Die Stellen hinter dem Punkt lesen, vergleichen und addieren.</string>
+    <string name="learn_unit_arithmetic_decimals_summary">Die Stellen hinter dem Komma lesen, vergleichen und addieren.</string>
     <string name="learn_g35_arithmetic_decimals_title">Zehntel und Hundertstel</string>
-    <string name="learn_g35_arithmetic_decimals_summary">Der Stellenwert geht hinter dem Punkt weiter.</string>
+    <string name="learn_g35_arithmetic_decimals_summary">Der Stellenwert geht hinter dem Komma weiter.</string>
     <string name="learn_g35_arithmetic_decimals_s1_body">Das Quadrat ist ein Ganzes. Eine Spalte davon ist ein Zehntel, und eine einzelne Zelle ist ein Hundertstel.</string>
     <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 Zehntel + 5 Hundertstel</string>
     <string name="learn_g35_arithmetic_decimals_s2_body">Ein Bruch und eine Dezimalzahl können genau dieselbe Menge sein, nur zweimal anders geschrieben.</string>
@@ -1833,7 +1842,7 @@
     <string name="learn_arithmetic_decimals_add_s2_l1">Schreib {a:0.6} als {a:0.60}, damit beide Zahlen bis zu den Hundertsteln reichen.</string>
     <string name="learn_arithmetic_decimals_add_s2_l2">Hundertstel: 0 + {b:5}.</string>
     <string name="learn_arithmetic_decimals_add_s2_l3">Zehntel: {a:6} + {b:2}.</string>
-    <string name="learn_arithmetic_decimals_add_s3_question">Bring die Punkte untereinander, dann addiere Spalte für Spalte.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Bring die Kommas untereinander, dann addiere Spalte für Spalte.</string>
     <string name="learn_arithmetic_decimals_add_s3_explanation">Schreib 0.3 als 0.30, dann ergeben fünf Hundertstel und sieben Zehntel 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s4_body">Eine Subtraktion ist dasselbe Bild rückwärts gelesen: {a:35} Hundertstel sind schon da, und {b:4} Zehntel bringen es wieder hoch auf 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s5_question">Ein Bleistift kostet 0.45 Euro und ein Radiergummi 0.30 Euro. Was kosten sie zusammen?</string>
@@ -2004,9 +2013,9 @@
     <string name="learn_arithmetic_standard_form_s1_body">Jeder Sprung auf diesem Strahl multipliziert mit zehn. Die Sprünge zu zählen geht schneller als Nullen zu zählen, und diese Anzahl ist der Exponent.</string>
     <string name="learn_arithmetic_standard_form_s2_body">Die vordere Zahl liegt immer zwischen 1 und 10. 52 ist drei Sprünge unter 52 000, also ist 5.2 vier Sprünge darunter, und vier ist der Exponent.</string>
     <string name="learn_arithmetic_standard_form_s3_question">Zwei davon haben die richtigen Ziffern in der falschen Form.</string>
-    <string name="learn_arithmetic_standard_form_s3_explanation">72 und 0.72 liegen außerhalb des Fensters von 1 bis 10. Von 7.2 aus wandert der Punkt fünf Stellen.</string>
+    <string name="learn_arithmetic_standard_form_s3_explanation">72 und 0.72 liegen außerhalb des Fensters von 1 bis 10. Von 7.2 aus wandert das Komma fünf Stellen.</string>
     <string name="learn_arithmetic_standard_form_s4_body">Der Exponent zählt Sprünge, also entscheidet er über die Größe, lange bevor die vordere Zahl zu Wort kommt. Was mit der größeren Zehnerpotenz steht, gewinnt.</string>
-    <string name="learn_arithmetic_standard_form_s5_question">Lass den Punkt drei Sprünge nach rechts wandern.</string>
+    <string name="learn_arithmetic_standard_form_s5_question">Lass das Komma drei Sprünge nach rechts wandern.</string>
     <string name="learn_arithmetic_standard_form_s5_explanation">Drei Sprünge rechts von 4.7: 47, 470, 4 700.</string>
     <string name="learn_arithmetic_standard_form_s6_question">Alle vier haben die richtigen Ziffern. Nur eine steht in wissenschaftlicher Schreibweise und ist 12 000 wert.</string>
     <string name="learn_arithmetic_standard_form_s6_explanation">12 und 0.12 liegen außerhalb des Fensters, und 1.2 * 10^3 sind nur 1 200.</string>
@@ -2016,7 +2025,7 @@
     <string name="learn_arithmetic_standard_form_small_s2_body">Das Minus im Exponenten sagt, in welche Richtung es geht, nicht dass die Zahl negativ ist. Eine Zahl in wissenschaftlicher Schreibweise ist nur dann negativ, wenn die vordere Zahl es ist.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Zähl die Sprünge von 8.2 hinunter zu dieser Zahl.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Vier Schritte links von 8.2, und 82 liegt außerhalb des Fensters von 1 bis 10.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_question">Lass den Punkt vier Sprünge nach links wandern.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_question">Lass das Komma vier Sprünge nach links wandern.</string>
     <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier Sprünge links von 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Eine negative vordere Zahl und ein negativer Exponent bedeuten zwei verschiedene Dinge, und jedes kann ohne das andere vorkommen.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">Der negativste Exponent geht am weitesten nach links, also ist er der kleinste.</string>
@@ -2031,7 +2040,7 @@
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividieren läuft rückwärts: Die vorderen Zahlen werden geteilt und die Exponenten subtrahiert.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Die vordere Zahl kann aus der Multiplikation zu groß für das Fenster herauskommen, und dann muss sie wieder hineingeholt werden.</string>
     <string name="learn_arithmetic_standard_form_calculating_s5_question">Die vorderen Zahlen ergeben 20, und das liegt außerhalb des Fensters.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 hat den richtigen Wert in der falschen Form: Lass den Punkt eine Stelle nach links wandern und der Exponent steigt um eins.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 hat den richtigen Wert in der falschen Form: Lass das Komma eine Stelle nach links wandern und der Exponent steigt um eins.</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_question">Wie viel mal größer ist 8 * 10^7 als 8 * 10^4?</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_explanation">Die vorderen Zahlen sind gleich, also zählen nur die drei zusätzlichen Sprünge.</string>
     <string name="learn_unit_arithmetic_standard_form_q1_prompt">Welche ist 45 000 in wissenschaftlicher Schreibweise?</string>
@@ -2103,16 +2112,16 @@
     <string name="learn_arithmetic_bounds_s6_explanation">Die halbe Rundungseinheit auf jeder Seite: die Hälfte von 50 ist 25, also reicht der Bereich von 275 m bis knapp unter 325 m.</string>
     <string name="learn_arithmetic_bounds_significant_title">Signifikante Stellen</string>
     <string name="learn_arithmetic_bounds_significant_summary">Ab der ersten Ziffer zählen, die etwas bedeutet.</string>
-    <string name="learn_arithmetic_bounds_significant_s1_body">Signifikante Stellen zählen ab der ersten Ziffer, die keine Null ist, ganz gleich wo der Punkt gerade steht.</string>
+    <string name="learn_arithmetic_bounds_significant_s1_body">Signifikante Stellen zählen ab der ersten Ziffer, die keine Null ist, ganz gleich wo das Komma gerade steht.</string>
     <string name="learn_arithmetic_bounds_significant_s1_formula">0.00427 hat 3 signifikante Stellen</string>
     <string name="learn_arithmetic_bounds_significant_s2_body">Auf signifikante Stellen zu runden geht genau wie das Runden auf eine Stelle: Behalte die Ziffern, die du willst, und schau auf die nächste, um zu entscheiden.</string>
     <string name="learn_arithmetic_bounds_significant_s2_formula">3 872 = 3 900 auf 2 sig. Stellen</string>
-    <string name="learn_arithmetic_bounds_significant_s3_question">Runde 0.04617 auf 2 signifikante Stellen. Die führenden Nullen halten nur den Punkt, also beginnt das Zählen bei der 4.</string>
+    <string name="learn_arithmetic_bounds_significant_s3_question">Runde 0.04617 auf 2 signifikante Stellen. Die führenden Nullen halten nur das Komma, also beginnt das Zählen bei der 4.</string>
     <string name="learn_arithmetic_bounds_significant_s3_explanation">4 und 6 sind die zwei signifikanten Ziffern, und die 1 dahinter rundet nichts auf.</string>
     <string name="learn_arithmetic_bounds_significant_s4_explanation">2, 7 und 4 sind die drei Ziffern, und die 8 dahinter rundet die 4 auf.</string>
-    <string name="learn_arithmetic_bounds_significant_s5_body">Eine Null zwischen zwei signifikanten Ziffern zählt mit. Eine Null davor nicht: Sie hält nur den Punkt, und deshalb hat 0.00308 drei.</string>
+    <string name="learn_arithmetic_bounds_significant_s5_body">Eine Null zwischen zwei signifikanten Ziffern zählt mit. Eine Null davor nicht: Sie hält nur das Komma, und deshalb hat 0.00308 drei.</string>
     <string name="learn_arithmetic_bounds_significant_s5_formula">0.00308 hat 3 sig. Stellen</string>
-    <string name="learn_arithmetic_bounds_significant_s6_explanation">Die zwei führenden Nullen halten nur den Punkt, aber die letzte wurde mit Absicht geschrieben, also zählt sie mit: 2, 5 und 0.</string>
+    <string name="learn_arithmetic_bounds_significant_s6_explanation">Die zwei führenden Nullen halten nur das Komma, aber die letzte wurde mit Absicht geschrieben, also zählt sie mit: 2, 5 und 0.</string>
     <string name="learn_arithmetic_bounds_calculating_title">Mit Grenzen rechnen</string>
     <string name="learn_arithmetic_bounds_calculating_summary">Ein Bereich hinein, ein Bereich heraus.</string>
     <string name="learn_arithmetic_bounds_calculating_s1_body">Jede Messung trägt einen Bereich mit sich, also trägt auch alles, was daraus berechnet wird, einen Bereich. Es gibt keine einzelne Antwort.</string>
@@ -2796,7 +2805,7 @@
     <string name="learn_rule_percent_of_rule">x% von n = x/100 x n</string>
     <string name="learn_rule_percent_of_meaning">Für einen Prozentsatz einer Menge erst durch 100 teilen, dann multiplizieren</string>
     <string name="learn_rule_percent_of_example">20% von 80 = 16</string>
-    <string name="learn_rule_times_ten_meaning">Mal zehn schiebt den Punkt eine Stelle nach rechts</string>
+    <string name="learn_rule_times_ten_meaning">Mal zehn schiebt das Komma eine Stelle nach rechts</string>
     <string name="learn_rule_power_zero_meaning">Hoch eins ist sie selbst, und hoch null ist eins</string>
     <string name="learn_rule_root_meaning">Eine Quadratwurzel macht ein Quadrat rückgängig: das, was mit sich selbst multipliziert wurde</string>
     <string name="learn_rule_powers_of_ten_meaning">Eine Zehnerpotenz ist eine Eins mit so vielen Nullen</string>

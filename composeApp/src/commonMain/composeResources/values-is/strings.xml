@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Vistað á þessu tæki. Týnist ef þú fjarlægir appið.</string>
 
     <string name="daily_challenge_title">Dagleg áskorun</string>
-    <string name="daily_challenge_subtitle_start">Spilaðu %1$d leiki til að halda röðinni</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Spilaðu %1$d leiki til að byrja röð</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Spilaðu %1$d leik til að halda röðinni</item>
+        <item quantity="other">Spilaðu %1$d leiki til að halda röðinni</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Spilaðu %1$d leik til að byrja röð</item>
+        <item quantity="other">Spilaðu %1$d leiki til að byrja röð</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Í gangi · %1$d af %2$d</string>
     <string name="daily_challenge_subtitle_done">Lokið í dag. Komdu aftur á morgun!</string>
     <string name="daily_challenge_streak_label">daga röð</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Lotu lokið</string>
     <string name="session_total_score">Samtals: %1$d</string>
     <string name="session_streak_increased">Daga röð: %1$d</string>
-    <string name="session_streak_current">Núverandi röð: %1$d dagar</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Núverandi röð: %1$d dagur</item>
+        <item quantity="other">Núverandi röð: %1$d dagar</item>
+    </plurals>
 
     <string name="quit_game_title">Hætta í leik?</string>
     <string name="quit_game_message">Framvinda þín í þessum leik verður ekki vistuð.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Nýtt met!</string>
     <string name="finish_new_best_tries">Nýtt besta!</string>
     <string name="finish_highscore">Met: %1$s</string>
-    <string name="finish_best_tries">Besta: %1$s tilraunir</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Besta: %1$d tilraun</item>
+        <item quantity="other">Besta: %1$d tilraunir</item>
+    </plurals>
     <string name="button_play_next_level">Spila næsta þrep</string>
     <string name="finish_max_level_reached">Hæsta þrepi náð. Bíddu eftir nýju efni.</string>
     <string name="finish_congruency_effect_title">Samræmiskostnaður</string>
@@ -474,13 +486,11 @@ Færðu Cow — hann verður Bull.</string>
     <string name="shape_house">Hús</string>
     <string name="shape_arrow">Ör</string>
 
-    <string name="direction_up">upp</string>
-    <string name="direction_right">hægri</string>
-    <string name="direction_down">niður</string>
-    <string name="direction_left">vinstri</string>
-
-    <string name="solution_pointing">%1$s %2$s sem bendir %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s sem bendir upp (%1$s)</string>
+    <string name="solution_pointing_right">%2$s sem bendir hægri (%1$s)</string>
+    <string name="solution_pointing_down">%2$s sem bendir niður (%1$s)</string>
+    <string name="solution_pointing_left">%2$s sem bendir vinstri (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">dálkur %1$d og röð %2$d</string>
     <string name="hint_remember">Mundu %1$d</string>
     <string name="solution_left">Vinstri</string>
@@ -953,7 +963,6 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_topic_intro">Farðu í gegnum þau í röð. Hvert skref byggir á því á undan.</string>
     <string name="learn_topic_certificates">%1$d af %2$d með skírteini</string>
     <string name="learn_ages">Aldur %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Reikningur</string>
     <string name="learn_topic_arithmetic_subtitle">Tölur og aðgerðir</string>

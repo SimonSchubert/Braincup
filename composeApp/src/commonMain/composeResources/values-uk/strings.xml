@@ -172,13 +172,11 @@
     <string name="shape_house">Будинок</string>
     <string name="shape_arrow">Стрілка</string>
 
-    <string name="direction_up">вгору</string>
-    <string name="direction_right">вправо</string>
-    <string name="direction_down">вниз</string>
-    <string name="direction_left">вліво</string>
-
-    <string name="solution_pointing">%1$s %2$s спрямований %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s спрямований вгору (%1$s)</string>
+    <string name="solution_pointing_right">%2$s спрямований вправо (%1$s)</string>
+    <string name="solution_pointing_down">%2$s спрямований вниз (%1$s)</string>
+    <string name="solution_pointing_left">%2$s спрямований вліво (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">стовпець %1$d і рядок %2$d</string>
     <string name="hint_remember">Запам'ятай %1$d</string>
     <string name="solution_left">Ліва</string>
@@ -187,8 +185,18 @@
     <string name="preview_vs">проти</string>
 
     <string name="daily_challenge_title">Щоденний виклик</string>
-    <string name="daily_challenge_subtitle_start">Зіграйте %1$d ігор, щоб зберегти серію</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Зіграйте %1$d ігор, щоб почати серію</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Зіграй %1$d гру, щоб зберегти серію</item>
+        <item quantity="few">Зіграй %1$d гри, щоб зберегти серію</item>
+        <item quantity="many">Зіграй %1$d ігор, щоб зберегти серію</item>
+        <item quantity="other">Зіграй %1$d гри, щоб зберегти серію</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Зіграй %1$d гру, щоб почати серію</item>
+        <item quantity="few">Зіграй %1$d гри, щоб почати серію</item>
+        <item quantity="many">Зіграй %1$d ігор, щоб почати серію</item>
+        <item quantity="other">Зіграй %1$d гри, щоб почати серію</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Триває · %1$d з %2$d</string>
     <string name="daily_challenge_subtitle_done">На сьогодні все. Повертайтеся завтра!</string>
     <string name="daily_challenge_streak_label">днів поспіль</string>
@@ -203,7 +211,12 @@
     <string name="session_complete_title">Сесію завершено</string>
     <string name="session_total_score">Усього: %1$d</string>
     <string name="session_streak_increased">Серія днів: %1$d</string>
-    <string name="session_streak_current">Поточна серія: %1$d днів</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Поточна серія: %1$d день</item>
+        <item quantity="few">Поточна серія: %1$d дні</item>
+        <item quantity="many">Поточна серія: %1$d днів</item>
+        <item quantity="other">Поточна серія: %1$d дня</item>
+    </plurals>
 
     <string name="level_label">Рівень %1$d</string>
     <string name="level_up_title">Новий рівень!</string>
@@ -824,7 +837,12 @@
     <string name="achievement_gold_bulls_and_cows">Зломщик кодів</string>
     <string name="achievement_gold_bulls_and_cows_desc">Здобудь золоту медаль у Bulls &amp; Cows</string>
     <string name="finish_tries">Спроби: %1$s</string>
-    <string name="finish_best_tries">Найкраще: %1$s спроб</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Найкраще: %1$d спроба</item>
+        <item quantity="few">Найкраще: %1$d спроби</item>
+        <item quantity="many">Найкраще: %1$d спроб</item>
+        <item quantity="other">Найкраще: %1$d спроби</item>
+    </plurals>
     <string name="finish_new_best_tries">Новий рекорд!</string>
 
     <string name="game_trio">Тріо</string>
@@ -936,7 +954,6 @@
     <string name="learn_topic_intro">Проходь їх по черзі. Кожен крок спирається на попередній.</string>
     <string name="learn_topic_certificates">%1$d з %2$d із сертифікатом</string>
     <string name="learn_ages">Вік %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; дії</string>

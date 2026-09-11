@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">נשמר במכשיר זה. יימחק אם תסיר את האפליקציה.</string>
 
     <string name="daily_challenge_title">אתגר יומי</string>
-    <string name="daily_challenge_subtitle_start">שחק %1$d משחקים כדי לשמור על הרצף</string>
-    <string name="daily_challenge_subtitle_start_no_streak">שחק %1$d משחקים כדי להתחיל רצף</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">שחק משחק %1$d כדי לשמור על הרצף</item>
+        <item quantity="two">שחק %1$d משחקים כדי לשמור על הרצף</item>
+        <item quantity="other">שחק %1$d משחקים כדי לשמור על הרצף</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">שחק משחק %1$d כדי להתחיל רצף</item>
+        <item quantity="two">שחק %1$d משחקים כדי להתחיל רצף</item>
+        <item quantity="other">שחק %1$d משחקים כדי להתחיל רצף</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">בתהליך · %1$d מתוך %2$d</string>
     <string name="daily_challenge_subtitle_done">סיימת להיום. חזור מחר!</string>
     <string name="daily_challenge_streak_label">ימי רצף</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">הסשן הושלם</string>
     <string name="session_total_score">סה״כ: %1$d</string>
     <string name="session_streak_increased">רצף ימים: %1$d</string>
-    <string name="session_streak_current">הרצף הנוכחי: %1$d ימים</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">הרצף הנוכחי: יום %1$d</item>
+        <item quantity="two">הרצף הנוכחי: %1$d ימים</item>
+        <item quantity="other">הרצף הנוכחי: %1$d ימים</item>
+    </plurals>
 
     <string name="quit_game_title">לצאת מהמשחק?</string>
     <string name="quit_game_message">ההתקדמות במשחק זה לא תישמר.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">שיא חדש!</string>
     <string name="finish_new_best_tries">שיא חדש!</string>
     <string name="finish_highscore">שיא: %1$s</string>
-    <string name="finish_best_tries">הטוב ביותר: %1$s ניסיונות</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">הטוב ביותר: ניסיון %1$d</item>
+        <item quantity="two">הטוב ביותר: %1$d ניסיונות</item>
+        <item quantity="other">הטוב ביותר: %1$d ניסיונות</item>
+    </plurals>
     <string name="button_play_next_level">שחק בשלב הבא</string>
     <string name="finish_max_level_reached">הגעת לשלב המקסימלי. המתן לתוכן חדש.</string>
     <string name="finish_congruency_effect_title">עלות ההתאמה</string>
@@ -474,13 +490,11 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="shape_house">בית</string>
     <string name="shape_arrow">חץ</string>
 
-    <string name="direction_up">למעלה</string>
-    <string name="direction_right">ימינה</string>
-    <string name="direction_down">למטה</string>
-    <string name="direction_left">שמאלה</string>
-
-    <string name="solution_pointing">%1$s %2$s פונה %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s פונה למעלה (%1$s)</string>
+    <string name="solution_pointing_right">%2$s פונה ימינה (%1$s)</string>
+    <string name="solution_pointing_down">%2$s פונה למטה (%1$s)</string>
+    <string name="solution_pointing_left">%2$s פונה שמאלה (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">עמודה %1$d ושורה %2$d</string>
     <string name="hint_remember">זכור %1$d</string>
     <string name="solution_left">שמאל</string>
@@ -953,7 +967,6 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_topic_intro">עבור עליהם לפי הסדר. כל שלב נשען על הקודם.</string>
     <string name="learn_topic_certificates">%1$d מתוך %2$d עם תעודה</string>
     <string name="learn_ages">גילאי %1$s</string>
-
 
     <string name="learn_topic_arithmetic">חשבון</string>
     <string name="learn_topic_arithmetic_subtitle">מספרים ופעולות</string>

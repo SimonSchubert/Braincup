@@ -168,8 +168,14 @@
     <string name="accounts_local_desc">Αποθηκεύεται σε αυτή τη συσκευή. Χάνεται αν απεγκαταστήσεις την εφαρμογή.</string>
 
     <string name="daily_challenge_title">Πρόκληση Ημέρας</string>
-    <string name="daily_challenge_subtitle_start">Παίξτε %1$d παιχνίδια ώστε να διατηρήσετε το σερί σας</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Παίξτε %1$d παιχνίδια για να αρχίσετε το σερί σας</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Παίξε %1$d παιχνίδι ώστε να διατηρήσεις το σερί σου</item>
+        <item quantity="other">Παίξε %1$d παιχνίδια ώστε να διατηρήσεις το σερί σου</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Παίξε %1$d παιχνίδι για να αρχίσεις το σερί σου</item>
+        <item quantity="other">Παίξε %1$d παιχνίδια για να αρχίσεις το σερί σου</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Σε εξέλιξη · %1$d από %2$d</string>
     <string name="daily_challenge_subtitle_done">Τελειώσαμε για σήμερα. Ελάτε πάλι αύριο!</string>
     <string name="daily_challenge_streak_label">ημέρες σερί</string>
@@ -185,7 +191,10 @@
     <string name="session_complete_title">Η σύνοδος ολοκληρώθηκε</string>
     <string name="session_total_score">Σύνολο: %1$d</string>
     <string name="session_streak_increased">Σερί ημερών: %1$d</string>
-    <string name="session_streak_current">Τρέχον σερί: %1$d ημέρες</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Τρέχον σερί: %1$d ημέρα</item>
+        <item quantity="other">Τρέχον σερί: %1$d ημέρες</item>
+    </plurals>
 
     <string name="quit_game_title">Έξοδος από το παιχνίδι;</string>
     <string name="quit_game_message">Η πρόοδός σας σε αυτό το παιχνίδι δεν θα αποθηκευτεί.</string>
@@ -403,13 +412,11 @@
     <string name="shape_house">Σπίτι</string>
     <string name="shape_arrow">Βελάκι</string>
 
-    <string name="direction_up">πάνω</string>
-    <string name="direction_right">δεξιά</string>
-    <string name="direction_down">κάτω</string>
-    <string name="direction_left">αριστερά</string>
-
-    <string name="solution_pointing">%1$s %2$s που δείχνει %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s που δείχνει πάνω (%1$s)</string>
+    <string name="solution_pointing_right">%2$s που δείχνει δεξιά (%1$s)</string>
+    <string name="solution_pointing_down">%2$s που δείχνει κάτω (%1$s)</string>
+    <string name="solution_pointing_left">%2$s που δείχνει αριστερά (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">στήλη %1$d και γραμμή %2$d</string>
     <string name="hint_remember">Θυμήσου το %1$d</string>
     <string name="solution_left">Αριστερά</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Σπάστης κωδικών</string>
     <string name="achievement_gold_bulls_and_cows_desc">Κερδίστε χρυσό μετάλλιο στο Bulls &amp; Cows</string>
     <string name="finish_tries">Προσπάθειες: %1$s</string>
-    <string name="finish_best_tries">Καλύτερο: %1$s προσπάθειες</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Καλύτερο: %1$d προσπάθεια</item>
+        <item quantity="other">Καλύτερο: %1$d προσπάθειες</item>
+    </plurals>
     <string name="finish_new_best_tries">Νέο ρεκόρ!</string>
 
     <string name="game_trio">Τριάδα</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Πέρασέ τα με τη σειρά. Κάθε βήμα πατάει στο προηγούμενο.</string>
     <string name="learn_topic_certificates">%1$d από %2$d πιστοποιημένα</string>
     <string name="learn_ages">Ηλικίες %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Αριθμητική</string>
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>

@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Запазено на това устройство. Изчезва, ако деинсталираш приложението.</string>
 
     <string name="daily_challenge_title">Дневно предизвикателство</string>
-    <string name="daily_challenge_subtitle_start">Изиграй %1$d игри, за да запазиш серията</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Изиграй %1$d игри, за да започнеш серия</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Изиграй %1$d игра, за да запазиш серията</item>
+        <item quantity="other">Изиграй %1$d игри, за да запазиш серията</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Изиграй %1$d игра, за да започнеш серия</item>
+        <item quantity="other">Изиграй %1$d игри, за да започнеш серия</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">В ход · %1$d от %2$d</string>
     <string name="daily_challenge_subtitle_done">Готово за днес. Върни се утре!</string>
     <string name="daily_challenge_streak_label">дневна серия</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Сесията приключи</string>
     <string name="session_total_score">Общо: %1$d</string>
     <string name="session_streak_increased">Дневна серия: %1$d</string>
-    <string name="session_streak_current">Текуща серия: %1$d дни</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Текуща серия: %1$d ден</item>
+        <item quantity="other">Текуща серия: %1$d дни</item>
+    </plurals>
 
     <string name="quit_game_title">Изход от играта?</string>
     <string name="quit_game_message">Напредъкът ти в тази игра няма да се запази.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Нов рекорд!</string>
     <string name="finish_new_best_tries">Нов най-добър!</string>
     <string name="finish_highscore">Рекорд: %1$s</string>
-    <string name="finish_best_tries">Най-добър: %1$s опита</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Най-добър: %1$d опит</item>
+        <item quantity="other">Най-добър: %1$d опита</item>
+    </plurals>
     <string name="button_play_next_level">Играй следващото ниво</string>
     <string name="finish_max_level_reached">Достигнато е най-високото ниво. Изчакай ново съдържание.</string>
     <string name="finish_congruency_effect_title">Цена на конгруентността</string>
@@ -474,13 +486,11 @@ Cow = вярна цифра, грешно място.</string>
     <string name="shape_house">Къща</string>
     <string name="shape_arrow">Стрелка</string>
 
-    <string name="direction_up">нагоре</string>
-    <string name="direction_right">надясно</string>
-    <string name="direction_down">надолу</string>
-    <string name="direction_left">наляво</string>
-
-    <string name="solution_pointing">%1$s %2$s сочещ %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s сочещ нагоре (%1$s)</string>
+    <string name="solution_pointing_right">%2$s сочещ надясно (%1$s)</string>
+    <string name="solution_pointing_down">%2$s сочещ надолу (%1$s)</string>
+    <string name="solution_pointing_left">%2$s сочещ наляво (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">колона %1$d и ред %2$d</string>
     <string name="hint_remember">Запомнете %1$d</string>
     <string name="solution_left">Ляво</string>
@@ -953,7 +963,6 @@ Cow = вярна цифра, грешно място.</string>
     <string name="learn_topic_intro">Минете през тях по ред. Всяка стъпка стъпва върху предишната.</string>
     <string name="learn_topic_certificates">%1$d от %2$d със сертификат</string>
     <string name="learn_ages">Възраст %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Аритметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа и операции</string>

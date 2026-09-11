@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Salvestatud sellele seadmele. Kaob, kui rakenduse eemaldad.</string>
 
     <string name="daily_challenge_title">Päeva väljakutse</string>
-    <string name="daily_challenge_subtitle_start">Mängi %1$d mängu, et hoida seeriat</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Mängi %1$d mängu, et alustada seeriat</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Mängi %1$d mäng, et hoida seeriat</item>
+        <item quantity="other">Mängi %1$d mängu, et hoida seeriat</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Mängi %1$d mäng, et alustada seeriat</item>
+        <item quantity="other">Mängi %1$d mängu, et alustada seeriat</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Pooleli · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Tänaseks tehtud. Tule homme tagasi!</string>
     <string name="daily_challenge_streak_label">päeva seeria</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Sessioon valmis</string>
     <string name="session_total_score">Kokku: %1$d</string>
     <string name="session_streak_increased">Päevaseeria: %1$d</string>
-    <string name="session_streak_current">Praegune seeria: %1$d päeva</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Praegune seeria: %1$d päev</item>
+        <item quantity="other">Praegune seeria: %1$d päeva</item>
+    </plurals>
 
     <string name="quit_game_title">Lõpetada mäng?</string>
     <string name="quit_game_message">Sinu edenemist selles mängus ei salvestata.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Uus rekord!</string>
     <string name="finish_new_best_tries">Uus parim!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Parim: %1$s katset</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Parim: %1$d katse</item>
+        <item quantity="other">Parim: %1$d katset</item>
+    </plurals>
     <string name="button_play_next_level">Mängi järgmine tase</string>
     <string name="finish_max_level_reached">Kõrgeim tase saavutatud. Oota uut sisu.</string>
     <string name="finish_congruency_effect_title">Kongruentsuse hind</string>
@@ -474,13 +486,11 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="shape_house">Maja</string>
     <string name="shape_arrow">Nool</string>
 
-    <string name="direction_up">üles</string>
-    <string name="direction_right">paremale</string>
-    <string name="direction_down">alla</string>
-    <string name="direction_left">vasakule</string>
-
-    <string name="solution_pointing">%1$s %2$s osutab %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s osutab üles (%1$s)</string>
+    <string name="solution_pointing_right">%2$s osutab paremale (%1$s)</string>
+    <string name="solution_pointing_down">%2$s osutab alla (%1$s)</string>
+    <string name="solution_pointing_left">%2$s osutab vasakule (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">veerg %1$d ja rida %2$d</string>
     <string name="hint_remember">Jäta meelde %1$d</string>
     <string name="solution_left">Vasak</string>
@@ -953,7 +963,6 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_topic_intro">Läbi need järjekorras. Iga samm toetub eelmisele.</string>
     <string name="learn_topic_certificates">%1$d / %2$d tunnistusega</string>
     <string name="learn_ages">Vanus %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmeetika</string>
     <string name="learn_topic_arithmetic_subtitle">Arvud ja tehted</string>

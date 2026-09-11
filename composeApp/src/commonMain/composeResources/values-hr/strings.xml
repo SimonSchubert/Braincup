@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">Spremljeno na ovom uređaju. Nestaje ako deinstaliraš aplikaciju.</string>
 
     <string name="daily_challenge_title">Dnevni izazov</string>
-    <string name="daily_challenge_subtitle_start">Odigraj %1$d igara i zadrži niz</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Odigraj %1$d igara i započni niz</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Odigraj %1$d igru i zadrži niz</item>
+        <item quantity="few">Odigraj %1$d igre i zadrži niz</item>
+        <item quantity="other">Odigraj %1$d igara i zadrži niz</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Odigraj %1$d igru i započni niz</item>
+        <item quantity="few">Odigraj %1$d igre i započni niz</item>
+        <item quantity="other">Odigraj %1$d igara i započni niz</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">U tijeku · %1$d od %2$d</string>
     <string name="daily_challenge_subtitle_done">Gotovo za danas. Vrati se sutra!</string>
     <string name="daily_challenge_streak_label">dnevni niz</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">Sesija završena</string>
     <string name="session_total_score">Ukupno: %1$d</string>
     <string name="session_streak_increased">Dnevni niz: %1$d</string>
-    <string name="session_streak_current">Trenutačni niz: %1$d dana</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Trenutačni niz: %1$d dan</item>
+        <item quantity="few">Trenutačni niz: %1$d dana</item>
+        <item quantity="other">Trenutačni niz: %1$d dana</item>
+    </plurals>
 
     <string name="quit_game_title">Prekinuti igru?</string>
     <string name="quit_game_message">Tvoj napredak u ovoj igri neće se spremiti.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">Novi rekord!</string>
     <string name="finish_new_best_tries">Novi najbolji!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Najbolje: %1$s pokušaja</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Najbolje: %1$d pokušaj</item>
+        <item quantity="few">Najbolje: %1$d pokušaja</item>
+        <item quantity="other">Najbolje: %1$d pokušaja</item>
+    </plurals>
     <string name="button_play_next_level">Igraj sljedeću razinu</string>
     <string name="finish_max_level_reached">Dosegnuta je najviša razina. Pričekaj novi sadržaj.</string>
     <string name="finish_congruency_effect_title">Cijena kongruentnosti</string>
@@ -474,13 +490,11 @@ Premjesti Cow — postat će Bull.</string>
     <string name="shape_house">Kuća</string>
     <string name="shape_arrow">Strelica</string>
 
-    <string name="direction_up">gore</string>
-    <string name="direction_right">desno</string>
-    <string name="direction_down">dolje</string>
-    <string name="direction_left">lijevo</string>
-
-    <string name="solution_pointing">%1$s %2$s usmjeren %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s usmjeren gore (%1$s)</string>
+    <string name="solution_pointing_right">%2$s usmjeren desno (%1$s)</string>
+    <string name="solution_pointing_down">%2$s usmjeren dolje (%1$s)</string>
+    <string name="solution_pointing_left">%2$s usmjeren lijevo (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">stupac %1$d i redak %2$d</string>
     <string name="hint_remember">Zapamti %1$d</string>
     <string name="solution_left">Lijevo</string>
@@ -953,7 +967,6 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_topic_intro">Prođi ih redom. Svaki korak gradi na prethodnom.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s certifikatom</string>
     <string name="learn_ages">Dob %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Brojevi i operacije</string>

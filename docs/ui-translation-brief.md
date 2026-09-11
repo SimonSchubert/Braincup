@@ -63,3 +63,7 @@ summaries address the player with the same informal *you*, citation lines stay u
 
 Same as the Learn brief: raw apostrophes, no backslash escapes, no em-dashes (spaced hyphen if
 you need a break). `%1$s` / `%1$d` slots survive, all of them.
+
+A phrase that counts something is a `<plurals>`, same as Learn, so a language that inflects the
+noun can. Do not concatenate colour, shape, or direction words into one phrase; each displayed
+sentence is one string, and colour sits as a name rather than an agreeing adjective.

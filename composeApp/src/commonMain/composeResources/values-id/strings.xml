@@ -172,13 +172,11 @@
     <string name="shape_house">Rumah</string>
     <string name="shape_arrow">Panah</string>
 
-    <string name="direction_up">atas</string>
-    <string name="direction_right">kanan</string>
-    <string name="direction_down">bawah</string>
-    <string name="direction_left">kiri</string>
-
-    <string name="solution_pointing">%1$s %2$s menunjuk %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s menunjuk atas (%1$s)</string>
+    <string name="solution_pointing_right">%2$s menunjuk kanan (%1$s)</string>
+    <string name="solution_pointing_down">%2$s menunjuk bawah (%1$s)</string>
+    <string name="solution_pointing_left">%2$s menunjuk kiri (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolom %1$d dan baris %2$d</string>
     <string name="hint_remember">Ingat %1$d</string>
     <string name="solution_left">Kiri</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Tantangan harian</string>
-    <string name="daily_challenge_subtitle_start">Mainkan %1$d permainan untuk menjaga streak</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Mainkan %1$d permainan untuk memulai streak</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Mainkan %1$d permainan untuk menjaga streak</item>
+        <item quantity="other">Mainkan %1$d permainan untuk menjaga streak</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Mainkan %1$d permainan untuk memulai streak</item>
+        <item quantity="other">Mainkan %1$d permainan untuk memulai streak</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Sedang berlangsung · %1$d dari %2$d</string>
     <string name="daily_challenge_subtitle_done">Selesai hari ini. Sampai jumpa besok!</string>
     <string name="daily_challenge_streak_label">hari berturut-turut</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Sesi selesai</string>
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Streak hari: %1$d</string>
-    <string name="session_streak_current">Streak saat ini: %1$d hari</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Streak saat ini: %1$d hari</item>
+        <item quantity="other">Streak saat ini: %1$d hari</item>
+    </plurals>
 
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Naik Level!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">Pemecah Kode</string>
     <string name="achievement_gold_bulls_and_cows_desc">Menangkan medali emas di Bulls &amp; Cows</string>
     <string name="finish_tries">Percobaan: %1$s</string>
-    <string name="finish_best_tries">Terbaik: %1$s percobaan</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Terbaik: %1$d percobaan</item>
+        <item quantity="other">Terbaik: %1$d percobaan</item>
+    </plurals>
     <string name="finish_new_best_tries">Rekor baru!</string>
 
     <string name="game_trio">Trio</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">Kerjakan berurutan. Setiap langkah bertumpu pada yang sebelumnya.</string>
     <string name="learn_topic_certificates">%1$d dari %2$d bersertifikat</string>
     <string name="learn_ages">Usia %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>

@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">या उपकरणावर जतन केले. अनइन्स्टॉल केल्यास नाहीसे होईल.</string>
 
     <string name="daily_challenge_title">दैनिक आव्हान</string>
-    <string name="daily_challenge_subtitle_start">तुमची मालिका टिकवण्यासाठी %1$d खेळ खेळा</string>
-    <string name="daily_challenge_subtitle_start_no_streak">तुमची मालिका सुरू करण्यासाठी %1$d खेळ खेळा</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">तुमची मालिका टिकवण्यासाठी %1$d खेळ खेळा</item>
+        <item quantity="other">तुमची मालिका टिकवण्यासाठी %1$d खेळ खेळा</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">तुमची मालिका सुरू करण्यासाठी %1$d खेळ खेळा</item>
+        <item quantity="other">तुमची मालिका सुरू करण्यासाठी %1$d खेळ खेळा</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">सुरू आहे · %2$d पैकी %1$d</string>
     <string name="daily_challenge_subtitle_done">आजचे पूर्ण झाले. उद्या या!</string>
     <string name="daily_challenge_streak_label">दिवसांची मालिका</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">सत्र पूर्ण झाले</string>
     <string name="session_total_score">एकूण: %1$d</string>
     <string name="session_streak_increased">दिवसांची मालिका: %1$d</string>
-    <string name="session_streak_current">सध्याची मालिका: %1$d दिवस</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">सध्याची मालिका: %1$d दिवस</item>
+        <item quantity="other">सध्याची मालिका: %1$d दिवस</item>
+    </plurals>
 
     <string name="quit_game_title">खेळातून बाहेर पडायचे?</string>
     <string name="quit_game_message">या खेळातील तुमची प्रगती जतन होणार नाही.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">नवीन उच्चांक!</string>
     <string name="finish_new_best_tries">नवीन सर्वोत्तम!</string>
     <string name="finish_highscore">उच्चांक: %1$s</string>
-    <string name="finish_best_tries">सर्वोत्तम: %1$s प्रयत्न</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">सर्वोत्तम: %1$d प्रयत्न</item>
+        <item quantity="other">सर्वोत्तम: %1$d प्रयत्न</item>
+    </plurals>
     <string name="button_play_next_level">पुढचा स्तर खेळा</string>
     <string name="finish_max_level_reached">कमाल स्तर गाठला. नवीन सामग्रीची वाट पहा.</string>
     <string name="finish_congruency_effect_title">सुसंगततेची किंमत</string>
@@ -456,13 +468,11 @@
     <string name="shape_house">घर</string>
     <string name="shape_arrow">बाण</string>
 
-    <string name="direction_up">वर</string>
-    <string name="direction_right">उजवीकडे</string>
-    <string name="direction_down">खाली</string>
-    <string name="direction_left">डावीकडे</string>
-
-    <string name="solution_pointing">%3$s दिशेने दाखवणारा %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">वर दिशेने दाखवणारा %2$s (%1$s)</string>
+    <string name="solution_pointing_right">उजवीकडे दिशेने दाखवणारा %2$s (%1$s)</string>
+    <string name="solution_pointing_down">खाली दिशेने दाखवणारा %2$s (%1$s)</string>
+    <string name="solution_pointing_left">डावीकडे दिशेने दाखवणारा %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">स्तंभ %1$d आणि रांग %2$d</string>
     <string name="hint_remember">%1$d लक्षात ठेव</string>
     <string name="solution_left">डावा</string>
@@ -921,7 +931,6 @@
     <string name="learn_topic_intro">ती क्रमाने पूर्ण कर. प्रत्येक पायरी आधीच्यावर उभी असते.</string>
     <string name="learn_topic_certificates">%2$d पैकी %1$d प्रमाणित</string>
     <string name="learn_ages">वय %1$s</string>
-
 
     <string name="learn_topic_arithmetic">अंकगणित</string>
     <string name="learn_topic_arithmetic_subtitle">संख्या &amp; क्रिया</string>

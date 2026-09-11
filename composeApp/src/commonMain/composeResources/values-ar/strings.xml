@@ -172,13 +172,11 @@
     <string name="shape_house">بيت</string>
     <string name="shape_arrow">سهم</string>
 
-    <string name="direction_up">أعلى</string>
-    <string name="direction_right">يمين</string>
-    <string name="direction_down">أسفل</string>
-    <string name="direction_left">يسار</string>
-
-    <string name="solution_pointing">%1$s %2$s يشير %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s يشير أعلى (%1$s)</string>
+    <string name="solution_pointing_right">%2$s يشير يمين (%1$s)</string>
+    <string name="solution_pointing_down">%2$s يشير أسفل (%1$s)</string>
+    <string name="solution_pointing_left">%2$s يشير يسار (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">العمود %1$d والصف %2$d</string>
     <string name="hint_remember">تذكّر %1$d</string>
     <string name="solution_left">يسار</string>
@@ -187,8 +185,22 @@
     <string name="preview_vs">ضد</string>
 
     <string name="daily_challenge_title">التحدي اليومي</string>
-    <string name="daily_challenge_subtitle_start">العب %1$d ألعاب للحفاظ على سلسلتك</string>
-    <string name="daily_challenge_subtitle_start_no_streak">العب %1$d ألعاب لبدء سلسلتك</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="zero">العب %1$d ألعاب للحفاظ على سلسلتك</item>
+        <item quantity="one">العب %1$d لعبة للحفاظ على سلسلتك</item>
+        <item quantity="two">العب %1$d لعبتين للحفاظ على سلسلتك</item>
+        <item quantity="few">العب %1$d ألعاب للحفاظ على سلسلتك</item>
+        <item quantity="many">العب %1$d لعبة للحفاظ على سلسلتك</item>
+        <item quantity="other">العب %1$d لعبة للحفاظ على سلسلتك</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="zero">العب %1$d ألعاب لبدء سلسلتك</item>
+        <item quantity="one">العب %1$d لعبة لبدء سلسلتك</item>
+        <item quantity="two">العب %1$d لعبتين لبدء سلسلتك</item>
+        <item quantity="few">العب %1$d ألعاب لبدء سلسلتك</item>
+        <item quantity="many">العب %1$d لعبة لبدء سلسلتك</item>
+        <item quantity="other">العب %1$d لعبة لبدء سلسلتك</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">قيد التقدم · %1$d من %2$d</string>
     <string name="daily_challenge_subtitle_done">انتهيت لهذا اليوم. عد غدًا!</string>
     <string name="daily_challenge_streak_label">يوم متواصل</string>
@@ -203,7 +215,14 @@
     <string name="session_complete_title">اكتملت الجلسة</string>
     <string name="session_total_score">المجموع: %1$d</string>
     <string name="session_streak_increased">سلسلة الأيام: %1$d</string>
-    <string name="session_streak_current">السلسلة الحالية: %1$d يوم</string>
+    <plurals name="session_streak_current">
+        <item quantity="zero">السلسلة الحالية: %1$d يوم</item>
+        <item quantity="one">السلسلة الحالية: %1$d يوم</item>
+        <item quantity="two">السلسلة الحالية: %1$d يومان</item>
+        <item quantity="few">السلسلة الحالية: %1$d أيام</item>
+        <item quantity="many">السلسلة الحالية: %1$d يومًا</item>
+        <item quantity="other">السلسلة الحالية: %1$d يوم</item>
+    </plurals>
 
     <string name="level_label">المستوى %1$d</string>
     <string name="level_up_title">ارتقاء المستوى!</string>
@@ -824,7 +843,14 @@
     <string name="achievement_gold_bulls_and_cows">كاسر الشفرات</string>
     <string name="achievement_gold_bulls_and_cows_desc">اربح الميدالية الذهبية في Bulls &amp; Cows</string>
     <string name="finish_tries">المحاولات: %1$s</string>
-    <string name="finish_best_tries">الأفضل: %1$s محاولات</string>
+    <plurals name="finish_best_tries">
+        <item quantity="zero">الأفضل: %1$d محاولات</item>
+        <item quantity="one">الأفضل: %1$d محاولة</item>
+        <item quantity="two">الأفضل: %1$d محاولتان</item>
+        <item quantity="few">الأفضل: %1$d محاولات</item>
+        <item quantity="many">الأفضل: %1$d محاولة</item>
+        <item quantity="other">الأفضل: %1$d محاولة</item>
+    </plurals>
     <string name="finish_new_best_tries">رقم قياسي جديد!</string>
 
     <string name="game_trio">ثلاثي</string>
@@ -936,7 +962,6 @@
     <string name="learn_topic_intro">اعبرها بالترتيب. كل خطوة تبني على التي قبلها.</string>
     <string name="learn_topic_certificates">%1$d من %2$d معتمدة</string>
     <string name="learn_ages">الأعمار %1$s</string>
-
 
     <string name="learn_topic_arithmetic">الحساب</string>
     <string name="learn_topic_arithmetic_subtitle">الأعداد &amp; العمليات</string>

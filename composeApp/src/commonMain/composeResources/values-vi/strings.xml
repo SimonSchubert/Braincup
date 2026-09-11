@@ -172,13 +172,11 @@
     <string name="shape_house">Ngôi Nhà</string>
     <string name="shape_arrow">Mũi Tên</string>
 
-    <string name="direction_up">trên</string>
-    <string name="direction_right">phải</string>
-    <string name="direction_down">dưới</string>
-    <string name="direction_left">trái</string>
-
-    <string name="solution_pointing">%1$s %2$s chỉ %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s chỉ trên (%1$s)</string>
+    <string name="solution_pointing_right">%2$s chỉ phải (%1$s)</string>
+    <string name="solution_pointing_down">%2$s chỉ dưới (%1$s)</string>
+    <string name="solution_pointing_left">%2$s chỉ trái (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">cột %1$d và hàng %2$d</string>
     <string name="hint_remember">Nhớ %1$d</string>
     <string name="solution_left">Trái</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Thử thách hàng ngày</string>
-    <string name="daily_challenge_subtitle_start">Chơi %1$d trò chơi để giữ chuỗi thắng</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Chơi %1$d trò chơi để bắt đầu chuỗi của bạn</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Chơi %1$d trò chơi để giữ chuỗi thắng</item>
+        <item quantity="other">Chơi %1$d trò chơi để giữ chuỗi thắng</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Chơi %1$d trò chơi để bắt đầu chuỗi của bạn</item>
+        <item quantity="other">Chơi %1$d trò chơi để bắt đầu chuỗi của bạn</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Đang tiến hành · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Hôm nay đã xong. Hẹn gặp lại ngày mai!</string>
     <string name="daily_challenge_streak_label">ngày liên tiếp</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Phiên hoàn thành</string>
     <string name="session_total_score">Tổng: %1$d</string>
     <string name="session_streak_increased">Chuỗi ngày: %1$d</string>
-    <string name="session_streak_current">Chuỗi hiện tại: %1$d ngày</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Chuỗi hiện tại: %1$d ngày</item>
+        <item quantity="other">Chuỗi hiện tại: %1$d ngày</item>
+    </plurals>
 
     <string name="level_label">Cấp %1$d</string>
     <string name="level_up_title">Lên Cấp!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">Kẻ phá mã</string>
     <string name="achievement_gold_bulls_and_cows_desc">Giành huy chương vàng trong Bulls &amp; Cows</string>
     <string name="finish_tries">Lần thử: %1$s</string>
-    <string name="finish_best_tries">Tốt nhất: %1$s lần</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Tốt nhất: %1$d lần</item>
+        <item quantity="other">Tốt nhất: %1$d lần</item>
+    </plurals>
     <string name="finish_new_best_tries">Kỷ lục mới!</string>
 
     <string name="game_trio">Bộ ba</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">Đi qua chúng theo thứ tự. Mỗi bước dựa trên bước trước.</string>
     <string name="learn_topic_certificates">%1$d trên %2$d đã có chứng chỉ</string>
     <string name="learn_ages">Tuổi %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Số học</string>
     <string name="learn_topic_arithmetic_subtitle">Số &amp; phép tính</string>

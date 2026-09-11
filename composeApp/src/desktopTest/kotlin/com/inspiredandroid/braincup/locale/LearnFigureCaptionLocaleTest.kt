@@ -18,10 +18,10 @@ import kotlin.test.assertEquals
  * The words a Learn figure draws on itself, checked in the languages that stress them.
  *
  * A figure captions itself inside a `DrawScope`, so these go through `LearnVisualStrings` rather
- * than an ordinary `stringResource` call at a composable. Four of them are `<plurals>` - the only
- * ones in the project - because "4 sides" and "3 rows" need agreement in most languages here and
- * English never showed that. Nothing else exercises plural selection, so pin it: a Compose upgrade
- * that stopped honouring CLDR would otherwise show up as Russian quietly printing the wrong case.
+ * than an ordinary `stringResource` call at a composable. Four of them are `<plurals>` because
+ * "4 sides" and "3 rows" need agreement in most languages here and English never showed that.
+ * Pin the selection: a Compose upgrade that stopped honouring CLDR would otherwise show up as
+ * Russian quietly printing the wrong case.
  */
 class LearnFigureCaptionLocaleTest {
 

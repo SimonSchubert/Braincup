@@ -12,6 +12,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerDisabled
 import com.inspiredandroid.braincup.ui.theme.Primary
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -44,12 +45,14 @@ fun DailyChallengeCard(
                             progressIndex,
                             totalGames,
                         )
-                        sessionStreak > 0 -> stringResource(
-                            Res.string.daily_challenge_subtitle_start,
+                        sessionStreak > 0 -> pluralStringResource(
+                            Res.plurals.daily_challenge_subtitle_start,
+                            totalGames,
                             totalGames,
                         )
-                        else -> stringResource(
-                            Res.string.daily_challenge_subtitle_start_no_streak,
+                        else -> pluralStringResource(
+                            Res.plurals.daily_challenge_subtitle_start_no_streak,
+                            totalGames,
                             totalGames,
                         )
                     },

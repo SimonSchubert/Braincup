@@ -57,15 +57,15 @@ private fun FeedbackMessage.toLocalizedString(): String = when (this) {
     is FeedbackMessage.FigureDescription -> {
         val colorName = color.localizedName()
         val shapeName = shape.localizedName()
-        if (directionDegrees != null) {
-            val dir = when (directionDegrees) {
-                0 -> stringResource(Res.string.direction_up)
-                90 -> stringResource(Res.string.direction_right)
-                180 -> stringResource(Res.string.direction_down)
-                270 -> stringResource(Res.string.direction_left)
-                else -> ""
-            }
-            stringResource(Res.string.solution_pointing, colorName, shapeName, dir)
+        val pointing = when (directionDegrees) {
+            0 -> Res.string.solution_pointing_up
+            90 -> Res.string.solution_pointing_right
+            180 -> Res.string.solution_pointing_down
+            270 -> Res.string.solution_pointing_left
+            else -> null
+        }
+        if (pointing != null) {
+            stringResource(pointing, colorName, shapeName)
         } else {
             stringResource(Res.string.solution_figure, colorName, shapeName)
         }

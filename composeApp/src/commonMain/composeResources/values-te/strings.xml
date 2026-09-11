@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">ఈ పరికరంలో సేవ్ చేయబడింది. అన్‌ఇన్‌స్టాల్ చేస్తే పోతుంది.</string>
 
     <string name="daily_challenge_title">రోజువారీ సవాలు</string>
-    <string name="daily_challenge_subtitle_start">మీ వరుసను కొనసాగించడానికి %1$d ఆటలు ఆడండి</string>
-    <string name="daily_challenge_subtitle_start_no_streak">మీ వరుసను ప్రారంభించడానికి %1$d ఆటలు ఆడండి</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">మీ వరుసను కొనసాగించడానికి %1$d ఆటలు ఆడండి</item>
+        <item quantity="other">మీ వరుసను కొనసాగించడానికి %1$d ఆటలు ఆడండి</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">మీ వరుసను ప్రారంభించడానికి %1$d ఆటలు ఆడండి</item>
+        <item quantity="other">మీ వరుసను ప్రారంభించడానికి %1$d ఆటలు ఆడండి</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">జరుగుతోంది · %2$d లో %1$d</string>
     <string name="daily_challenge_subtitle_done">ఈ రోజుకు పూర్తయింది. రేపు రండి!</string>
     <string name="daily_challenge_streak_label">రోజుల వరుస</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">సెషన్ పూర్తయింది</string>
     <string name="session_total_score">మొత్తం: %1$d</string>
     <string name="session_streak_increased">రోజుల వరుస: %1$d</string>
-    <string name="session_streak_current">ప్రస్తుత వరుస: %1$d రోజులు</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">ప్రస్తుత వరుస: %1$d రోజులు</item>
+        <item quantity="other">ప్రస్తుత వరుస: %1$d రోజులు</item>
+    </plurals>
 
     <string name="quit_game_title">ఆట నుండి నిష్క్రమించాలా?</string>
     <string name="quit_game_message">ఈ ఆటలో మీ పురోగతి సేవ్ కాదు.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">కొత్త అత్యధిక స్కోరు!</string>
     <string name="finish_new_best_tries">కొత్త అత్యుత్తమం!</string>
     <string name="finish_highscore">అత్యధిక స్కోరు: %1$s</string>
-    <string name="finish_best_tries">అత్యుత్తమం: %1$s ప్రయత్నాలు</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">అత్యుత్తమం: %1$d ప్రయత్నాలు</item>
+        <item quantity="other">అత్యుత్తమం: %1$d ప్రయత్నాలు</item>
+    </plurals>
     <string name="button_play_next_level">తర్వాతి స్థాయిని ఆడు</string>
     <string name="finish_max_level_reached">గరిష్ఠ స్థాయికి చేరారు. కొత్త కంటెంట్ కోసం వేచి ఉండండి.</string>
     <string name="finish_congruency_effect_title">అనుగుణ్యత ఖరీదు</string>
@@ -456,13 +468,11 @@
     <string name="shape_house">ఇల్లు</string>
     <string name="shape_arrow">బాణం</string>
 
-    <string name="direction_up">పైకి</string>
-    <string name="direction_right">కుడికి</string>
-    <string name="direction_down">కిందికి</string>
-    <string name="direction_left">ఎడమకు</string>
-
-    <string name="solution_pointing">%3$s చూపే %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">పైకి చూపే %2$s (%1$s)</string>
+    <string name="solution_pointing_right">కుడికి చూపే %2$s (%1$s)</string>
+    <string name="solution_pointing_down">కిందికి చూపే %2$s (%1$s)</string>
+    <string name="solution_pointing_left">ఎడమకు చూపే %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">నిలువు వరుస %1$d, వరుస %2$d</string>
     <string name="hint_remember">%1$d గుర్తుంచుకో</string>
     <string name="solution_left">ఎడమ</string>
@@ -921,7 +931,6 @@
     <string name="learn_topic_intro">వీటిని వరుసగా పూర్తి చేయి. ప్రతి అడుగు ముందుదానిపై నిలుస్తుంది.</string>
     <string name="learn_topic_certificates">%2$d లో %1$d ధ్రువీకరించబడ్డాయి</string>
     <string name="learn_ages">వయస్సు %1$s</string>
-
 
     <string name="learn_topic_arithmetic">అంకగణితం</string>
     <string name="learn_topic_arithmetic_subtitle">సంఖ్యలు &amp; పరిక్రియలు</string>

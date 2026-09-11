@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">Uložené na tomto zariadení. Zmizne, ak odinštaluješ aplikáciu.</string>
 
     <string name="daily_challenge_title">Denná výzva</string>
-    <string name="daily_challenge_subtitle_start">Zahraj %1$d hier a udrž si sériu</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Zahraj %1$d hier a začni sériu</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Zahraj %1$d hru a udrž si sériu</item>
+        <item quantity="few">Zahraj %1$d hry a udrž si sériu</item>
+        <item quantity="other">Zahraj %1$d hier a udrž si sériu</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Zahraj %1$d hru a začni sériu</item>
+        <item quantity="few">Zahraj %1$d hry a začni sériu</item>
+        <item quantity="other">Zahraj %1$d hier a začni sériu</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Prebieha · %1$d z %2$d</string>
     <string name="daily_challenge_subtitle_done">Hotovo na dnes. Vráť sa zajtra!</string>
     <string name="daily_challenge_streak_label">denná séria</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">Sedenie dokončené</string>
     <string name="session_total_score">Spolu: %1$d</string>
     <string name="session_streak_increased">Denná séria: %1$d</string>
-    <string name="session_streak_current">Aktuálna séria: %1$d dní</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Aktuálna séria: %1$d deň</item>
+        <item quantity="few">Aktuálna séria: %1$d dni</item>
+        <item quantity="other">Aktuálna séria: %1$d dní</item>
+    </plurals>
 
     <string name="quit_game_title">Ukončiť hru?</string>
     <string name="quit_game_message">Tvoj postup v tejto hre sa neuloží.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">Nový rekord!</string>
     <string name="finish_new_best_tries">Nový najlepší!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Najlepšie: %1$s pokusov</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Najlepšie: %1$d pokus</item>
+        <item quantity="few">Najlepšie: %1$d pokusy</item>
+        <item quantity="other">Najlepšie: %1$d pokusov</item>
+    </plurals>
     <string name="button_play_next_level">Hrať ďalšiu úroveň</string>
     <string name="finish_max_level_reached">Najvyššia úroveň dosiahnutá. Čakaj na nový obsah.</string>
     <string name="finish_congruency_effect_title">Cena kongruencie</string>
@@ -474,13 +490,11 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="shape_house">Dom</string>
     <string name="shape_arrow">Šípka</string>
 
-    <string name="direction_up">hore</string>
-    <string name="direction_right">doprava</string>
-    <string name="direction_down">dole</string>
-    <string name="direction_left">doľava</string>
-
-    <string name="solution_pointing">%1$s %2$s smerujúci %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s smerujúci hore (%1$s)</string>
+    <string name="solution_pointing_right">%2$s smerujúci doprava (%1$s)</string>
+    <string name="solution_pointing_down">%2$s smerujúci dole (%1$s)</string>
+    <string name="solution_pointing_left">%2$s smerujúci doľava (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">stĺpec %1$d a riadok %2$d</string>
     <string name="hint_remember">Zapamätaj si %1$d</string>
     <string name="solution_left">Vľavo</string>
@@ -953,7 +967,6 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="learn_topic_intro">Prejdi ich po poradí. Každý krok stavia na predchádzajúcom.</string>
     <string name="learn_topic_certificates">%1$d z %2$d s certifikátom</string>
     <string name="learn_ages">Vek %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Čísla a operácie</string>

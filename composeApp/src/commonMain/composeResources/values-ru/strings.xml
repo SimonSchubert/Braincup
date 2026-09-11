@@ -172,13 +172,11 @@
     <string name="shape_house">Дом</string>
     <string name="shape_arrow">Стрелка</string>
 
-    <string name="direction_up">вверх</string>
-    <string name="direction_right">вправо</string>
-    <string name="direction_down">вниз</string>
-    <string name="direction_left">влево</string>
-
-    <string name="solution_pointing">%1$s %2$s направлен %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s направлен вверх (%1$s)</string>
+    <string name="solution_pointing_right">%2$s направлен вправо (%1$s)</string>
+    <string name="solution_pointing_down">%2$s направлен вниз (%1$s)</string>
+    <string name="solution_pointing_left">%2$s направлен влево (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">столбец %1$d и строка %2$d</string>
     <string name="hint_remember">Запомни %1$d</string>
     <string name="solution_left">Левая</string>
@@ -187,8 +185,18 @@
     <string name="preview_vs">против</string>
 
     <string name="daily_challenge_title">Ежедневный вызов</string>
-    <string name="daily_challenge_subtitle_start">Сыграйте %1$d игр, чтобы сохранить серию</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Сыграйте %1$d игр, чтобы начать серию</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Сыграй %1$d игру, чтобы сохранить серию</item>
+        <item quantity="few">Сыграй %1$d игры, чтобы сохранить серию</item>
+        <item quantity="many">Сыграй %1$d игр, чтобы сохранить серию</item>
+        <item quantity="other">Сыграй %1$d игры, чтобы сохранить серию</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Сыграй %1$d игру, чтобы начать серию</item>
+        <item quantity="few">Сыграй %1$d игры, чтобы начать серию</item>
+        <item quantity="many">Сыграй %1$d игр, чтобы начать серию</item>
+        <item quantity="other">Сыграй %1$d игры, чтобы начать серию</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">В процессе · %1$d из %2$d</string>
     <string name="daily_challenge_subtitle_done">На сегодня всё. Возвращайтесь завтра!</string>
     <string name="daily_challenge_streak_label">дней подряд</string>
@@ -203,7 +211,12 @@
     <string name="session_complete_title">Сессия завершена</string>
     <string name="session_total_score">Всего: %1$d</string>
     <string name="session_streak_increased">Серия дней: %1$d</string>
-    <string name="session_streak_current">Текущая серия: %1$d дней</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Текущая серия: %1$d день</item>
+        <item quantity="few">Текущая серия: %1$d дня</item>
+        <item quantity="many">Текущая серия: %1$d дней</item>
+        <item quantity="other">Текущая серия: %1$d дня</item>
+    </plurals>
 
     <string name="level_label">Уровень %1$d</string>
     <string name="level_up_title">Новый уровень!</string>
@@ -823,7 +836,12 @@
     <string name="achievement_gold_bulls_and_cows">Взломщик кодов</string>
     <string name="achievement_gold_bulls_and_cows_desc">Получи золотую медаль в Bulls &amp; Cows</string>
     <string name="finish_tries">Попытки: %1$s</string>
-    <string name="finish_best_tries">Лучший: %1$s попыток</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Лучший: %1$d попытка</item>
+        <item quantity="few">Лучший: %1$d попытки</item>
+        <item quantity="many">Лучший: %1$d попыток</item>
+        <item quantity="other">Лучший: %1$d попытки</item>
+    </plurals>
     <string name="finish_new_best_tries">Новый рекорд!</string>
 
     <string name="game_trio">Трио</string>
@@ -935,7 +953,6 @@
     <string name="learn_topic_intro">Проходи их по порядку. Каждый шаг опирается на предыдущий.</string>
     <string name="learn_topic_certificates">%1$d из %2$d с сертификатом</string>
     <string name="learn_ages">Возраст %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>

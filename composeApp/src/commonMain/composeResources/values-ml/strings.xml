@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">ഈ ഉപകരണത്തിൽ സംരക്ഷിച്ചു. അൺഇൻസ്റ്റാൾ ചെയ്താൽ നഷ്ടപ്പെടും.</string>
 
     <string name="daily_challenge_title">ദൈനംദിന വെല്ലുവിളി</string>
-    <string name="daily_challenge_subtitle_start">നിങ്ങളുടെ പരമ്പര നിലനിർത്താൻ %1$d കളികൾ കളിക്കുക</string>
-    <string name="daily_challenge_subtitle_start_no_streak">നിങ്ങളുടെ പരമ്പര തുടങ്ങാൻ %1$d കളികൾ കളിക്കുക</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">നിങ്ങളുടെ പരമ്പര നിലനിർത്താൻ %1$d കളികൾ കളിക്കുക</item>
+        <item quantity="other">നിങ്ങളുടെ പരമ്പര നിലനിർത്താൻ %1$d കളികൾ കളിക്കുക</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">നിങ്ങളുടെ പരമ്പര തുടങ്ങാൻ %1$d കളികൾ കളിക്കുക</item>
+        <item quantity="other">നിങ്ങളുടെ പരമ്പര തുടങ്ങാൻ %1$d കളികൾ കളിക്കുക</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">നടക്കുന്നു · %2$d ൽ %1$d</string>
     <string name="daily_challenge_subtitle_done">ഇന്നത്തേത് കഴിഞ്ഞു. നാളെ വരൂ!</string>
     <string name="daily_challenge_streak_label">ദിവസ പരമ്പര</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">സെഷൻ പൂർത്തിയായി</string>
     <string name="session_total_score">ആകെ: %1$d</string>
     <string name="session_streak_increased">ദിവസ പരമ്പര: %1$d</string>
-    <string name="session_streak_current">നിലവിലെ പരമ്പര: %1$d ദിവസം</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">നിലവിലെ പരമ്പര: %1$d ദിവസം</item>
+        <item quantity="other">നിലവിലെ പരമ്പര: %1$d ദിവസം</item>
+    </plurals>
 
     <string name="quit_game_title">കളിയിൽ നിന്ന് പുറത്തുകടക്കണോ?</string>
     <string name="quit_game_message">ഈ കളിയിലെ നിങ്ങളുടെ പുരോഗതി സംരക്ഷിക്കപ്പെടില്ല.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">പുതിയ ഉയർന്ന സ്കോർ!</string>
     <string name="finish_new_best_tries">പുതിയ മികവ്!</string>
     <string name="finish_highscore">ഉയർന്ന സ്കോർ: %1$s</string>
-    <string name="finish_best_tries">മികച്ചത്: %1$s ശ്രമങ്ങൾ</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">മികച്ചത്: %1$d ശ്രമങ്ങൾ</item>
+        <item quantity="other">മികച്ചത്: %1$d ശ്രമങ്ങൾ</item>
+    </plurals>
     <string name="button_play_next_level">അടുത്ത നില കളിക്കുക</string>
     <string name="finish_max_level_reached">പരമാവധി നിലയിലെത്തി. പുതിയ ഉള്ളടക്കത്തിനായി കാത്തിരിക്കുക.</string>
     <string name="finish_congruency_effect_title">പൊരുത്തത്തിന്റെ വില</string>
@@ -456,13 +468,11 @@
     <string name="shape_house">വീട്</string>
     <string name="shape_arrow">അമ്പ്</string>
 
-    <string name="direction_up">മുകളിലേക്ക്</string>
-    <string name="direction_right">വലത്തേക്ക്</string>
-    <string name="direction_down">താഴേക്ക്</string>
-    <string name="direction_left">ഇടത്തേക്ക്</string>
-
-    <string name="solution_pointing">%3$s ചൂണ്ടുന്ന %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">മുകളിലേക്ക് ചൂണ്ടുന്ന %2$s (%1$s)</string>
+    <string name="solution_pointing_right">വലത്തേക്ക് ചൂണ്ടുന്ന %2$s (%1$s)</string>
+    <string name="solution_pointing_down">താഴേക്ക് ചൂണ്ടുന്ന %2$s (%1$s)</string>
+    <string name="solution_pointing_left">ഇടത്തേക്ക് ചൂണ്ടുന്ന %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">നെടുനിര %1$d ഉം നിര %2$d ഉം</string>
     <string name="hint_remember">%1$d ഓർത്തുവയ്ക്കുക</string>
     <string name="solution_left">ഇടത്</string>
@@ -921,7 +931,6 @@
     <string name="learn_topic_intro">ഇവ ക്രമത്തിൽ ചെയ്യുക. ഓരോ ചുവടും മുൻപത്തേതിന്മേൽ നിൽക്കുന്നു.</string>
     <string name="learn_topic_certificates">%2$d ൽ %1$d സാക്ഷ്യപ്പെടുത്തി</string>
     <string name="learn_ages">വയസ്സ് %1$s</string>
-
 
     <string name="learn_topic_arithmetic">അങ്കഗണിതം</string>
     <string name="learn_topic_arithmetic_subtitle">സംഖ്യ &amp; ക്രിയകൾ</string>

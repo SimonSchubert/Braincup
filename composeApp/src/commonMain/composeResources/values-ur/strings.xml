@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">اس آلے پر محفوظ۔ ان انسٹال پر ختم۔</string>
 
     <string name="daily_challenge_title">روزانہ چیلنج</string>
-    <string name="daily_challenge_subtitle_start">سلسلہ جاری رکھنے کے لیے %1$d کھیل کھیلیں</string>
-    <string name="daily_challenge_subtitle_start_no_streak">سلسلہ شروع کرنے کے لیے %1$d کھیل کھیلیں</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">سلسلہ جاری رکھنے کے لیے %1$d کھیل کھیلیں</item>
+        <item quantity="other">سلسلہ جاری رکھنے کے لیے %1$d کھیل کھیلیں</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">سلسلہ شروع کرنے کے لیے %1$d کھیل کھیلیں</item>
+        <item quantity="other">سلسلہ شروع کرنے کے لیے %1$d کھیل کھیلیں</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">جاری · %1$d از %2$d</string>
     <string name="daily_challenge_subtitle_done">آج مکمل۔ کل واپس آئیں!</string>
     <string name="daily_challenge_streak_label">دن کا سلسلہ</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">سیشن مکمل</string>
     <string name="session_total_score">کل: %1$d</string>
     <string name="session_streak_increased">دن کا سلسلہ: %1$d</string>
-    <string name="session_streak_current">موجودہ سلسلہ: %1$d دن</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">موجودہ سلسلہ: %1$d دن</item>
+        <item quantity="other">موجودہ سلسلہ: %1$d دن</item>
+    </plurals>
 
     <string name="quit_game_title">کھیل بند کریں؟</string>
     <string name="quit_game_message">اس کھیل میں آپ کی پیش رفت محفوظ نہیں ہوگی۔</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">نیا اعلیٰ اسکور!</string>
     <string name="finish_new_best_tries">نیا بہترین!</string>
     <string name="finish_highscore">اعلیٰ اسکور: %1$s</string>
-    <string name="finish_best_tries">بہترین: %1$s کوششیں</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">بہترین: %1$d کوششیں</item>
+        <item quantity="other">بہترین: %1$d کوششیں</item>
+    </plurals>
     <string name="button_play_next_level">اگلی سطح کھیلیں</string>
     <string name="finish_max_level_reached">سب سے اونچی سطح آ گئی۔ نئے مواد کا انتظار کریں۔</string>
     <string name="finish_congruency_effect_title">مطابقت کی قیمت</string>
@@ -472,13 +484,11 @@
     <string name="shape_house">گھر</string>
     <string name="shape_arrow">تیر</string>
 
-    <string name="direction_up">اوپر</string>
-    <string name="direction_right">دائیں</string>
-    <string name="direction_down">نیچے</string>
-    <string name="direction_left">بائیں</string>
-
-    <string name="solution_pointing">%1$s %2$s %3$s کی طرف</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s اوپر کی طرف (%1$s)</string>
+    <string name="solution_pointing_right">%2$s دائیں کی طرف (%1$s)</string>
+    <string name="solution_pointing_down">%2$s نیچے کی طرف (%1$s)</string>
+    <string name="solution_pointing_left">%2$s بائیں کی طرف (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">کالم %1$d اور قطار %2$d</string>
     <string name="hint_remember">%1$d یاد رکھو</string>
     <string name="solution_left">بائیں</string>
@@ -951,7 +961,6 @@
     <string name="learn_topic_intro">انہیں ترتیب سے کرو۔ ہر قدم پچھلے پر بنتا ہے۔</string>
     <string name="learn_topic_certificates">%2$d میں سے %1$d تصدیق شدہ</string>
     <string name="learn_ages">عمریں %1$s</string>
-
 
     <string name="learn_topic_arithmetic">حساب</string>
     <string name="learn_topic_arithmetic_subtitle">عدد اور اعمال</string>

@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Sparat på den här enheten. Försvinner om du avinstallerar.</string>
 
     <string name="daily_challenge_title">Daglig utmaning</string>
-    <string name="daily_challenge_subtitle_start">Spela %1$d spel för att behålla sviten</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Spela %1$d spel för att starta sviten</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Spela %1$d spel för att behålla sviten</item>
+        <item quantity="other">Spela %1$d spel för att behålla sviten</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Spela %1$d spel för att starta sviten</item>
+        <item quantity="other">Spela %1$d spel för att starta sviten</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Pågår · %1$d av %2$d</string>
     <string name="daily_challenge_subtitle_done">Klart för idag. Kom tillbaka imorgon!</string>
     <string name="daily_challenge_streak_label">dagars svit</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Passet klart</string>
     <string name="session_total_score">Totalt: %1$d</string>
     <string name="session_streak_increased">Dagssvit: %1$d</string>
-    <string name="session_streak_current">Nuvarande svit: %1$d dagar</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Nuvarande svit: %1$d dag</item>
+        <item quantity="other">Nuvarande svit: %1$d dagar</item>
+    </plurals>
 
     <string name="quit_game_title">Avsluta spelet?</string>
     <string name="quit_game_message">Dina framsteg i det här spelet sparas inte.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Nytt rekord!</string>
     <string name="finish_new_best_tries">Nytt bästa!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Bästa: %1$s försök</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Bästa: %1$d försök</item>
+        <item quantity="other">Bästa: %1$d försök</item>
+    </plurals>
     <string name="button_play_next_level">Spela nästa nivå</string>
     <string name="finish_max_level_reached">Högsta nivån nådd. Vänta på nytt innehåll.</string>
     <string name="finish_congruency_effect_title">Kongruenskostnad</string>
@@ -472,13 +484,11 @@
     <string name="shape_house">Hus</string>
     <string name="shape_arrow">Pil</string>
 
-    <string name="direction_up">upp</string>
-    <string name="direction_right">höger</string>
-    <string name="direction_down">ner</string>
-    <string name="direction_left">vänster</string>
-
-    <string name="solution_pointing">%1$s %2$s pekar %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s pekar upp (%1$s)</string>
+    <string name="solution_pointing_right">%2$s pekar höger (%1$s)</string>
+    <string name="solution_pointing_down">%2$s pekar ner (%1$s)</string>
+    <string name="solution_pointing_left">%2$s pekar vänster (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolumn %1$d och rad %2$d</string>
     <string name="hint_remember">Kom ihåg %1$d</string>
     <string name="solution_left">Vänster</string>
@@ -951,7 +961,6 @@
     <string name="learn_topic_intro">Arbeta dig igenom dem i tur och ordning. Varje steg bygger på det förra.</string>
     <string name="learn_topic_certificates">%1$d av %2$d intygade</string>
     <string name="learn_ages">Ålder %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Tal &amp; räknesätt</string>

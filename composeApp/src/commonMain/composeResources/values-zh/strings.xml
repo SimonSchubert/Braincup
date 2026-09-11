@@ -172,13 +172,11 @@
     <string name="shape_house">房子</string>
     <string name="shape_arrow">箭头</string>
 
-    <string name="direction_up">上</string>
-    <string name="direction_right">右</string>
-    <string name="direction_down">下</string>
-    <string name="direction_left">左</string>
-
-    <string name="solution_pointing">指向%3$s的%1$s%2$s</string>
-    <string name="solution_figure">%1$s%2$s</string>
+    <string name="solution_pointing_up">指向上的%2$s（%1$s）</string>
+    <string name="solution_pointing_right">指向右的%2$s（%1$s）</string>
+    <string name="solution_pointing_down">指向下的%2$s（%1$s）</string>
+    <string name="solution_pointing_left">指向左的%2$s（%1$s）</string>
+    <string name="solution_figure">%2$s（%1$s）</string>
     <string name="solution_column_row">第%1$d列第%2$d行</string>
     <string name="hint_remember">记住 %1$d</string>
     <string name="solution_left">左边</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">对</string>
 
     <string name="daily_challenge_title">每日挑战</string>
-    <string name="daily_challenge_subtitle_start">玩 %1$d 个游戏来保持连续记录</string>
-    <string name="daily_challenge_subtitle_start_no_streak">玩 %1$d 个游戏来开始你的连续记录</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">玩 %1$d 个游戏来保持连续记录</item>
+        <item quantity="other">玩 %1$d 个游戏来保持连续记录</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">玩 %1$d 个游戏来开始你的连续记录</item>
+        <item quantity="other">玩 %1$d 个游戏来开始你的连续记录</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">进行中 · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">今日已完成，明天再来吧！</string>
     <string name="daily_challenge_streak_label">连续天数</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">会话完成</string>
     <string name="session_total_score">总计: %1$d</string>
     <string name="session_streak_increased">连续天数: %1$d</string>
-    <string name="session_streak_current">当前连续: %1$d 天</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">当前连续: %1$d 天</item>
+        <item quantity="other">当前连续: %1$d 天</item>
+    </plurals>
 
     <string name="level_label">等级 %1$d</string>
     <string name="level_up_title">升级！</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">密码破解者</string>
     <string name="achievement_gold_bulls_and_cows_desc">在 Bulls &amp; Cows 中赢得金牌</string>
     <string name="finish_tries">尝试：%1$s</string>
-    <string name="finish_best_tries">最佳：%1$s 次</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">最佳：%1$d 次</item>
+        <item quantity="other">最佳：%1$d 次</item>
+    </plurals>
     <string name="finish_new_best_tries">新纪录！</string>
 
     <string name="game_trio">三重组</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">按顺序一路做下去。每一步都建立在上一步之上。</string>
     <string name="learn_topic_certificates">%2$d 项中已认证 %1$d 项</string>
     <string name="learn_ages">%1$s 岁</string>
-
 
     <string name="learn_topic_arithmetic">算术</string>
     <string name="learn_topic_arithmetic_subtitle">数与运算</string>

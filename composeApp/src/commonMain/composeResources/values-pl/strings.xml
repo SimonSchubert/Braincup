@@ -172,13 +172,11 @@
     <string name="shape_house">Dom</string>
     <string name="shape_arrow">Strzałka</string>
 
-    <string name="direction_up">góra</string>
-    <string name="direction_right">prawo</string>
-    <string name="direction_down">dół</string>
-    <string name="direction_left">lewo</string>
-
-    <string name="solution_pointing">%1$s %2$s wskazujący %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s wskazujący góra (%1$s)</string>
+    <string name="solution_pointing_right">%2$s wskazujący prawo (%1$s)</string>
+    <string name="solution_pointing_down">%2$s wskazujący dół (%1$s)</string>
+    <string name="solution_pointing_left">%2$s wskazujący lewo (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolumna %1$d i wiersz %2$d</string>
     <string name="hint_remember">Zapamiętaj %1$d</string>
     <string name="solution_left">Lewa</string>
@@ -187,8 +185,18 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Codzienne wyzwanie</string>
-    <string name="daily_challenge_subtitle_start">Zagraj %1$d gier, aby utrzymać serię</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Zagraj %1$d gier, aby rozpocząć serię</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Zagraj %1$d grę, aby utrzymać serię</item>
+        <item quantity="few">Zagraj %1$d gry, aby utrzymać serię</item>
+        <item quantity="many">Zagraj %1$d gier, aby utrzymać serię</item>
+        <item quantity="other">Zagraj %1$d gry, aby utrzymać serię</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Zagraj %1$d grę, aby rozpocząć serię</item>
+        <item quantity="few">Zagraj %1$d gry, aby rozpocząć serię</item>
+        <item quantity="many">Zagraj %1$d gier, aby rozpocząć serię</item>
+        <item quantity="other">Zagraj %1$d gry, aby rozpocząć serię</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">W toku · %1$d z %2$d</string>
     <string name="daily_challenge_subtitle_done">Na dziś koniec. Wróć jutro!</string>
     <string name="daily_challenge_streak_label">dni z rzędu</string>
@@ -203,7 +211,12 @@
     <string name="session_complete_title">Sesja zakończona</string>
     <string name="session_total_score">Razem: %1$d</string>
     <string name="session_streak_increased">Seria dni: %1$d</string>
-    <string name="session_streak_current">Obecna seria: %1$d dni</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Obecna seria: %1$d dzień</item>
+        <item quantity="few">Obecna seria: %1$d dni</item>
+        <item quantity="many">Obecna seria: %1$d dni</item>
+        <item quantity="other">Obecna seria: %1$d dnia</item>
+    </plurals>
 
     <string name="level_label">Poziom %1$d</string>
     <string name="level_up_title">Awans!</string>
@@ -824,7 +837,12 @@
     <string name="achievement_gold_bulls_and_cows">Łamacz kodów</string>
     <string name="achievement_gold_bulls_and_cows_desc">Zdobądź złoty medal w Bulls &amp; Cows</string>
     <string name="finish_tries">Próby: %1$s</string>
-    <string name="finish_best_tries">Najlepszy: %1$s prób</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Najlepszy: %1$d próba</item>
+        <item quantity="few">Najlepszy: %1$d próby</item>
+        <item quantity="many">Najlepszy: %1$d prób</item>
+        <item quantity="other">Najlepszy: %1$d próby</item>
+    </plurals>
     <string name="finish_new_best_tries">Nowy rekord!</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +954,6 @@
     <string name="learn_topic_intro">Przechodź je po kolei. Każdy krok opiera się na poprzednim.</string>
     <string name="learn_topic_certificates">%1$d z %2$d z certyfikatem</string>
     <string name="learn_ages">Wiek %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Arytmetyka</string>
     <string name="learn_topic_arithmetic_subtitle">Liczby &amp; działania</string>

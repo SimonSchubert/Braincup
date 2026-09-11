@@ -172,13 +172,11 @@
     <string name="shape_house">Casa</string>
     <string name="shape_arrow">Freccia</string>
 
-    <string name="direction_up">su</string>
-    <string name="direction_right">destra</string>
-    <string name="direction_down">giù</string>
-    <string name="direction_left">sinistra</string>
-
-    <string name="solution_pointing">%1$s %2$s che punta verso %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s che punta verso su (%1$s)</string>
+    <string name="solution_pointing_right">%2$s che punta verso destra (%1$s)</string>
+    <string name="solution_pointing_down">%2$s che punta verso giù (%1$s)</string>
+    <string name="solution_pointing_left">%2$s che punta verso sinistra (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">colonna %1$d e riga %2$d</string>
     <string name="hint_remember">Ricorda %1$d</string>
     <string name="solution_left">Sinistra</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Sfida giornaliera</string>
-    <string name="daily_challenge_subtitle_start">Gioca %1$d partite per mantenere la serie</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Gioca %1$d partite per iniziare la serie</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Gioca %1$d partita per mantenere la serie</item>
+        <item quantity="other">Gioca %1$d partite per mantenere la serie</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Gioca %1$d partita per iniziare la serie</item>
+        <item quantity="other">Gioca %1$d partite per iniziare la serie</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">In corso · %1$d di %2$d</string>
     <string name="daily_challenge_subtitle_done">Fatto per oggi. Torna domani!</string>
     <string name="daily_challenge_streak_label">giorni di serie</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Sessione completata</string>
     <string name="session_total_score">Totale: %1$d</string>
     <string name="session_streak_increased">Serie di giorni: %1$d</string>
-    <string name="session_streak_current">Serie attuale: %1$d giorni</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Serie attuale: %1$d giorno</item>
+        <item quantity="other">Serie attuale: %1$d giorni</item>
+    </plurals>
 
     <string name="level_label">Livello %1$d</string>
     <string name="level_up_title">Livello aumentato!</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Spaccacodici</string>
     <string name="achievement_gold_bulls_and_cows_desc">Vinci la medaglia d'oro in Bulls &amp; Cows</string>
     <string name="finish_tries">Tentativi: %1$s</string>
-    <string name="finish_best_tries">Migliore: %1$s tentativi</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Migliore: %1$d tentativo</item>
+        <item quantity="other">Migliore: %1$d tentativi</item>
+    </plurals>
     <string name="finish_new_best_tries">Nuovo record!</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Affrontali nell'ordine. Ogni passo si appoggia al precedente.</string>
     <string name="learn_topic_certificates">%1$d su %2$d certificati</string>
     <string name="learn_ages">Età %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetica</string>
     <string name="learn_topic_arithmetic_subtitle">Numeri &amp; operazioni</string>
@@ -1191,9 +1200,9 @@
     <string name="learn_unit_arithmetic_fractions_q5_explanation">Se ne vanno due dei cinque sesti colorati, e i pezzi restano sesti.</string>
     <string name="learn_unit_arithmetic_fractions_q6_explanation">Un mezzo sono due quarti, e due quarti più un altro fanno 3/4.</string>
     <string name="learn_unit_arithmetic_decimals_title">Numeri decimali</string>
-    <string name="learn_unit_arithmetic_decimals_summary">Leggere, confrontare e sommare le cifre dopo il punto.</string>
+    <string name="learn_unit_arithmetic_decimals_summary">Leggere, confrontare e sommare le cifre dopo la virgola.</string>
     <string name="learn_g35_arithmetic_decimals_title">Decimi e centesimi</string>
-    <string name="learn_g35_arithmetic_decimals_summary">Il valore posizionale continua dopo il punto.</string>
+    <string name="learn_g35_arithmetic_decimals_summary">Il valore posizionale continua dopo la virgola.</string>
     <string name="learn_g35_arithmetic_decimals_s1_body">Il quadrato è un intero. Una sua colonna è un decimo, e una singola cella è un centesimo.</string>
     <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 decimi + 5 centesimi</string>
     <string name="learn_g35_arithmetic_decimals_s2_body">Una frazione e un numero decimale possono essere proprio la stessa quantità, scritta in due modi.</string>
@@ -1221,7 +1230,7 @@
     <string name="learn_arithmetic_decimals_add_s2_l1">Scrivi {a:0.6} come {a:0.60}, così tutti e due i numeri arrivano ai centesimi.</string>
     <string name="learn_arithmetic_decimals_add_s2_l2">Centesimi: 0 + {b:5}.</string>
     <string name="learn_arithmetic_decimals_add_s2_l3">Decimi: {a:6} + {b:2}.</string>
-    <string name="learn_arithmetic_decimals_add_s3_question">Incolonna i punti, poi somma una colonna alla volta.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Incolonna le virgole, poi somma una colonna alla volta.</string>
     <string name="learn_arithmetic_decimals_add_s3_explanation">Scrivi 0.3 come 0.30, poi cinque centesimi e sette decimi fanno 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s4_body">Una sottrazione è lo stesso disegno letto al contrario: {a:35} centesimi ci sono già, e {b:4} decimi lo riportano a 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s5_question">Una matita costa 0.45 euro e una gomma 0.30 euro. Quanto costano insieme?</string>
@@ -1392,9 +1401,9 @@
     <string name="learn_arithmetic_standard_form_s1_body">Ogni salto su questa retta moltiplica per dieci. Contare i salti è più rapido che contare gli zeri, e quel conto è l'esponente.</string>
     <string name="learn_arithmetic_standard_form_s2_body">Il numero davanti sta sempre fra 1 e 10. 52 è tre salti sotto 52 000, quindi 5.2 ne è quattro, e quattro è l'esponente.</string>
     <string name="learn_arithmetic_standard_form_s3_question">Due di questi hanno le cifre giuste nella forma sbagliata.</string>
-    <string name="learn_arithmetic_standard_form_s3_explanation">72 e 0.72 sono fuori dall'intervallo da 1 a 10. Da 7.2 il punto si sposta di cinque posti.</string>
+    <string name="learn_arithmetic_standard_form_s3_explanation">72 e 0.72 sono fuori dall'intervallo da 1 a 10. Da 7.2 la virgola si sposta di cinque posti.</string>
     <string name="learn_arithmetic_standard_form_s4_body">L'esponente conta i salti, quindi decide la grandezza molto prima che il numero davanti possa dire la sua. Vince sempre chi ha la potenza di dieci più grande.</string>
-    <string name="learn_arithmetic_standard_form_s5_question">Sposta il punto di tre salti a destra.</string>
+    <string name="learn_arithmetic_standard_form_s5_question">Sposta la virgola di tre salti a destra.</string>
     <string name="learn_arithmetic_standard_form_s5_explanation">Tre salti a destra di 4.7: 47, 470, 4 700.</string>
     <string name="learn_arithmetic_standard_form_s6_question">Tutti e quattro hanno le cifre giuste. Solo uno è in notazione scientifica e vale 12 000.</string>
     <string name="learn_arithmetic_standard_form_s6_explanation">12 e 0.12 sono fuori dall'intervallo, e 1.2 * 10^3 fa solo 1 200.</string>
@@ -1404,7 +1413,7 @@
     <string name="learn_arithmetic_standard_form_small_s2_body">Il meno nell'esponente dice in che direzione andare, non che il numero è negativo. Un numero in notazione scientifica è negativo solo se lo è il numero davanti.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Conta i salti da 8.2 giù fino a questo numero.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Quattro passi a sinistra di 8.2, e 82 è fuori dall'intervallo da 1 a 10.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_question">Sposta il punto di quattro salti a sinistra.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_question">Sposta la virgola di quattro salti a sinistra.</string>
     <string name="learn_arithmetic_standard_form_small_s4_explanation">Quattro salti a sinistra di 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Un numero davanti negativo e un esponente negativo dicono due cose diverse, e ognuna può esserci senza l'altra.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">L'esponente più negativo arriva più a sinistra, quindi è il più piccolo.</string>
@@ -1419,7 +1428,7 @@
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividere fa tutto al contrario: i numeri davanti si dividono e gli esponenti si sottraggono.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Il numero davanti può uscire dalla moltiplicazione troppo grande per l'intervallo, e allora va riportato dentro.</string>
     <string name="learn_arithmetic_standard_form_calculating_s5_question">I numeri davanti danno 20, che è fuori dall'intervallo.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 ha il valore giusto nella forma sbagliata: sposta il punto di un posto a sinistra e l'esponente sale di uno.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 ha il valore giusto nella forma sbagliata: sposta la virgola di un posto a sinistra e l'esponente sale di uno.</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_question">Quante volte è più grande 8 * 10^7 rispetto a 8 * 10^4?</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_explanation">I numeri davanti sono uguali, quindi contano solo i tre salti in più.</string>
     <string name="learn_unit_arithmetic_standard_form_q1_prompt">Qual è 45 000 in notazione scientifica?</string>
@@ -1583,7 +1592,7 @@
     <string name="learn_rule_percent_of_rule">x% di n = x/100 x n</string>
     <string name="learn_rule_percent_of_meaning">Per una percentuale di una quantità, dividi per 100 e poi moltiplica</string>
     <string name="learn_rule_percent_of_example">20% di 80 = 16</string>
-    <string name="learn_rule_times_ten_meaning">Moltiplicare per dieci sposta il punto di un posto a destra</string>
+    <string name="learn_rule_times_ten_meaning">Moltiplicare per dieci sposta la virgola di un posto a destra</string>
     <string name="learn_rule_power_zero_meaning">Elevato a uno è il numero stesso, elevato a zero fa uno</string>
     <string name="learn_rule_root_meaning">La radice quadrata annulla il quadrato: il numero moltiplicato per se stesso</string>
     <string name="learn_rule_powers_of_ten_meaning">Una potenza di dieci è un uno con quel numero di zeri</string>

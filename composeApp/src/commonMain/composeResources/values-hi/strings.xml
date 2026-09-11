@@ -172,13 +172,11 @@
     <string name="shape_house">घर</string>
     <string name="shape_arrow">तीर</string>
 
-    <string name="direction_up">ऊपर</string>
-    <string name="direction_right">दाएँ</string>
-    <string name="direction_down">नीचे</string>
-    <string name="direction_left">बाएँ</string>
-
-    <string name="solution_pointing">%1$s %2$s %3$s की ओर इशारा</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s ऊपर की ओर इशारा (%1$s)</string>
+    <string name="solution_pointing_right">%2$s दाएँ की ओर इशारा (%1$s)</string>
+    <string name="solution_pointing_down">%2$s नीचे की ओर इशारा (%1$s)</string>
+    <string name="solution_pointing_left">%2$s बाएँ की ओर इशारा (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">स्तंभ %1$d और पंक्ति %2$d</string>
     <string name="hint_remember">%1$d याद रखो</string>
     <string name="solution_left">बायाँ</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">बनाम</string>
 
     <string name="daily_challenge_title">दैनिक चुनौती</string>
-    <string name="daily_challenge_subtitle_start">अपनी स्ट्रीक बनाए रखने के लिए %1$d खेल खेलें</string>
-    <string name="daily_challenge_subtitle_start_no_streak">अपनी स्ट्रीक शुरू करने के लिए %1$d खेल खेलें</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">अपनी स्ट्रीक बनाए रखने के लिए %1$d खेल खेलें</item>
+        <item quantity="other">अपनी स्ट्रीक बनाए रखने के लिए %1$d खेल खेलें</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">अपनी स्ट्रीक शुरू करने के लिए %1$d खेल खेलें</item>
+        <item quantity="other">अपनी स्ट्रीक शुरू करने के लिए %1$d खेल खेलें</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">प्रगति में · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">आज के लिए पूरा। कल फिर आएं!</string>
     <string name="daily_challenge_streak_label">दिन की स्ट्रीक</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">सत्र पूरा</string>
     <string name="session_total_score">कुल: %1$d</string>
     <string name="session_streak_increased">दिनों की स्ट्रीक: %1$d</string>
-    <string name="session_streak_current">वर्तमान स्ट्रीक: %1$d दिन</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">वर्तमान स्ट्रीक: %1$d दिन</item>
+        <item quantity="other">वर्तमान स्ट्रीक: %1$d दिन</item>
+    </plurals>
 
     <string name="level_label">स्तर %1$d</string>
     <string name="level_up_title">स्तर बढ़ा!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">कोड क्रैकर</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows में स्वर्ण पदक जीतें</string>
     <string name="finish_tries">प्रयास: %1$s</string>
-    <string name="finish_best_tries">सर्वश्रेष्ठ: %1$s प्रयास</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">सर्वश्रेष्ठ: %1$d प्रयास</item>
+        <item quantity="other">सर्वश्रेष्ठ: %1$d प्रयास</item>
+    </plurals>
     <string name="finish_new_best_tries">नया सर्वश्रेष्ठ!</string>
 
     <string name="game_trio">तिकड़ी</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">इन्हें क्रम से पूरा करो। हर कदम पिछले पर टिका है।</string>
     <string name="learn_topic_certificates">%2$d में से %1$d प्रमाणित</string>
     <string name="learn_ages">आयु %1$s</string>
-
 
     <string name="learn_topic_arithmetic">अंकगणित</string>
     <string name="learn_topic_arithmetic_subtitle">संख्याएँ &amp; संक्रियाएँ</string>

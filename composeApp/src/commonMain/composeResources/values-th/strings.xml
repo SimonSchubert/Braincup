@@ -172,13 +172,11 @@
     <string name="shape_house">บ้าน</string>
     <string name="shape_arrow">ลูกศร</string>
 
-    <string name="direction_up">บน</string>
-    <string name="direction_right">ขวา</string>
-    <string name="direction_down">ล่าง</string>
-    <string name="direction_left">ซ้าย</string>
-
-    <string name="solution_pointing">%1$s %2$s ชี้ไปทาง%3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s ชี้ไปทางบน (%1$s)</string>
+    <string name="solution_pointing_right">%2$s ชี้ไปทางขวา (%1$s)</string>
+    <string name="solution_pointing_down">%2$s ชี้ไปทางล่าง (%1$s)</string>
+    <string name="solution_pointing_left">%2$s ชี้ไปทางซ้าย (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">คอลัมน์ %1$d และแถว %2$d</string>
     <string name="hint_remember">จำ %1$d ไว้</string>
     <string name="solution_left">ซ้าย</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">เทียบกับ</string>
 
     <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
-    <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
-    <string name="daily_challenge_subtitle_start_no_streak">เล่น %1$d เกมเพื่อเริ่มสตรีคของคุณ</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</item>
+        <item quantity="other">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">เล่น %1$d เกมเพื่อเริ่มสตรีคของคุณ</item>
+        <item quantity="other">เล่น %1$d เกมเพื่อเริ่มสตรีคของคุณ</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">กำลังดำเนินการ · %1$d จาก %2$d</string>
     <string name="daily_challenge_subtitle_done">เสร็จสิ้นสำหรับวันนี้ กลับมาพรุ่งนี้!</string>
     <string name="daily_challenge_streak_label">วันติดต่อกัน</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">เซสชันเสร็จสิ้น</string>
     <string name="session_total_score">รวม: %1$d</string>
     <string name="session_streak_increased">สตรีค: %1$d วัน</string>
-    <string name="session_streak_current">สตรีคปัจจุบัน: %1$d วัน</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">สตรีคปัจจุบัน: %1$d วัน</item>
+        <item quantity="other">สตรีคปัจจุบัน: %1$d วัน</item>
+    </plurals>
 
     <string name="level_label">เลเวล %1$d</string>
     <string name="level_up_title">เลื่อนเลเวล!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">นักถอดรหัส</string>
     <string name="achievement_gold_bulls_and_cows_desc">ชนะเหรียญทองใน Bulls &amp; Cows</string>
     <string name="finish_tries">ครั้งที่ลอง: %1$s</string>
-    <string name="finish_best_tries">ดีที่สุด: %1$s ครั้ง</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">ดีที่สุด: %1$d ครั้ง</item>
+        <item quantity="other">ดีที่สุด: %1$d ครั้ง</item>
+    </plurals>
     <string name="finish_new_best_tries">สถิติใหม่!</string>
 
     <string name="game_trio">ทริโอ</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">ทำไปตามลำดับ แต่ละขั้นต่อยอดจากขั้นก่อนหน้า</string>
     <string name="learn_topic_certificates">ผ่านการรับรองแล้ว %1$d จาก %2$d</string>
     <string name="learn_ages">อายุ %1$s</string>
-
 
     <string name="learn_topic_arithmetic">เลขคณิต</string>
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>

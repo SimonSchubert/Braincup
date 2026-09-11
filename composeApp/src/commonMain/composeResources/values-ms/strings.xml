@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Disimpan pada peranti ini. Hilang jika anda nyahpasang.</string>
 
     <string name="daily_challenge_title">Cabaran Harian</string>
-    <string name="daily_challenge_subtitle_start">Main %1$d permainan untuk mengekalkan rentetan anda</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Main %1$d permainan untuk memulakan rentetan anda</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Main %1$d permainan untuk mengekalkan rentetan anda</item>
+        <item quantity="other">Main %1$d permainan untuk mengekalkan rentetan anda</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Main %1$d permainan untuk memulakan rentetan anda</item>
+        <item quantity="other">Main %1$d permainan untuk memulakan rentetan anda</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Sedang berlangsung · %1$d daripada %2$d</string>
     <string name="daily_challenge_subtitle_done">Siap untuk hari ini. Kembali esok!</string>
     <string name="daily_challenge_streak_label">hari berturut-turut</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Sesi Selesai</string>
     <string name="session_total_score">Jumlah: %1$d</string>
     <string name="session_streak_increased">Rentetan hari: %1$d</string>
-    <string name="session_streak_current">Rentetan semasa: %1$d hari</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Rentetan semasa: %1$d hari</item>
+        <item quantity="other">Rentetan semasa: %1$d hari</item>
+    </plurals>
 
     <string name="quit_game_title">Keluar permainan?</string>
     <string name="quit_game_message">Kemajuan anda dalam permainan ini tidak akan disimpan.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Skor Tertinggi Baharu!</string>
     <string name="finish_new_best_tries">Rekod baharu!</string>
     <string name="finish_highscore">Skor Tertinggi: %1$s</string>
-    <string name="finish_best_tries">Terbaik: %1$s cubaan</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Terbaik: %1$d cubaan</item>
+        <item quantity="other">Terbaik: %1$d cubaan</item>
+    </plurals>
     <string name="button_play_next_level">Main tahap seterusnya</string>
     <string name="finish_max_level_reached">Tahap maksimum dicapai. Tunggu kandungan baharu.</string>
     <string name="finish_congruency_effect_title">Kos kesepadanan</string>
@@ -472,13 +484,11 @@
     <string name="shape_house">Rumah</string>
     <string name="shape_arrow">Anak panah</string>
 
-    <string name="direction_up">atas</string>
-    <string name="direction_right">kanan</string>
-    <string name="direction_down">bawah</string>
-    <string name="direction_left">kiri</string>
-
-    <string name="solution_pointing">%1$s %2$s menghadap %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s menghadap atas (%1$s)</string>
+    <string name="solution_pointing_right">%2$s menghadap kanan (%1$s)</string>
+    <string name="solution_pointing_down">%2$s menghadap bawah (%1$s)</string>
+    <string name="solution_pointing_left">%2$s menghadap kiri (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">lajur %1$d dan baris %2$d</string>
     <string name="hint_remember">Ingat %1$d</string>
     <string name="solution_left">Kiri</string>
@@ -951,7 +961,6 @@
     <string name="learn_topic_intro">Buat mengikut turutan. Setiap langkah bersandar pada yang sebelumnya.</string>
     <string name="learn_topic_certificates">%1$d daripada %2$d disijilkan</string>
     <string name="learn_ages">Umur %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Nombor &amp; operasi</string>

@@ -172,13 +172,11 @@
     <string name="shape_house">Maison</string>
     <string name="shape_arrow">Flèche</string>
 
-    <string name="direction_up">haut</string>
-    <string name="direction_right">droite</string>
-    <string name="direction_down">bas</string>
-    <string name="direction_left">gauche</string>
-
-    <string name="solution_pointing">%1$s %2$s pointant vers le %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s vers le haut (%1$s)</string>
+    <string name="solution_pointing_right">%2$s vers la droite (%1$s)</string>
+    <string name="solution_pointing_down">%2$s vers le bas (%1$s)</string>
+    <string name="solution_pointing_left">%2$s vers la gauche (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">colonne %1$d et ligne %2$d</string>
     <string name="hint_remember">Retiens %1$d</string>
     <string name="solution_left">Gauche</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Défi quotidien</string>
-    <string name="daily_challenge_subtitle_start">Joue à %1$d jeux pour maintenir ta série</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Joue à %1$d jeux pour démarrer ta série</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Joue à %1$d jeu pour maintenir ta série</item>
+        <item quantity="other">Joue à %1$d jeux pour maintenir ta série</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Joue à %1$d jeu pour démarrer ta série</item>
+        <item quantity="other">Joue à %1$d jeux pour démarrer ta série</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">En cours · %1$d sur %2$d</string>
     <string name="daily_challenge_subtitle_done">Terminé pour aujourd'hui. Reviens demain !</string>
     <string name="daily_challenge_streak_label">jours de suite</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Session terminée</string>
     <string name="session_total_score">Total : %1$d</string>
     <string name="session_streak_increased">Série de jours : %1$d</string>
-    <string name="session_streak_current">Série actuelle : %1$d jours</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Série actuelle : %1$d jour</item>
+        <item quantity="other">Série actuelle : %1$d jours</item>
+    </plurals>
 
     <string name="level_label">Niveau %1$d</string>
     <string name="level_up_title">Niveau supérieur !</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Casseur de code</string>
     <string name="achievement_gold_bulls_and_cows_desc">Gagne la médaille d'or en Bulls &amp; Cows</string>
     <string name="finish_tries">Essais : %1$s</string>
-    <string name="finish_best_tries">Meilleur : %1$s essais</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Meilleur : %1$d essai</item>
+        <item quantity="other">Meilleur : %1$d essais</item>
+    </plurals>
     <string name="finish_new_best_tries">Nouveau record !</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Parcours-les dans l'ordre. Chaque étape s'appuie sur la précédente.</string>
     <string name="learn_topic_certificates">%1$d sur %2$d certifiés</string>
     <string name="learn_ages">Âges %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Arithmétique</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres &amp; opérations</string>
@@ -1800,9 +1809,9 @@
     <string name="learn_unit_arithmetic_fractions_q5_explanation">Deux des cinq sixièmes coloriés s'en vont, et les parts restent des sixièmes.</string>
     <string name="learn_unit_arithmetic_fractions_q6_explanation">Un demi fait deux quarts, et deux quarts plus un autre font 3/4.</string>
     <string name="learn_unit_arithmetic_decimals_title">Nombres décimaux</string>
-    <string name="learn_unit_arithmetic_decimals_summary">Lire, comparer et additionner les rangs après le point.</string>
+    <string name="learn_unit_arithmetic_decimals_summary">Lire, comparer et additionner les rangs après la virgule.</string>
     <string name="learn_g35_arithmetic_decimals_title">Dixièmes et centièmes</string>
-    <string name="learn_g35_arithmetic_decimals_summary">La valeur de position continue après le point.</string>
+    <string name="learn_g35_arithmetic_decimals_summary">La valeur de position continue après la virgule.</string>
     <string name="learn_g35_arithmetic_decimals_s1_body">Le carré vaut un entier. Une de ses colonnes est un dixième, et une seule case est un centième.</string>
     <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 dixièmes + 5 centièmes</string>
     <string name="learn_g35_arithmetic_decimals_s2_body">Une fraction et un nombre décimal peuvent être exactement la même quantité, écrite de deux façons.</string>
@@ -1830,7 +1839,7 @@
     <string name="learn_arithmetic_decimals_add_s2_l1">Écris {a:0.6} comme {a:0.60} pour que les deux nombres aillent jusqu'aux centièmes.</string>
     <string name="learn_arithmetic_decimals_add_s2_l2">Centièmes : 0 + {b:5}.</string>
     <string name="learn_arithmetic_decimals_add_s2_l3">Dixièmes : {a:6} + {b:2}.</string>
-    <string name="learn_arithmetic_decimals_add_s3_question">Aligne les points, puis additionne une colonne à la fois.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Aligne les virgules, puis additionne une colonne à la fois.</string>
     <string name="learn_arithmetic_decimals_add_s3_explanation">Écris 0.3 comme 0.30, puis cinq centièmes et sept dixièmes font 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s4_body">Une soustraction, c'est la même image lue à l'envers : {a:35} centièmes sont déjà là, et {b:4} dixièmes ramènent le tout à 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s5_question">Un crayon coûte 0.45 euro et une gomme 0.30 euro. Combien coûtent-ils ensemble ?</string>
@@ -2001,9 +2010,9 @@
     <string name="learn_arithmetic_standard_form_s1_body">Chaque saut le long de cette droite multiplie par dix. Compter les sauts va plus vite que compter les zéros, et ce compte est l'exposant.</string>
     <string name="learn_arithmetic_standard_form_s2_body">Le nombre de devant est toujours entre 1 et 10. 52 est trois sauts en dessous de 52 000, donc 5.2 en est à quatre, et quatre est l'exposant.</string>
     <string name="learn_arithmetic_standard_form_s3_question">Deux d'entre eux ont les bons chiffres mais la mauvaise forme.</string>
-    <string name="learn_arithmetic_standard_form_s3_explanation">72 et 0.72 sont hors de la fenêtre de 1 à 10. À partir de 7.2, le point se décale de cinq rangs.</string>
+    <string name="learn_arithmetic_standard_form_s3_explanation">72 et 0.72 sont hors de la fenêtre de 1 à 10. À partir de 7.2, la virgule se décale de cinq rangs.</string>
     <string name="learn_arithmetic_standard_form_s4_body">L'exposant compte les sauts, donc il décide de la taille bien avant que le nombre de devant ait son mot à dire. Une puissance de dix plus grande l'emporte toujours.</string>
-    <string name="learn_arithmetic_standard_form_s5_question">Déplace le point de trois sauts vers la droite.</string>
+    <string name="learn_arithmetic_standard_form_s5_question">Déplace la virgule de trois sauts vers la droite.</string>
     <string name="learn_arithmetic_standard_form_s5_explanation">Trois sauts à droite de 4.7 : 47, 470, 4 700.</string>
     <string name="learn_arithmetic_standard_form_s6_question">Les quatre ont les bons chiffres. Un seul est en notation scientifique et vaut 12 000.</string>
     <string name="learn_arithmetic_standard_form_s6_explanation">12 et 0.12 sont hors de la fenêtre, et 1.2 * 10^3 ne fait que 1 200.</string>
@@ -2013,7 +2022,7 @@
     <string name="learn_arithmetic_standard_form_small_s2_body">Le moins de l'exposant dit dans quel sens marcher, pas que le nombre est négatif. Un nombre en notation scientifique n'est négatif que si son nombre de devant l'est.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Compte les sauts de 8.2 jusqu'à ce nombre.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Quatre pas à gauche de 8.2, et 82 est hors de la fenêtre de 1 à 10.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_question">Déplace le point de quatre sauts vers la gauche.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_question">Déplace la virgule de quatre sauts vers la gauche.</string>
     <string name="learn_arithmetic_standard_form_small_s4_explanation">Quatre sauts à gauche de 5.6 : 0.56, 0.056, 0.0056, 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Un nombre de devant négatif et un exposant négatif veulent dire deux choses différentes, et l'un peut arriver sans l'autre.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">L'exposant le plus négatif va le plus loin à gauche, donc c'est le plus petit.</string>
@@ -2028,7 +2037,7 @@
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Diviser fait l'inverse : les nombres de devant se divisent et les exposants se soustraient.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Le nombre de devant peut sortir de la multiplication trop grand pour la fenêtre, et il faut alors le ramener dedans.</string>
     <string name="learn_arithmetic_standard_form_calculating_s5_question">Les nombres de devant donnent 20, ce qui est hors de la fenêtre.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 a la bonne valeur sous la mauvaise forme : décale le point d'un rang vers la gauche et l'exposant monte d'un.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 a la bonne valeur sous la mauvaise forme : décale la virgule d'un rang vers la gauche et l'exposant monte d'un.</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_question">Combien de fois 8 * 10^7 est-il plus grand que 8 * 10^4 ?</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_explanation">Les nombres de devant sont identiques, donc seuls les trois sauts en plus comptent.</string>
     <string name="learn_unit_arithmetic_standard_form_q1_prompt">Lequel est 45 000 en notation scientifique ?</string>
@@ -2100,16 +2109,16 @@
     <string name="learn_arithmetic_bounds_s6_explanation">La moitié de l'unité d'arrondi de chaque côté : la moitié de 50 vaut 25, donc l'intervalle va de 275 m à un peu moins de 325 m.</string>
     <string name="learn_arithmetic_bounds_significant_title">Les chiffres significatifs</string>
     <string name="learn_arithmetic_bounds_significant_summary">Compter à partir du premier chiffre qui veut dire quelque chose.</string>
-    <string name="learn_arithmetic_bounds_significant_s1_body">Les chiffres significatifs se comptent à partir du premier chiffre qui n'est pas un zéro, où que se trouve le point.</string>
+    <string name="learn_arithmetic_bounds_significant_s1_body">Les chiffres significatifs se comptent à partir du premier chiffre qui n'est pas un zéro, où que se trouve la virgule.</string>
     <string name="learn_arithmetic_bounds_significant_s1_formula">0.00427 a 3 chiffres significatifs</string>
     <string name="learn_arithmetic_bounds_significant_s2_body">Arrondir à un chiffre significatif marche exactement comme arrondir à un rang : garde les chiffres voulus et regarde le suivant pour décider.</string>
     <string name="learn_arithmetic_bounds_significant_s2_formula">3 872 = 3 900 à 2 c.s.</string>
-    <string name="learn_arithmetic_bounds_significant_s3_question">Arrondis 0.04617 à 2 chiffres significatifs. Les zéros de tête ne font que tenir le point, donc le compte commence au 4.</string>
+    <string name="learn_arithmetic_bounds_significant_s3_question">Arrondis 0.04617 à 2 chiffres significatifs. Les zéros de tête ne font que tenir la virgule, donc le compte commence au 4.</string>
     <string name="learn_arithmetic_bounds_significant_s3_explanation">4 et 6 sont les deux chiffres significatifs, et le 1 qui suit n'arrondit rien vers le haut.</string>
     <string name="learn_arithmetic_bounds_significant_s4_explanation">2, 7 et 4 sont les trois chiffres, et le 8 derrière eux fait monter le 4.</string>
-    <string name="learn_arithmetic_bounds_significant_s5_body">Un zéro entre deux chiffres significatifs compte. Un zéro placé devant, non : il ne fait que tenir le point, et c'est pourquoi 0.00308 en a trois.</string>
+    <string name="learn_arithmetic_bounds_significant_s5_body">Un zéro entre deux chiffres significatifs compte. Un zéro placé devant, non : il ne fait que tenir la virgule, et c'est pourquoi 0.00308 en a trois.</string>
     <string name="learn_arithmetic_bounds_significant_s5_formula">0.00308 a 3 c.s.</string>
-    <string name="learn_arithmetic_bounds_significant_s6_explanation">Les deux zéros de tête ne font que tenir le point, mais le dernier a été écrit exprès, donc il compte : 2, 5 et 0.</string>
+    <string name="learn_arithmetic_bounds_significant_s6_explanation">Les deux zéros de tête ne font que tenir la virgule, mais le dernier a été écrit exprès, donc il compte : 2, 5 et 0.</string>
     <string name="learn_arithmetic_bounds_calculating_title">Calculer avec des bornes</string>
     <string name="learn_arithmetic_bounds_calculating_summary">Un intervalle entre, un intervalle sort.</string>
     <string name="learn_arithmetic_bounds_calculating_s1_body">Toute mesure porte un intervalle, donc tout ce qu'on en calcule en porte un aussi. Il n'y a pas de réponse unique à donner.</string>
@@ -2789,7 +2798,7 @@
     <string name="learn_rule_percent_of_rule">x% de n = x/100 x n</string>
     <string name="learn_rule_percent_of_meaning">Pour un pourcentage d'une quantité, divise par 100 puis multiplie</string>
     <string name="learn_rule_percent_of_example">20% de 80 = 16</string>
-    <string name="learn_rule_times_ten_meaning">Multiplier par dix décale le point d'un rang vers la droite</string>
+    <string name="learn_rule_times_ten_meaning">Multiplier par dix décale la virgule d'un rang vers la droite</string>
     <string name="learn_rule_power_zero_meaning">À la puissance un, c'est le nombre lui-même ; à la puissance zéro, c'est un</string>
     <string name="learn_rule_root_meaning">La racine carrée annule le carré : ce qui a été multiplié par lui-même</string>
     <string name="learn_rule_powers_of_ten_meaning">Une puissance de dix, c'est le chiffre un suivi d'autant de zéros</string>

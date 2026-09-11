@@ -172,13 +172,11 @@
     <string name="shape_house">Ev</string>
     <string name="shape_arrow">Ok</string>
 
-    <string name="direction_up">yukarı</string>
-    <string name="direction_right">sağ</string>
-    <string name="direction_down">aşağı</string>
-    <string name="direction_left">sol</string>
-
-    <string name="solution_pointing">%3$s gösteren %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">yukarı gösteren %2$s (%1$s)</string>
+    <string name="solution_pointing_right">sağ gösteren %2$s (%1$s)</string>
+    <string name="solution_pointing_down">aşağı gösteren %2$s (%1$s)</string>
+    <string name="solution_pointing_left">sol gösteren %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">sütun %1$d ve satır %2$d</string>
     <string name="hint_remember">%1$d sayısını aklında tut</string>
     <string name="solution_left">Sol</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Günlük meydan okuma</string>
-    <string name="daily_challenge_subtitle_start">Serini sürdürmek için %1$d oyun oyna</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Serini başlatmak için %1$d oyun oyna</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Serini sürdürmek için %1$d oyun oyna</item>
+        <item quantity="other">Serini sürdürmek için %1$d oyun oyna</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Serini başlatmak için %1$d oyun oyna</item>
+        <item quantity="other">Serini başlatmak için %1$d oyun oyna</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Devam ediyor · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Bugünlük bitti. Yarın tekrar gel!</string>
     <string name="daily_challenge_streak_label">gün üst üste</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Oturum tamamlandı</string>
     <string name="session_total_score">Toplam: %1$d</string>
     <string name="session_streak_increased">Gün serisi: %1$d</string>
-    <string name="session_streak_current">Mevcut seri: %1$d gün</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Mevcut seri: %1$d gün</item>
+        <item quantity="other">Mevcut seri: %1$d gün</item>
+    </plurals>
 
     <string name="level_label">Seviye %1$d</string>
     <string name="level_up_title">Seviye Atladın!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">Kod Kırıcı</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows oyununda altın madalya kazan</string>
     <string name="finish_tries">Deneme: %1$s</string>
-    <string name="finish_best_tries">En iyi: %1$s deneme</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">En iyi: %1$d deneme</item>
+        <item quantity="other">En iyi: %1$d deneme</item>
+    </plurals>
     <string name="finish_new_best_tries">Yeni rekor!</string>
 
     <string name="game_trio">Üçlü</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">Sırayla ilerle. Her adım bir öncekinin üstüne biner.</string>
     <string name="learn_topic_certificates">%2$d konudan %1$d tanesi sertifikalı</string>
     <string name="learn_ages">Yaş %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Sayılar &amp; işlemler</string>

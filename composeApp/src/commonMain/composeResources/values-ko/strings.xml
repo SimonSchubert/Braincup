@@ -172,13 +172,11 @@
     <string name="shape_house">집</string>
     <string name="shape_arrow">화살표</string>
 
-    <string name="direction_up">위</string>
-    <string name="direction_right">오른쪽</string>
-    <string name="direction_down">아래</string>
-    <string name="direction_left">왼쪽</string>
-
-    <string name="solution_pointing">%3$s을 가리키는 %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">위를 가리키는 %2$s (%1$s)</string>
+    <string name="solution_pointing_right">오른쪽을 가리키는 %2$s (%1$s)</string>
+    <string name="solution_pointing_down">아래를 가리키는 %2$s (%1$s)</string>
+    <string name="solution_pointing_left">왼쪽을 가리키는 %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">열 %1$d 행 %2$d</string>
     <string name="hint_remember">%1$d 기억하기</string>
     <string name="solution_left">왼쪽</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">대</string>
 
     <string name="daily_challenge_title">일일 챌린지</string>
-    <string name="daily_challenge_subtitle_start">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</string>
-    <string name="daily_challenge_subtitle_start_no_streak">연속 기록을 시작하려면 %1$d개의 게임을 플레이하세요</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</item>
+        <item quantity="other">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">연속 기록을 시작하려면 %1$d개의 게임을 플레이하세요</item>
+        <item quantity="other">연속 기록을 시작하려면 %1$d개의 게임을 플레이하세요</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">진행 중 · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">오늘은 완료! 내일 또 오세요!</string>
     <string name="daily_challenge_streak_label">일 연속</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">세션 완료</string>
     <string name="session_total_score">합계: %1$d</string>
     <string name="session_streak_increased">연속 일수: %1$d</string>
-    <string name="session_streak_current">현재 연속: %1$d일</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">현재 연속: %1$d일</item>
+        <item quantity="other">현재 연속: %1$d일</item>
+    </plurals>
 
     <string name="level_label">레벨 %1$d</string>
     <string name="level_up_title">레벨 업!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">코드 해독가</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows에서 금메달 획득</string>
     <string name="finish_tries">시도: %1$s</string>
-    <string name="finish_best_tries">최고: %1$s회</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">최고: %1$d회</item>
+        <item quantity="other">최고: %1$d회</item>
+    </plurals>
     <string name="finish_new_best_tries">신기록!</string>
 
     <string name="game_trio">트리오</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">순서대로 해 나가자. 각 단계는 앞 단계 위에 쌓인다.</string>
     <string name="learn_topic_certificates">%2$d개 중 %1$d개 수료</string>
     <string name="learn_ages">%1$s세</string>
-
 
     <string name="learn_topic_arithmetic">산술</string>
     <string name="learn_topic_arithmetic_subtitle">수와 연산</string>

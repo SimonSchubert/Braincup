@@ -172,13 +172,11 @@
     <string name="shape_house">家</string>
     <string name="shape_arrow">矢印</string>
 
-    <string name="direction_up">上</string>
-    <string name="direction_right">右</string>
-    <string name="direction_down">下</string>
-    <string name="direction_left">左</string>
-
-    <string name="solution_pointing">%3$sを向いた%1$sの%2$s</string>
-    <string name="solution_figure">%1$sの%2$s</string>
+    <string name="solution_pointing_up">上を向いた%2$s（%1$s）</string>
+    <string name="solution_pointing_right">右を向いた%2$s（%1$s）</string>
+    <string name="solution_pointing_down">下を向いた%2$s（%1$s）</string>
+    <string name="solution_pointing_left">左を向いた%2$s（%1$s）</string>
+    <string name="solution_figure">%2$s（%1$s）</string>
     <string name="solution_column_row">列%1$d 行%2$d</string>
     <string name="hint_remember">%1$d を覚えて</string>
     <string name="solution_left">左</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">対</string>
 
     <string name="daily_challenge_title">デイリーチャレンジ</string>
-    <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
-    <string name="daily_challenge_subtitle_start_no_streak">%1$dゲームをプレイして連続記録を始めよう</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">%1$dゲームをプレイして連続記録を保とう</item>
+        <item quantity="other">%1$dゲームをプレイして連続記録を保とう</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">%1$dゲームをプレイして連続記録を始めよう</item>
+        <item quantity="other">%1$dゲームをプレイして連続記録を始めよう</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">進行中 · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">今日の分は完了。また明日！</string>
     <string name="daily_challenge_streak_label">日連続</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">セッション完了</string>
     <string name="session_total_score">合計: %1$d</string>
     <string name="session_streak_increased">連続日数: %1$d</string>
-    <string name="session_streak_current">現在の連続: %1$d日</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">現在の連続: %1$d日</item>
+        <item quantity="other">現在の連続: %1$d日</item>
+    </plurals>
 
     <string name="level_label">レベル %1$d</string>
     <string name="level_up_title">レベルアップ!</string>
@@ -823,7 +830,10 @@
     <string name="achievement_gold_bulls_and_cows">コードクラッカー</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cowsで金メダルを獲得</string>
     <string name="finish_tries">試行: %1$s</string>
-    <string name="finish_best_tries">ベスト: %1$s 回</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">ベスト: %1$d 回</item>
+        <item quantity="other">ベスト: %1$d 回</item>
+    </plurals>
     <string name="finish_new_best_tries">自己ベスト更新！</string>
 
     <string name="game_trio">トリオ</string>
@@ -935,7 +945,6 @@
     <string name="learn_topic_intro">順番に進めよう。どのステップも前のステップの上に積み上がる。</string>
     <string name="learn_topic_certificates">%2$d 件中 %1$d 件が修了</string>
     <string name="learn_ages">%1$s 歳</string>
-
 
     <string name="learn_topic_arithmetic">算術</string>
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>

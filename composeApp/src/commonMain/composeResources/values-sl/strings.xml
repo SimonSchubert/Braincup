@@ -169,8 +169,18 @@
     <string name="accounts_local_desc">Shranjeno na tej napravi. Izgine, če odstraniš aplikacijo.</string>
 
     <string name="daily_challenge_title">Dnevni izziv</string>
-    <string name="daily_challenge_subtitle_start">Odigraj %1$d iger in ohrani niz</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Odigraj %1$d iger in začni niz</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Odigraj %1$d igro in ohrani niz</item>
+        <item quantity="two">Odigraj %1$d igri in ohrani niz</item>
+        <item quantity="few">Odigraj %1$d igre in ohrani niz</item>
+        <item quantity="other">Odigraj %1$d iger in ohrani niz</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Odigraj %1$d igro in začni niz</item>
+        <item quantity="two">Odigraj %1$d igri in začni niz</item>
+        <item quantity="few">Odigraj %1$d igre in začni niz</item>
+        <item quantity="other">Odigraj %1$d iger in začni niz</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">V teku · %1$d od %2$d</string>
     <string name="daily_challenge_subtitle_done">Danes končano. Vrni se jutri!</string>
     <string name="daily_challenge_streak_label">dnevni niz</string>
@@ -186,7 +196,12 @@
     <string name="session_complete_title">Seja končana</string>
     <string name="session_total_score">Skupaj: %1$d</string>
     <string name="session_streak_increased">Dnevni niz: %1$d</string>
-    <string name="session_streak_current">Trenutni niz: %1$d dni</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Trenutni niz: %1$d dan</item>
+        <item quantity="two">Trenutni niz: %1$d dneva</item>
+        <item quantity="few">Trenutni niz: %1$d dni</item>
+        <item quantity="other">Trenutni niz: %1$d dni</item>
+    </plurals>
 
     <string name="quit_game_title">Prekiniti igro?</string>
     <string name="quit_game_message">Tvoj napredek v tej igri se ne bo shranil.</string>
@@ -205,7 +220,12 @@
     <string name="finish_new_highscore">Nov rekord!</string>
     <string name="finish_new_best_tries">Nov najboljši!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Najbolje: %1$s poskusov</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Najbolje: %1$d poskus</item>
+        <item quantity="two">Najbolje: %1$d poskusa</item>
+        <item quantity="few">Najbolje: %1$d poskusi</item>
+        <item quantity="other">Najbolje: %1$d poskusov</item>
+    </plurals>
     <string name="button_play_next_level">Igraj naslednjo raven</string>
     <string name="finish_max_level_reached">Dosežena je najvišja raven. Počakaj na novo vsebino.</string>
     <string name="finish_congruency_effect_title">Cena skladnosti</string>
@@ -474,13 +494,11 @@ Premakni Cow — postal bo Bull.</string>
     <string name="shape_house">Hiša</string>
     <string name="shape_arrow">Puščica</string>
 
-    <string name="direction_up">gor</string>
-    <string name="direction_right">desno</string>
-    <string name="direction_down">dol</string>
-    <string name="direction_left">levo</string>
-
-    <string name="solution_pointing">%1$s %2$s usmerjen %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s usmerjen gor (%1$s)</string>
+    <string name="solution_pointing_right">%2$s usmerjen desno (%1$s)</string>
+    <string name="solution_pointing_down">%2$s usmerjen dol (%1$s)</string>
+    <string name="solution_pointing_left">%2$s usmerjen levo (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">stolpec %1$d in vrstica %2$d</string>
     <string name="hint_remember">Zapomni si %1$d</string>
     <string name="solution_left">Levo</string>
@@ -953,7 +971,6 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_topic_intro">Prehodi jih po vrsti. Vsak korak gradi na prejšnjem.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s potrdilom</string>
     <string name="learn_ages">Starost %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Števila in operacije</string>

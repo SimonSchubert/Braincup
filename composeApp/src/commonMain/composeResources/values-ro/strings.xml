@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">Salvat pe acest dispozitiv. Se pierde dacă dezinstalezi aplicația.</string>
 
     <string name="daily_challenge_title">Provocare zilnică</string>
-    <string name="daily_challenge_subtitle_start">Joacă %1$d jocuri ca să-ți păstrezi seria</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Joacă %1$d jocuri ca să-ți începi seria</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Joacă %1$d joc ca să-ți păstrezi seria</item>
+        <item quantity="few">Joacă %1$d jocuri ca să-ți păstrezi seria</item>
+        <item quantity="other">Joacă %1$d de jocuri ca să-ți păstrezi seria</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Joacă %1$d joc ca să-ți începi seria</item>
+        <item quantity="few">Joacă %1$d jocuri ca să-ți începi seria</item>
+        <item quantity="other">Joacă %1$d de jocuri ca să-ți începi seria</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">În curs · %1$d din %2$d</string>
     <string name="daily_challenge_subtitle_done">Gata pe azi. Revino mâine!</string>
     <string name="daily_challenge_streak_label">serie de zile</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">Sesiune încheiată</string>
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Serie zilnică: %1$d</string>
-    <string name="session_streak_current">Seria actuală: %1$d zile</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Seria actuală: %1$d zi</item>
+        <item quantity="few">Seria actuală: %1$d zile</item>
+        <item quantity="other">Seria actuală: %1$d de zile</item>
+    </plurals>
 
     <string name="quit_game_title">Ieși din joc?</string>
     <string name="quit_game_message">Progresul din acest joc nu va fi salvat.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">Record nou!</string>
     <string name="finish_new_best_tries">Cel mai bun rezultat!</string>
     <string name="finish_highscore">Record: %1$s</string>
-    <string name="finish_best_tries">Cel mai bun: %1$s încercări</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Cel mai bun: %1$d încercare</item>
+        <item quantity="few">Cel mai bun: %1$d încercări</item>
+        <item quantity="other">Cel mai bun: %1$d de încercări</item>
+    </plurals>
     <string name="button_play_next_level">Joacă nivelul următor</string>
     <string name="finish_max_level_reached">Nivelul maxim atins. Așteaptă conținut nou.</string>
     <string name="finish_congruency_effect_title">Costul congruenței</string>
@@ -474,13 +490,11 @@ Mută Cow — devine Bull.</string>
     <string name="shape_house">Casă</string>
     <string name="shape_arrow">Săgeată</string>
 
-    <string name="direction_up">în sus</string>
-    <string name="direction_right">la dreapta</string>
-    <string name="direction_down">în jos</string>
-    <string name="direction_left">la stânga</string>
-
-    <string name="solution_pointing">%1$s %2$s îndreptat %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s îndreptat în sus (%1$s)</string>
+    <string name="solution_pointing_right">%2$s îndreptat la dreapta (%1$s)</string>
+    <string name="solution_pointing_down">%2$s îndreptat în jos (%1$s)</string>
+    <string name="solution_pointing_left">%2$s îndreptat la stânga (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">coloana %1$d și rândul %2$d</string>
     <string name="hint_remember">Ține minte %1$d</string>
     <string name="solution_left">Stânga</string>
@@ -953,7 +967,6 @@ Mută Cow — devine Bull.</string>
     <string name="learn_topic_intro">Parcurge-le în ordine. Fiecare pas se sprijină pe cel dinainte.</string>
     <string name="learn_topic_certificates">%1$d din %2$d certificate</string>
     <string name="learn_ages">Vârste %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetică</string>
     <string name="learn_topic_arithmetic_subtitle">Numere și operații</string>

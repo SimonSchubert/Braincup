@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Naka-save sa device na ito. Mawawala kapag i-uninstall mo.</string>
 
     <string name="daily_challenge_title">Araw-araw na Hamon</string>
-    <string name="daily_challenge_subtitle_start">Maglaro ng %1$d laro para mapanatili ang streak</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Maglaro ng %1$d laro para simulan ang streak</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Maglaro ng %1$d laro para mapanatili ang streak</item>
+        <item quantity="other">Maglaro ng %1$d laro para mapanatili ang streak</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Maglaro ng %1$d laro para simulan ang streak</item>
+        <item quantity="other">Maglaro ng %1$d laro para simulan ang streak</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Kasalukuyan · %1$d sa %2$d</string>
     <string name="daily_challenge_subtitle_done">Tapos na ngayong araw. Balik ka bukas!</string>
     <string name="daily_challenge_streak_label">araw na streak</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Tapos na ang Session</string>
     <string name="session_total_score">Kabuuan: %1$d</string>
     <string name="session_streak_increased">Streak ng araw: %1$d</string>
-    <string name="session_streak_current">Kasalukuyang streak: %1$d araw</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Kasalukuyang streak: %1$d araw</item>
+        <item quantity="other">Kasalukuyang streak: %1$d araw</item>
+    </plurals>
 
     <string name="quit_game_title">Lumabas sa laro?</string>
     <string name="quit_game_message">Hindi mase-save ang progreso mo sa larong ito.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Bagong High Score!</string>
     <string name="finish_new_best_tries">Bagong best!</string>
     <string name="finish_highscore">High Score: %1$s</string>
-    <string name="finish_best_tries">Best: %1$s subok</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Best: %1$d subok</item>
+        <item quantity="other">Best: %1$d subok</item>
+    </plurals>
     <string name="button_play_next_level">Laruin ang susunod na level</string>
     <string name="finish_max_level_reached">Naabot na ang max level. Maghintay ng bagong content.</string>
     <string name="finish_congruency_effect_title">Halaga ng pagkakatugma</string>
@@ -472,13 +484,11 @@
     <string name="shape_house">Bahay</string>
     <string name="shape_arrow">Palaso</string>
 
-    <string name="direction_up">taas</string>
-    <string name="direction_right">kanan</string>
-    <string name="direction_down">baba</string>
-    <string name="direction_left">kaliwa</string>
-
-    <string name="solution_pointing">%1$s %2$s nakaturo %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s nakaturo taas (%1$s)</string>
+    <string name="solution_pointing_right">%2$s nakaturo kanan (%1$s)</string>
+    <string name="solution_pointing_down">%2$s nakaturo baba (%1$s)</string>
+    <string name="solution_pointing_left">%2$s nakaturo kaliwa (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">column %1$d at row %2$d</string>
     <string name="hint_remember">Tandaan ang %1$d</string>
     <string name="solution_left">Kaliwa</string>
@@ -951,7 +961,6 @@
     <string name="learn_topic_intro">Daanan mo sila nang sunod-sunod. Bawat hakbang ay nakasandal sa nauna.</string>
     <string name="learn_topic_certificates">%1$d sa %2$d ang may certificate</string>
     <string name="learn_ages">Edad %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>

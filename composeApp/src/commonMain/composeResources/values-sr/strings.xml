@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">Сачувано на овом уређају. Нестаје ако деинсталираш апликацију.</string>
 
     <string name="daily_challenge_title">Дневни изазов</string>
-    <string name="daily_challenge_subtitle_start">Одиграј %1$d игара и задржи низ</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Одиграј %1$d игара и започни низ</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Одиграј %1$d игру и задржи низ</item>
+        <item quantity="few">Одиграј %1$d игре и задржи низ</item>
+        <item quantity="other">Одиграј %1$d игара и задржи низ</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Одиграј %1$d игру и започни низ</item>
+        <item quantity="few">Одиграј %1$d игре и започни низ</item>
+        <item quantity="other">Одиграј %1$d игара и започни низ</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">У току · %1$d од %2$d</string>
     <string name="daily_challenge_subtitle_done">Готово за данас. Врати се сутра!</string>
     <string name="daily_challenge_streak_label">дневни низ</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">Сесија завршена</string>
     <string name="session_total_score">Укупно: %1$d</string>
     <string name="session_streak_increased">Дневни низ: %1$d</string>
-    <string name="session_streak_current">Тренутни низ: %1$d дана</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Тренутни низ: %1$d дан</item>
+        <item quantity="few">Тренутни низ: %1$d дана</item>
+        <item quantity="other">Тренутни низ: %1$d дана</item>
+    </plurals>
 
     <string name="quit_game_title">Прекинути игру?</string>
     <string name="quit_game_message">Твој напредак у овој игри неће бити сачуван.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">Нови рекорд!</string>
     <string name="finish_new_best_tries">Нови најбољи!</string>
     <string name="finish_highscore">Рекорд: %1$s</string>
-    <string name="finish_best_tries">Најбоље: %1$s покушаја</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Најбоље: %1$d покушај</item>
+        <item quantity="few">Најбоље: %1$d покушаја</item>
+        <item quantity="other">Најбоље: %1$d покушаја</item>
+    </plurals>
     <string name="button_play_next_level">Играј следећи ниво</string>
     <string name="finish_max_level_reached">Достигнут је највиши ниво. Сачекај нови садржај.</string>
     <string name="finish_congruency_effect_title">Цена конгруентности</string>
@@ -474,13 +490,11 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="shape_house">Кућа</string>
     <string name="shape_arrow">Стрелица</string>
 
-    <string name="direction_up">горе</string>
-    <string name="direction_right">десно</string>
-    <string name="direction_down">доле</string>
-    <string name="direction_left">лево</string>
-
-    <string name="solution_pointing">%1$s %2$s усмерен %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s усмерен горе (%1$s)</string>
+    <string name="solution_pointing_right">%2$s усмерен десно (%1$s)</string>
+    <string name="solution_pointing_down">%2$s усмерен доле (%1$s)</string>
+    <string name="solution_pointing_left">%2$s усмерен лево (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">колона %1$d и ред %2$d</string>
     <string name="hint_remember">Запамти %1$d</string>
     <string name="solution_left">Лево</string>
@@ -953,7 +967,6 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="learn_topic_intro">Прођи их редом. Сваки корак се ослања на претходни.</string>
     <string name="learn_topic_certificates">%1$d од %2$d са сертификатом</string>
     <string name="learn_ages">Узраст %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Аритметика</string>
     <string name="learn_topic_arithmetic_subtitle">Бројеви и операције</string>

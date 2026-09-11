@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Lagret på denne enheten. Forsvinner hvis du avinstallerer.</string>
 
     <string name="daily_challenge_title">Daglig utfordring</string>
-    <string name="daily_challenge_subtitle_start">Spill %1$d spill for å beholde rekken</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Spill %1$d spill for å starte rekken</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Spill %1$d spill for å beholde rekken</item>
+        <item quantity="other">Spill %1$d spill for å beholde rekken</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Spill %1$d spill for å starte rekken</item>
+        <item quantity="other">Spill %1$d spill for å starte rekken</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Pågår · %1$d av %2$d</string>
     <string name="daily_challenge_subtitle_done">Ferdig for i dag. Kom tilbake i morgen!</string>
     <string name="daily_challenge_streak_label">dagers rekke</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Økten ferdig</string>
     <string name="session_total_score">Totalt: %1$d</string>
     <string name="session_streak_increased">Dagsrekke: %1$d</string>
-    <string name="session_streak_current">Nåværende rekke: %1$d dager</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Nåværende rekke: %1$d dag</item>
+        <item quantity="other">Nåværende rekke: %1$d dager</item>
+    </plurals>
 
     <string name="quit_game_title">Avslutt spillet?</string>
     <string name="quit_game_message">Fremgangen din i dette spillet blir ikke lagret.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Ny rekord!</string>
     <string name="finish_new_best_tries">Ny beste!</string>
     <string name="finish_highscore">Rekord: %1$s</string>
-    <string name="finish_best_tries">Beste: %1$s forsøk</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Beste: %1$d forsøk</item>
+        <item quantity="other">Beste: %1$d forsøk</item>
+    </plurals>
     <string name="button_play_next_level">Spill neste nivå</string>
     <string name="finish_max_level_reached">Høyeste nivå nådd. Vent på nytt innhold.</string>
     <string name="finish_congruency_effect_title">Kongruenskostnad</string>
@@ -474,13 +486,11 @@ Flytt Cow — den blir en Bull.</string>
     <string name="shape_house">Hus</string>
     <string name="shape_arrow">Pil</string>
 
-    <string name="direction_up">opp</string>
-    <string name="direction_right">høyre</string>
-    <string name="direction_down">ned</string>
-    <string name="direction_left">venstre</string>
-
-    <string name="solution_pointing">%1$s %2$s peker %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s peker opp (%1$s)</string>
+    <string name="solution_pointing_right">%2$s peker høyre (%1$s)</string>
+    <string name="solution_pointing_down">%2$s peker ned (%1$s)</string>
+    <string name="solution_pointing_left">%2$s peker venstre (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolonne %1$d og rad %2$d</string>
     <string name="hint_remember">Husk %1$d</string>
     <string name="solution_left">Venstre</string>
@@ -953,7 +963,6 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_topic_intro">Jobb deg gjennom dem i rekkefølge. Hvert steg bygger på det forrige.</string>
     <string name="learn_topic_certificates">%1$d av %2$d bevist</string>
     <string name="learn_ages">Alder %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetikk</string>
     <string name="learn_topic_arithmetic_subtitle">Tall og regnearter</string>

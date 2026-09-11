@@ -169,8 +169,16 @@
     <string name="accounts_local_desc">Saglabāts šajā ierīcē. Pazūd, ja atinstalē lietotni.</string>
 
     <string name="daily_challenge_title">Dienas izaicinājums</string>
-    <string name="daily_challenge_subtitle_start">Spēlē %1$d spēles, lai saglabātu sēriju</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Spēlē %1$d spēles, lai sāktu sēriju</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="zero">Spēlē %1$d spēļu, lai saglabātu sēriju</item>
+        <item quantity="one">Spēlē %1$d spēli, lai saglabātu sēriju</item>
+        <item quantity="other">Spēlē %1$d spēles, lai saglabātu sēriju</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="zero">Spēlē %1$d spēļu, lai sāktu sēriju</item>
+        <item quantity="one">Spēlē %1$d spēli, lai sāktu sēriju</item>
+        <item quantity="other">Spēlē %1$d spēles, lai sāktu sēriju</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Notiek · %1$d no %2$d</string>
     <string name="daily_challenge_subtitle_done">Šodien pabeigts. Atgriezies rīt!</string>
     <string name="daily_challenge_streak_label">dienu sērija</string>
@@ -186,7 +194,11 @@
     <string name="session_complete_title">Sesija pabeigta</string>
     <string name="session_total_score">Kopā: %1$d</string>
     <string name="session_streak_increased">Dienu sērija: %1$d</string>
-    <string name="session_streak_current">Pašreizējā sērija: %1$d dienas</string>
+    <plurals name="session_streak_current">
+        <item quantity="zero">Pašreizējā sērija: %1$d dienu</item>
+        <item quantity="one">Pašreizējā sērija: %1$d diena</item>
+        <item quantity="other">Pašreizējā sērija: %1$d dienas</item>
+    </plurals>
 
     <string name="quit_game_title">Beigt spēli?</string>
     <string name="quit_game_message">Tavs progress šajā spēlē netiks saglabāts.</string>
@@ -205,7 +217,11 @@
     <string name="finish_new_highscore">Jauns rekords!</string>
     <string name="finish_new_best_tries">Jauns labākais!</string>
     <string name="finish_highscore">Rekords: %1$s</string>
-    <string name="finish_best_tries">Labākais: %1$s mēģinājumi</string>
+    <plurals name="finish_best_tries">
+        <item quantity="zero">Labākais: %1$d mēģinājumu</item>
+        <item quantity="one">Labākais: %1$d mēģinājums</item>
+        <item quantity="other">Labākais: %1$d mēģinājumi</item>
+    </plurals>
     <string name="button_play_next_level">Spēlēt nākamo līmeni</string>
     <string name="finish_max_level_reached">Sasniegts augstākais līmenis. Gaidi jaunu saturu.</string>
     <string name="finish_congruency_effect_title">Kongruences cena</string>
@@ -474,13 +490,11 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="shape_house">Māja</string>
     <string name="shape_arrow">Bultiņa</string>
 
-    <string name="direction_up">uz augšu</string>
-    <string name="direction_right">pa labi</string>
-    <string name="direction_down">uz leju</string>
-    <string name="direction_left">pa kreisi</string>
-
-    <string name="solution_pointing">%1$s %2$s vērsts %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s vērsts uz augšu (%1$s)</string>
+    <string name="solution_pointing_right">%2$s vērsts pa labi (%1$s)</string>
+    <string name="solution_pointing_down">%2$s vērsts uz leju (%1$s)</string>
+    <string name="solution_pointing_left">%2$s vērsts pa kreisi (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolonna %1$d un rinda %2$d</string>
     <string name="hint_remember">Atceries %1$d</string>
     <string name="solution_left">Pa kreisi</string>
@@ -953,7 +967,6 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_topic_intro">Izej tos pēc kārtas. Katrs solis balstās uz iepriekšējo.</string>
     <string name="learn_topic_certificates">%1$d no %2$d ar sertifikātu</string>
     <string name="learn_ages">Vecums %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmētika</string>
     <string name="learn_topic_arithmetic_subtitle">Skaitļi un darbības</string>

@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">இந்தச் சாதனத்தில் சேமிக்கப்பட்டது. நிறுவல் நீக்கினால் இழக்கப்படும்.</string>
 
     <string name="daily_challenge_title">தினசரி சவால்</string>
-    <string name="daily_challenge_subtitle_start">உங்கள் தொடரைத் தக்கவைக்க %1$d விளையாட்டுகளை விளையாடுங்கள்</string>
-    <string name="daily_challenge_subtitle_start_no_streak">உங்கள் தொடரைத் தொடங்க %1$d விளையாட்டுகளை விளையாடுங்கள்</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">உங்கள் தொடரைத் தக்கவைக்க %1$d விளையாட்டுகளை விளையாடுங்கள்</item>
+        <item quantity="other">உங்கள் தொடரைத் தக்கவைக்க %1$d விளையாட்டுகளை விளையாடுங்கள்</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">உங்கள் தொடரைத் தொடங்க %1$d விளையாட்டுகளை விளையாடுங்கள்</item>
+        <item quantity="other">உங்கள் தொடரைத் தொடங்க %1$d விளையாட்டுகளை விளையாடுங்கள்</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">நடைபெறுகிறது · %2$d இல் %1$d</string>
     <string name="daily_challenge_subtitle_done">இன்றைக்கு முடிந்தது. நாளை வாருங்கள்!</string>
     <string name="daily_challenge_streak_label">நாள் தொடர்</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">அமர்வு நிறைவடைந்தது</string>
     <string name="session_total_score">மொத்தம்: %1$d</string>
     <string name="session_streak_increased">நாள் தொடர்: %1$d</string>
-    <string name="session_streak_current">தற்போதைய தொடர்: %1$d நாட்கள்</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">தற்போதைய தொடர்: %1$d நாட்கள்</item>
+        <item quantity="other">தற்போதைய தொடர்: %1$d நாட்கள்</item>
+    </plurals>
 
     <string name="quit_game_title">விளையாட்டை விட்டு வெளியேறவா?</string>
     <string name="quit_game_message">இந்த விளையாட்டில் உங்கள் முன்னேற்றம் சேமிக்கப்படாது.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">புதிய உயர் மதிப்பெண்!</string>
     <string name="finish_new_best_tries">புதிய சிறந்த சாதனை!</string>
     <string name="finish_highscore">உயர் மதிப்பெண்: %1$s</string>
-    <string name="finish_best_tries">சிறந்தது: %1$s முயற்சிகள்</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">சிறந்தது: %1$d முயற்சிகள்</item>
+        <item quantity="other">சிறந்தது: %1$d முயற்சிகள்</item>
+    </plurals>
     <string name="button_play_next_level">அடுத்த நிலையை விளையாடு</string>
     <string name="finish_max_level_reached">அதிகபட்ச நிலையை அடைந்தீர்கள். புதிய உள்ளடக்கத்திற்குக் காத்திருங்கள்.</string>
     <string name="finish_congruency_effect_title">ஒத்திசைவின் விலை</string>
@@ -456,13 +468,11 @@
     <string name="shape_house">வீடு</string>
     <string name="shape_arrow">அம்பு</string>
 
-    <string name="direction_up">மேலே</string>
-    <string name="direction_right">வலது</string>
-    <string name="direction_down">கீழே</string>
-    <string name="direction_left">இடது</string>
-
-    <string name="solution_pointing">%3$s நோக்கிய %1$s %2$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">மேலே நோக்கிய %2$s (%1$s)</string>
+    <string name="solution_pointing_right">வலது நோக்கிய %2$s (%1$s)</string>
+    <string name="solution_pointing_down">கீழே நோக்கிய %2$s (%1$s)</string>
+    <string name="solution_pointing_left">இடது நோக்கிய %2$s (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">நெடுவரிசை %1$d மற்றும் வரிசை %2$d</string>
     <string name="hint_remember">%1$d நினைவில் வைத்திரு</string>
     <string name="solution_left">இடது</string>
@@ -921,7 +931,6 @@
     <string name="learn_topic_intro">இவற்றை வரிசையாகச் செய். ஒவ்வொரு படியும் முந்தையதன் மேல் நிற்கிறது.</string>
     <string name="learn_topic_certificates">%2$d இல் %1$d சான்றளிக்கப்பட்டது</string>
     <string name="learn_ages">வயது %1$s</string>
-
 
     <string name="learn_topic_arithmetic">எண்கணிதம்</string>
     <string name="learn_topic_arithmetic_subtitle">எண் &amp; செயல்கள்</string>

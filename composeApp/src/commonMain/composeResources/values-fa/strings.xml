@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">روی این دستگاه ذخیره می‌شود. با حذف برنامه از بین می‌رود.</string>
 
     <string name="daily_challenge_title">چالش روزانه</string>
-    <string name="daily_challenge_subtitle_start">برای حفظ زنجیره‌ات %1$d بازی انجام بده</string>
-    <string name="daily_challenge_subtitle_start_no_streak">برای شروع زنجیره‌ات %1$d بازی انجام بده</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">برای حفظ زنجیره‌ات %1$d بازی انجام بده</item>
+        <item quantity="other">برای حفظ زنجیره‌ات %1$d بازی انجام بده</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">برای شروع زنجیره‌ات %1$d بازی انجام بده</item>
+        <item quantity="other">برای شروع زنجیره‌ات %1$d بازی انجام بده</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">در حال انجام · %1$d از %2$d</string>
     <string name="daily_challenge_subtitle_done">امروز تمام شد. فردا برگرد!</string>
     <string name="daily_challenge_streak_label">روز پیاپی</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">دوره کامل شد</string>
     <string name="session_total_score">مجموع: %1$d</string>
     <string name="session_streak_increased">زنجیره روزانه: %1$d</string>
-    <string name="session_streak_current">زنجیره فعلی: %1$d روز</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">زنجیره فعلی: %1$d روز</item>
+        <item quantity="other">زنجیره فعلی: %1$d روز</item>
+    </plurals>
 
     <string name="quit_game_title">از بازی خارج می‌شوی؟</string>
     <string name="quit_game_message">پیشرفت تو در این بازی ذخیره نخواهد شد.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">رکورد جدید!</string>
     <string name="finish_new_best_tries">بهترین رکورد جدید!</string>
     <string name="finish_highscore">بهترین امتیاز: %1$s</string>
-    <string name="finish_best_tries">بهترین: %1$s تلاش</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">بهترین: %1$d تلاش</item>
+        <item quantity="other">بهترین: %1$d تلاش</item>
+    </plurals>
     <string name="button_play_next_level">مرحله بعد</string>
     <string name="finish_max_level_reached">به بالاترین مرحله رسیدی. منتظر محتوای تازه باش.</string>
     <string name="finish_congruency_effect_title">هزینهٔ همخوانی</string>
@@ -456,13 +468,11 @@
     <string name="shape_house">خانه</string>
     <string name="shape_arrow">پیکان</string>
 
-    <string name="direction_up">بالا</string>
-    <string name="direction_right">راست</string>
-    <string name="direction_down">پایین</string>
-    <string name="direction_left">چپ</string>
-
-    <string name="solution_pointing">%1$s %2$s رو به %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s رو به بالا (%1$s)</string>
+    <string name="solution_pointing_right">%2$s رو به راست (%1$s)</string>
+    <string name="solution_pointing_down">%2$s رو به پایین (%1$s)</string>
+    <string name="solution_pointing_left">%2$s رو به چپ (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">ستون %1$d و سطر %2$d</string>
     <string name="hint_remember">%1$d را به خاطر بسپار</string>
     <string name="solution_left">چپ</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">به ترتیب از آنها عبور کن. هر قدم روی قدم قبلی ساخته می‌شود.</string>
     <string name="learn_topic_certificates">%1$d از %2$d دارای گواهی</string>
     <string name="learn_ages">سنین %1$s</string>
-
 
     <string name="learn_topic_arithmetic">حساب</string>
     <string name="learn_topic_arithmetic_subtitle">اعداد &amp; عملیات</string>

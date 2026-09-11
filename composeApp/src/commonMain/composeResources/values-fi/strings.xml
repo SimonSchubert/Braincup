@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Tallennettu tälle laitteelle. Katoaa, jos poistat sovelluksen.</string>
 
     <string name="daily_challenge_title">Päivän haaste</string>
-    <string name="daily_challenge_subtitle_start">Pelaa %1$d peliä pitääksesi putken</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Pelaa %1$d peliä aloittaaksesi putken</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Pelaa %1$d peli pitääksesi putken</item>
+        <item quantity="other">Pelaa %1$d peliä pitääksesi putken</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Pelaa %1$d peli aloittaaksesi putken</item>
+        <item quantity="other">Pelaa %1$d peliä aloittaaksesi putken</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Kesken · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Valmis tältä päivältä. Tule huomenna uudestaan!</string>
     <string name="daily_challenge_streak_label">päivän putki</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Sessio valmis</string>
     <string name="session_total_score">Yhteensä: %1$d</string>
     <string name="session_streak_increased">Päiväputki: %1$d</string>
-    <string name="session_streak_current">Nykyinen putki: %1$d päivää</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Nykyinen putki: %1$d päivä</item>
+        <item quantity="other">Nykyinen putki: %1$d päivää</item>
+    </plurals>
 
     <string name="quit_game_title">Lopetetaanko peli?</string>
     <string name="quit_game_message">Edistymistäsi tässä pelissä ei tallenneta.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Uusi ennätys!</string>
     <string name="finish_new_best_tries">Uusi paras!</string>
     <string name="finish_highscore">Ennätys: %1$s</string>
-    <string name="finish_best_tries">Paras: %1$s yritystä</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Paras: %1$d yritys</item>
+        <item quantity="other">Paras: %1$d yritystä</item>
+    </plurals>
     <string name="button_play_next_level">Pelaa seuraava taso</string>
     <string name="finish_max_level_reached">Korkein taso saavutettu. Odota uutta sisältöä.</string>
     <string name="finish_congruency_effect_title">Kongruenssin hinta</string>
@@ -474,13 +486,11 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="shape_house">Talo</string>
     <string name="shape_arrow">Nuoli</string>
 
-    <string name="direction_up">ylös</string>
-    <string name="direction_right">oikealle</string>
-    <string name="direction_down">alas</string>
-    <string name="direction_left">vasemmalle</string>
-
-    <string name="solution_pointing">%1$s %2$s osoittaa %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s osoittaa ylös (%1$s)</string>
+    <string name="solution_pointing_right">%2$s osoittaa oikealle (%1$s)</string>
+    <string name="solution_pointing_down">%2$s osoittaa alas (%1$s)</string>
+    <string name="solution_pointing_left">%2$s osoittaa vasemmalle (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">sarake %1$d ja rivi %2$d</string>
     <string name="hint_remember">Muista %1$d</string>
     <string name="solution_left">Vasen</string>
@@ -953,7 +963,6 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_topic_intro">Käy ne läpi järjestyksessä. Jokainen vaihe rakentuu edelliselle.</string>
     <string name="learn_topic_certificates">%1$d / %2$d todistettu</string>
     <string name="learn_ages">Ikä %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmetiikka</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>

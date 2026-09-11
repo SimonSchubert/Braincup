@@ -30,6 +30,7 @@ import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -89,7 +90,7 @@ fun SessionCompleteScreen(
             }
         } else if (streakAfter > 0) {
             Text(
-                text = stringResource(Res.string.session_streak_current, streakAfter),
+                text = pluralStringResource(Res.plurals.session_streak_current, streakAfter, streakAfter),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),

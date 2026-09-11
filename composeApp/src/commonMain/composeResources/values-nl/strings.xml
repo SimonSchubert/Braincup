@@ -172,13 +172,11 @@
     <string name="shape_house">Huis</string>
     <string name="shape_arrow">Pijl</string>
 
-    <string name="direction_up">boven</string>
-    <string name="direction_right">rechts</string>
-    <string name="direction_down">onder</string>
-    <string name="direction_left">links</string>
-
-    <string name="solution_pointing">%1$s %2$s wijzend naar %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s wijzend naar boven (%1$s)</string>
+    <string name="solution_pointing_right">%2$s wijzend naar rechts (%1$s)</string>
+    <string name="solution_pointing_down">%2$s wijzend naar onder (%1$s)</string>
+    <string name="solution_pointing_left">%2$s wijzend naar links (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">kolom %1$d en rij %2$d</string>
     <string name="hint_remember">Onthoud %1$d</string>
     <string name="solution_left">Links</string>
@@ -187,8 +185,14 @@
     <string name="preview_vs">vs</string>
 
     <string name="daily_challenge_title">Dagelijkse uitdaging</string>
-    <string name="daily_challenge_subtitle_start">Speel %1$d spellen om je reeks te behouden</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Speel %1$d spellen om je reeks te starten</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Speel %1$d spel om je reeks te behouden</item>
+        <item quantity="other">Speel %1$d spellen om je reeks te behouden</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Speel %1$d spel om je reeks te starten</item>
+        <item quantity="other">Speel %1$d spellen om je reeks te starten</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Bezig · %1$d van %2$d</string>
     <string name="daily_challenge_subtitle_done">Klaar voor vandaag. Kom morgen terug!</string>
     <string name="daily_challenge_streak_label">dagen reeks</string>
@@ -203,7 +207,10 @@
     <string name="session_complete_title">Sessie voltooid</string>
     <string name="session_total_score">Totaal: %1$d</string>
     <string name="session_streak_increased">Dagenreeks: %1$d</string>
-    <string name="session_streak_current">Huidige reeks: %1$d dagen</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Huidige reeks: %1$d dag</item>
+        <item quantity="other">Huidige reeks: %1$d dagen</item>
+    </plurals>
 
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Level omhoog!</string>
@@ -824,7 +831,10 @@
     <string name="achievement_gold_bulls_and_cows">Codekraker</string>
     <string name="achievement_gold_bulls_and_cows_desc">Win de gouden medaille in Bulls &amp; Cows</string>
     <string name="finish_tries">Pogingen: %1$s</string>
-    <string name="finish_best_tries">Beste: %1$s pogingen</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Beste: %1$d poging</item>
+        <item quantity="other">Beste: %1$d pogingen</item>
+    </plurals>
     <string name="finish_new_best_tries">Nieuw record!</string>
 
     <string name="game_trio">Trio</string>
@@ -936,7 +946,6 @@
     <string name="learn_topic_intro">Werk ze op volgorde door. Elke stap bouwt voort op de vorige.</string>
     <string name="learn_topic_certificates">%1$d van %2$d gecertificeerd</string>
     <string name="learn_ages">Leeftijd %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Rekenen</string>
     <string name="learn_topic_arithmetic_subtitle">Getallen &amp; bewerkingen</string>
@@ -1800,9 +1809,9 @@
     <string name="learn_unit_arithmetic_fractions_q5_explanation">Twee van de vijf gekleurde zesde gaan eraf, en de stukken blijven zesde.</string>
     <string name="learn_unit_arithmetic_fractions_q6_explanation">Een half is twee kwart, en twee kwart plus nog één is 3/4.</string>
     <string name="learn_unit_arithmetic_decimals_title">Decimalen</string>
-    <string name="learn_unit_arithmetic_decimals_summary">De plaatsen voorbij de punt lezen, vergelijken en optellen.</string>
+    <string name="learn_unit_arithmetic_decimals_summary">De plaatsen voorbij de komma lezen, vergelijken en optellen.</string>
     <string name="learn_g35_arithmetic_decimals_title">Tienden en honderdsten</string>
-    <string name="learn_g35_arithmetic_decimals_summary">De plaatswaarde loopt door voorbij de punt.</string>
+    <string name="learn_g35_arithmetic_decimals_summary">De plaatswaarde loopt door voorbij de komma.</string>
     <string name="learn_g35_arithmetic_decimals_s1_body">Het vierkant is één geheel. Een kolom ervan is een tiende, en één vakje is een honderdste.</string>
     <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 tienden + 5 honderdsten</string>
     <string name="learn_g35_arithmetic_decimals_s2_body">Een breuk en een decimaal getal kunnen precies dezelfde hoeveelheid zijn, op twee manieren geschreven.</string>
@@ -1830,7 +1839,7 @@
     <string name="learn_arithmetic_decimals_add_s2_l1">Schrijf {a:0.6} als {a:0.60} zodat beide getallen tot de honderdsten reiken.</string>
     <string name="learn_arithmetic_decimals_add_s2_l2">Honderdsten: 0 + {b:5}.</string>
     <string name="learn_arithmetic_decimals_add_s2_l3">Tienden: {a:6} + {b:2}.</string>
-    <string name="learn_arithmetic_decimals_add_s3_question">Zet de punten onder elkaar en tel dan kolom voor kolom op.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Zet de komma's onder elkaar en tel dan kolom voor kolom op.</string>
     <string name="learn_arithmetic_decimals_add_s3_explanation">Schrijf 0.3 als 0.30, dan maken vijf honderdsten en zeven tienden samen 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s4_body">Een aftreksom is hetzelfde plaatje andersom gelezen: {a:35} honderdsten liggen er al, en {b:4} tienden brengen het terug op 0.75.</string>
     <string name="learn_arithmetic_decimals_add_s5_question">Een potlood kost 0.45 euro en een gum 0.30 euro. Wat kosten ze samen?</string>
@@ -2001,9 +2010,9 @@
     <string name="learn_arithmetic_standard_form_s1_body">Elke sprong langs deze lijn vermenigvuldigt met tien. De sprongen tellen gaat sneller dan nullen tellen, en dat aantal is de macht.</string>
     <string name="learn_arithmetic_standard_form_s2_body">Het voorste getal ligt altijd tussen 1 en 10. 52 ligt drie sprongen onder 52 000, dus 5.2 ligt er vier onder, en vier is de macht.</string>
     <string name="learn_arithmetic_standard_form_s3_question">Twee hiervan hebben de juiste cijfers in de verkeerde vorm.</string>
-    <string name="learn_arithmetic_standard_form_s3_explanation">72 en 0.72 liggen buiten het venster van 1 tot 10. Vanaf 7.2 schuift de punt vijf plaatsen op.</string>
+    <string name="learn_arithmetic_standard_form_s3_explanation">72 en 0.72 liggen buiten het venster van 1 tot 10. Vanaf 7.2 schuift de komma vijf plaatsen op.</string>
     <string name="learn_arithmetic_standard_form_s4_body">De macht telt sprongen, dus die bepaalt de grootte lang voordat het voorste getal aan bod komt. Wat dan ook maal een grotere macht van tien wint.</string>
-    <string name="learn_arithmetic_standard_form_s5_question">Loop met de punt drie sprongen naar rechts.</string>
+    <string name="learn_arithmetic_standard_form_s5_question">Loop met de komma drie sprongen naar rechts.</string>
     <string name="learn_arithmetic_standard_form_s5_explanation">Drie sprongen rechts van 4.7: 47, 470, 4 700.</string>
     <string name="learn_arithmetic_standard_form_s6_question">Alle vier hebben de juiste cijfers. Maar één staat in wetenschappelijke notatie en is 12 000 waard.</string>
     <string name="learn_arithmetic_standard_form_s6_explanation">12 en 0.12 liggen buiten het venster, en 1.2 * 10^3 is maar 1 200.</string>
@@ -2013,7 +2022,7 @@
     <string name="learn_arithmetic_standard_form_small_s2_body">De min in de macht zegt welke kant je op loopt, niet dat het getal negatief is. Een getal in wetenschappelijke notatie is alleen negatief als het voorste getal dat is.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Tel de sprongen van 8.2 omlaag naar dit getal.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Vier stappen links van 8.2, en 82 ligt buiten het venster van 1 tot 10.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_question">Loop met de punt vier sprongen naar links.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_question">Loop met de komma vier sprongen naar links.</string>
     <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier sprongen links van 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Een negatief voorste getal en een negatieve macht betekenen twee verschillende dingen, en ze kunnen los van elkaar voorkomen.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">De meest negatieve macht loopt het verst naar links, dus die is de kleinste.</string>
@@ -2028,7 +2037,7 @@
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Delen draait het om: de voorste getallen deel je en de machten trek je af.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Het voorste getal kan uit de vermenigvuldiging te groot voor het venster komen, en dan moet het er weer in gelopen worden.</string>
     <string name="learn_arithmetic_standard_form_calculating_s5_question">De voorste getallen geven 20, en dat ligt buiten het venster.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 heeft de juiste waarde in de verkeerde vorm: loop met de punt één plaats naar links en de macht gaat er één omhoog.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 heeft de juiste waarde in de verkeerde vorm: loop met de komma één plaats naar links en de macht gaat er één omhoog.</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_question">Hoeveel keer groter is 8 * 10^7 dan 8 * 10^4?</string>
     <string name="learn_arithmetic_standard_form_calculating_s6_explanation">De voorste getallen zijn gelijk, dus alleen de drie extra sprongen tellen.</string>
     <string name="learn_unit_arithmetic_standard_form_q1_prompt">Welke is 45 000 in wetenschappelijke notatie?</string>
@@ -2100,16 +2109,16 @@
     <string name="learn_arithmetic_bounds_s6_explanation">De helft van de afrondingseenheid aan weerszijden: de helft van 50 is 25, dus het interval loopt van 275 m tot net onder 325 m.</string>
     <string name="learn_arithmetic_bounds_significant_title">Significante cijfers</string>
     <string name="learn_arithmetic_bounds_significant_summary">Tellen vanaf het eerste cijfer dat iets betekent.</string>
-    <string name="learn_arithmetic_bounds_significant_s1_body">Significante cijfers tellen vanaf het eerste cijfer dat geen nul is, waar de punt ook staat.</string>
+    <string name="learn_arithmetic_bounds_significant_s1_body">Significante cijfers tellen vanaf het eerste cijfer dat geen nul is, waar de komma ook staat.</string>
     <string name="learn_arithmetic_bounds_significant_s1_formula">0.00427 heeft 3 significante cijfers</string>
     <string name="learn_arithmetic_bounds_significant_s2_body">Afronden op een significant cijfer werkt precies als afronden op een plaats: houd de cijfers die je wilt en kijk naar het volgende om te beslissen.</string>
     <string name="learn_arithmetic_bounds_significant_s2_formula">3 872 = 3 900 op 2 s.c.</string>
-    <string name="learn_arithmetic_bounds_significant_s3_question">Rond 0.04617 af op 2 significante cijfers. De nullen vooraan houden alleen de punt op zijn plaats, dus het tellen begint bij de 4.</string>
+    <string name="learn_arithmetic_bounds_significant_s3_question">Rond 0.04617 af op 2 significante cijfers. De nullen vooraan houden alleen de komma op zijn plaats, dus het tellen begint bij de 4.</string>
     <string name="learn_arithmetic_bounds_significant_s3_explanation">4 en 6 zijn de twee significante cijfers, en de 1 erachter rondt niets omhoog.</string>
     <string name="learn_arithmetic_bounds_significant_s4_explanation">2, 7 en 4 zijn de drie cijfers, en de 8 daarachter rondt de 4 omhoog.</string>
-    <string name="learn_arithmetic_bounds_significant_s5_body">Een nul tussen twee significante cijfers telt mee. Een nul ervoor niet: die houdt alleen de punt op zijn plaats, en daarom heeft 0.00308 er drie.</string>
+    <string name="learn_arithmetic_bounds_significant_s5_body">Een nul tussen twee significante cijfers telt mee. Een nul ervoor niet: die houdt alleen de komma op zijn plaats, en daarom heeft 0.00308 er drie.</string>
     <string name="learn_arithmetic_bounds_significant_s5_formula">0.00308 heeft 3 s.c.</string>
-    <string name="learn_arithmetic_bounds_significant_s6_explanation">De twee nullen vooraan houden alleen de punt op zijn plaats, maar de laatste is met opzet geschreven, dus die telt mee: 2, 5 en 0.</string>
+    <string name="learn_arithmetic_bounds_significant_s6_explanation">De twee nullen vooraan houden alleen de komma op zijn plaats, maar de laatste is met opzet geschreven, dus die telt mee: 2, 5 en 0.</string>
     <string name="learn_arithmetic_bounds_calculating_title">Rekenen met grenzen</string>
     <string name="learn_arithmetic_bounds_calculating_summary">Een interval erin, een interval eruit.</string>
     <string name="learn_arithmetic_bounds_calculating_s1_body">Elke meting draagt een interval met zich mee, dus alles wat je eruit berekent draagt er ook een. Er is geen enkel antwoord te geven.</string>
@@ -2789,7 +2798,7 @@
     <string name="learn_rule_percent_of_rule">x% van n = x/100 x n</string>
     <string name="learn_rule_percent_of_meaning">Voor een percentage van een bedrag: deel door 100 en vermenigvuldig dan</string>
     <string name="learn_rule_percent_of_example">20% van 80 = 16</string>
-    <string name="learn_rule_times_ten_meaning">Maal tien schuift de punt één plaats naar rechts</string>
+    <string name="learn_rule_times_ten_meaning">Maal tien schuift de komma één plaats naar rechts</string>
     <string name="learn_rule_power_zero_meaning">Tot de macht één is zichzelf, en tot de macht nul is één</string>
     <string name="learn_rule_root_meaning">Een vierkantswortel draait een kwadraat terug: wat er met zichzelf vermenigvuldigd is</string>
     <string name="learn_rule_powers_of_ten_meaning">Een macht van tien is een één met zoveel nullen</string>

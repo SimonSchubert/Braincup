@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Desat en aquest dispositiu. Es perd si desinstal·les l'aplicació.</string>
 
     <string name="daily_challenge_title">Repte diari</string>
-    <string name="daily_challenge_subtitle_start">Juga %1$d partides per mantenir la ratxa</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Juga %1$d partides per començar la ratxa</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Juga %1$d partida per mantenir la ratxa</item>
+        <item quantity="other">Juga %1$d partides per mantenir la ratxa</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Juga %1$d partida per començar la ratxa</item>
+        <item quantity="other">Juga %1$d partides per començar la ratxa</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">En curs · %1$d de %2$d</string>
     <string name="daily_challenge_subtitle_done">Fet per avui. Torna demà!</string>
     <string name="daily_challenge_streak_label">ratxa de dies</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Sessió completa</string>
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Ratxa de dies: %1$d</string>
-    <string name="session_streak_current">Ratxa actual: %1$d dies</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Ratxa actual: %1$d dia</item>
+        <item quantity="other">Ratxa actual: %1$d dies</item>
+    </plurals>
 
     <string name="quit_game_title">Vols sortir de la partida?</string>
     <string name="quit_game_message">El progrés d'aquesta partida no es desarà.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Nou rècord!</string>
     <string name="finish_new_best_tries">Nou millor!</string>
     <string name="finish_highscore">Rècord: %1$s</string>
-    <string name="finish_best_tries">Millor: %1$s intents</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Millor: %1$d intent</item>
+        <item quantity="other">Millor: %1$d intents</item>
+    </plurals>
     <string name="button_play_next_level">Juga el nivell següent</string>
     <string name="finish_max_level_reached">Has arribat al nivell màxim. Espera contingut nou.</string>
     <string name="finish_congruency_effect_title">Cost de congruència</string>
@@ -474,13 +486,11 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="shape_house">Casa</string>
     <string name="shape_arrow">Fletxa</string>
 
-    <string name="direction_up">amunt</string>
-    <string name="direction_right">a la dreta</string>
-    <string name="direction_down">avall</string>
-    <string name="direction_left">a l'esquerra</string>
-
-    <string name="solution_pointing">%1$s %2$s que apunta %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s que apunta amunt (%1$s)</string>
+    <string name="solution_pointing_right">%2$s que apunta a la dreta (%1$s)</string>
+    <string name="solution_pointing_down">%2$s que apunta avall (%1$s)</string>
+    <string name="solution_pointing_left">%2$s que apunta a l'esquerra (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">columna %1$d i fila %2$d</string>
     <string name="hint_remember">Recorda %1$d</string>
     <string name="solution_left">Esquerra</string>
@@ -953,7 +963,6 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_topic_intro">Fes-los en ordre. Cada pas es basa en l'anterior.</string>
     <string name="learn_topic_certificates">%1$d de %2$d certificats</string>
     <string name="learn_ages">Edats %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Aritmètica</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres i operacions</string>

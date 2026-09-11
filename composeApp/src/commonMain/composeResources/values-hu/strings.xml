@@ -169,8 +169,14 @@
     <string name="accounts_local_desc">Ezen a készüléken mentve. Elvész, ha eltávolítod az appot.</string>
 
     <string name="daily_challenge_title">Napi kihívás</string>
-    <string name="daily_challenge_subtitle_start">Játssz %1$d játékot, hogy megmaradjon a sorozatod</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Játssz %1$d játékot a sorozat indításához</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Játssz %1$d játékot, hogy megmaradjon a sorozatod</item>
+        <item quantity="other">Játssz %1$d játékot, hogy megmaradjon a sorozatod</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Játssz %1$d játékot a sorozat indításához</item>
+        <item quantity="other">Játssz %1$d játékot a sorozat indításához</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Folyamatban · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Mára kész. Gyere vissza holnap!</string>
     <string name="daily_challenge_streak_label">napos sorozat</string>
@@ -186,7 +192,10 @@
     <string name="session_complete_title">Munkamenet kész</string>
     <string name="session_total_score">Összesen: %1$d</string>
     <string name="session_streak_increased">Napos sorozat: %1$d</string>
-    <string name="session_streak_current">Jelenlegi sorozat: %1$d nap</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Jelenlegi sorozat: %1$d nap</item>
+        <item quantity="other">Jelenlegi sorozat: %1$d nap</item>
+    </plurals>
 
     <string name="quit_game_title">Kilépsz a játékból?</string>
     <string name="quit_game_message">A haladásod ebben a játékban nem lesz mentve.</string>
@@ -205,7 +214,10 @@
     <string name="finish_new_highscore">Új csúcs!</string>
     <string name="finish_new_best_tries">Új rekord!</string>
     <string name="finish_highscore">Csúcs: %1$s</string>
-    <string name="finish_best_tries">Legjobb: %1$s próbálkozás</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Legjobb: %1$d próbálkozás</item>
+        <item quantity="other">Legjobb: %1$d próbálkozás</item>
+    </plurals>
     <string name="button_play_next_level">Következő szint</string>
     <string name="finish_max_level_reached">Elérted a max szintet. Várj az új tartalomra.</string>
     <string name="finish_congruency_effect_title">Kongruenciaköltség</string>
@@ -474,13 +486,11 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="shape_house">Ház</string>
     <string name="shape_arrow">Nyíl</string>
 
-    <string name="direction_up">felfelé</string>
-    <string name="direction_right">jobbra</string>
-    <string name="direction_down">lefelé</string>
-    <string name="direction_left">balra</string>
-
-    <string name="solution_pointing">%1$s %2$s, %3$s mutat</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s, felfelé mutat (%1$s)</string>
+    <string name="solution_pointing_right">%2$s, jobbra mutat (%1$s)</string>
+    <string name="solution_pointing_down">%2$s, lefelé mutat (%1$s)</string>
+    <string name="solution_pointing_left">%2$s, balra mutat (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">%1$d. oszlop és %2$d. sor</string>
     <string name="hint_remember">Jegyezd meg: %1$d</string>
     <string name="solution_left">Bal</string>
@@ -953,7 +963,6 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_topic_intro">Haladj rajtuk sorban. Minden lépés az előzőre épül.</string>
     <string name="learn_topic_certificates">%1$d / %2$d bizonyítványozva</string>
     <string name="learn_ages">Életkor %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Számtan</string>
     <string name="learn_topic_arithmetic_subtitle">Számok és műveletek</string>

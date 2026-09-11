@@ -169,8 +169,20 @@
     <string name="accounts_local_desc">Sábháilte ar an ngléas seo. Cailltear é má dhíshuiteálann tú an aip.</string>
 
     <string name="daily_challenge_title">Dúshlán laethúil</string>
-    <string name="daily_challenge_subtitle_start">Imir %1$d cluiche chun do shraith a choinneáil</string>
-    <string name="daily_challenge_subtitle_start_no_streak">Imir %1$d cluiche chun sraith a thosú</string>
+    <plurals name="daily_challenge_subtitle_start">
+        <item quantity="one">Imir %1$d chluiche chun do shraith a choinneáil</item>
+        <item quantity="two">Imir %1$d chluiche chun do shraith a choinneáil</item>
+        <item quantity="few">Imir %1$d chluiche chun do shraith a choinneáil</item>
+        <item quantity="many">Imir %1$d gcluiche chun do shraith a choinneáil</item>
+        <item quantity="other">Imir %1$d cluiche chun do shraith a choinneáil</item>
+    </plurals>
+    <plurals name="daily_challenge_subtitle_start_no_streak">
+        <item quantity="one">Imir %1$d chluiche chun sraith a thosú</item>
+        <item quantity="two">Imir %1$d chluiche chun sraith a thosú</item>
+        <item quantity="few">Imir %1$d chluiche chun sraith a thosú</item>
+        <item quantity="many">Imir %1$d gcluiche chun sraith a thosú</item>
+        <item quantity="other">Imir %1$d cluiche chun sraith a thosú</item>
+    </plurals>
     <string name="daily_challenge_subtitle_progress">Ar siúl · %1$d as %2$d</string>
     <string name="daily_challenge_subtitle_done">Críochnaithe don lá. Tar ar ais amárach!</string>
     <string name="daily_challenge_streak_label">sraith laethúil</string>
@@ -186,7 +198,13 @@
     <string name="session_complete_title">Seisiún críochnaithe</string>
     <string name="session_total_score">Iomlán: %1$d</string>
     <string name="session_streak_increased">Sraith laethúil: %1$d</string>
-    <string name="session_streak_current">Sraith reatha: %1$d lá</string>
+    <plurals name="session_streak_current">
+        <item quantity="one">Sraith reatha: %1$d lá</item>
+        <item quantity="two">Sraith reatha: %1$d lá</item>
+        <item quantity="few">Sraith reatha: %1$d lá</item>
+        <item quantity="many">Sraith reatha: %1$d lá</item>
+        <item quantity="other">Sraith reatha: %1$d lá</item>
+    </plurals>
 
     <string name="quit_game_title">Scoir den chluiche?</string>
     <string name="quit_game_message">Ní shábhálfar do dhul chun cinn sa chluiche seo.</string>
@@ -205,7 +223,13 @@
     <string name="finish_new_highscore">Scór nua is airde!</string>
     <string name="finish_new_best_tries">Nua is fearr!</string>
     <string name="finish_highscore">Scór is airde: %1$s</string>
-    <string name="finish_best_tries">Is fearr: %1$s iarracht</string>
+    <plurals name="finish_best_tries">
+        <item quantity="one">Is fearr: %1$d iarracht</item>
+        <item quantity="two">Is fearr: %1$d iarracht</item>
+        <item quantity="few">Is fearr: %1$d iarracht</item>
+        <item quantity="many">Is fearr: %1$d n-iarracht</item>
+        <item quantity="other">Is fearr: %1$d iarracht</item>
+    </plurals>
     <string name="button_play_next_level">Imir an chéad leibhéal eile</string>
     <string name="finish_max_level_reached">Leibhéal uasta sroichte. Fan le hábhar nua.</string>
     <string name="finish_congruency_effect_title">Costas comhréire</string>
@@ -474,13 +498,11 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="shape_house">Teach</string>
     <string name="shape_arrow">Saighead</string>
 
-    <string name="direction_up">suas</string>
-    <string name="direction_right">ar dheis</string>
-    <string name="direction_down">síos</string>
-    <string name="direction_left">ar chlé</string>
-
-    <string name="solution_pointing">%1$s %2$s ag díriú %3$s</string>
-    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_pointing_up">%2$s ag díriú suas (%1$s)</string>
+    <string name="solution_pointing_right">%2$s ag díriú ar dheis (%1$s)</string>
+    <string name="solution_pointing_down">%2$s ag díriú síos (%1$s)</string>
+    <string name="solution_pointing_left">%2$s ag díriú ar chlé (%1$s)</string>
+    <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">colún %1$d agus ró %2$d</string>
     <string name="hint_remember">Cuimhnigh ar %1$d</string>
     <string name="solution_left">Ar chlé</string>
@@ -953,7 +975,6 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_topic_intro">Oibrigh tríothu in ord. Tógann gach céim ar an gceann roimhe.</string>
     <string name="learn_topic_certificates">%1$d as %2$d deimhnithe</string>
     <string name="learn_ages">Aoiseanna %1$s</string>
-
 
     <string name="learn_topic_arithmetic">Uimhríocht</string>
     <string name="learn_topic_arithmetic_subtitle">Uimhreacha agus oibríochtaí</string>

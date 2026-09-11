@@ -31,6 +31,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.medalTint
+import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -159,14 +160,11 @@ fun FinishScreen(
             }
         } else if (highscore > 0 && !gameType.usesLevelLabel) {
             Text(
-                text = stringResource(
-                    if (gameType.usesTriesLabel) {
-                        Res.string.finish_best_tries
-                    } else {
-                        Res.string.finish_highscore
-                    },
-                    gameType.formattedScore(highscore),
-                ),
+                text = if (gameType.usesTriesLabel) {
+                    pluralStringResource(Res.plurals.finish_best_tries, highscore, highscore)
+                } else {
+                    stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore))
+                },
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
