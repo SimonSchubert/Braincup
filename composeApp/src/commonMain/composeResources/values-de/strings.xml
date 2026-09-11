@@ -958,7 +958,7 @@
     <string name="learn_measurement_length_ruler_title">Das Lineal ablesen</string>
     <string name="learn_measurement_length_ruler_summary">Bei null anlegen, am anderen Ende ablesen.</string>
     <string name="learn_measurement_length_ruler_s1_body">Ein Lineal ist in gleichen Schritten markiert. Eine Länge ist also nie mehr als die Anzahl dieser Schritte, die der Gegenstand überdeckt.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Leg den Gegenstand an der 0 an und lies den Strich ab, den sein anderes Ende erreicht. Fängst du woanders an, fehlt dem Messwert genau das, was du übersprungen hast.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Leg den Gegenstand an der 0 an und lies den Strich ab, den sein anderes Ende erreicht. Fängst du woanders an, ist der Messwert um genau das zu lang, was du übersprungen hast.</string>
     <string name="learn_measurement_length_ruler_s3_question">Wie lang ist dieser Bleistift?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Sein Ende reicht bis zum neunten Strich, von null an gezählt.</string>
     <string name="learn_measurement_length_ruler_s4_question">Dieser Stab wird gemessen, dann wird ein Stück von 4 cm abgesägt. Wie viele Zentimeter bleiben übrig?</string>
@@ -1468,14 +1468,14 @@
     <string name="learn_opt_two_solutions">Genau zwei</string>
     <string name="learn_opt_infinitely_many">Unendlich viele</string>
     <string name="learn_unit_algebra_quadratics_title">Quadratische Gleichungen</string>
-    <string name="learn_unit_algebra_quadratics_summary">Ein quadratischer Term biegt die Gerade und gibt ihr zwei Nullstellen.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Ein quadratischer Term biegt die Gerade. Nullstellen sind dort, wo die Kurve die Achse trifft.</string>
     <string name="learn_algebra_quadratics_parabola_title">Die Parabel</string>
     <string name="learn_algebra_quadratics_parabola_summary">Was ein quadratischer Term mit der Form macht.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Ein quadratischer Term biegt den Graphen. Statt einer Geraden bekommst du eine symmetrische Kurve.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">Der tiefste Punkt ist der Scheitelpunkt, und die Kurve ist links und rechts davon spiegelgleich.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">Wie oft schneidet diese Kurve die x-Achse?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Eine Kurve, die unter die Achse taucht und wieder hoch kommt, muss sie zweimal schneiden.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Wo die Kurve die x-Achse trifft, ist die Höhe null. Diese zwei Stellen heißen Nullstellen.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Wo die Kurve die x-Achse trifft, ist die Höhe null. Jede dieser Stellen heißt Nullstelle.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Diese Kurve schneidet die x-Achse zweimal. Wo liegt der positive Schnittpunkt?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Welche Regel ergibt eine Kurve, die nach unten geöffnet ist?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Ein Minus vor dem quadratischen Term dreht die ganze Kurve um.</string>
@@ -1490,7 +1490,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">Sie muss mit der 4 multipliziert 20 ergeben und mit ihr addiert 9.</string>
     <string name="learn_algebra_quadratics_solving_title">Lösen durch Zerlegen</string>
     <string name="learn_algebra_quadratics_solving_summary">Ergeben zwei Dinge multipliziert null, ist eines davon null.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Ergeben zwei Zahlen multipliziert null, muss mindestens eine davon selbst null sein. Genau diese eine Tatsache löst eine quadratische Gleichung.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Ergeben zwei Zahlen multipliziert null, muss mindestens eine davon selbst null sein. Genau auf dieser einen Tatsache beruht das Lösen durch Zerlegen.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Setz also jede Klammer der Reihe nach auf null. Jede gibt einen Wert für x, und das sind die zwei Nullstellen.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Jede Klammer ist null bei dem Wert, der sie aufhebt, und die Vorzeichen drehen sich dabei um.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">Der Graph bestätigt es: die Nullstellen sind genau da, wo die Kurve die Achse schneidet.</string>
@@ -1861,7 +1861,7 @@
     <string name="learn_g68_arithmetic_negatives_title">Links von der Null</string>
     <string name="learn_g68_arithmetic_negatives_summary">Der Zahlenstrahl geht weiter, und die Reihenfolge auch.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Die Null ist nicht das Ende des Zahlenstrahls. Rechts ist weiter mehr und links weiter weniger, und links von der Null tragen die Zahlen ein Minus.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Eine negative Zahl ist ein Fehlbetrag, keine Menge. Minus vier ist vier Schritte unter null, und es gibt nichts, wovon du vier haben kannst.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Eine negative Zahl ist ein Platz auf dem Strahl, kein Haufen. Minus vier ist vier Schritte links von null, dieselben vier in die andere Richtung.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 ist 4 links von 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Am weitesten rechts auf dem Strahl gewinnt, und die Null liegt rechts von jeder negativen Zahl.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Je weiter links, desto kleiner. Deshalb ist -10 kleiner als -1, obwohl 10 mehr ist als 1.</string>

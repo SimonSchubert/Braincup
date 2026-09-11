@@ -965,7 +965,7 @@
     <string name="learn_measurement_length_ruler_title">Как читать линейку</string>
     <string name="learn_measurement_length_ruler_summary">Начни с нуля и прочитай дальний конец.</string>
     <string name="learn_measurement_length_ruler_s1_body">Линейка размечена равными шагами, поэтому длина - это всего лишь число таких шагов, которые покрывает предмет.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Приложи предмет к 0 и прочитай отметку, до которой доходит его дальний конец. Начни с другого места, и показание окажется меньше на то, что ты пропустил.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Приложи предмет к 0 и прочитай отметку, до которой доходит его дальний конец. Начни с другого места, и показание окажется больше на то, что ты пропустил.</string>
     <string name="learn_measurement_length_ruler_s3_question">Какой длины этот карандаш?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Его дальний конец доходит до девятой отметки, если считать от нуля.</string>
     <string name="learn_measurement_length_ruler_s4_question">Эту палку измерили, а потом отпилили от неё кусок в 4 см. Сколько сантиметров осталось?</string>
@@ -1475,14 +1475,14 @@
     <string name="learn_opt_two_solutions">Ровно два</string>
     <string name="learn_opt_infinitely_many">Бесконечно много</string>
     <string name="learn_unit_algebra_quadratics_title">Квадратные уравнения</string>
-    <string name="learn_unit_algebra_quadratics_summary">Квадрат изгибает прямую и даёт ей два корня.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Квадрат изгибает прямую. Корни - там, где эта кривая встречает ось.</string>
     <string name="learn_algebra_quadratics_parabola_title">Парабола</string>
     <string name="learn_algebra_quadratics_parabola_summary">Что квадрат делает с формой графика.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Слагаемое в квадрате изгибает график. Вместо прямой получается симметричная кривая.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">Точка поворота внизу - это вершина, и по обе стороны от неё кривая зеркальна.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">Сколько раз эта кривая пересекает ось x?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Кривая, которая опускается под ось и поднимается обратно, должна пересечь её дважды.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Там, где кривая встречает ось x, высота равна нулю. Эти два места называются корнями.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Там, где кривая встречает ось x, высота равна нулю. Каждое такое место называется корнем.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Эта кривая дважды пересекает ось x. Где положительная точка пересечения?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Какое правило даёт кривую с ветвями вниз?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Минус перед слагаемым в квадрате переворачивает всю кривую.</string>
@@ -1497,7 +1497,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">С 4 оно должно давать 20 в произведении и 9 в сумме.</string>
     <string name="learn_algebra_quadratics_solving_title">Решение через разложение</string>
     <string name="learn_algebra_quadratics_solving_summary">Если произведение равно нулю, один из множителей равен нулю.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Если произведение двух чисел равно нулю, хотя бы одно из них само равно нулю. Этот единственный факт и решает квадратное уравнение.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Если произведение двух чисел равно нулю, хотя бы одно из них само равно нулю. На этом единственном факте держится решение через разложение.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Поэтому приравняй к нулю каждую скобку по очереди. Каждая даёт значение x, и это два корня.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Каждая скобка равна нулю при своём значении x, и знак при этом меняется на обратный.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">График согласен: корни ровно там, где кривая пересекает ось.</string>
@@ -1875,7 +1875,7 @@
     <string name="learn_g68_arithmetic_negatives_title">Слева от нуля</string>
     <string name="learn_g68_arithmetic_negatives_summary">Прямая продолжается, и порядок вместе с ней.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Ноль - не конец прямой. Вправо по-прежнему больше, влево по-прежнему меньше, а слева от нуля числа носят минус.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Отрицательное число - это нехватка, а не количество. Минус четыре - это четыре шага ниже нуля, и нет ничего, чего у тебя четыре штуки.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Отрицательное число - это место на прямой, а не куча вещей. Минус четыре - это четыре шага влево от нуля, те же четыре в другую сторону.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 - это 4 влево от 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Побеждает то, что правее на прямой, а ноль стоит правее любого отрицательного числа.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Чем левее, тем меньше. Поэтому -10 меньше -1, хотя 10 больше 1.</string>

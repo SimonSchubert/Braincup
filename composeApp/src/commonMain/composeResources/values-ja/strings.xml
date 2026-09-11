@@ -1243,7 +1243,7 @@
     <string name="learn_g68_arithmetic_negatives_title">ゼロより左</string>
     <string name="learn_g68_arithmetic_negatives_summary">数直線は先へ続き、大小の順もそのまま続く。</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">ゼロは数直線の終わりではない。右へ行けば大きく、左へ行けば小さいのは変わらず、ゼロより左の数はマイナスをつけている。</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">負の数は足りない分であって、物の数ではない。マイナス四はゼロより四つ下という意味で、四つ持てる物があるわけではない。</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">負の数は数直線上の位置であって、物の山ではない。マイナス四はゼロより四つ左、同じ四つを反対向きに進んだところ。</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 は 0 より 4 だけ左</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">数直線でいちばん右にあるものが大きい。ゼロはどの負の数よりも右にある。</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">左へ行くほど小さい。だから 10 は 1 より大きいのに、-10 は -1 より小さい。</string>

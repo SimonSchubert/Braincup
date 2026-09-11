@@ -958,7 +958,7 @@
     <string name="learn_measurement_length_ruler_title">Lire la règle</string>
     <string name="learn_measurement_length_ruler_summary">Commence à zéro et lis l'autre bout.</string>
     <string name="learn_measurement_length_ruler_s1_body">Une règle est graduée en pas égaux, donc une longueur n'est jamais rien d'autre que le nombre de ces pas que l'objet couvre.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Aligne l'objet sur le 0 et lis le trait que son autre bout atteint. Si tu commences ailleurs, il manque à la mesure exactement ce que tu as sauté.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Aligne l'objet sur le 0 et lis le trait que son autre bout atteint. Si tu commences ailleurs, la mesure est trop longue de ce que tu as sauté.</string>
     <string name="learn_measurement_length_ruler_s3_question">Quelle est la longueur de ce crayon ?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Son autre bout atteint le neuvième trait, compté depuis zéro.</string>
     <string name="learn_measurement_length_ruler_s4_question">On mesure ce bâton, puis on en scie un morceau de 4 cm. Combien de centimètres reste-t-il ?</string>
@@ -1468,14 +1468,14 @@
     <string name="learn_opt_two_solutions">Exactement deux</string>
     <string name="learn_opt_infinitely_many">Une infinité</string>
     <string name="learn_unit_algebra_quadratics_title">Équations du second degré</string>
-    <string name="learn_unit_algebra_quadratics_summary">Un terme au carré courbe la droite et lui donne deux racines.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Un terme au carré courbe la droite. Les racines sont là où cette courbe rencontre l'axe.</string>
     <string name="learn_algebra_quadratics_parabola_title">La parabole</string>
     <string name="learn_algebra_quadratics_parabola_summary">Ce qu'un terme au carré fait à la forme.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Un terme au carré courbe le graphique. Au lieu d'une droite tu obtiens une courbe symétrique.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">Le point le plus bas est le sommet, et la courbe est l'image miroir d'elle-même de part et d'autre.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">Combien de fois cette courbe coupe-t-elle l'axe des abscisses ?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Une courbe qui plonge sous l'axe puis remonte doit le couper deux fois.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Là où la courbe rencontre l'axe des abscisses, la hauteur vaut zéro. Ces deux endroits s'appellent les racines.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Là où la courbe rencontre l'axe des abscisses, la hauteur vaut zéro. Chacun de ces contacts s'appelle une racine.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Cette courbe coupe l'axe des abscisses deux fois. Où se trouve le croisement positif ?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Quelle règle donne une courbe tournée vers le bas ?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Un moins devant le terme au carré retourne toute la courbe.</string>
@@ -1490,7 +1490,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">Avec le 4, il doit donner 20 en produit et 9 en somme.</string>
     <string name="learn_algebra_quadratics_solving_title">Résoudre en factorisant</string>
     <string name="learn_algebra_quadratics_solving_summary">Si deux choses ont un produit nul, l'une des deux est nulle.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Si deux nombres ont un produit nul, au moins l'un des deux est lui-même nul. C'est ce seul fait qui résout une équation du second degré.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Si deux nombres ont un produit nul, au moins l'un des deux est lui-même nul. C'est sur ce seul fait que repose la résolution en factorisant.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Mets donc chaque parenthèse à zéro à tour de rôle. Chacune donne une valeur de x, et ce sont les deux racines.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Chaque parenthèse est nulle à la valeur qui l'annule, et les signes s'inversent.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">Le graphique le confirme : les racines sont exactement là où la courbe coupe l'axe.</string>
@@ -1858,7 +1858,7 @@
     <string name="learn_g68_arithmetic_negatives_title">À gauche de zéro</string>
     <string name="learn_g68_arithmetic_negatives_summary">La droite continue, et l'ordre aussi.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Zéro n'est pas le bout de la droite. À droite c'est toujours plus, à gauche c'est toujours moins, et à gauche de zéro les nombres portent un signe moins.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Un négatif est un manque, pas une quantité. Moins quatre, c'est quatre pas en dessous de zéro, et il n'y a rien dont tu puisses en avoir quatre.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Un négatif est une place sur la droite, pas un tas de choses. Moins quatre, c'est quatre pas à gauche de zéro, les mêmes quatre de l'autre côté.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 est à 4 à gauche de 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Celui qui est le plus à droite l'emporte, et zéro se trouve à droite de tous les négatifs.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Plus on va à gauche, plus c'est petit. C'est pour cela que -10 est plus petit que -1, alors que 10 est plus grand que 1.</string>

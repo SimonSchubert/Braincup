@@ -957,7 +957,7 @@
     <string name="learn_measurement_length_ruler_title">पैमाना पढ़ना</string>
     <string name="learn_measurement_length_ruler_summary">शून्य से शुरू करें और दूसरा सिरा पढ़ें।</string>
     <string name="learn_measurement_length_ruler_s1_body">पैमाने पर बराबर कदमों के निशान होते हैं, इसलिए लंबाई बस यह गिनती है कि चीज़ ऐसे कितने कदम घेरती है।</string>
-    <string name="learn_measurement_length_ruler_s2_body">चीज़ को 0 से मिलाएँ और पढ़ें कि उसका दूसरा सिरा किस निशान तक पहुँचता है। कहीं और से शुरू करें तो पढ़ाई उतनी कम आएगी जितना आपने छोड़ा।</string>
+    <string name="learn_measurement_length_ruler_s2_body">चीज़ को 0 से मिलाएँ और पढ़ें कि उसका दूसरा सिरा किस निशान तक पहुँचता है। कहीं और से शुरू करें तो पढ़ाई उतनी ज़्यादा आएगी जितना आपने छोड़ा।</string>
     <string name="learn_measurement_length_ruler_s3_question">यह पेंसिल कितनी लंबी है?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">शून्य से गिनें तो इसका दूसरा सिरा नौवें निशान तक पहुँचता है।</string>
     <string name="learn_measurement_length_ruler_s4_question">यह डंडा नापा गया, फिर उसका 4 cm का टुकड़ा काट दिया गया। कितने सेंटीमीटर बचे?</string>
@@ -1467,14 +1467,14 @@
     <string name="learn_opt_two_solutions">ठीक दो</string>
     <string name="learn_opt_infinitely_many">अनगिनत</string>
     <string name="learn_unit_algebra_quadratics_title">द्विघात</string>
-    <string name="learn_unit_algebra_quadratics_summary">वर्ग वाला पद रेखा को मोड़ देता है, और उसे दो मूल देता है।</string>
+    <string name="learn_unit_algebra_quadratics_summary">वर्ग वाला पद रेखा को मोड़ देता है। मूल वहीं हैं जहाँ वह वक्र अक्ष से मिलता है।</string>
     <string name="learn_algebra_quadratics_parabola_title">परवलय</string>
     <string name="learn_algebra_quadratics_parabola_summary">वर्ग वाला पद आकार के साथ क्या करता है।</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">वर्ग वाला पद ग्राफ़ को मोड़ देता है। सीधी रेखा की जगह एक सममित वक्र मिलता है।</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">नीचे का मोड़ बिंदु शीर्ष है, और वक्र उसके दोनों ओर दर्पण जैसा है।</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">यह वक्र x-अक्ष को कितनी बार काटता है?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">जो वक्र अक्ष के नीचे जाकर फिर ऊपर आता है, उसे अक्ष को दो बार काटना ही पड़ता है।</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">जहाँ वक्र x-अक्ष से मिलता है, वहाँ ऊँचाई शून्य होती है। इन दो जगहों को मूल कहते हैं।</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">जहाँ वक्र x-अक्ष से मिलता है, वहाँ ऊँचाई शून्य होती है। हर ऐसी मुलाकात को मूल कहते हैं।</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">यह वक्र x-अक्ष को दो बार काटता है। धनात्मक कटान बिंदु कौन-सा है?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">कौन-सा नियम नीचे की ओर खुलने वाला वक्र देता है?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">वर्ग वाले पद के आगे ऋण चिह्न पूरे वक्र को उलट देता है।</string>
@@ -1489,7 +1489,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">उसे 4 के साथ गुणा होकर 20 और जुड़कर 9 देना है।</string>
     <string name="learn_algebra_quadratics_solving_title">गुणनखंड से हल करना</string>
     <string name="learn_algebra_quadratics_solving_summary">अगर दो चीज़ों का गुणनफल शून्य है, तो उनमें से एक शून्य है।</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">अगर दो संख्याओं का गुणनफल शून्य है, तो कम से कम एक खुद शून्य होनी चाहिए। यही एक तथ्य द्विघात समीकरण हल करता है।</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">अगर दो संख्याओं का गुणनफल शून्य है, तो कम से कम एक खुद शून्य होनी चाहिए। गुणनखंड से हल करना इसी एक तथ्य पर टिका है।</string>
     <string name="learn_algebra_quadratics_solving_s2_body">इसलिए बारी-बारी से हर कोष्ठक को शून्य के बराबर रखें। हर एक से x का एक मान मिलता है, और यही दो मूल हैं।</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">हर कोष्ठक उस मान पर शून्य होता है जो उसे काट देता है, और चिह्न उलट जाते हैं।</string>
     <string name="learn_algebra_quadratics_solving_s4_body">ग्राफ़ भी यही कहता है: मूल ठीक वहीं हैं जहाँ वक्र अक्ष को काटता है।</string>
@@ -1857,7 +1857,7 @@
     <string name="learn_g68_arithmetic_negatives_title">शून्य के बाईं ओर</string>
     <string name="learn_g68_arithmetic_negatives_summary">रेखा आगे चलती रहती है, और क्रम भी।</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">शून्य रेखा का अंत नहीं है। दाईं ओर अब भी ज़्यादा है और बाईं ओर अब भी कम, और शून्य के बाईं ओर संख्याएँ ऋण चिह्न पहनती हैं।</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">ऋणात्मक संख्या कमी है, कोई मात्रा नहीं। ऋण चार यानी शून्य से चार कदम नीचे, और ऋण चार चीज़ें किसी के पास नहीं हो सकतीं।</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">ऋणात्मक संख्या रेखा पर एक जगह है, चीज़ों का ढेर नहीं। ऋण चार यानी शून्य से चार कदम बाईं ओर, वही चार दूसरी तरफ़।</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 यानी 0 से 4 बाईं ओर</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">रेखा पर सबसे दाईं ओर वाली संख्या जीतती है, और शून्य हर ऋणात्मक संख्या के दाईं ओर है।</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">जितना बाईं ओर, उतना छोटा। इसीलिए -10, -1 से छोटा है, जबकि 10, 1 से बड़ा है।</string>

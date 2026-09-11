@@ -957,7 +957,7 @@
     <string name="learn_measurement_length_ruler_title">Membaca penggaris</string>
     <string name="learn_measurement_length_ruler_summary">Mulai dari nol dan baca ujung satunya.</string>
     <string name="learn_measurement_length_ruler_s1_body">Penggaris ditandai dengan langkah yang sama, jadi panjang tidak lain adalah hitungan berapa banyak langkah yang ditutupi benda itu.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Tempatkan benda tepat di 0 dan baca tanda yang dicapai ujung satunya. Mulai dari tempat lain, dan bacaanmu kurang sebanyak yang terlewat.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Tempatkan benda tepat di 0 dan baca tanda yang dicapai ujung satunya. Mulai dari tempat lain, dan bacaannya lebih panjang sebanyak yang terlewat.</string>
     <string name="learn_measurement_length_ruler_s3_question">Berapa panjang pensil ini?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Ujung satunya mencapai tanda kesembilan, dihitung dari nol.</string>
     <string name="learn_measurement_length_ruler_s4_question">Tongkat ini diukur, lalu dipotong 4 cm. Berapa sentimeter yang tersisa?</string>
@@ -1467,14 +1467,14 @@
     <string name="learn_opt_two_solutions">Tepat dua</string>
     <string name="learn_opt_infinitely_many">Tak terhingga banyaknya</string>
     <string name="learn_unit_algebra_quadratics_title">Persamaan kuadrat</string>
-    <string name="learn_unit_algebra_quadratics_summary">Suku kuadrat membengkokkan garis dan memberinya dua akar.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Suku kuadrat membengkokkan garis. Akarnya ada di tempat kurva itu bertemu sumbu.</string>
     <string name="learn_algebra_quadratics_parabola_title">Parabola</string>
     <string name="learn_algebra_quadratics_parabola_summary">Apa yang dilakukan suku kuadrat pada bentuknya.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Suku kuadrat membengkokkan grafiknya. Alih-alih garis lurus, kamu mendapat kurva yang simetris.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">Titik balik di bawah adalah titik puncak, dan kurvanya seperti bayangan cermin di kedua sisinya.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">Berapa kali kurva ini memotong sumbu x?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Kurva yang turun ke bawah sumbu lalu naik lagi pasti memotongnya dua kali.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Di tempat kurva bertemu sumbu x, tingginya nol. Kedua tempat itu disebut akar.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Di tempat kurva bertemu sumbu x, tingginya nol. Setiap pertemuan itu disebut akar.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Kurva ini memotong sumbu x dua kali. Di mana titik potong yang positif?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Aturan mana yang memberi kurva yang terbuka ke bawah?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Tanda minus di depan suku kuadrat membalik seluruh kurvanya.</string>
@@ -1489,7 +1489,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">Bilangan itu harus menghasilkan 20 jika dikalikan dengan 4, dan 9 jika dijumlahkan dengannya.</string>
     <string name="learn_algebra_quadratics_solving_title">Menyelesaikan dengan pemfaktoran</string>
     <string name="learn_algebra_quadratics_solving_summary">Jika dua hal dikalikan menghasilkan nol, salah satunya nol.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Jika dua bilangan dikalikan menghasilkan nol, setidaknya salah satunya pasti nol. Fakta tunggal inilah yang menyelesaikan persamaan kuadrat.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Jika dua bilangan dikalikan menghasilkan nol, setidaknya salah satunya pasti nol. Fakta tunggal inilah dasar menyelesaikan dengan pemfaktoran.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Jadi jadikan tiap kurung nol secara bergantian. Masing-masing memberi satu nilai x, dan itulah kedua akarnya.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Tiap kurung bernilai nol pada nilai yang meniadakannya, dan tandanya berbalik.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">Grafiknya setuju: akar-akarnya tepat di tempat kurva memotong sumbu.</string>
@@ -1852,7 +1852,7 @@
     <string name="learn_g68_arithmetic_negatives_title">Di kiri nol</string>
     <string name="learn_g68_arithmetic_negatives_summary">Garisnya berlanjut, dan urutannya juga.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Nol bukan ujung garis. Ke kanan tetap lebih banyak dan ke kiri tetap lebih sedikit, dan di kiri nol bilangannya memakai tanda minus.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Bilangan negatif adalah kekurangan, bukan banyaknya benda. Minus empat adalah empat langkah di bawah nol, dan tidak ada benda yang bisa kamu punya empat.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Bilangan negatif adalah tempat di garis, bukan tumpukan benda. Minus empat adalah empat langkah ke kiri dari nol, empat yang sama ke arah sebaliknya.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 adalah 4 di kiri 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Yang paling kanan di garis menang, dan nol ada di kanan semua bilangan negatif.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Makin ke kiri, makin kecil. Itu sebabnya -10 lebih kecil daripada -1, padahal 10 lebih besar daripada 1.</string>

@@ -1243,7 +1243,7 @@
     <string name="learn_g68_arithmetic_negatives_title">零的左邊</string>
     <string name="learn_g68_arithmetic_negatives_summary">數線繼續往下走，大小順序也一樣。</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">零不是數線的盡頭。往右還是變多，往左還是變少，而零的左邊，每個數都帶著一個負號。</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">負數是一種欠缺，不是一種數量。負四就是零往左四格，而你找不到任何東西可以有負四個。</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">負數是數線上的一個位置，不是一堆東西。負四就是零往左四格，同樣的四，只是朝另一邊。</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 就是 0 往左 4</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">在數線上越靠右的越大，而零在每一個負數的右邊。</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">越往左越小。所以 -10 比 -1 還小，即使 10 比 1 大。</string>

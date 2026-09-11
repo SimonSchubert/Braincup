@@ -1249,7 +1249,7 @@
     <string name="learn_g68_arithmetic_negatives_title">À esquerda do zero</string>
     <string name="learn_g68_arithmetic_negatives_summary">A reta continua, e a ordem também.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">O zero não é o fim da reta. Para a direita continua a ser mais e para a esquerda continua a ser menos, e à esquerda do zero os números levam um menos.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Um negativo é uma falta, não uma quantidade. Menos quatro são quatro passos abaixo de zero, e não há nada de que possas ter quatro.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Um negativo é um sítio na reta, não um monte de coisas. Menos quatro são quatro passos à esquerda de zero, os mesmos quatro para o outro lado.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 são 4 à esquerda de 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Ganha o que está mais à direita na reta, e o zero está à direita de todos os negativos.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Quanto mais à esquerda, menor. É por isso que -10 é menor do que -1, mesmo que 10 seja mais do que 1.</string>

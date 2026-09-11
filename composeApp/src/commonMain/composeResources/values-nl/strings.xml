@@ -958,7 +958,7 @@
     <string name="learn_measurement_length_ruler_title">De liniaal aflezen</string>
     <string name="learn_measurement_length_ruler_summary">Begin bij nul en lees het andere eind af.</string>
     <string name="learn_measurement_length_ruler_s1_body">Een liniaal is in gelijke stappen verdeeld, dus een lengte is nooit meer dan het aantal van die stappen dat het voorwerp bedekt.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Leg het voorwerp op de 0 en lees het streepje af dat het andere eind haalt. Begin je ergens anders, dan mist de meting precies wat je hebt overgeslagen.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Leg het voorwerp op de 0 en lees het streepje af dat het andere eind haalt. Begin je ergens anders, dan is de meting precies zoveel te lang als je hebt overgeslagen.</string>
     <string name="learn_measurement_length_ruler_s3_question">Hoe lang is dit potlood?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Het andere eind haalt het negende streepje, geteld vanaf nul.</string>
     <string name="learn_measurement_length_ruler_s4_question">Deze stok wordt gemeten en er wordt een stuk van 4 cm afgezaagd. Hoeveel centimeter blijft er over?</string>
@@ -1468,14 +1468,14 @@
     <string name="learn_opt_two_solutions">Precies twee</string>
     <string name="learn_opt_infinitely_many">Oneindig veel</string>
     <string name="learn_unit_algebra_quadratics_title">Vierkantsvergelijkingen</string>
-    <string name="learn_unit_algebra_quadratics_summary">Een kwadratische term buigt de lijn en geeft hem twee nulpunten.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Een kwadratische term buigt de lijn. De nulpunten liggen waar die kromme de as snijdt.</string>
     <string name="learn_algebra_quadratics_parabola_title">De parabool</string>
     <string name="learn_algebra_quadratics_parabola_summary">Wat een kwadratische term met de vorm doet.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Een kwadratische term buigt de grafiek. In plaats van een rechte lijn krijg je een symmetrische kromme.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">Het laagste punt is de top, en de kromme is aan weerszijden daarvan spiegelsymmetrisch.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">Hoe vaak snijdt deze kromme de x-as?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Een kromme die onder de as duikt en weer omhoog komt moet hem twee keer snijden.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Waar de kromme de x-as raakt is de hoogte nul. Die twee plekken heten de nulpunten.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Waar de kromme de x-as raakt is de hoogte nul. Elk van die ontmoetingen heet een nulpunt.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Deze kromme snijdt de x-as twee keer. Waar ligt het positieve snijpunt?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Welke regel geeft een kromme die naar beneden opent?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Een min voor de kwadratische term keert de hele kromme om.</string>
@@ -1490,7 +1490,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">Samen met de 4 moet het getal 20 geven bij vermenigvuldigen en 9 bij optellen.</string>
     <string name="learn_algebra_quadratics_solving_title">Oplossen door te ontbinden</string>
     <string name="learn_algebra_quadratics_solving_summary">Als twee dingen vermenigvuldigd nul geven, is één van de twee nul.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Als twee getallen vermenigvuldigd nul geven, moet er minstens één zelf nul zijn. Dat ene feit lost een vierkantsvergelijking op.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Als twee getallen vermenigvuldigd nul geven, moet er minstens één zelf nul zijn. Op dat ene feit steunt het oplossen door te ontbinden.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Stel dus elk haakje om de beurt op nul. Elk geeft een waarde van x, en dat zijn de twee nulpunten.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Elk haakje is nul bij de waarde die het opheft, en de tekens draaien daarbij om.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">De grafiek bevestigt het: de nulpunten liggen precies waar de kromme de as snijdt.</string>
@@ -1858,7 +1858,7 @@
     <string name="learn_g68_arithmetic_negatives_title">Links van nul</string>
     <string name="learn_g68_arithmetic_negatives_summary">De lijn loopt door, en de volgorde ook.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Nul is niet het einde van de lijn. Rechts is nog steeds meer en links nog steeds minder, en links van nul dragen de getallen een min.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Een negatief getal is een tekort, geen hoeveelheid. Min vier is vier stappen onder nul, en er is niets waarvan je er vier kunt hebben.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Een negatief getal is een plek op de lijn, geen stapel dingen. Min vier is vier stappen links van nul, dezelfde vier de andere kant op.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 is 4 links van 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Het verst naar rechts op de lijn wint, en nul ligt rechts van elk negatief getal.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Hoe verder naar links, hoe kleiner. Daarom is -10 kleiner dan -1, ook al is 10 meer dan 1.</string>

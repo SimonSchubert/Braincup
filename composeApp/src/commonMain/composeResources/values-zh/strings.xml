@@ -957,7 +957,7 @@
     <string name="learn_measurement_length_ruler_title">读尺子</string>
     <string name="learn_measurement_length_ruler_summary">从零开始，读另一端。</string>
     <string name="learn_measurement_length_ruler_s1_body">尺子上的刻度间隔相等，所以长度说到底，就是数物体占了几格。</string>
-    <string name="learn_measurement_length_ruler_s2_body">把物体对准 0，读它另一端到达的刻度。从别处开始，读数就会差掉你跳过的那一段。</string>
+    <string name="learn_measurement_length_ruler_s2_body">把物体对准 0，读它另一端到达的刻度。从别处开始，读数就会多出你跳过的那一段。</string>
     <string name="learn_measurement_length_ruler_s3_question">这支铅笔有多长？</string>
     <string name="learn_measurement_length_ruler_s3_explanation">从零开始数，它的另一端到了第九个刻度。</string>
     <string name="learn_measurement_length_ruler_s4_question">先量这根木棍，再锯掉 4 cm。还剩多少厘米？</string>
@@ -1467,14 +1467,14 @@
     <string name="learn_opt_two_solutions">正好两个</string>
     <string name="learn_opt_infinitely_many">无数个</string>
     <string name="learn_unit_algebra_quadratics_title">二次方程</string>
-    <string name="learn_unit_algebra_quadratics_summary">平方项让直线弯曲，还带来两个根。</string>
+    <string name="learn_unit_algebra_quadratics_summary">平方项让直线弯曲。根就是这条曲线和轴相交的地方。</string>
     <string name="learn_algebra_quadratics_parabola_title">抛物线</string>
     <string name="learn_algebra_quadratics_parabola_summary">平方项会让图形变成什么样。</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">平方项让图像弯曲。得到的不是直线，而是一条对称的曲线。</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">最底下的转折点叫顶点，曲线在它两侧互为镜像。</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">这条曲线和 x 轴相交几次？</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">曲线降到轴下面再回上来，必然穿过它两次。</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">曲线和 x 轴相交的地方，高度为零。这两个地方叫作根。</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">曲线和 x 轴相交的地方，高度为零。每一次相交都叫作根。</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">这条曲线和 x 轴相交两次。正的那个交点是多少？</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">哪条规则得出的曲线开口向下？</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">平方项前面的负号会把整条曲线翻过来。</string>
@@ -1489,7 +1489,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">它和 4 相乘要得 20，相加要得 9。</string>
     <string name="learn_algebra_quadratics_solving_title">用因式分解来解</string>
     <string name="learn_algebra_quadratics_solving_summary">两个数相乘得零，其中一个就是零。</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">两个数相乘得零，至少其中一个本身就是零。解二次方程靠的就是这一点。</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">两个数相乘得零，至少其中一个本身就是零。用因式分解来解，靠的就是这一点。</string>
     <string name="learn_algebra_quadratics_solving_s2_body">所以依次让每个括号等于零。每个括号给出一个 x 的值，它们就是两个根。</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">每个括号在能把它消成零的那个值上等于零，符号要反过来。</string>
     <string name="learn_algebra_quadratics_solving_s4_body">图像也这么说：根正好是曲线和轴相交的地方。</string>
@@ -1852,7 +1852,7 @@
     <string name="learn_g68_arithmetic_negatives_title">零的左边</string>
     <string name="learn_g68_arithmetic_negatives_summary">数轴继续往左走，大小顺序也照旧。</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">零不是数轴的尽头。往右还是越来越大，往左还是越来越小，零左边的数都戴着一个负号。</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">负数说的是差多少，不是有多少。负四是比零低四步，你手里并没有四个什么东西。</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">负数是数轴上的一个位置，不是一堆东西。负四是零左边四步，同样的四，只是朝另一边。</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 就是 0 左边 4 格</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">在数轴上越靠右越大，而零在每个负数的右边。</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">越往左越小。所以 -10 比 -1 小，哪怕 10 比 1 大。</string>

@@ -957,7 +957,7 @@
     <string name="learn_measurement_length_ruler_title">Leer la regla</string>
     <string name="learn_measurement_length_ruler_summary">Empieza en el cero y lee el otro extremo.</string>
     <string name="learn_measurement_length_ruler_s1_body">Una regla está marcada en pasos iguales, así que una longitud nunca es más que la cuenta de cuántos de esos pasos cubre el objeto.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Alinea el objeto con el 0 y lee la marca a la que llega su otro extremo. Si empiezas en cualquier otro sitio, a la medida le falta justo lo que te has saltado.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Alinea el objeto con el 0 y lee la marca a la que llega su otro extremo. Si empiezas en cualquier otro sitio, la medida se pasa por justo lo que te has saltado.</string>
     <string name="learn_measurement_length_ruler_s3_question">¿Cuánto mide este lápiz?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Su otro extremo llega a la novena marca, contando desde cero.</string>
     <string name="learn_measurement_length_ruler_s4_question">Se mide este palo y luego se sierra un trozo de 4 cm. ¿Cuántos centímetros quedan?</string>
@@ -1467,14 +1467,14 @@
     <string name="learn_opt_two_solutions">Exactamente dos</string>
     <string name="learn_opt_infinitely_many">Infinitas</string>
     <string name="learn_unit_algebra_quadratics_title">Ecuaciones de segundo grado</string>
-    <string name="learn_unit_algebra_quadratics_summary">Un término al cuadrado curva la recta y le da dos raíces.</string>
+    <string name="learn_unit_algebra_quadratics_summary">Un término al cuadrado curva la recta. Las raíces son donde esa curva se encuentra con el eje.</string>
     <string name="learn_algebra_quadratics_parabola_title">La parábola</string>
     <string name="learn_algebra_quadratics_parabola_summary">Lo que un término al cuadrado le hace a la forma.</string>
     <string name="learn_algebra_quadratics_parabola_s1_body">Un término al cuadrado curva la gráfica. En vez de una recta obtienes una curva simétrica.</string>
     <string name="learn_algebra_quadratics_parabola_s2_body">El punto más bajo es el vértice, y la curva es su propio reflejo a cada lado.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">¿Cuántas veces corta esta curva al eje x?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">Una curva que baja por debajo del eje y vuelve a subir tiene que cortarlo dos veces.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Donde la curva se encuentra con el eje x la altura vale cero. Esos dos sitios se llaman las raíces.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Donde la curva se encuentra con el eje x la altura vale cero. Cada uno de esos encuentros se llama raíz.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">Esta curva corta al eje x dos veces. ¿Dónde está el corte positivo?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">¿Qué regla da una curva que se abre hacia abajo?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">Un menos delante del término al cuadrado le da la vuelta a toda la curva.</string>
@@ -1489,7 +1489,7 @@
     <string name="learn_algebra_quadratics_factorising_s6_explanation">Con el 4, tiene que dar 20 al multiplicar y 9 al sumar.</string>
     <string name="learn_algebra_quadratics_solving_title">Resolver factorizando</string>
     <string name="learn_algebra_quadratics_solving_summary">Si dos cosas multiplicadas dan cero, una de ellas es cero.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">Si dos números multiplicados dan cero, al menos uno de ellos tiene que ser cero. Ese único hecho es lo que resuelve una ecuación de segundo grado.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">Si dos números multiplicados dan cero, al menos uno de ellos tiene que ser cero. En ese único hecho se apoya resolver factorizando.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">Así que iguala cada paréntesis a cero por turnos. Cada uno da un valor de x, y esas son las dos raíces.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Cada paréntesis vale cero en el valor que lo anula, y los signos se cambian.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">La gráfica lo confirma: las raíces están justo donde la curva corta al eje.</string>
@@ -1857,7 +1857,7 @@
     <string name="learn_g68_arithmetic_negatives_title">A la izquierda del cero</string>
     <string name="learn_g68_arithmetic_negatives_summary">La recta sigue, y el orden también.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">El cero no es el final de la recta. A la derecha sigue habiendo más y a la izquierda, menos, y a la izquierda del cero los números llevan un menos.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">Un negativo es una falta, no una cantidad. Menos cuatro son cuatro pasos por debajo de cero, y no hay nada de lo que puedas tener cuatro.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">Un negativo es un sitio en la recta, no un montón de cosas. Menos cuatro son cuatro pasos a la izquierda de cero, los mismos cuatro al otro lado.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 son 4 a la izquierda de 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Gana el que está más a la derecha en la recta, y el cero está a la derecha de todos los negativos.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">Cuanto más a la izquierda, menor. Por eso -10 es menor que -1, aunque 10 sea más que 1.</string>

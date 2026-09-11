@@ -1354,7 +1354,7 @@
     <string name="learn_g68_arithmetic_negatives_title">Left of zero</string>
     <string name="learn_g68_arithmetic_negatives_summary">The line carries on, and so does the order.</string>
     <string name="learn_g68_arithmetic_negatives_s1_body">Zero is not the end of the line. Right is still more and left is still less, and to the left of zero the numbers wear a minus.</string>
-    <string name="learn_g68_arithmetic_negatives_s2_body">A negative is a shortfall, not a quantity. Minus four is four steps below zero, and there is nothing you can have four of.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">A negative is a place on the line, not a pile of things. Minus four is four steps left of zero, the same four the other way.</string>
     <string name="learn_g68_arithmetic_negatives_s2_formula">-4 is 4 left of 0</string>
     <string name="learn_g68_arithmetic_negatives_s3_explanation">Furthest right on the line wins, and zero sits to the right of every negative.</string>
     <string name="learn_g68_arithmetic_negatives_s4_body">The further left, the smaller. That is why -10 is less than -1, even though 10 is more than 1.</string>
@@ -2712,7 +2712,7 @@
 
     <!-- Algebra: quadratics -->
     <string name="learn_unit_algebra_quadratics_title">Quadratics</string>
-    <string name="learn_unit_algebra_quadratics_summary">A squared term bends the line, and gives it two roots.</string>
+    <string name="learn_unit_algebra_quadratics_summary">A squared term bends the line. The roots are where that curve meets the axis.</string>
 
     <string name="learn_algebra_quadratics_parabola_title">The parabola</string>
     <string name="learn_algebra_quadratics_parabola_summary">What a squared term does to the shape.</string>
@@ -2720,7 +2720,7 @@
     <string name="learn_algebra_quadratics_parabola_s2_body">The turning point at the bottom is the vertex, and the curve is a mirror image either side of it.</string>
     <string name="learn_algebra_quadratics_parabola_s3_question">How many times does this curve cross the x-axis?</string>
     <string name="learn_algebra_quadratics_parabola_s3_explanation">A curve dipping below the axis and back up has to cross it twice.</string>
-    <string name="learn_algebra_quadratics_parabola_s4_body">Where the curve meets the x-axis the height is nothing. Those two places are called the roots.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Where the curve meets the x-axis the height is nothing. Each of those meetings is called a root.</string>
     <string name="learn_algebra_quadratics_parabola_s5_question">This curve crosses the x-axis twice. What is the positive crossing?</string>
     <string name="learn_algebra_quadratics_parabola_s6_question">Which rule gives a curve that opens downwards?</string>
     <string name="learn_algebra_quadratics_parabola_s6_explanation">A minus in front of the squared term turns the whole curve over.</string>
@@ -2737,7 +2737,7 @@
 
     <string name="learn_algebra_quadratics_solving_title">Solving by factorising</string>
     <string name="learn_algebra_quadratics_solving_summary">If two things multiply to nothing, one of them is nothing.</string>
-    <string name="learn_algebra_quadratics_solving_s1_body">If two numbers multiply to nothing, at least one of them must itself be nothing. That single fact is what solves a quadratic.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">If two numbers multiply to nothing, at least one of them must itself be nothing. That single fact is what solving by factorising rests on.</string>
     <string name="learn_algebra_quadratics_solving_s2_body">So set each bracket to nothing in turn. Each one gives a value of x, and those are the two roots.</string>
     <string name="learn_algebra_quadratics_solving_s3_explanation">Each bracket is nothing at the value that cancels it, and the signs swap over.</string>
     <string name="learn_algebra_quadratics_solving_s4_body">The graph agrees: the roots are exactly where the curve crosses the axis.</string>
@@ -2836,7 +2836,7 @@
     <string name="learn_measurement_length_ruler_title">Reading a ruler</string>
     <string name="learn_measurement_length_ruler_summary">Start at zero and read the far end.</string>
     <string name="learn_measurement_length_ruler_s1_body">A ruler is marked in equal steps, so a length is never more than a count of how many of those steps the object covers.</string>
-    <string name="learn_measurement_length_ruler_s2_body">Line the object up with 0 and read the mark its far end reaches. Start it anywhere else and the reading is short by whatever you skipped.</string>
+    <string name="learn_measurement_length_ruler_s2_body">Line the object up with 0 and read the mark its far end reaches. Start it anywhere else and the reading is long by whatever you skipped.</string>
     <string name="learn_measurement_length_ruler_s3_question">How long is this pencil?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Its far end reaches the ninth mark, counted from zero.</string>
     <string name="learn_measurement_length_ruler_s4_question">This stick is measured, then a 4 cm piece is sawn off. How many centimetres are left?</string>
