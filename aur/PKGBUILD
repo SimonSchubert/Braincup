@@ -37,7 +37,9 @@ package() {
 exec /opt/braincup/bin/Braincup "$@"
 EOF
 
-    # Install desktop entry
+    # Install desktop entry. StartupWMClass has to be the window class AWT
+    # actually sets, which it derives from the main class -- so it tracks
+    # mainClass in composeApp/build.gradle.kts, dots turned into dashes.
     install -Dm644 /dev/stdin "${pkgdir}/usr/share/applications/braincup.desktop" << EOF
 [Desktop Entry]
 Name=Braincup
@@ -47,7 +49,7 @@ Icon=braincup
 Type=Application
 Categories=Game;Education;
 Keywords=Math;Memory;Focus;Brain;Training;Game;
-StartupWMClass=compose-window
+StartupWMClass=com-inspiredandroid-braincup-MainKt
 Terminal=false
 EOF
 

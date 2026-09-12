@@ -6,5 +6,5 @@ Icon=io.github.simonschubert.Braincup
 Type=Application
 Categories=Game;Education;
 Keywords=Math;Memory;Focus;Brain;Training;Game;
-StartupWMClass=compose-window
+StartupWMClass=com-inspiredandroid-braincup-MainKt
 Terminal=false
