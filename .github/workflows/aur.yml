@@ -61,27 +61,36 @@ jobs:
         id: version
         run: echo "version=$(echo '${{ github.event.workflow_run.head_branch }}' | sed 's/^v//')" >> $GITHUB_OUTPUT
 
-      - name: Update PKGBUILD version and checksum
+      - name: Update PKGBUILD version and checksums
         run: |
           VERSION="${{ steps.version.outputs.version }}"
-          TARBALL_URL="https://github.com/SimonSchubert/Braincup/releases/download/v${VERSION}/Braincup-${VERSION}-linux-x86_64.tar.gz"
+          BASE_URL="https://github.com/SimonSchubert/Braincup/releases/download/v${VERSION}"
 
-          # Download tarball and compute SHA256
-          curl -L -o tarball.tar.gz "$TARBALL_URL"
-          SHA256=$(sha256sum tarball.tar.gz | cut -d' ' -f1)
-          rm tarball.tar.gz
+          # One tarball per architecture. --fail is what keeps this honest: a
+          # missing asset otherwise downloads GitHub's 404 page, which hashes
+          # happily and publishes a PKGBUILD whose checksum can never match.
+          for arch in x86_64 aarch64; do
+            if ! curl -fsSL -o "tarball-${arch}.tar.gz" "${BASE_URL}/Braincup-${VERSION}-linux-${arch}.tar.gz"; then
+              echo "::error::release v${VERSION} has no Braincup-${VERSION}-linux-${arch}.tar.gz -- does build-release.yml still build ${arch}?"
+              exit 1
+            fi
+          done
+          SHA256_X86_64=$(sha256sum tarball-x86_64.tar.gz | cut -d' ' -f1)
+          SHA256_AARCH64=$(sha256sum tarball-aarch64.tar.gz | cut -d' ' -f1)
+          rm tarball-x86_64.tar.gz tarball-aarch64.tar.gz
 
           # Update PKGBUILD
           cd aur
           sed -i "s|^pkgver=.*|pkgver=${VERSION}|" PKGBUILD
           sed -i "s|^pkgrel=.*|pkgrel=1|" PKGBUILD
-          sed -i "s|^sha256sums=.*|sha256sums=('${SHA256}')|" PKGBUILD
+          sed -i "s|^sha256sums_x86_64=.*|sha256sums_x86_64=('${SHA256_X86_64}')|" PKGBUILD
+          sed -i "s|^sha256sums_aarch64=.*|sha256sums_aarch64=('${SHA256_AARCH64}')|" PKGBUILD
 
           # Regenerate .SRCINFO
           chown -R builder:builder .
           su builder -c "makepkg --printsrcinfo" > .SRCINFO
 
-          echo "Updated to version ${VERSION} with sha256 ${SHA256}"
+          echo "Updated to version ${VERSION} (x86_64 ${SHA256_X86_64}, aarch64 ${SHA256_AARCH64})"
           cat PKGBUILD
           cat .SRCINFO
 
