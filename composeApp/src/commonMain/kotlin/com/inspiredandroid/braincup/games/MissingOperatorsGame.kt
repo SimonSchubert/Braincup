@@ -62,7 +62,15 @@ class MissingOperatorsGame : Game() {
         }
     }
 
-    fun evaluateTokens(numbers: List<Int>, operators: List<Operator>): Int? {
+    /**
+     * Generated puzzles never subtract below 0. Player answers may, so that `x + y - y` and
+     * `x - y + y` both count when they share a target.
+     */
+    fun evaluateTokens(
+        numbers: List<Int>,
+        operators: List<Operator>,
+        allowNegativeIntermediate: Boolean = false,
+    ): Int? {
         if (numbers.isEmpty()) return null
         if (operators.size != numbers.size - 1) return null
 
@@ -115,7 +123,7 @@ class MissingOperatorsGame : Game() {
                     }
                     Operator.MINUS -> {
                         val r = left - right
-                        if (r < 0) return null
+                        if (r < 0 && !allowNegativeIntermediate) return null
                         r
                     }
                 }
@@ -141,7 +149,7 @@ class MissingOperatorsGame : Game() {
 
     override fun isCorrect(input: String): Boolean {
         val userOperators = parseOperators(input) ?: return false
-        val result = evaluateTokens(numbers, userOperators)
+        val result = evaluateTokens(numbers, userOperators, allowNegativeIntermediate = true)
         return result == targetResult
     }
 

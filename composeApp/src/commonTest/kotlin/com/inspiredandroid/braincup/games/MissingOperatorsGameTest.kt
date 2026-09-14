@@ -41,8 +41,16 @@ class MissingOperatorsGameTest {
     fun testNegativeResultValidation() {
         val game = MissingOperatorsGame()
 
-        // 2 - 5 = -3 (negative intermediate result) -> should return null
+        // Generated puzzles never subtract below 0.
         assertEquals(null, game.evaluateTokens(listOf(2, 5), listOf(Operator.MINUS)))
+        assertEquals(
+            -3,
+            game.evaluateTokens(
+                listOf(2, 5),
+                listOf(Operator.MINUS),
+                allowNegativeIntermediate = true,
+            ),
+        )
     }
 
     @Test
@@ -108,5 +116,23 @@ class MissingOperatorsGameTest {
         assertTrue(game.isCorrect(" / + "))
         assertFalse(game.isCorrect("+/"))
         assertFalse(game.isCorrect("++"))
+    }
+
+    @Test
+    fun testIsCorrectAcceptsSwappedPlusMinusOfEqualTerms() {
+        val game = MissingOperatorsGame()
+        game.numbers = listOf(2, 9, 9)
+        game.correctOperators = listOf(Operator.PLUS, Operator.MINUS)
+        game.targetResult = 2
+
+        assertTrue(game.isCorrect("+-"))
+        assertTrue(game.isCorrect("-+"))
+        assertFalse(game.isCorrect("++"))
+        assertFalse(game.isCorrect("--"))
+
+        game.numbers = listOf(8, 3, 3)
+        game.targetResult = 8
+        assertTrue(game.isCorrect("+-"))
+        assertTrue(game.isCorrect("-+"))
     }
 }
