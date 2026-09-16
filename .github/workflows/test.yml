@@ -21,6 +21,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
       # Deliberately v5, not v6. v6 moved the caching layer into gradle-actions-caching,
       # a proprietary component whose use means accepting gradle.com's Terms of Use. v5 is
       # the last MIT release and already runs on Node 24, which is all this pin needs to do.
@@ -87,6 +89,8 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
       - uses: gradle/actions/setup-gradle@v5
       # Both Android flavors: src/foss and src/playStore each hold sources the other does not.
       - run: ./gradlew :composeApp:lint :androidApp:lintFossDebug :androidApp:lintPlayStoreDebug
