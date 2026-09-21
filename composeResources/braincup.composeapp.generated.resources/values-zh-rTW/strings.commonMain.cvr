@@ -1477,11 +1477,13 @@ string|settings_keypad_desc|5bCHIDHjgIEy44CBMyDnva7mlrzpoILooYzvvIzogIzkuI3mmK8g
 string|settings_keypad|6Zu76Kmx5byP5pW45a2X6Y2155uk
 string|settings_language_system|6Lef6Zqo57O757Wx
 string|settings_language|6Kqe6KiA
+string|settings_music_desc|5pKt5pS+6IOM5pmv6Z+z5qiC44CC
+string|settings_music|6Z+z5qiC
 string|settings_open|6ZaL5ZWf6Kit5a6a
 string|settings_play_games_profile_switch|5YiH5o+b
 string|settings_play_games_switch_cancel|5pqr5LiN
-string|settings_sound_desc|5pKt5pS+6Z+z5qiC5ZKM6Z+z5pWI44CC
-string|settings_sound|6IGy6Z+z
+string|settings_sound_effects_desc|5pKt5pS+6YGK5oiy6Z+z5pWI44CC
+string|settings_sound_effects|6Z+z5pWI
 string|settings_theme_dark|5rex6Imy
 string|settings_theme_desc|6YG45pOHIEJyYWluY3VwIOeahOWkluingOOAgg==
 string|settings_theme_light|5re66Imy

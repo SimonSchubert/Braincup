@@ -914,11 +914,13 @@ string|settings_keypad_desc|RMSXayAxLCAyLCAzIMSvIHZpcsWhdXRpbsSZIGVpbMSZIHZpZXRv
 string|settings_keypad|VGVsZWZvbm8gc3RpbGlhdXMga2xhdmlhdMWrcmE=
 string|settings_language_system|U2lzdGVtb3Mga2FsYmE=
 string|settings_language|S2FsYmE=
+string|settings_music_desc|TGVpc3RpIGZvbmluxJkgbXV6aWvEhS4=
+string|settings_music|TXV6aWth
 string|settings_open|QXRpZGFyeXRpIG51c3RhdHltdXM=
 string|settings_play_games_profile_switch|S2Vpc3Rp
 string|settings_play_games_switch_cancel|TmUgZGFiYXI=
-string|settings_sound_desc|TGVpc3RpIG11emlrxIUgaXIgZ2Fyc28gZWZla3R1cy4=
-string|settings_sound|R2Fyc2Fz
+string|settings_sound_effects_desc|TGVpc3RpIMW+YWlkaW1vIGdhcnN1cy4=
+string|settings_sound_effects|R2Fyc28gZWZla3RhaQ==
 string|settings_theme_dark|VGFtc2k=
 string|settings_theme_desc|UGFzaXJpbmssIGthaXAgYXRyb2RvIEJyYWluY3VwLg==
 string|settings_theme_light|xaB2aWVzaQ==

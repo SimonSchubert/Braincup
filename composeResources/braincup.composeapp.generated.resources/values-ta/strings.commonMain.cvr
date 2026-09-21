@@ -914,11 +914,13 @@ string|settings_keypad_desc|4K6u4K+H4K6y4K+NIOCuteCusOCuv+CumuCviOCur+Cuv+CusuCv
 string|settings_keypad|4K6k4K+K4K6y4K+I4K6q4K+H4K6a4K6/IOCuquCuvuCuo+CuvyDgro7grqPgr40g4K6q4K6y4K6V4K+I
 string|settings_language_system|4K6V4K6j4K6/4K6p4K6/IOCuruCviuCutOCuvw==
 string|settings_language|4K6u4K+K4K604K6/
+string|settings_music_desc|4K6q4K6/4K6p4K+N4K6p4K6j4K6/IOCuh+CumuCviOCur+CviCDgrofgrq/grpXgr43grpXgr4Eu
+string|settings_music|4K6H4K6a4K+I
 string|settings_open|4K6F4K6u4K+I4K6q4K+N4K6q4K+B4K6V4K6z4K+I4K6k4K+NIOCupOCuv+CusQ==
 string|settings_play_games_profile_switch|4K6u4K6+4K6x4K+N4K6x4K+B
 string|settings_play_games_switch_cancel|4K6H4K6q4K+N4K6q4K+L4K6k4K+BIOCuteCvh+Cuo+CvjeCun+CuvuCuruCvjQ==
-string|settings_sound_desc|4K6H4K6a4K+I4K6v4K+I4K6v4K+B4K6u4K+NIOCukuCusuCuvyDgrrXgrr/grrPgr4jgrrXgr4HgrpXgrrPgr4jgrq/gr4Hgrq7gr40g4K6H4K6v4K6V4K+N4K6V4K+BLg==
-string|settings_sound|4K6S4K6y4K6/
+string|settings_sound_effects_desc|4K614K6/4K6z4K+I4K6v4K6+4K6f4K+N4K6f4K+BIOCukuCusuCuv+CuleCus+CviCDgrofgrq/grpXgr43grpXgr4Eu
+string|settings_sound_effects|4K6S4K6y4K6/IOCuteCuv+Cus+CviOCuteCvgeCuleCus+CvjQ==
 string|settings_theme_dark|4K6F4K6f4K6w4K+N
 string|settings_theme_desc|QnJhaW5jdXAg4K6O4K6q4K+N4K6q4K6f4K6/4K6k4K+NIOCupOCvhuCusOCuv+CuryDgrrXgr4fgrqPgr43grp/gr4Hgrq7gr40g4K6O4K6p4K+N4K6q4K6k4K+I4K6k4K+NIOCupOCvh+CusOCvjeCuteCvgeCumuCvhuCur+CvjeCur+CvgeCumeCvjeCuleCus+CvjS4=
 string|settings_theme_light|4K614K+G4K6z4K6/4K6w4K+N
