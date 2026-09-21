@@ -126,8 +126,10 @@
 
     <string name="settings_title">Setări</string>
     <string name="settings_open">Deschide setările</string>
-    <string name="settings_sound">Sunet</string>
-    <string name="settings_sound_desc">Redă muzică și efecte sonore.</string>
+    <string name="settings_music">Muzică</string>
+    <string name="settings_music_desc">Redă muzica de fundal.</string>
+    <string name="settings_sound_effects">Efecte sonore</string>
+    <string name="settings_sound_effects_desc">Redă sunetele din joc.</string>
     <string name="settings_colorblind">Culori pentru daltonism</string>
     <string name="settings_colorblind_desc">Folosește o paletă care rămâne distinsă la cele mai comune forme de daltonism.</string>
     <string name="settings_haptic">Feedback haptic</string>

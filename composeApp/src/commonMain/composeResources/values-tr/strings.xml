@@ -599,8 +599,10 @@
 
     <string name="settings_title">Ayarlar</string>
     <string name="settings_open">Ayarları aç</string>
-    <string name="settings_sound">Ses</string>
-    <string name="settings_sound_desc">Müzik ve ses efektlerini çal.</string>
+    <string name="settings_music">Müzik</string>
+    <string name="settings_music_desc">Arka plan müziğini çal.</string>
+    <string name="settings_sound_effects">Ses efektleri</string>
+    <string name="settings_sound_effects_desc">Oyun seslerini çal.</string>
     <string name="settings_colorblind">Renk körlüğüne uygun renkler</string>
     <string name="settings_colorblind_desc">En yaygın renk körlüğü türleri için ayırt edilebilir kalan bir palet kullanır.</string>
     <string name="settings_haptic">Dokunsal geri bildirim</string>

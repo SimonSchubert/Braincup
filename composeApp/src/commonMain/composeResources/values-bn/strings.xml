@@ -572,8 +572,10 @@
 
     <string name="settings_title">সেটিংস</string>
     <string name="settings_open">সেটিংস খুলুন</string>
-    <string name="settings_sound">শব্দ</string>
-    <string name="settings_sound_desc">সঙ্গীত এবং সাউন্ড ইফেক্ট চালান।</string>
+    <string name="settings_music">সঙ্গীত</string>
+    <string name="settings_music_desc">পটভূমির সঙ্গীত চালান।</string>
+    <string name="settings_sound_effects">সাউন্ড ইফেক্ট</string>
+    <string name="settings_sound_effects_desc">খেলার শব্দ চালান।</string>
     <string name="settings_colorblind">বর্ণান্ধতা-বান্ধব রং</string>
     <string name="settings_colorblind_desc">এমন একটি প্যালেট ব্যবহার করুন যা বর্ণান্ধতার সবচেয়ে সাধারণ ধরনের জন্য আলাদা থাকে।</string>
     <string name="settings_haptic">হ্যাপ্টিক ফিডব্যাক</string>

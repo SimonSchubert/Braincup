@@ -599,8 +599,10 @@
 
     <string name="settings_title">सेटिंग्स</string>
     <string name="settings_open">सेटिंग्स खोलें</string>
-    <string name="settings_sound">ध्वनि</string>
-    <string name="settings_sound_desc">संगीत और ध्वनि प्रभाव चलाएँ।</string>
+    <string name="settings_music">संगीत</string>
+    <string name="settings_music_desc">पृष्ठभूमि का संगीत चलाएँ।</string>
+    <string name="settings_sound_effects">ध्वनि प्रभाव</string>
+    <string name="settings_sound_effects_desc">खेल की ध्वनियाँ चलाएँ।</string>
     <string name="settings_colorblind">रंगांधता के अनुकूल रंग</string>
     <string name="settings_colorblind_desc">एक ऐसी पैलेट का उपयोग करें जो रंगांधता के सबसे सामान्य रूपों में भी अलग दिखाई दे।</string>
     <string name="settings_haptic">हैप्टिक फीडबैक</string>

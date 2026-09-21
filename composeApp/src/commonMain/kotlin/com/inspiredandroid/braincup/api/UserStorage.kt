@@ -167,7 +167,12 @@ class UserStorage(
         const val KEY_UNLOCKED_ACHIEVEMENTS = "unlocked_achievements"
         const val KEY_TOTAL_SCORE = "total_score"
         const val KEY_TOTAL_APP_OPENS = "total_app_opens"
+
+        // The single mute switch from before music and effects were split. Read only as the
+        // fallback until each side has been set on its own.
         const val KEY_AUDIO_MUTED = "audio_muted"
+        const val KEY_MUSIC_MUTED = "music_muted"
+        const val KEY_SOUND_EFFECTS_MUTED = "sound_effects_muted"
         const val KEY_COLORBLIND_PALETTE = "colorblind_palette"
         const val KEY_HAPTIC_ENABLED = "haptic_enabled"
         const val KEY_NUMBER_PAD_ASCENDING = "number_pad_ascending"
@@ -250,6 +255,8 @@ class UserStorage(
         private val deviceKeys = setOf(
             KEY_APP_LANGUAGE,
             KEY_AUDIO_MUTED,
+            KEY_MUSIC_MUTED,
+            KEY_SOUND_EFFECTS_MUTED,
             KEY_COLORBLIND_PALETTE,
             KEY_HAPTIC_ENABLED,
             KEY_NUMBER_PAD_ASCENDING,
@@ -433,10 +440,16 @@ class UserStorage(
         }
     }
 
-    fun isAudioMuted(): Boolean = store.getBoolean(KEY_AUDIO_MUTED, false)
+    fun isMusicMuted(): Boolean = store.getBoolean(KEY_MUSIC_MUTED, store.getBoolean(KEY_AUDIO_MUTED, false))
 
-    fun setAudioMuted(muted: Boolean) {
-        store.putBoolean(KEY_AUDIO_MUTED, muted)
+    fun setMusicMuted(muted: Boolean) {
+        store.putBoolean(KEY_MUSIC_MUTED, muted)
+    }
+
+    fun isSoundEffectsMuted(): Boolean = store.getBoolean(KEY_SOUND_EFFECTS_MUTED, store.getBoolean(KEY_AUDIO_MUTED, false))
+
+    fun setSoundEffectsMuted(muted: Boolean) {
+        store.putBoolean(KEY_SOUND_EFFECTS_MUTED, muted)
     }
 
     fun isColorblindPaletteEnabled(): Boolean = store.getBoolean(KEY_COLORBLIND_PALETTE, false)

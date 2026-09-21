@@ -572,8 +572,10 @@
 
     <string name="settings_title">Einstellungen</string>
     <string name="settings_open">Einstellungen öffnen</string>
-    <string name="settings_sound">Ton</string>
-    <string name="settings_sound_desc">Musik und Soundeffekte abspielen.</string>
+    <string name="settings_music">Musik</string>
+    <string name="settings_music_desc">Hintergrundmusik abspielen.</string>
+    <string name="settings_sound_effects">Soundeffekte</string>
+    <string name="settings_sound_effects_desc">Spielgeräusche abspielen.</string>
     <string name="settings_colorblind">Farbenblindenfreundliche Farben</string>
     <string name="settings_colorblind_desc">Eine Palette, die bei den häufigsten Formen von Farbenblindheit unterscheidbar bleibt.</string>
     <string name="settings_haptic">Haptisches Feedback</string>

@@ -126,8 +126,10 @@
 
     <string name="settings_title">Mga Setting</string>
     <string name="settings_open">Buksan ang settings</string>
-    <string name="settings_sound">Tunog</string>
-    <string name="settings_sound_desc">Patunugin ang musika at sound effects.</string>
+    <string name="settings_music">Musika</string>
+    <string name="settings_music_desc">Patunugin ang background music.</string>
+    <string name="settings_sound_effects">Sound effects</string>
+    <string name="settings_sound_effects_desc">Patunugin ang tunog sa laro.</string>
     <string name="settings_colorblind">Mga kulay para sa color-blind</string>
     <string name="settings_colorblind_desc">Gumamit ng palette na kitang-kita pa rin sa pinakakaraniwang uri ng color blindness.</string>
     <string name="settings_haptic">Pag-uga</string>

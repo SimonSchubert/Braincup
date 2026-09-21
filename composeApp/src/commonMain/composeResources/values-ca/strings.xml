@@ -126,8 +126,10 @@
 
     <string name="settings_title">Ajustos</string>
     <string name="settings_open">Obre els ajustos</string>
-    <string name="settings_sound">So</string>
-    <string name="settings_sound_desc">Reprodueix música i efectes de so.</string>
+    <string name="settings_music">Música</string>
+    <string name="settings_music_desc">Reprodueix la música de fons.</string>
+    <string name="settings_sound_effects">Efectes de so</string>
+    <string name="settings_sound_effects_desc">Reprodueix els sons del joc.</string>
     <string name="settings_colorblind">Colors per a daltònics</string>
     <string name="settings_colorblind_desc">Fes servir una paleta que es distingeixi en les formes més habituals de daltonisme.</string>
     <string name="settings_haptic">Retorn hàptic</string>

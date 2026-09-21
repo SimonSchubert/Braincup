@@ -605,8 +605,10 @@
 
     <string name="settings_title">Ustawienia</string>
     <string name="settings_open">Otwórz ustawienia</string>
-    <string name="settings_sound">Dźwięk</string>
-    <string name="settings_sound_desc">Odtwarzaj muzykę i efekty dźwiękowe.</string>
+    <string name="settings_music">Muzyka</string>
+    <string name="settings_music_desc">Odtwarzaj muzykę w tle.</string>
+    <string name="settings_sound_effects">Efekty dźwiękowe</string>
+    <string name="settings_sound_effects_desc">Odtwarzaj dźwięki w grze.</string>
     <string name="settings_colorblind">Kolory przyjazne dla daltonistów</string>
     <string name="settings_colorblind_desc">Używa palety, która pozostaje rozróżnialna w najczęstszych postaciach daltonizmu.</string>
     <string name="settings_haptic">Wibracje dotykowe</string>

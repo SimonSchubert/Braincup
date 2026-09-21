@@ -126,8 +126,10 @@
 
     <string name="settings_title">Stillingar</string>
     <string name="settings_open">Opna stillingar</string>
-    <string name="settings_sound">Hljóð</string>
-    <string name="settings_sound_desc">Spila tónlist og hljóðbrellur.</string>
+    <string name="settings_music">Tónlist</string>
+    <string name="settings_music_desc">Spila bakgrunnstónlist.</string>
+    <string name="settings_sound_effects">Hljóðbrellur</string>
+    <string name="settings_sound_effects_desc">Spila hljóð í leikjum.</string>
     <string name="settings_colorblind">Litir fyrir litblinda</string>
     <string name="settings_colorblind_desc">Notaðu litaspjald sem greinist enn við algengustu gerðir litblindu.</string>
     <string name="settings_haptic">Snertisvörun</string>

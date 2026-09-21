@@ -599,8 +599,10 @@
 
     <string name="settings_title">設定</string>
     <string name="settings_open">開啟設定</string>
-    <string name="settings_sound">聲音</string>
-    <string name="settings_sound_desc">播放音樂和音效。</string>
+    <string name="settings_music">音樂</string>
+    <string name="settings_music_desc">播放背景音樂。</string>
+    <string name="settings_sound_effects">音效</string>
+    <string name="settings_sound_effects_desc">播放遊戲音效。</string>
     <string name="settings_colorblind">色盲友好配色</string>
     <string name="settings_colorblind_desc">使用對最常見的色盲型別仍然可區分的配色。</string>
     <string name="settings_haptic">觸覺反饋</string>

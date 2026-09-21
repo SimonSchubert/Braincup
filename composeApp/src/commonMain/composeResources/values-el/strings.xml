@@ -125,8 +125,10 @@
     <string name="reversi_white_wins">Κερδίζουν τα λευκά %1$d - %2$d.</string>
     <string name="settings_title">Επιλογές</string>
     <string name="settings_open">Ανοιγμα επιλογών</string>
-    <string name="settings_sound">Ηχος</string>
-    <string name="settings_sound_desc">Μουσική και ηχητικά εφφέ.</string>
+    <string name="settings_music">Μουσική</string>
+    <string name="settings_music_desc">Αναπαραγωγή μουσικής υπόκρουσης.</string>
+    <string name="settings_sound_effects">Ηχητικά εφέ</string>
+    <string name="settings_sound_effects_desc">Αναπαραγωγή ήχων του παιχνιδιού.</string>
     <string name="settings_colorblind">Χρώματα για αχρωματοψία</string>
     <string name="settings_colorblind_desc">Χρήση ευδιάκριτης παλέτας ώστε να είναι δυνατή η λύση από άτομα με αχρωματοψία.</string>
     <string name="settings_haptic">Ανάδραση αφής</string>

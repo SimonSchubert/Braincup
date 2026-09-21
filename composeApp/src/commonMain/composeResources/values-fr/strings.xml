@@ -572,8 +572,10 @@
 
     <string name="settings_title">Paramètres</string>
     <string name="settings_open">Ouvrir les paramètres</string>
-    <string name="settings_sound">Son</string>
-    <string name="settings_sound_desc">Lire la musique et les effets sonores.</string>
+    <string name="settings_music">Musique</string>
+    <string name="settings_music_desc">Lire la musique de fond.</string>
+    <string name="settings_sound_effects">Effets sonores</string>
+    <string name="settings_sound_effects_desc">Lire les sons du jeu.</string>
     <string name="settings_colorblind">Couleurs adaptées au daltonisme</string>
     <string name="settings_colorblind_desc">Utilise une palette qui reste distinguable pour les formes les plus courantes de daltonisme.</string>
     <string name="settings_haptic">Retour haptique</string>

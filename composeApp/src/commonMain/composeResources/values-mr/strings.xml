@@ -126,8 +126,10 @@
 
     <string name="settings_title">सेटिंग्ज</string>
     <string name="settings_open">सेटिंग्ज उघडा</string>
-    <string name="settings_sound">ध्वनी</string>
-    <string name="settings_sound_desc">संगीत आणि ध्वनी परिणाम वाजवा.</string>
+    <string name="settings_music">संगीत</string>
+    <string name="settings_music_desc">पार्श्वसंगीत वाजवा.</string>
+    <string name="settings_sound_effects">ध्वनी प्रभाव</string>
+    <string name="settings_sound_effects_desc">खेळातील आवाज वाजवा.</string>
     <string name="settings_colorblind">रंगांधळेपणासाठी अनुकूल रंग</string>
     <string name="settings_colorblind_desc">सर्वात सामान्य रंगांधळेपणाच्या प्रकारांतही वेगळे ओळखता येणारे रंग वापरा.</string>
     <string name="settings_haptic">स्पर्श प्रतिसाद</string>

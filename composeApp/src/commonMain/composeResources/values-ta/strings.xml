@@ -126,8 +126,10 @@
 
     <string name="settings_title">அமைப்புகள்</string>
     <string name="settings_open">அமைப்புகளைத் திற</string>
-    <string name="settings_sound">ஒலி</string>
-    <string name="settings_sound_desc">இசையையும் ஒலி விளைவுகளையும் இயக்கு.</string>
+    <string name="settings_music">இசை</string>
+    <string name="settings_music_desc">பின்னணி இசையை இயக்கு.</string>
+    <string name="settings_sound_effects">ஒலி விளைவுகள்</string>
+    <string name="settings_sound_effects_desc">விளையாட்டு ஒலிகளை இயக்கு.</string>
     <string name="settings_colorblind">நிறக்குருடுக்கு ஏற்ற வண்ணங்கள்</string>
     <string name="settings_colorblind_desc">மிகவும் பொதுவான நிறக்குருட்டு வகைகளிலும் வேறுபடுத்திக் காணக்கூடிய வண்ணத் தொகுப்பைப் பயன்படுத்து.</string>
     <string name="settings_haptic">அதிர்வு பின்னூட்டம்</string>

@@ -126,8 +126,10 @@
 
     <string name="settings_title">הגדרות</string>
     <string name="settings_open">פתח הגדרות</string>
-    <string name="settings_sound">צליל</string>
-    <string name="settings_sound_desc">נגן מוזיקה ואפקטים קוליים.</string>
+    <string name="settings_music">מוזיקה</string>
+    <string name="settings_music_desc">נגן מוזיקת רקע.</string>
+    <string name="settings_sound_effects">אפקטים קוליים</string>
+    <string name="settings_sound_effects_desc">נגן צלילי משחק.</string>
     <string name="settings_colorblind">צבעים ידידותיים לעיוורי צבעים</string>
     <string name="settings_colorblind_desc">השתמש בפלטה שנשארת מובחנת בצורות הנפוצות של עיוורון צבעים.</string>
     <string name="settings_haptic">משוב רטט</string>

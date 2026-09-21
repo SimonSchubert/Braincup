@@ -599,8 +599,10 @@
 
     <string name="settings_title">Pengaturan</string>
     <string name="settings_open">Buka pengaturan</string>
-    <string name="settings_sound">Suara</string>
-    <string name="settings_sound_desc">Putar musik dan efek suara.</string>
+    <string name="settings_music">Musik</string>
+    <string name="settings_music_desc">Putar musik latar.</string>
+    <string name="settings_sound_effects">Efek suara</string>
+    <string name="settings_sound_effects_desc">Putar suara permainan.</string>
     <string name="settings_colorblind">Warna ramah buta warna</string>
     <string name="settings_colorblind_desc">Gunakan palet yang tetap dapat dibedakan untuk bentuk buta warna paling umum.</string>
     <string name="settings_haptic">Umpan balik haptik</string>

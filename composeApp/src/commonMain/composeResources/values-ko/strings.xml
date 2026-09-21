@@ -599,8 +599,10 @@
 
     <string name="settings_title">설정</string>
     <string name="settings_open">설정 열기</string>
-    <string name="settings_sound">사운드</string>
-    <string name="settings_sound_desc">음악과 효과음을 재생합니다.</string>
+    <string name="settings_music">음악</string>
+    <string name="settings_music_desc">배경 음악을 재생합니다.</string>
+    <string name="settings_sound_effects">효과음</string>
+    <string name="settings_sound_effects_desc">게임 효과음을 재생합니다.</string>
     <string name="settings_colorblind">색각 친화적 색상</string>
     <string name="settings_colorblind_desc">가장 흔한 색맹 유형에서도 구별 가능한 팔레트를 사용합니다.</string>
     <string name="settings_haptic">햅틱 피드백</string>

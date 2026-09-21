@@ -126,8 +126,10 @@
 
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>
-    <string name="settings_sound">Sound</string>
-    <string name="settings_sound_desc">Play music and sound effects.</string>
+    <string name="settings_music">Music</string>
+    <string name="settings_music_desc">Play background music.</string>
+    <string name="settings_sound_effects">Sound effects</string>
+    <string name="settings_sound_effects_desc">Play game sounds.</string>
     <string name="settings_colorblind">Color-blind friendly colors</string>
     <string name="settings_colorblind_desc">Use a palette that stays distinguishable for the most common forms of color blindness.</string>
     <string name="settings_haptic">Haptic feedback</string>

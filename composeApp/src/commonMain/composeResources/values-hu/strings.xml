@@ -126,8 +126,10 @@
 
     <string name="settings_title">Beállítások</string>
     <string name="settings_open">Beállítások megnyitása</string>
-    <string name="settings_sound">Hang</string>
-    <string name="settings_sound_desc">Zene és hangeffektek lejátszása.</string>
+    <string name="settings_music">Zene</string>
+    <string name="settings_music_desc">Háttérzene lejátszása.</string>
+    <string name="settings_sound_effects">Hangeffektek</string>
+    <string name="settings_sound_effects_desc">Játékhangok lejátszása.</string>
     <string name="settings_colorblind">Színtévesztőbarát színek</string>
     <string name="settings_colorblind_desc">Olyan paletta, amely a leggyakoribb színtévesztéseknél is megkülönböztethető marad.</string>
     <string name="settings_haptic">Rezgő visszajelzés</string>

@@ -34,8 +34,10 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SettingsScreen(
-    isMuted: Boolean,
-    onToggleMute: () -> Unit,
+    isMusicEnabled: Boolean,
+    onToggleMusic: () -> Unit,
+    isSoundEffectsEnabled: Boolean,
+    onToggleSoundEffects: () -> Unit,
     isColorblindPaletteEnabled: Boolean,
     onToggleColorblindPalette: () -> Unit,
     isHapticEnabled: Boolean,
@@ -85,10 +87,16 @@ fun SettingsScreen(
                 onThemeSelected = onThemeSelected,
             )
             SettingsToggleRow(
-                title = stringResource(Res.string.settings_sound),
-                description = stringResource(Res.string.settings_sound_desc),
-                checked = !isMuted,
-                onToggle = onToggleMute,
+                title = stringResource(Res.string.settings_music),
+                description = stringResource(Res.string.settings_music_desc),
+                checked = isMusicEnabled,
+                onToggle = onToggleMusic,
+            )
+            SettingsToggleRow(
+                title = stringResource(Res.string.settings_sound_effects),
+                description = stringResource(Res.string.settings_sound_effects_desc),
+                checked = isSoundEffectsEnabled,
+                onToggle = onToggleSoundEffects,
             )
             SettingsToggleRow(
                 title = stringResource(Res.string.settings_haptic),
@@ -344,8 +352,10 @@ private fun SettingsToggleRow(
 private fun SettingsScreenPreview() {
     ScreenPreviewHost {
         SettingsScreen(
-            isMuted = false,
-            onToggleMute = {},
+            isMusicEnabled = true,
+            onToggleMusic = {},
+            isSoundEffectsEnabled = true,
+            onToggleSoundEffects = {},
             isColorblindPaletteEnabled = false,
             onToggleColorblindPalette = {},
             isHapticEnabled = true,
@@ -366,8 +376,10 @@ private fun SettingsScreenPreview() {
 private fun SettingsScreenPlayGamesPreview() {
     ScreenPreviewHost {
         SettingsScreen(
-            isMuted = false,
-            onToggleMute = {},
+            isMusicEnabled = false,
+            onToggleMusic = {},
+            isSoundEffectsEnabled = true,
+            onToggleSoundEffects = {},
             isColorblindPaletteEnabled = false,
             onToggleColorblindPalette = {},
             isHapticEnabled = true,

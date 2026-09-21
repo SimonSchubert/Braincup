@@ -126,8 +126,10 @@
 
     <string name="settings_title">Inställningar</string>
     <string name="settings_open">Öppna inställningar</string>
-    <string name="settings_sound">Ljud</string>
-    <string name="settings_sound_desc">Spela musik och ljudeffekter.</string>
+    <string name="settings_music">Musik</string>
+    <string name="settings_music_desc">Spela bakgrundsmusik.</string>
+    <string name="settings_sound_effects">Ljudeffekter</string>
+    <string name="settings_sound_effects_desc">Spela spelljud.</string>
     <string name="settings_colorblind">Färgblinda-vänliga färger</string>
     <string name="settings_colorblind_desc">Använd en palett som går att skilja åt vid de vanligaste formerna av färgblindhet.</string>
     <string name="settings_haptic">Haptisk återkoppling</string>

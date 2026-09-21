@@ -599,8 +599,10 @@
 
     <string name="settings_title">Cài đặt</string>
     <string name="settings_open">Mở cài đặt</string>
-    <string name="settings_sound">Âm thanh</string>
-    <string name="settings_sound_desc">Phát nhạc và hiệu ứng âm thanh.</string>
+    <string name="settings_music">Nhạc</string>
+    <string name="settings_music_desc">Phát nhạc nền.</string>
+    <string name="settings_sound_effects">Hiệu ứng âm thanh</string>
+    <string name="settings_sound_effects_desc">Phát âm thanh trong trò chơi.</string>
     <string name="settings_colorblind">Màu thân thiện với mù màu</string>
     <string name="settings_colorblind_desc">Sử dụng bảng màu vẫn phân biệt được cho các dạng mù màu phổ biến nhất.</string>
     <string name="settings_haptic">Phản hồi rung</string>

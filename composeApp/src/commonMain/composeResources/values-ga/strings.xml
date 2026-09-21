@@ -126,8 +126,10 @@
 
     <string name="settings_title">Socruithe</string>
     <string name="settings_open">Oscail socruithe</string>
-    <string name="settings_sound">Fuaim</string>
-    <string name="settings_sound_desc">Seinn ceol agus maisíochtaí fuaime.</string>
+    <string name="settings_music">Ceol</string>
+    <string name="settings_music_desc">Seinn ceol sa chúlra.</string>
+    <string name="settings_sound_effects">Maisíochtaí fuaime</string>
+    <string name="settings_sound_effects_desc">Seinn fuaimeanna an chluiche.</string>
     <string name="settings_colorblind">Dathanna do dhaoine dathdall</string>
     <string name="settings_colorblind_desc">Úsáid pailéad a fhanann so-aitheanta do na cineálacha dathdaille is coitianta.</string>
     <string name="settings_haptic">Aiseolas tadhlach</string>

@@ -117,13 +117,35 @@ class UserStorageAccountIsolationTest {
     }
 
     @Test
-    fun deviceThemeIsSharedAcrossAccounts() {
+    fun deviceAudioSettingsAreSharedAcrossAccounts() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val storage = testStorage()
-        storage.setAudioMuted(true)
+        assertFalse(storage.isMusicMuted())
+        assertFalse(storage.isSoundEffectsMuted())
+        storage.setMusicMuted(true)
+        storage.setSoundEffectsMuted(false)
         storage.accounts.createLocal("B", AccountIcon.FISH)
-        assertTrue(storage.isAudioMuted())
+        assertTrue(storage.isMusicMuted())
+        assertFalse(storage.isSoundEffectsMuted())
         assertNull(PlayGamesBridge.onGoldMedal)
+    }
+
+    @Test
+    fun legacyAudioMuteAppliesUntilEachToggleIsSet() {
+        PlayGamesBridge.hasPlayStoreAccount = false
+        val settings = MapSettings()
+        settings.putBoolean(UserStorage.KEY_AUDIO_MUTED, true)
+        val storage = testStorage(settings)
+        assertTrue(storage.isMusicMuted())
+        assertTrue(storage.isSoundEffectsMuted())
+
+        storage.setMusicMuted(false)
+        assertFalse(storage.isMusicMuted())
+        assertTrue(storage.isSoundEffectsMuted())
+
+        storage.accounts.createLocal("B", AccountIcon.FISH)
+        assertFalse(storage.isMusicMuted())
+        assertTrue(storage.isSoundEffectsMuted())
     }
 
     @Test

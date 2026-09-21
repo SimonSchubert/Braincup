@@ -126,8 +126,10 @@
 
     <string name="settings_title">ಸೆಟ್ಟಿಂಗ್‌ಗಳು</string>
     <string name="settings_open">ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ</string>
-    <string name="settings_sound">ಧ್ವನಿ</string>
-    <string name="settings_sound_desc">ಸಂಗೀತ ಮತ್ತು ಧ್ವನಿ ಪರಿಣಾಮಗಳನ್ನು ನುಡಿಸಿ.</string>
+    <string name="settings_music">ಸಂಗೀತ</string>
+    <string name="settings_music_desc">ಹಿನ್ನೆಲೆ ಸಂಗೀತವನ್ನು ನುಡಿಸಿ.</string>
+    <string name="settings_sound_effects">ಧ್ವನಿ ಪರಿಣಾಮಗಳು</string>
+    <string name="settings_sound_effects_desc">ಆಟದ ಶಬ್ದಗಳನ್ನು ನುಡಿಸಿ.</string>
     <string name="settings_colorblind">ವರ್ಣಾಂಧತೆಗೆ ಸೂಕ್ತ ಬಣ್ಣಗಳು</string>
     <string name="settings_colorblind_desc">ಅತ್ಯಂತ ಸಾಮಾನ್ಯ ವರ್ಣಾಂಧತೆಯ ಬಗೆಗಳಲ್ಲೂ ಬೇರ್ಪಡಿಸಿ ಗುರುತಿಸಬಹುದಾದ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ.</string>
     <string name="settings_haptic">ಸ್ಪರ್ಶ ಪ್ರತಿಕ್ರಿಯೆ</string>

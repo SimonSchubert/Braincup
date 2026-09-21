@@ -126,8 +126,10 @@
 
     <string name="settings_title">Indstillinger</string>
     <string name="settings_open">Åbn indstillinger</string>
-    <string name="settings_sound">Lyd</string>
-    <string name="settings_sound_desc">Afspil musik og lydeffekter.</string>
+    <string name="settings_music">Musik</string>
+    <string name="settings_music_desc">Afspil baggrundsmusik.</string>
+    <string name="settings_sound_effects">Lydeffekter</string>
+    <string name="settings_sound_effects_desc">Afspil spillyde.</string>
     <string name="settings_colorblind">Farveblindevenlige farver</string>
     <string name="settings_colorblind_desc">Brug en palet, der kan skelnes ved de mest almindelige former for farveblindhed.</string>
     <string name="settings_haptic">Haptisk feedback</string>

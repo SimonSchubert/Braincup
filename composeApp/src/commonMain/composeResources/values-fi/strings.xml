@@ -126,8 +126,10 @@
 
     <string name="settings_title">Asetukset</string>
     <string name="settings_open">Avaa asetukset</string>
-    <string name="settings_sound">Ääni</string>
-    <string name="settings_sound_desc">Toista musiikki ja äänitehosteet.</string>
+    <string name="settings_music">Musiikki</string>
+    <string name="settings_music_desc">Toista taustamusiikkia.</string>
+    <string name="settings_sound_effects">Äänitehosteet</string>
+    <string name="settings_sound_effects_desc">Toista pelin ääniä.</string>
     <string name="settings_colorblind">Värisokeille sopivat värit</string>
     <string name="settings_colorblind_desc">Käytä palettia, joka erottuu yleisimmissä värisokeuden muodoissa.</string>
     <string name="settings_haptic">Haptinen palaute</string>

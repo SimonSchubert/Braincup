@@ -24,7 +24,7 @@ English has no T–V distinction. Every locale that does must pick the informal 
 Imperatives use that form. Do not mix formal and informal in one locale. Player-facing French
 UI is *tu*; do not reintroduce *vous*.
 
-Settings rows that describe what a toggle does ("Play music and sound effects.") can stay
+Settings rows that describe what a toggle does ("Play background music.") can stay
 impersonal. Certificates and legal lines can stay formal. Everything that talks *to* the player
 does not.
 

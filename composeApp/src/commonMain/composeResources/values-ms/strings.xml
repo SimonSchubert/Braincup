@@ -126,8 +126,10 @@
 
     <string name="settings_title">Tetapan</string>
     <string name="settings_open">Buka tetapan</string>
-    <string name="settings_sound">Bunyi</string>
-    <string name="settings_sound_desc">Mainkan muzik dan kesan bunyi.</string>
+    <string name="settings_music">Muzik</string>
+    <string name="settings_music_desc">Mainkan muzik latar.</string>
+    <string name="settings_sound_effects">Kesan bunyi</string>
+    <string name="settings_sound_effects_desc">Mainkan bunyi permainan.</string>
     <string name="settings_colorblind">Warna mesra buta warna</string>
     <string name="settings_colorblind_desc">Gunakan palet yang kekal mudah dibeza untuk bentuk buta warna yang paling biasa.</string>
     <string name="settings_haptic">Maklum balas haptik</string>

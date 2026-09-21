@@ -605,8 +605,10 @@
 
     <string name="settings_title">Налаштування</string>
     <string name="settings_open">Відкрити налаштування</string>
-    <string name="settings_sound">Звук</string>
-    <string name="settings_sound_desc">Відтворювати музику та звукові ефекти.</string>
+    <string name="settings_music">Музика</string>
+    <string name="settings_music_desc">Відтворювати фонову музику.</string>
+    <string name="settings_sound_effects">Звукові ефекти</string>
+    <string name="settings_sound_effects_desc">Відтворювати звуки в грі.</string>
     <string name="settings_colorblind">Кольори для дальтоніків</string>
     <string name="settings_colorblind_desc">Використовується палітра, яка залишається помітною за найпоширеніших форм дальтонізму.</string>
     <string name="settings_haptic">Тактильний відгук</string>

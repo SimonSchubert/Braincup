@@ -126,8 +126,10 @@
 
     <string name="settings_title">సెట్టింగ్‌లు</string>
     <string name="settings_open">సెట్టింగ్‌లను తెరువు</string>
-    <string name="settings_sound">ధ్వని</string>
-    <string name="settings_sound_desc">సంగీతం, ధ్వని ప్రభావాలను ప్లే చేయి.</string>
+    <string name="settings_music">సంగీతం</string>
+    <string name="settings_music_desc">నేపథ్య సంగీతాన్ని ప్లే చేయి.</string>
+    <string name="settings_sound_effects">ధ్వని ప్రభావాలు</string>
+    <string name="settings_sound_effects_desc">ఆటలోని శబ్దాలను ప్లే చేయి.</string>
     <string name="settings_colorblind">వర్ణాంధత్వానికి అనుకూల రంగులు</string>
     <string name="settings_colorblind_desc">అత్యంత సాధారణ వర్ణాంధత్వ రూపాలలోనూ వేరు చేసి చూడగల రంగుల సమూహాన్ని వాడు.</string>
     <string name="settings_haptic">స్పర్శ ప్రతిస్పందన</string>

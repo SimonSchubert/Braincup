@@ -126,8 +126,10 @@
 
     <string name="settings_title">Seaded</string>
     <string name="settings_open">Ava seaded</string>
-    <string name="settings_sound">Heli</string>
-    <string name="settings_sound_desc">Esita muusikat ja heliefekte.</string>
+    <string name="settings_music">Muusika</string>
+    <string name="settings_music_desc">Esita taustamuusikat.</string>
+    <string name="settings_sound_effects">Heliefektid</string>
+    <string name="settings_sound_effects_desc">Esita mänguhelisid.</string>
     <string name="settings_colorblind">Värvipimeduse palett</string>
     <string name="settings_colorblind_desc">Kasuta paletti, mis jääb eristatavaks levinumate värvipimeduse vormide puhul.</string>
     <string name="settings_haptic">Puutetagasiside</string>

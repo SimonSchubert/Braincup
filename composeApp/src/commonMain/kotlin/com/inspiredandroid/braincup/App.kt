@@ -88,7 +88,8 @@ fun App(
     // Separate player so pad one-shots never stop ambient/game music.
     val soundEffectPlayer = rememberAudioPlayer()
 
-    var isMuted by remember { mutableStateOf(controller.storage.isAudioMuted()) }
+    var isMusicMuted by remember { mutableStateOf(controller.storage.isMusicMuted()) }
+    var isSoundEffectsMuted by remember { mutableStateOf(controller.storage.isSoundEffectsMuted()) }
     var colorblindPaletteEnabled by remember {
         mutableStateOf(controller.storage.isColorblindPaletteEnabled())
     }
@@ -135,35 +136,37 @@ fun App(
         }
     }
 
-    // Audio is only fetched once it can actually be heard. On web these are plain WAV files served
-    // uncompressed, so a muted visitor would otherwise pay 1.1 MB for ambient audio on every load
-    // and another 3.5 MB the moment they start a game.
-    LaunchedEffect(isMuted) {
-        if (isMuted) return@LaunchedEffect
+    // Music is only fetched once it can actually be heard. On web these are plain WAV files served
+    // uncompressed, so a visitor with music off would otherwise pay 1.1 MB for ambient audio on
+    // every load and another 3.5 MB the moment they start a game.
+    LaunchedEffect(isMusicMuted) {
+        if (isMusicMuted) return@LaunchedEffect
         if (menuAudio == null) {
             try {
                 menuAudio = Res.readBytes("files/menu_ambient.wav")
             } catch (_: Exception) {
             }
         }
-        // Small one-shots (~18 KB each); load with menu audio so the first Simon flash is never silent.
-        if (simonPadAudio.isEmpty()) {
-            val loaded = mutableMapOf<GameColor, ByteArray>()
-            for ((color, path) in SimonPadSounds.paths) {
-                try {
-                    loaded[color] = Res.readBytes(path)
-                } catch (_: Exception) {
-                }
+    }
+
+    // Small one-shots (~18 KB each). Loaded on their own so muting music still leaves Simon audible.
+    LaunchedEffect(isSoundEffectsMuted) {
+        if (isSoundEffectsMuted || simonPadAudio.isNotEmpty()) return@LaunchedEffect
+        val loaded = mutableMapOf<GameColor, ByteArray>()
+        for ((color, path) in SimonPadSounds.paths) {
+            try {
+                loaded[color] = Res.readBytes(path)
+            } catch (_: Exception) {
             }
-            simonPadAudio = loaded
         }
+        simonPadAudio = loaded
     }
 
     val currentEntry by navController.currentBackStackEntryAsState()
     val isPlayingGame = currentEntry?.destination?.hasRoute<Playing>() == true
 
-    LaunchedEffect(isPlayingGame, isMuted) {
-        if (isPlayingGame && !isMuted && gameAudio == null) {
+    LaunchedEffect(isPlayingGame, isMusicMuted) {
+        if (isPlayingGame && !isMusicMuted && gameAudio == null) {
             try {
                 gameAudio = Res.readBytes("files/game_focus.wav")
             } catch (_: Exception) {
@@ -188,11 +191,11 @@ fun App(
         }
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
-    DisposableEffect(lifecycleOwner, audioPlayer, isMuted) {
+    DisposableEffect(lifecycleOwner, audioPlayer, isMusicMuted) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
-                Lifecycle.Event.ON_PAUSE -> if (!isMuted) audioPlayer.pause()
-                Lifecycle.Event.ON_RESUME -> if (!isMuted) audioPlayer.resume()
+                Lifecycle.Event.ON_PAUSE -> if (!isMusicMuted) audioPlayer.pause()
+                Lifecycle.Event.ON_RESUME -> if (!isMusicMuted) audioPlayer.resume()
                 else -> {}
             }
         }
@@ -200,10 +203,9 @@ fun App(
         onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
     }
 
-    LaunchedEffect(isPlayingGame, isMuted, menuAudio, gameAudio) {
-        if (isMuted) {
+    LaunchedEffect(isPlayingGame, isMusicMuted, menuAudio, gameAudio) {
+        if (isMusicMuted) {
             audioPlayer.stop()
-            soundEffectPlayer.stop()
             return@LaunchedEffect
         }
         val data = if (isPlayingGame) gameAudio else menuAudio
@@ -212,11 +214,15 @@ fun App(
         }
     }
 
-    val latestMuted by rememberUpdatedState(isMuted)
+    LaunchedEffect(isSoundEffectsMuted) {
+        if (isSoundEffectsMuted) soundEffectPlayer.stop()
+    }
+
+    val latestSoundEffectsMuted by rememberUpdatedState(isSoundEffectsMuted)
     val latestSimonPadAudio by rememberUpdatedState(simonPadAudio)
     LaunchedEffect(controller, soundEffectPlayer) {
         controller.simonPadSoundEvents.collect { color ->
-            if (latestMuted) return@collect
+            if (latestSoundEffectsMuted) return@collect
             val data = latestSimonPadAudio[color] ?: return@collect
             soundEffectPlayer.play(data, loop = false)
         }
@@ -258,10 +264,15 @@ fun App(
                             val accountSnapshot by controller.storage.accounts.snapshot.collectAsStateWithLifecycle()
                             val storeProfile by PlayGamesBridge.currentPlayer.collectAsStateWithLifecycle()
                             SettingsScreen(
-                                isMuted = isMuted,
-                                onToggleMute = {
-                                    isMuted = !isMuted
-                                    controller.storage.setAudioMuted(isMuted)
+                                isMusicEnabled = !isMusicMuted,
+                                onToggleMusic = {
+                                    isMusicMuted = !isMusicMuted
+                                    controller.storage.setMusicMuted(isMusicMuted)
+                                },
+                                isSoundEffectsEnabled = !isSoundEffectsMuted,
+                                onToggleSoundEffects = {
+                                    isSoundEffectsMuted = !isSoundEffectsMuted
+                                    controller.storage.setSoundEffectsMuted(isSoundEffectsMuted)
                                 },
                                 isColorblindPaletteEnabled = colorblindPaletteEnabled,
                                 onToggleColorblindPalette = {

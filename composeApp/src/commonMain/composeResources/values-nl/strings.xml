@@ -572,8 +572,10 @@
 
     <string name="settings_title">Instellingen</string>
     <string name="settings_open">Instellingen openen</string>
-    <string name="settings_sound">Geluid</string>
-    <string name="settings_sound_desc">Muziek en geluidseffecten afspelen.</string>
+    <string name="settings_music">Muziek</string>
+    <string name="settings_music_desc">Achtergrondmuziek afspelen.</string>
+    <string name="settings_sound_effects">Geluidseffecten</string>
+    <string name="settings_sound_effects_desc">Spelgeluiden afspelen.</string>
     <string name="settings_colorblind">Kleurenblind-vriendelijke kleuren</string>
     <string name="settings_colorblind_desc">Gebruikt een palet dat onderscheidbaar blijft voor de meest voorkomende vormen van kleurenblindheid.</string>
     <string name="settings_haptic">Haptische feedback</string>

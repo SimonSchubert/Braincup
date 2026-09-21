@@ -599,8 +599,10 @@
 
     <string name="settings_title">การตั้งค่า</string>
     <string name="settings_open">เปิดการตั้งค่า</string>
-    <string name="settings_sound">เสียง</string>
-    <string name="settings_sound_desc">เปิดเสียงเพลงและเอฟเฟกต์เสียง</string>
+    <string name="settings_music">เพลง</string>
+    <string name="settings_music_desc">เปิดเพลงประกอบ</string>
+    <string name="settings_sound_effects">เอฟเฟกต์เสียง</string>
+    <string name="settings_sound_effects_desc">เปิดเสียงในเกม</string>
     <string name="settings_colorblind">สีที่เป็นมิตรกับตาบอดสี</string>
     <string name="settings_colorblind_desc">ใช้ชุดสีที่ยังแยกออกจากกันได้สำหรับตาบอดสีที่พบบ่อยที่สุด</string>
     <string name="settings_haptic">การตอบสนองแบบสัมผัส</string>

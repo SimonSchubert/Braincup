@@ -126,8 +126,10 @@
 
     <string name="settings_title">સેટિંગ્સ</string>
     <string name="settings_open">સેટિંગ્સ ખોલો</string>
-    <string name="settings_sound">અવાજ</string>
-    <string name="settings_sound_desc">સંગીત અને ધ્વનિ અસરો વગાડો.</string>
+    <string name="settings_music">સંગીત</string>
+    <string name="settings_music_desc">પૃષ્ઠભૂમિ સંગીત વગાડો.</string>
+    <string name="settings_sound_effects">ધ્વનિ અસરો</string>
+    <string name="settings_sound_effects_desc">રમતના અવાજો વગાડો.</string>
     <string name="settings_colorblind">રંગઅંધત્વ માટે અનુકૂળ રંગો</string>
     <string name="settings_colorblind_desc">સૌથી સામાન્ય રંગઅંધત્વના પ્રકારોમાં પણ અલગ ઓળખાય તેવા રંગો વાપરો.</string>
     <string name="settings_haptic">સ્પર્શ પ્રતિભાવ</string>

@@ -126,8 +126,10 @@
 
     <string name="settings_title">Iestatījumi</string>
     <string name="settings_open">Atvērt iestatījumus</string>
-    <string name="settings_sound">Skaņa</string>
-    <string name="settings_sound_desc">Atskaņot mūziku un skaņas efektus.</string>
+    <string name="settings_music">Mūzika</string>
+    <string name="settings_music_desc">Atskaņot fona mūziku.</string>
+    <string name="settings_sound_effects">Skaņas efekti</string>
+    <string name="settings_sound_effects_desc">Atskaņot spēles skaņas.</string>
     <string name="settings_colorblind">Krāsas daltoniķiem</string>
     <string name="settings_colorblind_desc">Izmanto paleti, kas paliek atšķirama visizplatītākajām daltonisma formām.</string>
     <string name="settings_haptic">Haptiskā atgriezeniskā saite</string>

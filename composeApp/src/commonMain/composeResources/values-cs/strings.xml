@@ -126,8 +126,10 @@
 
     <string name="settings_title">Nastavení</string>
     <string name="settings_open">Otevřít nastavení</string>
-    <string name="settings_sound">Zvuk</string>
-    <string name="settings_sound_desc">Přehrávat hudbu a zvukové efekty.</string>
+    <string name="settings_music">Hudba</string>
+    <string name="settings_music_desc">Přehrávat hudbu na pozadí.</string>
+    <string name="settings_sound_effects">Zvukové efekty</string>
+    <string name="settings_sound_effects_desc">Přehrávat zvuky ve hře.</string>
     <string name="settings_colorblind">Barvy vhodné pro barvoslepé</string>
     <string name="settings_colorblind_desc">Použít paletu, která zůstane rozeznatelná u nejčastějších forem barvosleposti.</string>
     <string name="settings_haptic">Haptická odezva</string>

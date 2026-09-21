@@ -126,8 +126,10 @@
 
     <string name="settings_title">ترتیبات</string>
     <string name="settings_open">ترتیبات کھولیں</string>
-    <string name="settings_sound">آواز</string>
-    <string name="settings_sound_desc">موسیقی اور آواز کے اثرات چلائیں۔</string>
+    <string name="settings_music">موسیقی</string>
+    <string name="settings_music_desc">پس منظر کی موسیقی چلائیں۔</string>
+    <string name="settings_sound_effects">آواز کے اثرات</string>
+    <string name="settings_sound_effects_desc">کھیل کی آوازیں چلائیں۔</string>
     <string name="settings_colorblind">رنگ اندھے دوست رنگ</string>
     <string name="settings_colorblind_desc">ایسا پیلیٹ استعمال کریں جو عام رنگ اندھے پن میں بھی الگ نظر آئے۔</string>
     <string name="settings_haptic">ہیپٹک فیڈبیک</string>

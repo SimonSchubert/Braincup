@@ -126,8 +126,10 @@
 
     <string name="settings_title">Nustatymai</string>
     <string name="settings_open">Atidaryti nustatymus</string>
-    <string name="settings_sound">Garsas</string>
-    <string name="settings_sound_desc">Leisti muziką ir garso efektus.</string>
+    <string name="settings_music">Muzika</string>
+    <string name="settings_music_desc">Leisti foninę muziką.</string>
+    <string name="settings_sound_effects">Garso efektai</string>
+    <string name="settings_sound_effects_desc">Leisti žaidimo garsus.</string>
     <string name="settings_colorblind">Spalvos daltonikams</string>
     <string name="settings_colorblind_desc">Naudok paletę, kuri išlieka atskiriama dažniausiems daltonizmo tipams.</string>
     <string name="settings_haptic">Lytėjimo grįžtamasis ryšys</string>

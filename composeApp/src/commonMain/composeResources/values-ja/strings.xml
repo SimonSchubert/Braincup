@@ -599,8 +599,10 @@
 
     <string name="settings_title">設定</string>
     <string name="settings_open">設定を開く</string>
-    <string name="settings_sound">サウンド</string>
-    <string name="settings_sound_desc">音楽と効果音を再生します。</string>
+    <string name="settings_music">音楽</string>
+    <string name="settings_music_desc">背景の音楽を再生します。</string>
+    <string name="settings_sound_effects">効果音</string>
+    <string name="settings_sound_effects_desc">ゲームの効果音を再生します。</string>
     <string name="settings_colorblind">色覚に配慮した色</string>
     <string name="settings_colorblind_desc">一般的な色覚障害でも見分けやすいパレットを使用します。</string>
     <string name="settings_haptic">触覚フィードバック</string>

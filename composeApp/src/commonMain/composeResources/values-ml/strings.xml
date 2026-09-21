@@ -126,8 +126,10 @@
 
     <string name="settings_title">ക്രമീകരണങ്ങൾ</string>
     <string name="settings_open">ക്രമീകരണങ്ങൾ തുറക്കുക</string>
-    <string name="settings_sound">ശബ്ദം</string>
-    <string name="settings_sound_desc">സംഗീതവും ശബ്ദ പ്രഭാവങ്ങളും പ്ലേ ചെയ്യുക.</string>
+    <string name="settings_music">സംഗീതം</string>
+    <string name="settings_music_desc">പശ്ചാത്തല സംഗീതം പ്ലേ ചെയ്യുക.</string>
+    <string name="settings_sound_effects">ശബ്ദ പ്രഭാവങ്ങൾ</string>
+    <string name="settings_sound_effects_desc">ഗെയിമിലെ ശബ്ദങ്ങൾ പ്ലേ ചെയ്യുക.</string>
     <string name="settings_colorblind">വർണ്ണാന്ധതയ്ക്ക് അനുയോജ്യമായ നിറങ്ങൾ</string>
     <string name="settings_colorblind_desc">ഏറ്റവും സാധാരണമായ വർണ്ണാന്ധതാ രൂപങ്ങളിലും വേർതിരിച്ചറിയാവുന്ന നിറങ്ങൾ ഉപയോഗിക്കുക.</string>
     <string name="settings_haptic">സ്പർശ പ്രതികരണം</string>

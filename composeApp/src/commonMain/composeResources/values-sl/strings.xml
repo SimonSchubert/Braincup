@@ -126,8 +126,10 @@
 
     <string name="settings_title">Nastavitve</string>
     <string name="settings_open">Odpri nastavitve</string>
-    <string name="settings_sound">Zvok</string>
-    <string name="settings_sound_desc">Predvajaj glasbo in zvočne učinke.</string>
+    <string name="settings_music">Glasba</string>
+    <string name="settings_music_desc">Predvajaj glasbo v ozadju.</string>
+    <string name="settings_sound_effects">Zvočni učinki</string>
+    <string name="settings_sound_effects_desc">Predvajaj zvoke v igri.</string>
     <string name="settings_colorblind">Barve za barvno slepe</string>
     <string name="settings_colorblind_desc">Uporabi paleto, ki ostane razločna pri najpogostejših oblikah barvne slepote.</string>
     <string name="settings_haptic">Haptična povratna informacija</string>

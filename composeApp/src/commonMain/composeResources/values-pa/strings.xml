@@ -126,8 +126,10 @@
 
     <string name="settings_title">ਸੈਟਿੰਗਾਂ</string>
     <string name="settings_open">ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ</string>
-    <string name="settings_sound">ਆਵਾਜ਼</string>
-    <string name="settings_sound_desc">ਸੰਗੀਤ ਅਤੇ ਆਵਾਜ਼ ਪ੍ਰਭਾਵ ਚਲਾਓ।</string>
+    <string name="settings_music">ਸੰਗੀਤ</string>
+    <string name="settings_music_desc">ਪਿਛੋਕੜ ਦਾ ਸੰਗੀਤ ਚਲਾਓ।</string>
+    <string name="settings_sound_effects">ਆਵਾਜ਼ ਪ੍ਰਭਾਵ</string>
+    <string name="settings_sound_effects_desc">ਖੇਡ ਦੀਆਂ ਆਵਾਜ਼ਾਂ ਚਲਾਓ।</string>
     <string name="settings_colorblind">ਰੰਗ-ਅੰਨ੍ਹੇਪਣ ਲਈ ਢੁਕਵੇਂ ਰੰਗ</string>
     <string name="settings_colorblind_desc">ਸਭ ਤੋਂ ਆਮ ਰੰਗ-ਅੰਨ੍ਹੇਪਣ ਦੇ ਰੂਪਾਂ ਵਿੱਚ ਵੀ ਵੱਖਰੇ ਪਛਾਣੇ ਜਾਣ ਵਾਲੇ ਰੰਗ ਵਰਤੋ।</string>
     <string name="settings_haptic">ਛੋਹ ਪ੍ਰਤੀਕਿਰਿਆ</string>

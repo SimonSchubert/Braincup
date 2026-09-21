@@ -126,8 +126,10 @@
 
     <string name="settings_title">Подешавања</string>
     <string name="settings_open">Отвори подешавања</string>
-    <string name="settings_sound">Звук</string>
-    <string name="settings_sound_desc">Пуштај музику и звучне ефекте.</string>
+    <string name="settings_music">Музика</string>
+    <string name="settings_music_desc">Пуштај музику у позадини.</string>
+    <string name="settings_sound_effects">Звучни ефекти</string>
+    <string name="settings_sound_effects_desc">Пуштај звуке у игри.</string>
     <string name="settings_colorblind">Боје прилагођене далтонистима</string>
     <string name="settings_colorblind_desc">Користи палету која остаје препознатљива код најчешћих облика далтонизма.</string>
     <string name="settings_haptic">Хаптички одзив</string>
