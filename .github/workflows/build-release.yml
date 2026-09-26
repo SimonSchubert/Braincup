@@ -245,6 +245,7 @@ jobs:
           Type=Application
           Categories=Game;Education;
           Terminal=false
+          StartupWMClass=com-inspiredandroid-braincup-MainKt
           EOF
           cp AppDir/braincup.desktop AppDir/usr/share/applications/
 

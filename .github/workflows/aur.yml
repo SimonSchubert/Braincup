@@ -144,4 +144,6 @@ jobs:
 
           git add aur/PKGBUILD aur/.SRCINFO
           git commit -m "Update AUR package to ${VERSION}" || exit 0
+          # The Flatpak workflow pushes to master after the same release.
+          git pull --rebase origin master
           git push
