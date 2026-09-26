@@ -63,11 +63,14 @@ internal fun ColumnScope.MentalRotationsContent(
                     .height(72.dp)
                     .answerTileState(button.state),
             ) {
-                Text(
-                    text = label,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = colors.content,
-                )
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = colors.content,
+                    )
+                    FeedbackCornerMark(button.state)
+                }
             }
         }
     }

@@ -167,16 +167,25 @@ private fun QuickSumTotalCard(
         shape = PrismSlot,
         color = if (correct) SuccessGreenSoft else MaterialTheme.colorScheme.errorContainer,
     ) {
-        MathText(
-            text = "= $total",
-            style = if (compact) {
-                MaterialTheme.typography.displayMedium
-            } else {
-                MaterialTheme.typography.displayLarge
-            },
-            color = if (correct) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
-            modifier = Modifier.padding(horizontal = 28.dp, vertical = if (compact) 10.dp else 16.dp),
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(start = 20.dp),
+        ) {
+            FeedbackMark(
+                kind = if (correct) FeedbackMarkKind.CORRECT else FeedbackMarkKind.WRONG,
+                modifier = Modifier.size(if (compact) 28.dp else 36.dp),
+            )
+            MathText(
+                text = "= $total",
+                style = if (compact) {
+                    MaterialTheme.typography.displayMedium
+                } else {
+                    MaterialTheme.typography.displayLarge
+                },
+                color = if (correct) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
+                modifier = Modifier.padding(start = 16.dp, end = 28.dp, top = if (compact) 10.dp else 16.dp, bottom = if (compact) 10.dp else 16.dp),
+            )
+        }
     }
 }
 

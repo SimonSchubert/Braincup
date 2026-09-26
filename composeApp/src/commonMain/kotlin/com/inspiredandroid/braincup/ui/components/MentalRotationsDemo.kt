@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.widthIn
@@ -171,10 +172,13 @@ private fun DemoAnswerTile(label: String, lit: Boolean, modifier: Modifier = Mod
         onClick = {},
         modifier = modifier.height(56.dp),
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.titleSmall,
-            color = Color.White,
-        )
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.titleSmall,
+                color = Color.White,
+            )
+            FeedbackCornerMark(if (lit) FeedbackMarkKind.CORRECT else null, size = 18.dp)
+        }
     }
 }

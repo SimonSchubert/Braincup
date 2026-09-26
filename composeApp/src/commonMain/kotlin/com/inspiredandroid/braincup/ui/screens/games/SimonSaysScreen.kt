@@ -2,28 +2,21 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
-import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 
@@ -121,48 +114,18 @@ private fun SimonPad(
             .hoverHand(isClickable),
     ) {
         val mark = when (pad.type) {
-            SequenceCellType.WRONG -> SimonMark.WRONG
-            SequenceCellType.MISSED -> SimonMark.MISSED
+            SequenceCellType.WRONG -> FeedbackMarkKind.WRONG
+            SequenceCellType.MISSED -> FeedbackMarkKind.CORRECT
             else -> null
         }
         if (mark != null) {
-            SimonFeedbackMark(
-                mark = mark,
+            FeedbackMark(
+                kind = mark,
                 modifier = Modifier
                     .align(simonWedgeAlignment(quadrant))
                     .fillMaxWidth(SimonWedgeMarkFraction)
                     .aspectRatio(1f),
             )
-        }
-    }
-}
-
-private enum class SimonMark { WRONG, MISSED }
-
-/**
- * A ✗ or ✓ drawn on a surface-colored disc. The disc guarantees contrast whatever hue the pad
- * underneath happens to be, and the glyph shape (not its color) is what tells the two apart.
- */
-@Composable
-private fun SimonFeedbackMark(mark: SimonMark, modifier: Modifier = Modifier) {
-    val strokeColor = when (mark) {
-        SimonMark.WRONG -> MaterialTheme.colorScheme.error
-        SimonMark.MISSED -> SuccessGreen
-    }
-    val backdrop = MaterialTheme.colorScheme.surface
-    Canvas(modifier = modifier.clip(CircleShape).background(backdrop)) {
-        val s = size.minDimension
-        val stroke = Stroke(width = s * 0.14f, cap = StrokeCap.Round)
-        val inset = s * 0.3f
-        when (mark) {
-            SimonMark.WRONG -> {
-                drawLine(strokeColor, Offset(inset, inset), Offset(s - inset, s - inset), stroke.width, stroke.cap)
-                drawLine(strokeColor, Offset(s - inset, inset), Offset(inset, s - inset), stroke.width, stroke.cap)
-            }
-            SimonMark.MISSED -> {
-                drawLine(strokeColor, Offset(inset, s * 0.52f), Offset(s * 0.44f, s - inset), stroke.width, stroke.cap)
-                drawLine(strokeColor, Offset(s * 0.44f, s - inset), Offset(s - inset, inset), stroke.width, stroke.cap)
-            }
         }
     }
 }

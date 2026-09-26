@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import kotlin.math.abs
 import kotlin.random.Random
 import kotlin.test.Test
@@ -8,6 +9,12 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class KnotGameTest {
+
+    @Test
+    fun everyPairOnTheLargestBoardGetsItsOwnColor() {
+        val game = KnotGame(level = 99, random = Random(1L)).apply { nextRound() }
+        assertTrue(game.endpoints.keys.all { it < CatRegionColors.size })
+    }
 
     @Test
     fun adaptiveDifficultyIsDisabled() {

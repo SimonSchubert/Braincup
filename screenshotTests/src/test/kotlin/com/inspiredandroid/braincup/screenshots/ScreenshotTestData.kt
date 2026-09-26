@@ -1,5 +1,17 @@
 package com.inspiredandroid.braincup.screenshots
 
+import com.inspiredandroid.braincup.app.AnswerButton
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
+import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
+import com.inspiredandroid.braincup.app.FeedbackCell
+import com.inspiredandroid.braincup.app.FigureCell
+import com.inspiredandroid.braincup.app.MentalRotationsUiState
+import com.inspiredandroid.braincup.app.OrbitTrackerUiState
+import com.inspiredandroid.braincup.app.PathFinderUiState
+import com.inspiredandroid.braincup.app.PatternSequenceUiState
+import com.inspiredandroid.braincup.app.RuleShiftUiState
+import com.inspiredandroid.braincup.app.ValueComparisonUiState
+import kotlinx.collections.immutable.ImmutableList
 import com.inspiredandroid.braincup.api.UserStorage
 import com.russhwolf.settings.MapSettings
 import com.inspiredandroid.braincup.app.DigitMemoryUiState
@@ -621,4 +633,103 @@ private fun wordleUiState(guesses: List<String>): GameUiState {
     // Typing the fifth letter submits the row, so the guesses land exactly as a player enters them.
     guesses.forEach { guess -> guess.forEach { game.typeLetter(it) } }
     return game.toUiState()
+}
+
+/*
+ * Answer-reveal fixtures. The board's own reveal helper, GameController.withFeedbackStates, is
+ * internal to composeApp, so the same rule is repeated here: the pick turns WRONG, the right answer
+ * CORRECT and the rest DIMMED. Every one of these states used to be told apart by red against
+ * green alone; the shots pin the tick and cross that now carry it.
+ */
+private fun <T : FeedbackCell<T>> List<T>.revealed(picked: Int, correct: Int): List<T> = mapIndexed { index, cell ->
+    cell.withState(
+        when (index) {
+            correct -> AnswerFeedbackState.CORRECT
+            picked -> AnswerFeedbackState.WRONG
+            else -> AnswerFeedbackState.DIMMED
+        },
+    )
+}
+
+private fun <T : FeedbackCell<T>> List<List<T>>.revealedGrid(picked: Int, correct: Int): ImmutableList<ImmutableList<T>> {
+    val columns = first().size
+    return flatten().revealed(picked, correct).chunked(columns).map { it.toImmutableList() }.toImmutableList()
+}
+
+private fun List<AnswerButton>.revealedButtons(picked: Int, correct: Int): ImmutableList<AnswerButton> = mapIndexed { index, button ->
+    button.copy(
+        state = when (index) {
+            correct -> AnswerFeedbackState.CORRECT
+            picked -> AnswerFeedbackState.WRONG
+            else -> AnswerFeedbackState.DIMMED
+        },
+    )
+}.toImmutableList()
+
+fun createAnomalyPuzzleRevealUiState(): GameUiState {
+    val state = createAnomalyPuzzleUiState() as AnomalyPuzzleUiState
+    return state.copy(rows = state.rows.revealedGrid(picked = 0, correct = 4))
+}
+
+/** Every chromatic colour on one shape: the round only the palette's patterns can solve. */
+fun createAnomalyPuzzleSameShapeUiState(): GameUiState = AnomalyPuzzleUiState(
+    rows = listOf(
+        GameColor.RED, GameColor.GREEN, GameColor.BLUE,
+        GameColor.PURPLE, GameColor.YELLOW, GameColor.ORANGE,
+        GameColor.TURQUOISE, GameColor.ROSA, GameColor.GREEN,
+    ).map { FigureCell(Figure(Shape.SQUARE, it)) }
+        .chunked(3)
+        .map { it.toImmutableList() }
+        .toImmutableList(),
+    columnsPerRow = 3,
+)
+
+fun createPatternSequenceRevealUiState(): GameUiState {
+    val state = createPatternSequenceUiState() as PatternSequenceUiState
+    return state.copy(optionRows = state.optionRows.revealedGrid(picked = 1, correct = 3))
+}
+
+fun createRuleShiftRevealUiState(): GameUiState {
+    val state = createRuleShiftUiState() as RuleShiftUiState
+    return state.copy(keyCards = state.keyCards.revealed(picked = 2, correct = 0).toImmutableList(), isAwaitingNextCard = true)
+}
+
+fun createValueComparisonRevealUiState(): GameUiState {
+    val state = createValueComparisonUiState() as ValueComparisonUiState
+    return state.copy(answers = state.answers.revealedButtons(picked = 0, correct = 1))
+}
+
+fun createMentalRotationsRevealUiState(): GameUiState {
+    val state = createMentalRotationsUiState() as MentalRotationsUiState
+    return state.copy(answers = state.answers.revealedButtons(picked = 1, correct = 0))
+}
+
+fun createPathFinderRevealUiState(): GameUiState {
+    val state = createPathFinderUiState() as PathFinderUiState
+    return state.copy(grid = state.grid.revealedGrid(picked = 1, correct = 2))
+}
+
+fun createDigitMemoryRecallWrongUiState(): DigitMemoryUiState = createDigitMemoryRecallUiState().copy(recallResult = RevealResult.WRONG)
+
+fun createDigitMemoryRecallCorrectUiState(): DigitMemoryUiState = createDigitMemoryRecallUiState().copy(recallResult = RevealResult.CORRECT)
+
+fun createOrbitTrackerGameOverUiState(): OrbitTrackerUiState = OrbitTrackerUiState(
+    balls = listOf(
+        OrbitTrackerUiState.BallState(0.25f, 0.3f, isTarget = true, isSelected = true, feedback = OrbitTrackerGame.BallFeedback.CORRECT_SELECTED),
+        OrbitTrackerUiState.BallState(0.7f, 0.25f, isTarget = false, isSelected = true, feedback = OrbitTrackerGame.BallFeedback.WRONG_SELECTED),
+        OrbitTrackerUiState.BallState(0.5f, 0.55f, isTarget = true, isSelected = false, feedback = OrbitTrackerGame.BallFeedback.MISSED),
+        OrbitTrackerUiState.BallState(0.2f, 0.75f, isTarget = false, isSelected = false, feedback = OrbitTrackerGame.BallFeedback.NONE),
+        OrbitTrackerUiState.BallState(0.8f, 0.7f, isTarget = false, isSelected = false, feedback = OrbitTrackerGame.BallFeedback.NONE),
+    ).toImmutableList(),
+    phase = OrbitTrackerGame.Phase.GAME_OVER,
+    targetCount = 2,
+    selectedCount = 2,
+)
+
+fun createOrbitTrackerHighlightUiState(): OrbitTrackerUiState = createOrbitTrackerGameOverUiState().let { state ->
+    state.copy(
+        balls = state.balls.map { it.copy(isSelected = false, feedback = OrbitTrackerGame.BallFeedback.NONE) }.toImmutableList(),
+        phase = OrbitTrackerGame.Phase.HIGHLIGHTING,
+        selectedCount = 0,
+    )
 }

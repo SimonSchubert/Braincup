@@ -672,6 +672,83 @@ class ScreenshotTest {
         snapGame(createTrioUiState(), 45_000L, colorScheme = OledColorScheme)
     }
 
+    // Right and wrong carry a tick or cross as well as a tint, and the colour-blind palette adds
+    // a pattern to every coloured figure. These pin both (issue #43).
+    @Test
+    fun gameAnomalyPuzzleReveal() {
+        snapGame(createAnomalyPuzzleRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameAnomalyPuzzleRevealOled() {
+        snapGame(createAnomalyPuzzleRevealUiState(), 45_000L, colorScheme = OledColorScheme)
+    }
+
+    @Test
+    fun gameAnomalyPuzzleSameShapeColorblind() {
+        snapGame(createAnomalyPuzzleSameShapeUiState(), 45_000L, accessiblePalette = true)
+    }
+
+    @Test
+    fun gameAnomalyPuzzleSameShapeOledColorblind() {
+        snapGame(createAnomalyPuzzleSameShapeUiState(), 45_000L, colorScheme = OledColorScheme, accessiblePalette = true)
+    }
+
+    @Test
+    fun gamePatternSequenceReveal() {
+        snapGame(createPatternSequenceRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gamePatternSequenceColorblind() {
+        snapGame(createPatternSequenceUiState(), 45_000L, accessiblePalette = true)
+    }
+
+    @Test
+    fun gameRuleShiftReveal() {
+        snapGame(createRuleShiftRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameValueComparisonReveal() {
+        snapGame(createValueComparisonRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameMentalRotationsReveal() {
+        snapGame(createMentalRotationsRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gamePathFinderReveal() {
+        snapGame(createPathFinderRevealUiState(), 45_000L)
+    }
+
+    @Test
+    fun gamePathFinderColorblind() {
+        snapGame(createPathFinderUiState(), 45_000L, accessiblePalette = true)
+    }
+
+    @Test
+    fun gameDigitMemoryRecallWrong() {
+        snapGame(createDigitMemoryRecallWrongUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameDigitMemoryRecallCorrect() {
+        snapGame(createDigitMemoryRecallCorrectUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameOrbitTrackerGameOver() {
+        snapGame(createOrbitTrackerGameOverUiState(), 45_000L)
+    }
+
+    @Test
+    fun gameOrbitTrackerHighlightColorblind() {
+        snapGame(createOrbitTrackerHighlightUiState(), 45_000L, accessiblePalette = true)
+    }
+
     // The animated tutorials have no other coverage at all, so this pins at least one of them:
     // a demo that throws on composition (a missing CompositionLocal, a bad resource id) shows up
     // here rather than the first time someone opens the instructions on a device.

@@ -64,7 +64,11 @@ fun PrismClearLevelCard(
                             isSelected = false,
                             isClickable = false,
                             onClick = {},
-                        ) {}
+                        ) {
+                            if (ordinal != null) {
+                                PrismClearTileEmblem(PrismTileType.entries[ordinal], face)
+                            }
+                        }
                     }
                 }
             }

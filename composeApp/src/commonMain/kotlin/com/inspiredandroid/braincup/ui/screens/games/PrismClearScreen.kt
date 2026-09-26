@@ -50,6 +50,7 @@ import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
+import com.inspiredandroid.braincup.ui.components.PrismClearTileEmblem
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -530,7 +531,8 @@ private fun AnimatedPrismClearTile(
         label = "selectScale",
     )
 
-    val face = PrismTileType.entries[tile.typeOrdinal].color.composeColor()
+    val type = PrismTileType.entries[tile.typeOrdinal]
+    val face = type.color.composeColor()
     // Brighten slightly while popping for a flash.
     val flashBoost by animateFloatAsState(
         targetValue = if (tile.popping) 0.35f else 0f,
@@ -561,7 +563,9 @@ private fun AnimatedPrismClearTile(
             // Board-level pointerInput owns tap + drag so clickable does not steal gestures.
             isClickable = false,
             onClick = {},
-        ) {}
+        ) {
+            PrismClearTileEmblem(type, displayFace)
+        }
     }
 }
 

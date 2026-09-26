@@ -190,7 +190,7 @@ val LightsOutOffColor = Color(0xFF424242)
 // next to the amber on-color.
 val LightsOutOffColorDark = Color(0xFF8A8A8A)
 
-/** Vibrant pastel zone colors for Cat Queens, by region id (boards use up to 8 regions). The board
+/** Vibrant pastel zone colors for Cat Queens, by region id (Knot uses up to nine pairs). The board
  *  also draws bold region borders, so the puzzle stays solvable when hues are hard to tell apart. */
 val CatRegionColors = listOf(
     Color(0xFF6EC6E6), // sky blue
@@ -201,6 +201,7 @@ val CatRegionColors = listOf(
     Color(0xFFAED581), // leaf green
     Color(0xFFFFB074), // peach
     Color(0xFFF48FB1), // blossom pink
+    Color(0xFFA1887F), // mocha, so Knot's nine-pair levels never repeat a colour
 )
 
 // Wordle tile feedback. The three classic hues, kept constant across light/dark/OLED so the

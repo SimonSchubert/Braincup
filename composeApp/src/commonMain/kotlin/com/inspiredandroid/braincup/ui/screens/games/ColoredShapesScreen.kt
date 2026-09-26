@@ -60,11 +60,14 @@ internal fun ColumnScope.ColoredShapesContent(
                 isClickable = false,
                 onClick = {},
             ) {
-                Text(
-                    button.value,
-                    fontFamily = numberFontFamily(),
-                    color = MaterialTheme.colorScheme.onErrorContainer,
-                )
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(
+                        button.value,
+                        fontFamily = numberFontFamily(),
+                        color = MaterialTheme.colorScheme.onErrorContainer,
+                    )
+                    FeedbackCornerMark(button.state, size = 16.dp, alignment = Alignment.TopEnd)
+                }
             }
             AnswerFeedbackState.CORRECT -> PrismTile(
                 face = SuccessGreen,
@@ -72,11 +75,14 @@ internal fun ColumnScope.ColoredShapesContent(
                 isClickable = false,
                 onClick = {},
             ) {
-                Text(
-                    button.value,
-                    fontFamily = numberFontFamily(),
-                    color = Color.White,
-                )
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(
+                        button.value,
+                        fontFamily = numberFontFamily(),
+                        color = Color.White,
+                    )
+                    FeedbackCornerMark(button.state, size = 16.dp, alignment = Alignment.TopEnd)
+                }
             }
             AnswerFeedbackState.DIMMED -> Box(
                 modifier = Modifier.size(56.dp).alpha(0.3f),

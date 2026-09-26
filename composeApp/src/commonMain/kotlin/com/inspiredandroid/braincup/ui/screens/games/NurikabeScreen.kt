@@ -54,6 +54,7 @@ internal fun ColumnScope.NurikabeContent(
     val satisfiedColor = SuccessGreen
     val invalidFill = ErrorRed.copy(alpha = 0.15f)
     val invalidColor = ErrorRed
+    val markColors = feedbackMarkColors()
     val poolColor = ErrorRed.copy(alpha = 0.55f)
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
@@ -185,6 +186,20 @@ internal fun ColumnScope.NurikabeContent(
                     val centerX = (index % cols) * cellW + cellW / 2f
                     val centerY = (index / cols) * cellH + cellH / 2f
                     drawTextCentered(clueLayouts.getValue(value), centerX, centerY, color = color)
+                    val mark = when (index) {
+                        in uiState.satisfiedCells -> FeedbackMarkKind.CORRECT
+                        in uiState.invalidCells -> FeedbackMarkKind.WRONG
+                        else -> null
+                    }
+                    if (mark != null) {
+                        val radius = cellW * 0.15f
+                        drawFeedbackMark(
+                            mark,
+                            center = Offset(centerX + cellW / 2f - radius * 1.3f, centerY - cellH / 2f + radius * 1.3f),
+                            radius = radius,
+                            colors = markColors,
+                        )
+                    }
                 }
             }
         }

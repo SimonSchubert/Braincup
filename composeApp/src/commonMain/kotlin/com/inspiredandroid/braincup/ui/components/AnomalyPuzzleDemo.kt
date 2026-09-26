@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -174,11 +175,14 @@ private fun AnomalyFigureTile(
         isSelected = state != AnomalyTileState.NORMAL,
         onClick = {},
     ) {
-        ShapeCanvas(
-            figure = figure,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp),
-        )
+        Box(Modifier.fillMaxSize()) {
+            ShapeCanvas(
+                figure = figure,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp),
+            )
+            FeedbackCornerMark(if (state == AnomalyTileState.CORRECT) FeedbackMarkKind.CORRECT else null)
+        }
     }
 }

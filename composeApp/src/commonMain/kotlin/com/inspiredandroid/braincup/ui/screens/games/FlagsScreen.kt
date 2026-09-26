@@ -165,13 +165,18 @@ private fun FlagAnswerButton(
         isClickable = isClickable,
         onClick = { onAnswer(button.value) },
     ) {
-        Text(
-            text = label,
-            color = textColor,
-            style = MaterialTheme.typography.titleMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
-        )
+        val mark = button.state.markKind()
+        Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Text(
+                text = label,
+                color = textColor,
+                style = MaterialTheme.typography.titleMedium,
+                textAlign = TextAlign.Center,
+                // Room for the mark, so a long country name never runs under it.
+                modifier = Modifier.padding(horizontal = 36.dp, vertical = 10.dp),
+            )
+            FeedbackCornerMark(mark, alignment = Alignment.CenterEnd)
+        }
     }
 }
 

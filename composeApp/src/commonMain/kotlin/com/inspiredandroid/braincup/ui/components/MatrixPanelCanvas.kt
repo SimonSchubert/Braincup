@@ -14,6 +14,7 @@ import com.inspiredandroid.braincup.games.matrix.MatrixEntity
 import com.inspiredandroid.braincup.games.matrix.MatrixPanel
 import com.inspiredandroid.braincup.games.matrix.SIZE_SCALES
 import com.inspiredandroid.braincup.games.tools.composeColor
+import com.inspiredandroid.braincup.games.tools.visiblePattern
 
 /**
  * One cell of the matrix: either a single centred figure, or up to four laid out on a 2x2
@@ -55,6 +56,7 @@ private fun MatrixEntityShape(entity: MatrixEntity) {
         face = entity.color.composeColor(),
         rotationDegrees = entity.rotation.toFloat(),
         modifier = Modifier.fillMaxSize(SIZE_SCALES[entity.sizeStep]),
+        pattern = entity.color.visiblePattern(),
     )
 }
 

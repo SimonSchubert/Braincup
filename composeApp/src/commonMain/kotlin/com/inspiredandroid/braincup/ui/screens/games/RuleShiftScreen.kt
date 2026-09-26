@@ -93,11 +93,14 @@ private fun RuleShiftKeyTile(
         onClick = if (isEnabled) onClick else ({}),
         modifier = modifier,
     ) {
-        RuleShiftCardFace(
-            card = cell.card,
-            symbolSize = symbolSize,
-            modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center),
-        )
+        Box(Modifier.fillMaxSize()) {
+            RuleShiftCardFace(
+                card = cell.card,
+                symbolSize = symbolSize,
+                modifier = Modifier.fillMaxSize().wrapContentSize(Alignment.Center),
+            )
+            FeedbackCornerMark(cell.state)
+        }
     }
 }
 

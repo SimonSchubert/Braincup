@@ -45,6 +45,7 @@ internal fun ColumnScope.CatQueensContent(
     val borderColor = PuzzleGridInk
     val invalidColor = ErrorRed
     val validColor = SuccessGreen
+    val markColors = feedbackMarkColors()
     val catPainter = rememberVectorPainter(CatFace)
 
     val placed = uiState.cats.size
@@ -107,6 +108,15 @@ internal fun ColumnScope.CatQueensContent(
                         size = Size(cellW - 2 * inset, cellH - 2 * inset),
                         style = Stroke(width = ring),
                     )
+                    if (invalid) {
+                        val radius = cellW * 0.17f
+                        drawFeedbackMark(
+                            FeedbackMarkKind.WRONG,
+                            center = Offset(tl.x + cellW - radius - inset, tl.y + radius + inset),
+                            radius = radius,
+                            colors = markColors,
+                        )
+                    }
                 }
             }
         }

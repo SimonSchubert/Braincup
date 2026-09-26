@@ -12,6 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
@@ -21,6 +22,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
@@ -106,6 +108,8 @@ private fun OrbitTrackerArena(
     val staticForTap by rememberUpdatedState(staticPositions)
     val movingForTap by rememberUpdatedState(isMoving)
     val onAnswerState by rememberUpdatedState(onAnswer)
+    val markColors = feedbackMarkColors()
+    val accessiblePalette = LocalAccessiblePalette.current
 
     Canvas(
         modifier = Modifier
@@ -176,6 +180,28 @@ private fun OrbitTrackerArena(
                 radius = ballRadiusPx,
                 face = color,
             )
+
+            // Coral against grey is the only thing marking a target, so the colour-blind palette
+            // adds a ring that reads without hue.
+            if (accessiblePalette && isHighlighting && ball.isTarget) {
+                drawCircle(
+                    color = Color.White,
+                    radius = ballRadiusPx * 0.5f,
+                    center = center,
+                    style = Stroke(width = ballRadiusPx * 0.24f),
+                )
+            }
+
+            val mark = when (ball.feedback) {
+                OrbitTrackerGame.BallFeedback.CORRECT_SELECTED,
+                OrbitTrackerGame.BallFeedback.MISSED,
+                -> FeedbackMarkKind.CORRECT
+                OrbitTrackerGame.BallFeedback.WRONG_SELECTED -> FeedbackMarkKind.WRONG
+                else -> null
+            }
+            if (mark != null) {
+                drawFeedbackMark(mark, center, ballRadiusPx * 0.85f, markColors)
+            }
 
             if (ball.feedback == OrbitTrackerGame.BallFeedback.MISSED) {
                 drawCircle(

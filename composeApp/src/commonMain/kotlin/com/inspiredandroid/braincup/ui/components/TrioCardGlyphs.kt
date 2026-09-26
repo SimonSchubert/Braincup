@@ -167,19 +167,27 @@ fun TrioCardTile(
             card.feedback == TrioGame.CardFeedback.WRONG,
         onClick = onClick,
     ) {
-        TrioCardGlyphs(
-            shape = card.shape,
-            count = card.count,
-            fill = card.fill,
-            // The selected face inverts lightness between the schemes (dark mode brightens it to
-            // SelectedTileFaceDark), so keying the glyph off onSurface alone puts near-white marks
-            // on a light grey card at 1.8:1. Pick the ink from the face that is actually painted.
-            color = if (face.luminance() > SelectedFaceInkFlipPoint) {
-                Color.Black
-            } else {
-                MaterialTheme.colorScheme.onSurface
-            },
-            modifier = Modifier.fillMaxSize(),
-        )
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            TrioCardGlyphs(
+                shape = card.shape,
+                count = card.count,
+                fill = card.fill,
+                // The selected face inverts lightness between the schemes (dark mode brightens it to
+                // SelectedTileFaceDark), so keying the glyph off onSurface alone puts near-white marks
+                // on a light grey card at 1.8:1. Pick the ink from the face that is actually painted.
+                color = if (face.luminance() > SelectedFaceInkFlipPoint) {
+                    Color.Black
+                } else {
+                    MaterialTheme.colorScheme.onSurface
+                },
+                modifier = Modifier.fillMaxSize(),
+            )
+            val mark = when (card.feedback) {
+                TrioGame.CardFeedback.CORRECT -> FeedbackMarkKind.CORRECT
+                TrioGame.CardFeedback.WRONG -> FeedbackMarkKind.WRONG
+                else -> null
+            }
+            FeedbackCornerMark(mark, size = feedbackMarkSizeFor(maxWidth))
+        }
     }
 }

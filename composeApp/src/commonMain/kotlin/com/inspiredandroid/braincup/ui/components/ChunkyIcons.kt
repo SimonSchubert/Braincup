@@ -14,14 +14,16 @@ import androidx.compose.ui.graphics.graphicsLayer
 /** A bold, round-capped checkmark matching the chunky tile typography. */
 @Composable
 fun ChunkyCheck(color: Color, modifier: Modifier = Modifier) {
-    Canvas(modifier) {
-        val w = size.width
-        val h = size.height
-        val stroke = minOf(w, h) * 0.22f
-        val elbow = Offset(w * 0.40f, h * 0.78f)
-        drawLine(color, Offset(w * 0.08f, h * 0.50f), elbow, strokeWidth = stroke, cap = StrokeCap.Round)
-        drawLine(color, elbow, Offset(w * 0.92f, h * 0.20f), strokeWidth = stroke, cap = StrokeCap.Round)
-    }
+    Canvas(modifier) { drawChunkyCheck(color, Offset.Zero, size) }
+}
+
+fun DrawScope.drawChunkyCheck(color: Color, topLeft: Offset, size: Size) {
+    val w = size.width
+    val h = size.height
+    val stroke = minOf(w, h) * 0.22f
+    val elbow = topLeft + Offset(w * 0.40f, h * 0.78f)
+    drawLine(color, topLeft + Offset(w * 0.08f, h * 0.50f), elbow, strokeWidth = stroke, cap = StrokeCap.Round)
+    drawLine(color, elbow, topLeft + Offset(w * 0.92f, h * 0.20f), strokeWidth = stroke, cap = StrokeCap.Round)
 }
 
 /** A bold chevron pointing right at [rotationDegrees] 0, and down at 90. */
@@ -70,17 +72,19 @@ fun ChunkyLock(color: Color, modifier: Modifier = Modifier) {
 /** The cross that pairs with [ChunkyCheck]: same weight, same round caps. */
 @Composable
 fun ChunkyCross(color: Color, modifier: Modifier = Modifier) {
-    Canvas(modifier) {
-        val w = size.width
-        val h = size.height
-        val stroke = minOf(w, h) * 0.22f
-        val left = w * 0.16f
-        val right = w * 0.84f
-        val top = h * 0.16f
-        val bottom = h * 0.84f
-        drawLine(color, Offset(left, top), Offset(right, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
-        drawLine(color, Offset(right, top), Offset(left, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
-    }
+    Canvas(modifier) { drawChunkyCross(color, Offset.Zero, size) }
+}
+
+fun DrawScope.drawChunkyCross(color: Color, topLeft: Offset, size: Size) {
+    val w = size.width
+    val h = size.height
+    val stroke = minOf(w, h) * 0.22f
+    val left = topLeft.x + w * 0.16f
+    val right = topLeft.x + w * 0.84f
+    val top = topLeft.y + h * 0.16f
+    val bottom = topLeft.y + h * 0.84f
+    drawLine(color, Offset(left, top), Offset(right, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
+    drawLine(color, Offset(right, top), Offset(left, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
 }
 
 /** Two stacked bars, drawn rather than typed for the same reason [ChunkyCross] is. */

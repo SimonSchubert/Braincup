@@ -15,6 +15,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.games.tools.ColorPattern
 import com.inspiredandroid.braincup.ui.theme.PrismShade
 import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.PI
@@ -32,6 +33,7 @@ fun PrismPolygon(
     side: Color? = null,
     bottom: Color? = null,
     facet: Dp? = null,
+    pattern: ColorPattern = ColorPattern.PLAIN,
 ) {
     val resolvedSide = remember(face, side) { side ?: face.darken(PrismShade.Side) }
     val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(PrismShade.Bottom) }
@@ -98,6 +100,7 @@ fun PrismPolygon(
                     translate(d, d) { drawPath(polygonPath, resolvedBottom) }
                     for (p in sidePaths) drawPath(p, resolvedSide)
                     drawPath(polygonPath, face)
+                    drawColorPattern(pattern, face, polygonPath)
                 }
             },
         )

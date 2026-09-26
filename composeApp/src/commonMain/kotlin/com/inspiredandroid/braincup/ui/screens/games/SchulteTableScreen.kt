@@ -85,14 +85,20 @@ private fun SchulteCell(
         isSelected = cell.type == SchulteTableUiState.CellType.TAPPED,
         onClick = onClick,
     ) {
-        Text(
-            text = cell.number.toString(),
-            style = MaterialTheme.typography.titleLarge,
-            fontFamily = numberFontFamily(),
-            fontWeight = FontWeight.Bold,
-            color = textColor,
-            textAlign = TextAlign.Center,
-        )
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = cell.number.toString(),
+                style = MaterialTheme.typography.titleLarge,
+                fontFamily = numberFontFamily(),
+                fontWeight = FontWeight.Bold,
+                color = textColor,
+                textAlign = TextAlign.Center,
+            )
+            FeedbackCornerMark(
+                if (cell.type == SchulteTableUiState.CellType.WRONG) FeedbackMarkKind.WRONG else null,
+                size = feedbackMarkSizeFor(size),
+            )
+        }
     }
 }
 

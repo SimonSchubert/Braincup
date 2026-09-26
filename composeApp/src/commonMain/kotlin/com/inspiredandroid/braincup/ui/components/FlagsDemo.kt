@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
@@ -19,6 +20,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
@@ -100,13 +102,16 @@ fun FlagsDemo(modifier: Modifier = Modifier) {
                     isClickable = false,
                     onClick = {},
                 ) {
-                    Text(
-                        text = stringResource(countryNameRes(slug)),
-                        color = Color.White,
-                        style = MaterialTheme.typography.titleMedium,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
-                    )
+                    Box(Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+                        Text(
+                            text = stringResource(countryNameRes(slug)),
+                            color = Color.White,
+                            style = MaterialTheme.typography.titleMedium,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.padding(horizontal = 36.dp, vertical = 10.dp),
+                        )
+                        FeedbackCornerMark(if (isCorrect) FeedbackMarkKind.CORRECT else null, alignment = Alignment.CenterEnd)
+                    }
                 }
             }
         }

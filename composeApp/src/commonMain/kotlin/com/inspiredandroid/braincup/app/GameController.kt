@@ -1077,7 +1077,8 @@ class GameController(
         emitUiState(game)
 
         scope.launch {
-            delay(400.milliseconds)
+            // Long enough to read the tick or cross on the chosen key, not only its tint.
+            delay(700.milliseconds)
             if (_gameState.value !is GameState.Active) return@launch
             if (game.isOver) {
                 finishCurrentGame(currentState.gameType, game)

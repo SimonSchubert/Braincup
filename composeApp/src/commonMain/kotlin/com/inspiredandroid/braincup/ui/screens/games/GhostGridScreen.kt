@@ -71,7 +71,11 @@ private fun GhostGridCell(
         isClickable = isClickable,
         isSelected = cell.type == SequenceCellType.TAPPED,
         onClick = onClick,
-    ) {}
+    ) {
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            SequenceCellMark(cell.type)
+        }
+    }
 }
 
 @DevicePreviews

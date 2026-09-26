@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.composeColor
+import com.inspiredandroid.braincup.games.tools.visiblePattern
 
 @Composable
 fun ShapeCanvas(
@@ -15,5 +16,6 @@ fun ShapeCanvas(
         face = figure.color.composeColor(),
         rotationDegrees = figure.rotation.toFloat(),
         modifier = modifier,
+        pattern = figure.color.visiblePattern(),
     )
 }

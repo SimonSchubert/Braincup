@@ -15,6 +15,7 @@ import com.inspiredandroid.braincup.api.AccountIcon
 import com.inspiredandroid.braincup.api.AccountKind
 import com.inspiredandroid.braincup.api.PlayerAccount
 import com.inspiredandroid.braincup.api.StorePlayerProfile
+import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AccountAvatar
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChunkyChevron
@@ -106,7 +107,7 @@ fun SettingsScreen(
             )
             SettingsToggleRow(
                 title = stringResource(Res.string.settings_colorblind),
-                description = stringResource(Res.string.settings_colorblind_desc),
+                description = colorblindDescription(),
                 checked = isColorblindPaletteEnabled,
                 onToggle = onToggleColorblindPalette,
             )
@@ -307,6 +308,16 @@ private fun SettingsLinkRow(
             )
         }
     }
+}
+
+@Composable
+private fun colorblindDescription(): String {
+    val hiddenGames = GameType.entries
+        .filter { it.requiresColorVision }
+        .map { stringResource(it.displayNameRes) }
+        .joinToString(", ")
+    return stringResource(Res.string.settings_colorblind_desc) + " " +
+        stringResource(Res.string.settings_colorblind_hidden_games, hiddenGames)
 }
 
 @Composable

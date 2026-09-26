@@ -151,10 +151,13 @@ private fun VisualMemoryAnswerOption(
         isClickable = option.enabled && !option.isWrong,
         onClick = { onAnswer(option.figureIndex.toString()) },
     ) {
-        ShapeCanvas(
-            figure = option.figure,
-            modifier = Modifier.fillMaxSize().padding(8.dp),
-        )
+        Box(Modifier.fillMaxSize()) {
+            ShapeCanvas(
+                figure = option.figure,
+                modifier = Modifier.fillMaxSize().padding(8.dp),
+            )
+            FeedbackCornerMark(if (option.isWrong) FeedbackMarkKind.WRONG else null)
+        }
     }
 }
 
@@ -230,6 +233,7 @@ private fun VisualMemoryCell(
                         .graphicsLayer { alpha = shapeAlpha.value },
                 )
             }
+            FeedbackCornerMark(if (cell.type == VisualMemoryUiState.CellType.WRONG) FeedbackMarkKind.WRONG else null)
         }
     }
 }

@@ -186,6 +186,9 @@ private fun DemoMatrixOption(figure: Figure, isCorrect: Boolean, size: Dp) {
         isClickable = false,
         onClick = {},
     ) {
-        ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(7.dp))
+        Box(Modifier.fillMaxSize()) {
+            ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(7.dp))
+            FeedbackCornerMark(if (isCorrect) FeedbackMarkKind.CORRECT else null, size = feedbackMarkSizeFor(size))
+        }
     }
 }

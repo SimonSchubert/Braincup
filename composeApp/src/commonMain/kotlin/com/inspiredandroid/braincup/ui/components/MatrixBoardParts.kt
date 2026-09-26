@@ -163,7 +163,10 @@ private fun MatrixOptionTile(
         isSelected = cell.state == AnswerFeedbackState.DIMMED || isSelected,
         onClick = onClick,
     ) {
-        MatrixPanelCanvas(panel = cell.panel, modifier = Modifier.fillMaxSize().padding(OptionPanelInset))
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            MatrixPanelCanvas(panel = cell.panel, modifier = Modifier.fillMaxSize().padding(OptionPanelInset))
+            FeedbackCornerMark(cell.state, size = feedbackMarkSizeFor(maxWidth))
+        }
     }
 }
 

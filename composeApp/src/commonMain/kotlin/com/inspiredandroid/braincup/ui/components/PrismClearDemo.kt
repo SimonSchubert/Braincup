@@ -113,7 +113,11 @@ fun PrismClearDemo(modifier: Modifier = Modifier) {
                             isSelected = selected,
                             isClickable = false,
                             onClick = {},
-                        ) {}
+                        ) {
+                            if (ordinal >= 0) {
+                                PrismClearTileEmblem(PrismTileType.entries[ordinal], face)
+                            }
+                        }
                     }
                 }
             }

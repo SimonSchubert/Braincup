@@ -113,13 +113,21 @@ private fun SpotTheNewTile(
         isClickable = clickable,
         onClick = { onAnswer(cell.index.toString()) },
     ) {
-        Image(
-            painter = painterResource(cell.animal.resource),
-            contentDescription = null,
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(8.dp),
-        )
+        BoxWithConstraints(Modifier.fillMaxSize()) {
+            Image(
+                painter = painterResource(cell.animal.resource),
+                contentDescription = null,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(8.dp),
+            )
+            val mark = when (cell.type) {
+                SpotTheNewGame.CellType.WRONG -> FeedbackMarkKind.WRONG
+                SpotTheNewGame.CellType.CORRECT -> FeedbackMarkKind.CORRECT
+                SpotTheNewGame.CellType.NORMAL -> null
+            }
+            FeedbackCornerMark(mark, size = feedbackMarkSizeFor(maxWidth))
+        }
     }
 }
 

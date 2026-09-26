@@ -36,21 +36,24 @@ internal fun ColumnScope.ValueComparisonContent(
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
                 .answerTileState(button.state),
         ) {
-            if (button.value.contains("/")) {
-                val parts = button.value.split("/")
-                FractionText(
-                    numerator = parts[0],
-                    denominator = parts[1],
-                    style = MaterialTheme.typography.bodyLarge,
-                    color = contentColor,
-                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
-                )
-            } else {
-                MathText(
-                    button.value,
-                    color = contentColor,
-                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
-                )
+            Box {
+                if (button.value.contains("/")) {
+                    val parts = button.value.split("/")
+                    FractionText(
+                        numerator = parts[0],
+                        denominator = parts[1],
+                        style = MaterialTheme.typography.bodyLarge,
+                        color = contentColor,
+                        modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
+                    )
+                } else {
+                    MathText(
+                        button.value,
+                        color = contentColor,
+                        modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
+                    )
+                }
+                FeedbackCornerMark(button.state, size = 18.dp)
             }
         }
     }

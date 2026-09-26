@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Sound effects</string>
     <string name="settings_sound_effects_desc">Play game sounds.</string>
     <string name="settings_colorblind">Color-blind friendly colors</string>
-    <string name="settings_colorblind_desc">Use a palette that stays distinguishable for the most common forms of color blindness.</string>
+    <string name="settings_colorblind_desc">Swaps in colors that stay distinct for color-blind players and adds a pattern to every colored piece.</string>
+    <string name="settings_colorblind_hidden_games">Hides the games that depend on telling colors apart: %1$s.</string>
     <string name="settings_haptic">Haptic feedback</string>
     <string name="settings_haptic_desc">Vibrate briefly on correct answers.</string>
     <string name="settings_keypad">Phone-style number pad</string>

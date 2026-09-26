@@ -224,5 +224,11 @@ private fun OperatorSlot(
         } else {
             Text(text = " ", style = MaterialTheme.typography.headlineLarge)
         }
+        val mark = when {
+            isWrongPending -> FeedbackMarkKind.WRONG
+            isRevealedCorrect -> FeedbackMarkKind.CORRECT
+            else -> null
+        }
+        FeedbackCornerMark(mark, size = 16.dp)
     }
 }

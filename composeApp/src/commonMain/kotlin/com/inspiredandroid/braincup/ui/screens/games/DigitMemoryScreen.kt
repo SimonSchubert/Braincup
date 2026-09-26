@@ -62,20 +62,29 @@ internal fun ColumnScope.DigitMemoryContent(
                 revealed = result != null,
                 onAnswer = onAnswer,
                 display = { typed, onRemoveAt ->
-                    DigitMemorySlots(
-                        length = uiState.sequenceLength,
-                        value = if (result != null) uiState.sequence else typed,
-                        accent = MaterialTheme.colorScheme.primary,
-                        revealColor = revealColor,
-                        onRemoveAt = if (result == null) onRemoveAt else null,
-                        modifier = if (LocalIsCompactHeight.current) {
-                            Modifier.widthIn(max = 320.dp)
-                        } else {
-                            Modifier
-                                .fillMaxWidth()
-                                .padding(horizontal = 16.dp)
-                        },
-                    )
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        DigitMemorySlots(
+                            length = uiState.sequenceLength,
+                            value = if (result != null) uiState.sequence else typed,
+                            accent = MaterialTheme.colorScheme.primary,
+                            revealColor = revealColor,
+                            onRemoveAt = if (result == null) onRemoveAt else null,
+                            modifier = if (LocalIsCompactHeight.current) {
+                                Modifier.widthIn(max = 320.dp)
+                            } else {
+                                Modifier
+                                    .fillMaxWidth()
+                                    .padding(horizontal = 16.dp)
+                            },
+                        )
+                        if (result != null) {
+                            Spacer(Modifier.height(16.dp))
+                            FeedbackMark(
+                                kind = if (result == RevealResult.CORRECT) FeedbackMarkKind.CORRECT else FeedbackMarkKind.WRONG,
+                                modifier = Modifier.size(40.dp),
+                            )
+                        }
+                    }
                 },
             )
         }
@@ -136,17 +145,25 @@ private fun EquationCard(problem: String, answer: String?) {
             MaterialTheme.colorScheme.tertiaryContainer
         },
     ) {
-        MathText(
-            text = "$problem = ${answer ?: "?"}",
-            style = MaterialTheme.typography.displaySmall,
-            textAlign = TextAlign.Center,
-            color = if (isError) {
-                MaterialTheme.colorScheme.onErrorContainer
-            } else {
-                MaterialTheme.colorScheme.onTertiaryContainer
-            },
-            modifier = Modifier.padding(horizontal = 28.dp, vertical = 18.dp),
-        )
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            if (isError) {
+                FeedbackMark(
+                    kind = FeedbackMarkKind.WRONG,
+                    modifier = Modifier.padding(start = 20.dp).size(32.dp),
+                )
+            }
+            MathText(
+                text = "$problem = ${answer ?: "?"}",
+                style = MaterialTheme.typography.displaySmall,
+                textAlign = TextAlign.Center,
+                color = if (isError) {
+                    MaterialTheme.colorScheme.onErrorContainer
+                } else {
+                    MaterialTheme.colorScheme.onTertiaryContainer
+                },
+                modifier = Modifier.padding(horizontal = 28.dp, vertical = 18.dp),
+            )
+        }
     }
 }
 

@@ -48,6 +48,7 @@ internal fun ColumnScope.ShikakuContent(
     val regionBorderColor = PuzzleGridInk
     val invalidBorder = ErrorRed
     val invalidOverlay = ErrorRed.copy(alpha = 0.25f)
+    val markColors = feedbackMarkColors()
     val previewColor = Primary
     val clueColor = PuzzleGridInk
     val numberFont = numberFontFamily()
@@ -136,6 +137,15 @@ internal fun ColumnScope.ShikakuContent(
                     drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
                     drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
                     drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+                    if (!rect.isValid) {
+                        val radius = minOf(size.width / cols, size.height / rows) * 0.17f
+                        drawFeedbackMark(
+                            FeedbackMarkKind.WRONG,
+                            center = Offset(x1 - radius * 1.4f, y0 + radius * 1.4f),
+                            radius = radius,
+                            colors = markColors,
+                        )
+                    }
                 }
 
                 val start = dragStart

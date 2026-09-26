@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -9,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.toRect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.text.TextLayoutResult
@@ -21,7 +23,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.tools.ColorPattern
 import com.inspiredandroid.braincup.games.tools.composeColor
+import com.inspiredandroid.braincup.games.tools.visiblePattern
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -49,7 +53,33 @@ internal fun PathFinderCell(
         isClickable = isClickable,
         isSelected = cell.state == AnswerFeedbackState.DIMMED,
         onClick = onClick,
-    ) {}
+    ) {
+        Box(Modifier.fillMaxSize()) {
+            if (cell.state == AnswerFeedbackState.NORMAL || cell.state == AnswerFeedbackState.DIMMED) {
+                val color = cell.figure.color
+                val pattern = color.visiblePattern()
+                if (pattern != ColorPattern.PLAIN) {
+                    val patternFace = color.composeColor()
+                    Canvas(Modifier.matchParentSize()) { drawColorPattern(pattern, patternFace, size.toRect()) }
+                }
+            }
+            FeedbackCornerMark(cell.state)
+        }
+    }
+}
+
+/**
+ * The mark for a sequence cell once the round is judged: a cross on the cell tapped by mistake, a
+ * tick on the one that should have been tapped. Centred and large, because these cells are empty.
+ */
+@Composable
+internal fun SequenceCellMark(type: SequenceCellType) {
+    val kind = when (type) {
+        SequenceCellType.WRONG -> FeedbackMarkKind.WRONG
+        SequenceCellType.MISSED -> FeedbackMarkKind.CORRECT
+        else -> return
+    }
+    FeedbackMark(kind, Modifier.fillMaxSize(0.5f).aspectRatio(1f))
 }
 
 @Composable
@@ -74,7 +104,10 @@ internal fun FigureCellContent(
         isSelected = isDimmed,
         onClick = if (isNormal) onClick else ({}),
     ) {
-        ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        Box(Modifier.fillMaxSize()) {
+            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+            FeedbackCornerMark(cell.state)
+        }
     }
 }
 
