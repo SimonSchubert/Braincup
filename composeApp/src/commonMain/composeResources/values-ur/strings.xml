@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">کالا %1$d کے مقابلے %2$d سے جیت گیا۔</string>
     <string name="reversi_white_wins">سفید %1$d کے مقابلے %2$d سے جیت گیا۔</string>
 
+    <string name="checkers_button">چیکرز</string>
+    <string name="checkers_title">چیکرز</string>
+    <string name="checkers_mode_cpu">کمپیوٹر کے خلاف</string>
+    <string name="checkers_mode_human">انسان کے خلاف</string>
+    <string name="checkers_mode_human_subtitle">ایک ہی آلے پر باری باری کھیلیں</string>
+    <string name="checkers_howto">ترچھا آگے چلو اور مخالف کے مہروں پر سے کود کر انہیں مارو۔ مارنا لازمی ہے۔ آخری قطار تک پہنچو تو مہرہ بادشاہ بن جاتا ہے جو دونوں طرف چلتا ہے۔</string>
+    <string name="checkers_difficulty">مشکل</string>
+    <string name="checkers_difficulty_easy">آسان</string>
+    <string name="checkers_difficulty_medium">درمیانہ</string>
+    <string name="checkers_difficulty_hard">مشکل</string>
+    <string name="checkers_start">کھیل شروع کریں</string>
+    <string name="checkers_thinking">کمپیوٹر سوچ رہا ہے…</string>
+    <string name="checkers_turn_you">تمہاری باری</string>
+    <string name="checkers_turn_black">کالے کی باری</string>
+    <string name="checkers_turn_white">سفید کی باری</string>
+    <string name="checkers_must_capture_you">تمہیں مارنا ہی ہوگا</string>
+    <string name="checkers_must_capture_black">کالے کو مارنا ہی ہوگا</string>
+    <string name="checkers_must_capture_white">سفید کو مارنا ہی ہوگا</string>
+    <string name="checkers_keep_jumping">کودتے رہو</string>
+    <string name="checkers_won">تم جیت گئے!</string>
+    <string name="checkers_lost">کمپیوٹر جیت گیا۔</string>
+    <string name="checkers_black_wins">کالا جیت گیا۔</string>
+    <string name="checkers_white_wins">سفید جیت گیا۔</string>
+    <string name="checkers_draw">برابر: دونوں طرف 40 چالوں سے کوئی مہرہ نہیں مارا گیا۔</string>
+    <string name="checkers_resign">ہار مان لیں</string>
+    <string name="checkers_resigned">تم نے ہار مان لی۔ کمپیوٹر جیت گیا۔</string>
+    <string name="checkers_resigned_black">کالے نے ہار مان لی۔ سفید جیت گیا۔</string>
+    <string name="checkers_resigned_white">سفید نے ہار مان لی۔ کالا جیت گیا۔</string>
+    <string name="checkers_quit">بند کریں</string>
+    <string name="checkers_new_game">نیا کھیل</string>
+
     <string name="settings_title">ترتیبات</string>
     <string name="settings_open">ترتیبات کھولیں</string>
     <string name="settings_music">موسیقی</string>
@@ -950,6 +981,7 @@
     <string name="menu_not_played">ابھی تک نہیں کھیلا</string>
     <string name="menu_chess_caption">کمپیوٹر یا دوست کے خلاف</string>
     <string name="menu_reversi_caption">کمپیوٹر یا دوست کے خلاف</string>
+    <string name="menu_checkers_caption">کمپیوٹر یا دوست کے خلاف</string>
     <string name="menu_peg_caption">صرف ایک گوٹی چھوڑیں</string>
     <string name="category_memory">یادداشت</string>
     <string name="category_logic">منطق</string>

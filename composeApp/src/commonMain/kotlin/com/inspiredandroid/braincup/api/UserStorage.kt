@@ -12,6 +12,8 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
@@ -197,6 +199,8 @@ class UserStorage(
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
         const val KEY_REVERSI_DIFFICULTY = "reversi_difficulty"
         const val KEY_REVERSI_MODE = "reversi_mode"
+        const val KEY_CHECKERS_DIFFICULTY = "checkers_difficulty"
+        const val KEY_CHECKERS_MODE = "checkers_mode"
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
         const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
         const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
@@ -325,6 +329,14 @@ class UserStorage(
             NormalChessDifficulty.EASY -> 10
             NormalChessDifficulty.MEDIUM -> 20
             NormalChessDifficulty.HARD -> 40
+        }
+
+        /** XP for a Checkers win against the CPU. A shorter game than Normal Chess, so Hard sits
+         *  below a Hard chess win. */
+        fun checkersWinXp(difficulty: CheckersDifficulty): Int = when (difficulty) {
+            CheckersDifficulty.EASY -> 10
+            CheckersDifficulty.MEDIUM -> 20
+            CheckersDifficulty.HARD -> 30
         }
 
         /** XP for a finished Reversi game, as the human playing black. Half a win for a draw,
@@ -537,12 +549,38 @@ class UserStorage(
         store.putString(KEY_REVERSI_MODE, mode.name)
     }
 
+    /** Checkers CPU difficulty. Defaults to MEDIUM. */
+    fun getCheckersDifficulty(): CheckersDifficulty {
+        val name = store.getStringOrNull(KEY_CHECKERS_DIFFICULTY)
+        return CheckersDifficulty.entries.firstOrNull { it.name == name } ?: CheckersDifficulty.MEDIUM
+    }
+
+    fun setCheckersDifficulty(difficulty: CheckersDifficulty) {
+        store.putString(KEY_CHECKERS_DIFFICULTY, difficulty.name)
+    }
+
+    /** Checkers play mode. Defaults to VS_CPU. */
+    fun getCheckersMode(): CheckersMode {
+        val name = store.getStringOrNull(KEY_CHECKERS_MODE)
+        return CheckersMode.entries.firstOrNull { it.name == name } ?: CheckersMode.VS_CPU
+    }
+
+    fun setCheckersMode(mode: CheckersMode) {
+        store.putString(KEY_CHECKERS_MODE, mode.name)
+    }
+
     data class XpAward(val xpGained: Int, val levelChange: LevelChange?)
 
     /** Award XP for a Normal Chess win against the CPU. Caller passes the AI difficulty that
      *  was beaten so we can scale the reward. Returns the amount granted and any level-up. */
     fun awardNormalChessWinXp(difficulty: NormalChessDifficulty): XpAward {
         val amount = normalChessWinXp(difficulty)
+        val levelChange = addXp(amount)
+        return XpAward(amount, levelChange)
+    }
+
+    fun awardCheckersWinXp(difficulty: CheckersDifficulty): XpAward {
+        val amount = checkersWinXp(difficulty)
         val levelChange = addXp(amount)
         return XpAward(amount, levelChange)
     }

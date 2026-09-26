@@ -19,6 +19,8 @@ import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.locale.AppLocale
 import com.inspiredandroid.braincup.navigation.navRouteToPathSuffix
 import com.inspiredandroid.braincup.navigation.pathSuffixToNavRoute
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.reversi.ReversiDifficulty
@@ -345,6 +347,15 @@ class GameController(
     fun navigateToReversiPlay(mode: ReversiMode, difficulty: ReversiDifficulty) {
         storage.putRecentGame(navRouteToPathSuffix(ReversiMenu))
         navController.navigate(ReversiPlay(mode = mode.name, difficulty = difficulty.name))
+    }
+
+    fun navigateToCheckersMenu() {
+        navController.navigate(CheckersMenu)
+    }
+
+    fun navigateToCheckersPlay(mode: CheckersMode, difficulty: CheckersDifficulty) {
+        storage.putRecentGame(navRouteToPathSuffix(CheckersMenu))
+        navController.navigate(CheckersPlay(mode = mode.name, difficulty = difficulty.name))
     }
 
     fun navigateToLearnMenu() {

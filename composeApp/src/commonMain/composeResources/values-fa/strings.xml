@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">سیاه %1$d به %2$d برد.</string>
     <string name="reversi_white_wins">سفید %1$d به %2$d برد.</string>
 
+    <string name="checkers_button">چکرز</string>
+    <string name="checkers_title">چکرز</string>
+    <string name="checkers_mode_cpu">بازی با رایانه</string>
+    <string name="checkers_mode_human">بازی با حریف</string>
+    <string name="checkers_mode_human_subtitle">نوبتی روی یک دستگاه</string>
+    <string name="checkers_howto">مورب به جلو حرکت کن و با پریدن از روی مهره‌های حریف آن‌ها را بگیر. گرفتن اجباری است. به ردیف آخر برس تا مهره‌ات شاه شود و بتواند به هر دو سو برود.</string>
+    <string name="checkers_difficulty">درجه سختی</string>
+    <string name="checkers_difficulty_easy">آسان</string>
+    <string name="checkers_difficulty_medium">متوسط</string>
+    <string name="checkers_difficulty_hard">سخت</string>
+    <string name="checkers_start">شروع بازی</string>
+    <string name="checkers_thinking">رایانه در حال فکر کردن است…</string>
+    <string name="checkers_turn_you">نوبت توست</string>
+    <string name="checkers_turn_black">نوبت سیاه</string>
+    <string name="checkers_turn_white">نوبت سفید</string>
+    <string name="checkers_must_capture_you">باید مهره بگیری</string>
+    <string name="checkers_must_capture_black">سیاه باید مهره بگیرد</string>
+    <string name="checkers_must_capture_white">سفید باید مهره بگیرد</string>
+    <string name="checkers_keep_jumping">به پریدن ادامه بده</string>
+    <string name="checkers_won">تو بردی!</string>
+    <string name="checkers_lost">رایانه برد.</string>
+    <string name="checkers_black_wins">سیاه برد.</string>
+    <string name="checkers_white_wins">سفید برد.</string>
+    <string name="checkers_draw">مساوی: هر طرف ۴۰ حرکت بدون گرفتن مهره.</string>
+    <string name="checkers_resign">تسلیم</string>
+    <string name="checkers_resigned">تسلیم شدی. رایانه برد.</string>
+    <string name="checkers_resigned_black">سیاه تسلیم شد. سفید برد.</string>
+    <string name="checkers_resigned_white">سفید تسلیم شد. سیاه برد.</string>
+    <string name="checkers_quit">خروج</string>
+    <string name="checkers_new_game">بازی جدید</string>
+
     <string name="settings_title">تنظیمات</string>
     <string name="settings_open">باز کردن تنظیمات</string>
     <string name="settings_music">موسیقی</string>
@@ -935,6 +966,7 @@
     <string name="menu_not_played">هنوز بازی نشده</string>
     <string name="menu_chess_caption">در برابر رایانه یا یک دوست</string>
     <string name="menu_reversi_caption">در برابر رایانه یا یک دوست</string>
+    <string name="menu_checkers_caption">در برابر رایانه یا یک دوست</string>
     <string name="menu_peg_caption">یک مهره باقی بگذار</string>
     <string name="category_memory">حافظه</string>
     <string name="category_logic">منطق</string>

@@ -43,6 +43,8 @@ import com.inspiredandroid.braincup.locale.appLanguageForTag
 import com.inspiredandroid.braincup.locale.isRightToLeftLanguage
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.navigation.ExternalRouteRequests
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.reversi.ReversiDifficulty
@@ -674,6 +676,40 @@ fun App(
                                 difficulty = difficulty,
                                 storage = controller.storage,
                                 onBack = onBackReversiPlay,
+                            )
+                        }
+
+                        composable<CheckersMenu> {
+                            val onStartCheckers = remember(controller) {
+                                { mode: CheckersMode, difficulty: CheckersDifficulty ->
+                                    controller.navigateToCheckersPlay(mode, difficulty)
+                                }
+                            }
+                            val onBackCheckersMenu = remember(controller) { { controller.navigateToMainMenu() } }
+                            CheckersMenuScreen(
+                                storage = controller.storage,
+                                onStart = onStartCheckers,
+                                onBack = onBackCheckersMenu,
+                            )
+                        }
+
+                        composable<CheckersPlay> { backStackEntry ->
+                            val route: CheckersPlay = backStackEntry.toRoute()
+                            val mode = CheckersMode.entries.firstOrNull { it.name == route.mode }
+                                ?: CheckersMode.VS_CPU
+                            val difficulty = CheckersDifficulty.entries.firstOrNull { it.name == route.difficulty }
+                                ?: CheckersDifficulty.MEDIUM
+                            val onBackCheckersPlay = remember(navController) {
+                                {
+                                    navController.popBackStack(CheckersMenu, inclusive = false)
+                                    Unit
+                                }
+                            }
+                            CheckersPlayScreen(
+                                mode = mode,
+                                difficulty = difficulty,
+                                storage = controller.storage,
+                                onBack = onBackCheckersPlay,
                             )
                         }
 

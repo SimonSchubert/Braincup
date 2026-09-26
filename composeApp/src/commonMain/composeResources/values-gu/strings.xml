@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">કાળો %1$d - %2$d થી જીત્યો.</string>
     <string name="reversi_white_wins">સફેદ %1$d - %2$d થી જીત્યો.</string>
 
+    <string name="checkers_button">ચેકર્સ</string>
+    <string name="checkers_title">ચેકર્સ</string>
+    <string name="checkers_mode_cpu">CPU સામે રમો</string>
+    <string name="checkers_mode_human">માણસ સામે રમો</string>
+    <string name="checkers_mode_human_subtitle">એક જ ઉપકરણ પર વારાફરતી રમો</string>
+    <string name="checkers_howto">ત્રાંસું આગળ ચાલ અને પ્રતિસ્પર્ધીની કૂકરીઓ પરથી કૂદીને તેમને લઈ લે. લેવું ફરજિયાત છે. છેલ્લી હરોળે પહોંચે એ કૂકરી રાજા બને છે અને બંને દિશામાં ચાલી શકે છે.</string>
+    <string name="checkers_difficulty">કઠિનતા</string>
+    <string name="checkers_difficulty_easy">સરળ</string>
+    <string name="checkers_difficulty_medium">મધ્યમ</string>
+    <string name="checkers_difficulty_hard">અઘરું</string>
+    <string name="checkers_start">રમત શરૂ કરો</string>
+    <string name="checkers_thinking">CPU વિચારી રહ્યું છે…</string>
+    <string name="checkers_turn_you">તારો વારો</string>
+    <string name="checkers_turn_black">કાળાનો વારો</string>
+    <string name="checkers_turn_white">સફેદનો વારો</string>
+    <string name="checkers_must_capture_you">તારે લેવું જ પડશે</string>
+    <string name="checkers_must_capture_black">કાળાએ લેવું જ પડશે</string>
+    <string name="checkers_must_capture_white">સફેદે લેવું જ પડશે</string>
+    <string name="checkers_keep_jumping">કૂદવાનું ચાલુ રાખ</string>
+    <string name="checkers_won">તું જીત્યો!</string>
+    <string name="checkers_lost">CPU જીત્યું.</string>
+    <string name="checkers_black_wins">કાળો જીત્યો.</string>
+    <string name="checkers_white_wins">સફેદ જીત્યો.</string>
+    <string name="checkers_draw">બરાબરી: બંનેની 40 ચાલ કંઈ લીધા વગર.</string>
+    <string name="checkers_resign">હાર સ્વીકારો</string>
+    <string name="checkers_resigned">તેં હાર માની. CPU જીત્યું.</string>
+    <string name="checkers_resigned_black">કાળાએ હાર માની. સફેદ જીત્યો.</string>
+    <string name="checkers_resigned_white">સફેદે હાર માની. કાળો જીત્યો.</string>
+    <string name="checkers_quit">બહાર નીકળો</string>
+    <string name="checkers_new_game">નવી રમત</string>
+
     <string name="settings_title">સેટિંગ્સ</string>
     <string name="settings_open">સેટિંગ્સ ખોલો</string>
     <string name="settings_music">સંગીત</string>
@@ -1057,6 +1088,7 @@
     <string name="menu_not_played">હજી રમ્યા નથી</string>
     <string name="menu_chess_caption">CPU કે મિત્ર સામે</string>
     <string name="menu_reversi_caption">CPU કે મિત્ર સામે</string>
+    <string name="menu_checkers_caption">CPU કે મિત્ર સામે</string>
     <string name="menu_peg_caption">એક જ મહોરું છોડો</string>
     <string name="category_memory">સ્મૃતિ</string>
     <string name="category_logic">તર્ક</string>

@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">Svart vinner %1$d mot %2$d.</string>
     <string name="reversi_white_wins">Hvit vinner %1$d mot %2$d.</string>
 
+    <string name="checkers_button">Dam</string>
+    <string name="checkers_title">Dam</string>
+    <string name="checkers_mode_cpu">Spill mot CPU</string>
+    <string name="checkers_mode_human">Spill mot et menneske</string>
+    <string name="checkers_mode_human_subtitle">På tur på én enhet</string>
+    <string name="checkers_howto">Flytt diagonalt fremover og hopp over motstanderens brikker for å slå dem. Du må slå når du kan. Når en brikke når bakerste rad, blir den en dam som kan gå begge veier.</string>
+    <string name="checkers_difficulty">Vanskelighetsgrad</string>
+    <string name="checkers_difficulty_easy">Lett</string>
+    <string name="checkers_difficulty_medium">Middels</string>
+    <string name="checkers_difficulty_hard">Vanskelig</string>
+    <string name="checkers_start">Start parti</string>
+    <string name="checkers_thinking">CPU tenker…</string>
+    <string name="checkers_turn_you">Din tur</string>
+    <string name="checkers_turn_black">Svart i trekket</string>
+    <string name="checkers_turn_white">Hvit i trekket</string>
+    <string name="checkers_must_capture_you">Du må slå</string>
+    <string name="checkers_must_capture_black">Svart må slå</string>
+    <string name="checkers_must_capture_white">Hvit må slå</string>
+    <string name="checkers_keep_jumping">Hopp videre</string>
+    <string name="checkers_won">Du vinner!</string>
+    <string name="checkers_lost">CPU vinner.</string>
+    <string name="checkers_black_wins">Svart vinner.</string>
+    <string name="checkers_white_wins">Hvit vinner.</string>
+    <string name="checkers_draw">Remis: 40 trekk hver uten slag.</string>
+    <string name="checkers_resign">Gi opp</string>
+    <string name="checkers_resigned">Du ga opp. CPU vinner.</string>
+    <string name="checkers_resigned_black">Svart ga opp. Hvit vinner.</string>
+    <string name="checkers_resigned_white">Hvit ga opp. Svart vinner.</string>
+    <string name="checkers_quit">Avslutt</string>
+    <string name="checkers_new_game">Nytt parti</string>
+
     <string name="settings_title">Innstillinger</string>
     <string name="settings_open">Åpne innstillinger</string>
     <string name="settings_music">Musikk</string>
@@ -952,6 +983,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="menu_not_played">Ikke spilt ennå</string>
     <string name="menu_chess_caption">Mot CPU eller en venn</string>
     <string name="menu_reversi_caption">Mot CPU eller en venn</string>
+    <string name="menu_checkers_caption">Mot CPU eller en venn</string>
     <string name="menu_peg_caption">La én brikke bli igjen</string>
     <string name="category_memory">Hukommelse</string>
     <string name="category_logic">Logikk</string>

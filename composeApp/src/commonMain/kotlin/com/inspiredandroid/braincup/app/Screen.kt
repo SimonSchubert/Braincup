@@ -94,6 +94,12 @@ object ReversiMenu
 data class ReversiPlay(val mode: String, val difficulty: String)
 
 @Serializable
+object CheckersMenu
+
+@Serializable
+data class CheckersPlay(val mode: String, val difficulty: String)
+
+@Serializable
 object IqTestIntro
 
 @Serializable

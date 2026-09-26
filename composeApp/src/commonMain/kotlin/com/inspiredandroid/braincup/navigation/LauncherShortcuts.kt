@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.navigation
 
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.checkers_button
 import braincup.composeapp.generated.resources.daily_challenge_title
 import braincup.composeapp.generated.resources.iq_test_button
 import braincup.composeapp.generated.resources.matchstick_riddles_title
@@ -9,6 +10,7 @@ import braincup.composeapp.generated.resources.normal_sudoku_title
 import braincup.composeapp.generated.resources.peg_solitaire_button
 import braincup.composeapp.generated.resources.reversi_button
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.CheckersMenu
 import com.inspiredandroid.braincup.app.IqTestIntro
 import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
 import com.inspiredandroid.braincup.app.NormalChessMenu
@@ -65,9 +67,10 @@ private fun recentGameLabelRes(pathSuffix: String): StringResource? = when (path
     navRouteToPathSuffix(MatchstickRiddlesMenu) -> Res.string.matchstick_riddles_title
     navRouteToPathSuffix(PegSolitaire) -> Res.string.peg_solitaire_button
     navRouteToPathSuffix(ReversiMenu) -> Res.string.reversi_button
+    navRouteToPathSuffix(CheckersMenu) -> Res.string.checkers_button
     navRouteToPathSuffix(IqTestIntro) -> Res.string.iq_test_button
     else -> GameType.fromUrlSlug(pathSuffix)?.displayNameRes
 }
 
-// The six games outside GameType are all logic puzzles; the label carries which one it is.
+// The seven games outside GameType are all logic puzzles; the label carries which one it is.
 private fun recentGameCategory(pathSuffix: String): GameCategory = GameType.fromUrlSlug(pathSuffix)?.category ?: GameCategory.LOGIC

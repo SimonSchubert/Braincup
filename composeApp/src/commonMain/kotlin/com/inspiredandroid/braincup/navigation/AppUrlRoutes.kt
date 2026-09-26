@@ -5,6 +5,8 @@ import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.toRoute
 import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Achievements
+import com.inspiredandroid.braincup.app.CheckersMenu
+import com.inspiredandroid.braincup.app.CheckersPlay
 import com.inspiredandroid.braincup.app.Finish
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.IqTestIntro
@@ -69,6 +71,8 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is PegSolitaire -> "peg-solitaire"
     is ReversiMenu -> "reversi"
     is ReversiPlay -> "reversi/${route.mode}/${route.difficulty}"
+    is CheckersMenu -> "checkers"
+    is CheckersPlay -> "checkers/${route.mode}/${route.difficulty}"
     is IqTestIntro -> "iq-test"
     is IqTestPlay -> "iq-test/play"
     is IqTestResult -> "iq-test/result"
@@ -103,6 +107,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "matchstick" -> MatchstickRiddlesMenu
         "peg-solitaire" -> PegSolitaire
         "reversi" -> ReversiMenu
+        "checkers" -> CheckersMenu
         "iq-test" -> IqTestIntro
         "iq-test/play" -> IqTestPlay
         "iq-test/result" -> IqTestResult
@@ -134,6 +139,8 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<PegSolitaire>() -> navRouteToPathSuffix(PegSolitaire)
         destination.hasRoute<ReversiMenu>() -> navRouteToPathSuffix(ReversiMenu)
         destination.hasRoute<ReversiPlay>() -> navRouteToPathSuffix(toRoute<ReversiPlay>())
+        destination.hasRoute<CheckersMenu>() -> navRouteToPathSuffix(CheckersMenu)
+        destination.hasRoute<CheckersPlay>() -> navRouteToPathSuffix(toRoute<CheckersPlay>())
         destination.hasRoute<IqTestIntro>() -> navRouteToPathSuffix(IqTestIntro)
         destination.hasRoute<IqTestPlay>() -> navRouteToPathSuffix(IqTestPlay)
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
@@ -173,6 +180,13 @@ private fun parseParameterizedPath(suffix: String): Any? {
         val parts = suffix.removePrefix("reversi/").split('/')
         if (parts.size == 2 && parts[0].isNotEmpty() && parts[1].isNotEmpty()) {
             return ReversiPlay(mode = parts[0], difficulty = parts[1])
+        }
+        return null
+    }
+    if (suffix.startsWith("checkers/")) {
+        val parts = suffix.removePrefix("checkers/").split('/')
+        if (parts.size == 2 && parts[0].isNotEmpty() && parts[1].isNotEmpty()) {
+            return CheckersPlay(mode = parts[0], difficulty = parts[1])
         }
         return null
     }

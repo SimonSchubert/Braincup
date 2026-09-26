@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">నలుపు %1$d - %2$d తో గెలిచింది.</string>
     <string name="reversi_white_wins">తెలుపు %1$d - %2$d తో గెలిచింది.</string>
 
+    <string name="checkers_button">చెక్కర్స్</string>
+    <string name="checkers_title">చెక్కర్స్</string>
+    <string name="checkers_mode_cpu">CPU తో ఆడు</string>
+    <string name="checkers_mode_human">మనిషితో ఆడు</string>
+    <string name="checkers_mode_human_subtitle">ఒకే పరికరంలో వంతులవారీగా ఆడండి</string>
+    <string name="checkers_howto">ఏటవాలుగా ముందుకు కదులు, ప్రత్యర్థి పావులపై దూకి వాటిని చంపు. చంపగలిగితే చంపాల్సిందే. చివరి వరుసకు చేరితే పావు రాజు అవుతుంది, రెండు వైపులా కదులుతుంది.</string>
+    <string name="checkers_difficulty">కష్టతనం</string>
+    <string name="checkers_difficulty_easy">సులభం</string>
+    <string name="checkers_difficulty_medium">మధ్యస్థం</string>
+    <string name="checkers_difficulty_hard">కష్టం</string>
+    <string name="checkers_start">ఆటను ప్రారంభించు</string>
+    <string name="checkers_thinking">CPU ఆలోచిస్తోంది…</string>
+    <string name="checkers_turn_you">నీ వంతు</string>
+    <string name="checkers_turn_black">నలుపు వంతు</string>
+    <string name="checkers_turn_white">తెలుపు వంతు</string>
+    <string name="checkers_must_capture_you">నువ్వు చంపాల్సిందే</string>
+    <string name="checkers_must_capture_black">నలుపు చంపాల్సిందే</string>
+    <string name="checkers_must_capture_white">తెలుపు చంపాల్సిందే</string>
+    <string name="checkers_keep_jumping">దూకుతూ ఉండు</string>
+    <string name="checkers_won">నువ్వు గెలిచావు!</string>
+    <string name="checkers_lost">CPU గెలిచింది.</string>
+    <string name="checkers_black_wins">నలుపు గెలిచింది.</string>
+    <string name="checkers_white_wins">తెలుపు గెలిచింది.</string>
+    <string name="checkers_draw">డ్రా: ఇద్దరూ 40 ఎత్తులుగా ఏ పావునీ చంపలేదు.</string>
+    <string name="checkers_resign">ఓటమి అంగీకరించు</string>
+    <string name="checkers_resigned">నువ్వు వదులుకున్నావు. CPU గెలిచింది.</string>
+    <string name="checkers_resigned_black">నలుపు వదులుకుంది. తెలుపు గెలిచింది.</string>
+    <string name="checkers_resigned_white">తెలుపు వదులుకుంది. నలుపు గెలిచింది.</string>
+    <string name="checkers_quit">నిష్క్రమించు</string>
+    <string name="checkers_new_game">కొత్త ఆట</string>
+
     <string name="settings_title">సెట్టింగ్‌లు</string>
     <string name="settings_open">సెట్టింగ్‌లను తెరువు</string>
     <string name="settings_music">సంగీతం</string>
@@ -1057,6 +1088,7 @@
     <string name="menu_not_played">ఇంకా ఆడలేదు</string>
     <string name="menu_chess_caption">CPU తో లేదా స్నేహితుడితో</string>
     <string name="menu_reversi_caption">CPU తో లేదా స్నేహితుడితో</string>
+    <string name="menu_checkers_caption">CPU తో లేదా స్నేహితుడితో</string>
     <string name="menu_peg_caption">ఒకే గోటీ మిగల్చు</string>
     <string name="category_memory">జ్ఞాపకశక్తి</string>
     <string name="category_logic">తర్కం</string>

@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">Svart vinnur %1$d gegn %2$d.</string>
     <string name="reversi_white_wins">Hvítt vinnur %1$d gegn %2$d.</string>
 
+    <string name="checkers_button">Dammtafl</string>
+    <string name="checkers_title">Dammtafl</string>
+    <string name="checkers_mode_cpu">Spila gegn CPU</string>
+    <string name="checkers_mode_human">Spila gegn manneskju</string>
+    <string name="checkers_mode_human_subtitle">Skiptast á leikjum á einu tæki</string>
+    <string name="checkers_howto">Færðu á ská áfram og hoppaðu yfir peð andstæðingsins til að drepa þau. Skylt er að drepa. Komstu á fjærstu röðina og peðið verður kóngur sem fer í báðar áttir.</string>
+    <string name="checkers_difficulty">Erfiðleiki</string>
+    <string name="checkers_difficulty_easy">Léttur</string>
+    <string name="checkers_difficulty_medium">Miðlungs</string>
+    <string name="checkers_difficulty_hard">Erfiður</string>
+    <string name="checkers_start">Byrja leik</string>
+    <string name="checkers_thinking">CPU hugsar…</string>
+    <string name="checkers_turn_you">Þú átt leik</string>
+    <string name="checkers_turn_black">Leikur svarts</string>
+    <string name="checkers_turn_white">Leikur hvíts</string>
+    <string name="checkers_must_capture_you">Þú verður að drepa</string>
+    <string name="checkers_must_capture_black">Svart verður að drepa</string>
+    <string name="checkers_must_capture_white">Hvítt verður að drepa</string>
+    <string name="checkers_keep_jumping">Haltu áfram að hoppa</string>
+    <string name="checkers_won">Þú vinnur!</string>
+    <string name="checkers_lost">CPU vinnur.</string>
+    <string name="checkers_black_wins">Svart vinnur.</string>
+    <string name="checkers_white_wins">Hvítt vinnur.</string>
+    <string name="checkers_draw">Jafntefli: 40 leikir hvor án þess að drepa.</string>
+    <string name="checkers_resign">Gefast upp</string>
+    <string name="checkers_resigned">Þú gafst upp. CPU vinnur.</string>
+    <string name="checkers_resigned_black">Svart gafst upp. Hvítt vinnur.</string>
+    <string name="checkers_resigned_white">Hvítt gafst upp. Svart vinnur.</string>
+    <string name="checkers_quit">Hætta</string>
+    <string name="checkers_new_game">Nýr leikur</string>
+
     <string name="settings_title">Stillingar</string>
     <string name="settings_open">Opna stillingar</string>
     <string name="settings_music">Tónlist</string>
@@ -952,6 +983,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="menu_not_played">Ekki spilað enn</string>
     <string name="menu_chess_caption">Gegn CPU eða vini</string>
     <string name="menu_reversi_caption">Gegn CPU eða vini</string>
+    <string name="menu_checkers_caption">Gegn CPU eða vini</string>
     <string name="menu_peg_caption">Skildu eftir einn pinna</string>
     <string name="category_memory">Minni</string>
     <string name="category_logic">Rökhugsun</string>

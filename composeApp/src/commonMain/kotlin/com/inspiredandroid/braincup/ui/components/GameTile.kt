@@ -35,6 +35,8 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
+import com.inspiredandroid.braincup.checkers.CheckersPiece
+import com.inspiredandroid.braincup.checkers.CheckersSide
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
@@ -62,6 +64,9 @@ import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.CheckersBoardFrame
+import com.inspiredandroid.braincup.ui.theme.CheckersDarkSquare
+import com.inspiredandroid.braincup.ui.theme.CheckersLightSquare
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlueBottom
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlueSide
@@ -590,6 +595,17 @@ fun ReversiTile(onClick: () -> Unit) {
         onClick = onClick,
         caption = stringResource(Res.string.menu_reversi_caption),
     ) { ReversiPreview() }
+}
+
+/** English draughts on 8x8. Endless play against the CPU or a friend, so a description rather than progress. */
+@Composable
+fun CheckersTile(onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.checkers_button),
+        accentColor = UntimedSectionAccent,
+        onClick = onClick,
+        caption = stringResource(Res.string.menu_checkers_caption),
+    ) { CheckersPreview() }
 }
 
 /**
@@ -1451,6 +1467,43 @@ private fun ReversiPreview() {
                                     modifier = Modifier.fillMaxSize(0.78f),
                                 )
                             }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun CheckersPreview() {
+    PrismCard(
+        face = CheckersBoardFrame,
+        facet = PrismFacet.Preview,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            for (row in 0 until 8) {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    for (col in 0 until 8) {
+                        val isDark = (row + col) % 2 == 1
+                        val piece = when {
+                            !isDark -> null
+                            row <= 2 -> CheckersPiece(CheckersSide.WHITE, isKing = false)
+                            row >= 5 -> CheckersPiece(CheckersSide.BLACK, isKing = false)
+                            else -> null
+                        }
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                                .background(if (isDark) CheckersDarkSquare else CheckersLightSquare),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            piece?.let { CheckersDisc(piece = it, modifier = Modifier.fillMaxSize(0.8f)) }
                         }
                     }
                 }

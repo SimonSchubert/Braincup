@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">Black wins %1$d to %2$d.</string>
     <string name="reversi_white_wins">White wins %1$d to %2$d.</string>
 
+    <string name="checkers_button">Checkers</string>
+    <string name="checkers_title">Checkers</string>
+    <string name="checkers_mode_cpu">Play vs CPU</string>
+    <string name="checkers_mode_human">Play vs Human</string>
+    <string name="checkers_mode_human_subtitle">Pass and play on one device</string>
+    <string name="checkers_howto">Move diagonally forward and jump your opponent's pieces to take them. Taking is compulsory. Reach the far row to crown a king that moves both ways.</string>
+    <string name="checkers_difficulty">Difficulty</string>
+    <string name="checkers_difficulty_easy">Easy</string>
+    <string name="checkers_difficulty_medium">Medium</string>
+    <string name="checkers_difficulty_hard">Hard</string>
+    <string name="checkers_start">Start game</string>
+    <string name="checkers_thinking">CPU is thinking…</string>
+    <string name="checkers_turn_you">Your turn</string>
+    <string name="checkers_turn_black">Black to move</string>
+    <string name="checkers_turn_white">White to move</string>
+    <string name="checkers_must_capture_you">You have to take</string>
+    <string name="checkers_must_capture_black">Black has to take</string>
+    <string name="checkers_must_capture_white">White has to take</string>
+    <string name="checkers_keep_jumping">Keep jumping</string>
+    <string name="checkers_won">You win!</string>
+    <string name="checkers_lost">The CPU wins.</string>
+    <string name="checkers_black_wins">Black wins.</string>
+    <string name="checkers_white_wins">White wins.</string>
+    <string name="checkers_draw">Draw: 40 moves each without a capture.</string>
+    <string name="checkers_resign">Resign</string>
+    <string name="checkers_resigned">You resigned. The CPU wins.</string>
+    <string name="checkers_resigned_black">Black resigned. White wins.</string>
+    <string name="checkers_resigned_white">White resigned. Black wins.</string>
+    <string name="checkers_quit">Quit</string>
+    <string name="checkers_new_game">New game</string>
+
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>
     <string name="settings_music">Music</string>
@@ -977,6 +1008,7 @@
     <string name="menu_chess_caption">Vs CPU or a friend</string>
     <string name="menu_peg_caption">Leave a single peg</string>
     <string name="menu_reversi_caption">Vs CPU or a friend</string>
+    <string name="menu_checkers_caption">Vs CPU or a friend</string>
     <string name="category_memory">Memory</string>
     <string name="category_logic">Logic</string>
     <string name="category_perception">Perception</string>

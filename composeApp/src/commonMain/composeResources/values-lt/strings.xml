@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">Juodieji laimi %1$d prieš %2$d.</string>
     <string name="reversi_white_wins">Baltieji laimi %1$d prieš %2$d.</string>
 
+    <string name="checkers_button">Šaškės</string>
+    <string name="checkers_title">Šaškės</string>
+    <string name="checkers_mode_cpu">Žaisti prieš CPU</string>
+    <string name="checkers_mode_human">Žaisti prieš žmogų</string>
+    <string name="checkers_mode_human_subtitle">Ėjimų keitimasis viename įrenginyje</string>
+    <string name="checkers_howto">Eik įstrižai pirmyn ir kirsk priešininko šaškes jas peršokdamas. Kirsti privaloma. Pasiekusi tolimiausią eilę šaškė tampa dama ir eina į abi puses.</string>
+    <string name="checkers_difficulty">Sudėtingumas</string>
+    <string name="checkers_difficulty_easy">Lengvas</string>
+    <string name="checkers_difficulty_medium">Vidutinis</string>
+    <string name="checkers_difficulty_hard">Sunkus</string>
+    <string name="checkers_start">Pradėti partiją</string>
+    <string name="checkers_thinking">CPU galvoja…</string>
+    <string name="checkers_turn_you">Tavo ėjimas</string>
+    <string name="checkers_turn_black">Juodųjų ėjimas</string>
+    <string name="checkers_turn_white">Baltųjų ėjimas</string>
+    <string name="checkers_must_capture_you">Privalai kirsti</string>
+    <string name="checkers_must_capture_black">Juodieji privalo kirsti</string>
+    <string name="checkers_must_capture_white">Baltieji privalo kirsti</string>
+    <string name="checkers_keep_jumping">Kirsk toliau</string>
+    <string name="checkers_won">Laimėjai!</string>
+    <string name="checkers_lost">CPU laimi.</string>
+    <string name="checkers_black_wins">Juodieji laimi.</string>
+    <string name="checkers_white_wins">Baltieji laimi.</string>
+    <string name="checkers_draw">Lygiosios: po 40 ėjimų be kirtimo.</string>
+    <string name="checkers_resign">Pasiduoti</string>
+    <string name="checkers_resigned">Pasidavei. Laimi CPU.</string>
+    <string name="checkers_resigned_black">Juodieji pasidavė. Laimi baltieji.</string>
+    <string name="checkers_resigned_white">Baltieji pasidavė. Laimi juodieji.</string>
+    <string name="checkers_quit">Baigti</string>
+    <string name="checkers_new_game">Nauja partija</string>
+
     <string name="settings_title">Nustatymai</string>
     <string name="settings_open">Atidaryti nustatymus</string>
     <string name="settings_music">Muzika</string>
@@ -956,6 +987,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="menu_not_played">Dar nežaista</string>
     <string name="menu_chess_caption">Prieš CPU arba draugą</string>
     <string name="menu_reversi_caption">Prieš CPU arba draugą</string>
+    <string name="menu_checkers_caption">Prieš CPU arba draugą</string>
     <string name="menu_peg_caption">Palik vieną kaištį</string>
     <string name="category_memory">Atmintis</string>
     <string name="category_logic">Logika</string>

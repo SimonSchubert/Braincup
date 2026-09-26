@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.learn.LearnTopicProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
+import com.inspiredandroid.braincup.ui.components.CheckersTile
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
@@ -116,6 +117,7 @@ fun MainMenuScreen(
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
     val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
     val onReversi = remember(controller) { { controller.navigateToReversiMenu() } }
+    val onCheckers = remember(controller) { { controller.navigateToCheckersMenu() } }
     val onLearnTopic = remember(controller) { { topic: MathTopic -> controller.navigateToLearnTopic(topic) } }
     val onShowBrainCup = remember(controller) {
         if (PlayGamesBridge.onShowBrainCup != null) {
@@ -148,6 +150,7 @@ fun MainMenuScreen(
         onMatchstickRiddles = onMatchstickRiddles,
         onPegSolitaire = onPegSolitaire,
         onReversi = onReversi,
+        onCheckers = onCheckers,
         learnProgress = learnProgress,
         onLearnTopic = onLearnTopic,
         onShowBrainCup = onShowBrainCup,
@@ -185,6 +188,7 @@ fun MainMenuScreenContent(
     onMatchstickRiddles: () -> Unit = {},
     onPegSolitaire: () -> Unit = {},
     onReversi: () -> Unit = {},
+    onCheckers: () -> Unit = {},
     /** Learn section state, one entry per topic. Empty hides the section (store screenshots). */
     learnProgress: ImmutableList<LearnTopicProgress> = persistentListOf(),
     onLearnTopic: (MathTopic) -> Unit = {},
@@ -389,6 +393,9 @@ fun MainMenuScreenContent(
             item(contentType = "reversi") {
                 ReversiTile(onClick = onReversi)
             }
+            item(contentType = "checkers") {
+                CheckersTile(onClick = onCheckers)
+            }
         } else {
             // One section per skill, every game in it on screen. The categories already drove the
             // ordering here; naming them and pinning the name is what turns a run of 39 tiles into
@@ -445,6 +452,9 @@ fun MainMenuScreenContent(
             }
             item(contentType = "untimed_tile") {
                 ReversiTile(onClick = onReversi)
+            }
+            item(contentType = "untimed_tile") {
+                CheckersTile(onClick = onCheckers)
             }
             // Real [GameType]s that belong here by pace rather than by skill. They keep their
             // medal and highscore, and take this section's taller tile so the row stays even.

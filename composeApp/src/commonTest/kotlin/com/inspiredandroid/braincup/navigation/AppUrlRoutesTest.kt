@@ -1,6 +1,8 @@
 package com.inspiredandroid.braincup.navigation
 
 import com.inspiredandroid.braincup.app.Accounts
+import com.inspiredandroid.braincup.app.CheckersMenu
+import com.inspiredandroid.braincup.app.CheckersPlay
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.LearnCertificate
 import com.inspiredandroid.braincup.app.LearnLessonPlay
@@ -104,6 +106,8 @@ class AppUrlRoutesTest {
         assertEquals("peg-solitaire", navRouteToPathSuffix(PegSolitaire))
         assertEquals("reversi", navRouteToPathSuffix(ReversiMenu))
         assertEquals("reversi/VS_CPU/HARD", navRouteToPathSuffix(ReversiPlay(mode = "VS_CPU", difficulty = "HARD")))
+        assertEquals("checkers", navRouteToPathSuffix(CheckersMenu))
+        assertEquals("checkers/VS_HUMAN/EASY", navRouteToPathSuffix(CheckersPlay(mode = "VS_HUMAN", difficulty = "EASY")))
     }
 
     @Test
@@ -111,6 +115,8 @@ class AppUrlRoutesTest {
         assertEquals(PegSolitaire, pathSuffixToNavRoute("peg-solitaire"))
         assertEquals(ReversiMenu, pathSuffixToNavRoute("reversi"))
         assertEquals(ReversiPlay(mode = "VS_CPU", difficulty = "HARD"), pathSuffixToNavRoute("reversi/VS_CPU/HARD"))
+        assertEquals(CheckersMenu, pathSuffixToNavRoute("checkers"))
+        assertEquals(CheckersPlay(mode = "VS_HUMAN", difficulty = "EASY"), pathSuffixToNavRoute("checkers/VS_HUMAN/EASY"))
     }
 
     @Test

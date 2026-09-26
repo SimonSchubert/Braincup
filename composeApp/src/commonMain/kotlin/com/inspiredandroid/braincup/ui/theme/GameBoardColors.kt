@@ -23,6 +23,18 @@ val ReversiWhiteDisc = Color(0xFFF4F1EA)
 val ReversiLegalDot = Color(0x8CFFFFFF)
 val ReversiLastMove = Color(0x66FFD54F)
 
+/** Checkers board palette, shared by the play screen and its menu tile preview. */
+val CheckersBoardFrame = Color(0xFF5A3A22)
+val CheckersLightSquare = Color(0xFFF0D9B5)
+val CheckersDarkSquare = Color(0xFFA0683F)
+val CheckersBlackPiece = Color(0xFF1F1F24)
+val CheckersWhitePiece = Color(0xFFF4F1EA)
+val CheckersCrown = Color(0xFFFFC107)
+val CheckersLegalDot = Color(0x8CFFFFFF)
+val CheckersLastMove = Color(0x66FFD54F)
+val CheckersSelected = Color(0x993F7FD9)
+val CheckersMustCaptureRing = Color(0xFFE65100)
+
 /** Shared slate tray used by Shikaku and Knot boards. */
 val PuzzleSlateFrame = Color(0xFF3E4450)
 

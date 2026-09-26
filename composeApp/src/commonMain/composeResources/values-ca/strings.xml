@@ -124,6 +124,37 @@
     <string name="reversi_black_wins">Guanyen les negres %1$d a %2$d.</string>
     <string name="reversi_white_wins">Guanyen les blanques %1$d a %2$d.</string>
 
+    <string name="checkers_button">Dames</string>
+    <string name="checkers_title">Dames</string>
+    <string name="checkers_mode_cpu">Juga contra la CPU</string>
+    <string name="checkers_mode_human">Juga contra una persona</string>
+    <string name="checkers_mode_human_subtitle">Torns alternats en un sol dispositiu</string>
+    <string name="checkers_howto">Avança en diagonal i salta les fitxes rivals per menjar-te-les. Menjar és obligatori. Arriba a l'última fila per coronar una dama, que es mou endavant i enrere.</string>
+    <string name="checkers_difficulty">Dificultat</string>
+    <string name="checkers_difficulty_easy">Fàcil</string>
+    <string name="checkers_difficulty_medium">Mitjana</string>
+    <string name="checkers_difficulty_hard">Difícil</string>
+    <string name="checkers_start">Comença la partida</string>
+    <string name="checkers_thinking">La CPU pensa…</string>
+    <string name="checkers_turn_you">Et toca</string>
+    <string name="checkers_turn_black">Toca a les negres</string>
+    <string name="checkers_turn_white">Toca a les blanques</string>
+    <string name="checkers_must_capture_you">Has de menjar</string>
+    <string name="checkers_must_capture_black">Les negres han de menjar</string>
+    <string name="checkers_must_capture_white">Les blanques han de menjar</string>
+    <string name="checkers_keep_jumping">Continua saltant</string>
+    <string name="checkers_won">Guanyes!</string>
+    <string name="checkers_lost">Guanya la CPU.</string>
+    <string name="checkers_black_wins">Guanyen les negres.</string>
+    <string name="checkers_white_wins">Guanyen les blanques.</string>
+    <string name="checkers_draw">Taules: 40 moviments cadascú sense menjar.</string>
+    <string name="checkers_resign">Rendició</string>
+    <string name="checkers_resigned">T'has rendit. Guanya la CPU.</string>
+    <string name="checkers_resigned_black">Les negres es rendeixen. Guanyen les blanques.</string>
+    <string name="checkers_resigned_white">Les blanques es rendeixen. Guanyen les negres.</string>
+    <string name="checkers_quit">Surt</string>
+    <string name="checkers_new_game">Nova partida</string>
+
     <string name="settings_title">Ajustos</string>
     <string name="settings_open">Obre els ajustos</string>
     <string name="settings_music">Música</string>
@@ -952,6 +983,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="menu_not_played">Encara no jugat</string>
     <string name="menu_chess_caption">Contra la CPU o un amic</string>
     <string name="menu_reversi_caption">Contra la CPU o un amic</string>
+    <string name="menu_checkers_caption">Contra la CPU o un amic</string>
     <string name="menu_peg_caption">Deixa només una fitxa</string>
     <string name="category_memory">Memòria</string>
     <string name="category_logic">Lògica</string>
