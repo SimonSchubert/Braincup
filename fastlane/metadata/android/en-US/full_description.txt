@@ -57,6 +57,9 @@ Finish the scenario as white against the CPU.
 <b>Solo Chess</b>:
 Capture until only the king remains. Every move must capture.
 
+<b>Mini Checkers</b>:
+Find the winning combination as black on a 6x6 board.
+
 <b>Lights Out</b>:
 Turn off every light; taps toggle neighbours.
 
@@ -137,6 +140,9 @@ Sort cards by a hidden rule that changes once you have it.
 
 <b>Reversi</b>:
 6x6 vs the CPU or pass-and-play. Trap a line to flip it.
+
+<b>Checkers</b>:
+8x8 vs the CPU on three levels or pass-and-play. Captures are compulsory.
 
 <b>Learn Math</b>:
 Lessons, tests and certificates in Arithmetic, Geometry, Measurement and Algebra.

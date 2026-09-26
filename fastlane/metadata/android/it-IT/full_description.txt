@@ -57,6 +57,9 @@ Chiudi lo scenario con il bianco contro la CPU.
 <b>Scacchi in solitaria</b>:
 Cattura finché resta solo il re. Ogni mossa deve catturare.
 
+<b>Mini Dama</b>:
+Trova con il nero la combinazione vincente su una scacchiera 6x6.
+
 <b>Spegni le luci</b>:
 Spegni tutte le luci; un tocco cambia anche le vicine.
 
@@ -137,6 +140,9 @@ Ordina le carte secondo una regola nascosta che cambia appena l'hai.
 
 <b>Reversi</b>:
 6x6 contro la CPU o in due. Chiudi una riga per capovolgerla.
+
+<b>Dama</b>:
+8x8 contro la CPU su tre livelli o in due. Mangiare è obbligatorio.
 
 <b>Impara la matematica</b>:
 Lezioni, test e certificati di Aritmetica, Geometria, Misura e Algebra.

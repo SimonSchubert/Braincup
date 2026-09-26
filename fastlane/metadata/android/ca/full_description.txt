@@ -57,6 +57,9 @@ Acaba l'escenari amb blanques contra la CPU.
 <b>Escacs en solitari</b>:
 Captura fins que només quedi el rei. Cada jugada ha de capturar.
 
+<b>Mini dames</b>:
+Troba amb negres la combinació guanyadora en un tauler de 6x6.
+
 <b>Apaga els llums</b>:
 Apaga tots els llums; un toc gira també els veïns.
 
@@ -137,6 +140,9 @@ Ordena cartes segons una regla oculta que canvia tan bon punt la tens.
 
 <b>Reversi</b>:
 6x6 contra la CPU o a dos. Tanca una línia per girar-la.
+
+<b>Dames</b>:
+8x8 contra la CPU en tres nivells o a dos. Menjar és obligatori.
 
 <b>Aprèn matemàtiques</b>:
 Lliçons, tests i certificats d'Aritmètica, Geometria, Mesura i Àlgebra.

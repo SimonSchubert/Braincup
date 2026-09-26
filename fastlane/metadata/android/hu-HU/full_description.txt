@@ -57,6 +57,9 @@ Fejezd be a helyzetet világossal a CPU ellen.
 <b>Szóló sakk</b>:
 Üss, amíg csak a király marad. Minden lépés ütés.
 
+<b>Mini dáma</b>:
+Találd meg sötéttel a nyerő kombinációt a 6x6-os táblán.
+
 <b>Fények ki</b>:
 Oltsd el az összes lámpát; a koppintás a szomszédokat is billenti.
 
@@ -137,6 +140,9 @@ Rendezd a kártyákat rejtett szabály szerint, ami megváltozik, amint megvan.
 
 <b>Reversi</b>:
 6x6 a CPU ellen vagy ketten. Fogj közre egy sort, hogy megfordítsd.
+
+<b>Dáma</b>:
+8x8 a CPU ellen három szinten vagy ketten. Az ütés kötelező.
 
 <b>Matektanulás</b>:
 Leckék, tesztek és bizonyítványok: Számtan, Geometria, Mérés és Algebra.

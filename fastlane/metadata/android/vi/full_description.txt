@@ -57,6 +57,9 @@ Kết thúc thế cờ quân trắng chống CPU.
 <b>Cờ vua Solo</b>:
 Bắt đến khi chỉ còn vua. Mỗi nước phải bắt.
 
+<b>Cờ Đam Mini</b>:
+Tìm đòn phối hợp thắng cho quân đen trên bàn 6x6.
+
 <b>Tắt Đèn</b>:
 Tắt hết đèn; chạm cũng lật ô kề.
 
@@ -137,6 +140,9 @@ Xếp bài theo luật ẩn, đổi ngay khi bạn nắm được.
 
 <b>Reversi</b>:
 6x6 đấu CPU hoặc hai người. Kẹp một hàng để lật.
+
+<b>Cờ đam</b>:
+8x8 đấu CPU với ba mức độ hoặc hai người. Có thể ăn thì phải ăn.
 
 <b>Học Toán</b>:
 Bài học, bài kiểm tra và chứng chỉ Số học, Hình học, Đo lường và Đại số.

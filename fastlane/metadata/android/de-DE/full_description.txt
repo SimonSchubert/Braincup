@@ -57,6 +57,9 @@ Spiele das Szenario als Weiß gegen die CPU zu Ende.
 <b>Solo-Schach</b>:
 Schlage, bis nur der König bleibt. Jeder Zug muss schlagen.
 
+<b>Mini-Dame</b>:
+Finde als Schwarz die Gewinnkombination auf dem 6x6-Brett.
+
 <b>Lichter aus</b>:
 Schalte alle Lichter aus; ein Tipp schaltet die Nachbarn mit um.
 
@@ -137,6 +140,9 @@ Sortiere Karten nach einer versteckten Regel, die sich ändert, sobald du sie ha
 
 <b>Reversi</b>:
 6x6 gegen die CPU oder zu zweit. Schließe eine Reihe ein, um sie umzudrehen.
+
+<b>Dame</b>:
+8x8 gegen die CPU in drei Stufen oder zu zweit. Es gilt Schlagzwang.
 
 <b>Mathe lernen</b>:
 Lektionen, Tests und Zertifikate in Arithmetik, Geometrie, Messen und Algebra.

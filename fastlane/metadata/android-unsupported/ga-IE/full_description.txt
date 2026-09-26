@@ -57,6 +57,9 @@ Críochnaigh an cás mar bhán i gcoinne an CPU.
 <b>Ficheall aonair</b>:
 Gabh go dtí nach bhfuil fágtha ach an rí. Caithfidh gach beart gabháil.
 
+<b>Miontáiplis</b>:
+Aimsigh an teaglaim bhuaiteach mar dhubh ar chlár 6x6.
+
 <b>Múch na soilse</b>:
 Múch gach solas; casann tapáil na comharsana freisin.
 
@@ -137,6 +140,9 @@ Sórtáil cártaí de réir riail fholaithe a athraíonn nuair atá sí agat.
 
 <b>Reversi</b>:
 6x6 i gcoinne an CPU nó beirt. Gabh líne chun í a chasadh.
+
+<b>Táiplis</b>:
+8x8 i gcoinne an CPU ar thrí leibhéal nó beirt. Tá gabháil éigeantach.
 
 <b>Foghlaim mata</b>:
 Ceachtanna, trialacha agus teastais i Uimhríocht, Céimseata, Tomhas agus Ailgéabar.

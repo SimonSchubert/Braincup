@@ -46,7 +46,7 @@ Train your math skills, memory and focus.
 
 ## Games
 
-Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
+Braincup includes **48** activities: **41** scored mini-games plus **7** extras.
 
 ### Math
 - **Mental Calculation** — Follow expressions; use each result as the base for the next
@@ -67,6 +67,7 @@ Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
 - **Mini Sudoku** — Small grid: each row, column and block once per digit
 - **Mini Chess** — Finish a chess scenario as white against the CPU
 - **Solo Chess** — Capture pieces until only the king remains
+- **Mini Checkers** - Find the forcing combination that wins as black on a 6x6 board
 - **Lights Out** — Turn off every light; taps toggle neighbours
 - **Sliding Puzzle** — Slide tiles into order
 - **Shikaku** — Divide the grid into rectangles matching their numbers
@@ -103,6 +104,7 @@ Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
 - **Sudoku** — Classic full-size Sudoku with multiple difficulties
 - **Chess** — Full chess vs CPU or pass-and-play
 - **Reversi** — 6x6 Reversi vs CPU (normal or hard) or pass-and-play
+- **Checkers** - 8x8 checkers vs CPU (easy, medium or hard) or pass-and-play
 
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.

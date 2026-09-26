@@ -57,6 +57,9 @@ Päätä tilanne valkeilla CPU:ta vastaan.
 <b>Yksinshakki</b>:
 Lyö kunnes kuningas jää. Jokaisen siirron pitää lyödä.
 
+<b>Minitammi</b>:
+Löydä mustilla voittava yhdistelmä 6x6-laudalta.
+
 <b>Valot pois</b>:
 Sammuta kaikki valot; napautus kääntää naapuritkin.
 
@@ -137,6 +140,9 @@ Lajittele kortit piilosäännöllä, joka vaihtuu kun sen saat.
 
 <b>Reversi</b>:
 6x6 CPU:ta vastaan tai kahdestaan. Sulje jono kääntääksesi sen.
+
+<b>Tammi</b>:
+8x8 CPU:ta vastaan kolmella tasolla tai kahdestaan. Syöminen on pakollista.
 
 <b>Opi matematiikkaa</b>:
 Oppitunteja, testejä ja todistuksia: Aritmetiikka, Geometria, Mittaaminen ja Algebra.

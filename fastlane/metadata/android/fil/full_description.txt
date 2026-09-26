@@ -37,7 +37,7 @@ Isaulo ang hugis, tapos kilalanin ang nakatago.
 Umiiilaw ang tile; i-tap pabalik sa parehong ayos.
 
 <b>Guluhan ng Kulay</b>:
-I-tap ang kulay ng tinta, hindi ang kulay na sinasabi ng salita.
+I-tap ang kulay ng tinta, hindi ang sinasabi ng salita.
 
 <b>Mga Kulay na Hugis</b>:
 Idagdag ang puntos ng tamang pahayag.
@@ -57,8 +57,11 @@ Tapusin ang senaryo bilang puti laban sa CPU.
 <b>Solong Ahedres</b>:
 Kumuha hanggang hari na lang. Bawat galaw ay dapat kumuha.
 
+<b>Mini Dama</b>:
+Hanapin bilang itim ang panalong kombinasyon sa 6x6.
+
 <b>Patayin ang Ilaw</b>:
-Patayin lahat ng ilaw; ang tap ay bumabaligtad din ng kapitbahay.
+Patayin lahat ng ilaw; binabaligtad din ng tap ang katabi.
 
 <b>Palaisipang Padulas</b>:
 I-slide ang tile hanggang maayos.
@@ -73,7 +76,7 @@ Pinturahan ang dagat sa paligid ng may-numerong isla, walang 2x2.
 Isang pusa bawat hilera, column at kulay na zone; huwag magdikit.
 
 <b>Buhol</b>:
-Ikabit ang magkaparehong kulay nang hindi nagsasalubong; punuin ang bawat cell.
+Ikabit ang magkaparehong kulay nang walang salubong; punuin ang bawat cell.
 
 <b>Tore ng Hanoi</b>:
 Ilipat ang tumpok sa kanang poste.
@@ -130,13 +133,16 @@ Hanapin ang tatlong kard na may parehong hugis, fill o bilang.
 Ang pangalawang block ba'y ang una na pinihit, o salamin nito?
 
 <b>Flexible na Isip</b>:
-Ang pares sa itaas ang nagtatakda ng tuntunin; tamaan ang target sa katangiang iyon.
+Ang pares sa itaas ang nagtatakda ng tuntunin; itugma ang target.
 
 <b>Palit-Panuntunan</b>:
-Ayusin ang kard ayon sa nakatagong tuntunin na nagbabago kapag nakuha mo na.
+Ayusin ang kard sa nakatagong tuntuning nagbabago kapag nakuha mo.
 
 <b>Reversi</b>:
 6x6 laban sa CPU o dalawa. Kubkubin ang linya para baligtarin.
+
+<b>Dama</b>:
+8x8 laban sa CPU sa tatlong antas o dalawa. Sapilitan ang pagkain.
 
 <b>Matuto ng Math</b>:
 Mga leksyon, pagsusulit at sertipiko sa Aritmetika, Heometriya, Pagsukat at Algebra.

@@ -57,6 +57,9 @@ Užbaik scenarijų baltaisiais prieš CPU.
 <b>Solo šachmatai</b>:
 Mušk, kol liks karalius. Kiekvienas ėjimas turi mušti.
 
+<b>Mini šaškės</b>:
+Rask juodaisiais laiminčią kombinaciją 6x6 lentoje.
+
 <b>Užgesink šviesas</b>:
 Užgesink visas šviesas; bakstelėjimas apverčia ir kaimynus.
 
@@ -137,6 +140,9 @@ Rūšiuok kortas pagal slaptą taisyklę, kuri keičiasi, kai ją turi.
 
 <b>Reversi</b>:
 6x6 prieš CPU arba dviese. Sugauk liniją, kad ją apverstum.
+
+<b>Šaškės</b>:
+8x8 prieš CPU trimis lygiais arba dviese. Kirsti privaloma.
 
 <b>Mokykis matematikos</b>:
 Pamokos, testai ir pažymėjimai: Aritmetika, Geometrija, Matavimas ir Algebra.

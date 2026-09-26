@@ -57,6 +57,9 @@ Ljúktu atriðinu sem hvítur gegn CPU.
 <b>Einmennisskák</b>:
 Taktu uns aðeins kóngurinn er eftir. Hver leikur verður að taka.
 
+<b>Mínidammtafl</b>:
+Finndu vinningsfléttuna sem svartur á 6x6 borði.
+
 <b>Slökktu ljósin</b>:
 Slökktu öll ljós; pikkar snýr líka nágrönnum.
 
@@ -137,6 +140,9 @@ Raðaðu spilum eftir falinni reglu sem breytist um leið og þú hefur hana.
 
 <b>Reversi</b>:
 6x6 gegn CPU eða tveir. Lokaðu línu til að snúa henni.
+
+<b>Dammtafl</b>:
+8x8 gegn CPU á þremur erfiðleikastigum eða tveir. Skylt er að drepa.
 
 <b>Lærðu stærðfræði</b>:
 Kennslustundir, próf og skírteini í Reikningur, Rúmfræði, Mælingar og Algebra.

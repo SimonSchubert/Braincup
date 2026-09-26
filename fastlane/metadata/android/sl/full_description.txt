@@ -57,6 +57,9 @@ Dokončaj scenarij z belimi proti CPU.
 <b>Solo šah</b>:
 Jemi, dokler ne ostane kralj. Vsaka poteza mora vzeti.
 
+<b>Mini dama</b>:
+Najdi s črnimi zmagovito kombinacijo na plošči 6x6.
+
 <b>Ugasni luči</b>:
 Ugasni vse luči; tap preklopi tudi sosede.
 
@@ -137,6 +140,9 @@ Razvrsti karte po skritem pravilu, ki se spremeni, ko ga imaš.
 
 <b>Reversi</b>:
 6x6 proti CPU ali dva. Primej črto, da jo obrneš.
+
+<b>Dama</b>:
+8x8 proti CPU na treh stopnjah ali dva. Jemanje je obvezno.
 
 <b>Uči se matematiko</b>:
 Lekcije, testi in spričevala iz Aritmetika, Geometrija, Merjenje in Algebra.

@@ -57,6 +57,9 @@ Spil scenariet færdigt som hvid mod CPU'en.
 <b>Soloskak</b>:
 Slå indtil kun kongen er tilbage. Hvert træk skal slå.
 
+<b>Minidam</b>:
+Find den vindende kombination som sort på et 6x6-bræt.
+
 <b>Sluk lysene</b>:
 Sluk alle lys; et tryk vender også naboerne.
 
@@ -137,6 +140,9 @@ Sortér kort efter en skjult regel der skifter når du har den.
 
 <b>Reversi</b>:
 6x6 mod CPU'en eller to sammen. Luk en linje for at vende den.
+
+<b>Dam</b>:
+8x8 mod CPU'en på tre niveauer eller to sammen. Du skal slå, når du kan.
 
 <b>Lær matematik</b>:
 Lektioner, tests og certifikater i Aritmetik, Geometri, Måling og Algebra.

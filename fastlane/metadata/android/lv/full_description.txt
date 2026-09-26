@@ -57,6 +57,9 @@ Pabeidz scenāriju ar baltajiem pret CPU.
 <b>Solo šahs</b>:
 Sit, līdz paliek karalis. Katram gājienam jāsit.
 
+<b>Mini dambrete</b>:
+Atrodi ar melnajiem uzvarošo kombināciju 6x6 laukumā.
+
 <b>Izdzēs gaismas</b>:
 Izslēdz visas gaismas; pieskāriens apgriež arī kaimiņus.
 
@@ -137,6 +140,9 @@ Kārto kārtis pēc slēpta likuma, kas mainās, tiklīdz tas tev ir.
 
 <b>Reversi</b>:
 6x6 pret CPU vai divatā. Satver līniju, lai to apgrieztu.
+
+<b>Dambrete</b>:
+8x8 pret CPU trīs līmeņos vai divatā. Sist ir obligāti.
 
 <b>Mācies matemātiku</b>:
 Nodarbības, testi un sertifikāti: Aritmētika, Ģeometrija, Mērīšana un Algebra.

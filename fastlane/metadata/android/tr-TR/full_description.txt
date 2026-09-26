@@ -57,6 +57,9 @@ Beyazlarla CPU'ya karşı senaryoyu bitir.
 <b>Tek Kişilik Satranç</b>:
 Yalnız kral kalana dek al. Her hamle alma olmalı.
 
+<b>Mini Dama</b>:
+6x6 tahtada siyahlarla kazandıran kombinasyonu bul.
+
 <b>Işıkları Söndür</b>:
 Tüm ışıkları kapat; dokunuş komşuları da çevirir.
 
@@ -137,6 +140,9 @@ Gizli kurala göre kartları ayır; kuralı bulunca değişir.
 
 <b>Reversi</b>:
 6x6 CPU'ya karşı veya iki kişi. Bir çizgiyi kıstırıp çevir.
+
+<b>Dama</b>:
+8x8, CPU'ya karşı üç seviyede veya iki kişi. Taş almak zorunlu.
 
 <b>Matematik öğren</b>:
 Aritmetik, Geometri, Ölçme ve Cebir dersleri, testleri ve sertifikaları.

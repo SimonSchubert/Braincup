@@ -57,6 +57,9 @@ Dokończ scenariusz białymi przeciw CPU.
 <b>Szachy solo</b>:
 Bij aż zostanie tylko król. Każdy ruch musi bić.
 
+<b>Mini Warcaby</b>:
+Znajdź czarnymi zwycięską kombinację na planszy 6x6.
+
 <b>Wyłącz światła</b>:
 Zgaś wszystkie światła; stuknięcie przełącza też sąsiadów.
 
@@ -137,6 +140,9 @@ Sortuj karty według ukrytej reguły, która zmienia się, gdy ją masz.
 
 <b>Reversi</b>:
 6x6 przeciw CPU albo we dwoje. Zamknij linię, żeby ją odwrócić.
+
+<b>Warcaby</b>:
+8x8 przeciw CPU na trzech poziomach albo we dwoje. Bicie jest obowiązkowe.
 
 <b>Nauka matematyki</b>:
 Lekcje, testy i certyfikaty z Arytmetyka, Geometria, Miary i Algebra.

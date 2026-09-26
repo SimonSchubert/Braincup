@@ -57,6 +57,9 @@ Docehraj scénář bílými proti CPU.
 <b>Solo šachy</b>:
 Ber, dokud nezbude král. Každý tah musí brát.
 
+<b>Mini dáma</b>:
+Najdi černými vítěznou kombinaci na desce 6x6.
+
 <b>Zhasni světla</b>:
 Zhasni všechna světla; ťuknutí přepne i sousedy.
 
@@ -137,6 +140,9 @@ Třiď karty podle skrytého pravidla, které se změní, jakmile ho máš.
 
 <b>Reversi</b>:
 6x6 proti CPU nebo ve dvou. Sevři řadu, abys ji otočil.
+
+<b>Dáma</b>:
+8x8 proti CPU ve třech obtížnostech nebo ve dvou. Braní je povinné.
 
 <b>Uč se matematiku</b>:
 Lekce, testy a certifikáty z Aritmetika, Geometrie, Měření a Algebra.

@@ -57,6 +57,9 @@ Termine le scénario avec les blancs contre le CPU.
 <b>Échecs solo</b>:
 Prends jusqu'à ce qu'il ne reste que le roi. Chaque coup doit prendre.
 
+<b>Mini Dames</b>:
+Trouve la combinaison gagnante avec les noirs sur un plateau 6x6.
+
 <b>Éteins les lumières</b>:
 Éteins toutes les lumières; un tap bascule aussi les voisines.
 
@@ -137,6 +140,9 @@ Trie les cartes selon une règle cachée, qui change dès que tu l'as.
 
 <b>Reversi</b>:
 6x6 contre le CPU ou à deux. Encadre une ligne pour la retourner.
+
+<b>Dames</b>:
+8x8 contre le CPU (trois niveaux) ou à deux. La prise est obligatoire.
 
 <b>Apprendre les maths</b>:
 Leçons, tests et certificats en Arithmétique, Géométrie, Mesure et Algèbre.

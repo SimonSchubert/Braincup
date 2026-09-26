@@ -57,6 +57,9 @@ Speel het scenario als wit uit tegen de CPU.
 <b>Solo Schaken</b>:
 Sla tot alleen de koning overblijft. Elke zet moet slaan.
 
+<b>Mini-Dammen</b>:
+Vind als zwart de winnende combinatie op een 6x6-bord.
+
 <b>Lichten uit</b>:
 Doe alle lichten uit; een tik zet ook de buren om.
 
@@ -137,6 +140,9 @@ Sorteer kaarten op een verborgen regel die wisselt zodra je die hebt.
 
 <b>Reversi</b>:
 6x6 tegen de CPU of samen. Sluit een lijn in om die om te draaien.
+
+<b>Dammen</b>:
+8x8 tegen de CPU op drie niveaus of samen. Slaan is verplicht.
 
 <b>Wiskunde leren</b>:
 Lessen, toetsen en certificaten in Rekenen, Meetkunde, Meten en Algebra.

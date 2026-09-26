@@ -57,6 +57,9 @@ Lõpeta stsenaarium valgetega CPU vastu.
 <b>Soolomale</b>:
 Löö, kuni jääb kuningas. Iga käik peab lööma.
 
+<b>Minikabe</b>:
+Leia mustadega võidukombinatsioon 6x6 laual.
+
 <b>Kustuta tuled</b>:
 Kustuta kõik tuled; toksatus pöörab ka naabrid.
 
@@ -137,6 +140,9 @@ Sorteeri kaarte peidetud reegli järgi, mis vahetub, kui see käes on.
 
 <b>Reversi</b>:
 6x6 CPU vastu või kahekesi. Püüa joon, et see ümber pöörata.
+
+<b>Kabe</b>:
+8x8 CPU vastu kolmel raskusastmel või kahekesi. Löömine on kohustuslik.
 
 <b>Õpi matemaatikat</b>:
 Tunnid, testid ja tunnistused: Aritmeetika, Geomeetria, Mõõtmine ja Algebra.

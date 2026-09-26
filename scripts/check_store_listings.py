@@ -77,6 +77,7 @@ REQUIRED_EN_US_NAMES = (
     "Flash Crowd",
     "Mini Sudoku",
     "Mini Chess",
+    "Mini Checkers",
     "Solo Chess",
     "Lights Out",
     "Sliding Puzzle",
@@ -105,6 +106,7 @@ REQUIRED_EN_US_NAMES = (
     "Mental Flex",
     "Rule Shift",
     "Reversi",
+    "Checkers",
     "Learn Math",
 )
 

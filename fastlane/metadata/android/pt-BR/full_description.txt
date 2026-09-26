@@ -57,6 +57,9 @@ Termine o cenário de brancas contra a CPU.
 <b>Xadrez Solo</b>:
 Capture até sobrar só o rei. Cada lance deve capturar.
 
+<b>Mini Damas</b>:
+Encontre com as pretas a combinação vencedora em um tabuleiro 6x6.
+
 <b>Apagar as luzes</b>:
 Apague todas as luzes; um toque vira também as vizinhas.
 
@@ -137,6 +140,9 @@ Ordene cartas por uma regra oculta que muda assim que você a tem.
 
 <b>Reversi</b>:
 6x6 contra a CPU ou em dois. Prenda uma linha para virá-la.
+
+<b>Damas</b>:
+8x8 contra a CPU em três níveis ou em dois. Capturar é obrigatório.
 
 <b>Aprender matemática</b>:
 Lições, testes e certificados de Aritmética, Geometria, Medição e Álgebra.

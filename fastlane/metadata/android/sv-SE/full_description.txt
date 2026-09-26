@@ -57,6 +57,9 @@ Spela scenariot klart som vit mot CPU:n.
 <b>Soloschack</b>:
 Slå tills bara kungen är kvar. Varje drag måste slå.
 
+<b>Minidam</b>:
+Hitta den vinnande kombinationen som svart på ett 6x6-bräde.
+
 <b>Släck lamporna</b>:
 Släck alla ljus; ett tryck vänder också grannarna.
 
@@ -137,6 +140,9 @@ Sortera kort efter en dold regel som byts när du har den.
 
 <b>Reversi</b>:
 6x6 mot CPU:n eller två tillsammans. Fånga en linje för att vända den.
+
+<b>Dam</b>:
+8x8 mot CPU:n på tre nivåer eller två tillsammans. Du måste slå när du kan.
 
 <b>Lär matematik</b>:
 Lektioner, test och intyg i Aritmetik, Geometri, Mätning och Algebra.

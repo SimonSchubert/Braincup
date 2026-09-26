@@ -57,6 +57,9 @@ Selesaikan skenario sebagai putih lawan CPU.
 <b>Catur Solo</b>:
 Makan sampai tinggal raja. Setiap langkah harus makan.
 
+<b>Dam Mini</b>:
+Temukan kombinasi kemenangan sebagai hitam di papan 6x6.
+
 <b>Padamkan Lampu</b>:
 Matikan semua lampu; ketukan juga membalik tetangga.
 
@@ -137,6 +140,9 @@ Urutkan kartu menurut aturan tersembunyi yang berubah begitu kamu punya.
 
 <b>Reversi</b>:
 6x6 lawan CPU atau berdua. Kepit satu garis untuk membaliknya.
+
+<b>Dam</b>:
+8x8 lawan CPU di tiga tingkat atau berdua. Wajib makan.
 
 <b>Belajar Matematika</b>:
 Pelajaran, tes, dan sertifikat Aritmetika, Geometri, Pengukuran, dan Aljabar.

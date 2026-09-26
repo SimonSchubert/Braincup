@@ -57,6 +57,9 @@ Termină scenariul cu albele împotriva CPU.
 <b>Șah solo</b>:
 Capturează până rămâne regele. Fiecare mutare trebuie să captureze.
 
+<b>Mini dame</b>:
+Găsește cu negrele combinația câștigătoare pe o tablă 6x6.
+
 <b>Stinge luminile</b>:
 Stinge toate luminile; o atingere schimbă și vecinii.
 
@@ -137,6 +140,9 @@ Sortează cărți după o regulă ascunsă care se schimbă de îndată ce o ai.
 
 <b>Reversi</b>:
 6x6 contra CPU sau doi. Prinde o linie ca s-o întorci.
+
+<b>Dame</b>:
+8x8 contra CPU pe trei niveluri sau doi. Luarea e obligatorie.
 
 <b>Învață matematică</b>:
 Lecții, teste și certificate de Aritmetică, Geometrie, Măsurare și Algebră.

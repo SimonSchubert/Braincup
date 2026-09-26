@@ -57,6 +57,9 @@ Termina el escenario con blancas contra la CPU.
 <b>Ajedrez en solitario</b>:
 Captura hasta que solo quede el rey. Cada jugada debe capturar.
 
+<b>Mini Damas</b>:
+Encuentra con negras la combinación ganadora en un tablero de 6x6.
+
 <b>Apaga las luces</b>:
 Apaga todas las luces; un toque cambia también las vecinas.
 
@@ -137,6 +140,9 @@ Ordena cartas según una regla oculta que cambia en cuanto la tienes.
 
 <b>Reversi</b>:
 6x6 contra la CPU o a dos. Encierra una línea para voltearla.
+
+<b>Damas</b>:
+8x8 contra la CPU en tres niveles o a dos. Comer es obligatorio.
 
 <b>Aprender mates</b>:
 Lecciones, tests y certificados de Aritmética, Geometría, Medición y Álgebra.

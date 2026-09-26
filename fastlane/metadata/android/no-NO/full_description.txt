@@ -57,6 +57,9 @@ Spill scenariet ferdig som hvit mot CPU-en.
 <b>Solosjakk</b>:
 Slå til bare kongen er igjen. Hvert trekk må slå.
 
+<b>Minidam</b>:
+Finn den vinnende kombinasjonen som svart på et 6x6-brett.
+
 <b>Slukk lysene</b>:
 Slå av alle lys; et trykk snur også naboene.
 
@@ -137,6 +140,9 @@ Sorter kort etter en skjult regel som skifter når du har den.
 
 <b>Reversi</b>:
 6x6 mot CPU-en eller to sammen. Lukk en linje for å snu den.
+
+<b>Dam</b>:
+8x8 mot CPU-en på tre nivåer eller to sammen. Du må slå når du kan.
 
 <b>Lær matematikk</b>:
 Leksjoner, tester og sertifikater i Aritmetikk, Geometri, Måling og Algebra.
