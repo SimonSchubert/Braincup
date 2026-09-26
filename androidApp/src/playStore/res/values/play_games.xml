@@ -56,6 +56,7 @@
     <string name="achievementQuickChange" translatable="false">CgkIuZrirtIVEAIQSQ</string>
     <!-- achievement Rule Breaker (Rule Shift) -->
     <string name="achievementRuleBreaker" translatable="false">CgkIuZrirtIVEAIQUQ</string>
+    <string name="achievementShotCaller" translatable="false">CgkIuZrirtIVEAIQUg</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
