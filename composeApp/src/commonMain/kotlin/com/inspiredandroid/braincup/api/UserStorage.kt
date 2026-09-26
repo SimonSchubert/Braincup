@@ -2,6 +2,8 @@ package com.inspiredandroid.braincup.api
 
 import androidx.compose.runtime.Immutable
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
@@ -12,8 +14,6 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
-import com.inspiredandroid.braincup.checkers.CheckersDifficulty
-import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles

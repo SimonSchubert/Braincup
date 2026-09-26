@@ -31,6 +31,8 @@ import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.SimonPadSounds
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
@@ -43,8 +45,6 @@ import com.inspiredandroid.braincup.locale.appLanguageForTag
 import com.inspiredandroid.braincup.locale.isRightToLeftLanguage
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.navigation.ExternalRouteRequests
-import com.inspiredandroid.braincup.checkers.CheckersDifficulty
-import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.reversi.ReversiDifficulty

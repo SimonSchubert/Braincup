@@ -8,6 +8,8 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.BoardCommand.intAndIntsArg
 import com.inspiredandroid.braincup.app.BoardCommand.intArg
 import com.inspiredandroid.braincup.app.BoardCommand.intsArg
+import com.inspiredandroid.braincup.checkers.CheckersDifficulty
+import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
 import com.inspiredandroid.braincup.games.tools.GameColor
@@ -19,8 +21,6 @@ import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.locale.AppLocale
 import com.inspiredandroid.braincup.navigation.navRouteToPathSuffix
 import com.inspiredandroid.braincup.navigation.pathSuffixToNavRoute
-import com.inspiredandroid.braincup.checkers.CheckersDifficulty
-import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.reversi.ReversiDifficulty
