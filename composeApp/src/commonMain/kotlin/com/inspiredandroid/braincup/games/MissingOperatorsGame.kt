@@ -62,14 +62,10 @@ class MissingOperatorsGame : Game() {
         }
     }
 
-    /**
-     * Generated puzzles never subtract below 0. Player answers may, so that `x + y - y` and
-     * `x - y + y` both count when they share a target.
-     */
+    /** Generated puzzles stay within whole numbers from 0 to 200 at every step. */
     fun evaluateTokens(
         numbers: List<Int>,
         operators: List<Operator>,
-        allowNegativeIntermediate: Boolean = false,
     ): Int? {
         if (numbers.isEmpty()) return null
         if (operators.size != numbers.size - 1) return null
@@ -123,7 +119,7 @@ class MissingOperatorsGame : Game() {
                     }
                     Operator.MINUS -> {
                         val r = left - right
-                        if (r < 0 && !allowNegativeIntermediate) return null
+                        if (r < 0) return null
                         r
                     }
                 }
@@ -149,8 +145,59 @@ class MissingOperatorsGame : Game() {
 
     override fun isCorrect(input: String): Boolean {
         val userOperators = parseOperators(input) ?: return false
-        val result = evaluateTokens(numbers, userOperators, allowNegativeIntermediate = true)
-        return result == targetResult
+        return equalsExactly(numbers, userOperators, targetResult)
+    }
+
+    /**
+     * Player answers are held to plain arithmetic only, not to the generator's limits, so
+     * `8 - 3 + 3`, `8 / 3 * 3` and `17 * 12 / 12` all count when the target is what they make.
+     * Fractions are kept exact; no puzzle is long enough for them to overflow a Long.
+     */
+    private fun equalsExactly(numbers: List<Int>, operators: List<Operator>, target: Int): Boolean {
+        if (operators.size != numbers.size - 1) return false
+        var sumNumerator = 0L
+        var sumDenominator = 1L
+        var termNumerator = numbers[0].toLong()
+        var termDenominator = 1L
+        var termSign = 1L
+
+        fun addTerm() {
+            sumNumerator = sumNumerator * termDenominator + termSign * termNumerator * sumDenominator
+            sumDenominator *= termDenominator
+            val divisor = gcd(sumNumerator, sumDenominator)
+            sumNumerator /= divisor
+            sumDenominator /= divisor
+        }
+
+        operators.forEachIndexed { index, operator ->
+            val next = numbers[index + 1].toLong()
+            when (operator) {
+                Operator.MULTIPLY -> termNumerator *= next
+                Operator.DIVIDE -> {
+                    if (next == 0L) return false
+                    termDenominator *= next
+                }
+                Operator.PLUS, Operator.MINUS -> {
+                    addTerm()
+                    termSign = if (operator == Operator.PLUS) 1L else -1L
+                    termNumerator = next
+                    termDenominator = 1L
+                }
+            }
+        }
+        addTerm()
+        return sumNumerator == target.toLong() * sumDenominator
+    }
+
+    private fun gcd(a: Long, b: Long): Long {
+        var x = if (a < 0) -a else a
+        var y = if (b < 0) -b else b
+        while (y != 0L) {
+            val t = x % y
+            x = y
+            y = t
+        }
+        return if (x == 0L) 1L else x
     }
 
     override fun solution(): String {

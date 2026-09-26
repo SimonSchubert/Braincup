@@ -43,14 +43,6 @@ class MissingOperatorsGameTest {
 
         // Generated puzzles never subtract below 0.
         assertEquals(null, game.evaluateTokens(listOf(2, 5), listOf(Operator.MINUS)))
-        assertEquals(
-            -3,
-            game.evaluateTokens(
-                listOf(2, 5),
-                listOf(Operator.MINUS),
-                allowNegativeIntermediate = true,
-            ),
-        )
     }
 
     @Test
@@ -134,5 +126,28 @@ class MissingOperatorsGameTest {
         game.targetResult = 8
         assertTrue(game.isCorrect("+-"))
         assertTrue(game.isCorrect("-+"))
+    }
+
+    @Test
+    fun testIsCorrectAcceptsAnyExactlyEqualExpression() {
+        val game = MissingOperatorsGame()
+        game.numbers = listOf(8, 3, 3)
+        game.correctOperators = listOf(Operator.MULTIPLY, Operator.DIVIDE)
+        game.targetResult = 8
+        assertTrue(game.isCorrect("/*"))
+        assertTrue(game.isCorrect("*/"))
+        assertFalse(game.isCorrect("//"))
+
+        game.numbers = listOf(17, 12, 12)
+        game.correctOperators = listOf(Operator.PLUS, Operator.MINUS)
+        game.targetResult = 17
+        assertTrue(game.isCorrect("*/"))
+        assertFalse(game.isCorrect("**"))
+
+        game.numbers = listOf(3, 9, 8)
+        game.correctOperators = listOf(Operator.MINUS, Operator.PLUS)
+        game.targetResult = 2
+        assertTrue(game.isCorrect("-+"))
+        assertFalse(game.isCorrect("+-"))
     }
 }
