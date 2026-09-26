@@ -15,17 +15,34 @@ import kotlin.test.assertSame
 class MiniCheckersGameTest {
     private fun newGame(difficulty: MiniCheckersDifficulty = MiniCheckersDifficulty.NORMAL) = MiniCheckersGame(difficulty, Random(7)).apply { nextRound() }
 
+    private fun MiniCheckersGame.playToTheEnd() {
+        val player = CheckersAi(depth = 9, random = Random(1))
+        val cpu = CheckersAi(MiniCheckersDifficulty.NORMAL.cpu, random = Random(2))
+        while (phase != MiniCheckersGame.Phase.ROUND_OVER) {
+            val move = parseMove(MiniCheckersGame.encodeMove(player.bestMove(board)!!.path))!!
+            applyPlayerMove(move)
+            if (phase == MiniCheckersGame.Phase.AI_THINKING) applyAiMove(cpu.bestMove(board)!!)
+        }
+    }
+
     @Test
     fun findingTheWinEndsTheRoundWithWinPoints() {
         val game = newGame()
-        val player = CheckersAi(depth = 9, random = Random(1))
-        val cpu = CheckersAi(MiniCheckersDifficulty.NORMAL.cpu, random = Random(2))
-        while (game.phase != MiniCheckersGame.Phase.ROUND_OVER) {
-            val move = game.parseMove(MiniCheckersGame.encodeMove(player.bestMove(game.board)!!.path))!!
-            game.applyPlayerMove(move)
-            if (game.phase == MiniCheckersGame.Phase.AI_THINKING) game.applyAiMove(cpu.bestMove(game.board)!!)
-        }
+        game.playToTheEnd()
         assertEquals(CpuRoundOutcome.PLAYER_WIN, game.outcome)
+        assertEquals(10, game.winPoints())
+    }
+
+    @Test
+    fun replayingAWonScenarioAfterResetPaysNothing() {
+        val game = newGame()
+        game.playToTheEnd()
+        game.resetScenario()
+        game.playToTheEnd()
+        assertEquals(CpuRoundOutcome.PLAYER_WIN, game.outcome)
+        assertEquals(0, game.winPoints())
+
+        game.restartScenario()
         assertEquals(10, game.winPoints())
     }
 

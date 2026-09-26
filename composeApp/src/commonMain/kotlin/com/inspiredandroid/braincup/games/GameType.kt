@@ -56,7 +56,7 @@ enum class GameType(
      * Whether the daily challenge may draw this game.
      *
      * A daily slot is one sixty second round scored against the others, which rules out the level
-     * ladders (a [usesLevelLabel] game scores by level, not by count) and the three games that
+     * ladders (a [usesLevelLabel] game scores by level, not by count) and the games that
      * keep the player on their own board until they solve or give up. It is a flag rather than a
      * list in the controller so a new game declares it in the one place its other traits live.
      */

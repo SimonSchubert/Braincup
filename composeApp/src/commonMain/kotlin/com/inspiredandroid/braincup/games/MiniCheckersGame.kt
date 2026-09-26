@@ -21,7 +21,7 @@ class MiniCheckersGame(
     enum class Phase { PLAYER_TURN, AI_THINKING, ROUND_OVER }
 
     // Replaced by the first nextRound(); generating here too would pay for a search twice.
-    var board: CheckersBoard = MiniCheckersScenarioGenerator.FALLBACK
+    var board: CheckersBoard = MiniCheckersScenarioGenerator.fallbackFor(difficulty)
         private set
     var phase: Phase = Phase.PLAYER_TURN
         private set
@@ -32,6 +32,10 @@ class MiniCheckersGame(
 
     private var initialBoard: CheckersBoard = board
 
+    // Reset replays the same board, and the CPU's replies in a forcing line are forced, so a
+    // won scenario could otherwise be replayed move for move for XP without limit.
+    private var initialBoardAlreadyWon = false
+
     override fun generateRound() {
         restartScenario()
     }
@@ -40,11 +44,17 @@ class MiniCheckersGame(
     fun restartScenario() {
         board = MiniCheckersScenarioGenerator.generate(difficulty, random)
         initialBoard = board
-        resetScenario()
+        initialBoardAlreadyWon = false
+        rewindToInitialBoard()
     }
 
     /** The same scenario from its first move, for the in-game Reset button. */
     fun resetScenario() {
+        if (outcome == CpuRoundOutcome.PLAYER_WIN) initialBoardAlreadyWon = true
+        rewindToInitialBoard()
+    }
+
+    private fun rewindToInitialBoard() {
         board = initialBoard
         phase = Phase.PLAYER_TURN
         outcome = null
@@ -102,7 +112,7 @@ class MiniCheckersGame(
         pointsForWin = winPoints(),
     )
 
-    fun winPoints(): Int = winPointsFor(difficulty)
+    fun winPoints(): Int = if (initialBoardAlreadyWon) 0 else winPointsFor(difficulty)
 
     companion object {
         /** Normal and Hard wins map to the silver and gold thresholds on

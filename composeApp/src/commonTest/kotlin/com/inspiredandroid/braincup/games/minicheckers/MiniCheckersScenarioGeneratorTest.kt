@@ -19,22 +19,36 @@ class MiniCheckersScenarioGeneratorTest {
             for (seed in 1..40) {
                 val board = MiniCheckersScenarioGenerator.generate(difficulty, Random(seed))
                 val label = "$difficulty seed $seed"
-                assertNotSame(MiniCheckersScenarioGenerator.FALLBACK, board, "$label fell back")
+                assertNotSame(MiniCheckersScenarioGenerator.fallbackFor(difficulty), board, "$label fell back")
                 assertEquals(MINI_CHECKERS_SIZE, board.size, label)
                 assertEquals(MINI_CHECKERS_DRAW_PLIES, board.drawPlies, label)
                 assertEquals(CheckersSide.BLACK, board.sideToMove, label)
                 assertEquals(CheckersResult.ONGOING, board.result(), label)
                 val moves = assertNotNull(MiniCheckersScenarioGenerator.combinationLength(board), "$label has no combination")
                 assertTrue(moves in difficulty.combinationMoves, "$label: combination of $moves")
+                assertAFirstMoveMissesTheCombination(board, moves, label)
                 assertNoManOnItsCrownRow(board, label)
             }
         }
     }
 
     @Test
-    fun fallbackHoldsAHardCombination() {
-        val moves = assertNotNull(MiniCheckersScenarioGenerator.combinationLength(MiniCheckersScenarioGenerator.FALLBACK))
-        assertTrue(moves in MiniCheckersDifficulty.HARD.combinationMoves, "fallback combination of $moves")
+    fun eachFallbackHoldsACombinationOfItsDifficulty() {
+        for (difficulty in MiniCheckersDifficulty.entries) {
+            val board = MiniCheckersScenarioGenerator.fallbackFor(difficulty)
+            val label = "$difficulty fallback"
+            val moves = assertNotNull(MiniCheckersScenarioGenerator.combinationLength(board), "$label has no combination")
+            assertTrue(moves in difficulty.combinationMoves, "$label: combination of $moves")
+            assertAFirstMoveMissesTheCombination(board, moves, label)
+            assertNoManOnItsCrownRow(board, label)
+        }
+    }
+
+    private fun assertAFirstMoveMissesTheCombination(board: CheckersBoard, moves: Int, label: String) {
+        assertTrue(
+            board.legalMoves().any { !MiniCheckersScenarioGenerator.startsCombination(board, it, moves) },
+            "$label: every first move wins",
+        )
     }
 
     @Test

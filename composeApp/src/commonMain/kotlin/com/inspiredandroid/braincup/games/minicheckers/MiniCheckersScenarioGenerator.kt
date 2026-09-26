@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games.minicheckers
 
 import com.inspiredandroid.braincup.checkers.CheckersBoard
+import com.inspiredandroid.braincup.checkers.CheckersMove
 import com.inspiredandroid.braincup.checkers.CheckersResult
 import com.inspiredandroid.braincup.checkers.CheckersSide
 import kotlin.random.Random
@@ -34,7 +35,7 @@ object MiniCheckersScenarioGenerator {
             val board = tryGenerate(difficulty, random)
             if (board != null) return board
         }
-        return FALLBACK
+        return fallbackFor(difficulty)
     }
 
     internal fun tryGenerate(difficulty: MiniCheckersDifficulty, random: Random): CheckersBoard? {
@@ -42,7 +43,10 @@ object MiniCheckersScenarioGenerator {
         if (board.result() != CheckersResult.ONGOING) return null
         if (board.legalMoves().size < MIN_LEGAL_MOVES) return null
         val moves = combinationLength(board, MINI_CHECKERS_MAX_COMBINATION) ?: return null
-        return board.takeIf { moves in difficulty.combinationMoves }
+        if (moves !in difficulty.combinationMoves) return null
+        // When every first move starts the combination there is nothing to find.
+        if (board.legalMoves().all { startsCombination(board, it, moves) }) return null
+        return board
     }
 
     /** Player moves in the shortest forcing combination from [board], or null when none of at most
@@ -51,11 +55,13 @@ object MiniCheckersScenarioGenerator {
 
     private fun forcesWinWithin(board: CheckersBoard, moves: Int): Boolean {
         if (moves == 0) return false
-        return board.legalMoves().any { move ->
-            val after = board.apply(move)
-            val replies = after.legalMoves()
-            replies.isEmpty() || (replies.size == 1 && forcesWinWithin(after.apply(replies.single()), moves - 1))
-        }
+        return board.legalMoves().any { startsCombination(board, it, moves) }
+    }
+
+    internal fun startsCombination(board: CheckersBoard, move: CheckersMove, moves: Int): Boolean {
+        val after = board.apply(move)
+        val replies = after.legalMoves()
+        return replies.isEmpty() || (replies.size == 1 && forcesWinWithin(after.apply(replies.single()), moves - 1))
     }
 
     internal fun randomCandidate(playerCount: IntRange, cpuCount: IntRange, random: Random): CheckersBoard {
@@ -86,8 +92,27 @@ object MiniCheckersScenarioGenerator {
         )
     }
 
+    internal fun fallbackFor(difficulty: MiniCheckersDifficulty): CheckersBoard = when (difficulty) {
+        MiniCheckersDifficulty.NORMAL -> NORMAL_FALLBACK
+        MiniCheckersDifficulty.HARD -> HARD_FALLBACK
+    }
+
+    /** A generated Normal scenario, won by a three-move combination. */
+    internal val NORMAL_FALLBACK: CheckersBoard = CheckersBoard.fromRows(
+        listOf(
+            "...w..",
+            "..b...",
+            ".w....",
+            "....B.",
+            ".w.b..",
+            "....b.",
+        ),
+        CheckersSide.BLACK,
+        drawPlies = MINI_CHECKERS_DRAW_PLIES,
+    )
+
     /** A generated Hard scenario, won by a five-move combination. */
-    internal val FALLBACK: CheckersBoard = CheckersBoard.fromRows(
+    internal val HARD_FALLBACK: CheckersBoard = CheckersBoard.fromRows(
         listOf(
             ".w.B..",
             "b.....",

@@ -43,9 +43,13 @@ class MiniChessGame(
      *  so the player can retry the same starting position without rolling a fresh one. */
     private var initialBoard: ChessBoard = board
 
+    // A won scenario replayed after Reset pays nothing, or a remembered line would farm XP.
+    private var initialBoardAlreadyWon = false
+
     override fun generateRound() {
         board = ScenarioGenerator.generate(difficultyDepth = difficultyDepth)
         initialBoard = board
+        initialBoardAlreadyWon = false
         phase = Phase.PLAYER_TURN
         outcome = null
         lastMoveFrom = null
@@ -60,6 +64,7 @@ class MiniChessGame(
     fun restartScenario() {
         board = ScenarioGenerator.generate(difficultyDepth = difficultyDepth)
         initialBoard = board
+        initialBoardAlreadyWon = false
         phase = Phase.PLAYER_TURN
         outcome = null
         lastMoveFrom = null
@@ -70,6 +75,7 @@ class MiniChessGame(
     /** Restore the current scenario to its initial position (same board, move 0).
      *  Used by the in-game Reset button. */
     fun resetScenario() {
+        if (outcome == CpuRoundOutcome.PLAYER_WIN) initialBoardAlreadyWon = true
         board = initialBoard
         phase = Phase.PLAYER_TURN
         outcome = null
@@ -204,7 +210,7 @@ class MiniChessGame(
 
     /** Score awarded for a checkmate win at the current difficulty. Drives both the
      *  highscore (bronze/silver/gold tier) and XP gained via UserStorage. */
-    fun winPoints(): Int = winPointsForDepth(difficultyDepth)
+    fun winPoints(): Int = if (initialBoardAlreadyWon) 0 else winPointsForDepth(difficultyDepth)
 
     companion object {
         /** Cap each scenario at 50 ply (25 full moves) to avoid endless games. */

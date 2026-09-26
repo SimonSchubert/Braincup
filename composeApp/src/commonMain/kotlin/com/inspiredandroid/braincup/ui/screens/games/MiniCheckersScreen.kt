@@ -95,7 +95,7 @@ internal fun ColumnScope.MiniCheckersContent(
                 fontWeight = FontWeight.Bold,
                 color = if (uiState.outcome == CpuRoundOutcome.PLAYER_WIN) SuccessGreen else MaterialTheme.colorScheme.onSurface,
             )
-            if (uiState.outcome == CpuRoundOutcome.PLAYER_WIN) {
+            if (uiState.outcome == CpuRoundOutcome.PLAYER_WIN && uiState.pointsForWin > 0) {
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.mini_chess_xp_gained, uiState.pointsForWin),
