@@ -22,7 +22,8 @@ import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 //
 // Hue alone is still not enough (tritanopia, low vision, a dim screen), so the palette also
 // textures every figure with [pattern]. YELLOW stays plain because it is far lighter than the
-// rest; GREY_LIGHT stays plain because it is only ever Path Finder's background.
+// rest, and GREY_LIGHT because it is achromatic. The two plain colours only meet in Visual
+// Memory, where every figure also has a shape of its own, so the colour is never the only clue.
 enum class GameColor(
     val pattern: ColorPattern,
     val displayName: String,

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -44,6 +45,7 @@ import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.WordleCorrectMark
 import com.inspiredandroid.braincup.ui.theme.keyFace
 import com.inspiredandroid.braincup.ui.theme.keyTextColor
 import com.inspiredandroid.braincup.ui.theme.tileFace
@@ -219,15 +221,18 @@ private fun WordleTile(
     onClear: (() -> Unit)? = null,
 ) {
     val content: @Composable () -> Unit = {
-        if (letter.char != ' ') {
-            Text(
-                text = letter.char.toString(),
-                color = letter.state.tileTextColor(),
-                style = MaterialTheme.typography.headlineSmall,
-                fontSize = boxedTextSize(size, 0.5f),
-                fontWeight = FontWeight.Bold,
-                maxLines = 1,
-            )
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            if (letter.char != ' ') {
+                Text(
+                    text = letter.char.toString(),
+                    color = letter.state.tileTextColor(),
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontSize = boxedTextSize(size, 0.5f),
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                )
+            }
+            WordleCorrectMark(letter.state, size = size * 0.2f)
         }
     }
     if (onClear != null) {
@@ -331,18 +336,21 @@ private fun LetterKey(
             .height(height),
         onClick = onClick,
     ) {
-        Text(
-            text = char.toString(),
-            color = state.keyTextColor(),
-            style = if (height < 40.dp) {
-                MaterialTheme.typography.titleSmall
-            } else {
-                MaterialTheme.typography.titleMedium
-            },
-            fontSize = boxedTextSize(minOf(width, height), 0.55f),
-            fontWeight = FontWeight.Bold,
-            maxLines = 1,
-        )
+        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+            Text(
+                text = char.toString(),
+                color = state.keyTextColor(),
+                style = if (height < 40.dp) {
+                    MaterialTheme.typography.titleSmall
+                } else {
+                    MaterialTheme.typography.titleMedium
+                },
+                fontSize = boxedTextSize(minOf(width, height), 0.55f),
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+            )
+            WordleCorrectMark(state, size = minOf(width, height) * 0.26f)
+        }
     }
 }
 

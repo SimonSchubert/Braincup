@@ -1,12 +1,15 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -21,14 +24,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.geometry.toRect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.path_finder_demo_caption
 import braincup.composeapp.generated.resources.path_finder_demo_title
+import com.inspiredandroid.braincup.games.tools.ColorPattern
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
+import com.inspiredandroid.braincup.games.tools.visiblePattern
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
 
@@ -138,6 +144,8 @@ fun PathFinderDemo(modifier: Modifier = Modifier) {
                         }
                         PathFinderDemoTile(
                             face = face,
+                            pattern = if (point == DemoStart) GameColor.ORANGE.visiblePattern() else ColorPattern.PLAIN,
+                            mark = if (destinationLit && point == DemoDestination) FeedbackMarkKind.CORRECT else null,
                             modifier = Modifier
                                 .weight(1f)
                                 .aspectRatio(1f)
@@ -153,6 +161,8 @@ fun PathFinderDemo(modifier: Modifier = Modifier) {
 @Composable
 private fun PathFinderDemoTile(
     face: Color,
+    pattern: ColorPattern,
+    mark: FeedbackMarkKind?,
     modifier: Modifier = Modifier,
 ) {
     PrismTile(
@@ -160,5 +170,12 @@ private fun PathFinderDemoTile(
         modifier = modifier,
         isClickable = false,
         onClick = {},
-    ) {}
+    ) {
+        Box(Modifier.fillMaxSize()) {
+            if (pattern != ColorPattern.PLAIN) {
+                Canvas(Modifier.matchParentSize()) { drawColorPattern(pattern, face, size.toRect()) }
+            }
+            FeedbackCornerMark(mark, size = 14.dp)
+        }
+    }
 }

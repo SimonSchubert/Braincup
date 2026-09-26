@@ -3,8 +3,10 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -14,17 +16,18 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_wordle_desc
 import braincup.composeapp.generated.resources.wordle_demo_title
-import com.inspiredandroid.braincup.ui.theme.WordleAbsent
-import com.inspiredandroid.braincup.ui.theme.WordleCorrect
-import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.app.WordleLetterState
+import com.inspiredandroid.braincup.ui.theme.WordleCorrectMark
+import com.inspiredandroid.braincup.ui.theme.tileFace
+import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
@@ -125,27 +128,30 @@ private fun DemoWordleTile(
     )
     val revealedNow = flip >= 0.5f
     val state = if (revealedNow) tile.state else DemoLetterState.NEUTRAL
-    val face = when (state) {
-        DemoLetterState.NEUTRAL -> MaterialTheme.colorScheme.surfaceVariant
-        DemoLetterState.ABSENT -> WordleAbsent
-        DemoLetterState.PRESENT -> WordlePresent
-        DemoLetterState.CORRECT -> WordleCorrect
+    val letterState = when (state) {
+        DemoLetterState.NEUTRAL -> WordleLetterState.EMPTY
+        DemoLetterState.ABSENT -> WordleLetterState.ABSENT
+        DemoLetterState.PRESENT -> WordleLetterState.PRESENT
+        DemoLetterState.CORRECT -> WordleLetterState.CORRECT
     }
     PrismCard(
-        face = face,
+        face = letterState.tileFace(),
         modifier = Modifier
             .size(size)
             // 1 -> 0 (edge-on) at the midpoint -> 1, so the face swaps while the tile is edge-on.
             .graphicsLayer { scaleY = kotlin.math.abs(flip - 0.5f) * 2f },
     ) {
         if (revealedNow) {
-            Text(
-                text = tile.char.toString(),
-                color = Color.White,
-                style = MaterialTheme.typography.headlineSmall,
-                fontWeight = FontWeight.Bold,
-                maxLines = 1,
-            )
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Text(
+                    text = tile.char.toString(),
+                    color = letterState.tileTextColor(),
+                    style = MaterialTheme.typography.headlineSmall,
+                    fontWeight = FontWeight.Bold,
+                    maxLines = 1,
+                )
+                WordleCorrectMark(letterState, size = size * 0.22f)
+            }
         }
     }
 }

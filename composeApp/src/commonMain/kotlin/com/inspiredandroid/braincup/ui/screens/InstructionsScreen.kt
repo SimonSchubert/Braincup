@@ -28,6 +28,7 @@ import braincup.composeapp.generated.resources.wordle_legend_absent
 import braincup.composeapp.generated.resources.wordle_legend_correct
 import braincup.composeapp.generated.resources.wordle_legend_present
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismClearLevels
 import com.inspiredandroid.braincup.games.formattedScore
@@ -86,9 +87,9 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.StartAccent
-import com.inspiredandroid.braincup.ui.theme.WordleAbsent
-import com.inspiredandroid.braincup.ui.theme.WordleCorrect
-import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.ui.theme.WordleCorrectMark
+import com.inspiredandroid.braincup.ui.theme.tileFace
+import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -293,33 +294,36 @@ private fun WordleColorLegend(modifier: Modifier = Modifier) {
     // One swatch per line, matching the board tiles, so the green/yellow/gray meaning is shown
     // visually instead of spelled out in the description.
     val entries = listOf(
-        Triple(WordleCorrect, 'A', Res.string.wordle_legend_correct),
-        Triple(WordlePresent, 'B', Res.string.wordle_legend_present),
-        Triple(WordleAbsent, 'C', Res.string.wordle_legend_absent),
+        Triple(WordleLetterState.CORRECT, 'A', Res.string.wordle_legend_correct),
+        Triple(WordleLetterState.PRESENT, 'B', Res.string.wordle_legend_present),
+        Triple(WordleLetterState.ABSENT, 'C', Res.string.wordle_legend_absent),
     )
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        entries.forEach { (face, letter, labelRes) ->
-            WordleLegendRow(face = face, letter = letter, labelRes = labelRes)
+        entries.forEach { (state, letter, labelRes) ->
+            WordleLegendRow(state = state, letter = letter, labelRes = labelRes)
         }
     }
 }
 
 @Composable
-private fun WordleLegendRow(face: Color, letter: Char, labelRes: StringResource) {
+private fun WordleLegendRow(state: WordleLetterState, letter: Char, labelRes: StringResource) {
     Row(verticalAlignment = Alignment.CenterVertically) {
         PrismCard(
-            face = face,
+            face = state.tileFace(),
             modifier = Modifier.size(44.dp),
         ) {
-            Text(
-                text = letter.toString(),
-                color = Color.White,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
-            )
+            Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Text(
+                    text = letter.toString(),
+                    color = state.tileTextColor(),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                )
+                WordleCorrectMark(state, size = 10.dp)
+            }
         }
         Spacer(Modifier.width(16.dp))
         Text(

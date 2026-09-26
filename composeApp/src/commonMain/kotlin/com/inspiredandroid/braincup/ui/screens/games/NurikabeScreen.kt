@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
@@ -19,6 +20,7 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.tools.ColorPattern
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
@@ -128,15 +130,27 @@ internal fun ColumnScope.NurikabeContent(
                     drawRect(color = seaColor, topLeft = cellTopLeft(index), size = cellSize)
                 }
 
-                // Flag forbidden 2x2 sea pools in red over the painted sea.
+                // Flag forbidden 2x2 sea pools in red over the painted sea, with a cross so the tint
+                // is not the only cue.
                 uiState.forbiddenPoolCells.forEach { index ->
                     drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
+                    drawFeedbackMark(
+                        FeedbackMarkKind.WRONG,
+                        center = cellTopLeft(index) + Offset(cellW / 2f, cellH / 2f),
+                        radius = minOf(cellW, cellH) * 0.2f,
+                        colors = markColors,
+                    )
                 }
 
                 // All islands correct but the sea is in pieces: flag the stranded sea so the player
                 // knows it still needs to be joined into one region.
                 uiState.disconnectedSeaCells.forEach { index ->
                     drawRect(color = previewColor.copy(alpha = 0.4f), topLeft = cellTopLeft(index), size = cellSize)
+                    drawColorPattern(
+                        ColorPattern.DIAGONAL_STRIPES,
+                        face = seaColor,
+                        bounds = Rect(cellTopLeft(index), cellSize),
+                    )
                     drawRect(
                         color = previewColor,
                         topLeft = cellTopLeft(index),
@@ -192,10 +206,11 @@ internal fun ColumnScope.NurikabeContent(
                         else -> null
                     }
                     if (mark != null) {
-                        val radius = cellW * 0.15f
+                        // Tucked hard into the corner so a two-digit clue stays clear of it.
+                        val radius = minOf(cellW, cellH) * 0.13f
                         drawFeedbackMark(
                             mark,
-                            center = Offset(centerX + cellW / 2f - radius * 1.3f, centerY - cellH / 2f + radius * 1.3f),
+                            center = Offset(centerX + cellW / 2f - radius * 1.15f, centerY - cellH / 2f + radius * 1.15f),
                             radius = radius,
                             colors = markColors,
                         )

@@ -211,6 +211,13 @@ val WordleCorrect = Color(0xFF6AAA64)
 val WordlePresent = Color(0xFFC9B458)
 val WordleAbsent = Color(0xFF787C7E)
 
+// The colour-blind setting swaps to the high-contrast Wordle pair: orange and light blue stay apart
+// under every kind of colour blindness and differ in lightness too. Light blue is too pale for
+// white letters, so it takes dark ones.
+val WordleCorrectAccessible = Color(0xFFF5793A)
+val WordlePresentAccessible = Color(0xFF85C0F9)
+val WordlePresentAccessibleText = Color(0xFF1B1B1B)
+
 // Color Confusion cell faces. Tuned so toggle state stays unambiguous under bright-sunlight glare
 // without the bright selected face looking harsh in normal viewing conditions. In dark mode the
 // unselected face is also lifted off the very dark surface tone for the same reason; light mode

@@ -119,14 +119,17 @@ fun ColoredShapesDemo(modifier: Modifier = Modifier) {
                     isClickable = false,
                     onClick = {},
                 ) {
-                    Text(
-                        text = value,
-                        // SuccessGreen is pinned so it keeps white; the primary face is not, and a
-                        // light Material You primary would swallow a hardcoded white label.
-                        color = if (isCorrect) Color.White else MaterialTheme.colorScheme.onPrimary,
-                        fontFamily = numberFontFamily(),
-                        style = MaterialTheme.typography.titleMedium,
-                    )
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(
+                            text = value,
+                            // SuccessGreen is pinned so it keeps white; the primary face is not, and a
+                            // light Material You primary would swallow a hardcoded white label.
+                            color = if (isCorrect) Color.White else MaterialTheme.colorScheme.onPrimary,
+                            fontFamily = numberFontFamily(),
+                            style = MaterialTheme.typography.titleMedium,
+                        )
+                        FeedbackCornerMark(if (isCorrect) FeedbackMarkKind.CORRECT else null, size = 16.dp)
+                    }
                 }
             }
         }

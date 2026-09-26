@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
+import com.inspiredandroid.braincup.app.NurikabeUiState
 import com.inspiredandroid.braincup.app.MissingOperatorsUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
@@ -46,6 +47,7 @@ import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
+import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
@@ -281,6 +283,19 @@ fun createShikakuUiState(): GameUiState = ShikakuGame(level = 3, random = Random
 fun createNurikabeUiState(): GameUiState = NurikabeGame(level = 3, random = Random(42L))
     .apply { nextRound() }
     .toUiState()
+// Every Nurikabe cue at once, which the rules never show together: a satisfied two-digit clue and
+// an over-filled one (both carry a corner mark), a forbidden 2x2 pool and a stranded sea cell.
+fun createNurikabeFeedbackUiState(): GameUiState = NurikabeUiState(
+    rows = 5,
+    cols = 5,
+    clueByCellIndex = persistentMapOf(0 to 12, 4 to 1),
+    seaCells = persistentSetOf(9, 16, 17, 21, 22),
+    satisfiedCells = persistentSetOf(0),
+    invalidCells = persistentSetOf(4, 3),
+    forbiddenPoolCells = persistentSetOf(16, 17, 21, 22),
+    disconnectedSeaCells = persistentSetOf(9),
+    level = 3,
+)
 fun createCatQueensUiState(): GameUiState = CatQueensGame(level = 3, random = Random(42L))
     .apply {
         nextRound()
@@ -621,6 +636,11 @@ fun createIqTestResultUiState(
 /** A win on the very last row - the board is full, so only the status line says it was a win. */
 fun createWordleSolvedUiState(): GameUiState = wordleUiState(
     guesses = listOf("SLATE", "CRONE", "DRAIN", "GROIN", "BROIL", "BRAIN"),
+)
+
+/** Three rows in, so the keyboard is still up and carries every scored state. */
+fun createWordleInProgressUiState(): GameUiState = wordleUiState(
+    guesses = listOf("SLATE", "CRONE", "DRAIN"),
 )
 
 /** The same board, one letter wrong on the last row: a loss. */

@@ -510,6 +510,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameNurikabeFeedback() {
+        snapGame(createNurikabeFeedbackUiState(), 50_000L)
+    }
+
+    @Test
     fun gameCatQueens() {
         snapGame(createCatQueensUiState(), 50_000L)
     }
@@ -609,6 +614,11 @@ class ScreenshotTest {
     @Test
     fun gameWordleSolved() {
         snapGame(createWordleSolvedUiState(), 50_000L)
+    }
+
+    @Test
+    fun gameWordleInProgressColorblind() {
+        snapGame(createWordleInProgressUiState(), 50_000L, accessiblePalette = true)
     }
 
     @Test
