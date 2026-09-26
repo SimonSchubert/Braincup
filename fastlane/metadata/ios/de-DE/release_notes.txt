@@ -1,8 +1,7 @@
-Neu: Reversi auf 6x6, gegen die CPU oder zu zweit an einem Gerät
-Wordle sagt jetzt, dass du gewonnen hast, wenn die letzte Zeile sitzt
-Sherlock-Rechnung wächst dir nicht mehr über den Kopf, und Überspringen macht es nicht schwerer
-Fehlende Operatoren passt die ganze Gleichung auf den Bildschirm
-Mathe lernen zeigt alle Zifferntasten, ohne dass du scrollen musst
-Blitzsumme hebt die Summe deutlich von den aufblitzenden Zahlen ab
-Flaggen läuft jetzt ohne Zeitlimit
-Menü-Überschriften starten beim Antippen kein Spiel mehr
+Neu: Dame gegen die CPU oder gegen einen Freund
+Neu: Mini-Dame, finde die Gewinnkombination gegen die CPU
+Mathe lernen hat jetzt Messen: Länge, Zeit, Geld, Masse und Geschwindigkeit
+Mathe lernen in neun weiteren Sprachen, mit Dezimalkomma, wo man eins schreibt
+Musik und Soundeffekte lassen sich getrennt ausschalten
+Haken, Kreuze und Muster in jedem Spiel für farbenblinde Spieler
+Fehlende Operatoren akzeptiert jetzt jede richtige Lösung

@@ -1,3 +1,43 @@
+## v3.7.0 - 2026-09-27
+
+### Features
+- Add Checkers (English draughts) next to Chess and Reversi. Play the CPU at Easy, Medium or Hard,
+  or pass and play against a friend. Captures are compulsory, a multi-jump is tapped one landing at
+  a time, and forty moves each without a capture or a man moving is a draw.
+- Add Mini Checkers to Logic: a 6x6 board built around a forcing combination, where every move of
+  the line leaves the CPU exactly one reply. Normal asks for a three-move line, Hard for four or
+  five with more pieces on the board. It has its own gold medal.
+- Add Measurement to Learn Math: measuring length, telling the time, money and change, mass and
+  capacity, metric units, and speed, distance and time, over 18 lessons.
+- Translate the Learn catalog into Italian, Portuguese, Japanese, Korean, Traditional Chinese,
+  Simplified Chinese, Indonesian, Hindi and Russian.
+- Split the sound setting into separate music and sound effect switches, so background music can
+  be muted while game sounds keep playing.
+- Rework color-blind support: right and wrong answers show a tick or cross in every game, not only
+  a red or green tint. The color-blind setting adds a pattern to every colored piece, Prism Clear
+  tiles show their shapes, Wordle and Nurikabe get marks and hatching, and Settings names the games
+  the setting hides.
+- Release an aarch64 Linux build alongside x86_64.
+
+### Fixes
+- Write numbers with the decimal separator each language uses. Learn Math printed a decimal point
+  in every language, including the thirty or so that write a comma.
+- Accept every exactly correct answer in Missing Operators, including swapped plus and minus of
+  equal terms and answers like 8 / 3 * 3.
+- Stop Reset from paying the win again on a solved Mini Checkers or Mini Chess board.
+- Correct false Learn teaching on rulers, negatives, quadratic roots and metric conversions.
+- Use real plurals for the Daily Challenge, streak and best-tries counts, and stop gluing color,
+  shape and direction together in answer feedback, which broke grammar in several languages.
+- Stop Knot repeating a color on its largest boards.
+- Match the Linux desktop entry to the window class, so taskbars group the window with its launcher.
+- Keep a compared value on a Learn number line next to its own tick when the row is crowded.
+
+### Improvements
+- Use Taiwan's terms for rows and columns so Path Finder names the right cell.
+- Retranslate Color Confusion and Trio after the English rewrites, and rewrite the Play listings to
+  the current game catalog in every language.
+- Upgrade dependencies.
+
 ## v3.6.0 - 2026-09-09
 
 ### Features

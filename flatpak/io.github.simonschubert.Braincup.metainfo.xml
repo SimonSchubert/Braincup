@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.7.0" date="2026-09-27">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.7.0</url>
+      <description>
+        <ul>
+          <li>Add Checkers against the CPU or a friend</li>
+          <li>Add Mini Checkers: find the winning line against the CPU</li>
+          <li>Learn Math adds Measurement: length, time, money, mass and speed</li>
+          <li>Separate switches for music and sound effects</li>
+          <li>Ticks, crosses and patterns in every game for color-blind players</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.6.0" date="2026-09-09">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.6.0</url>
       <description>
@@ -161,14 +173,6 @@
         <ul>
           <li>Add Bulls and Cows game</li>
           <li>Add Missing Operators game</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.31.0" date="2026-07-22">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.31.0</url>
-      <description>
-        <ul>
-          <li>Add Prism Clear game</li>
         </ul>
       </description>
     </release>
