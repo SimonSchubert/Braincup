@@ -103,6 +103,14 @@ class MathTextTest {
         assertEquals(SuccessGreen, "12 + {b:4} = {c:16}".colorOf("16"))
     }
 
+    /** Text that skipped [formatMathSymbols] still colours; a tight minus used to loop forever. */
+    @Test
+    fun anUnformattedMinusDoesNotStallTheColouring() {
+        for (text in listOf("3-4-5", "why -10 is less than -1", "x -3")) {
+            assertEquals(text, text.withFormulaColors(structure = Structure).text)
+        }
+    }
+
     private companion object {
         val Structure = Color(0xFF666666)
     }

@@ -218,7 +218,9 @@ fun String.withFormulaColors(
                 }
                 withStyle(SpanStyle(color = role, fontWeight = FontWeight.Bold)) { append(text) }
             } else {
-                val start = i
+                // The first character is always taken: a minus that reaches here subtracts, it is
+                // not a sign, and stopping on it would never advance on unformatted "3-4-5".
+                val start = i++
                 while (i < run.length &&
                     !run[i].isDigit() &&
                     !(run[i] == '-' && i + 1 < run.length && run[i + 1].isDigit())
