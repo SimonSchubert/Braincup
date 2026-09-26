@@ -1005,11 +1005,12 @@ fun App(
 
 /**
  * Games that record the score as soon as they end can leave without a prompt once finished:
- * Wordle when the puzzle is over, MiniChess when the game has an outcome.
+ * Wordle when the puzzle is over, Mini Chess and Mini Checkers when the game has an outcome.
  */
 private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = when (gameUiState) {
     is WordleUiState -> !gameUiState.finished
     is BullsAndCowsUiState -> !gameUiState.finished
     is MiniChessUiState -> gameUiState.outcome == null
+    is MiniCheckersUiState -> gameUiState.outcome == null
     else -> true
 }

@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Kumpulan Kilat</string>
     <string name="game_schulte_table">Jadual Schulte</string>
     <string name="game_mini_chess">Mini Catur</string>
+    <string name="game_mini_checkers">Dam Mini</string>
     <string name="game_lights_out">Padamkan Lampu</string>
     <string name="game_sliding_puzzle">Teka-teki Gelongsor</string>
     <string name="game_tower_of_hanoi">Menara Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Ketik nombor mengikut tertib dari 1 ke atas secepat mungkin.</string>
     <string name="game_schulte_instruction">Ketik nombor mengikut tertib: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Selesaikan senario catur sebagai putih. Skakmat CPU sebelum ia menskakmat anda.</string>
+    <string name="game_mini_checkers_desc">Setiap papan menyembunyikan kombinasi untuk kamu sebagai hitam: langkah yang membuat CPU hanya ada satu balasan setiap kali. Cari dan menang.</string>
     <string name="game_lights_out_desc">Padamkan setiap lampu. Setiap ketikan menogol sel itu dan empat jirannya.</string>
     <string name="game_sliding_puzzle_desc">Gelongsorkan jubin ke ruang kosong untuk menyusunnya mengikut tertib.</string>
     <string name="game_tower_of_hanoi_desc">Pindahkan seluruh longgokan ke pasak kanan. Satu cakera sahaja pada satu masa, dan jangan letak cakera lebih besar di atas yang lebih kecil.</string>
@@ -428,6 +430,15 @@
     <string name="mini_chess_move_counter">Langkah %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
     <string name="mini_chess_moves_title">Cara bidak bergerak</string>
+    <string name="mini_checkers_draw">Seri: 15 langkah setiap pihak tanpa makan.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Menang pasti dalam %1$d langkah</item>
+        <item quantity="other">Menang pasti dalam %1$d langkah</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Seri dalam %1$d langkah tanpa makan</item>
+        <item quantity="other">Seri dalam %1$d langkah tanpa makan</item>
+    </plurals>
     <string name="chess_piece_king">Raja</string>
     <string name="chess_piece_queen">Menteri</string>
     <string name="chess_piece_rook">Istana</string>
@@ -532,6 +543,7 @@
 
     <string name="achievement_gold_mini_sudoku">Pakar Sudoku</string>
     <string name="achievement_gold_mini_chess">Pendekar Akhiran</string>
+    <string name="achievement_gold_mini_checkers">Pakar Kombinasi</string>
     <string name="achievement_gold_lights_out">Gelap Total</string>
     <string name="achievement_gold_sliding_puzzle">Pengendali Licin</string>
     <string name="achievement_gold_tower_of_hanoi">Guru Menara</string>
@@ -571,6 +583,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Menangi pingat emas dalam Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Menangi pingat emas dalam Mini Catur</string>
+    <string name="achievement_gold_mini_checkers_desc">Menangi pingat emas dalam Dam Mini</string>
     <string name="achievement_gold_lights_out_desc">Menangi pingat emas dalam Padamkan Lampu</string>
     <string name="achievement_gold_sliding_puzzle_desc">Menangi pingat emas dalam Teka-teki Gelongsor</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Menangi pingat emas dalam Menara Hanoi</string>

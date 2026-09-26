@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">閃現人群</string>
     <string name="game_schulte_table">舒爾特方格</string>
     <string name="game_mini_chess">迷你國際象棋</string>
+    <string name="game_mini_checkers">迷你西洋跳棋</string>
     <string name="game_lights_out">熄燈</string>
     <string name="game_sliding_puzzle">華容道</string>
     <string name="game_tower_of_hanoi">漢諾塔</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">儘快按1到N的順序點選數字。</string>
     <string name="game_schulte_instruction">按順序點選數字：1、2、3……</string>
     <string name="game_mini_chess_desc">以白方完成棋局。在 CPU 將死你之前將死它。</string>
+    <string name="game_mini_checkers_desc">每個棋盤都藏著一套執黑的組合：每一步都讓電腦只剩一種應法。找出它，贏下來。</string>
     <string name="game_lights_out_desc">關掉所有燈。每次點選會切換該格和四個相鄰格。</string>
     <string name="game_sliding_puzzle_desc">將方塊滑入空格,使它們按順序排列。</string>
     <string name="game_tower_of_hanoi_desc">把整疊圓盤移到右邊的柱子上。一次只能移動一個，且不能把大的放在小的上面。</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">數獨賢者</string>
     <string name="achievement_gold_mini_chess">殘局大師</string>
+    <string name="achievement_gold_mini_checkers">組合大師</string>
     <string name="achievement_gold_lights_out">全場熄燈</string>
     <string name="achievement_gold_sliding_puzzle">滑動高手</string>
     <string name="achievement_gold_tower_of_hanoi">塔之大師</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">在迷你數獨中贏得金牌</string>
     <string name="achievement_gold_mini_chess_desc">在Mini Chess中贏得金牌</string>
+    <string name="achievement_gold_mini_checkers_desc">在迷你西洋跳棋中贏得金牌</string>
     <string name="achievement_gold_lights_out_desc">在Lights Out中贏得金牌</string>
     <string name="achievement_gold_sliding_puzzle_desc">在Sliding Puzzle中贏得金牌</string>
     <string name="achievement_gold_tower_of_hanoi_desc">在漢諾塔中贏得金牌</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">退出</string>
     <string name="checkers_new_game">新遊戲</string>
     <string name="mini_chess_moves_title">棋子走法</string>
+    <string name="mini_checkers_draw">平局：雙方各走 15 步未吃子。</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d 步必勝</item>
+        <item quantity="other">%1$d 步必勝</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">再走 %1$d 步不吃子即平局</item>
+        <item quantity="other">再走 %1$d 步不吃子即平局</item>
+    </plurals>
     <string name="chess_piece_king">王</string>
     <string name="chess_piece_queen">皇后</string>
     <string name="chess_piece_rook">車</string>

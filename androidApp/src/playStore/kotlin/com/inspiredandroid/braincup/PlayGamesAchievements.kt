@@ -414,6 +414,8 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
 private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.MINI_SUDOKU -> R.string.achievementSudokuSage
     GameType.MINI_CHESS -> R.string.achievementEndgameVirtuoso
+    // Not created in Play Console yet; see scripts/store_achievements.rb.
+    GameType.MINI_CHECKERS -> null
     GameType.SOLO_CHESS -> R.string.achievementLastPieceStanding
     GameType.LIGHTS_OUT -> R.string.achievementTotalBlackout
     GameType.SLIDING_PUZZLE -> R.string.achievementSmoothOperator

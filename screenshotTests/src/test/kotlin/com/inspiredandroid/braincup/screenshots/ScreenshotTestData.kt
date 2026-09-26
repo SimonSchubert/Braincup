@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
+import com.inspiredandroid.braincup.games.minicheckers.MiniCheckersDifficulty
 import com.inspiredandroid.braincup.games.iqtest.IqTest
 import com.inspiredandroid.braincup.games.iqtest.IqTestBlueprint
 import com.inspiredandroid.braincup.games.iqtest.TierResult
@@ -306,6 +307,9 @@ fun createKnotUiState(): GameUiState = KnotUiState(
     ),
     level = 3,
 )
+
+fun createMiniCheckersUiState(): GameUiState =
+    MiniCheckersGame(MiniCheckersDifficulty.NORMAL, Random(42L)).apply { nextRound() }.toUiState()
 
 // A deterministic Solo Chess board with a piece selected so the snapshot shows a capture highlight.
 // Built from the public API only (the screenshot module can't see internal members).

@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">മിന്നൽ ആൾക്കൂട്ടം</string>
     <string name="game_schulte_table">ഷുൾട്ടെ പട്ടിക</string>
     <string name="game_mini_chess">കുഞ്ഞൻ ചെസ്സ്</string>
+    <string name="game_mini_checkers">കുഞ്ഞൻ ചെക്കേഴ്സ്</string>
     <string name="game_lights_out">വിളക്കുകൾ അണയ്ക്കുക</string>
     <string name="game_sliding_puzzle">നീങ്ങുന്ന കടങ്കഥ</string>
     <string name="game_tower_of_hanoi">ഹനോയ് ഗോപുരം</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 മുതൽ മുകളിലേക്ക് അക്കങ്ങളിൽ കഴിയുന്നത്ര വേഗത്തിൽ ക്രമത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="game_schulte_instruction">അക്കങ്ങളിൽ ക്രമത്തിൽ ടാപ്പ് ചെയ്യുക: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">വെള്ളയായി ചെസ്സ് രംഗം പൂർത്തിയാക്കുക. CPU നിങ്ങളെ തോൽപ്പിക്കും മുമ്പ് അതിന് ചെക്ക്‌മേറ്റ് നൽകുക.</string>
+    <string name="game_mini_checkers_desc">ഓരോ ബോർഡിലും കറുപ്പ് കരുക്കളുമായി നിനക്കായി ഒരു കോമ്പിനേഷൻ ഒളിഞ്ഞിരിപ്പുണ്ട്: ഓരോ തവണയും CPU-ക്ക് ഒരേയൊരു മറുപടി മാത്രം ബാക്കിയാകുന്ന നീക്കങ്ങൾ. അത് കണ്ടെത്തി ജയിക്കൂ.</string>
     <string name="game_lights_out_desc">എല്ലാ വിളക്കും അണയ്ക്കുക. ഓരോ ടാപ്പും ആ കള്ളിയെയും അതിന്റെ നാല് അയൽക്കള്ളികളെയും മാറ്റുന്നു.</string>
     <string name="game_sliding_puzzle_desc">കള്ളികൾ ഒഴിഞ്ഞ സ്ഥലത്തേക്ക് നീക്കി ക്രമത്തിലാക്കുക.</string>
     <string name="game_tower_of_hanoi_desc">മുഴുവൻ കൂമ്പാരവും വലത്തെ കുറ്റിയിലേക്ക് മാറ്റുക. ഒരു സമയം ഒരു ഡിസ്ക് മാത്രം, ചെറുതിനു മുകളിൽ വലുത് ഒരിക്കലും വേണ്ട.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">നീക്കം %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= സ്തംഭനം (സമനില, ജയമല്ല)</string>
     <string name="mini_chess_moves_title">കരുക്കൾ എങ്ങനെ നീങ്ങുന്നു</string>
+    <string name="mini_checkers_draw">സമനില: വെട്ടില്ലാതെ ഓരോരുത്തർക്കും 15 നീക്കങ്ങൾ.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d നീക്കത്തിൽ ഉറപ്പായ ജയം</item>
+        <item quantity="other">%1$d നീക്കത്തിൽ ഉറപ്പായ ജയം</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d നീക്കത്തിനുള്ളിൽ വെട്ടിയില്ലെങ്കിൽ സമനില</item>
+        <item quantity="other">%1$d നീക്കത്തിനുള്ളിൽ വെട്ടിയില്ലെങ്കിൽ സമനില</item>
+    </plurals>
     <string name="chess_piece_king">രാജാവ്</string>
     <string name="chess_piece_queen">മന്ത്രി</string>
     <string name="chess_piece_rook">തേര്</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">സുഡോകു ഋഷി</string>
     <string name="achievement_gold_mini_chess">അന്ത്യകളി വിദഗ്ധൻ</string>
+    <string name="achievement_gold_mini_checkers">കോമ്പിനേഷൻ വീരൻ</string>
     <string name="achievement_gold_lights_out">സമ്പൂർണ്ണ ഇരുട്ട്</string>
     <string name="achievement_gold_sliding_puzzle">മിനുസമുള്ള കൈ</string>
     <string name="achievement_gold_tower_of_hanoi">ഗോപുര നിപുണൻ</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">കുഞ്ഞൻ സുഡോകുവിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_mini_chess_desc">കുഞ്ഞൻ ചെസ്സിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_mini_checkers_desc">കുഞ്ഞൻ ചെക്കേഴ്സിൽ സ്വർണ്ണ മെഡൽ നേടൂ</string>
     <string name="achievement_gold_lights_out_desc">വിളക്കുകൾ അണയ്ക്കുകയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_sliding_puzzle_desc">നീങ്ങുന്ന കടങ്കഥയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ഹനോയ് ഗോപുരത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>

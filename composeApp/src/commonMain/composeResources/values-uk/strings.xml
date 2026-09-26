@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Миттєвий натовп</string>
     <string name="game_schulte_table">Таблиця Шульте</string>
     <string name="game_mini_chess">Міні-шахи</string>
+    <string name="game_mini_checkers">Міні-шашки</string>
     <string name="game_lights_out">Згаси світло</string>
     <string name="game_sliding_puzzle">П'ятнашки</string>
     <string name="game_tower_of_hanoi">Ханойські вежі</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Натискайте числа по порядку, починаючи з 1, якомога швидше.</string>
     <string name="game_schulte_instruction">Натискайте числа по порядку: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Заверши шаховий сценарій за білих. Постав мат комп'ютеру раніше, ніж він тобі.</string>
+    <string name="game_mini_checkers_desc">На кожній дошці на тебе, коли граєш чорними, чекає комбінація: ходи, на які комп'ютер щоразу має лише одну відповідь. Знайди її та переможи.</string>
     <string name="game_lights_out_desc">Вимкни всі вогні. Кожен дотик перемикає клітинку та її чотирьох сусідів.</string>
     <string name="game_sliding_puzzle_desc">Переміщуй плитки у порожнє місце, щоб розташувати їх по порядку.</string>
     <string name="game_tower_of_hanoi_desc">Перекладіть усю піраміду на правий стрижень. Лише один диск за раз і ніколи більший на менший.</string>
@@ -231,6 +233,7 @@
 
     <string name="achievement_gold_mini_sudoku">Мудрець судоку</string>
     <string name="achievement_gold_mini_chess">Віртуоз ендшпілю</string>
+    <string name="achievement_gold_mini_checkers">Майстер комбінацій</string>
     <string name="achievement_gold_lights_out">Повне затемнення</string>
     <string name="achievement_gold_sliding_puzzle">Майстер ковзання</string>
     <string name="achievement_gold_tower_of_hanoi">Майстер веж</string>
@@ -261,6 +264,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Здобудь золоту медаль у Міні-судоку</string>
     <string name="achievement_gold_mini_chess_desc">Здобудь золоту медаль у Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Здобудь золоту медаль у Міні-шашках</string>
     <string name="achievement_gold_lights_out_desc">Здобудь золоту медаль у Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Здобудь золоту медаль у Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Здобудьте золоту медаль у Ханойських вежах</string>
@@ -779,6 +783,19 @@
     <string name="checkers_quit">Вийти</string>
     <string name="checkers_new_game">Нова гра</string>
     <string name="mini_chess_moves_title">Як ходять фігури</string>
+    <string name="mini_checkers_draw">Нічия: по 15 ходів без взяття.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Форсований виграш за %1$d хід</item>
+        <item quantity="few">Форсований виграш за %1$d ходи</item>
+        <item quantity="many">Форсований виграш за %1$d ходів</item>
+        <item quantity="other">Форсований виграш за %1$d ходу</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Нічия через %1$d хід без взяття</item>
+        <item quantity="few">Нічия через %1$d ходи без взяття</item>
+        <item quantity="many">Нічия через %1$d ходів без взяття</item>
+        <item quantity="other">Нічия через %1$d ходу без взяття</item>
+    </plurals>
     <string name="chess_piece_king">Король</string>
     <string name="chess_piece_queen">Ферзь</string>
     <string name="chess_piece_rook">Тура</string>

@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">Mulțime fulger</string>
     <string name="game_schulte_table">Tabel Schulte</string>
     <string name="game_mini_chess">Mini șah</string>
+    <string name="game_mini_checkers">Mini dame</string>
     <string name="game_lights_out">Stinge luminile</string>
     <string name="game_sliding_puzzle">Puzzle glisant</string>
     <string name="game_tower_of_hanoi">Turnul din Hanoi</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">Apasă numerele în ordine de la 1 în sus cât poți de repede.</string>
     <string name="game_schulte_instruction">Apasă numerele în ordine: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Termină scenariul de șah cu albele. Dă șah-mat CPU-ului înainte să ți-l dea el.</string>
+    <string name="game_mini_checkers_desc">Fiecare tablă ascunde o combinație pentru tine cu negrele: mutări la care CPU-ul are de fiecare dată un singur răspuns. Găsește-o și câștigă.</string>
     <string name="game_lights_out_desc">Stinge fiecare lumină. Fiecare apăsare comută celula și cei patru vecini.</string>
     <string name="game_sliding_puzzle_desc">Glisează dalele în spațiul gol ca să le pui în ordine.</string>
     <string name="game_tower_of_hanoi_desc">Mută tot teancul pe cuiul din dreapta. Doar un disc odată și niciodată un disc mai mare pe unul mai mic.</string>
@@ -434,6 +436,17 @@ Mută Cow — devine Bull.</string>
     <string name="mini_chess_move_counter">Mutarea %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remiză, nu victorie)</string>
     <string name="mini_chess_moves_title">Cum se mișcă piesele</string>
+    <string name="mini_checkers_draw">Remiză: câte 15 mutări fără nicio luare.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Victorie forțată în %1$d mutare</item>
+        <item quantity="few">Victorie forțată în %1$d mutări</item>
+        <item quantity="other">Victorie forțată în %1$d de mutări</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Remiză în %1$d mutare fără luare</item>
+        <item quantity="few">Remiză în %1$d mutări fără luare</item>
+        <item quantity="other">Remiză în %1$d de mutări fără luare</item>
+    </plurals>
     <string name="chess_piece_king">Rege</string>
     <string name="chess_piece_queen">Damă</string>
     <string name="chess_piece_rook">Turn</string>
@@ -538,6 +551,7 @@ Mută Cow — devine Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Înțelept Sudoku</string>
     <string name="achievement_gold_mini_chess">Virtuoz de final</string>
+    <string name="achievement_gold_mini_checkers">Maestrul combinațiilor</string>
     <string name="achievement_gold_lights_out">Beznă totală</string>
     <string name="achievement_gold_sliding_puzzle">Operator lin</string>
     <string name="achievement_gold_tower_of_hanoi">Maestru al turnului</string>
@@ -577,6 +591,7 @@ Mută Cow — devine Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Câștigă medalia de aur la Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Câștigă medalia de aur la Mini șah</string>
+    <string name="achievement_gold_mini_checkers_desc">Câștigă medalia de aur la Mini dame</string>
     <string name="achievement_gold_lights_out_desc">Câștigă medalia de aur la Stinge luminile</string>
     <string name="achievement_gold_sliding_puzzle_desc">Câștigă medalia de aur la Puzzle glisant</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Câștigă medalia de aur la Turnul din Hanoi</string>

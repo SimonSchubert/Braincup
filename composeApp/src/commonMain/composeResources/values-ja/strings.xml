@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">フラッシュクラウド</string>
     <string name="game_schulte_table">シュルテ表</string>
     <string name="game_mini_chess">ミニチェス</string>
+    <string name="game_mini_checkers">ミニチェッカー</string>
     <string name="game_lights_out">ライトアウト</string>
     <string name="game_sliding_puzzle">スライドパズル</string>
     <string name="game_tower_of_hanoi">ハノイの塔</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
     <string name="game_schulte_instruction">数字を順番にタップ: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">白でチェスのシナリオを完成させましょう。CPUに詰まされる前に詰みに持ち込みます。</string>
+    <string name="game_mini_checkers_desc">どの盤面にも、黒で指すあなたのための手順が隠れています。CPUが毎回一手しか返せない手順です。見つけて勝とう。</string>
     <string name="game_lights_out_desc">すべての光を消しましょう。タップごとに、そのセルと隣接4セルが切り替わります。</string>
     <string name="game_sliding_puzzle_desc">タイルを空きスペースに滑らせて順番に並べましょう。</string>
     <string name="game_tower_of_hanoi_desc">すべての円盤を右の棒へ移しましょう。一度に1枚だけ、大きい円盤を小さい円盤の上に置いてはいけません。</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">数独の達人</string>
     <string name="achievement_gold_mini_chess">終盤の名手</string>
+    <string name="achievement_gold_mini_checkers">手筋の達人</string>
     <string name="achievement_gold_lights_out">完全消灯</string>
     <string name="achievement_gold_sliding_puzzle">スライド名人</string>
     <string name="achievement_gold_tower_of_hanoi">塔の達人</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">ミニ数独で金メダルを獲得</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chessで金メダルを獲得</string>
+    <string name="achievement_gold_mini_checkers_desc">ミニチェッカーで金メダルを獲得</string>
     <string name="achievement_gold_lights_out_desc">Lights Outで金メダルを獲得</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzleで金メダルを獲得</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ハノイの塔で金メダルを獲得</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">終了</string>
     <string name="checkers_new_game">新しい対局</string>
     <string name="mini_chess_moves_title">駒の動き方</string>
+    <string name="mini_checkers_draw">引き分け：取りのないまま各15手。</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d手で必勝</item>
+        <item quantity="other">%1$d手で必勝</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">取りがないまま%1$d手で引き分け</item>
+        <item quantity="other">取りがないまま%1$d手で引き分け</item>
+    </plurals>
     <string name="chess_piece_king">キング</string>
     <string name="chess_piece_queen">クイーン</string>
     <string name="chess_piece_rook">ルーク</string>

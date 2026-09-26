@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">மின்னல் கூட்டம்</string>
     <string name="game_schulte_table">ஷுல்ட்டே அட்டவணை</string>
     <string name="game_mini_chess">சிறு சதுரங்கம்</string>
+    <string name="game_mini_checkers">சிறு செக்கர்ஸ்</string>
     <string name="game_lights_out">விளக்குகளை அணை</string>
     <string name="game_sliding_puzzle">நழுவும் புதிர்</string>
     <string name="game_tower_of_hanoi">ஹனோய் கோபுரம்</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 இலிருந்து மேல்நோக்கி எண்களை முடிந்தவரை வேகமாக வரிசையாகத் தட்டுங்கள்.</string>
     <string name="game_schulte_instruction">எண்களை வரிசையாகத் தட்டுங்கள்: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">வெள்ளையாக இருந்து சதுரங்கக் காட்சியை முடியுங்கள். CPU உங்களை வெல்வதற்கு முன் அதைச் சாவுக்கட்டு செய்யுங்கள்.</string>
+    <string name="game_mini_checkers_desc">ஒவ்வொரு பலகையிலும் கருப்புக் காய்களுடன் உனக்காக ஒரு சேர்க்கை மறைந்திருக்கிறது: ஒவ்வொரு முறையும் CPU-க்கு ஒரே ஒரு பதில் மட்டுமே இருக்கும் நகர்வுகள். அதைக் கண்டுபிடித்து வெல்.</string>
     <string name="game_lights_out_desc">ஒவ்வொரு விளக்கையும் அணையுங்கள். ஒவ்வொரு தட்டலும் அந்தக் கட்டத்தையும் அதன் நான்கு அண்டைக் கட்டங்களையும் மாற்றும்.</string>
     <string name="game_sliding_puzzle_desc">கட்டங்களை காலி இடத்தில் நழுவவிட்டு வரிசைப்படுத்துங்கள்.</string>
     <string name="game_tower_of_hanoi_desc">முழு அடுக்கையும் வலது முளைக்கு நகர்த்துங்கள். ஒரு நேரத்தில் ஒரு வட்டு மட்டுமே, சிறிய வட்டின் மேல் பெரிய வட்டு ஒருபோதும் கூடாது.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">நகர்வு %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= முட்டுக்கட்டு (சமநிலை, வெற்றி அல்ல)</string>
     <string name="mini_chess_moves_title">காய்கள் எப்படி நகரும்</string>
+    <string name="mini_checkers_draw">சமநிலை: இருவரும் 15 நகர்வுகளாக வெட்டவில்லை.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d நகர்வில் உறுதியான வெற்றி</item>
+        <item quantity="other">%1$d நகர்வுகளில் உறுதியான வெற்றி</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d நகர்வில் வெட்டாவிட்டால் சமநிலை</item>
+        <item quantity="other">%1$d நகர்வுகளில் வெட்டாவிட்டால் சமநிலை</item>
+    </plurals>
     <string name="chess_piece_king">ராஜா</string>
     <string name="chess_piece_queen">ராணி</string>
     <string name="chess_piece_rook">கோட்டை</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">சுடோகு ஞானி</string>
     <string name="achievement_gold_mini_chess">இறுதியாட்ட மேதை</string>
+    <string name="achievement_gold_mini_checkers">சேர்க்கை வல்லவர்</string>
     <string name="achievement_gold_lights_out">முழு இருள்</string>
     <string name="achievement_gold_sliding_puzzle">சரளமான கைவினை</string>
     <string name="achievement_gold_tower_of_hanoi">கோபுர நிபுணர்</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">சிறு சுடோகுவில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_mini_chess_desc">சிறு சதுரங்கத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
+    <string name="achievement_gold_mini_checkers_desc">சிறு செக்கர்ஸில் தங்கப் பதக்கம் வெல்</string>
     <string name="achievement_gold_lights_out_desc">விளக்குகளை அணை விளையாட்டில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_sliding_puzzle_desc">நழுவும் புதிரில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ஹனோய் கோபுரத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>

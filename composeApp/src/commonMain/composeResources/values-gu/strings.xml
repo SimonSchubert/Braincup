@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">ઝબકતી ભીડ</string>
     <string name="game_schulte_table">શુલ્ટે કોષ્ટક</string>
     <string name="game_mini_chess">નાનું ચેસ</string>
+    <string name="game_mini_checkers">નાનું ચેકર્સ</string>
     <string name="game_lights_out">દીવા બંધ કરો</string>
     <string name="game_sliding_puzzle">સરકતો કોયડો</string>
     <string name="game_tower_of_hanoi">હનોઈનો મિનારો</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 થી ઉપરની તરફ અંકો પર બને તેટલી ઝડપથી ક્રમમાં ટેપ કરો.</string>
     <string name="game_schulte_instruction">અંકો પર ક્રમમાં ટેપ કરો: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">સફેદ તરીકે ચેસનું દૃશ્ય પૂરું કરો. CPU તમને મ્હાત આપે તે પહેલાં તેને શહમાત આપો.</string>
+    <string name="game_mini_checkers_desc">દરેક બોર્ડમાં કાળાં મહોરાં સાથે તારા માટે એક કૉમ્બિનેશન છુપાયેલું છે: એવી ચાલ જેનો CPU પાસે દર વખતે એક જ જવાબ હોય. તે શોધ અને જીત.</string>
     <string name="game_lights_out_desc">દરેક દીવો બંધ કરો. દરેક ટેપ તે ખાનું અને તેની ચાર પડોશી ખાનાં બદલે છે.</string>
     <string name="game_sliding_puzzle_desc">ખાનાં ખાલી જગ્યામાં સરકાવીને ક્રમમાં ગોઠવો.</string>
     <string name="game_tower_of_hanoi_desc">આખો થપ્પો જમણી ખીલી પર ખસેડો. એક સમયે એક જ ચકતી, અને નાની ચકતી પર મોટી ક્યારેય નહીં.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">ચાલ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= મડાગાંઠ (ડ્રો, જીત નહીં)</string>
     <string name="mini_chess_moves_title">મહોરાં કેવી રીતે ચાલે છે</string>
+    <string name="mini_checkers_draw">બરાબરી: બંનેની 15 ચાલ કંઈ લીધા વગર.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d ચાલમાં પાકી જીત</item>
+        <item quantity="other">%1$d ચાલમાં પાકી જીત</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d ચાલમાં કંઈ ન લેવાય તો બરાબરી</item>
+        <item quantity="other">%1$d ચાલમાં કંઈ ન લેવાય તો બરાબરી</item>
+    </plurals>
     <string name="chess_piece_king">રાજા</string>
     <string name="chess_piece_queen">વજીર</string>
     <string name="chess_piece_rook">હાથી</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">સુડોકુ ઋષિ</string>
     <string name="achievement_gold_mini_chess">અંતિમ દાવનો ઉસ્તાદ</string>
+    <string name="achievement_gold_mini_checkers">કૉમ્બિનેશનનો ઉસ્તાદ</string>
     <string name="achievement_gold_lights_out">સંપૂર્ણ અંધકાર</string>
     <string name="achievement_gold_sliding_puzzle">સફાઈદાર હાથ</string>
     <string name="achievement_gold_tower_of_hanoi">મિનારા નિપુણ</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">નાના સુડોકુમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_mini_chess_desc">નાના ચેસમાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_mini_checkers_desc">નાના ચેકર્સમાં સુવર્ણ ચંદ્રક જીત</string>
     <string name="achievement_gold_lights_out_desc">દીવા બંધ કરોમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_sliding_puzzle_desc">સરકતા કોયડામાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_tower_of_hanoi_desc">હનોઈના મિનારામાં સુવર્ણ ચંદ્રક જીતો</string>

@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Lynmengde</string>
     <string name="game_schulte_table">Schulte-tabell</string>
     <string name="game_mini_chess">Minisjakk</string>
+    <string name="game_mini_checkers">Minidam</string>
     <string name="game_lights_out">Slukk lysene</string>
     <string name="game_sliding_puzzle">Skyvepuslespill</string>
     <string name="game_tower_of_hanoi">Tårnet i Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Trykk på tallene i rekkefølge fra 1 og oppover så fort du kan.</string>
     <string name="game_schulte_instruction">Trykk på tallene i rekkefølge: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Avslutt sjakkscenariet som hvit. Sett CPU sjakkmatt før den setter deg.</string>
+    <string name="game_mini_checkers_desc">Hvert brett skjuler en kombinasjon for deg som svart: trekk der CPU-en hver gang bare har ett svar. Finn den og vinn.</string>
     <string name="game_lights_out_desc">Slukk hvert lys. Hvert trykk bytter feltet og de fire naboene.</string>
     <string name="game_sliding_puzzle_desc">Skyv brikker inn i det tomme feltet for å legge dem i rekkefølge.</string>
     <string name="game_tower_of_hanoi_desc">Flytt hele stabelen til den høyre pinnen. Bare én skive om gangen, og aldri en større på en mindre.</string>
@@ -430,6 +432,15 @@ Flytt Cow — den blir en Bull.</string>
     <string name="mini_chess_move_counter">Trekk %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (remis, ikke seier)</string>
     <string name="mini_chess_moves_title">Slik går brikkene</string>
+    <string name="mini_checkers_draw">Remis: 15 trekk hver uten slag.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Tvunget seier om %1$d trekk</item>
+        <item quantity="other">Tvunget seier om %1$d trekk</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Remis om %1$d trekk uten slag</item>
+        <item quantity="other">Remis om %1$d trekk uten slag</item>
+    </plurals>
     <string name="chess_piece_king">Konge</string>
     <string name="chess_piece_queen">Dronning</string>
     <string name="chess_piece_rook">Tårn</string>
@@ -534,6 +545,7 @@ Flytt Cow — den blir en Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudokuvismann</string>
     <string name="achievement_gold_mini_chess">Sluttspillsvirtuos</string>
+    <string name="achievement_gold_mini_checkers">Kombinasjonsmester</string>
     <string name="achievement_gold_lights_out">Total mørklegging</string>
     <string name="achievement_gold_sliding_puzzle">Glatt operatør</string>
     <string name="achievement_gold_tower_of_hanoi">Tårnmester</string>
@@ -573,6 +585,7 @@ Flytt Cow — den blir en Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Vinn gullmedaljen i Mini-Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Vinn gullmedaljen i Minisjakk</string>
+    <string name="achievement_gold_mini_checkers_desc">Vinn gullmedaljen i Minidam</string>
     <string name="achievement_gold_lights_out_desc">Vinn gullmedaljen i Slukk lysene</string>
     <string name="achievement_gold_sliding_puzzle_desc">Vinn gullmedaljen i Skyvepuslespill</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Vinn gullmedaljen i Tårnet i Hanoi</string>

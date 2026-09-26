@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">फ्लैश क्राउड</string>
     <string name="game_schulte_table">शुल्ते तालिका</string>
     <string name="game_mini_chess">मिनी शतरंज</string>
+    <string name="game_mini_checkers">मिनी चेकर्स</string>
     <string name="game_lights_out">लाइट्स आउट</string>
     <string name="game_sliding_puzzle">स्लाइडिंग पहेली</string>
     <string name="game_tower_of_hanoi">हनोई के टॉवर</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
     <string name="game_schulte_instruction">क्रम में संख्या टैप करें: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">सफेद के रूप में शतरंज परिदृश्य समाप्त करें। CPU आपको शह-मात देने से पहले उसे शह-मात दें।</string>
+    <string name="game_mini_checkers_desc">हर बोर्ड में काली गोटियों से खेलते हुए तुम्हारे लिए एक कॉम्बिनेशन छिपा है: ऐसी चालें जिनका CPU के पास हर बार बस एक जवाब हो। उसे ढूँढो और जीतो।</string>
     <string name="game_lights_out_desc">हर लाइट बंद करें। हर टैप उस सेल और उसके चार पड़ोसियों को टॉगल करता है।</string>
     <string name="game_sliding_puzzle_desc">टाइलों को खाली जगह में सरकाएँ ताकि उन्हें क्रम में रखा जा सके।</string>
     <string name="game_tower_of_hanoi_desc">पूरी स्टैक को दाएँ खूँटे पर ले जाएँ। एक बार में एक ही चकती, और बड़ी को छोटी पर कभी न रखें।</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">सुडोकू ज्ञानी</string>
     <string name="achievement_gold_mini_chess">अंत-खेल विशेषज्ञ</string>
+    <string name="achievement_gold_mini_checkers">कॉम्बिनेशन उस्ताद</string>
     <string name="achievement_gold_lights_out">पूर्ण अंधकार</string>
     <string name="achievement_gold_sliding_puzzle">कुशल खिसकाने वाला</string>
     <string name="achievement_gold_tower_of_hanoi">टॉवर मास्टर</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">मिनी सुडोकू में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_mini_checkers_desc">मिनी चेकर्स में स्वर्ण पदक जीतो</string>
     <string name="achievement_gold_lights_out_desc">Lights Out में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_tower_of_hanoi_desc">हनोई के टॉवर में स्वर्ण पदक जीतें</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">छोड़ें</string>
     <string name="checkers_new_game">नया खेल</string>
     <string name="mini_chess_moves_title">मोहरे कैसे चलते हैं</string>
+    <string name="mini_checkers_draw">बराबरी: दोनों तरफ़ से 15 चालें बिना कोई गोटी मारे।</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d चाल में पक्की जीत</item>
+        <item quantity="other">%1$d चालों में पक्की जीत</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d चाल में गोटी न मरी तो बराबरी</item>
+        <item quantity="other">%1$d चालों में गोटी न मरी तो बराबरी</item>
+    </plurals>
     <string name="chess_piece_king">राजा</string>
     <string name="chess_piece_queen">वज़ीर</string>
     <string name="chess_piece_rook">हाथी</string>

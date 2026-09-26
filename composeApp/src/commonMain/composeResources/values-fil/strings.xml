@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Biglaang Dami</string>
     <string name="game_schulte_table">Talahanayang Schulte</string>
     <string name="game_mini_chess">Mini Ahedres</string>
+    <string name="game_mini_checkers">Mini Dama</string>
     <string name="game_lights_out">Patayin ang Ilaw</string>
     <string name="game_sliding_puzzle">Palaisipang Padulas</string>
     <string name="game_tower_of_hanoi">Tore ng Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">I-tap ang mga numero nang sunud-sunod mula 1 pataas nang mabilis.</string>
     <string name="game_schulte_instruction">I-tap ang mga numero nang sunud-sunod: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Tapusin ang chess scenario bilang white. I-checkmate ang CPU bago ka nito i-checkmate.</string>
+    <string name="game_mini_checkers_desc">Bawat board ay may nakatagong kombinasyon para sa iyo bilang black: mga galaw na iisa lang ang maisasagot ng CPU bawat beses. Hanapin ito at manalo.</string>
     <string name="game_lights_out_desc">Patayin ang lahat ng ilaw. Bawat tap ay nagti-toggle sa cell at apat na kapitbahay nito.</string>
     <string name="game_sliding_puzzle_desc">I-slide ang mga tile sa bakanteng espasyo para maayos sila.</string>
     <string name="game_tower_of_hanoi_desc">Ilipat ang buong stack sa kanang peg. Isang disk lang kada galaw, at huwag lagyan ng mas malaking disk ang mas maliit.</string>
@@ -428,6 +430,15 @@
     <string name="mini_chess_move_counter">Galaw %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (tabla, hindi panalo)</string>
     <string name="mini_chess_moves_title">Paano gumagalaw ang mga piraso</string>
+    <string name="mini_checkers_draw">Tabla: tig-15 galaw nang walang nakain.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Siguradong panalo sa %1$d galaw</item>
+        <item quantity="other">Siguradong panalo sa %1$d galaw</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Tabla sa loob ng %1$d galaw kung walang makain</item>
+        <item quantity="other">Tabla sa loob ng %1$d galaw kung walang makain</item>
+    </plurals>
     <string name="chess_piece_king">Hari</string>
     <string name="chess_piece_queen">Reyna</string>
     <string name="chess_piece_rook">Tore</string>
@@ -532,6 +543,7 @@
 
     <string name="achievement_gold_mini_sudoku">Pantas ng Sudoku</string>
     <string name="achievement_gold_mini_chess">Birtuoso ng Endgame</string>
+    <string name="achievement_gold_mini_checkers">Dalubhasa sa Kombinasyon</string>
     <string name="achievement_gold_lights_out">Ganap na Dilim</string>
     <string name="achievement_gold_sliding_puzzle">Padulas na Kamay</string>
     <string name="achievement_gold_tower_of_hanoi">Dalubhasa ng Tore</string>
@@ -571,6 +583,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Manalo ng gold medal sa Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Manalo ng gold medal sa Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Manalo ng gold medal sa Mini Dama</string>
     <string name="achievement_gold_lights_out_desc">Manalo ng gold medal sa Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Manalo ng gold medal sa Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Manalo ng gold medal sa Tore ng Hanoi</string>

@@ -520,6 +520,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameMiniCheckers() {
+        snapGame(createMiniCheckersUiState(), 50_000L)
+    }
+
+    @Test
     fun gameSoloChess() {
         snapGame(createSoloChessUiState(), 50_000L)
     }

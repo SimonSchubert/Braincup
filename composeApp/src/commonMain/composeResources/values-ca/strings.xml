@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Multitud llampec</string>
     <string name="game_schulte_table">Taula de Schulte</string>
     <string name="game_mini_chess">Mini escacs</string>
+    <string name="game_mini_checkers">Mini dames</string>
     <string name="game_lights_out">Apaga els llums</string>
     <string name="game_sliding_puzzle">Trencaclosques lliscant</string>
     <string name="game_tower_of_hanoi">Torre de Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Toca els números en ordre des de l'1 cap amunt tan ràpid com puguis.</string>
     <string name="game_schulte_instruction">Toca els números en ordre: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Acaba la situació d'escacs amb blanques. Fes escac i mat a la CPU abans que te'l faci a tu.</string>
+    <string name="game_mini_checkers_desc">Cada tauler amaga una combinació per a tu amb negres: una sèrie de jugades que deixa la CPU amb una sola resposta cada cop. Troba-la i guanya.</string>
     <string name="game_lights_out_desc">Apaga cada llum. Cada toc commuta la casella i els seus quatre veïns.</string>
     <string name="game_sliding_puzzle_desc">Fes lliscar les fitxes cap a l'espai buit fins que estiguin en ordre.</string>
     <string name="game_tower_of_hanoi_desc">Mou tota la pila al pal dret. Només un disc alhora, i mai un de més gran sobre un de més petit.</string>
@@ -430,6 +432,15 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="mini_chess_move_counter">Moviment %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ofegat (taules, no una victòria)</string>
     <string name="mini_chess_moves_title">Com es mouen les peces</string>
+    <string name="mini_checkers_draw">Taules: 15 moviments cadascú sense menjar.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Victòria forçada en %1$d jugada</item>
+        <item quantity="other">Victòria forçada en %1$d jugades</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Taules en %1$d moviment sense menjar</item>
+        <item quantity="other">Taules en %1$d moviments sense menjar</item>
+    </plurals>
     <string name="chess_piece_king">Rei</string>
     <string name="chess_piece_queen">Dama</string>
     <string name="chess_piece_rook">Torre</string>
@@ -534,6 +545,7 @@ Mou el Cow: es convertirà en Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Savi del Sudoku</string>
     <string name="achievement_gold_mini_chess">Virtuós del final</string>
+    <string name="achievement_gold_mini_checkers">Mestre de la combinació</string>
     <string name="achievement_gold_lights_out">Apagada total</string>
     <string name="achievement_gold_sliding_puzzle">Operador suau</string>
     <string name="achievement_gold_tower_of_hanoi">Mestre de la torre</string>
@@ -573,6 +585,7 @@ Mou el Cow: es convertirà en Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Guanya la medalla d'or al Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Guanya la medalla d'or als Mini escacs</string>
+    <string name="achievement_gold_mini_checkers_desc">Guanya la medalla d'or a Mini dames</string>
     <string name="achievement_gold_lights_out_desc">Guanya la medalla d'or a Apaga els llums</string>
     <string name="achievement_gold_sliding_puzzle_desc">Guanya la medalla d'or al Trencaclosques lliscant</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Guanya la medalla d'or a la Torre de Hanoi</string>

@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">क्षणिक गर्दी</string>
     <string name="game_schulte_table">शुल्टे तक्ता</string>
     <string name="game_mini_chess">छोटे बुद्धिबळ</string>
+    <string name="game_mini_checkers">छोटे चेकर्स</string>
     <string name="game_lights_out">दिवे बंद करा</string>
     <string name="game_sliding_puzzle">सरकते कोडे</string>
     <string name="game_tower_of_hanoi">हनोईचा मनोरा</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 पासून वरच्या दिशेने अंकांवर शक्य तितक्या वेगाने क्रमाने टॅप करा.</string>
     <string name="game_schulte_instruction">अंकांवर क्रमाने टॅप करा: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">पांढरा म्हणून बुद्धिबळाचा डाव संपवा. CPU तुम्हाला मात देण्याआधी त्याला शह-मात द्या.</string>
+    <string name="game_mini_checkers_desc">प्रत्येक पटावर काळ्या सोंगट्यांसह तुझ्यासाठी एक डाव लपलेला आहे: अशा चाली ज्यांना CPU कडे प्रत्येक वेळी एकच उत्तर असते. तो शोध आणि जिंक.</string>
     <string name="game_lights_out_desc">प्रत्येक दिवा बंद करा. प्रत्येक टॅप त्या घराची आणि त्याच्या चार शेजारी घरांची स्थिती बदलतो.</string>
     <string name="game_sliding_puzzle_desc">चौकटी रिकाम्या जागेत सरकवून त्या क्रमाने लावा.</string>
     <string name="game_tower_of_hanoi_desc">संपूर्ण थप्पी उजव्या खुंटीवर हलवा. एका वेळी एकच चकती, आणि लहान चकतीवर मोठी कधीच नाही.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">चाल %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= कोंडी (बरोबरी, विजय नाही)</string>
     <string name="mini_chess_moves_title">मोहरी कशी चालतात</string>
+    <string name="mini_checkers_draw">बरोबरी: दोघांच्याही 15 चाली एकही सोंगटी न मारता.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d चालीत निश्चित विजय</item>
+        <item quantity="other">%1$d चालींत निश्चित विजय</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d चालीत सोंगटी न मारल्यास बरोबरी</item>
+        <item quantity="other">%1$d चालींत सोंगटी न मारल्यास बरोबरी</item>
+    </plurals>
     <string name="chess_piece_king">राजा</string>
     <string name="chess_piece_queen">वजीर</string>
     <string name="chess_piece_rook">हत्ती</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">सुडोकू ऋषी</string>
     <string name="achievement_gold_mini_chess">अंतिम डावाचा उस्ताद</string>
+    <string name="achievement_gold_mini_checkers">डावपेचांचा उस्ताद</string>
     <string name="achievement_gold_lights_out">संपूर्ण अंधार</string>
     <string name="achievement_gold_sliding_puzzle">सफाईदार हात</string>
     <string name="achievement_gold_tower_of_hanoi">मनोरा निपुण</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">छोट्या सुडोकूमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_mini_chess_desc">छोट्या बुद्धिबळात सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_mini_checkers_desc">छोट्या चेकर्समध्ये सुवर्णपदक जिंक</string>
     <string name="achievement_gold_lights_out_desc">दिवे बंद करामध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_sliding_puzzle_desc">सरकत्या कोड्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_tower_of_hanoi_desc">हनोईच्या मनोऱ्यात सुवर्णपदक जिंका</string>

@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Flitsmenigte</string>
     <string name="game_schulte_table">Schulte-tabel</string>
     <string name="game_mini_chess">Mini-Schaak</string>
+    <string name="game_mini_checkers">Mini-Dammen</string>
     <string name="game_lights_out">Lichten uit</string>
     <string name="game_sliding_puzzle">Schuifpuzzel</string>
     <string name="game_tower_of_hanoi">Torens van Hanoi</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Tik de nummers zo snel mogelijk op volgorde vanaf 1.</string>
     <string name="game_schulte_instruction">Tik de nummers op volgorde: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.</string>
+    <string name="game_mini_checkers_desc">Elk bord verbergt een combinatie voor jou als zwart: zetten waarop de CPU telkens maar één antwoord heeft. Vind hem en win.</string>
     <string name="game_lights_out_desc">Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.</string>
     <string name="game_sliding_puzzle_desc">Schuif tegels in de lege ruimte om ze op volgorde te zetten.</string>
     <string name="game_tower_of_hanoi_desc">Verplaats de hele stapel naar de rechter pen. Slechts één schijf tegelijk en nooit een grotere op een kleinere.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sudoku-wijze</string>
     <string name="achievement_gold_mini_chess">Eindspelvirtuoos</string>
+    <string name="achievement_gold_mini_checkers">Combinatiekunstenaar</string>
     <string name="achievement_gold_lights_out">Totale duisternis</string>
     <string name="achievement_gold_sliding_puzzle">Soepele schuiver</string>
     <string name="achievement_gold_tower_of_hanoi">Torenmeester</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Win de gouden medaille in Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Win de gouden medaille in Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Win de gouden medaille in Mini-Dammen</string>
     <string name="achievement_gold_lights_out_desc">Win de gouden medaille in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win de gouden medaille in Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Win de gouden medaille bij Torens van Hanoi</string>
@@ -773,6 +777,15 @@
     <string name="achievement_gold_simon_says_desc">Win een gouden medaille in Simon Says</string>
 
     <string name="mini_chess_moves_title">Zo bewegen de stukken</string>
+    <string name="mini_checkers_draw">Remise: elk 15 zetten zonder te slaan.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Gedwongen winst in %1$d zet</item>
+        <item quantity="other">Gedwongen winst in %1$d zetten</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Remise over %1$d zet zonder slaan</item>
+        <item quantity="other">Remise over %1$d zetten zonder slaan</item>
+    </plurals>
     <string name="chess_piece_king">Koning</string>
     <string name="chess_piece_queen">Dame</string>
     <string name="chess_piece_rook">Toren</string>

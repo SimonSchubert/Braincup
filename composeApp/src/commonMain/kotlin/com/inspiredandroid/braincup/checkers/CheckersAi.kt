@@ -28,7 +28,7 @@ class CheckersAi(
         var best = moves[0]
         var bestScore = -INF
         var alpha = -INF
-        for (move in order(moves)) {
+        for (move in order(moves, board.size)) {
             val score = -search(board.apply(move), depth - 1, -INF, -alpha, ply = 1)
             if (score > bestScore) {
                 bestScore = score
@@ -43,7 +43,7 @@ class CheckersAi(
         nodesVisited++
         val moves = board.legalMoves()
         if (moves.isEmpty()) return -(WIN_SCORE - ply)
-        if (board.quietPlies >= CHECKERS_DRAW_PLIES) return 0
+        if (board.quietPlies >= board.drawPlies) return 0
         // A forced capture at the horizon is searched through rather than scored: the static
         // evaluation would count a piece that is about to be taken back. Captures always remove
         // material, so this ends on its own; the ply cap only bounds the worst case.
@@ -51,7 +51,7 @@ class CheckersAi(
         if (depth <= 0 && (!forcedCapture || ply >= this.depth + MAX_CAPTURE_EXTENSION)) return evaluate(board)
         var alpha = alphaIn
         var best = -INF
-        for (move in order(moves)) {
+        for (move in order(moves, board.size)) {
             val score = -search(board.apply(move), depth - 1, -beta, -alpha, ply + 1)
             if (score > best) best = score
             if (best > alpha) alpha = best
@@ -61,38 +61,40 @@ class CheckersAi(
     }
 
     /** Longest captures first, then moves that crown. Enough for alpha-beta to cut well. */
-    private fun order(moves: List<CheckersMove>): List<CheckersMove> = if (moves.size <= 1) {
+    private fun order(moves: List<CheckersMove>, size: Int): List<CheckersMove> = if (moves.size <= 1) {
         moves
     } else {
         moves.sortedByDescending { move ->
-            val reachesBackRow = move.to / CHECKERS_SIZE == 0 || move.to / CHECKERS_SIZE == CHECKERS_SIZE - 1
+            val reachesBackRow = move.to / size == 0 || move.to / size == size - 1
             move.captured.size * 2 + if (reachesBackRow) 1 else 0
         }
     }
 
     private fun evaluate(board: CheckersBoard): Int {
         val me = board.sideToMove
+        val size = board.size
+        val centre = 2..size - 3
         var myMaterial = 0
         var theirMaterial = 0
         var positional = 0
         var pieces = 0
-        for (index in 0 until CheckersBoard.CELL_COUNT) {
+        for (index in 0 until board.cellCount) {
             val piece = board.pieceAt(index) ?: continue
             pieces++
-            val row = index / CHECKERS_SIZE
-            val col = index % CHECKERS_SIZE
+            val row = index / size
+            val col = index % size
             var value: Int
             var bonus = 0
             if (piece.isKing) {
                 value = KING_VALUE
-                if (row in 2..5 && col in 2..5) bonus += CENTRE_BONUS
+                if (row in centre && col in centre) bonus += CENTRE_BONUS
             } else {
                 value = MAN_VALUE
-                val advanced = if (piece.side == CheckersSide.BLACK) CHECKERS_SIZE - 1 - row else row
+                val advanced = if (piece.side == CheckersSide.BLACK) size - 1 - row else row
                 bonus += advanced * ADVANCE_BONUS
                 // A man left on the home row keeps the opponent from crowning there.
                 if (advanced == 0) bonus += BACK_ROW_BONUS
-                if (col in 2..5) bonus += CENTRE_BONUS
+                if (col in centre) bonus += CENTRE_BONUS
             }
             if (piece.side == me) {
                 myMaterial += value
@@ -103,11 +105,12 @@ class CheckersAi(
             }
         }
         val lead = myMaterial - theirMaterial
+        val startingPieces = (size - 2) / 2 * size
         // Trading down while ahead is how a won game is actually converted; without this the
         // search is happy to shuffle kings into the draw count.
         val tradeBonus = when {
-            lead > 0 -> (24 - pieces) * TRADE_WEIGHT
-            lead < 0 -> -(24 - pieces) * TRADE_WEIGHT
+            lead > 0 -> (startingPieces - pieces) * TRADE_WEIGHT
+            lead < 0 -> -(startingPieces - pieces) * TRADE_WEIGHT
             else -> 0
         }
         return lead + positional + tradeBonus

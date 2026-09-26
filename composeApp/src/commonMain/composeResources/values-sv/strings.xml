@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Blixtmängd</string>
     <string name="game_schulte_table">Schultetabell</string>
     <string name="game_mini_chess">Minischack</string>
+    <string name="game_mini_checkers">Minidam</string>
     <string name="game_lights_out">Släck lamporna</string>
     <string name="game_sliding_puzzle">Skjutpussel</string>
     <string name="game_tower_of_hanoi">Tornet i Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Tryck på talen i ordning från 1 och uppåt så snabbt du kan.</string>
     <string name="game_schulte_instruction">Tryck på talen i ordning: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Avsluta schackscenariot som vit. Sätt CPU i schackmatt innan den sätter dig.</string>
+    <string name="game_mini_checkers_desc">Varje bräde döljer en kombination åt dig som svart: drag där CPU:n bara har ett svar varje gång. Hitta den och vinn.</string>
     <string name="game_lights_out_desc">Släck varje lampa. Varje tryck växlar rutan och dess fyra grannar.</string>
     <string name="game_sliding_puzzle_desc">Skjut brickor in i det tomma utrymmet för att lägga dem i ordning.</string>
     <string name="game_tower_of_hanoi_desc">Flytta hela högen till den högra pinnen. Bara en skiva i taget, och aldrig en större skiva på en mindre.</string>
@@ -428,6 +430,15 @@
     <string name="mini_chess_move_counter">Drag %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (remi, inte vinst)</string>
     <string name="mini_chess_moves_title">Hur pjäserna går</string>
+    <string name="mini_checkers_draw">Oavgjort: 15 drag var utan att någon slagits.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Tvingad vinst om %1$d drag</item>
+        <item quantity="other">Tvingad vinst om %1$d drag</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Oavgjort om %1$d drag utan slag</item>
+        <item quantity="other">Oavgjort om %1$d drag utan slag</item>
+    </plurals>
     <string name="chess_piece_king">Kung</string>
     <string name="chess_piece_queen">Dam</string>
     <string name="chess_piece_rook">Torn</string>
@@ -532,6 +543,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sudokuvise</string>
     <string name="achievement_gold_mini_chess">Slutspelsvirtuos</string>
+    <string name="achievement_gold_mini_checkers">Kombinationsmästare</string>
     <string name="achievement_gold_lights_out">Total blackout</string>
     <string name="achievement_gold_sliding_puzzle">Smidig operatör</string>
     <string name="achievement_gold_tower_of_hanoi">Tornmästare</string>
@@ -571,6 +583,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Vinn guldmedalj i Mini-Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Vinn guldmedalj i Minischack</string>
+    <string name="achievement_gold_mini_checkers_desc">Vinn guldmedalj i Minidam</string>
     <string name="achievement_gold_lights_out_desc">Vinn guldmedalj i Släck lamporna</string>
     <string name="achievement_gold_sliding_puzzle_desc">Vinn guldmedalj i Skjutpussel</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Vinn guldmedalj i Tornet i Hanoi</string>

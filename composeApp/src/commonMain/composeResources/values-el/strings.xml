@@ -294,6 +294,7 @@
     <string name="game_flash_crowd">Αστραπιαίο Πλήθος</string>
     <string name="game_schulte_table">Πίνακας Σούλτε</string>
     <string name="game_mini_chess">Μίνι Σκάκι</string>
+    <string name="game_mini_checkers">Μίνι Ντάμα</string>
     <string name="game_lights_out">Σβήσε τα Φώτα</string>
     <string name="game_sliding_puzzle">Συρόμενο Παζλ</string>
     <string name="game_tower_of_hanoi">Πύργοι του Ανόι</string>
@@ -321,6 +322,7 @@
     <string name="game_schulte_table_desc">Πατήστε τους αριθμούς με τη σειρά από το 1 και μετά, όσο πιο γρήγορα μπορείτε.</string>
     <string name="game_schulte_instruction">Πατήστε τους αριθμούς με τη σειρά: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Ολοκληρώστε το σενάριο σκακιού με τα λευκά. Κάντε ματ στη CPU πριν σας κάνει ματ εκείνη.</string>
+    <string name="game_mini_checkers_desc">Κάθε ταμπλό κρύβει έναν συνδυασμό για σένα με τα μαύρα: κινήσεις στις οποίες η CPU έχει κάθε φορά μία μόνο απάντηση. Βρες τον και κέρδισε.</string>
     <string name="game_lights_out_desc">Σβήστε όλα τα φώτα. Κάθε πάτημα εναλλάσσει το κελί και τα τέσσερα γειτονικά του.</string>
     <string name="game_sliding_puzzle_desc">Σύρετε τα πλακίδια στον κενό χώρο για να τα τοποθετήσετε στη σειρά.</string>
     <string name="game_tower_of_hanoi_desc">Μετακινήστε ολόκληρη τη στοίβα στον δεξιό πάσσαλο. Μόνο ένας δίσκος κάθε φορά και ποτέ μεγαλύτερος πάνω σε μικρότερο.</string>
@@ -356,6 +358,15 @@
     <string name="mini_chess_move_counter">Κίνηση %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
     <string name="mini_chess_moves_title">Πώς κινούνται τα κομμάτια</string>
+    <string name="mini_checkers_draw">Ισοπαλία: 15 κινήσεις ο καθένας χωρίς φάγωμα.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Αναγκαστική νίκη σε %1$d κίνηση</item>
+        <item quantity="other">Αναγκαστική νίκη σε %1$d κινήσεις</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Ισοπαλία σε %1$d κίνηση χωρίς φάγωμα</item>
+        <item quantity="other">Ισοπαλία σε %1$d κινήσεις χωρίς φάγωμα</item>
+    </plurals>
     <string name="chess_piece_king">Βασιλιάς</string>
     <string name="chess_piece_queen">Βασίλισσα</string>
     <string name="chess_piece_rook">Πύργος</string>
@@ -460,6 +471,7 @@
 
     <string name="achievement_gold_mini_sudoku">Σοφός του Sudoku</string>
     <string name="achievement_gold_mini_chess">Δεξιοτέχνης του Φινάλε</string>
+    <string name="achievement_gold_mini_checkers">Μάστορας των συνδυασμών</string>
     <string name="achievement_gold_lights_out">Απόλυτο Σκοτάδι</string>
     <string name="achievement_gold_sliding_puzzle">Μάστορας της Ολίσθησης</string>
     <string name="achievement_gold_tower_of_hanoi">Δάσκαλος πύργων</string>
@@ -490,6 +502,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Σκάκι</string>
+    <string name="achievement_gold_mini_checkers_desc">Κέρδισε χρυσό μετάλλιο στη Μίνι Ντάμα</string>
     <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σβήσε τα Φώτα</string>
     <string name="achievement_gold_sliding_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Συρόμενο Παζλ</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Κερδίστε το χρυσό μετάλλιο στους Πύργους του Ανόι</string>

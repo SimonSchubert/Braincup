@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Multitud Relámpago</string>
     <string name="game_schulte_table">Tabla de Schulte</string>
     <string name="game_mini_chess">Mini Ajedrez</string>
+    <string name="game_mini_checkers">Mini Damas</string>
     <string name="game_lights_out">Apaga las luces</string>
     <string name="game_sliding_puzzle">Rompecabezas deslizante</string>
     <string name="game_tower_of_hanoi">Torres de Hanói</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Toca los números en orden a partir del 1 lo más rápido que puedas.</string>
     <string name="game_schulte_instruction">Toca los números en orden: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Termina el escenario de ajedrez como blancas. Da jaque mate al CPU antes de que te lo dé a ti.</string>
+    <string name="game_mini_checkers_desc">Cada tablero esconde una combinación para ti con negras: una serie de jugadas que deja a la CPU una sola respuesta cada vez. Encuéntrala y gana.</string>
     <string name="game_lights_out_desc">Apaga todas las luces. Cada toque cambia la celda y sus cuatro vecinas.</string>
     <string name="game_sliding_puzzle_desc">Desliza las piezas al espacio vacío para ponerlas en orden.</string>
     <string name="game_tower_of_hanoi_desc">Mueve toda la pila al poste derecho. Solo un disco a la vez y nunca uno más grande sobre uno más pequeño.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sabio del Sudoku</string>
     <string name="achievement_gold_mini_chess">Virtuoso del final</string>
+    <string name="achievement_gold_mini_checkers">As de la combinación</string>
     <string name="achievement_gold_lights_out">Apagón total</string>
     <string name="achievement_gold_sliding_puzzle">Operador hábil</string>
     <string name="achievement_gold_tower_of_hanoi">Maestro de torres</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Gana la medalla de oro en Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Gana la medalla de oro en Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Gana la medalla de oro en Mini Damas</string>
     <string name="achievement_gold_lights_out_desc">Gana la medalla de oro en Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gana la medalla de oro en Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Gana la medalla de oro en Torres de Hanói</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">Salir</string>
     <string name="checkers_new_game">Nueva partida</string>
     <string name="mini_chess_moves_title">Cómo se mueven las piezas</string>
+    <string name="mini_checkers_draw">Tablas: 15 movimientos cada uno sin comer.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Victoria forzada en %1$d jugada</item>
+        <item quantity="other">Victoria forzada en %1$d jugadas</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Tablas en %1$d movimiento sin comer</item>
+        <item quantity="other">Tablas en %1$d movimientos sin comer</item>
+    </plurals>
     <string name="chess_piece_king">Rey</string>
     <string name="chess_piece_queen">Dama</string>
     <string name="chess_piece_rook">Torre</string>

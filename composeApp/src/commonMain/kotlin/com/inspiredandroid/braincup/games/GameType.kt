@@ -82,6 +82,17 @@ enum class GameType(
         category = GameCategory.LOGIC,
         inDailySession = false,
     ),
+    MINI_CHECKERS(
+        displayNameRes = Res.string.game_mini_checkers,
+        id = "42",
+        // A Normal win is silver and a Hard win gold; there is no Easy, so bronze is only ever
+        // passed on the way. See MiniCheckersGame.winPointsFor.
+        goldScore = 15,
+        silverScore = 10,
+        descriptionRes = Res.string.game_mini_checkers_desc,
+        category = GameCategory.LOGIC,
+        inDailySession = false,
+    ),
     SOLO_CHESS(
         displayNameRes = Res.string.game_solo_chess,
         id = "29",

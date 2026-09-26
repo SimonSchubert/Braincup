@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Блесваща тълпа</string>
     <string name="game_schulte_table">Таблица на Шулте</string>
     <string name="game_mini_chess">Мини шах</string>
+    <string name="game_mini_checkers">Мини дама</string>
     <string name="game_lights_out">Изгаси светлините</string>
     <string name="game_sliding_puzzle">Плъзгащ пъзел</string>
     <string name="game_tower_of_hanoi">Ханойска кула</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Докосвай числата по ред от 1 нагоре възможно най-бързо.</string>
     <string name="game_schulte_instruction">Докосвай числата по ред: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Завърши шахматната ситуация като белите. Дай мат на CPU преди той да го даде на теб.</string>
+    <string name="game_mini_checkers_desc">Всяка дъска крие комбинация за теб с черните: ходове, на които CPU всеки път има само един отговор. Намери я и спечели.</string>
     <string name="game_lights_out_desc">Изгаси всяка светлина. Всяко докосване превключва клетката и четирите ѝ съседа.</string>
     <string name="game_sliding_puzzle_desc">Плъзгай плочките в празното място, докато застанат в ред.</string>
     <string name="game_tower_of_hanoi_desc">Премести целия стълб на дясното колче. Само един диск наведнъж и никога по-голям върху по-малък.</string>
@@ -430,6 +432,15 @@ Cow = вярна цифра, грешно място.</string>
     <string name="mini_chess_move_counter">Ход %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (реми, не победа)</string>
     <string name="mini_chess_moves_title">Как се движат фигурите</string>
+    <string name="mini_checkers_draw">Реми: по 15 хода без вземане.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Принудителна победа в %1$d ход</item>
+        <item quantity="other">Принудителна победа в %1$d хода</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Реми след %1$d ход без вземане</item>
+        <item quantity="other">Реми след %1$d хода без вземане</item>
+    </plurals>
     <string name="chess_piece_king">Цар</string>
     <string name="chess_piece_queen">Дама</string>
     <string name="chess_piece_rook">Топ</string>
@@ -534,6 +545,7 @@ Cow = вярна цифра, грешно място.</string>
 
     <string name="achievement_gold_mini_sudoku">Мъдрец на Судоку</string>
     <string name="achievement_gold_mini_chess">Виртуоз на ендшпила</string>
+    <string name="achievement_gold_mini_checkers">Майстор на комбинациите</string>
     <string name="achievement_gold_lights_out">Пълно затъмнение</string>
     <string name="achievement_gold_sliding_puzzle">Гладък оператор</string>
     <string name="achievement_gold_tower_of_hanoi">Майстор на кулата</string>
@@ -573,6 +585,7 @@ Cow = вярна цифра, грешно място.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Спечели златен медал в Мини Судоку</string>
     <string name="achievement_gold_mini_chess_desc">Спечели златен медал в Мини шах</string>
+    <string name="achievement_gold_mini_checkers_desc">Спечели златен медал в Мини дама</string>
     <string name="achievement_gold_lights_out_desc">Спечели златен медал в Изгаси светлините</string>
     <string name="achievement_gold_sliding_puzzle_desc">Спечели златен медал в Плъзгащ пъзел</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Спечели златен медал в Ханойска кула</string>

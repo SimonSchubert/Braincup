@@ -310,6 +310,7 @@
     <string name="game_flash_crowd">Utripajoča množica</string>
     <string name="game_schulte_table">Schultetova tabela</string>
     <string name="game_mini_chess">Mini šah</string>
+    <string name="game_mini_checkers">Mini dama</string>
     <string name="game_lights_out">Ugasni luči</string>
     <string name="game_sliding_puzzle">Drsna sestavljanka</string>
     <string name="game_tower_of_hanoi">Hanojski stolp</string>
@@ -355,6 +356,7 @@
     <string name="game_schulte_table_desc">Dotikaj se števil po vrsti od 1 navzgor čim hitreje.</string>
     <string name="game_schulte_instruction">Dotikaj se števil po vrsti: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Dokončaj šahovsko situacijo kot beli. Daj CPU-ju mat, preden ga dobiš ti.</string>
+    <string name="game_mini_checkers_desc">Vsaka plošča skriva kombinacijo zate kot črnega: poteze, na katere ima CPU vsakič le en odgovor. Najdi jo in zmagaj.</string>
     <string name="game_lights_out_desc">Ugasni vsako luč. Vsak dotik preklopi celico in njene štiri sosede.</string>
     <string name="game_sliding_puzzle_desc">Drsi ploščice v prazno mesto, dokler niso v redu.</string>
     <string name="game_tower_of_hanoi_desc">Premakni cel stolpec na desni klinček. Samo en disk naenkrat in nikoli večjega na manjšega.</string>
@@ -438,6 +440,19 @@ Premakni Cow — postal bo Bull.</string>
     <string name="mini_chess_move_counter">Poteza %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remi, ne zmaga)</string>
     <string name="mini_chess_moves_title">Kako se figure premikajo</string>
+    <string name="mini_checkers_draw">Remi: po 15 potez brez jemanja.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Izsiljena zmaga v %1$d potezi</item>
+        <item quantity="two">Izsiljena zmaga v %1$d potezah</item>
+        <item quantity="few">Izsiljena zmaga v %1$d potezah</item>
+        <item quantity="other">Izsiljena zmaga v %1$d potezah</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Remi čez %1$d potezo brez jemanja</item>
+        <item quantity="two">Remi čez %1$d potezi brez jemanja</item>
+        <item quantity="few">Remi čez %1$d poteze brez jemanja</item>
+        <item quantity="other">Remi čez %1$d potez brez jemanja</item>
+    </plurals>
     <string name="chess_piece_king">Kralj</string>
     <string name="chess_piece_queen">Dama</string>
     <string name="chess_piece_rook">Trdnjava</string>
@@ -542,6 +557,7 @@ Premakni Cow — postal bo Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku modrec</string>
     <string name="achievement_gold_mini_chess">Virtuoz končnice</string>
+    <string name="achievement_gold_mini_checkers">Mojster kombinacij</string>
     <string name="achievement_gold_lights_out">Popoln mrk</string>
     <string name="achievement_gold_sliding_puzzle">Gladki operator</string>
     <string name="achievement_gold_tower_of_hanoi">Mojster stolpa</string>
@@ -581,6 +597,7 @@ Premakni Cow — postal bo Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Osvoji zlato medaljo v Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Osvoji zlato medaljo v Mini šahu</string>
+    <string name="achievement_gold_mini_checkers_desc">Osvoji zlato medaljo v Mini dami</string>
     <string name="achievement_gold_lights_out_desc">Osvoji zlato medaljo v igri Ugasni luči</string>
     <string name="achievement_gold_sliding_puzzle_desc">Osvoji zlato medaljo v Drsni sestavljanki</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Osvoji zlato medaljo v Hanojskem stolpu</string>

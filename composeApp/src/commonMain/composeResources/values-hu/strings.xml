@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Villanótömeg</string>
     <string name="game_schulte_table">Schulte-tábla</string>
     <string name="game_mini_chess">Mini sakk</string>
+    <string name="game_mini_checkers">Mini dáma</string>
     <string name="game_lights_out">Fények ki</string>
     <string name="game_sliding_puzzle">Csúszó kirakó</string>
     <string name="game_tower_of_hanoi">Hanoi tornya</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Koppints a számokra 1-től felfelé, amilyen gyorsan tudod.</string>
     <string name="game_schulte_instruction">Koppints a számokra sorban: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Fejezd be a sakkjelenetet világossal. Adj sakk-mattot a CPU-nak, mielőtt ő ad neked.</string>
+    <string name="game_mini_checkers_desc">Minden táblán egy kombináció vár rád sötéttel: lépések, amelyekre a CPU-nak minden alkalommal csak egy válasza van. Találd meg, és nyerj.</string>
     <string name="game_lights_out_desc">Oltsd el minden fényt. Minden koppintás a cellát és a négy szomszédját kapcsolja.</string>
     <string name="game_sliding_puzzle_desc">Csúsztasd a lapkákat az üres helyre, hogy sorba tedd őket.</string>
     <string name="game_tower_of_hanoi_desc">Vidd a teljes tornyot a jobb rúdra. Egyszerre csak egy korong, és soha nagyobb a kisebbre.</string>
@@ -430,6 +432,15 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="mini_chess_move_counter">%1$d / %2$d. lépés</string>
     <string name="mini_chess_draw_warning">= patt (döntetlen, nem győzelem)</string>
     <string name="mini_chess_moves_title">Hogyan lépnek a bábuk</string>
+    <string name="mini_checkers_draw">Döntetlen: 15-15 lépés ütés nélkül.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Kikényszerített győzelem %1$d lépésben</item>
+        <item quantity="other">Kikényszerített győzelem %1$d lépésben</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Döntetlen %1$d lépés múlva ütés nélkül</item>
+        <item quantity="other">Döntetlen %1$d lépés múlva ütés nélkül</item>
+    </plurals>
     <string name="chess_piece_king">Király</string>
     <string name="chess_piece_queen">Vezér</string>
     <string name="chess_piece_rook">Bástya</string>
@@ -534,6 +545,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku-bölcs</string>
     <string name="achievement_gold_mini_chess">Végjáték-virtuóz</string>
+    <string name="achievement_gold_mini_checkers">Kombinációk mestere</string>
     <string name="achievement_gold_lights_out">Teljes sötétség</string>
     <string name="achievement_gold_sliding_puzzle">Sima operátor</string>
     <string name="achievement_gold_tower_of_hanoi">Toronymester</string>
@@ -573,6 +585,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Nyerj aranyérmet Mini Sudoku játékban</string>
     <string name="achievement_gold_mini_chess_desc">Nyerj aranyérmet Mini sakk játékban</string>
+    <string name="achievement_gold_mini_checkers_desc">Nyerj aranyérmet Mini dáma játékban</string>
     <string name="achievement_gold_lights_out_desc">Nyerj aranyérmet Fények ki játékban</string>
     <string name="achievement_gold_sliding_puzzle_desc">Nyerj aranyérmet Csúszó kirakó játékban</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Nyerj aranyérmet Hanoi tornya játékban</string>

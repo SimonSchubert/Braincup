@@ -319,6 +319,7 @@
     <string name="game_flash_crowd">Flash Crowd</string>
     <string name="game_schulte_table">Schulte Table</string>
     <string name="game_mini_chess">Mini Chess</string>
+    <string name="game_mini_checkers">Mini Checkers</string>
     <string name="game_lights_out">Lights Out</string>
     <string name="game_sliding_puzzle">Sliding Puzzle</string>
     <string name="game_tower_of_hanoi">Tower of Hanoi</string>
@@ -364,6 +365,7 @@
     <string name="game_schulte_table_desc">Tap the numbers in order from 1 upwards as fast as you can.</string>
     <string name="game_schulte_instruction">Tap the numbers in order: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="game_mini_checkers_desc">Every board hides a combination for you as black: a line of moves that leaves the CPU a single reply each time. Find it and win.</string>
     <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
     <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
     <string name="game_tower_of_hanoi_desc">Move the full stack to the right peg. Only one disk at a time, and never a larger disk on a smaller one.</string>
@@ -445,6 +447,15 @@
     <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="mini_chess_moves_title">How the pieces move</string>
+    <string name="mini_checkers_draw">Draw: 15 moves each without a capture.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Forced win in %1$d move</item>
+        <item quantity="other">Forced win in %1$d moves</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Draw in %1$d move without a capture</item>
+        <item quantity="other">Draw in %1$d moves without a capture</item>
+    </plurals>
     <string name="chess_piece_king">King</string>
     <string name="chess_piece_queen">Queen</string>
     <string name="chess_piece_rook">Rook</string>
@@ -550,6 +561,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sudoku Sage</string>
     <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
+    <string name="achievement_gold_mini_checkers">Shot Caller</string>
     <string name="achievement_gold_lights_out">Total Blackout</string>
     <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
     <string name="achievement_gold_tower_of_hanoi">Tower Master</string>
@@ -589,6 +601,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Win gold medal in Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Win gold medal in Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Win gold medal in Mini Checkers</string>
     <string name="achievement_gold_lights_out_desc">Win gold medal in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win gold medal in Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Win gold medal in Tower of Hanoi</string>

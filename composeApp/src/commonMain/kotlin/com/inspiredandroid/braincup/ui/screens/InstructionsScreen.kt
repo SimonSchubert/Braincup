@@ -4,7 +4,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -22,6 +22,8 @@ import braincup.composeapp.generated.resources.mini_chess_difficulty
 import braincup.composeapp.generated.resources.mini_chess_difficulty_easy
 import braincup.composeapp.generated.resources.mini_chess_difficulty_hard
 import braincup.composeapp.generated.resources.mini_chess_difficulty_medium
+import braincup.composeapp.generated.resources.reversi_difficulty_hard
+import braincup.composeapp.generated.resources.reversi_difficulty_normal
 import braincup.composeapp.generated.resources.wordle_legend_absent
 import braincup.composeapp.generated.resources.wordle_legend_correct
 import braincup.composeapp.generated.resources.wordle_legend_present
@@ -29,6 +31,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismClearLevels
 import com.inspiredandroid.braincup.games.formattedScore
+import com.inspiredandroid.braincup.games.minicheckers.MiniCheckersDifficulty
 import com.inspiredandroid.braincup.games.science
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
@@ -50,6 +53,7 @@ import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
 import com.inspiredandroid.braincup.ui.components.MentalFlexDemo
 import com.inspiredandroid.braincup.ui.components.MentalRotationsDemo
+import com.inspiredandroid.braincup.ui.components.MiniCheckersDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
 import com.inspiredandroid.braincup.ui.components.MissingOperatorsDemo
 import com.inspiredandroid.braincup.ui.components.NBackDemo
@@ -123,6 +127,7 @@ fun InstructionsScreen(
             val demoModifier = Modifier.padding(horizontal = 16.dp)
             when (gameType) {
                 GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
+                GameType.MINI_CHECKERS -> MiniCheckersDemo(modifier = demoModifier)
                 GameType.RULE_SHIFT -> RuleShiftDemo(modifier = demoModifier)
                 GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
                 GameType.SIMON_SAYS -> SimonSaysDemo(modifier = demoModifier)
@@ -182,10 +187,33 @@ fun InstructionsScreen(
 
             if (gameType == GameType.MINI_CHESS) {
                 Spacer(Modifier.height(24.dp))
-                MiniChessDifficultySelector(
+                // Chess search depths spread widely so each step is a real strength jump: Easy=1
+                // never predicts a reply, Medium=3 sees its own follow-up, Hard=5 calculates deep.
+                val supported = listOf(1, 3, 5)
+                DifficultySelector(
                     modifier = Modifier.padding(horizontal = 24.dp),
-                    initial = storage.getMiniChessDifficulty(),
+                    options = supported.zip(
+                        listOf(
+                            stringResource(Res.string.mini_chess_difficulty_easy),
+                            stringResource(Res.string.mini_chess_difficulty_medium),
+                            stringResource(Res.string.mini_chess_difficulty_hard),
+                        ),
+                    ),
+                    initial = storage.getMiniChessDifficulty().takeIf { it in supported } ?: 3,
                     onSelected = { storage.setMiniChessDifficulty(it) },
+                )
+            }
+
+            if (gameType == GameType.MINI_CHECKERS) {
+                Spacer(Modifier.height(24.dp))
+                DifficultySelector(
+                    modifier = Modifier.padding(horizontal = 24.dp),
+                    options = listOf(
+                        MiniCheckersDifficulty.NORMAL to stringResource(Res.string.reversi_difficulty_normal),
+                        MiniCheckersDifficulty.HARD to stringResource(Res.string.reversi_difficulty_hard),
+                    ),
+                    initial = storage.getMiniCheckersDifficulty(),
+                    onSelected = { storage.setMiniCheckersDifficulty(it) },
                 )
             }
 
@@ -302,14 +330,13 @@ private fun WordleLegendRow(face: Color, letter: Char, labelRes: StringResource)
 }
 
 @Composable
-private fun MiniChessDifficultySelector(
-    initial: Int,
-    onSelected: (Int) -> Unit,
+private fun <T> DifficultySelector(
+    options: List<Pair<T, String>>,
+    initial: T,
+    onSelected: (T) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val supported = listOf(1, 3, 5)
-    val resolvedInitial = if (initial in supported) initial else 3
-    var selected by remember { mutableIntStateOf(resolvedInitial) }
+    var selected by remember { mutableStateOf(initial) }
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -320,23 +347,14 @@ private fun MiniChessDifficultySelector(
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(8.dp))
-        // Spread depth widely so users feel a real strength jump:
-        //   Easy=1 (no opponent-response prediction → easy to trap)
-        //   Medium=3 (sees player + own follow-up)
-        //   Hard=5 (deep tactical calculation; slower thinks)
-        val options = listOf(
-            1 to stringResource(Res.string.mini_chess_difficulty_easy),
-            3 to stringResource(Res.string.mini_chess_difficulty_medium),
-            5 to stringResource(Res.string.mini_chess_difficulty_hard),
-        )
         Row(
             modifier = Modifier
                 .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            options.forEach { (depth, label) ->
-                val isSelected = selected == depth
+            options.forEach { (option, label) ->
+                val isSelected = selected == option
                 PrismTile(
                     face = if (isSelected) Primary else MaterialTheme.colorScheme.surfaceVariant,
                     modifier = Modifier
@@ -344,8 +362,8 @@ private fun MiniChessDifficultySelector(
                         .hoverHand()
                         .defaultMinSize(minHeight = 48.dp),
                     onClick = {
-                        selected = depth
-                        onSelected(depth)
+                        selected = option
+                        onSelected(option)
                     },
                 ) {
                     Text(

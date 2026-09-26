@@ -40,18 +40,23 @@ private fun isKing(cell: Int) = cell == BLACK_KING || cell == WHITE_KING
 /** Black starts at the bottom and moves up the board, so its forward is row - 1. */
 private val CheckersSide.forward: Int get() = if (this == CheckersSide.BLACK) -1 else 1
 
-private val CheckersSide.crownRow: Int get() = if (this == CheckersSide.BLACK) 0 else CHECKERS_SIZE - 1
+private fun CheckersSide.crownRow(size: Int): Int = if (this == CheckersSide.BLACK) 0 else size - 1
 
 /**
- * Immutable English draughts board. Cells are row-major flat indices, `row * CHECKERS_SIZE + col`,
- * top row first. Only dark squares, where `(row + col)` is odd, ever hold a piece.
+ * Immutable English draughts board, [size] squares a side. Cells are row-major flat indices,
+ * `row * size + col`, top row first. Only dark squares, where `(row + col)` is odd, ever hold a
+ * piece.
  */
 class CheckersBoard private constructor(
     private val cells: IntArray,
+    val size: Int,
     val sideToMove: CheckersSide,
     /** Plies since the last capture or man move. */
     val quietPlies: Int,
+    val drawPlies: Int,
 ) {
+    val cellCount: Int get() = cells.size
+
     private val moves: List<CheckersMove> by lazy { generateMoves() }
 
     fun pieceAt(index: Int): CheckersPiece? {
@@ -69,19 +74,19 @@ class CheckersBoard private constructor(
         val piece = next[move.from]
         next[move.from] = EMPTY
         for (index in move.captured) next[index] = EMPTY
-        val crowned = !isKing(piece) && move.to / CHECKERS_SIZE == sideToMove.crownRow
+        val crowned = !isKing(piece) && move.to / size == sideToMove.crownRow(size)
         next[move.to] = when {
             !crowned -> piece
             sideToMove == CheckersSide.BLACK -> BLACK_KING
             else -> WHITE_KING
         }
         val resetsClock = move.isCapture || !isKing(piece)
-        return CheckersBoard(next, sideToMove.opponent, if (resetsClock) 0 else quietPlies + 1)
+        return CheckersBoard(next, size, sideToMove.opponent, if (resetsClock) 0 else quietPlies + 1, drawPlies)
     }
 
     fun result(): CheckersResult = when {
         moves.isEmpty() -> if (sideToMove == CheckersSide.BLACK) CheckersResult.WHITE_WINS else CheckersResult.BLACK_WINS
-        quietPlies >= CHECKERS_DRAW_PLIES -> CheckersResult.DRAW
+        quietPlies >= drawPlies -> CheckersResult.DRAW
         else -> CheckersResult.ONGOING
     }
 
@@ -96,14 +101,14 @@ class CheckersBoard private constructor(
         val steps = mutableListOf<CheckersMove>()
         for (index in cells.indices) {
             if (sideOf(cells[index]) != sideToMove) continue
-            val row = index / CHECKERS_SIZE
-            val col = index % CHECKERS_SIZE
+            val row = index / size
+            val col = index % size
             for (dRow in directionsFor(isKing(cells[index]))) {
                 for (dCol in SIDEWAYS) {
                     val r = row + dRow
                     val c = col + dCol
                     if (!onBoard(r, c)) continue
-                    val target = r * CHECKERS_SIZE + c
+                    val target = r * size + c
                     if (cells[target] == EMPTY) steps.add(CheckersMove(listOf(index, target), emptyList()))
                 }
             }
@@ -121,23 +126,23 @@ class CheckersBoard private constructor(
         out: MutableList<CheckersMove>,
     ) {
         val origin = path.first()
-        val row = at / CHECKERS_SIZE
-        val col = at % CHECKERS_SIZE
+        val row = at / size
+        val col = at % size
         var extended = false
         for (dRow in directionsFor(king)) {
             for (dCol in SIDEWAYS) {
                 val landRow = row + 2 * dRow
                 val landCol = col + 2 * dCol
                 if (!onBoard(landRow, landCol)) continue
-                val over = (row + dRow) * CHECKERS_SIZE + col + dCol
-                val land = landRow * CHECKERS_SIZE + landCol
+                val over = (row + dRow) * size + col + dCol
+                val land = landRow * size + landCol
                 if (sideOf(cells[over]) != sideToMove.opponent || over in captured) continue
                 // The moving piece has left its square, so a king may land back on it.
                 if (cells[land] != EMPTY && land != origin) continue
                 extended = true
                 path.add(land)
                 captured.add(over)
-                if (!king && landRow == sideToMove.crownRow) {
+                if (!king && landRow == sideToMove.crownRow(size)) {
                     out.add(CheckersMove(path.toList(), captured.toList()))
                 } else {
                     collectJumps(land, king, path, captured, out)
@@ -151,36 +156,42 @@ class CheckersBoard private constructor(
 
     private fun directionsFor(king: Boolean): IntArray = if (king) BOTH_WAYS else intArrayOf(sideToMove.forward)
 
-    companion object {
-        const val CELL_COUNT = CHECKERS_SIZE * CHECKERS_SIZE
+    private fun onBoard(row: Int, col: Int) = row in 0 until size && col in 0 until size
 
+    fun isDarkSquare(index: Int): Boolean = isDarkSquare(index, size)
+
+    companion object {
         private val SIDEWAYS = intArrayOf(-1, 1)
         private val BOTH_WAYS = intArrayOf(-1, 1)
 
-        private fun onBoard(row: Int, col: Int) = row in 0 until CHECKERS_SIZE && col in 0 until CHECKERS_SIZE
-
-        fun isDarkSquare(index: Int): Boolean = (index / CHECKERS_SIZE + index % CHECKERS_SIZE) % 2 == 1
+        fun isDarkSquare(index: Int, size: Int): Boolean = (index / size + index % size) % 2 == 1
 
         fun startingPosition(): CheckersBoard {
-            val cells = IntArray(CELL_COUNT)
-            for (index in 0 until CELL_COUNT) {
-                if (!isDarkSquare(index)) continue
+            val cells = IntArray(CHECKERS_SIZE * CHECKERS_SIZE)
+            for (index in cells.indices) {
+                if (!isDarkSquare(index, CHECKERS_SIZE)) continue
                 when (index / CHECKERS_SIZE) {
                     in 0..2 -> cells[index] = WHITE_MAN
                     in 5..7 -> cells[index] = BLACK_MAN
                 }
             }
-            return CheckersBoard(cells, CheckersSide.BLACK, 0)
+            return CheckersBoard(cells, CHECKERS_SIZE, CheckersSide.BLACK, 0, CHECKERS_DRAW_PLIES)
         }
 
-        /** Build a board from eight rows of `b`/`w` (men), `B`/`W` (kings) and `.`. Top row first. */
-        fun fromRows(rows: List<String>, sideToMove: CheckersSide, quietPlies: Int = 0): CheckersBoard {
-            require(rows.size == CHECKERS_SIZE) { "Expected $CHECKERS_SIZE rows, got ${rows.size}" }
-            val cells = IntArray(CELL_COUNT)
+        /** Build a square board from rows of `b`/`w` (men), `B`/`W` (kings) and `.`. Top row
+         *  first; the number of rows sets the size. */
+        fun fromRows(
+            rows: List<String>,
+            sideToMove: CheckersSide,
+            quietPlies: Int = 0,
+            drawPlies: Int = CHECKERS_DRAW_PLIES,
+        ): CheckersBoard {
+            val size = rows.size
+            val cells = IntArray(size * size)
             rows.forEachIndexed { row, line ->
-                require(line.length == CHECKERS_SIZE) { "Row $row must be $CHECKERS_SIZE wide: $line" }
+                require(line.length == size) { "Row $row must be $size wide: $line" }
                 line.forEachIndexed { col, symbol ->
-                    val index = row * CHECKERS_SIZE + col
+                    val index = row * size + col
                     cells[index] = when (symbol) {
                         'b' -> BLACK_MAN
                         'B' -> BLACK_KING
@@ -189,10 +200,10 @@ class CheckersBoard private constructor(
                         '.' -> EMPTY
                         else -> error("Unexpected board symbol '$symbol'")
                     }
-                    require(cells[index] == EMPTY || isDarkSquare(index)) { "Piece on a light square at $row,$col" }
+                    require(cells[index] == EMPTY || isDarkSquare(index, size)) { "Piece on a light square at $row,$col" }
                 }
             }
-            return CheckersBoard(cells, sideToMove, quietPlies)
+            return CheckersBoard(cells, size, sideToMove, quietPlies, drawPlies)
         }
     }
 }

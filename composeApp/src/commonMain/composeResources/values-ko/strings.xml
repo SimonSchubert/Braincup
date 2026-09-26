@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">플래시 크라우드</string>
     <string name="game_schulte_table">슐테 테이블</string>
     <string name="game_mini_chess">미니 체스</string>
+    <string name="game_mini_checkers">미니 체커</string>
     <string name="game_lights_out">라이트 아웃</string>
     <string name="game_sliding_puzzle">슬라이드 퍼즐</string>
     <string name="game_tower_of_hanoi">하노이 탑</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">1부터 순서대로 숫자를 최대한 빠르게 탭하세요.</string>
     <string name="game_schulte_instruction">숫자를 순서대로 탭: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">백을 잡고 체스 시나리오를 완료하세요. CPU가 당신을 메이트하기 전에 메이트하세요.</string>
+    <string name="game_mini_checkers_desc">모든 판에 흑을 잡은 당신을 위한 수순이 숨어 있습니다. CPU가 매번 한 가지 응수밖에 못 하는 수입니다. 찾아서 이기세요.</string>
     <string name="game_lights_out_desc">모든 빛을 끄세요. 탭할 때마다 해당 셀과 인접한 네 셀이 토글됩니다.</string>
     <string name="game_sliding_puzzle_desc">타일을 빈 공간으로 밀어 순서대로 정렬하세요.</string>
     <string name="game_tower_of_hanoi_desc">모든 원반을 오른쪽 기둥으로 옮기세요. 한 번에 하나만, 큰 원반을 작은 원반 위에 올리면 안 됩니다.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">스도쿠 현자</string>
     <string name="achievement_gold_mini_chess">종반의 거장</string>
+    <string name="achievement_gold_mini_checkers">수순의 달인</string>
     <string name="achievement_gold_lights_out">완전한 암흑</string>
     <string name="achievement_gold_sliding_puzzle">유려한 슬라이더</string>
     <string name="achievement_gold_tower_of_hanoi">탑의 달인</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">미니 스도쿠에서 금메달 획득</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess에서 금메달 획득</string>
+    <string name="achievement_gold_mini_checkers_desc">미니 체커에서 금메달 획득</string>
     <string name="achievement_gold_lights_out_desc">Lights Out에서 금메달 획득</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle에서 금메달 획득</string>
     <string name="achievement_gold_tower_of_hanoi_desc">하노이 탑에서 금메달 획득</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">종료</string>
     <string name="checkers_new_game">새 게임</string>
     <string name="mini_chess_moves_title">기물이 움직이는 방법</string>
+    <string name="mini_checkers_draw">무승부: 양쪽 모두 15수 동안 잡지 못했습니다.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d수 만에 필승</item>
+        <item quantity="other">%1$d수 만에 필승</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">잡지 않으면 %1$d수 뒤 무승부</item>
+        <item quantity="other">잡지 않으면 %1$d수 뒤 무승부</item>
+    </plurals>
     <string name="chess_piece_king">킹</string>
     <string name="chess_piece_queen">퀸</string>
     <string name="chess_piece_rook">룩</string>

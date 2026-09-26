@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">ਲਿਸ਼ਕਦੀ ਭੀੜ</string>
     <string name="game_schulte_table">ਸ਼ੁਲਟੇ ਸਾਰਣੀ</string>
     <string name="game_mini_chess">ਨਿੱਕੀ ਸ਼ਤਰੰਜ</string>
+    <string name="game_mini_checkers">ਨਿੱਕੀ ਚੈਕਰਜ਼</string>
     <string name="game_lights_out">ਬੱਤੀਆਂ ਬੁਝਾਓ</string>
     <string name="game_sliding_puzzle">ਸਰਕਦੀ ਬੁਝਾਰਤ</string>
     <string name="game_tower_of_hanoi">ਹਨੋਈ ਦਾ ਮੀਨਾਰ</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 ਤੋਂ ਉੱਪਰ ਵੱਲ ਨੰਬਰਾਂ ਉੱਤੇ ਜਿੰਨੀ ਤੇਜ਼ੀ ਨਾਲ ਹੋ ਸਕੇ ਤਰਤੀਬ ਵਿੱਚ ਟੈਪ ਕਰੋ।</string>
     <string name="game_schulte_instruction">ਨੰਬਰਾਂ ਉੱਤੇ ਤਰਤੀਬ ਵਿੱਚ ਟੈਪ ਕਰੋ: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">ਚਿੱਟੇ ਵਜੋਂ ਸ਼ਤਰੰਜ ਦਾ ਦ੍ਰਿਸ਼ ਪੂਰਾ ਕਰੋ। CPU ਤੁਹਾਨੂੰ ਹਰਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਉਸ ਨੂੰ ਸ਼ਹਿਮਾਤ ਦਿਓ।</string>
+    <string name="game_mini_checkers_desc">ਹਰ ਬੋਰਡ ਵਿੱਚ ਕਾਲੀਆਂ ਗੋਟੀਆਂ ਨਾਲ ਤੇਰੇ ਲਈ ਇੱਕ ਜੁਗਤ ਲੁਕੀ ਹੈ: ਅਜਿਹੀਆਂ ਚਾਲਾਂ ਜਿਨ੍ਹਾਂ ਦਾ CPU ਕੋਲ ਹਰ ਵਾਰ ਇੱਕੋ ਜਵਾਬ ਹੋਵੇ। ਉਹ ਲੱਭ ਅਤੇ ਜਿੱਤ।</string>
     <string name="game_lights_out_desc">ਹਰ ਬੱਤੀ ਬੁਝਾਓ। ਹਰ ਟੈਪ ਉਸ ਖਾਨੇ ਅਤੇ ਉਸ ਦੇ ਚਾਰ ਗੁਆਂਢੀ ਖਾਨਿਆਂ ਨੂੰ ਬਦਲਦਾ ਹੈ।</string>
     <string name="game_sliding_puzzle_desc">ਖਾਨੇ ਖਾਲੀ ਥਾਂ ਵਿੱਚ ਸਰਕਾ ਕੇ ਤਰਤੀਬ ਵਿੱਚ ਲਿਆਓ।</string>
     <string name="game_tower_of_hanoi_desc">ਸਾਰਾ ਢੇਰ ਸੱਜੀ ਕਿੱਲੀ ਉੱਤੇ ਲਿਜਾਓ। ਇੱਕ ਵਾਰ ਵਿੱਚ ਇੱਕ ਹੀ ਚੱਕਰੀ, ਅਤੇ ਛੋਟੀ ਉੱਤੇ ਵੱਡੀ ਕਦੇ ਨਹੀਂ।</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">ਚਾਲ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ਗਤੀਰੋਧ (ਬਰਾਬਰੀ, ਜਿੱਤ ਨਹੀਂ)</string>
     <string name="mini_chess_moves_title">ਮੋਹਰੇ ਕਿਵੇਂ ਚੱਲਦੇ ਹਨ</string>
+    <string name="mini_checkers_draw">ਬਰਾਬਰੀ: ਦੋਵਾਂ ਦੀਆਂ 15-15 ਚਾਲਾਂ ਬਿਨਾਂ ਕੋਈ ਗੋਟੀ ਮਾਰੇ।</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਪੱਕੀ ਜਿੱਤ</item>
+        <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਪੱਕੀ ਜਿੱਤ</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
+        <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
+    </plurals>
     <string name="chess_piece_king">ਰਾਜਾ</string>
     <string name="chess_piece_queen">ਵਜ਼ੀਰ</string>
     <string name="chess_piece_rook">ਹਾਥੀ</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">ਸੁਡੋਕੂ ਰਿਸ਼ੀ</string>
     <string name="achievement_gold_mini_chess">ਆਖਰੀ ਦਾਅ ਦਾ ਉਸਤਾਦ</string>
+    <string name="achievement_gold_mini_checkers">ਜੁਗਤਾਂ ਦਾ ਉਸਤਾਦ</string>
     <string name="achievement_gold_lights_out">ਪੂਰਾ ਹਨੇਰਾ</string>
     <string name="achievement_gold_sliding_puzzle">ਸਫ਼ਾਈਦਾਰ ਹੱਥ</string>
     <string name="achievement_gold_tower_of_hanoi">ਮੀਨਾਰ ਨਿਪੁੰਨ</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">ਨਿੱਕੇ ਸੁਡੋਕੂ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_mini_chess_desc">ਨਿੱਕੀ ਸ਼ਤਰੰਜ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_mini_checkers_desc">ਨਿੱਕੀ ਚੈਕਰਜ਼ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤ</string>
     <string name="achievement_gold_lights_out_desc">ਬੱਤੀਆਂ ਬੁਝਾਓ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_sliding_puzzle_desc">ਸਰਕਦੀ ਬੁਝਾਰਤ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ਹਨੋਈ ਦੇ ਮੀਨਾਰ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>

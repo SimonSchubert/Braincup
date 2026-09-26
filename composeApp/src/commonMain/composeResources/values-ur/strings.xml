@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">فلیش بھیڑ</string>
     <string name="game_schulte_table">شولٹے جدول</string>
     <string name="game_mini_chess">چھوٹی شطرنج</string>
+    <string name="game_mini_checkers">چھوٹی چیکرز</string>
     <string name="game_lights_out">بتیاں بجھاؤ</string>
     <string name="game_sliding_puzzle">سلائیڈ پہیلی</string>
     <string name="game_tower_of_hanoi">ہنوئی کا مینار</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">اعداد 1 سے اوپر کی ترتیب میں جتنی جلدی ہو سکے دبائیں۔</string>
     <string name="game_schulte_instruction">اعداد ترتیب سے دبائیں: 1، 2، 3...</string>
     <string name="game_mini_chess_desc">سفید بن کر شطرنج کا منظر مکمل کریں۔ کمپیوٹر سے پہلے شہ مات دیں۔</string>
+    <string name="game_mini_checkers_desc">ہر بورڈ میں کالے مہروں کے ساتھ تمہارے لیے ایک ترکیب چھپی ہے: ایسی چالیں جن کا کمپیوٹر کے پاس ہر بار صرف ایک جواب ہو۔ اسے ڈھونڈو اور جیتو۔</string>
     <string name="game_lights_out_desc">ہر بتی بجھا دیں۔ ہر دبانے سے خانہ اور اس کے چار پڑوسی پلٹتے ہیں۔</string>
     <string name="game_sliding_puzzle_desc">خانوں کو خالی جگہ میں سرکا کر ترتیب میں لائیں۔</string>
     <string name="game_tower_of_hanoi_desc">پوری ڈھیری دائیں کھونٹی پر منتقل کریں۔ ایک وقت میں ایک ہی قرص، اور بڑی قرص چھوٹی پر نہیں۔</string>
@@ -428,6 +430,15 @@
     <string name="mini_chess_move_counter">چال %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= مردہ پانسہ (برابر، فتح نہیں)</string>
     <string name="mini_chess_moves_title">مہریں کیسے چلتی ہیں</string>
+    <string name="mini_checkers_draw">برابر: دونوں طرف 15 چالوں سے کوئی مہرہ نہیں مارا گیا۔</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d چال میں یقینی جیت</item>
+        <item quantity="other">%1$d چالوں میں یقینی جیت</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d چال میں مہرہ نہ مرا تو برابری</item>
+        <item quantity="other">%1$d چالوں میں مہرہ نہ مرا تو برابری</item>
+    </plurals>
     <string name="chess_piece_king">بادشاہ</string>
     <string name="chess_piece_queen">وزیر</string>
     <string name="chess_piece_rook">رخ</string>
@@ -532,6 +543,7 @@
 
     <string name="achievement_gold_mini_sudoku">سوڈوکو دانا</string>
     <string name="achievement_gold_mini_chess">اختتام کا ہنر مند</string>
+    <string name="achievement_gold_mini_checkers">ترکیبوں کا استاد</string>
     <string name="achievement_gold_lights_out">مکمل اندھیرا</string>
     <string name="achievement_gold_sliding_puzzle">ہموار ہاتھ</string>
     <string name="achievement_gold_tower_of_hanoi">مینار ماسٹر</string>
@@ -571,6 +583,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">چھوٹا سوڈوکو میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_mini_chess_desc">چھوٹی شطرنج میں طلائی تمغہ جیتیں</string>
+    <string name="achievement_gold_mini_checkers_desc">چھوٹی چیکرز میں طلائی تمغہ جیتو</string>
     <string name="achievement_gold_lights_out_desc">بتیاں بجھاؤ میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_sliding_puzzle_desc">سلائیڈ پہیلی میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ہنوئی کا مینار میں طلائی تمغہ جیتیں</string>

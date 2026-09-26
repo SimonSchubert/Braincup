@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
     <string name="game_schulte_table">ตารางชูลเทอ</string>
     <string name="game_mini_chess">หมากรุกย่อ</string>
+    <string name="game_mini_checkers">หมากฮอสย่อ</string>
     <string name="game_lights_out">ปิดไฟ</string>
     <string name="game_sliding_puzzle">ปริศนาเลื่อน</string>
     <string name="game_tower_of_hanoi">หอคอยฮานอย</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
     <string name="game_schulte_instruction">แตะตัวเลขตามลำดับ: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">จบสถานการณ์หมากรุกในฐานะฝ่ายขาว รุกฆาตซีพียูก่อนที่มันจะรุกฆาตคุณ</string>
+    <string name="game_mini_checkers_desc">ทุกกระดานมีแผนซ่อนไว้ให้คุณที่เล่นฝ่ายดำ: ตาเดินที่ทำให้ CPU เหลือทางตอบได้ทางเดียวทุกครั้ง หาให้เจอแล้วชนะ</string>
     <string name="game_lights_out_desc">ปิดไฟทุกดวง การแตะแต่ละครั้งจะสลับช่องและช่องเพื่อนบ้านทั้งสี่</string>
     <string name="game_sliding_puzzle_desc">เลื่อนแผ่นเข้าไปในช่องว่างเพื่อเรียงให้เป็นลำดับ</string>
     <string name="game_tower_of_hanoi_desc">ย้ายกองจานทั้งหมดไปยังหลักขวา ครั้งละหนึ่งจานเท่านั้น และห้ามวางจานใหญ่บนจานเล็ก</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">ปราชญ์ซูโดกุ</string>
     <string name="achievement_gold_mini_chess">นักหมากรุกตอนจบ</string>
+    <string name="achievement_gold_mini_checkers">เซียนแผนกล</string>
     <string name="achievement_gold_lights_out">ดับสนิท</string>
     <string name="achievement_gold_sliding_puzzle">นักเลื่อนชั้นเซียน</string>
     <string name="achievement_gold_tower_of_hanoi">ปรมาจารย์หอคอย</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">ชนะเหรียญทองในมินิซูโดกุ</string>
     <string name="achievement_gold_mini_chess_desc">ชนะเหรียญทองในMini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">ชนะเหรียญทองในหมากฮอสย่อ</string>
     <string name="achievement_gold_lights_out_desc">ชนะเหรียญทองในLights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">ชนะเหรียญทองในSliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">คว้าเหรียญทองในหอคอยฮานอย</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">ออก</string>
     <string name="checkers_new_game">เกมใหม่</string>
     <string name="mini_chess_moves_title">วิธีที่หมากเคลื่อนที่</string>
+    <string name="mini_checkers_draw">เสมอ: ไม่มีการกินมาฝ่ายละ 15 ตา</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">ชนะแน่ใน %1$d ตา</item>
+        <item quantity="other">ชนะแน่ใน %1$d ตา</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">เสมอใน %1$d ตาถ้าไม่มีการกิน</item>
+        <item quantity="other">เสมอใน %1$d ตาถ้าไม่มีการกิน</item>
+    </plurals>
     <string name="chess_piece_king">คิง</string>
     <string name="chess_piece_queen">ควีน</string>
     <string name="chess_piece_rook">เรือ</string>

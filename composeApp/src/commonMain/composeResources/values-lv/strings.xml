@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">Mirgojošais pūlis</string>
     <string name="game_schulte_table">Šultes tabula</string>
     <string name="game_mini_chess">Mini šahs</string>
+    <string name="game_mini_checkers">Mini dambrete</string>
     <string name="game_lights_out">Izdzēs gaismas</string>
     <string name="game_sliding_puzzle">Bīdāmā puzle</string>
     <string name="game_tower_of_hanoi">Hanojas tornis</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">Pieskaries skaitļiem pēc kārtas no 1 uz augšu tik ātri, cik vari.</string>
     <string name="game_schulte_instruction">Pieskaries skaitļiem pēc kārtas: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Pabeidz šaha situāciju kā baltie. Dod CPU matu, pirms tas to dod tev.</string>
+    <string name="game_mini_checkers_desc">Katrā laukumā tev kā melnajiem ir paslēpta kombinācija: gājieni, uz kuriem CPU katru reizi ir tikai viena atbilde. Atrodi to un uzvari.</string>
     <string name="game_lights_out_desc">Izdzēs katru gaismu. Katrs pieskāriens pārslēdz šūnu un tās četrus kaimiņus.</string>
     <string name="game_sliding_puzzle_desc">Bīdi flīzes tukšajā vietā, līdz tās ir kārtībā.</string>
     <string name="game_tower_of_hanoi_desc">Pārvieto visu stabiņu uz labo tapiņu. Tikai viens disks vienlaikus un nekad lielāku uz mazāka.</string>
@@ -434,6 +436,17 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="mini_chess_move_counter">Gājiens %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pats (neizšķirts, ne uzvara)</string>
     <string name="mini_chess_moves_title">Kā figūras pārvietojas</string>
+    <string name="mini_checkers_draw">Neizšķirts: katram 15 gājieni bez sišanas.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="zero">Piespiedu uzvara %1$d gājienos</item>
+        <item quantity="one">Piespiedu uzvara %1$d gājienā</item>
+        <item quantity="other">Piespiedu uzvara %1$d gājienos</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="zero">Neizšķirts pēc %1$d gājieniem bez sišanas</item>
+        <item quantity="one">Neizšķirts pēc %1$d gājiena bez sišanas</item>
+        <item quantity="other">Neizšķirts pēc %1$d gājieniem bez sišanas</item>
+    </plurals>
     <string name="chess_piece_king">Karalis</string>
     <string name="chess_piece_queen">Dāma</string>
     <string name="chess_piece_rook">Tornis</string>
@@ -538,6 +551,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku gudrais</string>
     <string name="achievement_gold_mini_chess">Beigu spēles virtuozs</string>
+    <string name="achievement_gold_mini_checkers">Kombināciju meistars</string>
     <string name="achievement_gold_lights_out">Pilnīga aptumšošanās</string>
     <string name="achievement_gold_sliding_puzzle">Gludais operators</string>
     <string name="achievement_gold_tower_of_hanoi">Torņa meistars</string>
@@ -577,6 +591,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Iegūsti zelta medaļu Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Iegūsti zelta medaļu Mini šahā</string>
+    <string name="achievement_gold_mini_checkers_desc">Iegūsti zelta medaļu Mini dambretē</string>
     <string name="achievement_gold_lights_out_desc">Iegūsti zelta medaļu spēlē Izdzēs gaismas</string>
     <string name="achievement_gold_sliding_puzzle_desc">Iegūsti zelta medaļu Bīdamajā puzlē</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Iegūsti zelta medaļu Hanojas tornī</string>

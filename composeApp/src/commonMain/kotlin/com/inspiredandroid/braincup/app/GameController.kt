@@ -8,6 +8,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.BoardCommand.intAndIntsArg
 import com.inspiredandroid.braincup.app.BoardCommand.intArg
 import com.inspiredandroid.braincup.app.BoardCommand.intsArg
+import com.inspiredandroid.braincup.checkers.CheckersAi
 import com.inspiredandroid.braincup.checkers.CheckersDifficulty
 import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.games.*
@@ -110,7 +111,7 @@ class GameController(
     private var stopwatchRunning = false
     private var inSessionMode = false
     val isInSessionMode: Boolean get() = inSessionMode
-    private var miniChessAiJob: Job? = null
+    private var cpuMoveJob: Job? = null
     private var timerJob: Job? = null
     private var stopwatchJob: Job? = null
 
@@ -438,6 +439,7 @@ class GameController(
             GameType.ORBIT_TRACKER -> startOrbitTrackerGame(gameType)
             GameType.SCHULTE_TABLE -> startSchulteTableGame(gameType)
             GameType.MINI_CHESS -> startMiniChessGame(gameType)
+            GameType.MINI_CHECKERS -> startMiniCheckersGame(gameType)
             GameType.FLAGS -> startFlagsGame(gameType)
             GameType.DIGIT_MEMORY,
             GameType.QUICK_SUM,
@@ -517,6 +519,7 @@ class GameController(
             is ValueComparisonGame -> handleValueComparisonAnswer(currentState, game, answer.trim())
             is MissingOperatorsGame -> handleMissingOperatorsAnswer(currentState, game, answer.trim())
             is MiniChessGame -> handleMiniChessAnswer(currentState, game, answer.trim())
+            is MiniCheckersGame -> handleMiniCheckersAnswer(currentState, game, answer.trim())
             is FlagsGame -> handleFlagsAnswer(currentState, game, answer.trim())
             is DigitMemoryGame -> handleDigitMemoryAnswer(currentState, game, answer.trim())
             is QuickSumGame -> handleQuickSumAnswer(currentState, game, answer.trim())
@@ -670,6 +673,10 @@ class GameController(
         when (game) {
             // Games that end the whole attempt on a give-up.
             is MiniChessGame -> {
+                game.markGiveUp()
+                finishCurrentGame(gameType, game)
+            }
+            is MiniCheckersGame -> {
                 game.markGiveUp()
                 finishCurrentGame(gameType, game)
             }
@@ -934,6 +941,7 @@ class GameController(
         GameType.FLASH_CROWD -> FlashCrowdGame()
         GameType.MENTAL_ROTATIONS -> MentalRotationsGame()
         GameType.MINI_CHESS -> MiniChessGame()
+        GameType.MINI_CHECKERS -> MiniCheckersGame()
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
         GameType.QUICK_SUM -> QuickSumGame()
@@ -2176,7 +2184,7 @@ class GameController(
         input: String,
     ) {
         if (input == BoardCommand.RESTART || input == BoardCommand.RESET) {
-            cancelMiniChessAi()
+            cancelCpuMove()
             // Any score from the just-finished round was already recorded in
             // handleMiniChessRoundOver, so reset the per-attempt counters before either
             // restoring the initial position or rolling a fresh scenario.
@@ -2203,8 +2211,8 @@ class GameController(
         currentState: GameState.Active,
         game: MiniChessGame,
     ) {
-        miniChessAiJob?.cancel()
-        miniChessAiJob = scope.launch {
+        cpuMoveJob?.cancel()
+        cpuMoveJob = scope.launch {
             val started = Clock.System.now().toEpochMilliseconds()
             val ai = ChessAi(game.aiDepth())
             val move = withContext(Dispatchers.Default) { ai.bestMove(game.board) }
@@ -2227,8 +2235,8 @@ class GameController(
         game: MiniChessGame,
     ) {
         when (game.outcome) {
-            MiniChessOutcome.PLAYER_WIN -> points = game.winPoints()
-            MiniChessOutcome.PLAYER_LOSS, MiniChessOutcome.DRAW -> points = 0
+            CpuRoundOutcome.PLAYER_WIN -> points = game.winPoints()
+            CpuRoundOutcome.PLAYER_LOSS, CpuRoundOutcome.DRAW -> points = 0
             null -> return
         }
         // Chess has no per-round bonus; suppress the "extra point for making no mistakes"
@@ -2243,19 +2251,87 @@ class GameController(
         refreshDerivedStorageState()
     }
 
+    private fun startMiniCheckersGame(gameType: GameType) {
+        val game = MiniCheckersGame(difficulty = storage.getMiniCheckersDifficulty())
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        emitUiState(game)
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleMiniCheckersAnswer(
+        currentState: GameState.Active,
+        game: MiniCheckersGame,
+        input: String,
+    ) {
+        if (input == BoardCommand.RESTART || input == BoardCommand.RESET) {
+            cancelCpuMove()
+            points = 0
+            game.answeredAllCorrect = true
+            if (input == BoardCommand.RESET) game.resetScenario() else game.restartScenario()
+            emitUiState(game)
+            return
+        }
+        if (game.phase != MiniCheckersGame.Phase.PLAYER_TURN) return
+        val move = game.parseMove(input) ?: return
+        game.applyPlayerMove(move)
+        emitUiState(game)
+        if (game.phase == MiniCheckersGame.Phase.ROUND_OVER) {
+            handleMiniCheckersRoundOver(currentState, game)
+        } else {
+            scheduleMiniCheckersAi(currentState, game)
+        }
+    }
+
+    private fun scheduleMiniCheckersAi(
+        currentState: GameState.Active,
+        game: MiniCheckersGame,
+    ) {
+        cpuMoveJob?.cancel()
+        cpuMoveJob = scope.launch {
+            val started = Clock.System.now().toEpochMilliseconds()
+            val ai = CheckersAi(game.difficulty.cpu)
+            val move = withContext(Dispatchers.Default) { ai.bestMove(game.board) } ?: return@launch
+            val elapsed = Clock.System.now().toEpochMilliseconds() - started
+            val minThinkMs = 800L
+            if (elapsed < minThinkMs) delay((minThinkMs - elapsed).milliseconds)
+            game.applyAiMove(move)
+            emitUiState(game)
+            if (game.phase == MiniCheckersGame.Phase.ROUND_OVER) {
+                handleMiniCheckersRoundOver(currentState, game)
+            }
+        }
+    }
+
+    private fun handleMiniCheckersRoundOver(
+        currentState: GameState.Active,
+        game: MiniCheckersGame,
+    ) {
+        points = when (game.outcome) {
+            CpuRoundOutcome.PLAYER_WIN -> game.winPoints()
+            CpuRoundOutcome.PLAYER_LOSS, CpuRoundOutcome.DRAW -> 0
+            null -> return
+        }
+        game.answeredAllCorrect = false
+        // Recorded here rather than on a finish screen: Play Again resets the board in place.
+        storage.putScore(currentState.gameType.id, points)
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+    }
+
     /**
      * Stops any coroutine a game left running (reveal timers, animation frames, AI search).
      * Every exit path out of a live game goes through here so no single path can forget one.
      */
     private fun cancelPendingJobs(game: Game) {
         (game as? TimedPhaseGame)?.cancelTimedPhase()
-        // The chess search is owned by the controller, not the game.
-        if (game is MiniChessGame) cancelMiniChessAi()
+        // The CPU search is owned by the controller, not the game.
+        if (game is MiniChessGame || game is MiniCheckersGame) cancelCpuMove()
     }
 
-    private fun cancelMiniChessAi() {
-        miniChessAiJob?.cancel()
-        miniChessAiJob = null
+    private fun cancelCpuMove() {
+        cpuMoveJob?.cancel()
+        cpuMoveJob = null
     }
 
     private fun startFlagsGame(gameType: GameType) {

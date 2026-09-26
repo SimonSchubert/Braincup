@@ -809,6 +809,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
         GameType.MINI_CHESS -> MiniChessPreview()
+        GameType.MINI_CHECKERS -> MiniCheckersPreview()
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
         GameType.TOWER_OF_HANOI -> TowerOfHanoiPreview()
@@ -1477,6 +1478,29 @@ private fun ReversiPreview() {
 
 @Composable
 private fun CheckersPreview() {
+    CheckersPreviewBoard(size = 8) { row, _ ->
+        when {
+            row <= 2 -> CheckersPiece(CheckersSide.WHITE, isKing = false)
+            row >= 5 -> CheckersPiece(CheckersSide.BLACK, isKing = false)
+            else -> null
+        }
+    }
+}
+
+private val MiniCheckersPreviewPieces: Map<Pair<Int, Int>, CheckersPiece> = mapOf(
+    (0 to 3) to CheckersPiece(CheckersSide.WHITE, isKing = false),
+    (2 to 1) to CheckersPiece(CheckersSide.WHITE, isKing = false),
+    (1 to 2) to CheckersPiece(CheckersSide.BLACK, isKing = true),
+    (3 to 0) to CheckersPiece(CheckersSide.BLACK, isKing = false),
+)
+
+@Composable
+private fun MiniCheckersPreview() {
+    CheckersPreviewBoard(size = 4) { row, col -> MiniCheckersPreviewPieces[row to col] }
+}
+
+@Composable
+private fun CheckersPreviewBoard(size: Int, pieceOnDarkSquare: (row: Int, col: Int) -> CheckersPiece?) {
     PrismCard(
         face = CheckersBoardFrame,
         facet = PrismFacet.Preview,
@@ -1486,16 +1510,11 @@ private fun CheckersPreview() {
             .padding(24.dp),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
-            for (row in 0 until 8) {
+            for (row in 0 until size) {
                 Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
-                    for (col in 0 until 8) {
+                    for (col in 0 until size) {
                         val isDark = (row + col) % 2 == 1
-                        val piece = when {
-                            !isDark -> null
-                            row <= 2 -> CheckersPiece(CheckersSide.WHITE, isKing = false)
-                            row >= 5 -> CheckersPiece(CheckersSide.BLACK, isKing = false)
-                            else -> null
-                        }
+                        val piece = if (isDark) pieceOnDarkSquare(row, col) else null
                         Box(
                             modifier = Modifier
                                 .weight(1f)

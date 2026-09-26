@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Välgugrupp</string>
     <string name="game_schulte_table">Schulte tabel</string>
     <string name="game_mini_chess">Minimale</string>
+    <string name="game_mini_checkers">Minikabe</string>
     <string name="game_lights_out">Kustuta tuled</string>
     <string name="game_sliding_puzzle">Lükatav pusle</string>
     <string name="game_tower_of_hanoi">Hanoi torn</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Puuduta numbreid järjekorras ühest ülespoole nii kiiresti kui oskad.</string>
     <string name="game_schulte_instruction">Puuduta numbreid järjekorras: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Lõpeta maleseis valgena. Anna CPU-le matt enne, kui see sulle annab.</string>
+    <string name="game_mini_checkers_desc">Igal laual peitub sulle mustana kombinatsioon: käigud, millele CPU-l on iga kord ainult üks vastus. Leia see ja võida.</string>
     <string name="game_lights_out_desc">Kustuta iga tuli. Iga puudutus lülitab lahtri ja neli naabrit.</string>
     <string name="game_sliding_puzzle_desc">Lükka plaate tühja kohta, kuni need on järjekorras.</string>
     <string name="game_tower_of_hanoi_desc">Liiguta kogu virn paremale tapile. Ainult üks ketas korraga ja kunagi suuremat väiksema peale.</string>
@@ -430,6 +432,15 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="mini_chess_move_counter">Käik %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (viik, mitte võit)</string>
     <string name="mini_chess_moves_title">Kuidas nupud liiguvad</string>
+    <string name="mini_checkers_draw">Viik: kumbki 15 käiku ilma löömata.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Sunnitud võit %1$d käiguga</item>
+        <item quantity="other">Sunnitud võit %1$d käiguga</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Viik %1$d käigu pärast ilma löömata</item>
+        <item quantity="other">Viik %1$d käigu pärast ilma löömata</item>
+    </plurals>
     <string name="chess_piece_king">Kuningas</string>
     <string name="chess_piece_queen">Lipp</string>
     <string name="chess_piece_rook">Vanker</string>
@@ -534,6 +545,7 @@ Liiguta Cow — sellest saab Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku tark</string>
     <string name="achievement_gold_mini_chess">Lõppmängu virtuoos</string>
+    <string name="achievement_gold_mini_checkers">Kombinatsioonimeister</string>
     <string name="achievement_gold_lights_out">Täielik pimendus</string>
     <string name="achievement_gold_sliding_puzzle">Sujuv operaator</string>
     <string name="achievement_gold_tower_of_hanoi">Tornimeister</string>
@@ -573,6 +585,7 @@ Liiguta Cow — sellest saab Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Võida kuldmedal Mini-Sudokus</string>
     <string name="achievement_gold_mini_chess_desc">Võida kuldmedal Minimaales</string>
+    <string name="achievement_gold_mini_checkers_desc">Võida kuldmedal Minikabes</string>
     <string name="achievement_gold_lights_out_desc">Võida kuldmedal mängus Kustuta tuled</string>
     <string name="achievement_gold_sliding_puzzle_desc">Võida kuldmedal Lükatavas pusles</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Võida kuldmedal Hanoi tornis</string>

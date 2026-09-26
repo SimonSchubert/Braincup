@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Đám Đông Chớp</string>
     <string name="game_schulte_table">Bảng Schulte</string>
     <string name="game_mini_chess">Cờ Vua Mini</string>
+    <string name="game_mini_checkers">Cờ Đam Mini</string>
     <string name="game_lights_out">Tắt Đèn</string>
     <string name="game_sliding_puzzle">Câu Đố Trượt</string>
     <string name="game_tower_of_hanoi">Tháp Hà Nội</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.</string>
     <string name="game_schulte_instruction">Chạm các số theo thứ tự: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.</string>
+    <string name="game_mini_checkers_desc">Mỗi bàn cờ đều giấu một đòn phối hợp cho bạn cầm quân đen: những nước đi khiến máy tính mỗi lần chỉ còn một cách đáp. Hãy tìm ra và giành chiến thắng.</string>
     <string name="game_lights_out_desc">Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.</string>
     <string name="game_sliding_puzzle_desc">Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.</string>
     <string name="game_tower_of_hanoi_desc">Chuyển cả chồng đĩa sang cọc bên phải. Mỗi lần chỉ một đĩa, và không được đặt đĩa lớn lên đĩa nhỏ.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Hiền nhân Sudoku</string>
     <string name="achievement_gold_mini_chess">Bậc thầy cờ tàn</string>
+    <string name="achievement_gold_mini_checkers">Bậc thầy phối hợp</string>
     <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
     <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
     <string name="achievement_gold_tower_of_hanoi">Bậc thầy tháp</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Giành huy chương vàng trong Sudoku Mini</string>
     <string name="achievement_gold_mini_chess_desc">Giành huy chương vàng trong Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Giành huy chương vàng trong Cờ Đam Mini</string>
     <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Giành huy chương vàng trong Tháp Hà Nội</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">Thoát</string>
     <string name="checkers_new_game">Ván mới</string>
     <string name="mini_chess_moves_title">Cách các quân cờ di chuyển</string>
+    <string name="mini_checkers_draw">Hòa: mỗi bên 15 nước không ăn quân.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Thắng chắc trong %1$d nước</item>
+        <item quantity="other">Thắng chắc trong %1$d nước</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Hòa sau %1$d nước nếu không ăn quân</item>
+        <item quantity="other">Hòa sau %1$d nước nếu không ăn quân</item>
+    </plurals>
     <string name="chess_piece_king">Vua</string>
     <string name="chess_piece_queen">Hậu</string>
     <string name="chess_piece_rook">Xe</string>

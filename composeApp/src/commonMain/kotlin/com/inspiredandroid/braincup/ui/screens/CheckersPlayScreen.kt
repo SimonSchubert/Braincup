@@ -1,21 +1,14 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.checkers_black_wins
@@ -39,32 +32,23 @@ import braincup.composeapp.generated.resources.checkers_turn_you
 import braincup.composeapp.generated.resources.checkers_white_wins
 import braincup.composeapp.generated.resources.checkers_won
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.checkers.CHECKERS_SIZE
 import com.inspiredandroid.braincup.checkers.CheckersAi
 import com.inspiredandroid.braincup.checkers.CheckersBoard
 import com.inspiredandroid.braincup.checkers.CheckersDifficulty
 import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.checkers.CheckersMove
-import com.inspiredandroid.braincup.checkers.CheckersPiece
 import com.inspiredandroid.braincup.checkers.CheckersResult
 import com.inspiredandroid.braincup.checkers.CheckersSide
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.CheckersDisc
+import com.inspiredandroid.braincup.ui.components.CheckersBoardGrid
+import com.inspiredandroid.braincup.ui.components.CheckersTap
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.LocalScaffoldBodyHeight
-import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
-import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.resolveCheckersTap
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
-import com.inspiredandroid.braincup.ui.theme.CheckersBoardFrame
-import com.inspiredandroid.braincup.ui.theme.CheckersDarkSquare
-import com.inspiredandroid.braincup.ui.theme.CheckersLastMove
-import com.inspiredandroid.braincup.ui.theme.CheckersLegalDot
-import com.inspiredandroid.braincup.ui.theme.CheckersLightSquare
 import com.inspiredandroid.braincup.ui.theme.CheckersMustCaptureRing
-import com.inspiredandroid.braincup.ui.theme.CheckersSelected
-import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
@@ -148,15 +132,7 @@ fun CheckersPlayScreen(
         result == CheckersResult.ONGOING &&
         (mode == CheckersMode.VS_HUMAN || board.sideToMove == HUMAN)
     val legalMoves = if (humanCanInteract) board.legalMoves() else emptyList()
-    val movesAlongPath = legalMoves.filter { it.path.size > selectedPath.size && it.path.startsWith(selectedPath) }
-    val targets: Set<Int> = if (selectedPath.isEmpty()) emptySet() else movesAlongPath.map { it.path[selectedPath.size] }.toSet()
     val mustCapture = legalMoves.firstOrNull()?.isCapture == true
-    val capturingPieces: Set<Int> = if (mustCapture && selectedPath.isEmpty()) legalMoves.map { it.from }.toSet() else emptySet()
-    val jumpedSoFar: Set<Int> = if (selectedPath.size > 1) {
-        movesAlongPath.firstOrNull()?.captured?.take(selectedPath.size - 1)?.toSet().orEmpty()
-    } else {
-        emptySet()
-    }
 
     fun onSquareTapped(index: Int) {
         // Re-checked against the live board rather than the captured flags: a tap can land while
@@ -164,18 +140,10 @@ fun CheckersPlayScreen(
         if (aiThinking || resignedBy != null) return
         if (board.result() != CheckersResult.ONGOING) return
         if (mode == CheckersMode.VS_CPU && board.sideToMove != HUMAN) return
-        val moves = board.legalMoves()
-        if (selectedPath.isNotEmpty()) {
-            val next = selectedPath + index
-            val continuing = moves.filter { it.path.size >= next.size && it.path.startsWith(next) }
-            if (continuing.isNotEmpty()) {
-                // English rules never let one move be the start of another, so a full match is final.
-                val complete = continuing.firstOrNull { it.path.size == next.size }
-                if (complete != null) applyMove(complete) else selectedPath = next
-                return
-            }
+        when (val tap = resolveCheckersTap(board.legalMoves(), selectedPath, index)) {
+            is CheckersTap.Play -> applyMove(tap.move)
+            is CheckersTap.Select -> selectedPath = tap.path
         }
-        selectedPath = if (moves.any { it.from == index }) listOf(index) else emptyList()
     }
 
     AppScaffold(
@@ -201,10 +169,8 @@ fun CheckersPlayScreen(
 
         BoardView(
             board = board,
+            legalMoves = legalMoves,
             selectedPath = selectedPath,
-            targets = targets,
-            capturingPieces = capturingPieces,
-            jumpedSoFar = jumpedSoFar,
             lastMove = lastMove,
             interactive = humanCanInteract,
             onSquareTapped = ::onSquareTapped,
@@ -251,8 +217,6 @@ fun CheckersPlayScreen(
         Spacer(Modifier.height(16.dp))
     }
 }
-
-private fun List<Int>.startsWith(prefix: List<Int>): Boolean = size >= prefix.size && subList(0, prefix.size) == prefix
 
 @Composable
 private fun StatusHeader(
@@ -329,20 +293,13 @@ private fun StatusHeader(
 @Composable
 private fun BoardView(
     board: CheckersBoard,
+    legalMoves: List<CheckersMove>,
     selectedPath: List<Int>,
-    targets: Set<Int>,
-    capturingPieces: Set<Int>,
-    jumpedSoFar: Set<Int>,
     lastMove: CheckersMove?,
     interactive: Boolean,
     onSquareTapped: (Int) -> Unit,
 ) {
     val scaffoldBodyHeight = LocalScaffoldBodyHeight.current
-    val lastMoveSquares = lastMove?.path?.toSet().orEmpty()
-    // Mid-jump, the piece is drawn where it has got to rather than where it started.
-    val origin = selectedPath.firstOrNull()
-    val hop = selectedPath.lastOrNull()
-    val movingPiece = origin?.let { board.pieceAt(it) }
     BoxWithConstraints(
         modifier = Modifier
             .fillMaxWidth()
@@ -351,92 +308,16 @@ private fun BoardView(
         // Header, spacers and the action buttons take roughly this much.
         val verticalChrome = 140.dp
         val heightBudget = ((scaffoldBodyHeight ?: maxHeight) - verticalChrome).coerceAtLeast(160.dp)
-        val boardSide = minOf(maxWidth, heightBudget, 480.dp)
-        val cellSize = boardSide / CHECKERS_SIZE
-
-        PrismCard(
-            face = CheckersBoardFrame,
-            facet = PrismFacet.Board,
+        CheckersBoardGrid(
+            board = board,
+            legalMoves = legalMoves,
+            selectedPath = selectedPath,
+            lastMove = lastMove,
+            interactive = interactive,
+            boardSide = minOf(maxWidth, heightBudget, 480.dp),
+            onSquareTapped = onSquareTapped,
             modifier = Modifier.align(Alignment.Center),
-        ) {
-            Column {
-                for (row in 0 until CHECKERS_SIZE) {
-                    Row {
-                        for (col in 0 until CHECKERS_SIZE) {
-                            val index = row * CHECKERS_SIZE + col
-                            val piece = when (index) {
-                                hop -> movingPiece
-                                origin -> null
-                                else -> board.pieceAt(index)
-                            }
-                            BoardSquare(
-                                size = cellSize,
-                                isDark = CheckersBoard.isDarkSquare(index),
-                                piece = piece,
-                                isSelected = index == hop,
-                                isTarget = index in targets,
-                                mustCapture = index in capturingPieces,
-                                isJumped = index in jumpedSoFar,
-                                isLastMove = index in lastMoveSquares,
-                                enabled = interactive,
-                                onClick = { onSquareTapped(index) },
-                            )
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-@Composable
-private fun BoardSquare(
-    size: Dp,
-    isDark: Boolean,
-    piece: CheckersPiece?,
-    isSelected: Boolean,
-    isTarget: Boolean,
-    mustCapture: Boolean,
-    isJumped: Boolean,
-    isLastMove: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    val clickable = enabled && isDark
-    Box(
-        modifier = Modifier
-            .size(size)
-            .background(if (isDark) CheckersDarkSquare else CheckersLightSquare)
-            .clickable(enabled = clickable, onClick = onClick)
-            .hoverHand(clickable),
-        contentAlignment = Alignment.Center,
-    ) {
-        when {
-            isSelected -> Box(Modifier.matchParentSize().background(CheckersSelected))
-            isLastMove -> Box(Modifier.matchParentSize().background(CheckersLastMove))
-        }
-        if (piece != null) {
-            CheckersDisc(
-                piece = piece,
-                modifier = Modifier
-                    .size(size * 0.8f)
-                    .alpha(if (isJumped) 0.35f else 1f),
-            )
-            if (mustCapture) {
-                Box(
-                    Modifier
-                        .size(size * 0.92f)
-                        .border(2.dp, CheckersMustCaptureRing),
-                )
-            }
-        } else if (isTarget) {
-            Box(
-                Modifier
-                    .size(size * 0.28f)
-                    .clip(CircleShape)
-                    .background(CheckersLegalDot),
-            )
-        }
+        )
     }
 }
 

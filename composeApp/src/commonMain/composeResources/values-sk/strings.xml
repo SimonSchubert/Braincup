@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">Zábleskový dav</string>
     <string name="game_schulte_table">Schulteho tabuľka</string>
     <string name="game_mini_chess">Mini šach</string>
+    <string name="game_mini_checkers">Mini dáma</string>
     <string name="game_lights_out">Zhasni svetlá</string>
     <string name="game_sliding_puzzle">Posuvné puzzle</string>
     <string name="game_tower_of_hanoi">Hanojská veža</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">Ťukaj na čísla v poradí od 1 nahor čo najrýchlejšie.</string>
     <string name="game_schulte_instruction">Ťukaj na čísla v poradí: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Dokonči šachovú situáciu za bieleho. Daj CPU mata skôr, ako ho dostaneš ty.</string>
+    <string name="game_mini_checkers_desc">Na každej doske na teba ako čierneho čaká kombinácia: ťahy, na ktoré má CPU zakaždým jedinú odpoveď. Nájdi ju a vyhraj.</string>
     <string name="game_lights_out_desc">Zhasni každé svetlo. Každé ťuknutie prepne bunku a jej štyroch susedov.</string>
     <string name="game_sliding_puzzle_desc">Posúvaj dlaždice do prázdneho miesta, aby boli v poradí.</string>
     <string name="game_tower_of_hanoi_desc">Presuň celý stĺpec na pravý kolík. Len jeden kotúč naraz a nikdy väčší na menší.</string>
@@ -434,6 +436,17 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="mini_chess_move_counter">Ťah %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remíza, nie výhra)</string>
     <string name="mini_chess_moves_title">Ako sa figúry pohybujú</string>
+    <string name="mini_checkers_draw">Remíza: po 15 ťahov bez brania.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Vynútená výhra na %1$d ťah</item>
+        <item quantity="few">Vynútená výhra na %1$d ťahy</item>
+        <item quantity="other">Vynútená výhra na %1$d ťahov</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Remíza o %1$d ťah bez brania</item>
+        <item quantity="few">Remíza o %1$d ťahy bez brania</item>
+        <item quantity="other">Remíza o %1$d ťahov bez brania</item>
+    </plurals>
     <string name="chess_piece_king">Kráľ</string>
     <string name="chess_piece_queen">Dáma</string>
     <string name="chess_piece_rook">Veža</string>
@@ -538,6 +551,7 @@ Presuň Cow — stane sa z neho Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku mudrc</string>
     <string name="achievement_gold_mini_chess">Virtuóz koncovky</string>
+    <string name="achievement_gold_mini_checkers">Majster kombinácií</string>
     <string name="achievement_gold_lights_out">Úplné zatmenie</string>
     <string name="achievement_gold_sliding_puzzle">Hladký operátor</string>
     <string name="achievement_gold_tower_of_hanoi">Majster veže</string>
@@ -577,6 +591,7 @@ Presuň Cow — stane sa z neho Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Získaj zlatú medailu v Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Získaj zlatú medailu v Mini šachu</string>
+    <string name="achievement_gold_mini_checkers_desc">Získaj zlatú medailu v Mini dáme</string>
     <string name="achievement_gold_lights_out_desc">Získaj zlatú medailu v hre Zhasni svetlá</string>
     <string name="achievement_gold_sliding_puzzle_desc">Získaj zlatú medailu v Posuvnom puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Získaj zlatú medailu v Hanojskej veži</string>

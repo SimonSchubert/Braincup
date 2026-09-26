@@ -1,8 +1,8 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.CpuRoundOutcome
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.MiniChessCell
-import com.inspiredandroid.braincup.app.MiniChessOutcome
 import com.inspiredandroid.braincup.app.MiniChessUiState
 import com.inspiredandroid.braincup.chess.Move
 import com.inspiredandroid.braincup.chess.PieceColor
@@ -30,7 +30,7 @@ class MiniChessGame(
         private set
     var phase: Phase = Phase.PLAYER_TURN
         private set
-    var outcome: MiniChessOutcome? = null
+    var outcome: CpuRoundOutcome? = null
         private set
     var lastMoveFrom: Square? = null
         private set
@@ -93,15 +93,15 @@ class MiniChessGame(
         // After player's move, evaluate position from AI (black) perspective.
         if (board.legalMoves().isEmpty()) {
             outcome = if (board.isInCheck(PieceColor.BLACK)) {
-                MiniChessOutcome.PLAYER_WIN
+                CpuRoundOutcome.PLAYER_WIN
             } else {
-                MiniChessOutcome.DRAW
+                CpuRoundOutcome.DRAW
             }
             phase = Phase.ROUND_OVER
             return PlayerMoveResult.RoundOver
         }
         if (halfMoveCount >= MAX_HALF_MOVES) {
-            outcome = MiniChessOutcome.DRAW
+            outcome = CpuRoundOutcome.DRAW
             phase = Phase.ROUND_OVER
             return PlayerMoveResult.RoundOver
         }
@@ -120,15 +120,15 @@ class MiniChessGame(
         // After AI's move, evaluate position from player (white) perspective.
         if (board.legalMoves().isEmpty()) {
             outcome = if (board.isInCheck(PieceColor.WHITE)) {
-                MiniChessOutcome.PLAYER_LOSS
+                CpuRoundOutcome.PLAYER_LOSS
             } else {
-                MiniChessOutcome.DRAW
+                CpuRoundOutcome.DRAW
             }
             phase = Phase.ROUND_OVER
             return
         }
         if (halfMoveCount >= MAX_HALF_MOVES) {
-            outcome = MiniChessOutcome.DRAW
+            outcome = CpuRoundOutcome.DRAW
             phase = Phase.ROUND_OVER
             return
         }
@@ -136,7 +136,7 @@ class MiniChessGame(
     }
 
     fun markGiveUp() {
-        outcome = MiniChessOutcome.PLAYER_LOSS
+        outcome = CpuRoundOutcome.PLAYER_LOSS
         phase = Phase.ROUND_OVER
     }
 

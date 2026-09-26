@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">ಮಿಂಚಿನ ಗುಂಪು</string>
     <string name="game_schulte_table">ಶುಲ್ಟೆ ಕೋಷ್ಟಕ</string>
     <string name="game_mini_chess">ಪುಟ್ಟ ಚದುರಂಗ</string>
+    <string name="game_mini_checkers">ಪುಟ್ಟ ಚೆಕರ್ಸ್</string>
     <string name="game_lights_out">ದೀಪಗಳನ್ನು ಆರಿಸಿ</string>
     <string name="game_sliding_puzzle">ಜಾರುವ ಒಗಟು</string>
     <string name="game_tower_of_hanoi">ಹನೋಯಿ ಗೋಪುರ</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 ರಿಂದ ಮೇಲಕ್ಕೆ ಸಂಖ್ಯೆಗಳನ್ನು ಸಾಧ್ಯವಾದಷ್ಟು ವೇಗವಾಗಿ ಕ್ರಮವಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="game_schulte_instruction">ಸಂಖ್ಯೆಗಳನ್ನು ಕ್ರಮವಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">ಬಿಳಿಯಾಗಿ ಚದುರಂಗದ ಸನ್ನಿವೇಶವನ್ನು ಮುಗಿಸಿ. CPU ನಿಮ್ಮನ್ನು ಸೋಲಿಸುವ ಮೊದಲು ಅದಕ್ಕೆ ಚೆಕ್‌ಮೇಟ್ ಕೊಡಿ.</string>
+    <string name="game_mini_checkers_desc">ಪ್ರತಿ ಬೋರ್ಡ್‌ನಲ್ಲೂ ಕಪ್ಪು ಕಾಯಿಗಳೊಂದಿಗೆ ನಿನಗಾಗಿ ಒಂದು ತಂತ್ರ ಅಡಗಿದೆ: ಪ್ರತಿ ಬಾರಿ CPU ಗೆ ಒಂದೇ ಉತ್ತರ ಉಳಿಯುವ ನಡೆಗಳು. ಅದನ್ನು ಹುಡುಕಿ ಗೆಲ್ಲು.</string>
     <string name="game_lights_out_desc">ಪ್ರತಿ ದೀಪವನ್ನೂ ಆರಿಸಿ. ಪ್ರತಿ ಟ್ಯಾಪ್ ಆ ಮನೆಯನ್ನೂ ಅದರ ನಾಲ್ಕು ನೆರೆಮನೆಗಳನ್ನೂ ಬದಲಾಯಿಸುತ್ತದೆ.</string>
     <string name="game_sliding_puzzle_desc">ಚೌಕಗಳನ್ನು ಖಾಲಿ ಜಾಗಕ್ಕೆ ಜಾರಿಸಿ ಕ್ರಮವಾಗಿ ಜೋಡಿಸಿ.</string>
     <string name="game_tower_of_hanoi_desc">ಇಡೀ ಪೇರಿಸಿದ ರಾಶಿಯನ್ನು ಬಲಗಡೆಯ ಗೂಟಕ್ಕೆ ಸರಿಸಿ. ಒಮ್ಮೆಗೆ ಒಂದೇ ತಟ್ಟೆ, ಸಣ್ಣದರ ಮೇಲೆ ದೊಡ್ಡದು ಎಂದಿಗೂ ಇಲ್ಲ.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">ನಡೆ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ಬಿಕ್ಕಟ್ಟು (ಸಮಬಲ, ಗೆಲುವಲ್ಲ)</string>
     <string name="mini_chess_moves_title">ಕಾಯಿಗಳು ಹೇಗೆ ಚಲಿಸುತ್ತವೆ</string>
+    <string name="mini_checkers_draw">ಸಮಬಲ: ಹೊಡೆತವಿಲ್ಲದೆ ತಲಾ 15 ನಡೆಗಳು.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ಖಚಿತ ಗೆಲುವು</item>
+        <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ಖಚಿತ ಗೆಲುವು</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
+        <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
+    </plurals>
     <string name="chess_piece_king">ರಾಜ</string>
     <string name="chess_piece_queen">ರಾಣಿ</string>
     <string name="chess_piece_rook">ಆನೆ</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">ಸುಡೋಕು ಋಷಿ</string>
     <string name="achievement_gold_mini_chess">ಅಂತಿಮ ಆಟದ ಪ್ರವೀಣ</string>
+    <string name="achievement_gold_mini_checkers">ತಂತ್ರಗಳ ಜಾಣ</string>
     <string name="achievement_gold_lights_out">ಸಂಪೂರ್ಣ ಕತ್ತಲು</string>
     <string name="achievement_gold_sliding_puzzle">ನಯವಾದ ಕೈ</string>
     <string name="achievement_gold_tower_of_hanoi">ಗೋಪುರ ನಿಪುಣ</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">ಪುಟ್ಟ ಸುಡೋಕುವಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_mini_chess_desc">ಪುಟ್ಟ ಚದುರಂಗದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_mini_checkers_desc">ಪುಟ್ಟ ಚೆಕರ್ಸ್‌ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲು</string>
     <string name="achievement_gold_lights_out_desc">ದೀಪಗಳನ್ನು ಆರಿಸಿಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_sliding_puzzle_desc">ಜಾರುವ ಒಗಟಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ಹನೋಯಿ ಗೋಪುರದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>

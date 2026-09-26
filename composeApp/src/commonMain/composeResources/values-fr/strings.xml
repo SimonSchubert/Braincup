@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Foule Éclair</string>
     <string name="game_schulte_table">Table de Schulte</string>
     <string name="game_mini_chess">Mini Échecs</string>
+    <string name="game_mini_checkers">Mini Dames</string>
     <string name="game_lights_out">Éteins les lumières</string>
     <string name="game_sliding_puzzle">Puzzle coulissant</string>
     <string name="game_tower_of_hanoi">Tours de Hanoï</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.</string>
     <string name="game_schulte_instruction">Touche les chiffres dans l'ordre : 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Termine le scénario d'échecs avec les blancs. Mets la CPU échec et mat avant qu'elle ne te mette.</string>
+    <string name="game_mini_checkers_desc">Chaque plateau cache une combinaison pour toi avec les noirs : une suite de coups qui ne laisse à l'ordinateur qu'une seule réponse à chaque fois. Trouve-la et gagne.</string>
     <string name="game_lights_out_desc">Éteins toutes les lumières. Chaque tap inverse la cellule et ses quatre voisines.</string>
     <string name="game_sliding_puzzle_desc">Glisse les tuiles dans l'espace vide pour les mettre en ordre.</string>
     <string name="game_tower_of_hanoi_desc">Déplace toute la pile vers le plot de droite. Une seule pièce à la fois, et jamais une plus grande sur une plus petite.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sage du Sudoku</string>
     <string name="achievement_gold_mini_chess">Virtuose des finales</string>
+    <string name="achievement_gold_mini_checkers">Roi de la combinaison</string>
     <string name="achievement_gold_lights_out">Blackout total</string>
     <string name="achievement_gold_sliding_puzzle">Glisseur expert</string>
     <string name="achievement_gold_tower_of_hanoi">Maître des tours</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Gagne la médaille d'or en Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Gagne la médaille d'or en Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">Gagne la médaille d'or en Mini Dames</string>
     <string name="achievement_gold_lights_out_desc">Gagne la médaille d'or en Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gagne la médaille d'or en Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Gagnez la médaille d'or aux Tours de Hanoï</string>
@@ -773,6 +777,15 @@
     <string name="achievement_gold_simon_says_desc">Gagnez une médaille d'or à Simon Says</string>
 
     <string name="mini_chess_moves_title">Comment les pièces se déplacent</string>
+    <string name="mini_checkers_draw">Match nul : 15 coups chacun sans prise.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Gain forcé en %1$d coup</item>
+        <item quantity="other">Gain forcé en %1$d coups</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Nulle dans %1$d coup sans prise</item>
+        <item quantity="other">Nulle dans %1$d coups sans prise</item>
+    </plurals>
     <string name="chess_piece_king">Roi</string>
     <string name="chess_piece_queen">Dame</string>
     <string name="chess_piece_rook">Tour</string>

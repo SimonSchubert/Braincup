@@ -314,6 +314,7 @@
     <string name="game_flash_crowd">Slua splanc</string>
     <string name="game_schulte_table">Tábla Schulte</string>
     <string name="game_mini_chess">Mionfhicheall</string>
+    <string name="game_mini_checkers">Miontáiplis</string>
     <string name="game_lights_out">Múch na soilse</string>
     <string name="game_sliding_puzzle">Puzal sleamhnáin</string>
     <string name="game_tower_of_hanoi">Túr Hanoi</string>
@@ -359,6 +360,7 @@
     <string name="game_schulte_table_desc">Tapáil uimhreacha in ord ó 1 aníos chomh tapa agus is féidir.</string>
     <string name="game_schulte_instruction">Tapáil uimhreacha in ord: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Críochnaigh an staid fichille mar bhán. Tabhair marbhsháinn don CPU sula dtugann sé duitse í.</string>
+    <string name="game_mini_checkers_desc">Tá teaglaim i bhfolach ar gach clár duit mar dhubh: bearta nach bhfágann ach freagra amháin ag an CPU gach uair. Aimsigh í agus buaigh.</string>
     <string name="game_lights_out_desc">Múch gach solas. Gach tapáil aistríonn an chill agus a ceithre comharsa.</string>
     <string name="game_sliding_puzzle_desc">Sleamhnaigh tíl isteach sa spás folamh go dtí go bhfuil siad in ord.</string>
     <string name="game_tower_of_hanoi_desc">Bog an carn iomlán chuig an tairne ar dheis. Diosca amháin ag an am, agus riamh ceann níos mó ar cheann níos lú.</string>
@@ -442,6 +444,21 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="mini_chess_move_counter">Beart %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= sáinn (comhscór, ní bua)</string>
     <string name="mini_chess_moves_title">Conas a ghluaiseann na píosaí</string>
+    <string name="mini_checkers_draw">Comhscór: 15 beart an duine gan ghabháil.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Bua éigeantach i %1$d beart</item>
+        <item quantity="two">Bua éigeantach i %1$d beart</item>
+        <item quantity="few">Bua éigeantach i %1$d beart</item>
+        <item quantity="many">Bua éigeantach i %1$d beart</item>
+        <item quantity="other">Bua éigeantach i %1$d beart</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Comhscór i gceann %1$d beart gan ghabháil</item>
+        <item quantity="two">Comhscór i gceann %1$d beart gan ghabháil</item>
+        <item quantity="few">Comhscór i gceann %1$d beart gan ghabháil</item>
+        <item quantity="many">Comhscór i gceann %1$d beart gan ghabháil</item>
+        <item quantity="other">Comhscór i gceann %1$d beart gan ghabháil</item>
+    </plurals>
     <string name="chess_piece_king">Rí</string>
     <string name="chess_piece_queen">Banríon</string>
     <string name="chess_piece_rook">Caisleán</string>
@@ -546,6 +563,7 @@ Bog Cow — éireoidh Bull de.</string>
 
     <string name="achievement_gold_mini_sudoku">Saoi Sudoku</string>
     <string name="achievement_gold_mini_chess">Fíoréigeas deiridh</string>
+    <string name="achievement_gold_mini_checkers">Máistir teaglamaí</string>
     <string name="achievement_gold_lights_out">Dorchadas iomlán</string>
     <string name="achievement_gold_sliding_puzzle">Oibreoir mín</string>
     <string name="achievement_gold_tower_of_hanoi">Máistir an túir</string>
@@ -585,6 +603,7 @@ Bog Cow — éireoidh Bull de.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Bain bonn óir amach i Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Bain bonn óir amach i Mionfhicheall</string>
+    <string name="achievement_gold_mini_checkers_desc">Bain bonn óir amach i Miontáiplis</string>
     <string name="achievement_gold_lights_out_desc">Bain bonn óir amach i Múch na soilse</string>
     <string name="achievement_gold_sliding_puzzle_desc">Bain bonn óir amach i bpuzal sleamhnáin</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Bain bonn óir amach i dTúr Hanoi</string>

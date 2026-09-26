@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">మెరుపు గుంపు</string>
     <string name="game_schulte_table">షుల్టే పట్టిక</string>
     <string name="game_mini_chess">మినీ చదరంగం</string>
+    <string name="game_mini_checkers">మినీ చెక్కర్స్</string>
     <string name="game_lights_out">దీపాలు ఆర్పు</string>
     <string name="game_sliding_puzzle">జారే పజిల్</string>
     <string name="game_tower_of_hanoi">హనోయి గోపురం</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">1 నుండి పైకి సంఖ్యలను వీలైనంత వేగంగా వరుసగా నొక్కండి.</string>
     <string name="game_schulte_instruction">సంఖ్యలను వరుసగా నొక్కండి: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">తెలుపుగా ఉండి చదరంగ దృశ్యాన్ని ముగించండి. CPU మిమ్మల్ని ఓడించేలోపు దాన్ని చెక్‌మేట్ చేయండి.</string>
+    <string name="game_mini_checkers_desc">ప్రతి బోర్డులోనూ నల్ల పావులతో నీకోసం ఒక కాంబినేషన్ దాగి ఉంది: ప్రతిసారీ CPU కి ఒక్కటే జవాబు మిగిలే ఎత్తులు. దాన్ని కనిపెట్టి గెలువు.</string>
     <string name="game_lights_out_desc">ప్రతి దీపాన్ని ఆర్పండి. ప్రతి నొక్కు ఆ గడిని, దాని నాలుగు పొరుగు గడులను మారుస్తుంది.</string>
     <string name="game_sliding_puzzle_desc">టైల్స్‌ను ఖాళీ స్థలంలోకి జార్చి వాటిని క్రమంలో ఉంచండి.</string>
     <string name="game_tower_of_hanoi_desc">మొత్తం కుప్పను కుడి కొయ్యకు తరలించండి. ఒకసారి ఒక చక్రం మాత్రమే, చిన్నదాని మీద పెద్దది ఎప్పుడూ కాదు.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">ఎత్తు %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= స్టేల్‌మేట్ (డ్రా, గెలుపు కాదు)</string>
     <string name="mini_chess_moves_title">పావులు ఎలా కదులుతాయి</string>
+    <string name="mini_checkers_draw">డ్రా: ఇద్దరూ 15 ఎత్తులుగా ఏ పావునీ చంపలేదు.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d ఎత్తులో ఖచ్చితమైన గెలుపు</item>
+        <item quantity="other">%1$d ఎత్తుల్లో ఖచ్చితమైన గెలుపు</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d ఎత్తులో ఏ పావూ చావకపోతే డ్రా</item>
+        <item quantity="other">%1$d ఎత్తుల్లో ఏ పావూ చావకపోతే డ్రా</item>
+    </plurals>
     <string name="chess_piece_king">రాజు</string>
     <string name="chess_piece_queen">రాణి</string>
     <string name="chess_piece_rook">ఏనుగు</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">సుడోకు ఋషి</string>
     <string name="achievement_gold_mini_chess">ముగింపు ఆట మేధావి</string>
+    <string name="achievement_gold_mini_checkers">కాంబినేషన్ వీరుడు</string>
     <string name="achievement_gold_lights_out">సంపూర్ణ చీకటి</string>
     <string name="achievement_gold_sliding_puzzle">సునాయాస నేర్పరి</string>
     <string name="achievement_gold_tower_of_hanoi">గోపుర నిపుణుడు</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">మినీ సుడోకులో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_mini_chess_desc">మినీ చదరంగంలో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_mini_checkers_desc">మినీ చెక్కర్స్‌లో బంగారు పతకం గెలువు</string>
     <string name="achievement_gold_lights_out_desc">దీపాలు ఆర్పులో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_sliding_puzzle_desc">జారే పజిల్‌లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_tower_of_hanoi_desc">హనోయి గోపురంలో బంగారు పతకం గెలవండి</string>

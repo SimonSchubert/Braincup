@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Blitzmenge</string>
     <string name="game_schulte_table">Schulte-Tabelle</string>
     <string name="game_mini_chess">Mini-Schach</string>
+    <string name="game_mini_checkers">Mini-Dame</string>
     <string name="game_lights_out">Lichter aus</string>
     <string name="game_sliding_puzzle">Schiebepuzzle</string>
     <string name="game_tower_of_hanoi">Türme von Hanoi</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Tippe die Zahlen so schnell du kannst der Reihe nach an, von 1 aufwärts.</string>
     <string name="game_schulte_instruction">Tippe die Zahlen der Reihe nach: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.</string>
+    <string name="game_mini_checkers_desc">Jedes Brett versteckt eine Kombination für dich als Schwarz: Züge, auf die die CPU jedes Mal nur eine Antwort hat. Finde sie und gewinne.</string>
     <string name="game_lights_out_desc">Schalte alle Lichter aus. Jedes Tippen schaltet das Feld und seine vier Nachbarn um.</string>
     <string name="game_sliding_puzzle_desc">Schiebe die Kacheln in die Lücke, bis sie in der richtigen Reihenfolge liegen.</string>
     <string name="game_tower_of_hanoi_desc">Verschiebe den ganzen Stapel auf den rechten Stab. Nur eine Scheibe auf einmal und nie eine größere auf eine kleinere.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sudoku-Weiser</string>
     <string name="achievement_gold_mini_chess">Endspiel-Virtuose</string>
+    <string name="achievement_gold_mini_checkers">Kombinationskünstler</string>
     <string name="achievement_gold_lights_out">Totale Finsternis</string>
     <string name="achievement_gold_sliding_puzzle">Schiebekünstler</string>
     <string name="achievement_gold_tower_of_hanoi">Turmmeister</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Gewinne die Goldmedaille in Mini-Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini-Schach</string>
+    <string name="achievement_gold_mini_checkers_desc">Gewinne die Goldmedaille in Mini-Dame</string>
     <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lichter aus</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Gewinne die Goldmedaille in Türme von Hanoi</string>
@@ -773,6 +777,15 @@
     <string name="achievement_gold_simon_says_desc">Gewinne die Goldmedaille in Simon sagt</string>
 
     <string name="mini_chess_moves_title">So ziehen die Figuren</string>
+    <string name="mini_checkers_draw">Unentschieden: je 15 Züge ohne Schlagen.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Erzwungener Sieg in %1$d Zug</item>
+        <item quantity="other">Erzwungener Sieg in %1$d Zügen</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Unentschieden in %1$d Zug ohne Schlagen</item>
+        <item quantity="other">Unentschieden in %1$d Zügen ohne Schlagen</item>
+    </plurals>
     <string name="chess_piece_king">König</string>
     <string name="chess_piece_queen">Dame</string>
     <string name="chess_piece_rook">Turm</string>

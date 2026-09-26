@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">Бљесковита гомила</string>
     <string name="game_schulte_table">Шултеова таблица</string>
     <string name="game_mini_chess">Мини шах</string>
+    <string name="game_mini_checkers">Мини даме</string>
     <string name="game_lights_out">Угаси светла</string>
     <string name="game_sliding_puzzle">Клизајућа слагалица</string>
     <string name="game_tower_of_hanoi">Ханојска кула</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">Додируј бројеве редом од 1 навише што брже можеш.</string>
     <string name="game_schulte_instruction">Додируј бројеве редом: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Заврши шаховску ситуацију као бели. Дај CPU-у мат пре него што га добијеш ти.</string>
+    <string name="game_mini_checkers_desc">Свака табла крије комбинацију за тебе као црног: потезе на које CPU сваки пут има само један одговор. Пронађи је и победи.</string>
     <string name="game_lights_out_desc">Угаси свако светло. Сваки додир пребацује ћелију и њена четири суседа.</string>
     <string name="game_sliding_puzzle_desc">Клизи плочице у празно место док не буду у реду.</string>
     <string name="game_tower_of_hanoi_desc">Премести цео стуб на десни клин. Само један диск одједном и никад већи на мањи.</string>
@@ -434,6 +436,17 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="mini_chess_move_counter">Потез %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (реми, не победа)</string>
     <string name="mini_chess_moves_title">Како се фигуре крећу</string>
+    <string name="mini_checkers_draw">Реми: 15 потеза по играчу без узимања.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Изнуђена победа у %1$d потезу</item>
+        <item quantity="few">Изнуђена победа у %1$d потеза</item>
+        <item quantity="other">Изнуђена победа у %1$d потеза</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Реми за %1$d потез без узимања</item>
+        <item quantity="few">Реми за %1$d потеза без узимања</item>
+        <item quantity="other">Реми за %1$d потеза без узимања</item>
+    </plurals>
     <string name="chess_piece_king">Краљ</string>
     <string name="chess_piece_queen">Дама</string>
     <string name="chess_piece_rook">Топ</string>
@@ -538,6 +551,7 @@ Cow = тачна цифра, погрешно место.</string>
 
     <string name="achievement_gold_mini_sudoku">Судоку мудрац</string>
     <string name="achievement_gold_mini_chess">Виртуоз завршнице</string>
+    <string name="achievement_gold_mini_checkers">Мајстор комбинација</string>
     <string name="achievement_gold_lights_out">Потпуно помрачење</string>
     <string name="achievement_gold_sliding_puzzle">Глатки оператор</string>
     <string name="achievement_gold_tower_of_hanoi">Мајстор куле</string>
@@ -577,6 +591,7 @@ Cow = тачна цифра, погрешно место.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Освоји златну медаљу у Мини Судоку</string>
     <string name="achievement_gold_mini_chess_desc">Освоји златну медаљу у Мини шаху</string>
+    <string name="achievement_gold_mini_checkers_desc">Освоји златну медаљу у Мини дамама</string>
     <string name="achievement_gold_lights_out_desc">Освоји златну медаљу у игри Угаси светла</string>
     <string name="achievement_gold_sliding_puzzle_desc">Освоји златну медаљу у Клизајућој слагалици</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Освоји златну медаљу у Ханојској кули</string>

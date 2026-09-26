@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Leifturþyrping</string>
     <string name="game_schulte_table">Schulte-tafla</string>
     <string name="game_mini_chess">Míniskák</string>
+    <string name="game_mini_checkers">Mínidammtafl</string>
     <string name="game_lights_out">Slökktu ljósin</string>
     <string name="game_sliding_puzzle">Rennaþraut</string>
     <string name="game_tower_of_hanoi">Turninn í Hanoi</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Ýttu á tölur í röð frá 1 og upp eins hratt og þú getur.</string>
     <string name="game_schulte_instruction">Ýttu á tölur í röð: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Ljúktu skákstöðunni sem hvítur. Gefðu CPU mát áður en hann gefur þér það.</string>
+    <string name="game_mini_checkers_desc">Hvert borð geymir fléttu fyrir þig sem svartur: leiki þar sem CPU á alltaf aðeins eitt svar. Finndu hana og vinndu.</string>
     <string name="game_lights_out_desc">Slökktu hvert ljós. Hver ýting snýr við reitnum og fjórum nágrönnum hans.</string>
     <string name="game_sliding_puzzle_desc">Renndu flísum í autt plássið þar til þær eru í röð.</string>
     <string name="game_tower_of_hanoi_desc">Færðu allan staflann á hægri pinnann. Aðeins einn diskur í einu og aldrei stærri ofan á minni.</string>
@@ -430,6 +432,15 @@ Færðu Cow — hann verður Bull.</string>
     <string name="mini_chess_move_counter">Leikur %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (jafntefli, ekki sigur)</string>
     <string name="mini_chess_moves_title">Hvernig taflmenn hreyfast</string>
+    <string name="mini_checkers_draw">Jafntefli: 15 leikir hvor án þess að drepa.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Þvingaður sigur í %1$d leik</item>
+        <item quantity="other">Þvingaður sigur í %1$d leikjum</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Jafntefli eftir %1$d leik án þess að drepa</item>
+        <item quantity="other">Jafntefli eftir %1$d leiki án þess að drepa</item>
+    </plurals>
     <string name="chess_piece_king">Kóngur</string>
     <string name="chess_piece_queen">Drottning</string>
     <string name="chess_piece_rook">Hrókur</string>
@@ -534,6 +545,7 @@ Færðu Cow — hann verður Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku-spekingur</string>
     <string name="achievement_gold_mini_chess">Lokaleiksvirtúós</string>
+    <string name="achievement_gold_mini_checkers">Fléttumeistari</string>
     <string name="achievement_gold_lights_out">Alger myrkvun</string>
     <string name="achievement_gold_sliding_puzzle">Sléttur virkjarinn</string>
     <string name="achievement_gold_tower_of_hanoi">Turnmeistari</string>
@@ -573,6 +585,7 @@ Færðu Cow — hann verður Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Vinnu gullverðlaun í Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Vinnu gullverðlaun í Míniskák</string>
+    <string name="achievement_gold_mini_checkers_desc">Vinndu gullverðlaun í Mínidammtafli</string>
     <string name="achievement_gold_lights_out_desc">Vinnu gullverðlaun í Slökktu ljósin</string>
     <string name="achievement_gold_sliding_puzzle_desc">Vinnu gullverðlaun í Rennaþraut</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Vinnu gullverðlaun í Turninum í Hanoi</string>

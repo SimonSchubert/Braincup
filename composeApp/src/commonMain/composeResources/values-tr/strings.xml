@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">Flaş Kalabalık</string>
     <string name="game_schulte_table">Schulte Tablosu</string>
     <string name="game_mini_chess">Mini Satranç</string>
+    <string name="game_mini_checkers">Mini Dama</string>
     <string name="game_lights_out">Işıkları Söndür</string>
     <string name="game_sliding_puzzle">Kaydırma Bulmacası</string>
     <string name="game_tower_of_hanoi">Hanoi Kuleleri</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.</string>
     <string name="game_schulte_instruction">Sayılara sırayla dokun: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Beyazlarla satranç senaryosunu bitir. CPU sana mat etmeden önce ona mat et.</string>
+    <string name="game_mini_checkers_desc">Her tahtada siyahlarla oynarken seni bir kombinasyon bekliyor: CPU'nun her seferinde tek bir cevabı kaldığı hamleler. Onu bul ve kazan.</string>
     <string name="game_lights_out_desc">Tüm ışıkları söndür. Her dokunuş, hücreyi ve dört komşusunu değiştirir.</string>
     <string name="game_sliding_puzzle_desc">Karoları boş alana kaydırarak sıraya diz.</string>
     <string name="game_tower_of_hanoi_desc">Tüm yığını sağ çubuğa taşı. Her seferinde yalnızca bir disk ve asla büyüğünü küçüğünün üstüne koyma.</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">Sudoku Bilgesi</string>
     <string name="achievement_gold_mini_chess">Oyunsonu Virtüözü</string>
+    <string name="achievement_gold_mini_checkers">Kombinasyon Ustası</string>
     <string name="achievement_gold_lights_out">Tam Karartma</string>
     <string name="achievement_gold_sliding_puzzle">Akıcı Operatör</string>
     <string name="achievement_gold_tower_of_hanoi">Kule Ustası</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">Mini Sudoku oyununda altın madalya kazan</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess oyununda altın madalya kazan</string>
+    <string name="achievement_gold_mini_checkers_desc">Mini Dama oyununda altın madalya kazan</string>
     <string name="achievement_gold_lights_out_desc">Lights Out oyununda altın madalya kazan</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle oyununda altın madalya kazan</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Hanoi Kuleleri'nde altın madalya kazan</string>
@@ -772,6 +776,15 @@
     <string name="checkers_quit">Çık</string>
     <string name="checkers_new_game">Yeni oyun</string>
     <string name="mini_chess_moves_title">Taşlar nasıl hareket eder</string>
+    <string name="mini_checkers_draw">Berabere: iki taraf da 15 hamledir taş almadı.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d hamlede zorunlu galibiyet</item>
+        <item quantity="other">%1$d hamlede zorunlu galibiyet</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d hamle içinde taş alınmazsa berabere</item>
+        <item quantity="other">%1$d hamle içinde taş alınmazsa berabere</item>
+    </plurals>
     <string name="chess_piece_king">Şah</string>
     <string name="chess_piece_queen">Vezir</string>
     <string name="chess_piece_rook">Kale</string>

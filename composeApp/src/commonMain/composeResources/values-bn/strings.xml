@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
     <string name="game_mini_chess">মিনি দাবা</string>
+    <string name="game_mini_checkers">মিনি চেকার্স</string>
     <string name="game_lights_out">লাইটস আউট</string>
     <string name="game_sliding_puzzle">স্লাইডিং পাজল</string>
     <string name="game_tower_of_hanoi">হ্যানয়ের টাওয়ার</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
     <string name="game_schulte_instruction">ক্রমানুসারে সংখ্যা ট্যাপ করুন: ১, ২, ৩...</string>
     <string name="game_mini_chess_desc">সাদা হিসেবে দাবার পরিস্থিতি শেষ করুন। সিপিইউ আপনাকে কিস্তিমাত করার আগে তাকে কিস্তিমাত করুন।</string>
+    <string name="game_mini_checkers_desc">প্রতিটি বোর্ডে কালো ঘুঁটি নিয়ে তোমার জন্য একটা কম্বিনেশন লুকিয়ে আছে: এমন চাল, যার জবাবে CPU-র প্রতিবার একটাই উপায় থাকে। সেটা খুঁজে বের করো আর জেতো।</string>
     <string name="game_lights_out_desc">প্রতিটি আলো বন্ধ করুন। প্রতিটি ট্যাপ সেল ও তার চারটি প্রতিবেশীকে পরিবর্তন করে।</string>
     <string name="game_sliding_puzzle_desc">টাইলগুলিকে ক্রমে সাজাতে খালি জায়গায় স্লাইড করুন।</string>
     <string name="game_tower_of_hanoi_desc">পুরো স্তূপ ডান খুঁটিতে সরিয়ে নিন। একবারে একটি ডিস্ক, এবং বড়কে ছোটের ওপরে রাখা যাবে না।</string>
@@ -225,6 +227,7 @@
 
     <string name="achievement_gold_mini_sudoku">সুডোকু জ্ঞানী</string>
     <string name="achievement_gold_mini_chess">শেষ-খেলার ওস্তাদ</string>
+    <string name="achievement_gold_mini_checkers">কম্বিনেশনের ওস্তাদ</string>
     <string name="achievement_gold_lights_out">সম্পূর্ণ অন্ধকার</string>
     <string name="achievement_gold_sliding_puzzle">দক্ষ সরানোকারী</string>
     <string name="achievement_gold_tower_of_hanoi">টাওয়ার মাস্টার</string>
@@ -255,6 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">মিনি সুডোকু-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_mini_checkers_desc">মিনি চেকার্সে স্বর্ণপদক জেতো</string>
     <string name="achievement_gold_lights_out_desc">Lights Out-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_tower_of_hanoi_desc">হ্যানয়ের টাওয়ারে স্বর্ণপদক জিতুন</string>
@@ -773,6 +777,15 @@
     <string name="achievement_gold_simon_says_desc">Simon Says-এ স্বর্ণপদক জিতুন</string>
 
     <string name="mini_chess_moves_title">ঘুঁটিগুলো কীভাবে চলে</string>
+    <string name="mini_checkers_draw">ড্র: কেউ কিছু না খেয়ে দুজনেরই ১৫ চাল।</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">%1$d চালে নিশ্চিত জয়</item>
+        <item quantity="other">%1$d চালে নিশ্চিত জয়</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">%1$d চালের মধ্যে কিছু না খেলে ড্র</item>
+        <item quantity="other">%1$d চালের মধ্যে কিছু না খেলে ড্র</item>
+    </plurals>
     <string name="chess_piece_king">রাজা</string>
     <string name="chess_piece_queen">মন্ত্রী</string>
     <string name="chess_piece_rook">নৌকা</string>

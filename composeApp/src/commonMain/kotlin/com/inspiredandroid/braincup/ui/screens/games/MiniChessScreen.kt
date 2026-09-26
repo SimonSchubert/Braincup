@@ -151,18 +151,18 @@ internal fun ColumnScope.MiniChessContent(
         } else {
             Text(
                 text = when (uiState.outcome) {
-                    MiniChessOutcome.PLAYER_WIN -> stringResource(Res.string.mini_chess_round_won)
-                    MiniChessOutcome.PLAYER_LOSS -> stringResource(Res.string.mini_chess_round_lost)
-                    MiniChessOutcome.DRAW -> stringResource(Res.string.mini_chess_round_draw)
+                    CpuRoundOutcome.PLAYER_WIN -> stringResource(Res.string.mini_chess_round_won)
+                    CpuRoundOutcome.PLAYER_LOSS -> stringResource(Res.string.mini_chess_round_lost)
+                    CpuRoundOutcome.DRAW -> stringResource(Res.string.mini_chess_round_draw)
                 },
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 color = when (uiState.outcome) {
-                    MiniChessOutcome.PLAYER_WIN -> SuccessGreen
+                    CpuRoundOutcome.PLAYER_WIN -> SuccessGreen
                     else -> MaterialTheme.colorScheme.onSurface
                 },
             )
-            if (uiState.outcome == MiniChessOutcome.PLAYER_WIN) {
+            if (uiState.outcome == CpuRoundOutcome.PLAYER_WIN) {
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.mini_chess_xp_gained, uiState.pointsForWin),

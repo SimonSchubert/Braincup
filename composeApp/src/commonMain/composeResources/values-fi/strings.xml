@@ -302,6 +302,7 @@
     <string name="game_flash_crowd">Salamajoukko</string>
     <string name="game_schulte_table">Schulte-taulukko</string>
     <string name="game_mini_chess">Minishakki</string>
+    <string name="game_mini_checkers">Minitammi</string>
     <string name="game_lights_out">Valot pois</string>
     <string name="game_sliding_puzzle">Liukupalapeli</string>
     <string name="game_tower_of_hanoi">Hanoin torni</string>
@@ -347,6 +348,7 @@
     <string name="game_schulte_table_desc">Napauta numeroita järjestyksessä ykkösestä ylöspäin niin nopeasti kuin osaat.</string>
     <string name="game_schulte_instruction">Napauta numeroita järjestyksessä: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Päätä shakkitilanne valkoisena. Anna CPU:lle shakkimatti ennen kuin se antaa sen sinulle.</string>
+    <string name="game_mini_checkers_desc">Joka laudalla on sinulle mustilla yhdistelmä: siirtosarja, johon CPU:lla on joka kerta vain yksi vastaus. Löydä se ja voita.</string>
     <string name="game_lights_out_desc">Sammuta jokainen valo. Jokainen napautus vaihtaa ruudun ja sen neljä naapuria.</string>
     <string name="game_sliding_puzzle_desc">Liu'uta paloja tyhjään tilaan saadaksesi ne järjestykseen.</string>
     <string name="game_tower_of_hanoi_desc">Siirrä koko pino oikealle tapille. Vain yksi kiekko kerrallaan, eikä koskaan isompaa pienemmän päälle.</string>
@@ -430,6 +432,15 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="mini_chess_move_counter">Siirto %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patti (tasapeli, ei voitto)</string>
     <string name="mini_chess_moves_title">Miten nappulat liikkuvat</string>
+    <string name="mini_checkers_draw">Tasapeli: 15 siirtoa kummaltakin ilman syöntiä.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Pakotettu voitto %1$d siirrossa</item>
+        <item quantity="other">Pakotettu voitto %1$d siirrossa</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Tasapeli %1$d siirron päästä ilman syöntiä</item>
+        <item quantity="other">Tasapeli %1$d siirron päästä ilman syöntiä</item>
+    </plurals>
     <string name="chess_piece_king">Kuningas</string>
     <string name="chess_piece_queen">Kuningatar</string>
     <string name="chess_piece_rook">Torni</string>
@@ -534,6 +545,7 @@ Siirrä Cow — siitä tulee Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudokuviisas</string>
     <string name="achievement_gold_mini_chess">Loppupelin virtuoosi</string>
+    <string name="achievement_gold_mini_checkers">Yhdistelmämestari</string>
     <string name="achievement_gold_lights_out">Täysi pimennys</string>
     <string name="achievement_gold_sliding_puzzle">Sulava operaattori</string>
     <string name="achievement_gold_tower_of_hanoi">Tornimestari</string>
@@ -573,6 +585,7 @@ Siirrä Cow — siitä tulee Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Voita kultamitali Mini-Sudokussa</string>
     <string name="achievement_gold_mini_chess_desc">Voita kultamitali Minishakissa</string>
+    <string name="achievement_gold_mini_checkers_desc">Voita kultamitali Minitammessa</string>
     <string name="achievement_gold_lights_out_desc">Voita kultamitali Valot pois -pelissä</string>
     <string name="achievement_gold_sliding_puzzle_desc">Voita kultamitali Liukupalapelissä</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Voita kultamitali Hanoin tornissa</string>

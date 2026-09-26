@@ -7,6 +7,7 @@ import com.inspiredandroid.braincup.checkers.CheckersMode
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
+import com.inspiredandroid.braincup.games.minicheckers.MiniCheckersDifficulty
 import com.inspiredandroid.braincup.learn.Certificate
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnTopicProgress
@@ -54,6 +55,7 @@ class UserStorage(
     ) {
         GOLD_MINI_SUDOKU(Res.string.achievement_gold_mini_sudoku, Res.string.achievement_gold_mini_sudoku_desc),
         GOLD_MINI_CHESS(Res.string.achievement_gold_mini_chess, Res.string.achievement_gold_mini_chess_desc),
+        GOLD_MINI_CHECKERS(Res.string.achievement_gold_mini_checkers, Res.string.achievement_gold_mini_checkers_desc),
         GOLD_LIGHTS_OUT(Res.string.achievement_gold_lights_out, Res.string.achievement_gold_lights_out_desc),
         GOLD_SLIDING_PUZZLE(Res.string.achievement_gold_sliding_puzzle, Res.string.achievement_gold_sliding_puzzle_desc),
         GOLD_SHIKAKU(Res.string.achievement_gold_shikaku, Res.string.achievement_gold_shikaku_desc),
@@ -192,6 +194,7 @@ class UserStorage(
         const val KEY_TOTAL_XP = "total_xp"
         const val KEY_XP_SEEDED = "xp_seeded_v1"
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
+        const val KEY_MINI_CHECKERS_DIFFICULTY = "mini_checkers_difficulty"
         const val KEY_THEME_MODE = "theme_mode"
         const val KEY_APP_LANGUAGE = "app_language"
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
@@ -507,6 +510,16 @@ class UserStorage(
 
     fun setMiniChessDifficulty(depth: Int) {
         store.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
+    }
+
+    /** Mini Checkers difficulty chosen on the instructions screen. Defaults to NORMAL. */
+    fun getMiniCheckersDifficulty(): MiniCheckersDifficulty {
+        val name = store.getStringOrNull(KEY_MINI_CHECKERS_DIFFICULTY)
+        return MiniCheckersDifficulty.entries.firstOrNull { it.name == name } ?: MiniCheckersDifficulty.NORMAL
+    }
+
+    fun setMiniCheckersDifficulty(difficulty: MiniCheckersDifficulty) {
+        store.putString(KEY_MINI_CHECKERS_DIFFICULTY, difficulty.name)
     }
 
     /** Normal Chess CPU difficulty. Defaults to MEDIUM. */

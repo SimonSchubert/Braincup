@@ -1,6 +1,8 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
+import com.inspiredandroid.braincup.checkers.CheckersBoard
+import com.inspiredandroid.braincup.checkers.CheckersMove
 import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
@@ -601,7 +603,20 @@ data class BullsAndCowsUiState(
     val absentDigits: ImmutableSet<Char> = persistentSetOf(),
 ) : UntimedUiState
 
-enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
+enum class CpuRoundOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
+
+@Immutable
+data class MiniCheckersUiState(
+    val board: CheckersBoard,
+    val legalMoves: ImmutableList<CheckersMove>,
+    val lastMove: CheckersMove?,
+    val isAiThinking: Boolean,
+    val outcome: CpuRoundOutcome?,
+    val combinationMoves: Int?,
+    val quietPlies: Int,
+    val drawPlies: Int,
+    val pointsForWin: Int,
+) : UntimedUiState
 
 @Immutable
 data class MiniChessCell(
@@ -619,7 +634,7 @@ data class MiniChessUiState(
     val whiteInCheck: Boolean,
     val blackInCheck: Boolean,
     val isAiThinking: Boolean,
-    val outcome: MiniChessOutcome?,
+    val outcome: CpuRoundOutcome?,
     val halfMoveCount: Int,
     val halfMoveCap: Int,
     val pointsForWin: Int,

@@ -286,6 +286,7 @@
     <string name="game_flash_crowd">جمعیت آنی</string>
     <string name="game_schulte_table">جدول شولته</string>
     <string name="game_mini_chess">شطرنج کوچک</string>
+    <string name="game_mini_checkers">چکرز کوچک</string>
     <string name="game_lights_out">خاموشی چراغ‌ها</string>
     <string name="game_sliding_puzzle">پازل کشویی</string>
     <string name="game_tower_of_hanoi">برج هانوی</string>
@@ -331,6 +332,7 @@
     <string name="game_schulte_table_desc">هر چه سریع‌تر می‌توانی عددها را از 1 به بالا به ترتیب بزن.</string>
     <string name="game_schulte_instruction">عددها را به ترتیب بزن: 1، 2، 3...</string>
     <string name="game_mini_chess_desc">سناریوی شطرنج را با مهره سفید تمام کن. پیش از آنکه رایانه تو را مات کند، مات‌اش کن.</string>
+    <string name="game_mini_checkers_desc">در هر صفحه یک ترکیب برای تو با مهره‌های سیاه پنهان است: حرکت‌هایی که رایانه هر بار فقط یک جواب برایشان دارد. پیدایش کن و ببر.</string>
     <string name="game_lights_out_desc">همه چراغ‌ها را خاموش کن. هر ضربه، خانه و چهار خانه مجاورش را برعکس می‌کند.</string>
     <string name="game_sliding_puzzle_desc">قطعه‌ها را به خانه خالی بلغزان تا مرتب شوند.</string>
     <string name="game_tower_of_hanoi_desc">کل برج را به میله سمت راست منتقل کن. هر بار فقط یک دیسک، و هرگز دیسک بزرگ‌تر روی کوچک‌تر.</string>
@@ -412,6 +414,15 @@
     <string name="mini_chess_move_counter">حرکت %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= پات (مساوی، نه برد)</string>
     <string name="mini_chess_moves_title">مهره‌ها چگونه حرکت می‌کنند</string>
+    <string name="mini_checkers_draw">مساوی: هر طرف ۱۵ حرکت بدون گرفتن مهره.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">برد قطعی در %1$d حرکت</item>
+        <item quantity="other">برد قطعی در %1$d حرکت</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">مساوی تا %1$d حرکت دیگر بدون گرفتن مهره</item>
+        <item quantity="other">مساوی تا %1$d حرکت دیگر بدون گرفتن مهره</item>
+    </plurals>
     <string name="chess_piece_king">شاه</string>
     <string name="chess_piece_queen">وزیر</string>
     <string name="chess_piece_rook">رخ</string>
@@ -516,6 +527,7 @@
 
     <string name="achievement_gold_mini_sudoku">فرزانه سودوکو</string>
     <string name="achievement_gold_mini_chess">استاد آخر بازی</string>
+    <string name="achievement_gold_mini_checkers">استاد ترکیب</string>
     <string name="achievement_gold_lights_out">خاموشی مطلق</string>
     <string name="achievement_gold_sliding_puzzle">لغزنده چابک</string>
     <string name="achievement_gold_tower_of_hanoi">سرور برج</string>
@@ -555,6 +567,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">مدال طلای سودوکوی کوچک را بگیر</string>
     <string name="achievement_gold_mini_chess_desc">مدال طلای شطرنج کوچک را بگیر</string>
+    <string name="achievement_gold_mini_checkers_desc">مدال طلای چکرز کوچک را بگیر</string>
     <string name="achievement_gold_lights_out_desc">مدال طلای خاموشی چراغ‌ها را بگیر</string>
     <string name="achievement_gold_sliding_puzzle_desc">مدال طلای پازل کشویی را بگیر</string>
     <string name="achievement_gold_tower_of_hanoi_desc">مدال طلای برج هانوی را بگیر</string>

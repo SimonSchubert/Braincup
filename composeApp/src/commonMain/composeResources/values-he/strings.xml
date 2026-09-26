@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">קהל הבזק</string>
     <string name="game_schulte_table">טבלת שולטה</string>
     <string name="game_mini_chess">מיני-שחמט</string>
+    <string name="game_mini_checkers">מיני-דמקה</string>
     <string name="game_lights_out">כיבוי אורות</string>
     <string name="game_sliding_puzzle">פאזל הזזה</string>
     <string name="game_tower_of_hanoi">מגדל האנוי</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">הקש על המספרים בסדר מ-1 ומעלה מהר ככל האפשר.</string>
     <string name="game_schulte_instruction">הקש על המספרים בסדר: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">סיים את תרחיש השחמט כלבן. הכה את המעבד במט לפני שהוא מכה אותך.</string>
+    <string name="game_mini_checkers_desc">בכל לוח מסתתרת קומבינציה בשבילך כשחור: מהלכים שאחריהם למעבד יש בכל פעם תשובה אחת בלבד. מצא אותה ונצח.</string>
     <string name="game_lights_out_desc">כבה כל אור. כל הקשה הופכת את התא ואת ארבעת שכניו.</string>
     <string name="game_sliding_puzzle_desc">הזז אריחים אל המקום הריק כדי לסדר אותם.</string>
     <string name="game_tower_of_hanoi_desc">העבר את כל הערימה ליתד הימני. דיסק אחד בכל פעם, ולעולם לא דיסק גדול על קטן.</string>
@@ -434,6 +436,17 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="mini_chess_move_counter">מהלך %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= פט (תיקו, לא ניצחון)</string>
     <string name="mini_chess_moves_title">איך הכלים זזים</string>
+    <string name="mini_checkers_draw">תיקו: 15 מסעים לכל צד בלי אכילה.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">ניצחון כפוי בעוד %1$d מסע</item>
+        <item quantity="two">ניצחון כפוי בעוד %1$d מסעים</item>
+        <item quantity="other">ניצחון כפוי בעוד %1$d מסעים</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">תיקו בעוד %1$d מסע בלי אכילה</item>
+        <item quantity="two">תיקו בעוד %1$d מסעים בלי אכילה</item>
+        <item quantity="other">תיקו בעוד %1$d מסעים בלי אכילה</item>
+    </plurals>
     <string name="chess_piece_king">מלך</string>
     <string name="chess_piece_queen">מלכה</string>
     <string name="chess_piece_rook">צריח</string>
@@ -538,6 +551,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
 
     <string name="achievement_gold_mini_sudoku">חכם הסודוקו</string>
     <string name="achievement_gold_mini_chess">אמן הסיום</string>
+    <string name="achievement_gold_mini_checkers">אמן הקומבינציות</string>
     <string name="achievement_gold_lights_out">האפלה מוחלטת</string>
     <string name="achievement_gold_sliding_puzzle">מפעיל חלק</string>
     <string name="achievement_gold_tower_of_hanoi">אמן המגדל</string>
@@ -577,6 +591,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">זכה במדליית זהב במיני-סודוקו</string>
     <string name="achievement_gold_mini_chess_desc">זכה במדליית זהב במיני-שחמט</string>
+    <string name="achievement_gold_mini_checkers_desc">זכה במדליית זהב במיני-דמקה</string>
     <string name="achievement_gold_lights_out_desc">זכה במדליית זהב בכיבוי אורות</string>
     <string name="achievement_gold_sliding_puzzle_desc">זכה במדליית זהב בפאזל הזזה</string>
     <string name="achievement_gold_tower_of_hanoi_desc">זכה במדליית זהב במגדל האנוי</string>

@@ -306,6 +306,7 @@
     <string name="game_flash_crowd">Blyksinti minia</string>
     <string name="game_schulte_table">Šultės lentelė</string>
     <string name="game_mini_chess">Mini šachmatai</string>
+    <string name="game_mini_checkers">Mini šaškės</string>
     <string name="game_lights_out">Užgesink šviesas</string>
     <string name="game_sliding_puzzle">Slenkanti dėlionė</string>
     <string name="game_tower_of_hanoi">Hanojaus bokštas</string>
@@ -351,6 +352,7 @@
     <string name="game_schulte_table_desc">Paliesk skaičius iš eilės nuo 1 kuo greičiau.</string>
     <string name="game_schulte_instruction">Paliesk skaičius iš eilės: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Užbaik šachmatų situaciją kaip baltieji. Duok CPU matą, kol jis neduos jo tau.</string>
+    <string name="game_mini_checkers_desc">Kiekvienoje lentoje tau, žaidžiančiam juodaisiais, paslėpta kombinacija: ėjimai, į kuriuos CPU kaskart turi tik vieną atsaką. Rask ją ir laimėk.</string>
     <string name="game_lights_out_desc">Užgesink kiekvieną šviesą. Kiekvienas palietimas perjungia langelį ir keturis jo kaimynus.</string>
     <string name="game_sliding_puzzle_desc">Stumdyk plyteles į tuščią vietą, kol jos bus tvarkoje.</string>
     <string name="game_tower_of_hanoi_desc">Perkelk visą stulpelį ant dešinio smeigtuko. Tik vienas diskas vienu metu ir niekada didesnio ant mažesnio.</string>
@@ -434,6 +436,17 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="mini_chess_move_counter">Ėjimas %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patas (lygiosios, ne pergalė)</string>
     <string name="mini_chess_moves_title">Kaip juda figūros</string>
+    <string name="mini_checkers_draw">Lygiosios: po 15 ėjimų be kirtimo.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="one">Priverstinė pergalė per %1$d ėjimą</item>
+        <item quantity="few">Priverstinė pergalė per %1$d ėjimus</item>
+        <item quantity="other">Priverstinė pergalė per %1$d ėjimų</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="one">Lygiosios po %1$d ėjimo be kirtimo</item>
+        <item quantity="few">Lygiosios po %1$d ėjimų be kirtimo</item>
+        <item quantity="other">Lygiosios po %1$d ėjimų be kirtimo</item>
+    </plurals>
     <string name="chess_piece_king">Karalius</string>
     <string name="chess_piece_queen">Valdovė</string>
     <string name="chess_piece_rook">Bokštas</string>
@@ -538,6 +551,7 @@ Perkelk Cow — jis taps Bull.</string>
 
     <string name="achievement_gold_mini_sudoku">Sudoku išminčius</string>
     <string name="achievement_gold_mini_chess">Endšpilio virtuozas</string>
+    <string name="achievement_gold_mini_checkers">Kombinacijų meistras</string>
     <string name="achievement_gold_lights_out">Visiškas užtemimas</string>
     <string name="achievement_gold_sliding_puzzle">Glotnus operatorius</string>
     <string name="achievement_gold_tower_of_hanoi">Bokšto meistras</string>
@@ -577,6 +591,7 @@ Perkelk Cow — jis taps Bull.</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Laimėk aukso medalį Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Laimėk aukso medalį Mini šachmatuose</string>
+    <string name="achievement_gold_mini_checkers_desc">Laimėk aukso medalį Mini šaškėse</string>
     <string name="achievement_gold_lights_out_desc">Laimėk aukso medalį žaidime Užgesink šviesas</string>
     <string name="achievement_gold_sliding_puzzle_desc">Laimėk aukso medalį Slenkančioje dėlionėje</string>
     <string name="achievement_gold_tower_of_hanoi_desc">Laimėk aukso medalį Hanojaus bokšte</string>

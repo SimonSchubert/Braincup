@@ -80,6 +80,7 @@
     <string name="game_flash_crowd">حشد الوميض</string>
     <string name="game_schulte_table">جدول شولت</string>
     <string name="game_mini_chess">شطرنج مصغر</string>
+    <string name="game_mini_checkers">داما مصغرة</string>
     <string name="game_lights_out">إطفاء الأنوار</string>
     <string name="game_sliding_puzzle">لغز الانزلاق</string>
     <string name="game_tower_of_hanoi">أبراج هانوي</string>
@@ -107,6 +108,7 @@
     <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
     <string name="game_schulte_instruction">اضغط الأرقام بالترتيب: 1، 2، 3...</string>
     <string name="game_mini_chess_desc">أنه سيناريو الشطرنج بالأبيض. أوقع كش ملك على الحاسوب قبل أن يوقعه عليك.</string>
+    <string name="game_mini_checkers_desc">في كل لوحة تركيبة مخفية لك بالأسود: نقلات لا يبقى للحاسوب بعدها إلا رد واحد في كل مرة. جدها وافز.</string>
     <string name="game_lights_out_desc">أطفئ كل ضوء. كل نقرة تقلب الخلية وجيرانها الأربعة.</string>
     <string name="game_sliding_puzzle_desc">حرّك القطع إلى المساحة الفارغة لترتيبها.</string>
     <string name="game_tower_of_hanoi_desc">انقل الكومة كاملة إلى الوتد الأيمن. قرص واحد فقط في كل مرة، ولا تضع قرصًا أكبر على أصغر.</string>
@@ -237,6 +239,7 @@
 
     <string name="achievement_gold_mini_sudoku">حكيم السودوكو</string>
     <string name="achievement_gold_mini_chess">بارع نهاية اللعبة</string>
+    <string name="achievement_gold_mini_checkers">سيد التركيبات</string>
     <string name="achievement_gold_lights_out">إطفاء كامل</string>
     <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
     <string name="achievement_gold_tower_of_hanoi">سيد الأبراج</string>
@@ -267,6 +270,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">اربح الميدالية الذهبية في سودوكو مصغر</string>
     <string name="achievement_gold_mini_chess_desc">اربح الميدالية الذهبية في Mini Chess</string>
+    <string name="achievement_gold_mini_checkers_desc">اربح الميدالية الذهبية في الداما المصغرة</string>
     <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
     <string name="achievement_gold_tower_of_hanoi_desc">اربح الميدالية الذهبية في أبراج هانوي</string>
@@ -785,6 +789,23 @@
     <string name="achievement_gold_simon_says_desc">اربح الميدالية الذهبية في Simon Says</string>
 
     <string name="mini_chess_moves_title">كيف تتحرك القطع</string>
+    <string name="mini_checkers_draw">تعادل: ١٥ نقلة لكل طرف دون أكل.</string>
+    <plurals name="mini_checkers_win_in">
+        <item quantity="zero">فوز محتوم خلال %1$d نقلة</item>
+        <item quantity="one">فوز محتوم خلال %1$d نقلة</item>
+        <item quantity="two">فوز محتوم خلال %1$d نقلتين</item>
+        <item quantity="few">فوز محتوم خلال %1$d نقلات</item>
+        <item quantity="many">فوز محتوم خلال %1$d نقلة</item>
+        <item quantity="other">فوز محتوم خلال %1$d نقلة</item>
+    </plurals>
+    <plurals name="mini_checkers_draw_in">
+        <item quantity="zero">تعادل بعد %1$d نقلة دون أكل</item>
+        <item quantity="one">تعادل بعد %1$d نقلة دون أكل</item>
+        <item quantity="two">تعادل بعد %1$d نقلتين دون أكل</item>
+        <item quantity="few">تعادل بعد %1$d نقلات دون أكل</item>
+        <item quantity="many">تعادل بعد %1$d نقلة دون أكل</item>
+        <item quantity="other">تعادل بعد %1$d نقلة دون أكل</item>
+    </plurals>
     <string name="chess_piece_king">الملك</string>
     <string name="chess_piece_queen">الوزير</string>
     <string name="chess_piece_rook">القلعة</string>
