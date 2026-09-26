@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">آواز کے اثرات</string>
     <string name="settings_sound_effects_desc">کھیل کی آوازیں چلائیں۔</string>
     <string name="settings_colorblind">رنگ اندھے دوست رنگ</string>
-    <string name="settings_colorblind_desc">ایسا پیلیٹ استعمال کریں جو عام رنگ اندھے پن میں بھی الگ نظر آئے۔</string>
+    <string name="settings_colorblind_desc">رنگوں کو ایسے رنگوں سے بدلتا ہے جنہیں رنگ اندھے لوگ پہچان سکیں، اور ہر رنگین ٹکڑے پر ایک نقش لگاتا ہے۔</string>
+    <string name="settings_colorblind_hidden_games">وہ گیمز چھپاتا ہے جن میں رنگ پہچاننے پڑتے ہیں: %1$s۔</string>
     <string name="settings_haptic">ہیپٹک فیڈبیک</string>
     <string name="settings_haptic_desc">درست جواب پر مختصر وائبریشن۔</string>
     <string name="settings_keypad">فون والا نمبر پیڈ</string>

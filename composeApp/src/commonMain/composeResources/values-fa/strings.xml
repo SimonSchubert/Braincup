@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">جلوه‌های صوتی</string>
     <string name="settings_sound_effects_desc">پخش صداهای بازی.</string>
     <string name="settings_colorblind">رنگ‌های مناسب کوررنگی</string>
-    <string name="settings_colorblind_desc">استفاده از پالتی که برای رایج‌ترین انواع کوررنگی قابل تشخیص می‌ماند.</string>
+    <string name="settings_colorblind_desc">رنگ‌ها را با رنگ‌هایی عوض می‌کند که افراد کوررنگ تشخیص می‌دهند و به هر قطعهٔ رنگی یک طرح اضافه می‌کند.</string>
+    <string name="settings_colorblind_hidden_games">بازی‌هایی را که به تشخیص رنگ‌ها نیاز دارند پنهان می‌کند: %1$s.</string>
     <string name="settings_haptic">بازخورد لمسی</string>
     <string name="settings_haptic_desc">لرزش کوتاه هنگام پاسخ درست.</string>
     <string name="settings_keypad">صفحه‌کلید عددی مثل تلفن</string>

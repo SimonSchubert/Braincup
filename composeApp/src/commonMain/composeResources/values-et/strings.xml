@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Heliefektid</string>
     <string name="settings_sound_effects_desc">Esita mänguhelisid.</string>
     <string name="settings_colorblind">Värvipimeduse palett</string>
-    <string name="settings_colorblind_desc">Kasuta paletti, mis jääb eristatavaks levinumate värvipimeduse vormide puhul.</string>
+    <string name="settings_colorblind_desc">Vahetab värvid selliste vastu, mida värvipimedad eristavad, ja lisab igale värvilisele tükile mustri.</string>
+    <string name="settings_colorblind_hidden_games">Peidab mängud, kus tuleb värve eristada: %1$s.</string>
     <string name="settings_haptic">Puutetagasiside</string>
     <string name="settings_haptic_desc">Vibreeri lühidalt õigete vastuste juures.</string>
     <string name="settings_keypad">Telefoni numbriklahvistik</string>

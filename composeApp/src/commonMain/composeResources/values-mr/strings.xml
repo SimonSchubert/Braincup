@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ध्वनी प्रभाव</string>
     <string name="settings_sound_effects_desc">खेळातील आवाज वाजवा.</string>
     <string name="settings_colorblind">रंगांधळेपणासाठी अनुकूल रंग</string>
-    <string name="settings_colorblind_desc">सर्वात सामान्य रंगांधळेपणाच्या प्रकारांतही वेगळे ओळखता येणारे रंग वापरा.</string>
+    <string name="settings_colorblind_desc">रंग बदलून रंगांध लोकांनाही ओळखता येतील असे रंग वापरते आणि प्रत्येक रंगीत तुकड्यावर एक नक्षी जोडते.</string>
+    <string name="settings_colorblind_hidden_games">ज्या खेळांमध्ये रंग ओळखावे लागतात ते लपवते: %1$s.</string>
     <string name="settings_haptic">स्पर्श प्रतिसाद</string>
     <string name="settings_haptic_desc">बरोबर उत्तरांवर क्षणभर कंपन होते.</string>
     <string name="settings_keypad">फोनसारखा अंक पॅड</string>

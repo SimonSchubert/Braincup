@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Efectes de so</string>
     <string name="settings_sound_effects_desc">Reprodueix els sons del joc.</string>
     <string name="settings_colorblind">Colors per a daltònics</string>
-    <string name="settings_colorblind_desc">Fes servir una paleta que es distingeixi en les formes més habituals de daltonisme.</string>
+    <string name="settings_colorblind_desc">Canvia els colors per uns que els daltònics distingeixen bé i afegeix un patró a cada peça de color.</string>
+    <string name="settings_colorblind_hidden_games">Amaga els jocs en què cal distingir colors: %1$s.</string>
     <string name="settings_haptic">Retorn hàptic</string>
     <string name="settings_haptic_desc">Vibra breument amb les respostes correctes.</string>
     <string name="settings_keypad">Teclat numèric d'estil telèfon</string>

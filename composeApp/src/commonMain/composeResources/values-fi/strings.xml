@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Äänitehosteet</string>
     <string name="settings_sound_effects_desc">Toista pelin ääniä.</string>
     <string name="settings_colorblind">Värisokeille sopivat värit</string>
-    <string name="settings_colorblind_desc">Käytä palettia, joka erottuu yleisimmissä värisokeuden muodoissa.</string>
+    <string name="settings_colorblind_desc">Vaihtaa värit sellaisiin, jotka värisokeat erottavat, ja lisää jokaiseen värilliseen palaan kuvion.</string>
+    <string name="settings_colorblind_hidden_games">Piilottaa pelit, joissa värit pitää erottaa toisistaan: %1$s.</string>
     <string name="settings_haptic">Haptinen palaute</string>
     <string name="settings_haptic_desc">Värise lyhyesti oikeista vastauksista.</string>
     <string name="settings_keypad">Puhelimen numeronäppäimistö</string>

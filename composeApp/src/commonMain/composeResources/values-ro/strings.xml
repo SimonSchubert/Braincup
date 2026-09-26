@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Efecte sonore</string>
     <string name="settings_sound_effects_desc">Redă sunetele din joc.</string>
     <string name="settings_colorblind">Culori pentru daltonism</string>
-    <string name="settings_colorblind_desc">Folosește o paletă care rămâne distinsă la cele mai comune forme de daltonism.</string>
+    <string name="settings_colorblind_desc">Schimbă culorile cu unele pe care daltoniștii le pot deosebi și adaugă un model fiecărei piese colorate.</string>
+    <string name="settings_colorblind_hidden_games">Ascunde jocurile în care trebuie să deosebești culorile: %1$s.</string>
     <string name="settings_haptic">Feedback haptic</string>
     <string name="settings_haptic_desc">Vibrează scurt la răspunsuri corecte.</string>
     <string name="settings_keypad">Tastatură ca la telefon</string>

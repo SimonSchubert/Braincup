@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">효과음</string>
     <string name="settings_sound_effects_desc">게임 효과음을 재생합니다.</string>
     <string name="settings_colorblind">색각 친화적 색상</string>
-    <string name="settings_colorblind_desc">가장 흔한 색맹 유형에서도 구별 가능한 팔레트를 사용합니다.</string>
+    <string name="settings_colorblind_desc">색각 이상이 있어도 구별하기 쉬운 색으로 바꾸고, 색이 있는 모든 조각에 무늬를 넣습니다.</string>
+    <string name="settings_colorblind_hidden_games">색을 구별해야 하는 게임을 숨깁니다: %1$s.</string>
     <string name="settings_haptic">햅틱 피드백</string>
     <string name="settings_haptic_desc">정답 시 짧게 진동합니다.</string>
     <string name="settings_keypad">전화기 스타일 숫자 패드</string>

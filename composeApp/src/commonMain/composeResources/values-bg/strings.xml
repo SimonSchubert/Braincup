@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Звукови ефекти</string>
     <string name="settings_sound_effects_desc">Пусни звуците в играта.</string>
     <string name="settings_colorblind">Цветове за далтонисти</string>
-    <string name="settings_colorblind_desc">Използвай палитра, която остава различима при най-често срещаните форми на далтонизъм.</string>
+    <string name="settings_colorblind_desc">Сменя цветовете с такива, които далтонистите различават, и добавя шарка към всяко цветно парче.</string>
+    <string name="settings_colorblind_hidden_games">Скрива игрите, при които трябва да различаваш цветове: %1$s.</string>
     <string name="settings_haptic">Хаптична обратна връзка</string>
     <string name="settings_haptic_desc">Кратка вибрация при верни отговори.</string>
     <string name="settings_keypad">Клавиатура като на телефон</string>

@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Hljóðbrellur</string>
     <string name="settings_sound_effects_desc">Spila hljóð í leikjum.</string>
     <string name="settings_colorblind">Litir fyrir litblinda</string>
-    <string name="settings_colorblind_desc">Notaðu litaspjald sem greinist enn við algengustu gerðir litblindu.</string>
+    <string name="settings_colorblind_desc">Skiptir yfir í liti sem litblindir greina í sundur og setur mynstur á hvern litaðan bita.</string>
+    <string name="settings_colorblind_hidden_games">Felur leikina þar sem þú þarft að greina liti í sundur: %1$s.</string>
     <string name="settings_haptic">Snertisvörun</string>
     <string name="settings_haptic_desc">Titra stutt við rétt svör.</string>
     <string name="settings_keypad">Talnaborð í símasniði</string>

@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">אפקטים קוליים</string>
     <string name="settings_sound_effects_desc">נגן צלילי משחק.</string>
     <string name="settings_colorblind">צבעים ידידותיים לעיוורי צבעים</string>
-    <string name="settings_colorblind_desc">השתמש בפלטה שנשארת מובחנת בצורות הנפוצות של עיוורון צבעים.</string>
+    <string name="settings_colorblind_desc">מחליף את הצבעים בצבעים שעיוורי צבעים מבחינים ביניהם ומוסיף דוגמה לכל חלק צבעוני.</string>
+    <string name="settings_colorblind_hidden_games">מסתיר את המשחקים שבהם צריך להבחין בין צבעים: %1$s.</string>
     <string name="settings_haptic">משוב רטט</string>
     <string name="settings_haptic_desc">רטט קצר בתשובות נכונות.</string>
     <string name="settings_keypad">מקלדת ספרות בסגנון טלפון</string>

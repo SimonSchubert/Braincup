@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Hangeffektek</string>
     <string name="settings_sound_effects_desc">Játékhangok lejátszása.</string>
     <string name="settings_colorblind">Színtévesztőbarát színek</string>
-    <string name="settings_colorblind_desc">Olyan paletta, amely a leggyakoribb színtévesztéseknél is megkülönböztethető marad.</string>
+    <string name="settings_colorblind_desc">Olyan színekre cseréli a színeket, amelyeket a színtévesztők is megkülönböztetnek, és minden színes elemre mintát tesz.</string>
+    <string name="settings_colorblind_hidden_games">Elrejti azokat a játékokat, amelyekben színeket kell megkülönböztetni: %1$s.</string>
     <string name="settings_haptic">Rezgő visszajelzés</string>
     <string name="settings_haptic_desc">Rövid rezgés helyes válaszoknál.</string>
     <string name="settings_keypad">Telefonos számbillentyűzet</string>

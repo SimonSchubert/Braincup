@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">Efek suara</string>
     <string name="settings_sound_effects_desc">Putar suara permainan.</string>
     <string name="settings_colorblind">Warna ramah buta warna</string>
-    <string name="settings_colorblind_desc">Gunakan palet yang tetap dapat dibedakan untuk bentuk buta warna paling umum.</string>
+    <string name="settings_colorblind_desc">Mengganti warna dengan warna yang bisa dibedakan penyandang buta warna dan menambahkan pola ke setiap kepingan berwarna.</string>
+    <string name="settings_colorblind_hidden_games">Menyembunyikan game yang mengharuskan kamu membedakan warna: %1$s.</string>
     <string name="settings_haptic">Umpan balik haptik</string>
     <string name="settings_haptic_desc">Bergetar singkat saat jawaban benar.</string>
     <string name="settings_keypad">Papan angka gaya ponsel</string>

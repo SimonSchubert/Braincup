@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">音效</string>
     <string name="settings_sound_effects_desc">播放遊戲音效。</string>
     <string name="settings_colorblind">色盲友好配色</string>
-    <string name="settings_colorblind_desc">使用對最常見的色盲型別仍然可區分的配色。</string>
+    <string name="settings_colorblind_desc">換成色盲玩家也能分清的顏色，並替每個彩色塊加上花紋。</string>
+    <string name="settings_colorblind_hidden_games">隱藏需要分辨顏色的遊戲：%1$s。</string>
     <string name="settings_haptic">觸覺反饋</string>
     <string name="settings_haptic_desc">答對時短暫震動。</string>
     <string name="settings_keypad">電話式數字鍵盤</string>

@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">Ses efektleri</string>
     <string name="settings_sound_effects_desc">Oyun seslerini çal.</string>
     <string name="settings_colorblind">Renk körlüğüne uygun renkler</string>
-    <string name="settings_colorblind_desc">En yaygın renk körlüğü türleri için ayırt edilebilir kalan bir palet kullanır.</string>
+    <string name="settings_colorblind_desc">Renkleri renk körlerinin ayırt edebileceği renklerle değiştirir ve her renkli parçaya bir desen ekler.</string>
+    <string name="settings_colorblind_hidden_games">Renkleri ayırt etmeyi gerektiren oyunları gizler: %1$s.</string>
     <string name="settings_haptic">Dokunsal geri bildirim</string>
     <string name="settings_haptic_desc">Doğru yanıtlarda kısa süreli titreşir.</string>
     <string name="settings_keypad">Telefon tarzı sayı tuş takımı</string>

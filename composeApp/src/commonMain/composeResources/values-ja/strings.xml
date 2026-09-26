@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">効果音</string>
     <string name="settings_sound_effects_desc">ゲームの効果音を再生します。</string>
     <string name="settings_colorblind">色覚に配慮した色</string>
-    <string name="settings_colorblind_desc">一般的な色覚障害でも見分けやすいパレットを使用します。</string>
+    <string name="settings_colorblind_desc">色覚に違いがあっても見分けやすい色に切り替え、色の付いたピースすべてに模様を付けます。</string>
+    <string name="settings_colorblind_hidden_games">色の見分けが必要なゲームを非表示にします：%1$s。</string>
     <string name="settings_haptic">触覚フィードバック</string>
     <string name="settings_haptic_desc">正解時に短く振動します。</string>
     <string name="settings_keypad">電話型テンキー</string>

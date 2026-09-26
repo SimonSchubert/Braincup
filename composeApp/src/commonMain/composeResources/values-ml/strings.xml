@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ശബ്ദ പ്രഭാവങ്ങൾ</string>
     <string name="settings_sound_effects_desc">ഗെയിമിലെ ശബ്ദങ്ങൾ പ്ലേ ചെയ്യുക.</string>
     <string name="settings_colorblind">വർണ്ണാന്ധതയ്ക്ക് അനുയോജ്യമായ നിറങ്ങൾ</string>
-    <string name="settings_colorblind_desc">ഏറ്റവും സാധാരണമായ വർണ്ണാന്ധതാ രൂപങ്ങളിലും വേർതിരിച്ചറിയാവുന്ന നിറങ്ങൾ ഉപയോഗിക്കുക.</string>
+    <string name="settings_colorblind_desc">നിറങ്ങളെ വർണ്ണാന്ധതയുള്ളവർക്കും തിരിച്ചറിയാവുന്ന നിറങ്ങളാക്കി മാറ്റുകയും ഓരോ നിറമുള്ള കഷണത്തിലും ഒരു പാറ്റേൺ ചേർക്കുകയും ചെയ്യുന്നു.</string>
+    <string name="settings_colorblind_hidden_games">നിറങ്ങൾ തിരിച്ചറിയേണ്ട ഗെയിമുകൾ മറയ്ക്കുന്നു: %1$s.</string>
     <string name="settings_haptic">സ്പർശ പ്രതികരണം</string>
     <string name="settings_haptic_desc">ശരിയായ ഉത്തരങ്ങൾക്ക് ഒരു നിമിഷം വിറയ്ക്കും.</string>
     <string name="settings_keypad">ഫോൺ മാതൃകയിലുള്ള നമ്പർ പാഡ്</string>

@@ -610,7 +610,8 @@
     <string name="settings_sound_effects">Звуковые эффекты</string>
     <string name="settings_sound_effects_desc">Воспроизводить звуки в игре.</string>
     <string name="settings_colorblind">Цвета для дальтоников</string>
-    <string name="settings_colorblind_desc">Используется палитра, остающаяся различимой при самых распространённых формах дальтонизма.</string>
+    <string name="settings_colorblind_desc">Заменяет цвета на те, что различают дальтоники, и добавляет узор каждой цветной детали.</string>
+    <string name="settings_colorblind_hidden_games">Скрывает игры, в которых нужно различать цвета: %1$s.</string>
     <string name="settings_haptic">Тактильная отдача</string>
     <string name="settings_haptic_desc">Короткая вибрация при правильных ответах.</string>
     <string name="settings_keypad">Цифровая клавиатура как на телефоне</string>

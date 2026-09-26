@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Zvočni učinki</string>
     <string name="settings_sound_effects_desc">Predvajaj zvoke v igri.</string>
     <string name="settings_colorblind">Barve za barvno slepe</string>
-    <string name="settings_colorblind_desc">Uporabi paleto, ki ostane razločna pri najpogostejših oblikah barvne slepote.</string>
+    <string name="settings_colorblind_desc">Zamenja barve s takimi, ki jih barvno slepi ločijo, in vsakemu barvnemu delu doda vzorec.</string>
+    <string name="settings_colorblind_hidden_games">Skrije igre, v katerih moraš ločevati barve: %1$s.</string>
     <string name="settings_haptic">Haptična povratna informacija</string>
     <string name="settings_haptic_desc">Kratko zavibriraj pri pravilnih odgovorih.</string>
     <string name="settings_keypad">Tipkovnica kot na telefonu</string>

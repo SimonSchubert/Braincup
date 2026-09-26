@@ -589,7 +589,8 @@
     <string name="settings_sound_effects">المؤثرات الصوتية</string>
     <string name="settings_sound_effects_desc">تشغيل أصوات اللعبة.</string>
     <string name="settings_colorblind">ألوان مناسبة لعمى الألوان</string>
-    <string name="settings_colorblind_desc">استخدم لوحة ألوان تبقى مميزة لأكثر أشكال عمى الألوان شيوعًا.</string>
+    <string name="settings_colorblind_desc">يستبدل الألوان بأخرى تبقى مميزة للمصابين بعمى الألوان ويضيف نقشًا إلى كل قطعة ملونة.</string>
+    <string name="settings_colorblind_hidden_games">يخفي الألعاب التي تعتمد على التمييز بين الألوان: %1$s.</string>
     <string name="settings_haptic">ردود فعل لمسية</string>
     <string name="settings_haptic_desc">اهتزاز قصير عند الإجابات الصحيحة.</string>
     <string name="settings_keypad">لوحة أرقام بأسلوب الهاتف</string>

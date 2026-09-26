@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ಧ್ವನಿ ಪರಿಣಾಮಗಳು</string>
     <string name="settings_sound_effects_desc">ಆಟದ ಶಬ್ದಗಳನ್ನು ನುಡಿಸಿ.</string>
     <string name="settings_colorblind">ವರ್ಣಾಂಧತೆಗೆ ಸೂಕ್ತ ಬಣ್ಣಗಳು</string>
-    <string name="settings_colorblind_desc">ಅತ್ಯಂತ ಸಾಮಾನ್ಯ ವರ್ಣಾಂಧತೆಯ ಬಗೆಗಳಲ್ಲೂ ಬೇರ್ಪಡಿಸಿ ಗುರುತಿಸಬಹುದಾದ ಬಣ್ಣಗಳನ್ನು ಬಳಸಿ.</string>
+    <string name="settings_colorblind_desc">ಬಣ್ಣಗಳನ್ನು ವರ್ಣಾಂಧರೂ ಗುರುತಿಸಬಹುದಾದ ಬಣ್ಣಗಳಿಗೆ ಬದಲಿಸುತ್ತದೆ ಮತ್ತು ಪ್ರತಿಯೊಂದು ಬಣ್ಣದ ತುಂಡಿಗೆ ವಿನ್ಯಾಸವನ್ನು ಸೇರಿಸುತ್ತದೆ.</string>
+    <string name="settings_colorblind_hidden_games">ಬಣ್ಣಗಳನ್ನು ಗುರುತಿಸಬೇಕಾದ ಆಟಗಳನ್ನು ಮರೆಮಾಡುತ್ತದೆ: %1$s.</string>
     <string name="settings_haptic">ಸ್ಪರ್ಶ ಪ್ರತಿಕ್ರಿಯೆ</string>
     <string name="settings_haptic_desc">ಸರಿಯಾದ ಉತ್ತರಗಳಿಗೆ ಕ್ಷಣಕಾಲ ಕಂಪಿಸುತ್ತದೆ.</string>
     <string name="settings_keypad">ಫೋನ್ ಮಾದರಿಯ ಸಂಖ್ಯಾ ಪ್ಯಾಡ್</string>

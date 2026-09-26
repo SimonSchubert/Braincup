@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Zvukové efekty</string>
     <string name="settings_sound_effects_desc">Přehrávat zvuky ve hře.</string>
     <string name="settings_colorblind">Barvy vhodné pro barvoslepé</string>
-    <string name="settings_colorblind_desc">Použít paletu, která zůstane rozeznatelná u nejčastějších forem barvosleposti.</string>
+    <string name="settings_colorblind_desc">Vymění barvy za takové, které barvoslepí rozliší, a každému barevnému dílku přidá vzor.</string>
+    <string name="settings_colorblind_hidden_games">Skryje hry, ve kterých je potřeba rozlišovat barvy: %1$s.</string>
     <string name="settings_haptic">Haptická odezva</string>
     <string name="settings_haptic_desc">Krátce zavibrovat při správných odpovědích.</string>
     <string name="settings_keypad">Číselník jako na telefonu</string>

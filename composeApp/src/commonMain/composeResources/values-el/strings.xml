@@ -130,7 +130,8 @@
     <string name="settings_sound_effects">Ηχητικά εφέ</string>
     <string name="settings_sound_effects_desc">Αναπαραγωγή ήχων του παιχνιδιού.</string>
     <string name="settings_colorblind">Χρώματα για αχρωματοψία</string>
-    <string name="settings_colorblind_desc">Χρήση ευδιάκριτης παλέτας ώστε να είναι δυνατή η λύση από άτομα με αχρωματοψία.</string>
+    <string name="settings_colorblind_desc">Αλλάζει τα χρώματα σε άλλα που ξεχωρίζουν τα άτομα με αχρωματοψία και προσθέτει μοτίβο σε κάθε χρωματιστό κομμάτι.</string>
+    <string name="settings_colorblind_hidden_games">Κρύβει τα παιχνίδια που απαιτούν διάκριση χρωμάτων: %1$s.</string>
     <string name="settings_haptic">Ανάδραση αφής</string>
     <string name="settings_haptic_desc">Σύντομη δόνηση για σωστές απαντήσεις.</string>
     <string name="settings_keypad">Αριθμητικό πληκτρολόγιο τηλεφώνου</string>

@@ -577,7 +577,8 @@
     <string name="settings_sound_effects">Soundeffekte</string>
     <string name="settings_sound_effects_desc">Spielgeräusche abspielen.</string>
     <string name="settings_colorblind">Farbenblindenfreundliche Farben</string>
-    <string name="settings_colorblind_desc">Eine Palette, die bei den häufigsten Formen von Farbenblindheit unterscheidbar bleibt.</string>
+    <string name="settings_colorblind_desc">Tauscht die Farben gegen solche, die Farbenblinde unterscheiden können, und gibt jedem farbigen Teil ein Muster.</string>
+    <string name="settings_colorblind_hidden_games">Blendet die Spiele aus, bei denen du Farben unterscheiden musst: %1$s.</string>
     <string name="settings_haptic">Haptisches Feedback</string>
     <string name="settings_haptic_desc">Vibriert kurz bei richtigen Antworten.</string>
     <string name="settings_keypad">Telefon-Ziffernblock</string>

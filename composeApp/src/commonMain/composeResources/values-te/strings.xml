@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ధ్వని ప్రభావాలు</string>
     <string name="settings_sound_effects_desc">ఆటలోని శబ్దాలను ప్లే చేయి.</string>
     <string name="settings_colorblind">వర్ణాంధత్వానికి అనుకూల రంగులు</string>
-    <string name="settings_colorblind_desc">అత్యంత సాధారణ వర్ణాంధత్వ రూపాలలోనూ వేరు చేసి చూడగల రంగుల సమూహాన్ని వాడు.</string>
+    <string name="settings_colorblind_desc">రంగులను వర్ణాంధులు కూడా గుర్తించగలిగే రంగులుగా మార్చి, ప్రతి రంగు ముక్కకు ఒక నమూనాను జోడిస్తుంది.</string>
+    <string name="settings_colorblind_hidden_games">రంగులను గుర్తించాల్సిన ఆటలను దాచిపెడుతుంది: %1$s.</string>
     <string name="settings_haptic">స్పర్శ ప్రతిస్పందన</string>
     <string name="settings_haptic_desc">సరైన సమాధానాలకు క్షణం పాటు కంపిస్తుంది.</string>
     <string name="settings_keypad">ఫోన్ తరహా సంఖ్యా ప్యాడ్</string>

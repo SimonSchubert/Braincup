@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Zvučni efekti</string>
     <string name="settings_sound_effects_desc">Reproduciraj zvukove u igri.</string>
     <string name="settings_colorblind">Boje prilagođene daltonistima</string>
-    <string name="settings_colorblind_desc">Koristi paletu koja ostaje prepoznatljiva kod najčešćih oblika daltonizma.</string>
+    <string name="settings_colorblind_desc">Mijenja boje u one koje daltonisti razlikuju i svakom obojenom dijelu dodaje uzorak.</string>
+    <string name="settings_colorblind_hidden_games">Skriva igre u kojima trebaš razlikovati boje: %1$s.</string>
     <string name="settings_haptic">Haptička povratna informacija</string>
     <string name="settings_haptic_desc">Kratko vibriraj pri točnim odgovorima.</string>
     <string name="settings_keypad">Brojčanik kao na telefonu</string>

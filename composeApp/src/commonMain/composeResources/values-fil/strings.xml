@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Sound effects</string>
     <string name="settings_sound_effects_desc">Patunugin ang tunog sa laro.</string>
     <string name="settings_colorblind">Mga kulay para sa color-blind</string>
-    <string name="settings_colorblind_desc">Gumamit ng palette na kitang-kita pa rin sa pinakakaraniwang uri ng color blindness.</string>
+    <string name="settings_colorblind_desc">Pinapalitan ang mga kulay ng mga kulay na kita ng mga color-blind at nilalagyan ng pattern ang bawat may-kulay na piraso.</string>
+    <string name="settings_colorblind_hidden_games">Itinatago ang mga larong kailangang makilala ang mga kulay: %1$s.</string>
     <string name="settings_haptic">Pag-uga</string>
     <string name="settings_haptic_desc">Umuga saglit kapag tama ang sagot.</string>
     <string name="settings_keypad">Number pad na parang telepono</string>

@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">ध्वनि प्रभाव</string>
     <string name="settings_sound_effects_desc">खेल की ध्वनियाँ चलाएँ।</string>
     <string name="settings_colorblind">रंगांधता के अनुकूल रंग</string>
-    <string name="settings_colorblind_desc">एक ऐसी पैलेट का उपयोग करें जो रंगांधता के सबसे सामान्य रूपों में भी अलग दिखाई दे।</string>
+    <string name="settings_colorblind_desc">रंगों को ऐसे रंगों से बदलता है जिन्हें रंगांध लोग पहचान सकें, और हर रंगीन टुकड़े पर एक पैटर्न जोड़ता है।</string>
+    <string name="settings_colorblind_hidden_games">वे गेम छिपाता है जिनमें रंग पहचानने पड़ते हैं: %1$s।</string>
     <string name="settings_haptic">हैप्टिक फीडबैक</string>
     <string name="settings_haptic_desc">सही उत्तरों पर थोड़ा कंपन।</string>
     <string name="settings_keypad">फ़ोन-शैली नंबर पैड</string>

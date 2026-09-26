@@ -577,7 +577,8 @@
     <string name="settings_sound_effects">সাউন্ড ইফেক্ট</string>
     <string name="settings_sound_effects_desc">খেলার শব্দ চালান।</string>
     <string name="settings_colorblind">বর্ণান্ধতা-বান্ধব রং</string>
-    <string name="settings_colorblind_desc">এমন একটি প্যালেট ব্যবহার করুন যা বর্ণান্ধতার সবচেয়ে সাধারণ ধরনের জন্য আলাদা থাকে।</string>
+    <string name="settings_colorblind_desc">রংগুলো এমনভাবে বদলায় যাতে বর্ণান্ধরাও আলাদা করতে পারে, আর প্রতিটি রঙিন অংশে একটি নকশা যোগ করে।</string>
+    <string name="settings_colorblind_hidden_games">যেসব গেমে রং আলাদা করে চিনতে হয় সেগুলো লুকিয়ে রাখে: %1$s।</string>
     <string name="settings_haptic">হ্যাপ্টিক ফিডব্যাক</string>
     <string name="settings_haptic_desc">সঠিক উত্তরে সংক্ষিপ্ত কম্পন।</string>
     <string name="settings_keypad">ফোনের মতো নম্বর প্যাড</string>

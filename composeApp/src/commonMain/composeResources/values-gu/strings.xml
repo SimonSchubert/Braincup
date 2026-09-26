@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ધ્વનિ અસરો</string>
     <string name="settings_sound_effects_desc">રમતના અવાજો વગાડો.</string>
     <string name="settings_colorblind">રંગઅંધત્વ માટે અનુકૂળ રંગો</string>
-    <string name="settings_colorblind_desc">સૌથી સામાન્ય રંગઅંધત્વના પ્રકારોમાં પણ અલગ ઓળખાય તેવા રંગો વાપરો.</string>
+    <string name="settings_colorblind_desc">રંગોને એવા રંગોથી બદલે છે જે રંગઅંધ લોકો પારખી શકે, અને દરેક રંગીન ટુકડામાં એક ભાત ઉમેરે છે.</string>
+    <string name="settings_colorblind_hidden_games">જે રમતોમાં રંગો ઓળખવા પડે તે છુપાવે છે: %1$s.</string>
     <string name="settings_haptic">સ્પર્શ પ્રતિભાવ</string>
     <string name="settings_haptic_desc">સાચા જવાબ પર ક્ષણભર કંપન થાય છે.</string>
     <string name="settings_keypad">ફોન જેવું નંબર પેડ</string>

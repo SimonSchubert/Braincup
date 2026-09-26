@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Lydeffekter</string>
     <string name="settings_sound_effects_desc">Afspil spillyde.</string>
     <string name="settings_colorblind">Farveblindevenlige farver</string>
-    <string name="settings_colorblind_desc">Brug en palet, der kan skelnes ved de mest almindelige former for farveblindhed.</string>
+    <string name="settings_colorblind_desc">Skifter til farver, som farveblinde kan skelne, og giver hver farvet brik et mønster.</string>
+    <string name="settings_colorblind_hidden_games">Skjuler de spil, hvor du skal kunne skelne farver: %1$s.</string>
     <string name="settings_haptic">Haptisk feedback</string>
     <string name="settings_haptic_desc">Vibrer kort ved rigtige svar.</string>
     <string name="settings_keypad">Taltastatur som på telefon</string>

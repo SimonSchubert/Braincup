@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Kesan bunyi</string>
     <string name="settings_sound_effects_desc">Mainkan bunyi permainan.</string>
     <string name="settings_colorblind">Warna mesra buta warna</string>
-    <string name="settings_colorblind_desc">Gunakan palet yang kekal mudah dibeza untuk bentuk buta warna yang paling biasa.</string>
+    <string name="settings_colorblind_desc">Menukar warna kepada warna yang boleh dibezakan oleh orang buta warna dan menambah corak pada setiap kepingan berwarna.</string>
+    <string name="settings_colorblind_hidden_games">Menyembunyikan permainan yang memerlukan kamu membezakan warna: %1$s.</string>
     <string name="settings_haptic">Maklum balas haptik</string>
     <string name="settings_haptic_desc">Getar sekejap apabila jawapan betul.</string>
     <string name="settings_keypad">Pad nombor gaya telefon</string>

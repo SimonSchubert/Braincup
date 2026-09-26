@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Ljudeffekter</string>
     <string name="settings_sound_effects_desc">Spela spelljud.</string>
     <string name="settings_colorblind">Färgblinda-vänliga färger</string>
-    <string name="settings_colorblind_desc">Använd en palett som går att skilja åt vid de vanligaste formerna av färgblindhet.</string>
+    <string name="settings_colorblind_desc">Byter till färger som färgblinda kan skilja åt och ger varje färgad bit ett mönster.</string>
+    <string name="settings_colorblind_hidden_games">Döljer spelen där du måste kunna skilja på färger: %1$s.</string>
     <string name="settings_haptic">Haptisk återkoppling</string>
     <string name="settings_haptic_desc">Vibrera kort vid rätt svar.</string>
     <string name="settings_keypad">Sifferknapp som på telefon</string>

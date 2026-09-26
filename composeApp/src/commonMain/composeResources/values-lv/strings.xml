@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Skaņas efekti</string>
     <string name="settings_sound_effects_desc">Atskaņot spēles skaņas.</string>
     <string name="settings_colorblind">Krāsas daltoniķiem</string>
-    <string name="settings_colorblind_desc">Izmanto paleti, kas paliek atšķirama visizplatītākajām daltonisma formām.</string>
+    <string name="settings_colorblind_desc">Nomaina krāsas pret tādām, ko daltoniķi atšķir, un katrai krāsainajai daļai pievieno rakstu.</string>
+    <string name="settings_colorblind_hidden_games">Paslēpj spēles, kurās jāatšķir krāsas: %1$s.</string>
     <string name="settings_haptic">Haptiskā atgriezeniskā saite</string>
     <string name="settings_haptic_desc">Īsi vibrēt pie pareizām atbildēm.</string>
     <string name="settings_keypad">Tālruņa stila cipartastatūra</string>

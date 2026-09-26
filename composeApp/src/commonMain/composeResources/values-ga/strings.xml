@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Maisíochtaí fuaime</string>
     <string name="settings_sound_effects_desc">Seinn fuaimeanna an chluiche.</string>
     <string name="settings_colorblind">Dathanna do dhaoine dathdall</string>
-    <string name="settings_colorblind_desc">Úsáid pailéad a fhanann so-aitheanta do na cineálacha dathdaille is coitianta.</string>
+    <string name="settings_colorblind_desc">Athraíonn sé na dathanna go dathanna is féidir le daoine dathdalla a aithint agus cuireann sé patrún ar gach píosa daite.</string>
+    <string name="settings_colorblind_hidden_games">Folaíonn sé na cluichí ina gcaithfidh tú dathanna a aithint: %1$s.</string>
     <string name="settings_haptic">Aiseolas tadhlach</string>
     <string name="settings_haptic_desc">Creathadh gairid ar fhreagraí cearta.</string>
     <string name="settings_keypad">Eochaircheap stíl gutháin</string>

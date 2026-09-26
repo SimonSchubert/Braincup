@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">Garso efektai</string>
     <string name="settings_sound_effects_desc">Leisti žaidimo garsus.</string>
     <string name="settings_colorblind">Spalvos daltonikams</string>
-    <string name="settings_colorblind_desc">Naudok paletę, kuri išlieka atskiriama dažniausiems daltonizmo tipams.</string>
+    <string name="settings_colorblind_desc">Pakeičia spalvas tokiomis, kurias daltonikai atskiria, ir kiekvienam spalvotam elementui prideda raštą.</string>
+    <string name="settings_colorblind_hidden_games">Paslepia žaidimus, kuriuose reikia atskirti spalvas: %1$s.</string>
     <string name="settings_haptic">Lytėjimo grįžtamasis ryšys</string>
     <string name="settings_haptic_desc">Trumpai vibruoti teisinguose atsakymuose.</string>
     <string name="settings_keypad">Telefono stiliaus klaviatūra</string>

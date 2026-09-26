@@ -604,7 +604,8 @@
     <string name="settings_sound_effects">Efeitos sonoros</string>
     <string name="settings_sound_effects_desc">Reproduzir os sons do jogo.</string>
     <string name="settings_colorblind">Cores adequadas para daltonismo</string>
-    <string name="settings_colorblind_desc">Usa uma paleta que permanece distinguível para as formas mais comuns de daltonismo.</string>
+    <string name="settings_colorblind_desc">Troca as cores por outras que os daltónicos distinguem e acrescenta um padrão a cada peça colorida.</string>
+    <string name="settings_colorblind_hidden_games">Oculta os jogos em que é preciso distinguir cores: %1$s.</string>
     <string name="settings_haptic">Resposta tátil</string>
     <string name="settings_haptic_desc">Vibra brevemente nas respostas corretas.</string>
     <string name="settings_keypad">Teclado numérico estilo telefone</string>

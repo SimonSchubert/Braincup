@@ -131,7 +131,8 @@
     <string name="settings_sound_effects">ஒலி விளைவுகள்</string>
     <string name="settings_sound_effects_desc">விளையாட்டு ஒலிகளை இயக்கு.</string>
     <string name="settings_colorblind">நிறக்குருடுக்கு ஏற்ற வண்ணங்கள்</string>
-    <string name="settings_colorblind_desc">மிகவும் பொதுவான நிறக்குருட்டு வகைகளிலும் வேறுபடுத்திக் காணக்கூடிய வண்ணத் தொகுப்பைப் பயன்படுத்து.</string>
+    <string name="settings_colorblind_desc">நிறங்களை நிறக்குருடு உள்ளவர்களும் வேறுபடுத்தக்கூடிய நிறங்களாக மாற்றி, ஒவ்வொரு வண்ணத் துண்டிலும் ஒரு வடிவத்தைச் சேர்க்கிறது.</string>
+    <string name="settings_colorblind_hidden_games">நிறங்களை வேறுபடுத்த வேண்டிய விளையாட்டுகளை மறைக்கிறது: %1$s.</string>
     <string name="settings_haptic">அதிர்வு பின்னூட்டம்</string>
     <string name="settings_haptic_desc">சரியான விடைகளுக்கு சிறிது நேரம் அதிரும்.</string>
     <string name="settings_keypad">தொலைபேசி பாணி எண் பலகை</string>
