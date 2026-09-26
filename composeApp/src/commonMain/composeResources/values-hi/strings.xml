@@ -108,7 +108,7 @@
     <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
     <string name="game_schulte_instruction">क्रम में संख्या टैप करें: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">सफेद के रूप में शतरंज परिदृश्य समाप्त करें। CPU आपको शह-मात देने से पहले उसे शह-मात दें।</string>
-    <string name="game_mini_checkers_desc">हर बोर्ड में काली गोटियों से खेलते हुए तुम्हारे लिए एक कॉम्बिनेशन छिपा है: ऐसी चालें जिनका CPU के पास हर बार बस एक जवाब हो। उसे ढूँढो और जीतो।</string>
+    <string name="game_mini_checkers_desc">हर बोर्ड में काली गोटियों से खेलते हुए आपके लिए एक कॉम्बिनेशन छिपा है: ऐसी चालें जिनका CPU के पास हर बार बस एक जवाब हो। उसे ढूँढें और जीतें।</string>
     <string name="game_lights_out_desc">हर लाइट बंद करें। हर टैप उस सेल और उसके चार पड़ोसियों को टॉगल करता है।</string>
     <string name="game_sliding_puzzle_desc">टाइलों को खाली जगह में सरकाएँ ताकि उन्हें क्रम में रखा जा सके।</string>
     <string name="game_tower_of_hanoi_desc">पूरी स्टैक को दाएँ खूँटे पर ले जाएँ। एक बार में एक ही चकती, और बड़ी को छोटी पर कभी न रखें।</string>
@@ -180,7 +180,7 @@
     <string name="solution_pointing_left">%2$s बाएँ की ओर इशारा (%1$s)</string>
     <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">स्तंभ %1$d और पंक्ति %2$d</string>
-    <string name="hint_remember">%1$d याद रखो</string>
+    <string name="hint_remember">%1$d याद रखें</string>
     <string name="solution_left">बायाँ</string>
     <string name="solution_right">दायाँ</string>
 
@@ -258,7 +258,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">मिनी सुडोकू में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess में स्वर्ण पदक जीतें</string>
-    <string name="achievement_gold_mini_checkers_desc">मिनी चेकर्स में स्वर्ण पदक जीतो</string>
+    <string name="achievement_gold_mini_checkers_desc">मिनी चेकर्स में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_lights_out_desc">Lights Out में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_tower_of_hanoi_desc">हनोई के टॉवर में स्वर्ण पदक जीतें</string>
@@ -719,21 +719,21 @@
     <string name="reversi_mode_cpu">CPU से खेलें</string>
     <string name="reversi_mode_human">इंसान से खेलें</string>
     <string name="reversi_mode_human_subtitle">एक ही डिवाइस पर बारी-बारी से</string>
-    <string name="reversi_howto">विरोधी की गोटियों की एक कतार को अपनी दो गोटियों के बीच फँसाकर पलट दो। अंत में जिसके पास ज़्यादा गोटियाँ हों वही जीतता है।</string>
+    <string name="reversi_howto">विरोधी की गोटियों की एक कतार को अपनी दो गोटियों के बीच फँसाकर पलट दें। अंत में जिसके पास ज़्यादा गोटियाँ हों वही जीतता है।</string>
     <string name="reversi_difficulty">कठिनाई</string>
     <string name="reversi_difficulty_normal">सामान्य</string>
     <string name="reversi_difficulty_hard">कठिन</string>
     <string name="reversi_start">खेल शुरू करें</string>
     <string name="reversi_thinking">CPU सोच रहा है…</string>
-    <string name="reversi_turn_you">तुम्हारी बारी</string>
+    <string name="reversi_turn_you">आपकी बारी</string>
     <string name="reversi_turn_cpu">CPU की बारी</string>
-    <string name="reversi_pass_you">तुम्हारे पास चाल नहीं। तुम छोड़ रहे हो।</string>
+    <string name="reversi_pass_you">आपके पास चाल नहीं। आप छोड़ रहे हैं।</string>
     <string name="reversi_pass_cpu">CPU के पास चाल नहीं। वह छोड़ रहा है।</string>
-    <string name="reversi_won">तुम %1$d - %2$d से जीते।</string>
+    <string name="reversi_won">आप %1$d - %2$d से जीते।</string>
     <string name="reversi_lost">CPU %1$d - %2$d से जीता।</string>
     <string name="reversi_draw">बराबरी, दोनों के %1$d।</string>
     <string name="reversi_resign">हार स्वीकार करें</string>
-    <string name="reversi_resigned">तुमने हार मान ली। CPU जीता।</string>
+    <string name="reversi_resigned">आपने हार मान ली। CPU जीता।</string>
     <string name="reversi_resigned_black">काले ने हार मान ली। सफेद जीता।</string>
     <string name="reversi_resigned_white">सफेद ने हार मान ली। काला जीता।</string>
     <string name="reversi_new_game">नया खेल</string>
@@ -750,40 +750,40 @@
     <string name="checkers_mode_cpu">CPU से खेलें</string>
     <string name="checkers_mode_human">इंसान से खेलें</string>
     <string name="checkers_mode_human_subtitle">एक ही डिवाइस पर बारी-बारी से</string>
-    <string name="checkers_howto">तिरछे आगे चलो और विरोधी की गोटियों के ऊपर से कूदकर उन्हें मारो। मारना ज़रूरी है। आख़िरी कतार तक पहुँचने पर गोटी राजा बन जाती है, जो आगे-पीछे दोनों ओर चलती है।</string>
+    <string name="checkers_howto">तिरछे आगे चलें और विरोधी की गोटियों के ऊपर से कूदकर उन्हें मारें। मारना ज़रूरी है। आख़िरी कतार तक पहुँचने पर गोटी राजा बन जाती है, जो आगे-पीछे दोनों ओर चलती है।</string>
     <string name="checkers_difficulty">कठिनाई</string>
     <string name="checkers_difficulty_easy">आसान</string>
     <string name="checkers_difficulty_medium">मध्यम</string>
     <string name="checkers_difficulty_hard">कठिन</string>
     <string name="checkers_start">खेल शुरू करें</string>
     <string name="checkers_thinking">CPU सोच रहा है…</string>
-    <string name="checkers_turn_you">तुम्हारी बारी</string>
+    <string name="checkers_turn_you">आपकी बारी</string>
     <string name="checkers_turn_black">काले की बारी</string>
     <string name="checkers_turn_white">सफेद की बारी</string>
-    <string name="checkers_must_capture_you">तुम्हें मारना ही होगा</string>
+    <string name="checkers_must_capture_you">आपको मारना ही होगा</string>
     <string name="checkers_must_capture_black">काले को मारना ही होगा</string>
     <string name="checkers_must_capture_white">सफेद को मारना ही होगा</string>
-    <string name="checkers_keep_jumping">कूदते रहो</string>
-    <string name="checkers_won">तुम जीते!</string>
+    <string name="checkers_keep_jumping">कूदते रहें</string>
+    <string name="checkers_won">आप जीते!</string>
     <string name="checkers_lost">CPU जीता।</string>
     <string name="checkers_black_wins">काला जीता।</string>
     <string name="checkers_white_wins">सफेद जीता।</string>
-    <string name="checkers_draw">बराबरी: दोनों तरफ़ से 40 चालें बिना कोई गोटी मारे।</string>
+    <string name="checkers_draw">बराबरी: दोनों तरफ़ से 40 चालें सिर्फ़ राजा से, बिना कोई गोटी मारे।</string>
     <string name="checkers_resign">हार स्वीकार करें</string>
-    <string name="checkers_resigned">तुमने हार मान ली। CPU जीता।</string>
+    <string name="checkers_resigned">आपने हार मान ली। CPU जीता।</string>
     <string name="checkers_resigned_black">काले ने हार मान ली। सफेद जीता।</string>
     <string name="checkers_resigned_white">सफेद ने हार मान ली। काला जीता।</string>
     <string name="checkers_quit">छोड़ें</string>
     <string name="checkers_new_game">नया खेल</string>
     <string name="mini_chess_moves_title">मोहरे कैसे चलते हैं</string>
-    <string name="mini_checkers_draw">बराबरी: दोनों तरफ़ से 15 चालें बिना कोई गोटी मारे।</string>
+    <string name="mini_checkers_draw">बराबरी: दोनों तरफ़ से 15 चालें सिर्फ़ राजा से, बिना कोई गोटी मारे।</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d चाल में पक्की जीत</item>
         <item quantity="other">%1$d चालों में पक्की जीत</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d चाल में गोटी न मरी तो बराबरी</item>
-        <item quantity="other">%1$d चालों में गोटी न मरी तो बराबरी</item>
+        <item quantity="one">%1$d चाल में सिर्फ़ राजा चले और गोटी न मरी तो बराबरी</item>
+        <item quantity="other">%1$d चालों में सिर्फ़ राजा चले और गोटी न मरी तो बराबरी</item>
     </plurals>
     <string name="chess_piece_king">राजा</string>
     <string name="chess_piece_queen">वज़ीर</string>
@@ -990,7 +990,7 @@
     <string name="learn_section_certificates">%1$d / %2$d प्रमाणपत्र</string>
     <string name="learn_title">गणित सीखें</string>
     <string name="learn_unit_progress">%1$d / %2$d प्रमाणपत्र</string>
-    <string name="learn_topic_intro">इन्हें क्रम से पूरा करो। हर कदम पिछले पर टिका है।</string>
+    <string name="learn_topic_intro">इन्हें क्रम से पूरा करें। हर कदम पिछले पर टिका है।</string>
     <string name="learn_topic_certificates">%2$d में से %1$d प्रमाणित</string>
     <string name="learn_ages">आयु %1$s</string>
 
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">शून्य से पैमाना पढ़ना, और वे इकाइयाँ जिनमें लंबाई गिनी जाती है।</string>
     <string name="learn_measurement_length_ruler_title">पैमाना पढ़ना</string>
     <string name="learn_measurement_length_ruler_summary">शून्य से शुरू करें और दूसरा सिरा पढ़ें।</string>
-    <string name="learn_measurement_length_ruler_s1_body">पैमाने पर बराबर कदमों के निशान होते हैं, इसलिए लंबाई बस यह गिनती है कि चीज़ ऐसे कितने कदम घेरती है।</string>
+    <string name="learn_measurement_length_ruler_s1_body">पैमाने पर बराबर कदमों के निशान होते हैं, इसलिए लंबाई यह गिनती है कि चीज़ ऐसे कितने कदम घेरती है, साथ में किसी अधूरे कदम का हिस्सा भी।</string>
     <string name="learn_measurement_length_ruler_s2_body">चीज़ को 0 से मिलाएँ और पढ़ें कि उसका दूसरा सिरा किस निशान तक पहुँचता है। कहीं और से शुरू करें तो पढ़ाई उतनी ज़्यादा आएगी जितना आपने छोड़ा।</string>
     <string name="learn_measurement_length_ruler_s3_question">यह पेंसिल कितनी लंबी है?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">शून्य से गिनें तो इसका दूसरा सिरा नौवें निशान तक पहुँचता है।</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">हर सेंटीमीटर में दस मिलीमीटर होते हैं, इसलिए तीन सेंटीमीटर में तीन दहाई।</string>
     <string name="learn_measurement_length_units_title">मिलीमीटर से किलोमीटर तक</string>
     <string name="learn_measurement_length_units_summary">बड़ी लंबाई के लिए बड़ी इकाई।</string>
-    <string name="learn_measurement_length_units_s1_body">लंबाई की इकाइयाँ दस-दस के हिसाब से चढ़ती हैं: दस मिलीमीटर का एक सेंटीमीटर, सौ सेंटीमीटर का एक मीटर, हज़ार मीटर का एक किलोमीटर।</string>
+    <string name="learn_measurement_length_units_s1_body">लंबाई की हर इकाई अपने से छोटी इकाई की दस, सौ या हज़ार गुना होती है: दस मिलीमीटर का एक सेंटीमीटर, सौ सेंटीमीटर का एक मीटर, हज़ार मीटर का एक किलोमीटर।</string>
     <string name="learn_measurement_length_units_s2_body">छोटी इकाई से वही लंबाई ढकने के लिए उसकी ज़्यादा गिनती चाहिए, इसलिए सीढ़ी पर नीचे उतरना गुणा करता है।</string>
     <string name="learn_measurement_length_units_s3_question">एक रिबन 3 m लंबा है। यह कितने सेंटीमीटर हुआ?</string>
     <string name="learn_measurement_length_units_s3_explanation">एक मीटर में सौ सेंटीमीटर होते हैं, इसलिए तीन मीटर यानी ऐसे तीन सैकड़े।</string>
-    <string name="learn_measurement_length_units_s4_body">उल्टी दिशा में भाग होता है। हज़ार मीटर मिलकर एक किलोमीटर बनते हैं, इसीलिए सड़क के बोर्ड कभी मीटर में नहीं गिनते।</string>
+    <string name="learn_measurement_length_units_s4_body">उल्टी दिशा में भाग होता है। हज़ार मीटर मिलकर एक किलोमीटर बनते हैं, इसीलिए अगले शहर की दूरी किलोमीटर में लिखी जाती है।</string>
     <string name="learn_measurement_length_units_s5_question">सड़क का बोर्ड बताता है कि अगला शहर 2 km दूर है। यह कितने मीटर हुआ?</string>
     <string name="learn_measurement_length_units_s5_explanation">हर किलोमीटर हज़ार मीटर है, इसलिए दो किलोमीटर दो हज़ार।</string>
     <string name="learn_measurement_length_units_s6_question">दो शहरों के बीच की दूरी के लिए कौन-सी इकाई ठीक है?</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">सिक्के गिनना</string>
     <string name="learn_measurement_money_coins_summary">सिक्के नहीं, मान गिनें।</string>
     <string name="learn_measurement_money_coins_s1_body">सब सिक्कों का मान एक जैसा नहीं होता, इसलिए मुट्ठी भर सिक्के उनके मान से गिने जाते हैं, गिनती से नहीं।</string>
-    <string name="learn_measurement_money_coins_s2_body">सबसे बड़े सिक्के से शुरू करें और बाकी आगे गिनें। उल्टा करने पर हर कदम पर बड़ी संख्या दिमाग़ में रखनी पड़ती है।</string>
+    <string name="learn_measurement_money_coins_s2_body">सबसे बड़े सिक्के से शुरू करें और बाकी आगे गिनें। बड़े सिक्के पहले ही कुल का ज़्यादातर हिस्सा पूरा कर देते हैं, इसलिए बीच के जोड़ गोल संख्याएँ रहते हैं और आगे जोड़ना आसान होता है।</string>
     <string name="learn_measurement_money_coins_s3_question">यह कितने सेंट है?</string>
     <string name="learn_measurement_money_coins_s3_explanation">हर सिक्का जुड़ने पर पचास, फिर सत्तर, फिर अस्सी।</string>
     <string name="learn_measurement_money_coins_s4_body">हर सिक्का अपना मान लाता है, इसलिए सिक्के गिनने से कुछ पता नहीं चलता जब तक हर एक का मान न पता हो।</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">जग पढ़ना</string>
     <string name="learn_measurement_capacity_jugs_summary">निशान नहीं, स्तर पढ़ें।</string>
     <string name="learn_measurement_capacity_jugs_s1_body">धारिता यानी कोई बर्तन कितना समा सकता है। जग के किनारे पर निशान होते हैं, और द्रव जिस स्तर तक पहुँचे, वही पढ़ाई है।</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">जग पर संख्याएँ आमतौर पर एक नहीं, दो सौ मिलीलीटर की दूरी पर होती हैं। उन्हें पढ़ने की जगह गिनने से 400 ml, 2 बन जाता है।</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">इस जग पर संख्याएँ एक नहीं, दो सौ मिलीलीटर की दूरी पर हैं। उन्हें पढ़ने की जगह गिनने से 400 ml, 2 बन जाता है।</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">स्तर 400 और 600 के बीचोंबीच वाले निशान पर है।</string>
     <string name="learn_measurement_capacity_jugs_s4_body">हज़ार मिलीलीटर से एक लीटर भरता है, वही हज़ार जो ग्राम को किलोग्राम में बदलता है।</string>
     <string name="learn_measurement_capacity_jugs_s5_question">इस जग में कितने मिलीलीटर हैं?</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">एक किलोग्राम 1000 g पर ख़त्म होता है, और 1200 उससे आगे है।</string>
     <string name="learn_unit_measurement_mass_q6_explanation">हर लीटर हज़ार मिलीलीटर है, इसलिए दो लीटर दो हज़ार।</string>
     <string name="learn_unit_measurement_metric_title">मीट्रिक इकाइयाँ</string>
-    <string name="learn_unit_measurement_metric_summary">हर बदलाव दस, सौ या हज़ार की छलांग है।</string>
+    <string name="learn_unit_measurement_metric_summary">हर बदलाव दस की किसी घात से गुणा या भाग है।</string>
     <string name="learn_measurement_metric_ladder_title">दस की सीढ़ी</string>
     <string name="learn_measurement_metric_ladder_summary">एक प्रणाली, तीन राशियाँ।</string>
-    <string name="learn_measurement_metric_ladder_s1_body">मीट्रिक इकाइयाँ दस पर बनी हैं, इसलिए बदलाव हमेशा 10, 100 या 1000 से गुणा या भाग ही होता है।</string>
+    <string name="learn_measurement_metric_ladder_s1_body">मीट्रिक इकाइयाँ दस पर बनी हैं, इसलिए बदलाव हमेशा 10, 100, 1000 या दस की किसी और घात से गुणा या भाग होता है।</string>
     <string name="learn_measurement_metric_ladder_s2_body">उपसर्ग बताता है कि इकाई सीढ़ी पर कहाँ है। मिली यानी हज़ारवाँ, सेंटी यानी सौवाँ, और किलो यानी हज़ार।</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">मिली यानी हज़ारवाँ भाग, इन उपसर्गों में सबसे छोटा कदम।</string>
     <string name="learn_measurement_metric_ladder_s4_body">लंबाई, द्रव्यमान और धारिता एक ही सीढ़ी पर हैं, इसलिए एक ही तथ्य तीनों पर लागू होते हैं: किलोमीटर में हज़ार मीटर, किलोग्राम में हज़ार ग्राम, लीटर में हज़ार मिलीलीटर।</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">हर घंटे की दूरी</string>
     <string name="learn_measurement_speed_rate_summary">चाल यानी समय की एक इकाई में दूरी।</string>
     <string name="learn_measurement_speed_rate_s1_body">चाल बताती है कि समय की एक इकाई में कितनी दूरी तय होती है। 60 km/h से चलती कार हर घंटे 60 km और जोड़ती है।</string>
-    <string name="learn_measurement_speed_rate_s2_body">बराबर कदम ही इसे चाल बनाते हैं। कदम बराबर न रहें तो संख्या पढ़ी हुई चाल नहीं, औसत बन जाती है।</string>
+    <string name="learn_measurement_speed_rate_s2_body">बराबर कदम का मतलब है एक जैसी चाल। कदम बराबर न हों, तब भी दूरी को समय से भाग देने पर चाल ही मिलती है: औसत चाल।</string>
     <string name="learn_measurement_speed_rate_s3_question">एक साइकिल सवार हर घंटे 15 km चलाता है। 4 घंटे में कितने किलोमीटर?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">हर घंटा 15 km और जोड़ता है, इसलिए चार घंटे उसका चार गुना जोड़ते हैं।</string>
     <string name="learn_measurement_speed_rate_s4_body">इसे उल्टा करें तो दूरी बँटती है: 3 घंटे में 150 km यानी हर घंटे में 50 km।</string>
@@ -1613,7 +1613,7 @@
     <string name="learn_shared_which_inequality_line">यह रेखा कौन-सी असमिका दिखाती है?</string>
 
     <string name="learn_shape_guide_title">आकृति गाइड</string>
-    <string name="learn_shape_guide_intro">%1$d आकृतियाँ, बनी हुई और नाम के साथ। किसी एक को छुओ और उसे फिर से बनते देखो।</string>
+    <string name="learn_shape_guide_intro">%1$d आकृतियाँ, बनी हुई और नाम के साथ। किसी एक को छुएँ और उसे फिर से बनते देखें।</string>
     <string name="learn_rules_guide_title">नियम गाइड</string>
     <string name="learn_rules_guide_intro">%1$d नियम और चिह्न के तरीके, बुनियादी बातें एक जगह।</string>
 
@@ -1696,7 +1696,7 @@
     </plurals>
     <string name="learn_fig_area">क्षेत्रफल = %1$d %2$s²</string>
     <string name="learn_fig_perimeter">परिमाप = %1$d %2$s</string>
-    <string name="learn_fig_take_from_both_sides">दोनों तरफ से %1$d घटाओ</string>
+    <string name="learn_fig_take_from_both_sides">दोनों तरफ से %1$d घटाएँ</string>
     <plurals name="learn_fig_rows">
         <item quantity="one">%1$d पंक्ति</item>
         <item quantity="other">%1$d पंक्तियाँ</item>

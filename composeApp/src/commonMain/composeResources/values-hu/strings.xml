@@ -147,7 +147,7 @@
     <string name="checkers_lost">A CPU nyert.</string>
     <string name="checkers_black_wins">A sötét nyert.</string>
     <string name="checkers_white_wins">A világos nyert.</string>
-    <string name="checkers_draw">Döntetlen: 40-40 lépés ütés nélkül.</string>
+    <string name="checkers_draw">Döntetlen: 40-40 lépés csak dámákkal, ütés nélkül.</string>
     <string name="checkers_resign">Feladás</string>
     <string name="checkers_resigned">Feladtad. A CPU nyert.</string>
     <string name="checkers_resigned_black">A sötét feladta. A világos nyert.</string>
@@ -432,14 +432,14 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="mini_chess_move_counter">%1$d / %2$d. lépés</string>
     <string name="mini_chess_draw_warning">= patt (döntetlen, nem győzelem)</string>
     <string name="mini_chess_moves_title">Hogyan lépnek a bábuk</string>
-    <string name="mini_checkers_draw">Döntetlen: 15-15 lépés ütés nélkül.</string>
+    <string name="mini_checkers_draw">Döntetlen: 15-15 lépés csak dámákkal, ütés nélkül.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Kikényszerített győzelem %1$d lépésben</item>
         <item quantity="other">Kikényszerített győzelem %1$d lépésben</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Döntetlen %1$d lépés múlva ütés nélkül</item>
-        <item quantity="other">Döntetlen %1$d lépés múlva ütés nélkül</item>
+        <item quantity="one">Döntetlen %1$d lépés múlva csak dámákkal, ütés nélkül</item>
+        <item quantity="other">Döntetlen %1$d lépés múlva csak dámákkal, ütés nélkül</item>
     </plurals>
     <string name="chess_piece_king">Király</string>
     <string name="chess_piece_queen">Vezér</string>

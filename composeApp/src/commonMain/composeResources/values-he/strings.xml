@@ -147,7 +147,7 @@
     <string name="checkers_lost">המעבד ניצח.</string>
     <string name="checkers_black_wins">השחור ניצח.</string>
     <string name="checkers_white_wins">הלבן ניצח.</string>
-    <string name="checkers_draw">תיקו: 40 מסעים לכל צד בלי אכילה.</string>
+    <string name="checkers_draw">תיקו: 40 מסעים לכל צד רק במלכות ובלי אכילה.</string>
     <string name="checkers_resign">כניעה</string>
     <string name="checkers_resigned">פרשת. המעבד מנצח.</string>
     <string name="checkers_resigned_black">השחור פרש. הלבן מנצח.</string>
@@ -436,16 +436,16 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="mini_chess_move_counter">מהלך %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= פט (תיקו, לא ניצחון)</string>
     <string name="mini_chess_moves_title">איך הכלים זזים</string>
-    <string name="mini_checkers_draw">תיקו: 15 מסעים לכל צד בלי אכילה.</string>
+    <string name="mini_checkers_draw">תיקו: 15 מסעים לכל צד רק במלכות ובלי אכילה.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">ניצחון כפוי בעוד %1$d מסע</item>
         <item quantity="two">ניצחון כפוי בעוד %1$d מסעים</item>
         <item quantity="other">ניצחון כפוי בעוד %1$d מסעים</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">תיקו בעוד %1$d מסע בלי אכילה</item>
-        <item quantity="two">תיקו בעוד %1$d מסעים בלי אכילה</item>
-        <item quantity="other">תיקו בעוד %1$d מסעים בלי אכילה</item>
+        <item quantity="one">תיקו בעוד %1$d מסע רק במלכות ובלי אכילה</item>
+        <item quantity="two">תיקו בעוד %1$d מסעים רק במלכות ובלי אכילה</item>
+        <item quantity="other">תיקו בעוד %1$d מסעים רק במלכות ובלי אכילה</item>
     </plurals>
     <string name="chess_piece_king">מלך</string>
     <string name="chess_piece_queen">מלכה</string>

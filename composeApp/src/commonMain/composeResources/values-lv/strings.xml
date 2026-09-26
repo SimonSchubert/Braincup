@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU uzvar.</string>
     <string name="checkers_black_wins">Melnie uzvar.</string>
     <string name="checkers_white_wins">Baltie uzvar.</string>
-    <string name="checkers_draw">Neizšķirts: katram 40 gājieni bez sišanas.</string>
+    <string name="checkers_draw">Neizšķirts: katram 40 gājieni tikai ar dāmām un bez sišanas.</string>
     <string name="checkers_resign">Padoties</string>
     <string name="checkers_resigned">Tu padevies. Uzvar CPU.</string>
     <string name="checkers_resigned_black">Melnie padevās. Uzvar baltie.</string>
@@ -436,16 +436,16 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="mini_chess_move_counter">Gājiens %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pats (neizšķirts, ne uzvara)</string>
     <string name="mini_chess_moves_title">Kā figūras pārvietojas</string>
-    <string name="mini_checkers_draw">Neizšķirts: katram 15 gājieni bez sišanas.</string>
+    <string name="mini_checkers_draw">Neizšķirts: katram 15 gājieni tikai ar dāmām un bez sišanas.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="zero">Piespiedu uzvara %1$d gājienos</item>
         <item quantity="one">Piespiedu uzvara %1$d gājienā</item>
         <item quantity="other">Piespiedu uzvara %1$d gājienos</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="zero">Neizšķirts pēc %1$d gājieniem bez sišanas</item>
-        <item quantity="one">Neizšķirts pēc %1$d gājiena bez sišanas</item>
-        <item quantity="other">Neizšķirts pēc %1$d gājieniem bez sišanas</item>
+        <item quantity="zero">Neizšķirts pēc %1$d gājieniem tikai ar dāmām un bez sišanas</item>
+        <item quantity="one">Neizšķirts pēc %1$d gājiena tikai ar dāmām un bez sišanas</item>
+        <item quantity="other">Neizšķirts pēc %1$d gājieniem tikai ar dāmām un bez sišanas</item>
     </plurals>
     <string name="chess_piece_king">Karalis</string>
     <string name="chess_piece_queen">Dāma</string>

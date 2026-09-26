@@ -741,7 +741,7 @@
     <string name="checkers_lost">De CPU wint.</string>
     <string name="checkers_black_wins">Zwart wint.</string>
     <string name="checkers_white_wins">Wit wint.</string>
-    <string name="checkers_draw">Remise: elk 40 zetten zonder te slaan.</string>
+    <string name="checkers_draw">Remise: elk 40 zetten alleen met dammen en zonder te slaan.</string>
     <string name="checkers_resign">Opgeven</string>
     <string name="checkers_resigned">Je hebt opgegeven. De CPU wint.</string>
     <string name="checkers_resigned_black">Zwart heeft opgegeven. Wit wint.</string>
@@ -777,14 +777,14 @@
     <string name="achievement_gold_simon_says_desc">Win een gouden medaille in Simon Says</string>
 
     <string name="mini_chess_moves_title">Zo bewegen de stukken</string>
-    <string name="mini_checkers_draw">Remise: elk 15 zetten zonder te slaan.</string>
+    <string name="mini_checkers_draw">Remise: elk 15 zetten alleen met dammen en zonder te slaan.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Gedwongen winst in %1$d zet</item>
         <item quantity="other">Gedwongen winst in %1$d zetten</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Remise over %1$d zet zonder slaan</item>
-        <item quantity="other">Remise over %1$d zetten zonder slaan</item>
+        <item quantity="one">Remise over %1$d zet alleen met dammen en zonder slaan</item>
+        <item quantity="other">Remise over %1$d zetten alleen met dammen en zonder slaan</item>
     </plurals>
     <string name="chess_piece_king">Koning</string>
     <string name="chess_piece_queen">Dame</string>
@@ -1005,7 +1005,7 @@
     <string name="learn_unit_measurement_length_summary">Een liniaal vanaf nul aflezen, en de eenheden waarin een lengte telt.</string>
     <string name="learn_measurement_length_ruler_title">De liniaal aflezen</string>
     <string name="learn_measurement_length_ruler_summary">Begin bij nul en lees het andere eind af.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Een liniaal is in gelijke stappen verdeeld, dus een lengte is nooit meer dan het aantal van die stappen dat het voorwerp bedekt.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Een liniaal is in gelijke stappen verdeeld, dus een lengte is het aantal van die stappen dat het voorwerp bedekt, plus het stukje stap dat overblijft.</string>
     <string name="learn_measurement_length_ruler_s2_body">Leg het voorwerp op de 0 en lees het streepje af dat het andere eind haalt. Begin je ergens anders, dan is de meting precies zoveel te lang als je hebt overgeslagen.</string>
     <string name="learn_measurement_length_ruler_s3_question">Hoe lang is dit potlood?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Het andere eind haalt het negende streepje, geteld vanaf nul.</string>
@@ -1016,11 +1016,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">In elke centimeter zitten tien millimeter, dus in drie centimeter zitten drie tientallen.</string>
     <string name="learn_measurement_length_units_title">Van millimeter tot kilometer</string>
     <string name="learn_measurement_length_units_summary">Grotere lengtes vragen grotere eenheden.</string>
-    <string name="learn_measurement_length_units_s1_body">Lengte-eenheden klimmen met tientallen: tien millimeter maken een centimeter, honderd centimeter maken een meter, duizend meter maken een kilometer.</string>
+    <string name="learn_measurement_length_units_s1_body">Elke lengte-eenheid is tien, honderd of duizend keer de vorige: tien millimeter maken een centimeter, honderd centimeter maken een meter, duizend meter maken een kilometer.</string>
     <string name="learn_measurement_length_units_s2_body">Van een kleinere eenheid heb je er meer nodig voor dezelfde lengte, dus een sport omlaag betekent vermenigvuldigen.</string>
     <string name="learn_measurement_length_units_s3_question">Een lint is 3 m lang. Hoeveel centimeter is dat?</string>
     <string name="learn_measurement_length_units_s3_explanation">Eén meter is honderd centimeter, dus drie meter zijn drie van die honderdtallen.</string>
-    <string name="learn_measurement_length_units_s4_body">De andere kant op wordt er gedeeld. Duizend meter worden samen één kilometer, en daarom telt een wegwijzer nooit in meters.</string>
+    <string name="learn_measurement_length_units_s4_body">De andere kant op wordt er gedeeld. Duizend meter worden samen één kilometer, en daarom staat de afstand naar de volgende stad in kilometers.</string>
     <string name="learn_measurement_length_units_s5_question">Op een bord staat 2 km tot de volgende stad. Hoeveel meter is dat?</string>
     <string name="learn_measurement_length_units_s5_explanation">Elke kilometer is duizend meter, dus twee ervan zijn tweeduizend.</string>
     <string name="learn_measurement_length_units_s6_question">Welke eenheid past bij de afstand tussen twee steden?</string>
@@ -1088,7 +1088,7 @@
     <string name="learn_measurement_money_coins_title">Munten tellen</string>
     <string name="learn_measurement_money_coins_summary">Tel de waarde, niet de munten.</string>
     <string name="learn_measurement_money_coins_s1_body">Munten zijn niet allemaal evenveel waard, dus een handvol tel je op waarde en niet op het aantal stukken.</string>
-    <string name="learn_measurement_money_coins_s2_body">Begin bij de grootste munt en tel de rest erbij. Andersom moet je bij elke stap een groter getal onthouden.</string>
+    <string name="learn_measurement_money_coins_s2_body">Begin bij de grootste munt en tel de rest erbij. De grote munten leveren eerst het meeste van het totaal, dus de tussenstanden blijven ronde getallen waar je makkelijk bij optelt.</string>
     <string name="learn_measurement_money_coins_s3_question">Hoeveel cent is dit?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Vijftig, dan zeventig, dan tachtig terwijl elke munt erbij komt.</string>
     <string name="learn_measurement_money_coins_s4_body">Elke munt brengt zijn eigen waarde mee, dus het aantal munten zegt niets zolang je niet weet wat ze elk waard zijn.</string>
@@ -1143,7 +1143,7 @@
     <string name="learn_measurement_capacity_jugs_title">De maatbeker aflezen</string>
     <string name="learn_measurement_capacity_jugs_summary">Lees het niveau af, niet de streepjes.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">Inhoud is hoeveel er in een kan gaat. Een maatbeker heeft streepjes op de zijkant, en het niveau waar de vloeistof komt is de meting.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">De getallen op een maatbeker liggen meestal tweehonderd milliliter uit elkaar, niet één. Ze tellen in plaats van ze te lezen is hoe 400 ml een 2 wordt.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">De getallen op deze maatbeker liggen tweehonderd milliliter uit elkaar, niet één. Ze tellen in plaats van ze te lezen is hoe 400 ml een 2 wordt.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">Het niveau staat op het streepje halverwege tussen de 400 en de 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Duizend milliliter vullen één liter, dezelfde duizend die van grammen kilogrammen maakt.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Hoeveel milliliter zit er in deze maatbeker?</string>
@@ -1167,10 +1167,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Een kilogram houdt op bij 1000 g, en 1200 gaat daaroverheen.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Elke liter is duizend milliliter, dus twee liter zijn tweeduizend.</string>
     <string name="learn_unit_measurement_metric_title">Metrieke eenheden</string>
-    <string name="learn_unit_measurement_metric_summary">Elke omrekening is een sprong van tien, honderd of duizend.</string>
+    <string name="learn_unit_measurement_metric_summary">Elke omrekening is keer of gedeeld door een macht van tien.</string>
     <string name="learn_measurement_metric_ladder_title">De ladder van tien</string>
     <string name="learn_measurement_metric_ladder_summary">Eén stelsel, drie grootheden.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Metrieke eenheden zijn op tientallen gebouwd, dus een omrekening is nooit iets anders dan keer of gedeeld door 10, 100 of 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Metrieke eenheden zijn op tientallen gebouwd, dus een omrekening is altijd keer of gedeeld door 10, 100, 1000 of een andere macht van tien.</string>
     <string name="learn_measurement_metric_ladder_s2_body">Het voorvoegsel zegt hoever op de ladder een eenheid zit. Milli is een duizendste, centi een honderdste, en kilo is duizend.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Milli is een duizendste, de kleinste stap die een van deze voorvoegsels noemt.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Lengte, massa en inhoud delen dezelfde ladder, dus één stel feiten dekt alle drie: duizend meter in een kilometer, duizend gram in een kilogram, duizend milliliter in een liter.</string>
@@ -1211,7 +1211,7 @@
     <string name="learn_measurement_speed_rate_title">Afstand per uur</string>
     <string name="learn_measurement_speed_rate_summary">Snelheid is afstand in één tijdseenheid.</string>
     <string name="learn_measurement_speed_rate_s1_body">Snelheid zegt hoeveel afstand er in één tijdseenheid wordt afgelegd. Een auto op 60 km/h legt er 60 km bij voor elk uur dat hij doorrijdt.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Gelijke stappen maken het pas een snelheid. Zodra de stappen niet meer gelijk zijn, is het getal een gemiddelde en geen aflezing.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Gelijke stappen betekenen een constante snelheid. Zijn de stappen niet gelijk, dan is afstand gedeeld door tijd nog steeds een snelheid: de gemiddelde.</string>
     <string name="learn_measurement_speed_rate_s3_question">Een fietser rijdt 15 km per uur. Hoeveel kilometer in 4 uur?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Elk uur legt er weer 15 km bij, dus vier uur leggen er vier bij.</string>
     <string name="learn_measurement_speed_rate_s4_body">Andersom wordt de afstand gedeeld: 150 km in 3 uur zijn 50 km in elk uur.</string>
@@ -2066,12 +2066,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 en 0.12 liggen buiten het venster, en 1.2 * 10^3 is maar 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Piepkleine getallen</string>
     <string name="learn_arithmetic_standard_form_small_summary">Dezelfde lijn achteruit gelopen, met negatieve machten.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Kleine getallen zijn dezelfde lijn achteruit gelopen. Elke stap deelt door tien, en de macht telt die stappen als negatief: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Kleine getallen zijn dezelfde lijn achteruit gelopen. Elke stap deelt door tien, en de macht telt die stappen als negatief: 6; 0.6; 0.06; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">De min in de macht zegt welke kant je op loopt, niet dat het getal negatief is. Een getal in wetenschappelijke notatie is alleen negatief als het voorste getal dat is.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Tel de sprongen van 8.2 omlaag naar dit getal.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Vier stappen links van 8.2, en 82 ligt buiten het venster van 1 tot 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Loop met de komma vier sprongen naar links.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier sprongen links van 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier sprongen links van 5.6: 0.56; 0.056; 0.0056; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Een negatief voorste getal en een negatieve macht betekenen twee verschillende dingen, en ze kunnen los van elkaar voorkomen.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">De meest negatieve macht loopt het verst naar links, dus die is de kleinste.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Maar één hiervan heeft een macht van -4, en 0.0009 ligt onder elk ander getal hier.</string>

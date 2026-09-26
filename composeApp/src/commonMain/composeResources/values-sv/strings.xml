@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU vinner.</string>
     <string name="checkers_black_wins">Svart vinner.</string>
     <string name="checkers_white_wins">Vit vinner.</string>
-    <string name="checkers_draw">Oavgjort: 40 drag var utan att någon slagits.</string>
+    <string name="checkers_draw">Oavgjort: 40 drag var bara med damer och utan att någon slagits.</string>
     <string name="checkers_resign">Ge upp</string>
     <string name="checkers_resigned">Du gav upp. CPU vinner.</string>
     <string name="checkers_resigned_black">Svart gav upp. Vit vinner.</string>
@@ -430,14 +430,14 @@
     <string name="mini_chess_move_counter">Drag %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (remi, inte vinst)</string>
     <string name="mini_chess_moves_title">Hur pjäserna går</string>
-    <string name="mini_checkers_draw">Oavgjort: 15 drag var utan att någon slagits.</string>
+    <string name="mini_checkers_draw">Oavgjort: 15 drag var bara med damer och utan att någon slagits.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Tvingad vinst om %1$d drag</item>
         <item quantity="other">Tvingad vinst om %1$d drag</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Oavgjort om %1$d drag utan slag</item>
-        <item quantity="other">Oavgjort om %1$d drag utan slag</item>
+        <item quantity="one">Oavgjort om %1$d drag bara med damer och utan slag</item>
+        <item quantity="other">Oavgjort om %1$d drag bara med damer och utan slag</item>
     </plurals>
     <string name="chess_piece_king">Kung</string>
     <string name="chess_piece_queen">Dam</string>

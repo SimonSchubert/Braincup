@@ -768,7 +768,7 @@
     <string name="checkers_lost">CPU menang.</string>
     <string name="checkers_black_wins">Hitam menang.</string>
     <string name="checkers_white_wins">Putih menang.</string>
-    <string name="checkers_draw">Seri: 40 langkah masing-masing tanpa makan.</string>
+    <string name="checkers_draw">Seri: 40 langkah masing-masing hanya dengan raja dan tanpa makan.</string>
     <string name="checkers_resign">Menyerah</string>
     <string name="checkers_resigned">Kamu menyerah. CPU menang.</string>
     <string name="checkers_resigned_black">Hitam menyerah. Putih menang.</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">Keluar</string>
     <string name="checkers_new_game">Permainan baru</string>
     <string name="mini_chess_moves_title">Cara buah catur bergerak</string>
-    <string name="mini_checkers_draw">Seri: 15 langkah masing-masing tanpa makan.</string>
+    <string name="mini_checkers_draw">Seri: 15 langkah masing-masing hanya dengan raja dan tanpa makan.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Menang pasti dalam %1$d langkah</item>
         <item quantity="other">Menang pasti dalam %1$d langkah</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Seri dalam %1$d langkah tanpa makan</item>
-        <item quantity="other">Seri dalam %1$d langkah tanpa makan</item>
+        <item quantity="one">Seri dalam %1$d langkah hanya dengan raja dan tanpa makan</item>
+        <item quantity="other">Seri dalam %1$d langkah hanya dengan raja dan tanpa makan</item>
     </plurals>
     <string name="chess_piece_king">Raja</string>
     <string name="chess_piece_queen">Menteri</string>
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">Membaca penggaris dari nol, dan satuan yang dipakai untuk menghitung panjang.</string>
     <string name="learn_measurement_length_ruler_title">Membaca penggaris</string>
     <string name="learn_measurement_length_ruler_summary">Mulai dari nol dan baca ujung satunya.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Penggaris ditandai dengan langkah yang sama, jadi panjang tidak lain adalah hitungan berapa banyak langkah yang ditutupi benda itu.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Penggaris ditandai dengan langkah yang sama, jadi panjang adalah hitungan berapa banyak langkah yang ditutupi benda itu, ditambah sisa langkah yang belum penuh.</string>
     <string name="learn_measurement_length_ruler_s2_body">Tempatkan benda tepat di 0 dan baca tanda yang dicapai ujung satunya. Mulai dari tempat lain, dan bacaannya lebih panjang sebanyak yang terlewat.</string>
     <string name="learn_measurement_length_ruler_s3_question">Berapa panjang pensil ini?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Ujung satunya mencapai tanda kesembilan, dihitung dari nol.</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">Setiap sentimeter berisi sepuluh milimeter, jadi tiga sentimeter berisi tiga puluhan.</string>
     <string name="learn_measurement_length_units_title">Milimeter sampai kilometer</string>
     <string name="learn_measurement_length_units_summary">Panjang yang lebih besar butuh satuan yang lebih besar.</string>
-    <string name="learn_measurement_length_units_s1_body">Satuan panjang naik per sepuluh: sepuluh milimeter menjadi satu sentimeter, seratus sentimeter menjadi satu meter, seribu meter menjadi satu kilometer.</string>
+    <string name="learn_measurement_length_units_s1_body">Setiap satuan panjang bernilai sepuluh, seratus, atau seribu kali satuan di bawahnya: sepuluh milimeter menjadi satu sentimeter, seratus sentimeter menjadi satu meter, seribu meter menjadi satu kilometer.</string>
     <string name="learn_measurement_length_units_s2_body">Satuan yang lebih kecil butuh lebih banyak untuk menutupi panjang yang sama, jadi turun satu anak tangga berarti mengalikan.</string>
     <string name="learn_measurement_length_units_s3_question">Sebuah pita panjangnya 3 m. Berapa sentimeter itu?</string>
     <string name="learn_measurement_length_units_s3_explanation">Satu meter adalah seratus sentimeter, jadi tiga meter adalah tiga ratusan itu.</string>
-    <string name="learn_measurement_length_units_s4_body">Ke arah sebaliknya berarti membagi. Seribu meter terkumpul menjadi satu kilometer, itulah sebabnya rambu jalan tidak pernah menghitung dalam meter.</string>
+    <string name="learn_measurement_length_units_s4_body">Ke arah sebaliknya berarti membagi. Seribu meter terkumpul menjadi satu kilometer, itulah sebabnya jarak ke kota berikutnya ditulis dalam kilometer.</string>
     <string name="learn_measurement_length_units_s5_question">Rambu jalan menunjukkan 2 km ke kota berikutnya. Berapa meter itu?</string>
     <string name="learn_measurement_length_units_s5_explanation">Setiap kilometer adalah seribu meter, jadi dua kilometer adalah dua ribu.</string>
     <string name="learn_measurement_length_units_s6_question">Satuan mana yang cocok untuk jarak antara dua kota?</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">Menghitung koin</string>
     <string name="learn_measurement_money_coins_summary">Hitung nilainya, bukan koinnya.</string>
     <string name="learn_measurement_money_coins_s1_body">Nilai koin tidak sama satu dengan yang lain, jadi segenggam koin dihitung menurut nilainya, bukan menurut banyaknya keping.</string>
-    <string name="learn_measurement_money_coins_s2_body">Mulai dari koin terbesar lalu hitung maju sisanya. Kalau dibalik, kamu harus mengingat bilangan yang lebih besar di setiap langkah.</string>
+    <string name="learn_measurement_money_coins_s2_body">Mulai dari koin terbesar lalu hitung maju sisanya. Koin besar sudah menutup sebagian besar jumlah di awal, jadi jumlah sementaranya tetap angka bulat yang mudah ditambah.</string>
     <string name="learn_measurement_money_coins_s3_question">Berapa sen ini?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Lima puluh, lalu tujuh puluh, lalu delapan puluh saat setiap koin ditambahkan.</string>
     <string name="learn_measurement_money_coins_s4_body">Setiap koin membawa nilainya sendiri, jadi menghitung koinnya tidak memberi tahu apa pun sebelum kamu tahu nilai masing-masing.</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">Membaca teko ukur</string>
     <string name="learn_measurement_capacity_jugs_summary">Baca permukaannya, bukan tandanya.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">Kapasitas adalah seberapa banyak isi sebuah wadah. Teko ditandai di sepanjang sisinya, dan tinggi permukaan cairan itulah bacaannya.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">Angka di sisi teko biasanya berjarak dua ratus mililiter, bukan satu. Menghitungnya alih-alih membacanya membuat 400 ml menjadi 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">Angka di sisi teko ini berjarak dua ratus mililiter, bukan satu. Menghitungnya alih-alih membacanya membuat 400 ml menjadi 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">Permukaannya berada di tanda tepat di tengah antara 400 dan 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Seribu mililiter mengisi satu liter, seribu yang sama yang mengubah gram menjadi kilogram.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Berapa mililiter isi teko ini?</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Satu kilogram berhenti di 1000 g, dan 1200 melewatinya.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Setiap liter adalah seribu mililiter, jadi dua liter adalah dua ribu.</string>
     <string name="learn_unit_measurement_metric_title">Satuan metrik</string>
-    <string name="learn_unit_measurement_metric_summary">Setiap konversi adalah lompatan sepuluh, seratus, atau seribu.</string>
+    <string name="learn_unit_measurement_metric_summary">Setiap konversi berarti mengalikan atau membagi dengan pangkat sepuluh.</string>
     <string name="learn_measurement_metric_ladder_title">Tangga sepuluh</string>
     <string name="learn_measurement_metric_ladder_summary">Satu sistem, tiga besaran.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Satuan metrik dibangun atas sepuluh, jadi konversi tidak lain adalah mengalikan atau membagi dengan 10, 100, atau 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Satuan metrik dibangun atas sepuluh, jadi konversi selalu mengalikan atau membagi dengan 10, 100, 1000, atau pangkat sepuluh lainnya.</string>
     <string name="learn_measurement_metric_ladder_s2_body">Awalan menyatakan di mana satuan itu berada di tangga. Mili berarti seperseribu, senti seperseratus, dan kilo seribu.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Mili berarti seperseribu, langkah terkecil yang disebut awalan-awalan ini.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Panjang, massa, dan kapasitas memakai tangga yang sama, jadi satu set fakta berlaku untuk ketiganya: seribu meter dalam satu kilometer, seribu gram dalam satu kilogram, seribu mililiter dalam satu liter.</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">Jarak setiap jam</string>
     <string name="learn_measurement_speed_rate_summary">Kecepatan adalah jarak dalam satu satuan waktu.</string>
     <string name="learn_measurement_speed_rate_s1_body">Kecepatan menyatakan berapa jarak yang ditempuh dalam satu satuan waktu. Mobil yang melaju 60 km/h menambah 60 km lagi untuk setiap jam perjalanannya.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Langkah yang sama besar itulah yang membuatnya menjadi kecepatan. Begitu langkahnya tidak lagi sama, bilangannya adalah rata-rata, bukan bacaan.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Langkah yang sama besar berarti kecepatannya tetap. Kalau langkahnya tidak sama, jarak dibagi waktu tetap sebuah kecepatan: kecepatan rata-rata.</string>
     <string name="learn_measurement_speed_rate_s3_question">Seorang pesepeda menempuh 15 km setiap jam. Berapa kilometer dalam 4 jam?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Setiap jam menambah 15 km lagi, jadi empat jam menambah empat kali lipatnya.</string>
     <string name="learn_measurement_speed_rate_s4_body">Balik caranya dan jaraknya dibagi: 150 km dalam 3 jam berarti 50 km di setiap jamnya.</string>
@@ -2060,12 +2060,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 dan 0.12 berada di luar jendela, dan 1.2 * 10^3 hanya 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Bilangan sangat kecil</string>
     <string name="learn_arithmetic_standard_form_small_summary">Garis yang sama ditelusuri mundur, dengan pangkat negatif.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Bilangan kecil adalah garis yang sama ditelusuri mundur. Setiap langkah membagi dengan sepuluh, dan pangkat menghitung langkah itu sebagai negatif: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Bilangan kecil adalah garis yang sama ditelusuri mundur. Setiap langkah membagi dengan sepuluh, dan pangkat menghitung langkah itu sebagai negatif: 6; 0.6; 0.06; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">Minus pada pangkat menunjukkan arah langkahnya, bukan bahwa bilangannya negatif. Bilangan dalam bentuk baku negatif hanya jika angka di depannya negatif.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Hitung lompatan dari 8.2 turun ke bilangan ini.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Empat langkah ke kiri dari 8.2, dan 82 berada di luar jendela 1 sampai 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Geser komanya empat lompatan ke kiri.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Empat lompatan ke kiri dari 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Empat lompatan ke kiri dari 5.6: 0.56; 0.056; 0.0056; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Angka di depan yang negatif dan pangkat yang negatif berarti dua hal yang berbeda, dan masing-masing bisa terjadi tanpa yang lain.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">Pangkat yang paling negatif melangkah paling jauh ke kiri, jadi itulah yang terkecil.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Hanya satu yang pangkatnya -4, dan 0.0009 lebih kecil dari semua bilangan lain di sini.</string>

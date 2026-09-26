@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU જીત્યું.</string>
     <string name="checkers_black_wins">કાળો જીત્યો.</string>
     <string name="checkers_white_wins">સફેદ જીત્યો.</string>
-    <string name="checkers_draw">બરાબરી: બંનેની 40 ચાલ કંઈ લીધા વગર.</string>
+    <string name="checkers_draw">બરાબરી: બંનેની 40 ચાલ ફક્ત રાજાથી અને કંઈ લીધા વગર.</string>
     <string name="checkers_resign">હાર સ્વીકારો</string>
     <string name="checkers_resigned">તેં હાર માની. CPU જીત્યું.</string>
     <string name="checkers_resigned_black">કાળાએ હાર માની. સફેદ જીત્યો.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">ચાલ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= મડાગાંઠ (ડ્રો, જીત નહીં)</string>
     <string name="mini_chess_moves_title">મહોરાં કેવી રીતે ચાલે છે</string>
-    <string name="mini_checkers_draw">બરાબરી: બંનેની 15 ચાલ કંઈ લીધા વગર.</string>
+    <string name="mini_checkers_draw">બરાબરી: બંનેની 15 ચાલ ફક્ત રાજાથી અને કંઈ લીધા વગર.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d ચાલમાં પાકી જીત</item>
         <item quantity="other">%1$d ચાલમાં પાકી જીત</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d ચાલમાં કંઈ ન લેવાય તો બરાબરી</item>
-        <item quantity="other">%1$d ચાલમાં કંઈ ન લેવાય તો બરાબરી</item>
+        <item quantity="one">%1$d ચાલમાં ફક્ત રાજા ચાલે અને કંઈ ન લેવાય તો બરાબરી</item>
+        <item quantity="other">%1$d ચાલમાં ફક્ત રાજા ચાલે અને કંઈ ન લેવાય તો બરાબરી</item>
     </plurals>
     <string name="chess_piece_king">રાજા</string>
     <string name="chess_piece_queen">વજીર</string>

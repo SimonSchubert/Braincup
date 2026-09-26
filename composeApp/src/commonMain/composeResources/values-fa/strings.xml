@@ -147,7 +147,7 @@
     <string name="checkers_lost">رایانه برد.</string>
     <string name="checkers_black_wins">سیاه برد.</string>
     <string name="checkers_white_wins">سفید برد.</string>
-    <string name="checkers_draw">مساوی: هر طرف ۴۰ حرکت بدون گرفتن مهره.</string>
+    <string name="checkers_draw">مساوی: هر طرف ۴۰ حرکت فقط با شاه‌ها و بدون گرفتن مهره.</string>
     <string name="checkers_resign">تسلیم</string>
     <string name="checkers_resigned">تسلیم شدی. رایانه برد.</string>
     <string name="checkers_resigned_black">سیاه تسلیم شد. سفید برد.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">حرکت %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= پات (مساوی، نه برد)</string>
     <string name="mini_chess_moves_title">مهره‌ها چگونه حرکت می‌کنند</string>
-    <string name="mini_checkers_draw">مساوی: هر طرف ۱۵ حرکت بدون گرفتن مهره.</string>
+    <string name="mini_checkers_draw">مساوی: هر طرف ۱۵ حرکت فقط با شاه‌ها و بدون گرفتن مهره.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">برد قطعی در %1$d حرکت</item>
         <item quantity="other">برد قطعی در %1$d حرکت</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">مساوی تا %1$d حرکت دیگر بدون گرفتن مهره</item>
-        <item quantity="other">مساوی تا %1$d حرکت دیگر بدون گرفتن مهره</item>
+        <item quantity="one">مساوی تا %1$d حرکت دیگر فقط با شاه‌ها و بدون گرفتن مهره</item>
+        <item quantity="other">مساوی تا %1$d حرکت دیگر فقط با شاه‌ها و بدون گرفتن مهره</item>
     </plurals>
     <string name="chess_piece_king">شاه</string>
     <string name="chess_piece_queen">وزیر</string>

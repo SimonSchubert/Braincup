@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU pobjeđuje.</string>
     <string name="checkers_black_wins">Crni pobjeđuje.</string>
     <string name="checkers_white_wins">Bijeli pobjeđuje.</string>
-    <string name="checkers_draw">Neriješeno: po 40 poteza bez uzimanja.</string>
+    <string name="checkers_draw">Neriješeno: po 40 poteza samo damama i bez uzimanja.</string>
     <string name="checkers_resign">Predaj se</string>
     <string name="checkers_resigned">Predao si se. Pobjeđuje CPU.</string>
     <string name="checkers_resigned_black">Crni se predao. Pobjeđuje bijeli.</string>
@@ -436,16 +436,16 @@ Premjesti Cow — postat će Bull.</string>
     <string name="mini_chess_move_counter">Potez %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remi, ne pobjeda)</string>
     <string name="mini_chess_moves_title">Kako se figure kreću</string>
-    <string name="mini_checkers_draw">Neriješeno: po 15 poteza bez uzimanja.</string>
+    <string name="mini_checkers_draw">Neriješeno: po 15 poteza samo damama i bez uzimanja.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Iznuđena pobjeda u %1$d potezu</item>
         <item quantity="few">Iznuđena pobjeda u %1$d poteza</item>
         <item quantity="other">Iznuđena pobjeda u %1$d poteza</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Neriješeno za %1$d potez bez uzimanja</item>
-        <item quantity="few">Neriješeno za %1$d poteza bez uzimanja</item>
-        <item quantity="other">Neriješeno za %1$d poteza bez uzimanja</item>
+        <item quantity="one">Neriješeno za %1$d potez samo damama i bez uzimanja</item>
+        <item quantity="few">Neriješeno za %1$d poteza samo damama i bez uzimanja</item>
+        <item quantity="other">Neriješeno za %1$d poteza samo damama i bez uzimanja</item>
     </plurals>
     <string name="chess_piece_king">Kralj</string>
     <string name="chess_piece_queen">Dama</string>

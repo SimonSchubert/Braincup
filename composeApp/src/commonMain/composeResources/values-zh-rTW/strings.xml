@@ -768,7 +768,7 @@
     <string name="checkers_lost">電腦獲勝。</string>
     <string name="checkers_black_wins">黑方獲勝。</string>
     <string name="checkers_white_wins">白方獲勝。</string>
-    <string name="checkers_draw">平局：雙方各走 40 步未吃子。</string>
+    <string name="checkers_draw">平局：雙方各走 40 步只動王棋、未吃子。</string>
     <string name="checkers_resign">認輸</string>
     <string name="checkers_resigned">你認輸了，電腦獲勝。</string>
     <string name="checkers_resigned_black">黑方認輸，白方獲勝。</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">退出</string>
     <string name="checkers_new_game">新遊戲</string>
     <string name="mini_chess_moves_title">棋子走法</string>
-    <string name="mini_checkers_draw">平局：雙方各走 15 步未吃子。</string>
+    <string name="mini_checkers_draw">平局：雙方各走 15 步只動王棋、未吃子。</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d 步必勝</item>
         <item quantity="other">%1$d 步必勝</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">再走 %1$d 步不吃子即平局</item>
-        <item quantity="other">再走 %1$d 步不吃子即平局</item>
+        <item quantity="one">再走 %1$d 步只動王棋、不吃子即平局</item>
+        <item quantity="other">再走 %1$d 步只動王棋、不吃子即平局</item>
     </plurals>
     <string name="chess_piece_king">王</string>
     <string name="chess_piece_queen">皇后</string>
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">從零開始讀直尺，以及長度用什麼單位計算。</string>
     <string name="learn_measurement_length_ruler_title">讀直尺</string>
     <string name="learn_measurement_length_ruler_summary">從零開始，讀另一端的刻度。</string>
-    <string name="learn_measurement_length_ruler_s1_body">直尺上標著間隔相等的刻度，長度就是物體蓋過幾個這樣的刻度。</string>
+    <string name="learn_measurement_length_ruler_s1_body">直尺上標著間隔相等的刻度，長度就是物體蓋過幾個這樣的刻度，再加上不滿一格的那一段。</string>
     <string name="learn_measurement_length_ruler_s2_body">把物體對齊 0，再讀另一端到達的刻度。如果起點不在那裡，讀數就會多算跳過的那一段。</string>
     <string name="learn_measurement_length_ruler_s3_question">這枝鉛筆有多長？</string>
     <string name="learn_measurement_length_ruler_s3_explanation">它的另一端到達第九個刻度，從零開始數。</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">每公分裡有十公釐，所以三公分裡有三個十。</string>
     <string name="learn_measurement_length_units_title">從公釐到公里</string>
     <string name="learn_measurement_length_units_summary">較大的長度需要較大的單位。</string>
-    <string name="learn_measurement_length_units_s1_body">長度單位以十為一級往上爬：十公釐等於一公分，一百公分等於一公尺，一千公尺等於一公里。</string>
+    <string name="learn_measurement_length_units_s1_body">每個長度單位是下一級的十倍、百倍或千倍：十公釐等於一公分，一百公分等於一公尺，一千公尺等於一公里。</string>
     <string name="learn_measurement_length_units_s2_body">單位越小，蓋過同樣長度需要的個數就越多，所以往較小的單位換算要用乘的。</string>
     <string name="learn_measurement_length_units_s3_question">一條緞帶長 3 m。那是多少公分？</string>
     <string name="learn_measurement_length_units_s3_explanation">一公尺是一百公分，所以三公尺就是三個一百。</string>
-    <string name="learn_measurement_length_units_s4_body">反過來換算要用除的。一千公尺才湊成一公里，這就是為什麼路標從來不用公尺計算。</string>
+    <string name="learn_measurement_length_units_s4_body">反過來換算要用除的。一千公尺才湊成一公里，這就是為什麼到下一個城鎮的距離用公里標示。</string>
     <string name="learn_measurement_length_units_s5_question">路標寫著再走 2 km 就到下一個城鎮。那是多少公尺？</string>
     <string name="learn_measurement_length_units_s5_explanation">每公里是一千公尺，所以兩公里就是兩千公尺。</string>
     <string name="learn_measurement_length_units_s6_question">哪一個單位適合表示兩個城鎮之間的距離？</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">數硬幣</string>
     <string name="learn_measurement_money_coins_summary">數的是金額，不是硬幣的個數。</string>
     <string name="learn_measurement_money_coins_s1_body">硬幣的面額並不相同，所以一把硬幣要按金額來數，而不是數有幾個。</string>
-    <string name="learn_measurement_money_coins_s2_body">從面額最大的硬幣開始，再把其他的往上數。反過來做的話，每一步心裡要記的數字都會更大。</string>
+    <string name="learn_measurement_money_coins_s2_body">從面額最大的硬幣開始，再把其他的往上數。大硬幣先湊出總數的大部分，中間的和都很整齊，往上加很輕鬆。</string>
     <string name="learn_measurement_money_coins_s3_question">這一共是多少分？</string>
     <string name="learn_measurement_money_coins_s3_explanation">五十，接著七十，再來八十，每加一枚硬幣就往上數一次。</string>
     <string name="learn_measurement_money_coins_s4_body">每一枚硬幣都有自己的面額，所以光數硬幣的個數沒有用，除非你知道每一枚值多少。</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">讀量杯</string>
     <string name="learn_measurement_capacity_jugs_summary">讀液面的高度，不是數刻度。</string>
     <string name="learn_measurement_capacity_jugs_s1_body">容量是一個容器能裝多少。量杯側邊標著刻度，液體到達的高度就是讀數。</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">量杯上的數字通常每兩百毫升一格，不是每一毫升一格。如果用數格子代替讀數字，很容易就把 400 ml 看成 2。</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">這個量杯上的數字每兩百毫升一格，不是每一毫升一格。如果用數格子代替讀數字，很容易就把 400 ml 看成 2。</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">液面停在 400 和 600 中間的刻度上。</string>
     <string name="learn_measurement_capacity_jugs_s4_body">一千毫升裝滿一公升，就是把公克變成公斤的同一個一千。</string>
     <string name="learn_measurement_capacity_jugs_s5_question">這個量杯裡有多少毫升？</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">一公斤到 1000 g 為止，1200 已經超過了。</string>
     <string name="learn_unit_measurement_mass_q6_explanation">每公升是一千毫升，所以兩公升就是兩千毫升。</string>
     <string name="learn_unit_measurement_metric_title">公制單位</string>
-    <string name="learn_unit_measurement_metric_summary">每一次換算，都是跳十、跳一百或跳一千。</string>
+    <string name="learn_unit_measurement_metric_summary">每一次換算，都是乘或除以十的次方。</string>
     <string name="learn_measurement_metric_ladder_title">十進的階梯</string>
     <string name="learn_measurement_metric_ladder_summary">一套系統，三種量。</string>
-    <string name="learn_measurement_metric_ladder_s1_body">公制單位是以十為基礎建構的，所以換算一定是乘或除以 10、100 或 1000。</string>
+    <string name="learn_measurement_metric_ladder_s1_body">公制單位是以十為基礎建構的，所以換算一定是乘或除以 10、100、1000 或其他十的次方。</string>
     <string name="learn_measurement_metric_ladder_s2_body">字首說明一個單位在階梯上的位置。毫是千分之一，分是百分之一，千是一千倍，就像公里是一千公尺、公斤是一千公克。</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">毫是千分之一，是這幾個字首中最小的一級。</string>
     <string name="learn_measurement_metric_ladder_s4_body">長度、質量和容量都共用這座階梯，所以一套規則就能通用於三者：一公里有一千公尺，一公斤有一千公克，一公升有一千毫升。</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">每小時的距離</string>
     <string name="learn_measurement_speed_rate_summary">速度就是一個單位時間走的距離。</string>
     <string name="learn_measurement_speed_rate_s1_body">速度說的是一個單位時間走了多少距離。一輛時速 60 km/h 的車，每多開一小時就多走 60 km。</string>
-    <string name="learn_measurement_speed_rate_s2_body">每一段時間走的距離都相等，才叫做速度。一旦不再相等，這個數字就是平均值，而不是實際的讀數。</string>
+    <string name="learn_measurement_speed_rate_s2_body">每一段都相等，速度就是固定的。每一段不相等時，距離除以時間仍然是速度，只是平均速度。</string>
     <string name="learn_measurement_speed_rate_s3_question">一位騎士每小時騎 15 km。4 小時是多少公里？</string>
     <string name="learn_measurement_speed_rate_s3_explanation">每小時多加 15 km，四小時就加了四個。</string>
     <string name="learn_measurement_speed_rate_s4_body">反過來，距離要用除的：150 km 花了 3 小時，平均每小時是 50 km。</string>

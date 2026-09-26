@@ -769,7 +769,7 @@
     <string name="checkers_lost">A CPU ganha.</string>
     <string name="checkers_black_wins">As pretas ganham.</string>
     <string name="checkers_white_wins">As brancas ganham.</string>
-    <string name="checkers_draw">Empate: 40 lances de cada lado sem captura.</string>
+    <string name="checkers_draw">Empate: 40 lances de cada lado só com damas e sem captura.</string>
     <string name="checkers_resign">Desistir</string>
     <string name="checkers_resigned">Desististe. A CPU ganha.</string>
     <string name="checkers_resigned_black">As pretas desistiram. As brancas ganham.</string>
@@ -777,14 +777,14 @@
     <string name="checkers_quit">Sair</string>
     <string name="checkers_new_game">Nova partida</string>
     <string name="mini_chess_moves_title">Como as peças se movem</string>
-    <string name="mini_checkers_draw">Empate: 15 lances de cada lado sem captura.</string>
+    <string name="mini_checkers_draw">Empate: 15 lances de cada lado só com damas e sem captura.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Vitória forçada em %1$d lance</item>
         <item quantity="other">Vitória forçada em %1$d lances</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Empate em %1$d lance sem captura</item>
-        <item quantity="other">Empate em %1$d lances sem captura</item>
+        <item quantity="one">Empate em %1$d lance só com damas e sem captura</item>
+        <item quantity="other">Empate em %1$d lances só com damas e sem captura</item>
     </plurals>
     <string name="chess_piece_king">Rei</string>
     <string name="chess_piece_queen">Dama</string>
@@ -1005,7 +1005,7 @@
     <string name="learn_unit_measurement_length_summary">Ler uma régua a partir do zero, e as unidades em que se conta um comprimento.</string>
     <string name="learn_measurement_length_ruler_title">Ler uma régua</string>
     <string name="learn_measurement_length_ruler_summary">Começa no zero e lê a extremidade.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Uma régua está marcada em passos iguais, por isso um comprimento não é mais do que a contagem de quantos desses passos o objeto cobre.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Uma régua está marcada em passos iguais, por isso um comprimento é a contagem de quantos desses passos o objeto cobre, mais o bocado de passo que sobra.</string>
     <string name="learn_measurement_length_ruler_s2_body">Alinha o objeto com o 0 e lê a marca a que chega a sua extremidade. Se começares noutro sítio, a leitura fica maior pelo que saltaste.</string>
     <string name="learn_measurement_length_ruler_s3_question">Qual é o comprimento deste lápis?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">A sua extremidade chega à nona marca, contada a partir do zero.</string>
@@ -1016,11 +1016,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">Cada centímetro tem dez milímetros, por isso três centímetros têm três dezenas.</string>
     <string name="learn_measurement_length_units_title">De milímetros a quilómetros</string>
     <string name="learn_measurement_length_units_summary">Comprimentos maiores precisam de unidades maiores.</string>
-    <string name="learn_measurement_length_units_s1_body">As unidades de comprimento sobem de dez em dez: dez milímetros fazem um centímetro, cem centímetros fazem um metro, mil metros fazem um quilómetro.</string>
+    <string name="learn_measurement_length_units_s1_body">Cada unidade de comprimento vale dez, cem ou mil vezes a anterior: dez milímetros fazem um centímetro, cem centímetros fazem um metro, mil metros fazem um quilómetro.</string>
     <string name="learn_measurement_length_units_s2_body">Uma unidade mais pequena precisa de mais delas para cobrir o mesmo comprimento, por isso descer a escada multiplica.</string>
     <string name="learn_measurement_length_units_s3_question">Uma fita tem 3 m de comprimento. Quantos centímetros são esses?</string>
     <string name="learn_measurement_length_units_s3_explanation">Um metro são cem centímetros, por isso três metros são três dessas centenas.</string>
-    <string name="learn_measurement_length_units_s4_body">No sentido contrário, divide-se. Mil metros juntam-se num só quilómetro, e é por isso que um sinal de trânsito nunca conta em metros.</string>
+    <string name="learn_measurement_length_units_s4_body">No sentido contrário, divide-se. Mil metros juntam-se num só quilómetro, e é por isso que a distância até à próxima localidade se indica em quilómetros.</string>
     <string name="learn_measurement_length_units_s5_question">Um sinal de trânsito diz que faltam 2 km para a próxima vila. Quantos metros são esses?</string>
     <string name="learn_measurement_length_units_s5_explanation">Cada quilómetro tem mil metros, por isso dois quilómetros são dois mil.</string>
     <string name="learn_measurement_length_units_s6_question">Que unidade se ajusta à distância entre duas vilas?</string>
@@ -1088,7 +1088,7 @@
     <string name="learn_measurement_money_coins_title">Contar moedas</string>
     <string name="learn_measurement_money_coins_summary">Conta o valor, não as moedas.</string>
     <string name="learn_measurement_money_coins_s1_body">As moedas não valem todas o mesmo, por isso um punhado conta-se pelo valor e não por quantas peças há.</string>
-    <string name="learn_measurement_money_coins_s2_body">Começa pela moeda maior e vai somando as outras. Ao contrário, tens de guardar um número maior de cabeça em cada passo.</string>
+    <string name="learn_measurement_money_coins_s2_body">Começa pela moeda maior e vai somando as outras. As moedas grandes fazem logo a maior parte do total, por isso as somas intermédias ficam redondas e fáceis de continuar.</string>
     <string name="learn_measurement_money_coins_s3_question">Quantos cêntimos são estes?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Cinquenta, depois setenta, depois oitenta, à medida que cada moeda se soma.</string>
     <string name="learn_measurement_money_coins_s4_body">Cada moeda traz o seu próprio valor, por isso contar as moedas não diz nada enquanto não souberes quanto vale cada uma.</string>
@@ -1143,7 +1143,7 @@
     <string name="learn_measurement_capacity_jugs_title">Ler um jarro</string>
     <string name="learn_measurement_capacity_jugs_summary">Lê o nível, não as marcas.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">A capacidade é quanto um recipiente leva. Um jarro está marcado ao longo do lado, e o nível a que o líquido chega é a leitura.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">Os números ao longo de um jarro ficam normalmente a duzentos mililitros uns dos outros, não a um. Contá-los em vez de os ler é como 400 ml se transforma em 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">Os números ao longo deste jarro ficam a duzentos mililitros uns dos outros, não a um. Contá-los em vez de os ler é como 400 ml se transforma em 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">O nível está na marca a meio caminho entre o 400 e o 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Mil mililitros enchem um litro, o mesmo mil que transforma gramas em quilogramas.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Quantos mililitros há neste jarro?</string>
@@ -1167,10 +1167,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Um quilograma para nos 1000 g, e 1200 vai além disso.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Cada litro são mil mililitros, por isso dois litros são dois mil deles.</string>
     <string name="learn_unit_measurement_metric_title">Unidades métricas</string>
-    <string name="learn_unit_measurement_metric_summary">Toda a conversão é um salto de dez, de cem ou de mil.</string>
+    <string name="learn_unit_measurement_metric_summary">Toda a conversão multiplica ou divide por uma potência de dez.</string>
     <string name="learn_measurement_metric_ladder_title">A escada de dez</string>
     <string name="learn_measurement_metric_ladder_summary">Um sistema, três grandezas.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">As unidades métricas assentam em dezenas, por isso uma conversão nunca é mais do que multiplicar ou dividir por 10, 100 ou 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">As unidades métricas assentam em dezenas, por isso uma conversão é sempre multiplicar ou dividir por 10, 100, 1000 ou outra potência de dez.</string>
     <string name="learn_measurement_metric_ladder_s2_body">O prefixo diz a que distância da escada uma unidade fica. Mili é um milésimo, centi um centésimo, e quilo mil.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Mili é um milésimo, o passo mais pequeno que qualquer um destes prefixos nomeia.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Comprimento, massa e capacidade partilham todos a mesma escada, por isso um único conjunto de factos cobre os três: mil metros num quilómetro, mil gramas num quilograma, mil mililitros num litro.</string>
@@ -1211,7 +1211,7 @@
     <string name="learn_measurement_speed_rate_title">Distância a cada hora</string>
     <string name="learn_measurement_speed_rate_summary">A velocidade é a distância numa unidade de tempo.</string>
     <string name="learn_measurement_speed_rate_s1_body">A velocidade diz quanta distância se percorre numa unidade de tempo. Um carro a 60 km/h soma mais 60 km por cada hora que continua a andar.</string>
-    <string name="learn_measurement_speed_rate_s2_body">São os passos iguais que fazem dela uma velocidade. Assim que os passos deixam de ser iguais, o número passa a ser uma média em vez de uma leitura.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Passos iguais querem dizer velocidade constante. Se os passos não forem iguais, a distância a dividir pelo tempo continua a ser uma velocidade: a média.</string>
     <string name="learn_measurement_speed_rate_s3_question">Um ciclista percorre 15 km por hora. Quantos quilómetros em 4 horas?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Cada hora soma mais 15 km, por isso quatro horas somam quatro dessas.</string>
     <string name="learn_measurement_speed_rate_s4_body">Ao contrário, a distância reparte-se: 150 km percorridos em 3 horas dão 50 km em cada uma delas.</string>
@@ -2066,12 +2066,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 e 0.12 estão fora da janela, e 1.2 * 10^3 é só 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Números minúsculos</string>
     <string name="learn_arithmetic_standard_form_small_summary">A mesma reta percorrida ao contrário, com expoentes negativos.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Os números pequenos são a mesma reta percorrida ao contrário. Cada passo divide por dez, e o expoente conta esses passos como negativos: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Os números pequenos são a mesma reta percorrida ao contrário. Cada passo divide por dez, e o expoente conta esses passos como negativos: 6; 0.6; 0.06; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">O menos no expoente diz para que lado andar, não que o número é negativo. Um número em notação científica só é negativo quando o número da frente o é.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Conta os saltos de 8.2 até este número.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Quatro passos à esquerda de 8.2, e 82 está fora da janela de 1 a 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Desloca a vírgula quatro saltos para a esquerda.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Quatro saltos à esquerda de 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Quatro saltos à esquerda de 5.6: 0.56; 0.056; 0.0056; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Um número da frente negativo e um expoente negativo são duas coisas diferentes, e uma pode acontecer sem a outra.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">O expoente mais negativo anda mais para a esquerda, por isso é o menor.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Só um destes tem expoente -4, e 0.0009 é menor do que todos os outros números aqui.</string>

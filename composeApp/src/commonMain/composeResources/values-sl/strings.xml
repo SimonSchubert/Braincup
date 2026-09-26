@@ -147,7 +147,7 @@
     <string name="checkers_lost">Zmaga CPU.</string>
     <string name="checkers_black_wins">Zmaga črni.</string>
     <string name="checkers_white_wins">Zmaga beli.</string>
-    <string name="checkers_draw">Remi: po 40 potez brez jemanja.</string>
+    <string name="checkers_draw">Remi: po 40 potez samo z damami in brez jemanja.</string>
     <string name="checkers_resign">Predaj se</string>
     <string name="checkers_resigned">Predal si se. Zmaga CPU.</string>
     <string name="checkers_resigned_black">Črni se je predal. Zmaga beli.</string>
@@ -440,7 +440,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="mini_chess_move_counter">Poteza %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remi, ne zmaga)</string>
     <string name="mini_chess_moves_title">Kako se figure premikajo</string>
-    <string name="mini_checkers_draw">Remi: po 15 potez brez jemanja.</string>
+    <string name="mini_checkers_draw">Remi: po 15 potez samo z damami in brez jemanja.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Izsiljena zmaga v %1$d potezi</item>
         <item quantity="two">Izsiljena zmaga v %1$d potezah</item>
@@ -448,10 +448,10 @@ Premakni Cow — postal bo Bull.</string>
         <item quantity="other">Izsiljena zmaga v %1$d potezah</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Remi čez %1$d potezo brez jemanja</item>
-        <item quantity="two">Remi čez %1$d potezi brez jemanja</item>
-        <item quantity="few">Remi čez %1$d poteze brez jemanja</item>
-        <item quantity="other">Remi čez %1$d potez brez jemanja</item>
+        <item quantity="one">Remi čez %1$d potezo samo z damami in brez jemanja</item>
+        <item quantity="two">Remi čez %1$d potezi samo z damami in brez jemanja</item>
+        <item quantity="few">Remi čez %1$d poteze samo z damami in brez jemanja</item>
+        <item quantity="other">Remi čez %1$d potez samo z damami in brez jemanja</item>
     </plurals>
     <string name="chess_piece_king">Kralj</string>
     <string name="chess_piece_queen">Dama</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">Panalo ang CPU.</string>
     <string name="checkers_black_wins">Panalo ang Black.</string>
     <string name="checkers_white_wins">Panalo ang White.</string>
-    <string name="checkers_draw">Tabla: tig-40 galaw nang walang nakain.</string>
+    <string name="checkers_draw">Tabla: tig-40 galaw na hari lang ang gumalaw at walang nakain.</string>
     <string name="checkers_resign">Suko</string>
     <string name="checkers_resigned">Sumuko ka. Panalo ang CPU.</string>
     <string name="checkers_resigned_black">Sumuko ang Black. Panalo ang White.</string>
@@ -430,14 +430,14 @@
     <string name="mini_chess_move_counter">Galaw %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (tabla, hindi panalo)</string>
     <string name="mini_chess_moves_title">Paano gumagalaw ang mga piraso</string>
-    <string name="mini_checkers_draw">Tabla: tig-15 galaw nang walang nakain.</string>
+    <string name="mini_checkers_draw">Tabla: tig-15 galaw na hari lang ang gumalaw at walang nakain.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Siguradong panalo sa %1$d galaw</item>
         <item quantity="other">Siguradong panalo sa %1$d galaw</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Tabla sa loob ng %1$d galaw kung walang makain</item>
-        <item quantity="other">Tabla sa loob ng %1$d galaw kung walang makain</item>
+        <item quantity="one">Tabla sa loob ng %1$d galaw kung hari lang ang gagalaw at walang makain</item>
+        <item quantity="other">Tabla sa loob ng %1$d galaw kung hari lang ang gagalaw at walang makain</item>
     </plurals>
     <string name="chess_piece_king">Hari</string>
     <string name="chess_piece_queen">Reyna</string>

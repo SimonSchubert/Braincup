@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU laimi.</string>
     <string name="checkers_black_wins">Juodieji laimi.</string>
     <string name="checkers_white_wins">Baltieji laimi.</string>
-    <string name="checkers_draw">Lygiosios: po 40 ėjimų be kirtimo.</string>
+    <string name="checkers_draw">Lygiosios: po 40 ėjimų tik damomis ir be kirtimo.</string>
     <string name="checkers_resign">Pasiduoti</string>
     <string name="checkers_resigned">Pasidavei. Laimi CPU.</string>
     <string name="checkers_resigned_black">Juodieji pasidavė. Laimi baltieji.</string>
@@ -436,16 +436,16 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="mini_chess_move_counter">Ėjimas %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patas (lygiosios, ne pergalė)</string>
     <string name="mini_chess_moves_title">Kaip juda figūros</string>
-    <string name="mini_checkers_draw">Lygiosios: po 15 ėjimų be kirtimo.</string>
+    <string name="mini_checkers_draw">Lygiosios: po 15 ėjimų tik damomis ir be kirtimo.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Priverstinė pergalė per %1$d ėjimą</item>
         <item quantity="few">Priverstinė pergalė per %1$d ėjimus</item>
         <item quantity="other">Priverstinė pergalė per %1$d ėjimų</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Lygiosios po %1$d ėjimo be kirtimo</item>
-        <item quantity="few">Lygiosios po %1$d ėjimų be kirtimo</item>
-        <item quantity="other">Lygiosios po %1$d ėjimų be kirtimo</item>
+        <item quantity="one">Lygiosios po %1$d ėjimo tik damomis ir be kirtimo</item>
+        <item quantity="few">Lygiosios po %1$d ėjimų tik damomis ir be kirtimo</item>
+        <item quantity="other">Lygiosios po %1$d ėjimų tik damomis ir be kirtimo</item>
     </plurals>
     <string name="chess_piece_king">Karalius</string>
     <string name="chess_piece_queen">Valdovė</string>

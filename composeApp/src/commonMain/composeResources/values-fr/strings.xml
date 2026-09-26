@@ -261,7 +261,7 @@
     <string name="achievement_gold_mini_checkers_desc">Gagne la médaille d'or en Mini Dames</string>
     <string name="achievement_gold_lights_out_desc">Gagne la médaille d'or en Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gagne la médaille d'or en Sliding Puzzle</string>
-    <string name="achievement_gold_tower_of_hanoi_desc">Gagnez la médaille d'or aux Tours de Hanoï</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Gagne la médaille d'or aux Tours de Hanoï</string>
     <string name="achievement_gold_shikaku_desc">Gagne la médaille d'or en Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gagne la médaille d'or en Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gagne la médaille d'or en Reines Chats</string>
@@ -307,11 +307,11 @@
     <string name="digit_memory_solve">Résoudre</string>
     <string name="digit_memory_recall">Rappeler</string>
     <string name="achievement_gold_digit_memory">Chasseur de Codes</string>
-    <string name="achievement_gold_digit_memory_desc">Gagnez la médaille d'or en Mémoire des Chiffres</string>
+    <string name="achievement_gold_digit_memory_desc">Gagne la médaille d'or en Mémoire des Chiffres</string>
     <string name="game_spot_the_new">Repère le Nouveau</string>
     <string name="game_spot_the_new_desc">Touche l'animal que tu n'as jamais vu. Une erreur met fin au jeu.</string>
     <string name="achievement_gold_spot_the_new">Œil Neuf</string>
-    <string name="achievement_gold_spot_the_new_desc">Gagnez la médaille d'or en Repère le Nouveau</string>
+    <string name="achievement_gold_spot_the_new_desc">Gagne la médaille d'or en Repère le Nouveau</string>
     <string name="instructions_best_score">Meilleur score : %1$s</string>
     <string name="instructions_leaderboard">Voir le classement</string>
     <string name="science_note_based_on">D'après %1$s</string>
@@ -339,7 +339,7 @@
     <string name="science_tower_of_hanoi_summary">Une mesure standard de la planification : le casse-tête exige des coups qui défont les progrès avant que le but puisse être atteint.</string>
     <string name="brain_cup_button">Classement Braincup</string>
     <string name="sponsors_title">Sponsors</string>
-    <string name="sponsors_subtitle">Soutenez l'éducation gratuite pour tous</string>
+    <string name="sponsors_subtitle">Soutiens l'éducation gratuite pour tous</string>
 <string name="sponsors_become">Devenir sponsor</string>
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Îles Åland</string>
@@ -741,7 +741,7 @@
     <string name="checkers_lost">L'ordinateur gagne.</string>
     <string name="checkers_black_wins">Les noirs gagnent.</string>
     <string name="checkers_white_wins">Les blancs gagnent.</string>
-    <string name="checkers_draw">Match nul : 40 coups chacun sans prise.</string>
+    <string name="checkers_draw">Match nul : 40 coups chacun sans prise ni coup de pion.</string>
     <string name="checkers_resign">Abandonner</string>
     <string name="checkers_resigned">Tu as abandonné. L'ordinateur gagne.</string>
     <string name="checkers_resigned_black">Les noirs abandonnent. Les blancs gagnent.</string>
@@ -749,9 +749,9 @@
     <string name="checkers_quit">Quitter</string>
     <string name="checkers_new_game">Nouvelle partie</string>
     <string name="game_wordle">Wordle</string>
-    <string name="game_wordle_desc">Devinez le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
+    <string name="game_wordle_desc">Devine le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
     <string name="achievement_gold_wordle">Maître des mots</string>
-    <string name="achievement_gold_wordle_desc">Gagnez une médaille d'or à Wordle</string>
+    <string name="achievement_gold_wordle_desc">Gagne une médaille d'or à Wordle</string>
     <string name="wordle_not_enough_letters">Pas assez de lettres</string>
     <string name="wordle_not_in_word_list">Absent de la liste</string>
     <string name="wordle_answer_was">Le mot était %1$s</string>
@@ -767,24 +767,24 @@
     <string name="n_back_demo_watch">Les formes apparaissent une par une.</string>
     <string name="n_back_demo_match">Touche Correspond quand une forme répète celle d'il y a 2 étapes.</string>
     <string name="achievement_gold_n_back">Mémoire glissante</string>
-    <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
+    <string name="achievement_gold_n_back_desc">Gagne une médaille d'or à N-Back</string>
     <string name="game_simon_says">Jacques a dit</string>
     <string name="game_simon_says_desc">À chaque manche, un nouveau bouton s'allume. Touche toute la séquence depuis le début, y compris les boutons des manches précédentes.</string>
     <string name="simon_says_demo_title">Regarde, puis répète</string>
     <string name="simon_says_demo_watch">À chaque manche, seul le nouveau bouton s'allume.</string>
     <string name="simon_says_demo_repeat">Touche maintenant toute la séquence, depuis le tout premier bouton.</string>
     <string name="achievement_gold_simon_says">Gardien des Motifs</string>
-    <string name="achievement_gold_simon_says_desc">Gagnez une médaille d'or à Simon Says</string>
+    <string name="achievement_gold_simon_says_desc">Gagne une médaille d'or à Simon Says</string>
 
     <string name="mini_chess_moves_title">Comment les pièces se déplacent</string>
-    <string name="mini_checkers_draw">Match nul : 15 coups chacun sans prise.</string>
+    <string name="mini_checkers_draw">Match nul : 15 coups chacun sans prise ni coup de pion.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Gain forcé en %1$d coup</item>
         <item quantity="other">Gain forcé en %1$d coups</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Nulle dans %1$d coup sans prise</item>
-        <item quantity="other">Nulle dans %1$d coups sans prise</item>
+        <item quantity="one">Nulle en %1$d coup sans prise ni coup de pion</item>
+        <item quantity="other">Nulle en %1$d coups sans prise ni coup de pion</item>
     </plurals>
     <string name="chess_piece_king">Roi</string>
     <string name="chess_piece_queen">Dame</string>
@@ -851,9 +851,9 @@
     <string name="spot_the_new_demo_seen">Tu as déjà vu celui-ci. Il a passé un tour, mais il compte toujours comme vu.</string>
     <string name="spot_the_new_demo_correct">Correct. Il rejoint ceux que tu as déjà vus.</string>
     <string name="game_prism_clear">Vider le prisme</string>
-    <string name="game_prism_clear_desc">Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.</string>
+    <string name="game_prism_clear_desc">Échange des tuiles assorties pour effacer des lignes de trois ou plus. Vide tout le plateau pour gagner.</string>
     <string name="prism_clear_restart">Recommencer</string>
-    <string name="prism_clear_stuck">Plus de coups possibles. Annulez un coup ou recommencez le niveau.</string>
+    <string name="prism_clear_stuck">Plus de coups possibles. Annule un coup ou recommence le niveau.</string>
     <string name="achievement_gold_prism_clear">Clarté de cristal</string>
     <string name="achievement_gold_prism_clear_desc">Gagne la médaille d'or en Prism Clear</string>
     <string name="prism_clear_undo">Annuler</string>
@@ -865,11 +865,11 @@
     <string name="achievement_gold_missing_operators_desc">Gagne la médaille d'or en Missing Operators</string>
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
-    <string name="game_bulls_and_cows_desc">Devinez le nombre secret à 4 chiffres avec des chiffres uniques. Bulls = bon chiffre à la bonne place. Cows = bon chiffre à la mauvaise place.</string>
+    <string name="game_bulls_and_cows_desc">Devine le nombre secret à 4 chiffres avec des chiffres uniques. Bulls = bon chiffre à la bonne place. Cows = bon chiffre à la mauvaise place.</string>
     <string name="bulls_and_cows_bulls">Bulls : %1$d</string>
     <string name="bulls_and_cows_cows">Cows : %1$d</string>
     <string name="bulls_and_cows_secret_was">Le secret était %1$s</string>
-    <string name="bulls_and_cows_demo_title">Crackez le code secret</string>
+    <string name="bulls_and_cows_demo_title">Craque le code secret</string>
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Raté</string>
@@ -942,23 +942,23 @@
     <string name="iq_test_finish">Terminer</string>
     <string name="iq_test_finish_now">Terminer maintenant</string>
     <string name="iq_test_quit_title">Quitter le test ?</string>
-    <string name="iq_test_quit_message">Votre progression sera perdue. Le test est chronométré, il ne peut donc pas être mis en pause et repris plus tard.</string>
-    <string name="iq_test_result_title">Votre résultat</string>
+    <string name="iq_test_quit_message">Ta progression sera perdue. Le test est chronométré, il ne peut donc pas être mis en pause et repris plus tard.</string>
+    <string name="iq_test_result_title">Ton résultat</string>
     <string name="iq_test_estimated_iq">QI estimé</string>
     <string name="iq_test_percentile">Supérieur à %1$d% de la population</string>
     <string name="iq_test_percentile_low">Dans la partie basse de ce que ce test peut mesurer</string>
     <string name="iq_test_raw_score">%1$d bonnes réponses sur %2$d</string>
     <string name="iq_test_duration">Terminé en %1$s</string>
     <string name="iq_test_below_range">Trop peu de bonnes réponses pour estimer un score. Quelqu'un qui répond au hasard arriverait à peu près ici, le test ne peut donc pas faire la différence.</string>
-    <string name="iq_test_personal_best">Votre meilleur résultat</string>
+    <string name="iq_test_personal_best">Ton meilleur résultat</string>
     <string name="iq_test_breakdown_title">Par difficulté</string>
     <string name="iq_test_difficulty_level">Niveau %1$d</string>
     <string name="iq_test_breakdown_value">%1$d / %2$d</string>
     <string name="iq_test_review">Revoir les réponses</string>
     <string name="iq_test_review_title">Révision</string>
-    <string name="iq_test_review_correct">Vous avez choisi le bon panneau</string>
-    <string name="iq_test_review_wrong">Vous avez choisi le mauvais panneau</string>
-    <string name="iq_test_review_skipped">Vous avez passé celle-ci</string>
+    <string name="iq_test_review_correct">Tu as choisi le bon panneau</string>
+    <string name="iq_test_review_wrong">Tu as choisi le mauvais panneau</string>
+    <string name="iq_test_review_skipped">Tu as passé celle-ci</string>
     <string name="iq_test_done">Retour au menu</string>
     <string name="iq_band_below_average">Sous la moyenne</string>
     <string name="iq_band_low_average">Moyenne basse</string>
@@ -967,9 +967,9 @@
     <string name="iq_band_superior">Supérieur</string>
     <string name="iq_band_very_superior">Très supérieur</string>
     <string name="achievement_iq_test_completed">Esprit mesuré</string>
-    <string name="achievement_iq_test_completed_desc">Terminez un test de QI complet</string>
+    <string name="achievement_iq_test_completed_desc">Termine un test de QI complet</string>
     <string name="achievement_iq_test_high">Génie des motifs</string>
-    <string name="achievement_iq_test_high_desc">Atteignez un QI estimé de 130 ou plus</string>
+    <string name="achievement_iq_test_high_desc">Atteins un QI estimé de 130 ou plus</string>
 
     <!-- Main menu sections -->
     <string name="menu_progress_fraction">%1$d / %2$d</string>
@@ -1005,7 +1005,7 @@
     <string name="learn_unit_measurement_length_summary">Lire une règle à partir de zéro, et les unités dans lesquelles se compte une longueur.</string>
     <string name="learn_measurement_length_ruler_title">Lire la règle</string>
     <string name="learn_measurement_length_ruler_summary">Commence à zéro et lis l'autre bout.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Une règle est graduée en pas égaux, donc une longueur n'est jamais rien d'autre que le nombre de ces pas que l'objet couvre.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Une règle est graduée en pas égaux, donc une longueur est le nombre de ces pas que l'objet couvre, plus le morceau de pas qui reste.</string>
     <string name="learn_measurement_length_ruler_s2_body">Aligne l'objet sur le 0 et lis le trait que son autre bout atteint. Si tu commences ailleurs, la mesure est trop longue de ce que tu as sauté.</string>
     <string name="learn_measurement_length_ruler_s3_question">Quelle est la longueur de ce crayon ?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Son autre bout atteint le neuvième trait, compté depuis zéro.</string>
@@ -1016,11 +1016,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">Chaque centimètre contient dix millimètres, donc trois centimètres en contiennent trois dizaines.</string>
     <string name="learn_measurement_length_units_title">Du millimètre au kilomètre</string>
     <string name="learn_measurement_length_units_summary">Les grandes longueurs demandent de grandes unités.</string>
-    <string name="learn_measurement_length_units_s1_body">Les unités de longueur montent de dix en dix : dix millimètres font un centimètre, cent centimètres font un mètre, mille mètres font un kilomètre.</string>
+    <string name="learn_measurement_length_units_s1_body">Chaque unité de longueur vaut dix, cent ou mille fois la précédente : dix millimètres font un centimètre, cent centimètres font un mètre, mille mètres font un kilomètre.</string>
     <string name="learn_measurement_length_units_s2_body">Il en faut davantage d'une unité plus petite pour couvrir la même longueur, donc descendre l'échelle multiplie.</string>
     <string name="learn_measurement_length_units_s3_question">Un ruban mesure 3 m. Combien de centimètres cela fait-il ?</string>
     <string name="learn_measurement_length_units_s3_explanation">Un mètre fait cent centimètres, donc trois mètres font trois de ces centaines.</string>
-    <string name="learn_measurement_length_units_s4_body">Dans l'autre sens, on divise. Mille mètres se rassemblent en un kilomètre, et voilà pourquoi un panneau routier ne compte jamais en mètres.</string>
+    <string name="learn_measurement_length_units_s4_body">Dans l'autre sens, on divise. Mille mètres se rassemblent en un kilomètre, et voilà pourquoi la distance jusqu'à la ville suivante s'écrit en kilomètres.</string>
     <string name="learn_measurement_length_units_s5_question">Un panneau annonce 2 km jusqu'à la ville suivante. Combien de mètres cela fait-il ?</string>
     <string name="learn_measurement_length_units_s5_explanation">Chaque kilomètre fait mille mètres, donc deux d'entre eux font deux mille.</string>
     <string name="learn_measurement_length_units_s6_question">Quelle unité convient à la distance entre deux villes ?</string>
@@ -1088,7 +1088,7 @@
     <string name="learn_measurement_money_coins_title">Compter des pièces</string>
     <string name="learn_measurement_money_coins_summary">Compte la valeur, pas les pièces.</string>
     <string name="learn_measurement_money_coins_s1_body">Les pièces ne valent pas toutes la même chose, donc une poignée se compte à sa valeur et non au nombre de morceaux.</string>
-    <string name="learn_measurement_money_coins_s2_body">Commence par la plus grosse pièce et compte les autres à la suite. Dans l'autre sens, il faut retenir un nombre plus grand à chaque étape.</string>
+    <string name="learn_measurement_money_coins_s2_body">Commence par la plus grosse pièce et compte les autres à la suite. Les grosses pièces font d'abord l'essentiel du total, donc les sommes intermédiaires restent rondes et faciles à compléter.</string>
     <string name="learn_measurement_money_coins_s3_question">Combien de centimes cela fait-il ?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Cinquante, puis soixante-dix, puis quatre-vingts à mesure que chaque pièce s'ajoute.</string>
     <string name="learn_measurement_money_coins_s4_body">Chaque pièce apporte sa propre valeur, donc compter les pièces ne dit rien tant que tu ne sais pas ce que vaut chacune.</string>
@@ -1143,7 +1143,7 @@
     <string name="learn_measurement_capacity_jugs_title">Lire le verre doseur</string>
     <string name="learn_measurement_capacity_jugs_summary">Lis le niveau, pas les traits.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">La capacité, c'est ce que contient un récipient. Un verre doseur est gradué sur son flanc, et le niveau que le liquide atteint est la mesure.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">Les nombres d'un verre doseur sont d'habitude à deux cents millilitres les uns des autres, pas à un. Les compter au lieu de les lire, voilà comment 400 ml devient 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">Les nombres de ce verre doseur sont à deux cents millilitres les uns des autres, pas à un. Les compter au lieu de les lire, voilà comment 400 ml devient 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">Le niveau se tient sur le trait du milieu entre le 400 et le 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Mille millilitres remplissent un litre, les mêmes mille qui font des kilogrammes avec des grammes.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Combien de millilitres y a-t-il dans ce verre doseur ?</string>
@@ -1167,10 +1167,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Un kilogramme s'arrête à 1000 g, et 1200 le dépasse.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Chaque litre fait mille millilitres, donc deux litres en font deux mille.</string>
     <string name="learn_unit_measurement_metric_title">Unités métriques</string>
-    <string name="learn_unit_measurement_metric_summary">Toute conversion est un saut de dix, de cent ou de mille.</string>
+    <string name="learn_unit_measurement_metric_summary">Toute conversion multiplie ou divise par une puissance de dix.</string>
     <string name="learn_measurement_metric_ladder_title">L'échelle de dix</string>
     <string name="learn_measurement_metric_ladder_summary">Un système, trois grandeurs.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Les unités métriques sont bâties sur des dizaines, donc une conversion n'est jamais rien d'autre qu'une multiplication ou une division par 10, 100 ou 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Les unités métriques sont bâties sur des dizaines, donc une conversion est toujours une multiplication ou une division par 10, 100, 1000 ou une autre puissance de dix.</string>
     <string name="learn_measurement_metric_ladder_s2_body">Le préfixe dit où sur l'échelle se place une unité. Milli est un millième, centi un centième, et kilo vaut mille.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Milli est un millième, le plus petit pas que nomme l'un de ces préfixes.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Longueur, masse et capacité partagent la même échelle, donc un seul jeu de repères couvre les trois : mille mètres dans un kilomètre, mille grammes dans un kilogramme, mille millilitres dans un litre.</string>
@@ -1211,7 +1211,7 @@
     <string name="learn_measurement_speed_rate_title">La distance par heure</string>
     <string name="learn_measurement_speed_rate_summary">La vitesse est une distance par unité de temps.</string>
     <string name="learn_measurement_speed_rate_s1_body">La vitesse dit quelle distance est parcourue en une unité de temps. Une voiture à 60 km/h ajoute encore 60 km pour chaque heure où elle continue.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Ce sont les pas égaux qui en font une vitesse. Dès que les pas cessent d'être égaux, le nombre est une moyenne et non une lecture.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Des pas égaux, c'est une vitesse constante. Quand les pas ne sont pas égaux, la distance divisée par le temps reste une vitesse : la vitesse moyenne.</string>
     <string name="learn_measurement_speed_rate_s3_question">Un cycliste roule 15 km chaque heure. Combien de kilomètres en 4 heures ?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Chaque heure ajoute encore 15 km, donc quatre heures en ajoutent quatre.</string>
     <string name="learn_measurement_speed_rate_s4_body">Dans l'autre sens, la distance se divise : 150 km parcourus en 3 heures font 50 km dans chacune.</string>
@@ -2066,12 +2066,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 et 0.12 sont hors de la fenêtre, et 1.2 * 10^3 ne fait que 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Nombres minuscules</string>
     <string name="learn_arithmetic_standard_form_small_summary">La même droite parcourue à l'envers, avec des exposants négatifs.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Les petits nombres, c'est la même droite parcourue à l'envers. Chaque pas divise par dix, et l'exposant compte ces pas en négatif : 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Les petits nombres, c'est la même droite parcourue à l'envers. Chaque pas divise par dix, et l'exposant compte ces pas en négatif : 6 ; 0.6 ; 0.06 ; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">Le moins de l'exposant dit dans quel sens marcher, pas que le nombre est négatif. Un nombre en notation scientifique n'est négatif que si son nombre de devant l'est.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Compte les sauts de 8.2 jusqu'à ce nombre.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Quatre pas à gauche de 8.2, et 82 est hors de la fenêtre de 1 à 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Déplace la virgule de quatre sauts vers la gauche.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Quatre sauts à gauche de 5.6 : 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Quatre sauts à gauche de 5.6 : 0.56 ; 0.056 ; 0.0056 ; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Un nombre de devant négatif et un exposant négatif veulent dire deux choses différentes, et l'un peut arriver sans l'autre.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">L'exposant le plus négatif va le plus loin à gauche, donc c'est le plus petit.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Un seul a un exposant de -4, et 0.0009 est en dessous de tous les autres nombres d'ici.</string>

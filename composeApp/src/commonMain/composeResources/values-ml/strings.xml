@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU ജയിച്ചു.</string>
     <string name="checkers_black_wins">കറുപ്പ് ജയിച്ചു.</string>
     <string name="checkers_white_wins">വെള്ള ജയിച്ചു.</string>
-    <string name="checkers_draw">സമനില: വെട്ടില്ലാതെ ഓരോരുത്തർക്കും 40 നീക്കങ്ങൾ.</string>
+    <string name="checkers_draw">സമനില: രാജാക്കന്മാർ മാത്രം നീങ്ങി, വെട്ടില്ലാതെ ഓരോരുത്തർക്കും 40 നീക്കങ്ങൾ.</string>
     <string name="checkers_resign">തോൽവി സമ്മതിക്കുക</string>
     <string name="checkers_resigned">നീ കീഴടങ്ങി. CPU ജയിച്ചു.</string>
     <string name="checkers_resigned_black">കറുപ്പ് കീഴടങ്ങി. വെള്ള ജയിച്ചു.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">നീക്കം %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= സ്തംഭനം (സമനില, ജയമല്ല)</string>
     <string name="mini_chess_moves_title">കരുക്കൾ എങ്ങനെ നീങ്ങുന്നു</string>
-    <string name="mini_checkers_draw">സമനില: വെട്ടില്ലാതെ ഓരോരുത്തർക്കും 15 നീക്കങ്ങൾ.</string>
+    <string name="mini_checkers_draw">സമനില: രാജാക്കന്മാർ മാത്രം നീങ്ങി, വെട്ടില്ലാതെ ഓരോരുത്തർക്കും 15 നീക്കങ്ങൾ.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d നീക്കത്തിൽ ഉറപ്പായ ജയം</item>
         <item quantity="other">%1$d നീക്കത്തിൽ ഉറപ്പായ ജയം</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d നീക്കത്തിനുള്ളിൽ വെട്ടിയില്ലെങ്കിൽ സമനില</item>
-        <item quantity="other">%1$d നീക്കത്തിനുള്ളിൽ വെട്ടിയില്ലെങ്കിൽ സമനില</item>
+        <item quantity="one">%1$d നീക്കത്തിനുള്ളിൽ രാജാക്കന്മാർ മാത്രം നീങ്ങി വെട്ടിയില്ലെങ്കിൽ സമനില</item>
+        <item quantity="other">%1$d നീക്കത്തിനുള്ളിൽ രാജാക്കന്മാർ മാത്രം നീങ്ങി വെട്ടിയില്ലെങ്കിൽ സമനില</item>
     </plurals>
     <string name="chess_piece_king">രാജാവ്</string>
     <string name="chess_piece_queen">മന്ത്രി</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">Κερδίζει η CPU.</string>
     <string name="checkers_black_wins">Κερδίζουν τα μαύρα.</string>
     <string name="checkers_white_wins">Κερδίζουν τα λευκά.</string>
-    <string name="checkers_draw">Ισοπαλία: 40 κινήσεις ο καθένας χωρίς φάγωμα.</string>
+    <string name="checkers_draw">Ισοπαλία: 40 κινήσεις ο καθένας μόνο με ντάμες και χωρίς φάγωμα.</string>
     <string name="checkers_resign">Παραίτηση</string>
     <string name="checkers_resigned">Παραιτήθηκες. Κερδίζει η CPU.</string>
     <string name="checkers_resigned_black">Τα μαύρα παραιτήθηκαν. Κερδίζουν τα λευκά.</string>
@@ -358,14 +358,14 @@
     <string name="mini_chess_move_counter">Κίνηση %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
     <string name="mini_chess_moves_title">Πώς κινούνται τα κομμάτια</string>
-    <string name="mini_checkers_draw">Ισοπαλία: 15 κινήσεις ο καθένας χωρίς φάγωμα.</string>
+    <string name="mini_checkers_draw">Ισοπαλία: 15 κινήσεις ο καθένας μόνο με ντάμες και χωρίς φάγωμα.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Αναγκαστική νίκη σε %1$d κίνηση</item>
         <item quantity="other">Αναγκαστική νίκη σε %1$d κινήσεις</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Ισοπαλία σε %1$d κίνηση χωρίς φάγωμα</item>
-        <item quantity="other">Ισοπαλία σε %1$d κινήσεις χωρίς φάγωμα</item>
+        <item quantity="one">Ισοπαλία σε %1$d κίνηση μόνο με ντάμες και χωρίς φάγωμα</item>
+        <item quantity="other">Ισοπαλία σε %1$d κινήσεις μόνο με ντάμες και χωρίς φάγωμα</item>
     </plurals>
     <string name="chess_piece_king">Βασιλιάς</string>
     <string name="chess_piece_queen">Βασίλισσα</string>

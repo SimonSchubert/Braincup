@@ -768,7 +768,7 @@
     <string name="checkers_lost">CPU kazandı.</string>
     <string name="checkers_black_wins">Siyah kazandı.</string>
     <string name="checkers_white_wins">Beyaz kazandı.</string>
-    <string name="checkers_draw">Berabere: iki taraf da 40 hamledir taş almadı.</string>
+    <string name="checkers_draw">Berabere: iki taraf da 40 hamledir yalnızca dama oynatıp taş almadı.</string>
     <string name="checkers_resign">Teslim ol</string>
     <string name="checkers_resigned">Pes ettin. CPU kazandı.</string>
     <string name="checkers_resigned_black">Siyah pes etti. Beyaz kazandı.</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">Çık</string>
     <string name="checkers_new_game">Yeni oyun</string>
     <string name="mini_chess_moves_title">Taşlar nasıl hareket eder</string>
-    <string name="mini_checkers_draw">Berabere: iki taraf da 15 hamledir taş almadı.</string>
+    <string name="mini_checkers_draw">Berabere: iki taraf da 15 hamledir yalnızca dama oynatıp taş almadı.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d hamlede zorunlu galibiyet</item>
         <item quantity="other">%1$d hamlede zorunlu galibiyet</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d hamle içinde taş alınmazsa berabere</item>
-        <item quantity="other">%1$d hamle içinde taş alınmazsa berabere</item>
+        <item quantity="one">%1$d hamle içinde yalnızca dama oynar ve taş alınmazsa berabere</item>
+        <item quantity="other">%1$d hamle içinde yalnızca dama oynar ve taş alınmazsa berabere</item>
     </plurals>
     <string name="chess_piece_king">Şah</string>
     <string name="chess_piece_queen">Vezir</string>

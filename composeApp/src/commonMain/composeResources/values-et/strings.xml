@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU võidab.</string>
     <string name="checkers_black_wins">Must võidab.</string>
     <string name="checkers_white_wins">Valge võidab.</string>
-    <string name="checkers_draw">Viik: kumbki 40 käiku ilma löömata.</string>
+    <string name="checkers_draw">Viik: kumbki 40 käiku ainult tammidega ja ilma löömata.</string>
     <string name="checkers_resign">Loobu</string>
     <string name="checkers_resigned">Andsid alla. CPU võidab.</string>
     <string name="checkers_resigned_black">Must andis alla. Valge võidab.</string>
@@ -432,14 +432,14 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="mini_chess_move_counter">Käik %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (viik, mitte võit)</string>
     <string name="mini_chess_moves_title">Kuidas nupud liiguvad</string>
-    <string name="mini_checkers_draw">Viik: kumbki 15 käiku ilma löömata.</string>
+    <string name="mini_checkers_draw">Viik: kumbki 15 käiku ainult tammidega ja ilma löömata.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Sunnitud võit %1$d käiguga</item>
         <item quantity="other">Sunnitud võit %1$d käiguga</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Viik %1$d käigu pärast ilma löömata</item>
-        <item quantity="other">Viik %1$d käigu pärast ilma löömata</item>
+        <item quantity="one">Viik %1$d käigu pärast ainult tammidega ja ilma löömata</item>
+        <item quantity="other">Viik %1$d käigu pärast ainult tammidega ja ilma löömata</item>
     </plurals>
     <string name="chess_piece_king">Kuningas</string>
     <string name="chess_piece_queen">Lipp</string>

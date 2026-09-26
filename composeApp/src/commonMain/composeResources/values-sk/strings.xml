@@ -147,7 +147,7 @@
     <string name="checkers_lost">Vyhráva CPU.</string>
     <string name="checkers_black_wins">Vyhráva čierny.</string>
     <string name="checkers_white_wins">Vyhráva biely.</string>
-    <string name="checkers_draw">Remíza: po 40 ťahov bez brania.</string>
+    <string name="checkers_draw">Remíza: po 40 ťahov len dámami a bez brania.</string>
     <string name="checkers_resign">Vzdať sa</string>
     <string name="checkers_resigned">Vzdal si sa. Vyhráva CPU.</string>
     <string name="checkers_resigned_black">Čierny sa vzdal. Vyhráva biely.</string>
@@ -436,16 +436,16 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="mini_chess_move_counter">Ťah %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remíza, nie výhra)</string>
     <string name="mini_chess_moves_title">Ako sa figúry pohybujú</string>
-    <string name="mini_checkers_draw">Remíza: po 15 ťahov bez brania.</string>
+    <string name="mini_checkers_draw">Remíza: po 15 ťahov len dámami a bez brania.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Vynútená výhra na %1$d ťah</item>
         <item quantity="few">Vynútená výhra na %1$d ťahy</item>
         <item quantity="other">Vynútená výhra na %1$d ťahov</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Remíza o %1$d ťah bez brania</item>
-        <item quantity="few">Remíza o %1$d ťahy bez brania</item>
-        <item quantity="other">Remíza o %1$d ťahov bez brania</item>
+        <item quantity="one">Remíza o %1$d ťah len dámami a bez brania</item>
+        <item quantity="few">Remíza o %1$d ťahy len dámami a bez brania</item>
+        <item quantity="other">Remíza o %1$d ťahov len dámami a bez brania</item>
     </plurals>
     <string name="chess_piece_king">Kráľ</string>
     <string name="chess_piece_queen">Dáma</string>

@@ -775,7 +775,7 @@
     <string name="checkers_lost">Комп'ютер виграє.</string>
     <string name="checkers_black_wins">Чорні виграють.</string>
     <string name="checkers_white_wins">Білі виграють.</string>
-    <string name="checkers_draw">Нічия: по 40 ходів без взяття.</string>
+    <string name="checkers_draw">Нічия: по 40 ходів лише дамками і без взяття.</string>
     <string name="checkers_resign">Здатися</string>
     <string name="checkers_resigned">Ти здався. Перемагає комп'ютер.</string>
     <string name="checkers_resigned_black">Чорні здалися. Перемагають білі.</string>
@@ -783,7 +783,7 @@
     <string name="checkers_quit">Вийти</string>
     <string name="checkers_new_game">Нова гра</string>
     <string name="mini_chess_moves_title">Як ходять фігури</string>
-    <string name="mini_checkers_draw">Нічия: по 15 ходів без взяття.</string>
+    <string name="mini_checkers_draw">Нічия: по 15 ходів лише дамками і без взяття.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Форсований виграш за %1$d хід</item>
         <item quantity="few">Форсований виграш за %1$d ходи</item>
@@ -791,10 +791,10 @@
         <item quantity="other">Форсований виграш за %1$d ходу</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Нічия через %1$d хід без взяття</item>
-        <item quantity="few">Нічия через %1$d ходи без взяття</item>
-        <item quantity="many">Нічия через %1$d ходів без взяття</item>
-        <item quantity="other">Нічия через %1$d ходу без взяття</item>
+        <item quantity="one">Нічия через %1$d хід лише дамками і без взяття</item>
+        <item quantity="few">Нічия через %1$d ходи лише дамками і без взяття</item>
+        <item quantity="many">Нічия через %1$d ходів лише дамками і без взяття</item>
+        <item quantity="other">Нічия через %1$d ходу лише дамками і без взяття</item>
     </plurals>
     <string name="chess_piece_king">Король</string>
     <string name="chess_piece_queen">Ферзь</string>

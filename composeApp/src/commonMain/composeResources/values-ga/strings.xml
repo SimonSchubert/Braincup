@@ -147,7 +147,7 @@
     <string name="checkers_lost">Buann an CPU.</string>
     <string name="checkers_black_wins">Buann na cinn dhubh.</string>
     <string name="checkers_white_wins">Buann na cinn bhán.</string>
-    <string name="checkers_draw">Comhscór: 40 beart an duine gan ghabháil.</string>
+    <string name="checkers_draw">Comhscór: 40 beart an duine le ríthe amháin agus gan ghabháil.</string>
     <string name="checkers_resign">Géill</string>
     <string name="checkers_resigned">Ghéill tú. Buann an CPU.</string>
     <string name="checkers_resigned_black">Ghéill na cinn dhubh. Buann na cinn bhán.</string>
@@ -444,7 +444,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="mini_chess_move_counter">Beart %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= sáinn (comhscór, ní bua)</string>
     <string name="mini_chess_moves_title">Conas a ghluaiseann na píosaí</string>
-    <string name="mini_checkers_draw">Comhscór: 15 beart an duine gan ghabháil.</string>
+    <string name="mini_checkers_draw">Comhscór: 15 beart an duine le ríthe amháin agus gan ghabháil.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Bua éigeantach i %1$d beart</item>
         <item quantity="two">Bua éigeantach i %1$d beart</item>
@@ -453,11 +453,11 @@ Bog Cow — éireoidh Bull de.</string>
         <item quantity="other">Bua éigeantach i %1$d beart</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Comhscór i gceann %1$d beart gan ghabháil</item>
-        <item quantity="two">Comhscór i gceann %1$d beart gan ghabháil</item>
-        <item quantity="few">Comhscór i gceann %1$d beart gan ghabháil</item>
-        <item quantity="many">Comhscór i gceann %1$d beart gan ghabháil</item>
-        <item quantity="other">Comhscór i gceann %1$d beart gan ghabháil</item>
+        <item quantity="one">Comhscór i gceann %1$d beart le ríthe amháin agus gan ghabháil</item>
+        <item quantity="two">Comhscór i gceann %1$d beart le ríthe amháin agus gan ghabháil</item>
+        <item quantity="few">Comhscór i gceann %1$d beart le ríthe amháin agus gan ghabháil</item>
+        <item quantity="many">Comhscór i gceann %1$d beart le ríthe amháin agus gan ghabháil</item>
+        <item quantity="other">Comhscór i gceann %1$d beart le ríthe amháin agus gan ghabháil</item>
     </plurals>
     <string name="chess_piece_king">Rí</string>
     <string name="chess_piece_queen">Banríon</string>

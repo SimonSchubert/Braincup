@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU vinnur.</string>
     <string name="checkers_black_wins">Svart vinnur.</string>
     <string name="checkers_white_wins">Hvítt vinnur.</string>
-    <string name="checkers_draw">Jafntefli: 40 leikir hvor án þess að drepa.</string>
+    <string name="checkers_draw">Jafntefli: 40 leikir hvor aðeins með kóngum og án þess að drepa.</string>
     <string name="checkers_resign">Gefast upp</string>
     <string name="checkers_resigned">Þú gafst upp. CPU vinnur.</string>
     <string name="checkers_resigned_black">Svart gafst upp. Hvítt vinnur.</string>
@@ -432,14 +432,14 @@ Færðu Cow — hann verður Bull.</string>
     <string name="mini_chess_move_counter">Leikur %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (jafntefli, ekki sigur)</string>
     <string name="mini_chess_moves_title">Hvernig taflmenn hreyfast</string>
-    <string name="mini_checkers_draw">Jafntefli: 15 leikir hvor án þess að drepa.</string>
+    <string name="mini_checkers_draw">Jafntefli: 15 leikir hvor aðeins með kóngum og án þess að drepa.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Þvingaður sigur í %1$d leik</item>
         <item quantity="other">Þvingaður sigur í %1$d leikjum</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Jafntefli eftir %1$d leik án þess að drepa</item>
-        <item quantity="other">Jafntefli eftir %1$d leiki án þess að drepa</item>
+        <item quantity="one">Jafntefli eftir %1$d leik aðeins með kóngum og án þess að drepa</item>
+        <item quantity="other">Jafntefli eftir %1$d leiki aðeins með kóngum og án þess að drepa</item>
     </plurals>
     <string name="chess_piece_king">Kóngur</string>
     <string name="chess_piece_queen">Drottning</string>

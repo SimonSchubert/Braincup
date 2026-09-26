@@ -774,7 +774,7 @@
     <string name="checkers_lost">Побеждает компьютер.</string>
     <string name="checkers_black_wins">Победа чёрных.</string>
     <string name="checkers_white_wins">Победа белых.</string>
-    <string name="checkers_draw">Ничья: по 40 ходов без взятия.</string>
+    <string name="checkers_draw">Ничья: по 40 ходов только дамками и без взятия.</string>
     <string name="checkers_resign">Сдаться</string>
     <string name="checkers_resigned">Ты сдался. Побеждает компьютер.</string>
     <string name="checkers_resigned_black">Чёрные сдались. Побеждают белые.</string>
@@ -782,7 +782,7 @@
     <string name="checkers_quit">Выйти</string>
     <string name="checkers_new_game">Новая игра</string>
     <string name="mini_chess_moves_title">Как ходят фигуры</string>
-    <string name="mini_checkers_draw">Ничья: по 15 ходов без взятия.</string>
+    <string name="mini_checkers_draw">Ничья: по 15 ходов только дамками и без взятия.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Форсированный выигрыш в %1$d ход</item>
         <item quantity="few">Форсированный выигрыш в %1$d хода</item>
@@ -790,10 +790,10 @@
         <item quantity="other">Форсированный выигрыш в %1$d хода</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Ничья через %1$d ход без взятия</item>
-        <item quantity="few">Ничья через %1$d хода без взятия</item>
-        <item quantity="many">Ничья через %1$d ходов без взятия</item>
-        <item quantity="other">Ничья через %1$d хода без взятия</item>
+        <item quantity="one">Ничья через %1$d ход только дамками и без взятия</item>
+        <item quantity="few">Ничья через %1$d хода только дамками и без взятия</item>
+        <item quantity="many">Ничья через %1$d ходов только дамками и без взятия</item>
+        <item quantity="other">Ничья через %1$d хода только дамками и без взятия</item>
     </plurals>
     <string name="chess_piece_king">Король</string>
     <string name="chess_piece_queen">Ферзь</string>
@@ -1016,7 +1016,7 @@
     <string name="learn_unit_measurement_length_summary">Как читать линейку от нуля и в каких единицах считают длину.</string>
     <string name="learn_measurement_length_ruler_title">Как читать линейку</string>
     <string name="learn_measurement_length_ruler_summary">Начни с нуля и прочитай дальний конец.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Линейка размечена равными шагами, поэтому длина - это всего лишь число таких шагов, которые покрывает предмет.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Линейка размечена равными шагами, поэтому длина - это число таких шагов, которые покрывает предмет, плюс оставшаяся часть шага.</string>
     <string name="learn_measurement_length_ruler_s2_body">Приложи предмет к 0 и прочитай отметку, до которой доходит его дальний конец. Начни с другого места, и показание окажется больше на то, что ты пропустил.</string>
     <string name="learn_measurement_length_ruler_s3_question">Какой длины этот карандаш?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Его дальний конец доходит до девятой отметки, если считать от нуля.</string>
@@ -1027,11 +1027,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">В каждом сантиметре десять миллиметров, значит, в трёх сантиметрах три десятка.</string>
     <string name="learn_measurement_length_units_title">От миллиметров до километров</string>
     <string name="learn_measurement_length_units_summary">Для больших длин нужны большие единицы.</string>
-    <string name="learn_measurement_length_units_s1_body">Единицы длины растут через десятки: десять миллиметров - это сантиметр, сто сантиметров - метр, тысяча метров - километр.</string>
+    <string name="learn_measurement_length_units_s1_body">Каждая единица длины в десять, сто или тысячу раз больше предыдущей: десять миллиметров - это сантиметр, сто сантиметров - метр, тысяча метров - километр.</string>
     <string name="learn_measurement_length_units_s2_body">Меньшей единицы нужно больше, чтобы покрыть ту же длину, поэтому шаг вниз по лестнице умножает.</string>
     <string name="learn_measurement_length_units_s3_question">Лента длиной 3 м. Сколько это сантиметров?</string>
     <string name="learn_measurement_length_units_s3_explanation">Один метр - это сто сантиметров, значит, три метра - три такие сотни.</string>
-    <string name="learn_measurement_length_units_s4_body">В обратную сторону делят. Тысяча метров собирается в один километр, поэтому на дорожных знаках не пишут метры.</string>
+    <string name="learn_measurement_length_units_s4_body">В обратную сторону делят. Тысяча метров собирается в один километр, поэтому расстояние до следующего города указывают в километрах.</string>
     <string name="learn_measurement_length_units_s5_question">Дорожный знак показывает 2 км до следующего города. Сколько это метров?</string>
     <string name="learn_measurement_length_units_s5_explanation">Каждый километр - это тысяча метров, значит, два - это две тысячи.</string>
     <string name="learn_measurement_length_units_s6_question">Какая единица подходит для расстояния между двумя городами?</string>
@@ -1099,7 +1099,7 @@
     <string name="learn_measurement_money_coins_title">Считаем монеты</string>
     <string name="learn_measurement_money_coins_summary">Считай стоимость, а не монеты.</string>
     <string name="learn_measurement_money_coins_s1_body">Монеты стоят по-разному, поэтому горсть считают по стоимости, а не по количеству штук.</string>
-    <string name="learn_measurement_money_coins_s2_body">Начни с самой крупной монеты и досчитывай остальные. Наоборот пришлось бы на каждом шаге держать в голове большее число.</string>
+    <string name="learn_measurement_money_coins_s2_body">Начни с самой крупной монеты и досчитывай остальные. Крупные монеты сразу дают большую часть суммы, поэтому промежуточные итоги остаются круглыми и к ним легко прибавлять.</string>
     <string name="learn_measurement_money_coins_s3_question">Сколько здесь центов?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Пятьдесят, потом семьдесят, потом восемьдесят - с каждой новой монетой.</string>
     <string name="learn_measurement_money_coins_s4_body">Каждая монета приносит свою стоимость, поэтому число монет ничего не говорит, пока не знаешь, сколько стоит каждая.</string>
@@ -1154,7 +1154,7 @@
     <string name="learn_measurement_capacity_jugs_title">Как читать кувшин</string>
     <string name="learn_measurement_capacity_jugs_summary">Читай уровень, а не деления.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">Вместимость - это сколько вмещает сосуд. На боку кувшина есть деления, и показание - это уровень, до которого доходит жидкость.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">Числа на кувшине обычно идут через двести миллилитров, а не через один. Если считать их, а не читать, 400 мл превращаются в 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">Числа на этом кувшине идут через двести миллилитров, а не через один. Если считать их, а не читать, 400 мл превращаются в 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">Уровень стоит на делении посередине между 400 и 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Тысяча миллилитров заполняет один литр - та же тысяча, что превращает граммы в килограммы.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Сколько миллилитров в этом кувшине?</string>
@@ -1178,10 +1178,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Килограмм заканчивается на 1000 г, а 1200 уходит дальше.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Каждый литр - это тысяча миллилитров, значит, два литра - две тысячи.</string>
     <string name="learn_unit_measurement_metric_title">Метрические единицы</string>
-    <string name="learn_unit_measurement_metric_summary">Каждый перевод - это прыжок на десять, сто или тысячу.</string>
+    <string name="learn_unit_measurement_metric_summary">Каждый перевод - это умножение или деление на степень десяти.</string>
     <string name="learn_measurement_metric_ladder_title">Лестница десятков</string>
     <string name="learn_measurement_metric_ladder_summary">Одна система, три величины.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Метрические единицы построены на десятках, поэтому перевод - это всегда только умножение или деление на 10, 100 или 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Метрические единицы построены на десятках, поэтому перевод - это всегда умножение или деление на 10, 100, 1000 или другую степень десяти.</string>
     <string name="learn_measurement_metric_ladder_s2_body">Приставка говорит, где на лестнице стоит единица. Милли - это тысячная, санти - сотая, а кило - тысяча.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Милли - это тысячная, самый маленький шаг, который называет любая из этих приставок.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Длина, масса и вместимость живут на одной лестнице, поэтому одни и те же факты годятся для всех трёх: тысяча метров в километре, тысяча граммов в килограмме, тысяча миллилитров в литре.</string>
@@ -1222,7 +1222,7 @@
     <string name="learn_measurement_speed_rate_title">Расстояние за час</string>
     <string name="learn_measurement_speed_rate_summary">Скорость - это расстояние за единицу времени.</string>
     <string name="learn_measurement_speed_rate_s1_body">Скорость говорит, какое расстояние проходится за единицу времени. Машина на 60 км/ч добавляет ещё 60 км за каждый час в пути.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Скорость получается именно из равных шагов. Как только шаги перестают быть равными, число становится средним, а не показанием.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Равные шаги означают постоянную скорость. Если шаги неравные, расстояние, делённое на время, всё равно скорость: средняя.</string>
     <string name="learn_measurement_speed_rate_s3_question">Велосипедист проезжает 15 км каждый час. Сколько километров за 4 часа?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Каждый час добавляет ещё 15 км, значит, четыре часа добавляют четыре раза по столько.</string>
     <string name="learn_measurement_speed_rate_s4_body">Поверни наоборот, и расстояние делится: 150 км за 3 часа - это по 50 км за каждый.</string>
@@ -2087,12 +2087,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 и 0.12 вне окна, а 1.2 * 10^3 - это всего 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Крошечные числа</string>
     <string name="learn_arithmetic_standard_form_small_summary">Та же прямая, пройденная назад, с отрицательными степенями.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Маленькие числа - это та же прямая, пройденная назад. Каждый шаг делит на десять, и степень считает эти шаги отрицательными: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Маленькие числа - это та же прямая, пройденная назад. Каждый шаг делит на десять, и степень считает эти шаги отрицательными: 6; 0.6; 0.06; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">Минус в степени говорит, в какую сторону идти, а не что число отрицательное. Число в стандартном виде отрицательно только тогда, когда отрицательно число впереди.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Посчитай прыжки от 8.2 вниз до этого числа.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Четыре шага влево от 8.2, а 82 не попадает в окно от 1 до 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Переведи запятую на четыре прыжка влево.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Четыре прыжка влево от 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Четыре прыжка влево от 5.6: 0.56; 0.056; 0.0056; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Отрицательное число впереди и отрицательная степень - две разные вещи, и любая из них бывает без другой.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">Самая отрицательная степень уводит дальше всех влево, поэтому это самое маленькое число.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Только у одного степень равна -4, и 0.0009 меньше любого другого числа здесь.</string>

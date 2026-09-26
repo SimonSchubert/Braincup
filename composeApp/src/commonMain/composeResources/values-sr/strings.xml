@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU побеђује.</string>
     <string name="checkers_black_wins">Црни побеђује.</string>
     <string name="checkers_white_wins">Бели побеђује.</string>
-    <string name="checkers_draw">Реми: 40 потеза по играчу без узимања.</string>
+    <string name="checkers_draw">Реми: 40 потеза по играчу само дамама и без узимања.</string>
     <string name="checkers_resign">Предај се</string>
     <string name="checkers_resigned">Предао си се. Побеђује CPU.</string>
     <string name="checkers_resigned_black">Црни се предао. Побеђује бели.</string>
@@ -436,16 +436,16 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="mini_chess_move_counter">Потез %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (реми, не победа)</string>
     <string name="mini_chess_moves_title">Како се фигуре крећу</string>
-    <string name="mini_checkers_draw">Реми: 15 потеза по играчу без узимања.</string>
+    <string name="mini_checkers_draw">Реми: 15 потеза по играчу само дамама и без узимања.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Изнуђена победа у %1$d потезу</item>
         <item quantity="few">Изнуђена победа у %1$d потеза</item>
         <item quantity="other">Изнуђена победа у %1$d потеза</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Реми за %1$d потез без узимања</item>
-        <item quantity="few">Реми за %1$d потеза без узимања</item>
-        <item quantity="other">Реми за %1$d потеза без узимања</item>
+        <item quantity="one">Реми за %1$d потез само дамама и без узимања</item>
+        <item quantity="few">Реми за %1$d потеза само дамама и без узимања</item>
+        <item quantity="other">Реми за %1$d потеза само дамама и без узимања</item>
     </plurals>
     <string name="chess_piece_king">Краљ</string>
     <string name="chess_piece_queen">Дама</string>

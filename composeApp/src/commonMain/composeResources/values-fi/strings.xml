@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU voittaa.</string>
     <string name="checkers_black_wins">Musta voittaa.</string>
     <string name="checkers_white_wins">Valkoinen voittaa.</string>
-    <string name="checkers_draw">Tasapeli: 40 siirtoa kummaltakin ilman syöntiä.</string>
+    <string name="checkers_draw">Tasapeli: 40 siirtoa kummaltakin vain kuninkailla ja ilman syöntiä.</string>
     <string name="checkers_resign">Luovuta</string>
     <string name="checkers_resigned">Luovutit. CPU voittaa.</string>
     <string name="checkers_resigned_black">Musta luovutti. Valkoinen voittaa.</string>
@@ -432,14 +432,14 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="mini_chess_move_counter">Siirto %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patti (tasapeli, ei voitto)</string>
     <string name="mini_chess_moves_title">Miten nappulat liikkuvat</string>
-    <string name="mini_checkers_draw">Tasapeli: 15 siirtoa kummaltakin ilman syöntiä.</string>
+    <string name="mini_checkers_draw">Tasapeli: 15 siirtoa kummaltakin vain kuninkailla ja ilman syöntiä.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Pakotettu voitto %1$d siirrossa</item>
         <item quantity="other">Pakotettu voitto %1$d siirrossa</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Tasapeli %1$d siirron päästä ilman syöntiä</item>
-        <item quantity="other">Tasapeli %1$d siirron päästä ilman syöntiä</item>
+        <item quantity="one">Tasapeli %1$d siirron päästä vain kuninkailla ja ilman syöntiä</item>
+        <item quantity="other">Tasapeli %1$d siirron päästä vain kuninkailla ja ilman syöntiä</item>
     </plurals>
     <string name="chess_piece_king">Kuningas</string>
     <string name="chess_piece_queen">Kuningatar</string>

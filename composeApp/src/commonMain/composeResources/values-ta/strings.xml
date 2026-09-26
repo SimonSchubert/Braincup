@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU வென்றது.</string>
     <string name="checkers_black_wins">கருப்பு வென்றது.</string>
     <string name="checkers_white_wins">வெள்ளை வென்றது.</string>
-    <string name="checkers_draw">சமநிலை: இருவரும் 40 நகர்வுகளாக வெட்டவில்லை.</string>
+    <string name="checkers_draw">சமநிலை: இருவரும் 40 நகர்வுகளாக ராஜாவை மட்டும் நகர்த்தி, வெட்டவில்லை.</string>
     <string name="checkers_resign">சரணடை</string>
     <string name="checkers_resigned">நீ விட்டுக்கொடுத்தாய். CPU வென்றது.</string>
     <string name="checkers_resigned_black">கருப்பு விட்டுக்கொடுத்தது. வெள்ளை வென்றது.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">நகர்வு %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= முட்டுக்கட்டு (சமநிலை, வெற்றி அல்ல)</string>
     <string name="mini_chess_moves_title">காய்கள் எப்படி நகரும்</string>
-    <string name="mini_checkers_draw">சமநிலை: இருவரும் 15 நகர்வுகளாக வெட்டவில்லை.</string>
+    <string name="mini_checkers_draw">சமநிலை: இருவரும் 15 நகர்வுகளாக ராஜாவை மட்டும் நகர்த்தி, வெட்டவில்லை.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d நகர்வில் உறுதியான வெற்றி</item>
         <item quantity="other">%1$d நகர்வுகளில் உறுதியான வெற்றி</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d நகர்வில் வெட்டாவிட்டால் சமநிலை</item>
-        <item quantity="other">%1$d நகர்வுகளில் வெட்டாவிட்டால் சமநிலை</item>
+        <item quantity="one">%1$d நகர்வில் ராஜா மட்டும் நகர்ந்து வெட்டாவிட்டால் சமநிலை</item>
+        <item quantity="other">%1$d நகர்வுகளில் ராஜா மட்டும் நகர்ந்து வெட்டாவிட்டால் சமநிலை</item>
     </plurals>
     <string name="chess_piece_king">ராஜா</string>
     <string name="chess_piece_queen">ராணி</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU ਜਿੱਤਿਆ।</string>
     <string name="checkers_black_wins">ਕਾਲਾ ਜਿੱਤਿਆ।</string>
     <string name="checkers_white_wins">ਚਿੱਟਾ ਜਿੱਤਿਆ।</string>
-    <string name="checkers_draw">ਬਰਾਬਰੀ: ਦੋਵਾਂ ਦੀਆਂ 40-40 ਚਾਲਾਂ ਬਿਨਾਂ ਕੋਈ ਗੋਟੀ ਮਾਰੇ।</string>
+    <string name="checkers_draw">ਬਰਾਬਰੀ: ਦੋਵਾਂ ਦੀਆਂ 40-40 ਚਾਲਾਂ ਸਿਰਫ਼ ਰਾਜੇ ਨਾਲ, ਬਿਨਾਂ ਕੋਈ ਗੋਟੀ ਮਾਰੇ।</string>
     <string name="checkers_resign">ਹਾਰ ਮੰਨੋ</string>
     <string name="checkers_resigned">ਤੂੰ ਹਾਰ ਮੰਨ ਲਈ। CPU ਜਿੱਤਿਆ।</string>
     <string name="checkers_resigned_black">ਕਾਲੇ ਨੇ ਹਾਰ ਮੰਨ ਲਈ। ਚਿੱਟਾ ਜਿੱਤਿਆ।</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">ਚਾਲ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ਗਤੀਰੋਧ (ਬਰਾਬਰੀ, ਜਿੱਤ ਨਹੀਂ)</string>
     <string name="mini_chess_moves_title">ਮੋਹਰੇ ਕਿਵੇਂ ਚੱਲਦੇ ਹਨ</string>
-    <string name="mini_checkers_draw">ਬਰਾਬਰੀ: ਦੋਵਾਂ ਦੀਆਂ 15-15 ਚਾਲਾਂ ਬਿਨਾਂ ਕੋਈ ਗੋਟੀ ਮਾਰੇ।</string>
+    <string name="mini_checkers_draw">ਬਰਾਬਰੀ: ਦੋਵਾਂ ਦੀਆਂ 15-15 ਚਾਲਾਂ ਸਿਰਫ਼ ਰਾਜੇ ਨਾਲ, ਬਿਨਾਂ ਕੋਈ ਗੋਟੀ ਮਾਰੇ।</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਪੱਕੀ ਜਿੱਤ</item>
         <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਪੱਕੀ ਜਿੱਤ</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
-        <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
+        <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਸਿਰਫ਼ ਰਾਜਾ ਚੱਲਿਆ ਅਤੇ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
+        <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਸਿਰਫ਼ ਰਾਜਾ ਚੱਲਿਆ ਅਤੇ ਗੋਟੀ ਨਾ ਮਰੀ ਤਾਂ ਬਰਾਬਰੀ</item>
     </plurals>
     <string name="chess_piece_king">ਰਾਜਾ</string>
     <string name="chess_piece_queen">ਵਜ਼ੀਰ</string>

@@ -768,7 +768,7 @@
     <string name="checkers_lost">CPU ชนะ</string>
     <string name="checkers_black_wins">ฝ่ายดำชนะ</string>
     <string name="checkers_white_wins">ฝ่ายขาวชนะ</string>
-    <string name="checkers_draw">เสมอ: ไม่มีการกินมาฝ่ายละ 40 ตา</string>
+    <string name="checkers_draw">เสมอ: เดินแต่ฮอสและไม่มีการกินมาฝ่ายละ 40 ตา</string>
     <string name="checkers_resign">ยอมแพ้</string>
     <string name="checkers_resigned">คุณยอมแพ้ CPU ชนะ</string>
     <string name="checkers_resigned_black">ฝ่ายดำยอมแพ้ ฝ่ายขาวชนะ</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">ออก</string>
     <string name="checkers_new_game">เกมใหม่</string>
     <string name="mini_chess_moves_title">วิธีที่หมากเคลื่อนที่</string>
-    <string name="mini_checkers_draw">เสมอ: ไม่มีการกินมาฝ่ายละ 15 ตา</string>
+    <string name="mini_checkers_draw">เสมอ: เดินแต่ฮอสและไม่มีการกินมาฝ่ายละ 15 ตา</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">ชนะแน่ใน %1$d ตา</item>
         <item quantity="other">ชนะแน่ใน %1$d ตา</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">เสมอใน %1$d ตาถ้าไม่มีการกิน</item>
-        <item quantity="other">เสมอใน %1$d ตาถ้าไม่มีการกิน</item>
+        <item quantity="one">เสมอใน %1$d ตาถ้าเดินแต่ฮอสและไม่มีการกิน</item>
+        <item quantity="other">เสมอใน %1$d ตาถ้าเดินแต่ฮอสและไม่มีการกิน</item>
     </plurals>
     <string name="chess_piece_king">คิง</string>
     <string name="chess_piece_queen">ควีน</string>

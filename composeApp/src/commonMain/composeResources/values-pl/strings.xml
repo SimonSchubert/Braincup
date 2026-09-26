@@ -775,7 +775,7 @@
     <string name="checkers_lost">Wygrywa komputer.</string>
     <string name="checkers_black_wins">Wygrywają czarne.</string>
     <string name="checkers_white_wins">Wygrywają białe.</string>
-    <string name="checkers_draw">Remis: po 40 ruchów bez bicia.</string>
+    <string name="checkers_draw">Remis: po 40 ruchów tylko damkami i bez bicia.</string>
     <string name="checkers_resign">Poddaj się</string>
     <string name="checkers_resigned">Poddałeś się. Wygrywa komputer.</string>
     <string name="checkers_resigned_black">Czarne się poddały. Wygrywają białe.</string>
@@ -783,7 +783,7 @@
     <string name="checkers_quit">Wyjdź</string>
     <string name="checkers_new_game">Nowa gra</string>
     <string name="mini_chess_moves_title">Jak poruszają się bierki</string>
-    <string name="mini_checkers_draw">Remis: po 15 ruchów bez bicia.</string>
+    <string name="mini_checkers_draw">Remis: po 15 ruchów tylko damkami i bez bicia.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Wymuszona wygrana w %1$d ruchu</item>
         <item quantity="few">Wymuszona wygrana w %1$d ruchach</item>
@@ -791,10 +791,10 @@
         <item quantity="other">Wymuszona wygrana w %1$d ruchu</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Remis za %1$d ruch bez bicia</item>
-        <item quantity="few">Remis za %1$d ruchy bez bicia</item>
-        <item quantity="many">Remis za %1$d ruchów bez bicia</item>
-        <item quantity="other">Remis za %1$d ruchu bez bicia</item>
+        <item quantity="one">Remis za %1$d ruch tylko damkami i bez bicia</item>
+        <item quantity="few">Remis za %1$d ruchy tylko damkami i bez bicia</item>
+        <item quantity="many">Remis za %1$d ruchów tylko damkami i bez bicia</item>
+        <item quantity="other">Remis za %1$d ruchu tylko damkami i bez bicia</item>
     </plurals>
     <string name="chess_piece_king">Król</string>
     <string name="chess_piece_queen">Hetman</string>

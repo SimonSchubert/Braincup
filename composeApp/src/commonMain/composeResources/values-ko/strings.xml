@@ -768,7 +768,7 @@
     <string name="checkers_lost">CPU가 이겼습니다.</string>
     <string name="checkers_black_wins">흑 승리.</string>
     <string name="checkers_white_wins">백 승리.</string>
-    <string name="checkers_draw">무승부: 양쪽 모두 40수 동안 잡지 못했습니다.</string>
+    <string name="checkers_draw">무승부: 양쪽 모두 40수 동안 킹만 움직이고 잡지 못했습니다.</string>
     <string name="checkers_resign">기권</string>
     <string name="checkers_resigned">기권했습니다. CPU 승리.</string>
     <string name="checkers_resigned_black">흑이 기권했습니다. 백 승리.</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">종료</string>
     <string name="checkers_new_game">새 게임</string>
     <string name="mini_chess_moves_title">기물이 움직이는 방법</string>
-    <string name="mini_checkers_draw">무승부: 양쪽 모두 15수 동안 잡지 못했습니다.</string>
+    <string name="mini_checkers_draw">무승부: 양쪽 모두 15수 동안 킹만 움직이고 잡지 못했습니다.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d수 만에 필승</item>
         <item quantity="other">%1$d수 만에 필승</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">잡지 않으면 %1$d수 뒤 무승부</item>
-        <item quantity="other">잡지 않으면 %1$d수 뒤 무승부</item>
+        <item quantity="one">킹만 움직이고 잡지 않으면 %1$d수 뒤 무승부</item>
+        <item quantity="other">킹만 움직이고 잡지 않으면 %1$d수 뒤 무승부</item>
     </plurals>
     <string name="chess_piece_king">킹</string>
     <string name="chess_piece_queen">퀸</string>
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">영부터 자를 읽는 법, 그리고 길이를 세는 단위.</string>
     <string name="learn_measurement_length_ruler_title">자 읽기</string>
     <string name="learn_measurement_length_ruler_summary">영에서 시작해서 끝쪽을 읽어요.</string>
-    <string name="learn_measurement_length_ruler_s1_body">자에는 같은 간격으로 눈금이 있어서, 길이는 그 물건이 눈금을 몇 개 지나는지를 세는 것뿐이에요.</string>
+    <string name="learn_measurement_length_ruler_s1_body">자에는 같은 간격으로 눈금이 있어서, 길이는 그 물건이 지나는 눈금 수에 한 칸이 안 되는 나머지를 더한 거예요.</string>
     <string name="learn_measurement_length_ruler_s2_body">물건을 0에 맞추고, 끝이 닿는 눈금을 읽어요. 다른 곳에서 시작하면 건너뛴 만큼 길게 읽혀요.</string>
     <string name="learn_measurement_length_ruler_s3_question">이 연필은 길이가 얼마인가요?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">끝이 영에서부터 세어 아홉째 눈금에 닿아요.</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">센티미터마다 밀리미터가 열 개씩 있으니, 세 센티미터에는 열이 세 번, 서른 개가 들어 있어요.</string>
     <string name="learn_measurement_length_units_title">밀리미터에서 킬로미터까지</string>
     <string name="learn_measurement_length_units_summary">더 긴 길이에는 더 큰 단위가 필요해요.</string>
-    <string name="learn_measurement_length_units_s1_body">길이 단위는 열 배씩 커져요: 밀리미터 열 개가 센티미터 하나, 센티미터 백 개가 미터 하나, 미터 천 개가 킬로미터 하나예요.</string>
+    <string name="learn_measurement_length_units_s1_body">길이 단위는 바로 아래 단위의 열 배, 백 배, 천 배예요: 밀리미터 열 개가 센티미터 하나, 센티미터 백 개가 미터 하나, 미터 천 개가 킬로미터 하나예요.</string>
     <string name="learn_measurement_length_units_s2_body">더 작은 단위를 쓰면 같은 길이를 재는 데 더 많은 개수가 필요하니, 사다리를 내려갈수록 곱해져요.</string>
     <string name="learn_measurement_length_units_s3_question">리본의 길이가 3 m예요. 몇 센티미터인가요?</string>
     <string name="learn_measurement_length_units_s3_explanation">한 미터는 백 센티미터이니, 세 미터는 그 백이 셋이에요.</string>
-    <string name="learn_measurement_length_units_s4_body">반대 방향으로 가면 나누기예요. 미터 천 개가 모이면 킬로미터 하나가 되니, 그래서 도로 표지판은 미터로 세지 않아요.</string>
+    <string name="learn_measurement_length_units_s4_body">반대 방향으로 가면 나누기예요. 미터 천 개가 모이면 킬로미터 하나가 되니, 그래서 다음 마을까지의 거리는 킬로미터로 나타내요.</string>
     <string name="learn_measurement_length_units_s5_question">도로 표지판에 다음 마을까지 2 km라고 쓰여 있어요. 몇 미터인가요?</string>
     <string name="learn_measurement_length_units_s5_explanation">킬로미터마다 미터 천 개이니, 둘이면 이천이에요.</string>
     <string name="learn_measurement_length_units_s6_question">두 마을 사이의 거리에 맞는 단위는 어느 것인가요?</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">동전 세기</string>
     <string name="learn_measurement_money_coins_summary">개수가 아니라 가치를 세요.</string>
     <string name="learn_measurement_money_coins_s1_body">동전은 저마다 가치가 다르니, 한 움큼을 셀 때는 개수가 아니라 가치로 세요.</string>
-    <string name="learn_measurement_money_coins_s2_body">가장 큰 동전부터 시작해서 나머지를 이어서 세요. 거꾸로 하면 매번 머릿속에 더 큰 수를 담고 있어야 해요.</string>
+    <string name="learn_measurement_money_coins_s2_body">가장 큰 동전부터 시작해서 나머지를 이어서 세요. 큰 동전이 먼저 합계의 대부분을 채워서, 중간 합계가 딱 떨어지는 수라 더하기 쉬워요.</string>
     <string name="learn_measurement_money_coins_s3_question">이것은 몇 센트인가요?</string>
     <string name="learn_measurement_money_coins_s3_explanation">쉰, 그다음 일흔, 그다음 여든, 동전을 하나씩 이어서 셀 때마다요.</string>
     <string name="learn_measurement_money_coins_s4_body">동전마다 자기 가치를 가져오니, 각 동전의 가치를 알기 전까지는 개수를 세어도 아무 의미가 없어요.</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">물병 읽기</string>
     <string name="learn_measurement_capacity_jugs_summary">눈금이 아니라 물의 높이를 읽어요.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">들이는 그릇이 담을 수 있는 양이에요. 물병 옆면에는 눈금이 있고, 액체가 닿는 높이가 읽는 값이에요.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">물병의 숫자는 보통 하나가 아니라 이백 밀리리터 간격이에요. 숫자를 읽지 않고 세면 400 ml가 2가 되어 버려요.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">이 물병의 숫자는 하나가 아니라 이백 밀리리터 간격이에요. 숫자를 읽지 않고 세면 400 ml가 2가 되어 버려요.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">물 높이는 400과 600 사이의 중간 눈금에 있어요.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">밀리리터 천 개가 리터 하나를 채우는데, 그램을 킬로그램으로 바꾸는 것과 같은 천이에요.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">이 물병에는 몇 밀리리터가 들어 있나요?</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">킬로그램은 1000 g에서 끝나고, 1200은 그걸 넘어서요.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">리터마다 밀리리터 천 개이니, 리터 둘은 이천 개예요.</string>
     <string name="learn_unit_measurement_metric_title">미터법 단위</string>
-    <string name="learn_unit_measurement_metric_summary">모든 환산은 십, 백, 또는 천만큼 뛰는 거예요.</string>
+    <string name="learn_unit_measurement_metric_summary">모든 환산은 십의 거듭제곱을 곱하거나 나누는 거예요.</string>
     <string name="learn_measurement_metric_ladder_title">십의 사다리</string>
     <string name="learn_measurement_metric_ladder_summary">하나의 체계, 세 가지 양.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">미터법 단위는 십진법으로 이루어져 있어서, 환산은 언제나 10, 100, 1000 중 하나를 곱하거나 나누는 것뿐이에요.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">미터법 단위는 십진법으로 이루어져 있어서, 환산은 언제나 10, 100, 1000 또는 다른 십의 거듭제곱을 곱하거나 나누는 거예요.</string>
     <string name="learn_measurement_metric_ladder_s2_body">접두사는 단위가 사다리의 어디쯤 있는지 말해 줘요. 밀리는 천분의 일, 센티는 백분의 일, 킬로는 천이에요.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">밀리는 천분의 일로, 이 접두사들이 나타내는 것 중 가장 작은 걸음이에요.</string>
     <string name="learn_measurement_metric_ladder_s4_body">길이, 무게, 들이는 모두 같은 사다리를 쓰니, 한 가지 사실이 셋 모두에 통해요: 킬로미터는 미터 천 개, 킬로그램은 그램 천 개, 리터는 밀리리터 천 개예요.</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">한 시간당 거리</string>
     <string name="learn_measurement_speed_rate_summary">속력은 시간의 한 단위당 거리예요.</string>
     <string name="learn_measurement_speed_rate_s1_body">속력은 시간의 한 단위 동안 이동하는 거리를 말해요. 60 km/h로 달리는 차는 계속 달릴 때마다 매 시간 60 km씩 더해요.</string>
-    <string name="learn_measurement_speed_rate_s2_body">일정한 간격이라야 속력이라고 할 수 있어요. 간격이 일정하지 않으면 그 수는 그 순간의 값이 아니라 평균이에요.</string>
+    <string name="learn_measurement_speed_rate_s2_body">간격이 일정하면 속력이 일정해요. 간격이 일정하지 않아도 거리를 시간으로 나누면 여전히 속력인데, 바로 평균 속력이에요.</string>
     <string name="learn_measurement_speed_rate_s3_question">자전거 타는 사람이 매 시간 15 km를 달려요. 4시간이면 몇 킬로미터인가요?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">매 시간 15 km씩 더해지니, 네 시간이면 그것이 네 번 더해져요.</string>
     <string name="learn_measurement_speed_rate_s4_body">거꾸로 하면 거리를 나누는 거예요: 150 km를 3시간 동안 갔다면 시간마다 50 km씩이에요.</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU menang.</string>
     <string name="checkers_black_wins">Hitam menang.</string>
     <string name="checkers_white_wins">Putih menang.</string>
-    <string name="checkers_draw">Seri: 40 langkah setiap pihak tanpa makan.</string>
+    <string name="checkers_draw">Seri: 40 langkah setiap pihak dengan raja sahaja dan tanpa makan.</string>
     <string name="checkers_resign">Menyerah</string>
     <string name="checkers_resigned">Kamu mengalah. CPU menang.</string>
     <string name="checkers_resigned_black">Hitam mengalah. Putih menang.</string>
@@ -430,14 +430,14 @@
     <string name="mini_chess_move_counter">Langkah %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
     <string name="mini_chess_moves_title">Cara bidak bergerak</string>
-    <string name="mini_checkers_draw">Seri: 15 langkah setiap pihak tanpa makan.</string>
+    <string name="mini_checkers_draw">Seri: 15 langkah setiap pihak dengan raja sahaja dan tanpa makan.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Menang pasti dalam %1$d langkah</item>
         <item quantity="other">Menang pasti dalam %1$d langkah</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Seri dalam %1$d langkah tanpa makan</item>
-        <item quantity="other">Seri dalam %1$d langkah tanpa makan</item>
+        <item quantity="one">Seri dalam %1$d langkah dengan raja sahaja dan tanpa makan</item>
+        <item quantity="other">Seri dalam %1$d langkah dengan raja sahaja dan tanpa makan</item>
     </plurals>
     <string name="chess_piece_king">Raja</string>
     <string name="chess_piece_queen">Menteri</string>

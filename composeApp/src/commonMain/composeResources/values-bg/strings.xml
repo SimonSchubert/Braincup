@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU печели.</string>
     <string name="checkers_black_wins">Черните печелят.</string>
     <string name="checkers_white_wins">Белите печелят.</string>
-    <string name="checkers_draw">Реми: по 40 хода без вземане.</string>
+    <string name="checkers_draw">Реми: по 40 хода само с дами и без вземане.</string>
     <string name="checkers_resign">Предаване</string>
     <string name="checkers_resigned">Предаде се. CPU печели.</string>
     <string name="checkers_resigned_black">Черните се предадоха. Белите печелят.</string>
@@ -432,14 +432,14 @@ Cow = вярна цифра, грешно място.</string>
     <string name="mini_chess_move_counter">Ход %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (реми, не победа)</string>
     <string name="mini_chess_moves_title">Как се движат фигурите</string>
-    <string name="mini_checkers_draw">Реми: по 15 хода без вземане.</string>
+    <string name="mini_checkers_draw">Реми: по 15 хода само с дами и без вземане.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Принудителна победа в %1$d ход</item>
         <item quantity="other">Принудителна победа в %1$d хода</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Реми след %1$d ход без вземане</item>
-        <item quantity="other">Реми след %1$d хода без вземане</item>
+        <item quantity="one">Реми след %1$d ход само с дами и без вземане</item>
+        <item quantity="other">Реми след %1$d хода само с дами и без вземане</item>
     </plurals>
     <string name="chess_piece_king">Цар</string>
     <string name="chess_piece_queen">Дама</string>

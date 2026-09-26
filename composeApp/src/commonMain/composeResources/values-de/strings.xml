@@ -741,7 +741,7 @@
     <string name="checkers_lost">Die CPU gewinnt.</string>
     <string name="checkers_black_wins">Schwarz gewinnt.</string>
     <string name="checkers_white_wins">Weiß gewinnt.</string>
-    <string name="checkers_draw">Unentschieden: je 40 Züge ohne Schlagen.</string>
+    <string name="checkers_draw">Unentschieden: je 40 Züge nur mit Damen und ohne Schlagen.</string>
     <string name="checkers_resign">Aufgeben</string>
     <string name="checkers_resigned">Du hast aufgegeben. Die CPU gewinnt.</string>
     <string name="checkers_resigned_black">Schwarz hat aufgegeben. Weiß gewinnt.</string>
@@ -777,14 +777,14 @@
     <string name="achievement_gold_simon_says_desc">Gewinne die Goldmedaille in Simon sagt</string>
 
     <string name="mini_chess_moves_title">So ziehen die Figuren</string>
-    <string name="mini_checkers_draw">Unentschieden: je 15 Züge ohne Schlagen.</string>
+    <string name="mini_checkers_draw">Unentschieden: je 15 Züge nur mit Damen und ohne Schlagen.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Erzwungener Sieg in %1$d Zug</item>
         <item quantity="other">Erzwungener Sieg in %1$d Zügen</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Unentschieden in %1$d Zug ohne Schlagen</item>
-        <item quantity="other">Unentschieden in %1$d Zügen ohne Schlagen</item>
+        <item quantity="one">Unentschieden in %1$d Zug nur mit Damen und ohne Schlagen</item>
+        <item quantity="other">Unentschieden in %1$d Zügen nur mit Damen und ohne Schlagen</item>
     </plurals>
     <string name="chess_piece_king">König</string>
     <string name="chess_piece_queen">Dame</string>
@@ -1005,7 +1005,7 @@
     <string name="learn_unit_measurement_length_summary">Ein Lineal ab null ablesen, und in welchen Einheiten eine Länge zählt.</string>
     <string name="learn_measurement_length_ruler_title">Das Lineal ablesen</string>
     <string name="learn_measurement_length_ruler_summary">Bei null anlegen, am anderen Ende ablesen.</string>
-    <string name="learn_measurement_length_ruler_s1_body">Ein Lineal ist in gleichen Schritten markiert. Eine Länge ist also nie mehr als die Anzahl dieser Schritte, die der Gegenstand überdeckt.</string>
+    <string name="learn_measurement_length_ruler_s1_body">Ein Lineal ist in gleichen Schritten markiert. Eine Länge ist also die Anzahl dieser Schritte, die der Gegenstand überdeckt, plus den Rest eines angefangenen Schritts.</string>
     <string name="learn_measurement_length_ruler_s2_body">Leg den Gegenstand an der 0 an und lies den Strich ab, den sein anderes Ende erreicht. Fängst du woanders an, ist der Messwert um genau das zu lang, was du übersprungen hast.</string>
     <string name="learn_measurement_length_ruler_s3_question">Wie lang ist dieser Bleistift?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Sein Ende reicht bis zum neunten Strich, von null an gezählt.</string>
@@ -1016,11 +1016,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">In jedem Zentimeter stecken zehn Millimeter, in drei Zentimetern also drei Zehner.</string>
     <string name="learn_measurement_length_units_title">Von Millimeter bis Kilometer</string>
     <string name="learn_measurement_length_units_summary">Größere Längen brauchen größere Einheiten.</string>
-    <string name="learn_measurement_length_units_s1_body">Längeneinheiten steigen in Zehnerschritten: zehn Millimeter ergeben einen Zentimeter, hundert Zentimeter einen Meter, tausend Meter einen Kilometer.</string>
+    <string name="learn_measurement_length_units_s1_body">Jede Längeneinheit ist zehn, hundert oder tausend der nächstkleineren: zehn Millimeter ergeben einen Zentimeter, hundert Zentimeter einen Meter, tausend Meter einen Kilometer.</string>
     <string name="learn_measurement_length_units_s2_body">Von einer kleineren Einheit braucht es mehr, um dieselbe Länge zu decken. Eine Stufe hinunter wird also multipliziert.</string>
     <string name="learn_measurement_length_units_s3_question">Ein Band ist 3 m lang. Wie viele Zentimeter sind das?</string>
     <string name="learn_measurement_length_units_s3_explanation">Ein Meter sind hundert Zentimeter, drei Meter also drei dieser Hunderter.</string>
-    <string name="learn_measurement_length_units_s4_body">In die andere Richtung wird geteilt. Tausend Meter fassen sich zu einem Kilometer zusammen, und darum zählt ein Straßenschild nie in Metern.</string>
+    <string name="learn_measurement_length_units_s4_body">In die andere Richtung wird geteilt. Tausend Meter fassen sich zu einem Kilometer zusammen, und darum steht die Entfernung zum nächsten Ort in Kilometern.</string>
     <string name="learn_measurement_length_units_s5_question">Auf einem Straßenschild stehen 2 km bis zur nächsten Stadt. Wie viele Meter sind das?</string>
     <string name="learn_measurement_length_units_s5_explanation">Jeder Kilometer sind tausend Meter, zwei davon also zweitausend.</string>
     <string name="learn_measurement_length_units_s6_question">Welche Einheit passt zur Entfernung zwischen zwei Städten?</string>
@@ -1088,7 +1088,7 @@
     <string name="learn_measurement_money_coins_title">Münzen zählen</string>
     <string name="learn_measurement_money_coins_summary">Zähl den Wert, nicht die Münzen.</string>
     <string name="learn_measurement_money_coins_s1_body">Münzen sind nicht alle gleich viel wert, also wird eine Handvoll nach ihrem Wert gezählt und nicht danach, wie viele Stücke es sind.</string>
-    <string name="learn_measurement_money_coins_s2_body">Fang mit der größten Münze an und zähl die übrigen dazu. Andersherum musst du bei jedem Schritt eine größere Zahl im Kopf behalten.</string>
+    <string name="learn_measurement_money_coins_s2_body">Fang mit der größten Münze an und zähl die übrigen dazu. Die großen Münzen bringen zuerst den Großteil der Summe, so bleiben die Zwischensummen runde Zahlen, zu denen sich leicht weiterzählen lässt.</string>
     <string name="learn_measurement_money_coins_s3_question">Wie viele Cent sind das?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Fünfzig, dann siebzig, dann achtzig, während jede Münze dazukommt.</string>
     <string name="learn_measurement_money_coins_s4_body">Jede Münze bringt ihren eigenen Wert mit, also sagt die Anzahl der Münzen gar nichts, solange du nicht weißt, was jede einzelne wert ist.</string>
@@ -1143,7 +1143,7 @@
     <string name="learn_measurement_capacity_jugs_title">Den Messbecher ablesen</string>
     <string name="learn_measurement_capacity_jugs_summary">Lies den Stand ab, nicht die Striche.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">Das Fassungsvermögen sagt, wie viel ein Gefäß aufnimmt. Ein Messbecher ist an der Seite markiert, und der Stand, den die Flüssigkeit erreicht, ist der Messwert.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">Die Zahlen an einem Messbecher liegen meist zweihundert Milliliter auseinander, nicht einen. Wer sie zählt statt sie zu lesen, macht aus 400 ml eine 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">Die Zahlen an diesem Messbecher liegen zweihundert Milliliter auseinander, nicht einen. Wer sie zählt statt sie zu lesen, macht aus 400 ml eine 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">Der Stand liegt auf dem Strich in der Mitte zwischen der 400 und der 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">Tausend Milliliter füllen einen Liter, dieselben tausend, die aus Gramm Kilogramm machen.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">Wie viele Milliliter sind in diesem Messbecher?</string>
@@ -1167,10 +1167,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">Ein Kilogramm hört bei 1000 g auf, und 1200 geht darüber hinaus.</string>
     <string name="learn_unit_measurement_mass_q6_explanation">Jeder Liter sind tausend Milliliter, zwei Liter also zweitausend davon.</string>
     <string name="learn_unit_measurement_metric_title">Metrische Einheiten</string>
-    <string name="learn_unit_measurement_metric_summary">Jede Umrechnung ist ein Sprung um zehn, hundert oder tausend.</string>
+    <string name="learn_unit_measurement_metric_summary">Jede Umrechnung ist ein Mal oder Geteilt durch eine Zehnerpotenz.</string>
     <string name="learn_measurement_metric_ladder_title">Die Zehnerleiter</string>
     <string name="learn_measurement_metric_ladder_summary">Ein System, drei Größen.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Metrische Einheiten sind auf Zehnern gebaut, also ist eine Umrechnung nie etwas anderes als ein Mal oder Geteilt durch 10, 100 oder 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Metrische Einheiten sind auf Zehnern gebaut, also ist eine Umrechnung immer ein Mal oder Geteilt durch 10, 100, 1000 oder eine andere Zehnerpotenz.</string>
     <string name="learn_measurement_metric_ladder_s2_body">Die Vorsilbe sagt, wo auf der Leiter eine Einheit sitzt. Milli ist ein Tausendstel, Zenti ein Hundertstel und Kilo ist tausend.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Milli ist ein Tausendstel, der kleinste Schritt, den eine dieser Vorsilben nennt.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Länge, Masse und Volumen teilen sich dieselbe Leiter, also deckt ein Satz Fakten alle drei ab: tausend Meter in einem Kilometer, tausend Gramm in einem Kilogramm, tausend Milliliter in einem Liter.</string>
@@ -1211,7 +1211,7 @@
     <string name="learn_measurement_speed_rate_title">Strecke pro Stunde</string>
     <string name="learn_measurement_speed_rate_summary">Geschwindigkeit ist Strecke in einer Zeiteinheit.</string>
     <string name="learn_measurement_speed_rate_s1_body">Die Geschwindigkeit sagt, wie viel Strecke in einer Zeiteinheit zurückgelegt wird. Ein Auto mit 60 km/h legt für jede Stunde, die es weiterfährt, weitere 60 km zu.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Gleiche Schritte machen es erst zu einer Geschwindigkeit. Sobald die Schritte ungleich werden, ist die Zahl ein Durchschnitt und kein Messwert mehr.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Gleiche Schritte heißen gleichbleibende Geschwindigkeit. Sind die Schritte ungleich, ist Strecke durch Zeit trotzdem eine Geschwindigkeit: die durchschnittliche.</string>
     <string name="learn_measurement_speed_rate_s3_question">Ein Radfahrer fährt 15 km pro Stunde. Wie viele Kilometer sind das in 4 Stunden?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Jede Stunde bringt weitere 15 km, vier Stunden also vier davon.</string>
     <string name="learn_measurement_speed_rate_s4_body">Andersherum wird die Strecke geteilt: 150 km in 3 Stunden sind 50 km in jeder einzelnen.</string>
@@ -2069,12 +2069,12 @@
     <string name="learn_arithmetic_standard_form_s6_explanation">12 und 0.12 liegen außerhalb des Fensters, und 1.2 * 10^3 sind nur 1 200.</string>
     <string name="learn_arithmetic_standard_form_small_title">Winzige Zahlen</string>
     <string name="learn_arithmetic_standard_form_small_summary">Derselbe Strahl rückwärts gegangen, mit negativen Exponenten.</string>
-    <string name="learn_arithmetic_standard_form_small_s1_body">Kleine Zahlen sind derselbe Strahl rückwärts gegangen. Jeder Schritt teilt durch zehn, und der Exponent zählt diese Schritte als negative: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Kleine Zahlen sind derselbe Strahl rückwärts gegangen. Jeder Schritt teilt durch zehn, und der Exponent zählt diese Schritte als negative: 6; 0.6; 0.06; 0.006.</string>
     <string name="learn_arithmetic_standard_form_small_s2_body">Das Minus im Exponenten sagt, in welche Richtung es geht, nicht dass die Zahl negativ ist. Eine Zahl in wissenschaftlicher Schreibweise ist nur dann negativ, wenn die vordere Zahl es ist.</string>
     <string name="learn_arithmetic_standard_form_small_s3_question">Zähl die Sprünge von 8.2 hinunter zu dieser Zahl.</string>
     <string name="learn_arithmetic_standard_form_small_s3_explanation">Vier Schritte links von 8.2, und 82 liegt außerhalb des Fensters von 1 bis 10.</string>
     <string name="learn_arithmetic_standard_form_small_s4_question">Lass das Komma vier Sprünge nach links wandern.</string>
-    <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier Sprünge links von 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Vier Sprünge links von 5.6: 0.56; 0.056; 0.0056; 0.00056.</string>
     <string name="learn_arithmetic_standard_form_small_s5_body">Eine negative vordere Zahl und ein negativer Exponent bedeuten zwei verschiedene Dinge, und jedes kann ohne das andere vorkommen.</string>
     <string name="learn_arithmetic_standard_form_small_s6_question">Der negativste Exponent geht am weitesten nach links, also ist er der kleinste.</string>
     <string name="learn_arithmetic_standard_form_small_s6_explanation">Nur eine davon hat den Exponenten -4, und 0.0009 liegt unter jeder anderen Zahl hier.</string>

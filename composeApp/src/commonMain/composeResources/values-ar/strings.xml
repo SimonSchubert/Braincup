@@ -753,7 +753,7 @@
     <string name="checkers_lost">فاز الحاسوب.</string>
     <string name="checkers_black_wins">فاز الأسود.</string>
     <string name="checkers_white_wins">فاز الأبيض.</string>
-    <string name="checkers_draw">تعادل: ٤٠ نقلة لكل طرف دون أكل.</string>
+    <string name="checkers_draw">تعادل: ٤٠ نقلة لكل طرف بالملوك فقط ودون أكل.</string>
     <string name="checkers_resign">استسلام</string>
     <string name="checkers_resigned">انسحبت. فاز الحاسوب.</string>
     <string name="checkers_resigned_black">انسحب الأسود. فاز الأبيض.</string>
@@ -789,7 +789,7 @@
     <string name="achievement_gold_simon_says_desc">اربح الميدالية الذهبية في Simon Says</string>
 
     <string name="mini_chess_moves_title">كيف تتحرك القطع</string>
-    <string name="mini_checkers_draw">تعادل: ١٥ نقلة لكل طرف دون أكل.</string>
+    <string name="mini_checkers_draw">تعادل: ١٥ نقلة لكل طرف بالملوك فقط ودون أكل.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="zero">فوز محتوم خلال %1$d نقلة</item>
         <item quantity="one">فوز محتوم خلال %1$d نقلة</item>
@@ -799,12 +799,12 @@
         <item quantity="other">فوز محتوم خلال %1$d نقلة</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="zero">تعادل بعد %1$d نقلة دون أكل</item>
-        <item quantity="one">تعادل بعد %1$d نقلة دون أكل</item>
-        <item quantity="two">تعادل بعد %1$d نقلتين دون أكل</item>
-        <item quantity="few">تعادل بعد %1$d نقلات دون أكل</item>
-        <item quantity="many">تعادل بعد %1$d نقلة دون أكل</item>
-        <item quantity="other">تعادل بعد %1$d نقلة دون أكل</item>
+        <item quantity="zero">تعادل بعد %1$d نقلة بالملوك فقط دون أكل</item>
+        <item quantity="one">تعادل بعد %1$d نقلة بالملوك فقط دون أكل</item>
+        <item quantity="two">تعادل بعد %1$d نقلتين بالملوك فقط دون أكل</item>
+        <item quantity="few">تعادل بعد %1$d نقلات بالملوك فقط دون أكل</item>
+        <item quantity="many">تعادل بعد %1$d نقلة بالملوك فقط دون أكل</item>
+        <item quantity="other">تعادل بعد %1$d نقلة بالملوك فقط دون أكل</item>
     </plurals>
     <string name="chess_piece_king">الملك</string>
     <string name="chess_piece_queen">الوزير</string>

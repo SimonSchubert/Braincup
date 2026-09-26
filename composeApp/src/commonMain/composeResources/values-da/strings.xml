@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU vinder.</string>
     <string name="checkers_black_wins">Sort vinder.</string>
     <string name="checkers_white_wins">Hvid vinder.</string>
-    <string name="checkers_draw">Uafgjort: 40 træk hver uden at slå.</string>
+    <string name="checkers_draw">Uafgjort: 40 træk hver kun med damer og uden at slå.</string>
     <string name="checkers_resign">Opgiv</string>
     <string name="checkers_resigned">Du gav op. CPU vinder.</string>
     <string name="checkers_resigned_black">Sort gav op. Hvid vinder.</string>
@@ -432,14 +432,14 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="mini_chess_move_counter">Træk %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remis, ikke gevinst)</string>
     <string name="mini_chess_moves_title">Sådan går brikkerne</string>
-    <string name="mini_checkers_draw">Uafgjort: 15 træk hver uden at slå.</string>
+    <string name="mini_checkers_draw">Uafgjort: 15 træk hver kun med damer og uden at slå.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Tvunget sejr om %1$d træk</item>
         <item quantity="other">Tvunget sejr om %1$d træk</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Uafgjort om %1$d træk uden at slå</item>
-        <item quantity="other">Uafgjort om %1$d træk uden at slå</item>
+        <item quantity="one">Uafgjort om %1$d træk kun med damer og uden at slå</item>
+        <item quantity="other">Uafgjort om %1$d træk kun med damer og uden at slå</item>
     </plurals>
     <string name="chess_piece_king">Konge</string>
     <string name="chess_piece_queen">Dronning</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU जिंकला.</string>
     <string name="checkers_black_wins">काळा जिंकला.</string>
     <string name="checkers_white_wins">पांढरा जिंकला.</string>
-    <string name="checkers_draw">बरोबरी: दोघांच्याही 40 चाली एकही सोंगटी न मारता.</string>
+    <string name="checkers_draw">बरोबरी: दोघांच्याही 40 चाली फक्त राजाने, एकही सोंगटी न मारता.</string>
     <string name="checkers_resign">हार मानतो</string>
     <string name="checkers_resigned">तू हार मानलीस. CPU जिंकला.</string>
     <string name="checkers_resigned_black">काळ्याने हार मानली. पांढरा जिंकला.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">चाल %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= कोंडी (बरोबरी, विजय नाही)</string>
     <string name="mini_chess_moves_title">मोहरी कशी चालतात</string>
-    <string name="mini_checkers_draw">बरोबरी: दोघांच्याही 15 चाली एकही सोंगटी न मारता.</string>
+    <string name="mini_checkers_draw">बरोबरी: दोघांच्याही 15 चाली फक्त राजाने, एकही सोंगटी न मारता.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d चालीत निश्चित विजय</item>
         <item quantity="other">%1$d चालींत निश्चित विजय</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d चालीत सोंगटी न मारल्यास बरोबरी</item>
-        <item quantity="other">%1$d चालींत सोंगटी न मारल्यास बरोबरी</item>
+        <item quantity="one">%1$d चालीत फक्त राजा चालला आणि सोंगटी न मारल्यास बरोबरी</item>
+        <item quantity="other">%1$d चालींत फक्त राजा चालला आणि सोंगटी न मारल्यास बरोबरी</item>
     </plurals>
     <string name="chess_piece_king">राजा</string>
     <string name="chess_piece_queen">वजीर</string>

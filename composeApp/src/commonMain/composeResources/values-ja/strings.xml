@@ -768,7 +768,7 @@
     <string name="checkers_lost">CPUの勝ち。</string>
     <string name="checkers_black_wins">黒の勝ち。</string>
     <string name="checkers_white_wins">白の勝ち。</string>
-    <string name="checkers_draw">引き分け：取りのないまま各40手。</string>
+    <string name="checkers_draw">引き分け：キングだけが動き、取りのないまま各40手。</string>
     <string name="checkers_resign">投了</string>
     <string name="checkers_resigned">投了しました。CPUの勝ちです。</string>
     <string name="checkers_resigned_black">黒が投了しました。白の勝ちです。</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">終了</string>
     <string name="checkers_new_game">新しい対局</string>
     <string name="mini_chess_moves_title">駒の動き方</string>
-    <string name="mini_checkers_draw">引き分け：取りのないまま各15手。</string>
+    <string name="mini_checkers_draw">引き分け：キングだけが動き、取りのないまま各15手。</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d手で必勝</item>
         <item quantity="other">%1$d手で必勝</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">取りがないまま%1$d手で引き分け</item>
-        <item quantity="other">取りがないまま%1$d手で引き分け</item>
+        <item quantity="one">キングだけが動き取りがないまま%1$d手で引き分け</item>
+        <item quantity="other">キングだけが動き取りがないまま%1$d手で引き分け</item>
     </plurals>
     <string name="chess_piece_king">キング</string>
     <string name="chess_piece_queen">クイーン</string>
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">ゼロから定規を読み取ることと、長さを数える単位。</string>
     <string name="learn_measurement_length_ruler_title">定規を読む</string>
     <string name="learn_measurement_length_ruler_summary">ゼロから始めて、もう一方の端を読む。</string>
-    <string name="learn_measurement_length_ruler_s1_body">定規には等しい間隔で目盛りがついているので、長さとは、ものがその目盛りをいくつ覆っているかを数えたものにすぎない。</string>
+    <string name="learn_measurement_length_ruler_s1_body">定規には等しい間隔で目盛りがついているので、長さは、ものが覆う目盛りの数に、一目盛りに足りない残りを足したものになる。</string>
     <string name="learn_measurement_length_ruler_s2_body">ものを0に合わせて、もう一方の端が届く目盛りを読む。ほかの場所から始めると、読み取った数はとばした分だけ長くなってしまう。</string>
     <string name="learn_measurement_length_ruler_s3_question">この鉛筆の長さは?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">もう一方の端は、ゼロから数えて九番目の目盛りに届いている。</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">cmはどれも十mmを含むので、三cmなら十が三つ分。</string>
     <string name="learn_measurement_length_units_title">mmからkmへ</string>
     <string name="learn_measurement_length_units_summary">長い距離には大きな単位が要る。</string>
-    <string name="learn_measurement_length_units_s1_body">長さの単位は十倍ずつ大きくなる: mmが十個集まるとcmに、cmが百個集まるとmに、mが千個集まるとkmになる。</string>
+    <string name="learn_measurement_length_units_s1_body">長さの単位は、一つ下の単位の十倍、百倍、千倍になっている: mmが十個集まるとcmに、cmが百個集まるとmに、mが千個集まるとkmになる。</string>
     <string name="learn_measurement_length_units_s2_body">小さい単位を使うほど、同じ長さを覆うのに必要な数は増える。だから単位を下げるとかけ算になる。</string>
     <string name="learn_measurement_length_units_s3_question">リボンの長さは3 m。それは何cm?</string>
     <string name="learn_measurement_length_units_s3_explanation">一mは百cm、だから三mなら百が三つ分。</string>
-    <string name="learn_measurement_length_units_s4_body">逆向きに進むとわり算になる。千mが集まると一kmになる。だから道路標識はmで数えることはない。</string>
+    <string name="learn_measurement_length_units_s4_body">逆向きに進むとわり算になる。千mが集まると一kmになる。だから次の町までの距離はkmで表す。</string>
     <string name="learn_measurement_length_units_s5_question">道路標識に次の町まで2 kmとある。それは何m?</string>
     <string name="learn_measurement_length_units_s5_explanation">kmはどれも千mなので、二つ分なら二千。</string>
     <string name="learn_measurement_length_units_s6_question">二つの町の間の距離に合う単位はどれ?</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">硬貨を数える</string>
     <string name="learn_measurement_money_coins_summary">枚数ではなく価値を数える。</string>
     <string name="learn_measurement_money_coins_s1_body">硬貨はどれも同じ価値というわけではないので、ひとつかみの硬貨は枚数ではなく価値で数える。</string>
-    <string name="learn_measurement_money_coins_s2_body">いちばん大きい硬貨から始めて、残りを数え足していこう。逆からだと、どの段階でも頭の中でより大きい数をかかえることになる。</string>
+    <string name="learn_measurement_money_coins_s2_body">いちばん大きい硬貨から始めて、残りを数え足していこう。大きい硬貨が先に合計の大部分をしめるので、途中の合計がきりのいい数になり、足しやすい。</string>
     <string name="learn_measurement_money_coins_s3_question">これは何セント?</string>
     <string name="learn_measurement_money_coins_s3_explanation">五十、次に七十、次に八十と、硬貨を一枚ずつ数え足していく。</string>
     <string name="learn_measurement_money_coins_s4_body">硬貨はそれぞれ自分の価値を持っているので、どの硬貨がいくらかを知らないうちは、枚数を数えても何もわからない。</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">水差しを読む</string>
     <string name="learn_measurement_capacity_jugs_summary">目盛りではなく、水面を読む。</string>
     <string name="learn_measurement_capacity_jugs_s1_body">容積とは、容器がどれだけ入るかということ。水差しの側面には目盛りがついていて、液体が届く水面の高さが読み取る値になる。</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">水差しの数字は、たいてい一つずつではなく二百mlおきについている。数字をそのまま読まずに数えてしまうと、400 mlが2になってしまう。</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">この水差しの数字は、一つずつではなく二百mlおきについている。数字をそのまま読まずに数えてしまうと、400 mlが2になってしまう。</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">水面は400と600のちょうど真ん中の目盛りにある。</string>
     <string name="learn_measurement_capacity_jugs_s4_body">mlが千集まるとlになる。gをkgに変えるのと同じ千。</string>
     <string name="learn_measurement_capacity_jugs_s5_question">この水差しには何mlある?</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">kgは1000 gで止まり、1200はそれを超える。</string>
     <string name="learn_unit_measurement_mass_q6_explanation">lはどれも千ml、だから二lなら二千。</string>
     <string name="learn_unit_measurement_metric_title">メートル法の単位</string>
-    <string name="learn_unit_measurement_metric_summary">どの単位換算も、十・百・千のジャンプでできている。</string>
+    <string name="learn_unit_measurement_metric_summary">どの単位換算も、十の累乗をかけるかわるかだ。</string>
     <string name="learn_measurement_metric_ladder_title">十のはしご</string>
     <string name="learn_measurement_metric_ladder_summary">一つの仕組みで、三つの量。</string>
-    <string name="learn_measurement_metric_ladder_s1_body">メートル法の単位は十を基にできているので、単位換算は10・100・1000のかけ算かわり算でしかない。</string>
+    <string name="learn_measurement_metric_ladder_s1_body">メートル法の単位は十を基にできているので、単位換算はいつも10・100・1000、またはほかの十の累乗のかけ算かわり算になる。</string>
     <string name="learn_measurement_metric_ladder_s2_body">接頭語は、その単位がはしごのどこにあるかを表す。ミリは千分の一、センチは百分の一、キロは千。</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">ミリは千分の一で、これらの接頭語の中でいちばん小さな段。</string>
     <string name="learn_measurement_metric_ladder_s4_body">長さ・質量・容積は同じはしごを共有しているので、一組の事実が三つとも当てはまる: kmはmが千、kgはgが千、lはmlが千。</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">時間ごとの距離</string>
     <string name="learn_measurement_speed_rate_summary">速さとは、時間の単位一つあたりの距離のこと。</string>
     <string name="learn_measurement_speed_rate_s1_body">速さは、時間の単位一つあたりにどれだけの距離を進むかを表す。60 km/hの車は、走り続けるかぎり毎時さらに60 km進む。</string>
-    <string name="learn_measurement_speed_rate_s2_body">等しい時間の刻みがあってこそ速さと言える。刻みが等しくなくなると、その数はそのまま読み取った値ではなく平均になる。</string>
+    <string name="learn_measurement_speed_rate_s2_body">刻みが等しければ、速さは一定だ。刻みが等しくなくても、道のりを時間でわったものはやはり速さで、それが平均の速さになる。</string>
     <string name="learn_measurement_speed_rate_s3_question">自転車の人が毎時15 km走る。4時間では何km?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">毎時さらに15 kmが加わるので、四時間ならその四つ分。</string>
     <string name="learn_measurement_speed_rate_s4_body">逆にすればわり算になる: 3時間で150 km進んだのなら、時間あたり50 km。</string>

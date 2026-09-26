@@ -147,7 +147,7 @@
     <string name="checkers_lost">The CPU wins.</string>
     <string name="checkers_black_wins">Black wins.</string>
     <string name="checkers_white_wins">White wins.</string>
-    <string name="checkers_draw">Draw: 40 moves each without a capture.</string>
+    <string name="checkers_draw">Draw: 40 moves each without a capture or a man moving.</string>
     <string name="checkers_resign">Resign</string>
     <string name="checkers_resigned">You resigned. The CPU wins.</string>
     <string name="checkers_resigned_black">Black resigned. White wins.</string>
@@ -447,14 +447,14 @@
     <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="mini_chess_moves_title">How the pieces move</string>
-    <string name="mini_checkers_draw">Draw: 15 moves each without a capture.</string>
+    <string name="mini_checkers_draw">Draw: 15 moves each without a capture or a man moving.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Forced win in %1$d move</item>
         <item quantity="other">Forced win in %1$d moves</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Draw in %1$d move without a capture</item>
-        <item quantity="other">Draw in %1$d moves without a capture</item>
+        <item quantity="one">Draw in %1$d move without a capture or a man moving</item>
+        <item quantity="other">Draw in %1$d moves without a capture or a man moving</item>
     </plurals>
     <string name="chess_piece_king">King</string>
     <string name="chess_piece_queen">Queen</string>
@@ -2883,7 +2883,7 @@
 
     <string name="learn_measurement_length_ruler_title">Reading a ruler</string>
     <string name="learn_measurement_length_ruler_summary">Start at zero and read the far end.</string>
-    <string name="learn_measurement_length_ruler_s1_body">A ruler is marked in equal steps, so a length is never more than a count of how many of those steps the object covers.</string>
+    <string name="learn_measurement_length_ruler_s1_body">A ruler is marked in equal steps, so a length is a count of how many of those steps the object covers, plus any part of a step left over.</string>
     <string name="learn_measurement_length_ruler_s2_body">Line the object up with 0 and read the mark its far end reaches. Start it anywhere else and the reading is long by whatever you skipped.</string>
     <string name="learn_measurement_length_ruler_s3_question">How long is this pencil?</string>
     <string name="learn_measurement_length_ruler_s3_explanation">Its far end reaches the ninth mark, counted from zero.</string>
@@ -2895,11 +2895,11 @@
 
     <string name="learn_measurement_length_units_title">Millimetres to kilometres</string>
     <string name="learn_measurement_length_units_summary">Bigger lengths need bigger units.</string>
-    <string name="learn_measurement_length_units_s1_body">Length units climb by tens: ten millimetres make a centimetre, a hundred centimetres make a metre, a thousand metres make a kilometre.</string>
+    <string name="learn_measurement_length_units_s1_body">Each length unit is ten, a hundred or a thousand of the one below: ten millimetres make a centimetre, a hundred centimetres make a metre, a thousand metres make a kilometre.</string>
     <string name="learn_measurement_length_units_s2_body">A smaller unit takes more of them to cover the same length, so stepping down the ladder multiplies.</string>
     <string name="learn_measurement_length_units_s3_question">A ribbon is 3 m long. How many centimetres is that?</string>
     <string name="learn_measurement_length_units_s3_explanation">One metre is a hundred centimetres, so three metres are three of those hundreds.</string>
-    <string name="learn_measurement_length_units_s4_body">Going the other way divides. A thousand metres gather up into one kilometre, which is why a road sign never counts in metres.</string>
+    <string name="learn_measurement_length_units_s4_body">Going the other way divides. A thousand metres gather up into one kilometre, which is why the distance to the next town is given in kilometres.</string>
     <string name="learn_measurement_length_units_s5_question">A road sign says 2 km to the next town. How many metres is that?</string>
     <string name="learn_measurement_length_units_s5_explanation">Every kilometre is a thousand metres, so two of them are two thousand.</string>
     <string name="learn_measurement_length_units_s6_question">Which unit fits the distance between two towns?</string>
@@ -2978,7 +2978,7 @@
     <string name="learn_measurement_money_coins_title">Counting coins</string>
     <string name="learn_measurement_money_coins_summary">Count value, not coins.</string>
     <string name="learn_measurement_money_coins_s1_body">Coins are not worth the same as one another, so a handful is counted by value rather than by how many pieces there are.</string>
-    <string name="learn_measurement_money_coins_s2_body">Start with the biggest coin and count the rest on. The other way round means carrying a bigger number in your head at every step.</string>
+    <string name="learn_measurement_money_coins_s2_body">Start with the biggest coin and count the rest on. The big coins settle most of the total first, so the running totals stay round and easy to add to.</string>
     <string name="learn_measurement_money_coins_s3_question">How many cents is this?</string>
     <string name="learn_measurement_money_coins_s3_explanation">Fifty, then seventy, then eighty as each coin is counted on.</string>
     <string name="learn_measurement_money_coins_s4_body">Each coin brings its own value, so counting the coins tells you nothing until you know what every one of them is worth.</string>
@@ -3040,7 +3040,7 @@
     <string name="learn_measurement_capacity_jugs_title">Reading a jug</string>
     <string name="learn_measurement_capacity_jugs_summary">Read the level, not the marks.</string>
     <string name="learn_measurement_capacity_jugs_s1_body">Capacity is how much a container holds. A jug is marked up its side, and the level the liquid reaches is the reading.</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">The numbers up a jug are usually two hundred millilitres apart, not one. Counting them instead of reading them is how 400 ml turns into 2.</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">The numbers up this jug are two hundred millilitres apart, not one. Counting them instead of reading them is how 400 ml turns into 2.</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">The level stands on the tick midway between the 400 and the 600.</string>
     <string name="learn_measurement_capacity_jugs_s4_body">A thousand millilitres fill one litre, the same thousand that turns grams into kilograms.</string>
     <string name="learn_measurement_capacity_jugs_s5_question">How many millilitres are in this jug?</string>
@@ -3068,11 +3068,11 @@
 
     <!-- Measurement: metric units -->
     <string name="learn_unit_measurement_metric_title">Metric units</string>
-    <string name="learn_unit_measurement_metric_summary">Every conversion is a jump of ten, a hundred or a thousand.</string>
+    <string name="learn_unit_measurement_metric_summary">Every conversion multiplies or divides by a power of ten.</string>
 
     <string name="learn_measurement_metric_ladder_title">The ladder of ten</string>
     <string name="learn_measurement_metric_ladder_summary">One system, three quantities.</string>
-    <string name="learn_measurement_metric_ladder_s1_body">Metric units are built on tens, so a conversion is never anything but a multiply or a divide by 10, 100 or 1000.</string>
+    <string name="learn_measurement_metric_ladder_s1_body">Metric units are built on tens, so a conversion is always a multiply or a divide by 10, 100, 1000 or another power of ten.</string>
     <string name="learn_measurement_metric_ladder_s2_body">The prefix says how far along the ladder a unit sits. Milli is a thousandth, centi a hundredth, and kilo a thousand.</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">Milli is a thousandth, the smallest step any of these prefixes names.</string>
     <string name="learn_measurement_metric_ladder_s4_body">Length, mass and capacity all share the ladder, so one set of facts covers all three: a thousand metres in a kilometre, a thousand grams in a kilogram, a thousand millilitres in a litre.</string>
@@ -3119,7 +3119,7 @@
     <string name="learn_measurement_speed_rate_title">Distance each hour</string>
     <string name="learn_measurement_speed_rate_summary">Speed is distance in one unit of time.</string>
     <string name="learn_measurement_speed_rate_s1_body">Speed says how much distance is covered in one unit of time. A car at 60 km/h adds another 60 km for every hour it keeps going.</string>
-    <string name="learn_measurement_speed_rate_s2_body">Equal steps are what makes it a speed. Once the steps stop being equal the number is an average rather than a reading.</string>
+    <string name="learn_measurement_speed_rate_s2_body">Equal steps mean a steady speed. When the steps are not equal, distance divided by time is still a speed: the average one.</string>
     <string name="learn_measurement_speed_rate_s3_question">A cyclist rides 15 km every hour. How many kilometres in 4 hours?</string>
     <string name="learn_measurement_speed_rate_s3_explanation">Each hour adds another 15 km, so four hours add four of them.</string>
     <string name="learn_measurement_speed_rate_s4_body">Turn it round and the distance divides: 150 km covered in 3 hours is 50 km in each of them.</string>

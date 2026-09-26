@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU గెలిచింది.</string>
     <string name="checkers_black_wins">నలుపు గెలిచింది.</string>
     <string name="checkers_white_wins">తెలుపు గెలిచింది.</string>
-    <string name="checkers_draw">డ్రా: ఇద్దరూ 40 ఎత్తులుగా ఏ పావునీ చంపలేదు.</string>
+    <string name="checkers_draw">డ్రా: ఇద్దరూ 40 ఎత్తులుగా రాజులనే కదిపారు, ఏ పావునీ చంపలేదు.</string>
     <string name="checkers_resign">ఓటమి అంగీకరించు</string>
     <string name="checkers_resigned">నువ్వు వదులుకున్నావు. CPU గెలిచింది.</string>
     <string name="checkers_resigned_black">నలుపు వదులుకుంది. తెలుపు గెలిచింది.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">ఎత్తు %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= స్టేల్‌మేట్ (డ్రా, గెలుపు కాదు)</string>
     <string name="mini_chess_moves_title">పావులు ఎలా కదులుతాయి</string>
-    <string name="mini_checkers_draw">డ్రా: ఇద్దరూ 15 ఎత్తులుగా ఏ పావునీ చంపలేదు.</string>
+    <string name="mini_checkers_draw">డ్రా: ఇద్దరూ 15 ఎత్తులుగా రాజులనే కదిపారు, ఏ పావునీ చంపలేదు.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d ఎత్తులో ఖచ్చితమైన గెలుపు</item>
         <item quantity="other">%1$d ఎత్తుల్లో ఖచ్చితమైన గెలుపు</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d ఎత్తులో ఏ పావూ చావకపోతే డ్రా</item>
-        <item quantity="other">%1$d ఎత్తుల్లో ఏ పావూ చావకపోతే డ్రా</item>
+        <item quantity="one">%1$d ఎత్తులో రాజులే కదిలి ఏ పావూ చావకపోతే డ్రా</item>
+        <item quantity="other">%1$d ఎత్తుల్లో రాజులే కదిలి ఏ పావూ చావకపోతే డ్రా</item>
     </plurals>
     <string name="chess_piece_king">రాజు</string>
     <string name="chess_piece_queen">రాణి</string>

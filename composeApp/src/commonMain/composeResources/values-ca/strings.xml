@@ -147,7 +147,7 @@
     <string name="checkers_lost">Guanya la CPU.</string>
     <string name="checkers_black_wins">Guanyen les negres.</string>
     <string name="checkers_white_wins">Guanyen les blanques.</string>
-    <string name="checkers_draw">Taules: 40 moviments cadascú sense menjar.</string>
+    <string name="checkers_draw">Taules: 40 moviments cadascú només amb dames i sense menjar.</string>
     <string name="checkers_resign">Rendició</string>
     <string name="checkers_resigned">T'has rendit. Guanya la CPU.</string>
     <string name="checkers_resigned_black">Les negres es rendeixen. Guanyen les blanques.</string>
@@ -432,14 +432,14 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="mini_chess_move_counter">Moviment %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ofegat (taules, no una victòria)</string>
     <string name="mini_chess_moves_title">Com es mouen les peces</string>
-    <string name="mini_checkers_draw">Taules: 15 moviments cadascú sense menjar.</string>
+    <string name="mini_checkers_draw">Taules: 15 moviments cadascú només amb dames i sense menjar.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Victòria forçada en %1$d jugada</item>
         <item quantity="other">Victòria forçada en %1$d jugades</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Taules en %1$d moviment sense menjar</item>
-        <item quantity="other">Taules en %1$d moviments sense menjar</item>
+        <item quantity="one">Taules en %1$d moviment només amb dames i sense menjar</item>
+        <item quantity="other">Taules en %1$d moviments només amb dames i sense menjar</item>
     </plurals>
     <string name="chess_piece_king">Rei</string>
     <string name="chess_piece_queen">Dama</string>

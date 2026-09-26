@@ -741,7 +741,7 @@
     <string name="checkers_lost">CPU জিতেছে।</string>
     <string name="checkers_black_wins">কালো জিতেছে।</string>
     <string name="checkers_white_wins">সাদা জিতেছে।</string>
-    <string name="checkers_draw">ড্র: কেউ কিছু না খেয়ে দুজনেরই ৪০ চাল।</string>
+    <string name="checkers_draw">ড্র: দুজনেরই ৪০ চাল শুধু রাজা চেলে, কিছু না খেয়ে।</string>
     <string name="checkers_resign">আত্মসমর্পণ</string>
     <string name="checkers_resigned">তুমি হার মেনেছ। CPU জিতেছে।</string>
     <string name="checkers_resigned_black">কালো হার মেনেছে। সাদা জিতেছে।</string>
@@ -777,14 +777,14 @@
     <string name="achievement_gold_simon_says_desc">Simon Says-এ স্বর্ণপদক জিতুন</string>
 
     <string name="mini_chess_moves_title">ঘুঁটিগুলো কীভাবে চলে</string>
-    <string name="mini_checkers_draw">ড্র: কেউ কিছু না খেয়ে দুজনেরই ১৫ চাল।</string>
+    <string name="mini_checkers_draw">ড্র: দুজনেরই ১৫ চাল শুধু রাজা চেলে, কিছু না খেয়ে।</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d চালে নিশ্চিত জয়</item>
         <item quantity="other">%1$d চালে নিশ্চিত জয়</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d চালের মধ্যে কিছু না খেলে ড্র</item>
-        <item quantity="other">%1$d চালের মধ্যে কিছু না খেলে ড্র</item>
+        <item quantity="one">%1$d চাল শুধু রাজা চাললে আর কিছু না খেলে ড্র</item>
+        <item quantity="other">%1$d চাল শুধু রাজা চাললে আর কিছু না খেলে ড্র</item>
     </plurals>
     <string name="chess_piece_king">রাজা</string>
     <string name="chess_piece_queen">মন্ত্রী</string>

@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU ಗೆದ್ದಿತು.</string>
     <string name="checkers_black_wins">ಕಪ್ಪು ಗೆದ್ದಿತು.</string>
     <string name="checkers_white_wins">ಬಿಳಿ ಗೆದ್ದಿತು.</string>
-    <string name="checkers_draw">ಸಮಬಲ: ಹೊಡೆತವಿಲ್ಲದೆ ತಲಾ 40 ನಡೆಗಳು.</string>
+    <string name="checkers_draw">ಸಮಬಲ: ರಾಜ ಮಾತ್ರ ನಡೆದು, ಹೊಡೆತವಿಲ್ಲದೆ ತಲಾ 40 ನಡೆಗಳು.</string>
     <string name="checkers_resign">ಸೋಲೊಪ್ಪಿಕೊಳ್ಳಿ</string>
     <string name="checkers_resigned">ನೀನು ಶರಣಾದೆ. CPU ಗೆದ್ದಿತು.</string>
     <string name="checkers_resigned_black">ಕಪ್ಪು ಶರಣಾಯಿತು. ಬಿಳಿ ಗೆದ್ದಿತು.</string>
@@ -414,14 +414,14 @@
     <string name="mini_chess_move_counter">ನಡೆ %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ಬಿಕ್ಕಟ್ಟು (ಸಮಬಲ, ಗೆಲುವಲ್ಲ)</string>
     <string name="mini_chess_moves_title">ಕಾಯಿಗಳು ಹೇಗೆ ಚಲಿಸುತ್ತವೆ</string>
-    <string name="mini_checkers_draw">ಸಮಬಲ: ಹೊಡೆತವಿಲ್ಲದೆ ತಲಾ 15 ನಡೆಗಳು.</string>
+    <string name="mini_checkers_draw">ಸಮಬಲ: ರಾಜ ಮಾತ್ರ ನಡೆದು, ಹೊಡೆತವಿಲ್ಲದೆ ತಲಾ 15 ನಡೆಗಳು.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ಖಚಿತ ಗೆಲುವು</item>
         <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ಖಚಿತ ಗೆಲುವು</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
-        <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
+        <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ರಾಜ ಮಾತ್ರ ನಡೆದು ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
+        <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ರಾಜ ಮಾತ್ರ ನಡೆದು ಹೊಡೆತವಿಲ್ಲದಿದ್ದರೆ ಸಮಬಲ</item>
     </plurals>
     <string name="chess_piece_king">ರಾಜ</string>
     <string name="chess_piece_queen">ರಾಣಿ</string>

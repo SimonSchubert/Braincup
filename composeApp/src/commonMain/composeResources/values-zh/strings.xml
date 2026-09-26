@@ -768,7 +768,7 @@
     <string name="checkers_lost">电脑获胜。</string>
     <string name="checkers_black_wins">黑方获胜。</string>
     <string name="checkers_white_wins">白方获胜。</string>
-    <string name="checkers_draw">平局：双方各走 40 步未吃子。</string>
+    <string name="checkers_draw">平局：双方各走 40 步只动王棋、未吃子。</string>
     <string name="checkers_resign">认输</string>
     <string name="checkers_resigned">你认输了，电脑获胜。</string>
     <string name="checkers_resigned_black">黑方认输，白方获胜。</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">退出</string>
     <string name="checkers_new_game">新游戏</string>
     <string name="mini_chess_moves_title">棋子走法</string>
-    <string name="mini_checkers_draw">平局：双方各走 15 步未吃子。</string>
+    <string name="mini_checkers_draw">平局：双方各走 15 步只动王棋、未吃子。</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d 步必胜</item>
         <item quantity="other">%1$d 步必胜</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">再走 %1$d 步不吃子即平局</item>
-        <item quantity="other">再走 %1$d 步不吃子即平局</item>
+        <item quantity="one">再走 %1$d 步只动王棋、不吃子即平局</item>
+        <item quantity="other">再走 %1$d 步只动王棋、不吃子即平局</item>
     </plurals>
     <string name="chess_piece_king">王</string>
     <string name="chess_piece_queen">皇后</string>
@@ -1004,7 +1004,7 @@
     <string name="learn_unit_measurement_length_summary">从零开始读尺子，以及计算长度用的单位。</string>
     <string name="learn_measurement_length_ruler_title">读尺子</string>
     <string name="learn_measurement_length_ruler_summary">从零开始，读另一端。</string>
-    <string name="learn_measurement_length_ruler_s1_body">尺子上的刻度间隔相等，所以长度说到底，就是数物体占了几格。</string>
+    <string name="learn_measurement_length_ruler_s1_body">尺子上的刻度间隔相等，所以长度就是数物体占了几格，再加上不满一格的那一段。</string>
     <string name="learn_measurement_length_ruler_s2_body">把物体对准 0，读它另一端到达的刻度。从别处开始，读数就会多出你跳过的那一段。</string>
     <string name="learn_measurement_length_ruler_s3_question">这支铅笔有多长？</string>
     <string name="learn_measurement_length_ruler_s3_explanation">从零开始数，它的另一端到了第九个刻度。</string>
@@ -1015,11 +1015,11 @@
     <string name="learn_measurement_length_ruler_s6_explanation">每厘米有十毫米，所以三厘米就是三个十。</string>
     <string name="learn_measurement_length_units_title">从毫米到公里</string>
     <string name="learn_measurement_length_units_summary">越长的长度，要用越大的单位。</string>
-    <string name="learn_measurement_length_units_s1_body">长度单位按十、百、千往上跳：十毫米是一厘米，一百厘米是一米，一千米是一公里。</string>
+    <string name="learn_measurement_length_units_s1_body">每个长度单位是下一级的十倍、百倍或千倍：十毫米是一厘米，一百厘米是一米，一千米是一公里。</string>
     <string name="learn_measurement_length_units_s2_body">单位越小，量同样的长度就要越多个，所以沿阶梯往下走要用乘法。</string>
     <string name="learn_measurement_length_units_s3_question">一条丝带长 3 m。是多少厘米？</string>
     <string name="learn_measurement_length_units_s3_explanation">一米是一百厘米，所以三米就是三个一百。</string>
-    <string name="learn_measurement_length_units_s4_body">反过来就要用除法。一千米合成一公里，所以路牌上从不用米来数。</string>
+    <string name="learn_measurement_length_units_s4_body">反过来就要用除法。一千米合成一公里，所以到下一个城镇的距离用公里来标。</string>
     <string name="learn_measurement_length_units_s5_question">路牌上写着离下一个镇还有 2 km。是多少米？</string>
     <string name="learn_measurement_length_units_s5_explanation">每公里是一千米，所以两公里就是两千米。</string>
     <string name="learn_measurement_length_units_s6_question">两个镇之间的距离用哪个单位合适？</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_measurement_money_coins_title">数硬币</string>
     <string name="learn_measurement_money_coins_summary">数面值，不数枚数。</string>
     <string name="learn_measurement_money_coins_s1_body">硬币的面值各不相同，所以一把硬币要按面值来数，而不是数有几枚。</string>
-    <string name="learn_measurement_money_coins_s2_body">从面值最大的硬币开始，再把其余的往上加。反过来数，每一步脑子里都要记一个更大的数。</string>
+    <string name="learn_measurement_money_coins_s2_body">从面值最大的硬币开始，再把其余的往上加。大硬币先凑出总数的大部分，中间的和都很整齐，往上加很轻松。</string>
     <string name="learn_measurement_money_coins_s3_question">这是多少分？</string>
     <string name="learn_measurement_money_coins_s3_explanation">一枚一枚往上加：五十，然后七十，然后八十。</string>
     <string name="learn_measurement_money_coins_s4_body">每枚硬币有自己的面值，所以只数枚数没有用，要知道每一枚值多少。</string>
@@ -1142,7 +1142,7 @@
     <string name="learn_measurement_capacity_jugs_title">读量杯</string>
     <string name="learn_measurement_capacity_jugs_summary">读液面，而不是数刻度线。</string>
     <string name="learn_measurement_capacity_jugs_s1_body">容积是一个容器能装多少。量杯侧面标着刻度，液体到达的位置就是读数。</string>
-    <string name="learn_measurement_capacity_jugs_s2_body">量杯上的数字通常每隔两百毫升一个，不是每隔一毫升。只数数字而不读数字，400 ml 就变成了 2。</string>
+    <string name="learn_measurement_capacity_jugs_s2_body">这个量杯上的数字每隔两百毫升一个，不是每隔一毫升。只数数字而不读数字，400 ml 就变成了 2。</string>
     <string name="learn_measurement_capacity_jugs_s3_explanation">液面停在 400 和 600 正中间的那条刻度线上。</string>
     <string name="learn_measurement_capacity_jugs_s4_body">一千毫升装满一升，这个一千和把克换成公斤的一千是一样的。</string>
     <string name="learn_measurement_capacity_jugs_s5_question">这个量杯里有多少毫升？</string>
@@ -1166,10 +1166,10 @@
     <string name="learn_unit_measurement_mass_q5_explanation">一公斤到 1000 g 为止，1200 超过了它。</string>
     <string name="learn_unit_measurement_mass_q6_explanation">每升是一千毫升，所以两升就是两千毫升。</string>
     <string name="learn_unit_measurement_metric_title">公制单位</string>
-    <string name="learn_unit_measurement_metric_summary">每次换算都是跳十、跳一百或跳一千。</string>
+    <string name="learn_unit_measurement_metric_summary">每次换算都是乘或除以十的幂。</string>
     <string name="learn_measurement_metric_ladder_title">十进的阶梯</string>
     <string name="learn_measurement_metric_ladder_summary">一套体系，三种量。</string>
-    <string name="learn_measurement_metric_ladder_s1_body">公制单位是按十进的，所以换算无非是乘或除以 10、100 或 1000。</string>
+    <string name="learn_measurement_metric_ladder_s1_body">公制单位是按十进的，所以换算总是乘或除以 10、100、1000 或其他十的幂。</string>
     <string name="learn_measurement_metric_ladder_s2_body">单位名称里的前缀说明它在阶梯的哪一级。毫是千分之一，厘是百分之一，千是一千，公斤的正式名称就是千克。</string>
     <string name="learn_measurement_metric_ladder_s3_explanation">毫是千分之一，是这些前缀里最小的一级。</string>
     <string name="learn_measurement_metric_ladder_s4_body">长度、质量和容积共用这架阶梯，所以一套事实就能管三种：一公里有一千米，一公斤有一千克，一升有一千毫升。</string>
@@ -1210,7 +1210,7 @@
     <string name="learn_measurement_speed_rate_title">每小时走多远</string>
     <string name="learn_measurement_speed_rate_summary">速度就是单位时间内走的路程。</string>
     <string name="learn_measurement_speed_rate_s1_body">速度说的是单位时间内走过多少路程。一辆 60 km/h 的汽车，每多开一小时就多走 60 km。</string>
-    <string name="learn_measurement_speed_rate_s2_body">每段都相等，才叫速度。一旦每段不再相等，这个数就是平均值，而不是读数。</string>
+    <string name="learn_measurement_speed_rate_s2_body">每段都相等，速度就不变。每段不相等时，路程除以时间仍然是速度，只不过是平均速度。</string>
     <string name="learn_measurement_speed_rate_s3_question">一个骑车的人每小时骑 15 km。4 小时骑多少公里？</string>
     <string name="learn_measurement_speed_rate_s3_explanation">每小时多 15 km，四小时就多四个这样的一段。</string>
     <string name="learn_measurement_speed_rate_s4_body">反过来就把路程平分：3 小时走 150 km，每小时就是 50 km。</string>

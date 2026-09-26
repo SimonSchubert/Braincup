@@ -768,7 +768,7 @@
     <string name="checkers_lost">Máy tính thắng.</string>
     <string name="checkers_black_wins">Bên đen thắng.</string>
     <string name="checkers_white_wins">Bên trắng thắng.</string>
-    <string name="checkers_draw">Hòa: mỗi bên 40 nước không ăn quân.</string>
+    <string name="checkers_draw">Hòa: mỗi bên 40 nước chỉ đi vua và không ăn quân.</string>
     <string name="checkers_resign">Đầu hàng</string>
     <string name="checkers_resigned">Bạn đã đầu hàng. Máy tính thắng.</string>
     <string name="checkers_resigned_black">Bên đen đầu hàng. Bên trắng thắng.</string>
@@ -776,14 +776,14 @@
     <string name="checkers_quit">Thoát</string>
     <string name="checkers_new_game">Ván mới</string>
     <string name="mini_chess_moves_title">Cách các quân cờ di chuyển</string>
-    <string name="mini_checkers_draw">Hòa: mỗi bên 15 nước không ăn quân.</string>
+    <string name="mini_checkers_draw">Hòa: mỗi bên 15 nước chỉ đi vua và không ăn quân.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Thắng chắc trong %1$d nước</item>
         <item quantity="other">Thắng chắc trong %1$d nước</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Hòa sau %1$d nước nếu không ăn quân</item>
-        <item quantity="other">Hòa sau %1$d nước nếu không ăn quân</item>
+        <item quantity="one">Hòa sau %1$d nước nếu chỉ đi vua và không ăn quân</item>
+        <item quantity="other">Hòa sau %1$d nước nếu chỉ đi vua và không ăn quân</item>
     </plurals>
     <string name="chess_piece_king">Vua</string>
     <string name="chess_piece_queen">Hậu</string>

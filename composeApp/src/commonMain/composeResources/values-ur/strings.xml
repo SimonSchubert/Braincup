@@ -98,21 +98,21 @@
     <string name="reversi_mode_cpu">کمپیوٹر کے خلاف</string>
     <string name="reversi_mode_human">انسان کے خلاف</string>
     <string name="reversi_mode_human_subtitle">ایک ہی آلے پر باری باری کھیلیں</string>
-    <string name="reversi_howto">حریف کی گوٹوں کی ایک قطار کو اپنی دو گوٹوں کے بیچ پھنسا کر پلٹ دو۔ آخر میں جس کے پاس زیادہ گوٹیں ہوں وہ جیتتا ہے۔</string>
+    <string name="reversi_howto">حریف کی گوٹوں کی ایک قطار کو اپنی دو گوٹوں کے بیچ پھنسا کر پلٹ دیں۔ آخر میں جس کے پاس زیادہ گوٹیں ہوں وہ جیتتا ہے۔</string>
     <string name="reversi_difficulty">مشکل</string>
     <string name="reversi_difficulty_normal">عام</string>
     <string name="reversi_difficulty_hard">مشکل</string>
     <string name="reversi_start">کھیل شروع کریں</string>
     <string name="reversi_thinking">کمپیوٹر سوچ رہا ہے…</string>
-    <string name="reversi_turn_you">تمہاری باری</string>
+    <string name="reversi_turn_you">آپ کی باری</string>
     <string name="reversi_turn_cpu">کمپیوٹر کی باری</string>
-    <string name="reversi_pass_you">تمہارے پاس چال نہیں۔ تم چھوڑ رہے ہو۔</string>
+    <string name="reversi_pass_you">آپ کے پاس چال نہیں۔ آپ باری چھوڑ رہے ہیں۔</string>
     <string name="reversi_pass_cpu">کمپیوٹر کے پاس چال نہیں۔ وہ چھوڑ رہا ہے۔</string>
-    <string name="reversi_won">تم %1$d کے مقابلے %2$d سے جیت گئے۔</string>
+    <string name="reversi_won">آپ %1$d کے مقابلے %2$d سے جیت گئے۔</string>
     <string name="reversi_lost">کمپیوٹر %1$d کے مقابلے %2$d سے جیت گیا۔</string>
     <string name="reversi_draw">برابر، دونوں کے %1$d۔</string>
     <string name="reversi_resign">ہار مان لیں</string>
-    <string name="reversi_resigned">تم نے ہار مان لی۔ کمپیوٹر جیت گیا۔</string>
+    <string name="reversi_resigned">آپ نے ہار مان لی۔ کمپیوٹر جیت گیا۔</string>
     <string name="reversi_resigned_black">کالے نے ہار مان لی۔ سفید جیت گیا۔</string>
     <string name="reversi_resigned_white">سفید نے ہار مان لی۔ کالا جیت گیا۔</string>
     <string name="reversi_new_game">نیا کھیل</string>
@@ -129,27 +129,27 @@
     <string name="checkers_mode_cpu">کمپیوٹر کے خلاف</string>
     <string name="checkers_mode_human">انسان کے خلاف</string>
     <string name="checkers_mode_human_subtitle">ایک ہی آلے پر باری باری کھیلیں</string>
-    <string name="checkers_howto">ترچھا آگے چلو اور مخالف کے مہروں پر سے کود کر انہیں مارو۔ مارنا لازمی ہے۔ آخری قطار تک پہنچو تو مہرہ بادشاہ بن جاتا ہے جو دونوں طرف چلتا ہے۔</string>
+    <string name="checkers_howto">ترچھا آگے چلیں اور مخالف کے مہروں پر سے کود کر انہیں ماریں۔ مارنا لازمی ہے۔ آخری قطار تک پہنچنے پر مہرہ بادشاہ بن جاتا ہے جو دونوں طرف چلتا ہے۔</string>
     <string name="checkers_difficulty">مشکل</string>
     <string name="checkers_difficulty_easy">آسان</string>
     <string name="checkers_difficulty_medium">درمیانہ</string>
     <string name="checkers_difficulty_hard">مشکل</string>
     <string name="checkers_start">کھیل شروع کریں</string>
     <string name="checkers_thinking">کمپیوٹر سوچ رہا ہے…</string>
-    <string name="checkers_turn_you">تمہاری باری</string>
+    <string name="checkers_turn_you">آپ کی باری</string>
     <string name="checkers_turn_black">کالے کی باری</string>
     <string name="checkers_turn_white">سفید کی باری</string>
-    <string name="checkers_must_capture_you">تمہیں مارنا ہی ہوگا</string>
+    <string name="checkers_must_capture_you">آپ کو مارنا ہی ہوگا</string>
     <string name="checkers_must_capture_black">کالے کو مارنا ہی ہوگا</string>
     <string name="checkers_must_capture_white">سفید کو مارنا ہی ہوگا</string>
-    <string name="checkers_keep_jumping">کودتے رہو</string>
-    <string name="checkers_won">تم جیت گئے!</string>
+    <string name="checkers_keep_jumping">کودتے رہیں</string>
+    <string name="checkers_won">آپ جیت گئے!</string>
     <string name="checkers_lost">کمپیوٹر جیت گیا۔</string>
     <string name="checkers_black_wins">کالا جیت گیا۔</string>
     <string name="checkers_white_wins">سفید جیت گیا۔</string>
-    <string name="checkers_draw">برابر: دونوں طرف 40 چالوں سے کوئی مہرہ نہیں مارا گیا۔</string>
+    <string name="checkers_draw">برابر: دونوں طرف 40 چالوں سے صرف بادشاہ چلے اور کوئی مہرہ نہیں مارا گیا۔</string>
     <string name="checkers_resign">ہار مان لیں</string>
-    <string name="checkers_resigned">تم نے ہار مان لی۔ کمپیوٹر جیت گیا۔</string>
+    <string name="checkers_resigned">آپ نے ہار مان لی۔ کمپیوٹر جیت گیا۔</string>
     <string name="checkers_resigned_black">کالے نے ہار مان لی۔ سفید جیت گیا۔</string>
     <string name="checkers_resigned_white">سفید نے ہار مان لی۔ کالا جیت گیا۔</string>
     <string name="checkers_quit">بند کریں</string>
@@ -348,7 +348,7 @@
     <string name="game_schulte_table_desc">اعداد 1 سے اوپر کی ترتیب میں جتنی جلدی ہو سکے دبائیں۔</string>
     <string name="game_schulte_instruction">اعداد ترتیب سے دبائیں: 1، 2، 3...</string>
     <string name="game_mini_chess_desc">سفید بن کر شطرنج کا منظر مکمل کریں۔ کمپیوٹر سے پہلے شہ مات دیں۔</string>
-    <string name="game_mini_checkers_desc">ہر بورڈ میں کالے مہروں کے ساتھ تمہارے لیے ایک ترکیب چھپی ہے: ایسی چالیں جن کا کمپیوٹر کے پاس ہر بار صرف ایک جواب ہو۔ اسے ڈھونڈو اور جیتو۔</string>
+    <string name="game_mini_checkers_desc">ہر بورڈ میں کالے مہروں کے ساتھ آپ کے لیے ایک ترکیب چھپی ہے: ایسی چالیں جن کا کمپیوٹر کے پاس ہر بار صرف ایک جواب ہو۔ اسے ڈھونڈیں اور جیتیں۔</string>
     <string name="game_lights_out_desc">ہر بتی بجھا دیں۔ ہر دبانے سے خانہ اور اس کے چار پڑوسی پلٹتے ہیں۔</string>
     <string name="game_sliding_puzzle_desc">خانوں کو خالی جگہ میں سرکا کر ترتیب میں لائیں۔</string>
     <string name="game_tower_of_hanoi_desc">پوری ڈھیری دائیں کھونٹی پر منتقل کریں۔ ایک وقت میں ایک ہی قرص، اور بڑی قرص چھوٹی پر نہیں۔</string>
@@ -430,14 +430,14 @@
     <string name="mini_chess_move_counter">چال %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= مردہ پانسہ (برابر، فتح نہیں)</string>
     <string name="mini_chess_moves_title">مہریں کیسے چلتی ہیں</string>
-    <string name="mini_checkers_draw">برابر: دونوں طرف 15 چالوں سے کوئی مہرہ نہیں مارا گیا۔</string>
+    <string name="mini_checkers_draw">برابر: دونوں طرف 15 چالوں سے صرف بادشاہ چلے اور کوئی مہرہ نہیں مارا گیا۔</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">%1$d چال میں یقینی جیت</item>
         <item quantity="other">%1$d چالوں میں یقینی جیت</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">%1$d چال میں مہرہ نہ مرا تو برابری</item>
-        <item quantity="other">%1$d چالوں میں مہرہ نہ مرا تو برابری</item>
+        <item quantity="one">%1$d چال میں صرف بادشاہ چلے اور مہرہ نہ مرا تو برابری</item>
+        <item quantity="other">%1$d چالوں میں صرف بادشاہ چلے اور مہرہ نہ مرا تو برابری</item>
     </plurals>
     <string name="chess_piece_king">بادشاہ</string>
     <string name="chess_piece_queen">وزیر</string>
@@ -535,7 +535,7 @@
     <string name="solution_pointing_left">%2$s بائیں کی طرف (%1$s)</string>
     <string name="solution_figure">%2$s (%1$s)</string>
     <string name="solution_column_row">کالم %1$d اور قطار %2$d</string>
-    <string name="hint_remember">%1$d یاد رکھو</string>
+    <string name="hint_remember">%1$d یاد رکھیں</string>
     <string name="solution_left">بائیں</string>
     <string name="solution_right">دائیں</string>
 
@@ -583,7 +583,7 @@
 
     <string name="achievement_gold_mini_sudoku_desc">چھوٹا سوڈوکو میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_mini_chess_desc">چھوٹی شطرنج میں طلائی تمغہ جیتیں</string>
-    <string name="achievement_gold_mini_checkers_desc">چھوٹی چیکرز میں طلائی تمغہ جیتو</string>
+    <string name="achievement_gold_mini_checkers_desc">چھوٹی چیکرز میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_lights_out_desc">بتیاں بجھاؤ میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_sliding_puzzle_desc">سلائیڈ پہیلی میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_tower_of_hanoi_desc">ہنوئی کا مینار میں طلائی تمغہ جیتیں</string>
@@ -1006,7 +1006,7 @@
     <string name="learn_section_certificates">%1$d / %2$d سرٹیفکیٹ</string>
     <string name="learn_title">ریاضی سیکھیں</string>
     <string name="learn_unit_progress">%1$d / %2$d سرٹیفکیٹ</string>
-    <string name="learn_topic_intro">انہیں ترتیب سے کرو۔ ہر قدم پچھلے پر بنتا ہے۔</string>
+    <string name="learn_topic_intro">انہیں ترتیب سے کریں۔ ہر قدم پچھلے پر بنتا ہے۔</string>
     <string name="learn_topic_certificates">%2$d میں سے %1$d تصدیق شدہ</string>
     <string name="learn_ages">عمریں %1$s</string>
 
@@ -1020,7 +1020,7 @@
     <string name="learn_topic_algebra_subtitle">عبارتیں اور مساوات</string>
 
     <string name="learn_shape_guide_title">شکلوں کی رہنمائی</string>
-    <string name="learn_shape_guide_intro">%1$d شکلیں، بنی ہوئی اور نام کے ساتھ۔ کسی ایک کو چھوؤ تاکہ دوبارہ بنتی ہوئی دیکھو۔</string>
+    <string name="learn_shape_guide_intro">%1$d شکلیں، بنی ہوئی اور نام کے ساتھ۔ کسی ایک کو چھوئیں تاکہ اسے دوبارہ بنتے ہوئے دیکھیں۔</string>
     <string name="learn_rules_guide_title">قواعد کی رہنمائی</string>
     <string name="learn_rules_guide_intro">%1$d قواعد اور علامتی اصول، بنیادی باتیں ایک جگہ۔</string>
 
@@ -1103,7 +1103,7 @@
     </plurals>
     <string name="learn_fig_area">رقبہ = %1$d %2$s²</string>
     <string name="learn_fig_perimeter">محیط = %1$d %2$s</string>
-    <string name="learn_fig_take_from_both_sides">دونوں طرف سے %1$d نکالو</string>
+    <string name="learn_fig_take_from_both_sides">دونوں طرف سے %1$d نکالیں</string>
     <plurals name="learn_fig_rows">
         <item quantity="one">%1$d قطار</item>
         <item quantity="other">%1$d قطاریں</item>

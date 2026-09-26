@@ -147,7 +147,7 @@
     <string name="checkers_lost">CPU vinner.</string>
     <string name="checkers_black_wins">Svart vinner.</string>
     <string name="checkers_white_wins">Hvit vinner.</string>
-    <string name="checkers_draw">Remis: 40 trekk hver uten slag.</string>
+    <string name="checkers_draw">Remis: 40 trekk hver bare med damer og uten slag.</string>
     <string name="checkers_resign">Gi opp</string>
     <string name="checkers_resigned">Du ga opp. CPU vinner.</string>
     <string name="checkers_resigned_black">Svart ga opp. Hvit vinner.</string>
@@ -432,14 +432,14 @@ Flytt Cow — den blir en Bull.</string>
     <string name="mini_chess_move_counter">Trekk %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patt (remis, ikke seier)</string>
     <string name="mini_chess_moves_title">Slik går brikkene</string>
-    <string name="mini_checkers_draw">Remis: 15 trekk hver uten slag.</string>
+    <string name="mini_checkers_draw">Remis: 15 trekk hver bare med damer og uten slag.</string>
     <plurals name="mini_checkers_win_in">
         <item quantity="one">Tvunget seier om %1$d trekk</item>
         <item quantity="other">Tvunget seier om %1$d trekk</item>
     </plurals>
     <plurals name="mini_checkers_draw_in">
-        <item quantity="one">Remis om %1$d trekk uten slag</item>
-        <item quantity="other">Remis om %1$d trekk uten slag</item>
+        <item quantity="one">Remis om %1$d trekk bare med damer og uten slag</item>
+        <item quantity="other">Remis om %1$d trekk bare med damer og uten slag</item>
     </plurals>
     <string name="chess_piece_king">Konge</string>
     <string name="chess_piece_queen">Dronning</string>
