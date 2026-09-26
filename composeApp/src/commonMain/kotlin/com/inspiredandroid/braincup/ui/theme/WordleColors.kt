@@ -50,10 +50,10 @@ private val WordleLetterState.isScored: Boolean
  * so it can be told from a letter in the wrong spot without seeing the hue at all.
  */
 @Composable
-fun BoxScope.WordleCorrectMark(state: WordleLetterState?, size: Dp) {
+fun BoxScope.WordleCorrectMark(state: WordleLetterState?, size: Dp, modifier: Modifier = Modifier) {
     if (state != WordleLetterState.CORRECT || !LocalAccessiblePalette.current) return
     ChunkyCheck(
         color = state.tileTextColor(),
-        modifier = Modifier.align(Alignment.BottomEnd).padding(2.dp).size(size),
+        modifier = modifier.align(Alignment.BottomEnd).padding(2.dp).size(size),
     )
 }
