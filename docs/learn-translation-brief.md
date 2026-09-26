@@ -7,20 +7,18 @@ Scope per locale: **1,242 strings and 9 plural sets**, about 12,300 words of Eng
 (`values-de/strings.xml`) and Spanish (`values-es/strings.xml`) are done in full and are the
 worked references for anything this brief leaves open.
 
-## Where this stands (2026-09-11)
+## Where this stands (2026-09-26)
 
 | | |
 |---|---|
-| Complete | `de`, `es`, `fr`, `nl`, `ru`, `hi`, `id`, `zh` |
-| Partly done, 24% to 35% | `it` `pt` `zh-TW` `ja` `ko` |
+| Complete | `de`, `es`, `fr`, `nl`, `ru`, `hi`, `id`, `zh`, `it`, `pt`, `zh-TW`, `ja`, `ko` |
 | Not started | the remaining 38 locales |
 
-The partial percentages fell when Algebra and Measurement landed and the catalog grew to 1,848
-strings. A run of ten agents stopped mid-catalog on an account spend limit, which is why five
-locales are still part done; `fr` was finished on 2026-08-29 by resuming that loop, and `nl` was taken from
-nothing to complete the same day. **Nothing is broken by that.** A key that never arrived falls
-back to English at runtime, `check_localizations.py` counts it as pending rather than failing,
-and `pending` reports exactly what is left. Resuming is just running the loop below again for a
+A run of ten agents once stopped mid-catalog on an account spend limit, and five locales sat
+part done until 2026-09-26, when one Sonnet agent per locale finished `it`, `pt`, `zh-TW`, `ja` and
+`ko` in about 25 to 35 minutes and 275k to 380k tokens each. **A stopped run breaks nothing.** A key
+that never arrived falls back to English at runtime, `check_localizations.py` counts it as pending
+rather than failing, and `pending` reports exactly what is left. Resuming is just running the loop below again for a
 locale; no cleanup, no reverting, no re-doing what already landed.
 
 Cost is the real constraint on this job, not correctness. One locale took roughly 30 minutes and
