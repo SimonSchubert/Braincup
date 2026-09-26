@@ -22,6 +22,7 @@ import braincup.composeapp.generated.resources.learn_quiz_score
 import braincup.composeapp.generated.resources.learn_quiz_your_answer
 import braincup.composeapp.generated.resources.learn_test_title
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.learn.CatalogText
 import com.inspiredandroid.braincup.learn.Certificate
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnQuiz
@@ -35,6 +36,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.formatMathSymbols
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
 import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
 import com.inspiredandroid.braincup.ui.components.learn.LearnFormulaCard
@@ -44,7 +46,9 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnPrimaryButton
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
+import com.inspiredandroid.braincup.ui.components.learn.learnDecimalSeparator
 import com.inspiredandroid.braincup.ui.components.learn.roles
+import com.inspiredandroid.braincup.ui.components.withDecimalSeparator
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.LearnWrongContainer
@@ -327,7 +331,7 @@ private fun ReviewCard(
                 Text(
                     text = stringResource(
                         Res.string.learn_quiz_your_answer,
-                        question.options.getOrNull(givenIndex)?.resolve() ?: "-",
+                        question.options.getOrNull(givenIndex)?.resolveForReview() ?: "-",
                     ),
                     style = MaterialTheme.typography.bodySmall,
                     // Pinned with the card it sits on: colorScheme.error is a pale pink under
@@ -341,7 +345,7 @@ private fun ReviewCard(
             Text(
                 text = stringResource(
                     Res.string.learn_quiz_correct_answer,
-                    question.options[question.correctIndex].resolve(),
+                    question.options[question.correctIndex].resolveForReview(),
                 ),
                 style = MaterialTheme.typography.bodySmall,
                 // Green means "the answer" everywhere in the section. On the pale miss card the
@@ -371,5 +375,17 @@ private fun LearnQuizScreenPreview() {
             onDone = {},
             onBack = {},
         )
+    }
+}
+
+// The option tiles format what they print, so the review line quoting one has to as well, or a
+// German learner reads "2.5 m" under a tile that said "2,5 m".
+@Composable
+private fun CatalogText.resolveForReview(): String {
+    val separator = learnDecimalSeparator()
+    return if (isNotation) {
+        resolve().formatMathSymbols(fractionSlash = true, decimalSeparator = separator)
+    } else {
+        resolve().withDecimalSeparator(separator)
     }
 }

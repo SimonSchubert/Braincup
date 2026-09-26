@@ -18,7 +18,7 @@ class DecimalSeparatorTest {
 
     @Test
     fun theCommaLanguagesGetAComma() {
-        listOf("de", "fr", "es", "it", "nl", "pt", "ru", "pl", "sv", "tr", "uk", "vi", "id")
+        listOf("de", "fr", "es", "it", "nl", "pt", "ru", "pl", "sv", "tr", "uk", "vi", "id", "in")
             .forEach { assertEquals(',', decimalSeparatorFor(it), "$it writes a decimal comma") }
     }
 
@@ -45,6 +45,7 @@ class DecimalSeparatorTest {
         assertEquals("2,5 m = 250 cm", "2.5 m = 250 cm".withDecimalSeparator(','))
         assertEquals("Ende.", "Ende.".withDecimalSeparator(','))
         assertEquals("cm. 3", "cm. 3".withDecimalSeparator(','))
+        assertEquals("Abschnitt 3.4.5", "Abschnitt 3.4.5".withDecimalSeparator(','))
     }
 
     @Test

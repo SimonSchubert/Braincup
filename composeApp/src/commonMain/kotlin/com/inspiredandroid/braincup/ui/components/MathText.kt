@@ -63,17 +63,13 @@ fun String.formatMathSymbols(
  */
 fun String.withDecimalSeparator(separator: Char): String {
     if (separator == '.' || !contains('.')) return this
-    val out = StringBuilder(length)
-    forEachIndexed { index, char ->
-        val betweenDigits = char == '.' &&
-            index > 0 &&
-            this[index - 1].isDigit() &&
-            index + 1 < length &&
-            this[index + 1].isDigit()
-        out.append(if (betweenDigits) separator else char)
+    return DigitsAndPoints.replace(this) { run ->
+        if (run.value.count { it == '.' } == 1) run.value.replace('.', separator) else run.value
     }
-    return out.toString()
 }
+
+// A run holding two or more points ("3.4.5") is a section or version number, not a decimal.
+private val DigitsAndPoints = Regex("""\d+(?:\.\d+)+""")
 
 /** Characters a minus can follow and still be subtracting: something has to come before it. */
 private fun Char.endsAValue(): Boolean = isDigit() || isLetter() || this == ')' || this == '%'

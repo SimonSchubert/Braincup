@@ -757,11 +757,13 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_decimals_compare_s6_question),
+                        // Chained with "<" rather than listed with commas, which in the
+                        // decimal-comma languages would run into the commas inside the numbers.
                         options = mathOptions(
-                            "0.09, 0.7, 0.71",
-                            "0.7, 0.09, 0.71",
-                            "0.71, 0.7, 0.09",
-                            "0.09, 0.71, 0.7",
+                            "0.09 < 0.7 < 0.71",
+                            "0.7 < 0.09 < 0.71",
+                            "0.71 < 0.7 < 0.09",
+                            "0.09 < 0.71 < 0.7",
                         ),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_arithmetic_decimals_compare_s6_explanation),

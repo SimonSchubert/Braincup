@@ -62,9 +62,12 @@ fun isRightToLeftLanguage(language: String): Boolean = language in rightToLeftLa
  * separator, which belongs with Arabic-Indic digits; every number in this app is drawn in Western
  * digits in the Rubik number face, which does not carry that glyph, so it would come out as tofu
  * beside a Western numeral. A full stop is what those locales get with Western digits anyway.
+ *
+ * Indonesian is listed twice because Android's `Locale.getLanguage()` still reports it by its
+ * legacy code "in", as it does "iw" for Hebrew.
  */
 private val decimalCommaLanguages = setOf(
-    "bg", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hr", "hu", "id", "is", "it",
+    "bg", "ca", "cs", "da", "de", "el", "es", "et", "fi", "fr", "hr", "hu", "id", "in", "is", "it",
     "lt", "lv", "nb", "nl", "pl", "pt", "ro", "ru", "sk", "sl", "sr", "sv", "tr", "uk", "vi",
 )
 

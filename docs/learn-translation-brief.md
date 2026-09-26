@@ -69,7 +69,8 @@ English prose ("eight", "ten") are words and translate normally.
 Four ways that rule bites, all of them found the hard way:
 
 * **Digits in the XML stay `0.5`.** The app swaps the glyph at render for languages that write a
-  comma. Writing `0,5` fails the check with a number mismatch that reads like a mistranslation.
+  comma. The check compares values, so it no longer flags `0,5`, but keep the point anyway: every
+  locale is authored the same way and swapped at the one render seam.
 * **Name the separator the way the screen now shows it.** Comma languages use their ordinary word
   (German *Komma*, Dutch *komma*, Spanish *coma*, French *virgule*, Italian *virgola*, Portuguese
   *vírgula*, Russian *запятая*, Indonesian *koma*). English, and every locale that still draws a
