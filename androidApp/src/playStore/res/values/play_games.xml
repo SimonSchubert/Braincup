@@ -139,6 +139,13 @@
     <string name="achievementCertAlgebraSimultaneousEquations" translatable="false">CgkIuZrirtIVEAIQTg</string>
     <string name="achievementCertAlgebraQuadratics" translatable="false">CgkIuZrirtIVEAIQTw</string>
     <string name="achievementCertAlgebraPowersAndRoots" translatable="false">CgkIuZrirtIVEAIQUA</string>
+    <!-- Measurement. Blank until created in Play Console; store_achievements.rb writes the id back. -->
+    <string name="achievementCertMeasurementLength" translatable="false"></string>
+    <string name="achievementCertMeasurementTime" translatable="false"></string>
+    <string name="achievementCertMeasurementMoney" translatable="false"></string>
+    <string name="achievementCertMeasurementMassAndCapacity" translatable="false"></string>
+    <string name="achievementCertMeasurementMetricUnits" translatable="false"></string>
+    <string name="achievementCertMeasurementSpeed" translatable="false"></string>
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>

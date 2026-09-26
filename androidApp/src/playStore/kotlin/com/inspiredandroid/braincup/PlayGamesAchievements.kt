@@ -490,6 +490,12 @@ private fun learnCertificateResIdFor(unitId: String): Int? = when (unitId) {
     "geometry-similarity"        -> R.string.achievementCertGeometrySimilarity
     "geometry-transformations"   -> R.string.achievementCertGeometryTransformations
     "geometry-circle-theorems"   -> R.string.achievementCertGeometryCircleTheorems
+    "measurement-length" -> R.string.achievementCertMeasurementLength
+    "measurement-time" -> R.string.achievementCertMeasurementTime
+    "measurement-money" -> R.string.achievementCertMeasurementMoney
+    "measurement-mass-and-capacity" -> R.string.achievementCertMeasurementMassAndCapacity
+    "measurement-metric-units" -> R.string.achievementCertMeasurementMetricUnits
+    "measurement-speed" -> R.string.achievementCertMeasurementSpeed
     else -> null
 }
 

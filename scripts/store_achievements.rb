@@ -41,8 +41,9 @@ ROOT = File.expand_path("..", __dir__)
 PLAY_APP_ID = "743664291129"          # play_games_app_id in play_games.xml
 ASC_BUNDLE_ID = "com.inspiredandroid.braincup"
 
-# Game Center caps an app at 1000 points and 380 were in use as of 2026-08-26, so 22 x 10 fits with
-# 400 to spare. Play Games has no cap, but it does reject any pointValue that is not a multiple of
+# Game Center caps an app at 1000 points and 380 were in use as of 2026-08-26. The 35 certificates at
+# 10 each add 350 and the per-game medals since then add 5 apiece, so this still fits with about 250
+# to spare; the run re-checks the live total before creating anything. Play Games has no cap, but it does reject any pointValue that is not a multiple of
 # five, so 5 is the floor there (0, 1 and 2 all come back 400 "not within range or is not a
 # multiple of five").
 CERTIFICATE_GC_POINTS = 10
@@ -79,6 +80,12 @@ CERTIFICATES = [
   ["geometry-similarity",         "Similarity and scale",         "Scaled Up",          "68_learn_geometry_similarity"],
   ["geometry-transformations",    "Transformations",              "Slide, Flip, Turn",  "69_learn_geometry_transformations"],
   ["geometry-circle-theorems",    "Circle theorems",              "Full Circle",        "70_learn_geometry_circle_theorems"],
+  ["measurement-length",          "Measuring length",             "Made to Measure",    "81_learn_measurement_length"],
+  ["measurement-time",            "Telling the time",             "Right on Time",      "82_learn_measurement_time"],
+  ["measurement-money",           "Money and change",             "Keep the Change",    "83_learn_measurement_money"],
+  ["measurement-mass-and-capacity", "Mass and capacity",          "Tip the Scales",     "84_learn_measurement_mass_and_capacity"],
+  ["measurement-metric-units",    "Metric units",                 "Metric Minded",      "85_learn_measurement_metric_units"],
+  ["measurement-speed",           "Speed, distance and time",     "Up to Speed",        "86_learn_measurement_speed"],
   ["algebra-expressions",         "Expressions and variables",    "Know the Unknown",   "73_learn_algebra_expressions"],
   ["algebra-linear-equations",    "Linear equations",             "Both Sides Now",     "74_learn_algebra_linear_equations"],
   ["algebra-straight-line-graphs", "Straight-line graphs",        "On the Up",          "75_learn_algebra_straight_line_graphs"],

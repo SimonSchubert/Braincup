@@ -928,17 +928,23 @@ its answers the same way, so "20 m/s" reads back as "20 M/S". It is worth a deci
 because a unit symbol is the one kind of caption where case carries meaning (ML is megalitres), but
 it is a section-wide typography choice rather than a Measurement defect and it is not changed here.
 
-### Store achievements: six certificates, console work outstanding
+### Store achievements: six certificates, wired in code, store creation outstanding
 
 The six unit ids are registered in `LearnStoreAchievements.certifiedUnitIds`, so
 `LearnStoreAchievementsTest` passes, and the icons are generated
 (`media/achievements/png/81..86_learn_measurement_*.png`, prefixes resuming after the Rule Shift
-medal at 80). **Nothing has been created on either store.** `learnCertificateResIdFor` in
-`PlayGamesAchievements.kt` returns null for an unknown unit id, so Play Games is a silent no-op;
-Game Center derives its id and will report one the store does not know. That is the same state
-Algebra's seven were in when they were authored. Creating them needs
-`scripts/store_achievements.rb` run against live credentials, which is a decision for a release, not
-for an authoring session.
+medal at 80). The code side is wired the way Algebra's seven were: six `CERTIFICATES` rows in
+`scripts/store_achievements.rb` (Made to Measure, Right on Time, Keep the Change, Tip the Scales,
+Metric Minded, Up to Speed), six blank `achievementCertMeasurement*` placeholders in
+`play_games.xml`, and six cases in `learnCertificateResIdFor`. Game Center needs no code: its ids
+are derived from the unit id.
+
+**Nothing has been created on either store yet.** Until then a blank Play id is a silent no-op
+and Game Center reports an id the store does not know. What remains is one run of
+`scripts/store_achievements.rb --execute` against live credentials, which writes the Play ids back
+into `play_games.xml`, then attaching the six Play icons by hand in Play Console (the Games
+Configuration API has no image upload). That is a decision for a release, not for an authoring
+session.
 
 ### Guides
 
