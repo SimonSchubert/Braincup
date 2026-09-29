@@ -164,7 +164,7 @@ compose.desktop {
         mainClass = "com.inspiredandroid.braincup.MainKt"
 
         nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm, TargetFormat.AppImage)
+            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb, TargetFormat.Rpm)
             packageName = "Braincup"
             packageVersion = libs.versions.appVersion.get()
 
