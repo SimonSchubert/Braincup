@@ -318,6 +318,7 @@
     <string name="game_orbit_tracker">Orbit Tracker</string>
     <string name="game_bubble_sum">Bubble Sum</string>
     <string name="game_quick_sum">Quick Sum</string>
+    <string name="game_head_count">Head Count</string>
     <string name="game_flash_crowd">Flash Crowd</string>
     <string name="game_schulte_table">Schulte Table</string>
     <string name="game_mini_chess">Mini Chess</string>
@@ -364,6 +365,14 @@
     <string name="quick_sum_demo_title">Numbers flash one by one</string>
     <string name="quick_sum_demo_flash">Keep a running total in your head.</string>
     <string name="quick_sum_demo_total">Enter the total.</string>
+    <string name="game_head_count_desc">People walk in and out of a house. Keep count, and when it goes quiet, say how many are inside.</string>
+    <string name="head_count_watch">Keep count</string>
+    <string name="head_count_instruction">How many are inside?</string>
+    <string name="head_count_demo_title">The house starts empty</string>
+    <string name="head_count_demo_in">Count who goes in…</string>
+    <string name="head_count_demo_out">…and who comes back out.</string>
+    <string name="head_count_demo_both">Sometimes both at once.</string>
+    <string name="head_count_demo_answer">Two are still inside.</string>
     <string name="game_flash_crowd_desc">Dots flash briefly on each side. Tap the side that had more dots. Don't count — trust your instinct!</string>
     <string name="game_schulte_table_desc">Tap the numbers in order from 1 upwards as fast as you can.</string>
     <string name="game_schulte_instruction">Tap the numbers in order: 1, 2, 3...</string>
@@ -605,6 +614,7 @@
     <string name="achievement_gold_pattern_sequence">Pattern Prophet</string>
     <string name="achievement_gold_color_confusion">True Colors</string>
     <string name="achievement_gold_flock">Flight Leader</string>
+    <string name="achievement_gold_head_count">Doorkeeper</string>
     <string name="achievement_gold_flash_crowd">Crowd Counter</string>
     <string name="achievement_gold_schulte_table">Lightning Gaze</string>
     <string name="achievement_gold_flags">Flag Bearer</string>
@@ -646,6 +656,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Win gold medal in Pattern Sequence</string>
     <string name="achievement_gold_color_confusion_desc">Win gold medal in Color Confusion</string>
     <string name="achievement_gold_flock_desc">Win gold medal in Flock</string>
+    <string name="achievement_gold_head_count_desc">Win gold medal in Head Count</string>
     <string name="achievement_gold_flash_crowd_desc">Win gold medal in Flash Crowd</string>
     <string name="achievement_gold_schulte_table_desc">Win gold medal in Schulte Table</string>
     <string name="achievement_gold_flags_desc">Win gold medal in Flags</string>

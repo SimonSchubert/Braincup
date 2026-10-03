@@ -59,6 +59,8 @@
     <string name="achievementShotCaller" translatable="false">CgkIuZrirtIVEAIQUg</string>
     <!-- achievement Flight Leader (Flock) -->
     <string name="achievementFlightLeader" translatable="false">CgkIuZrirtIVEAIQUw</string>
+    <!-- achievement Doorkeeper (Head Count) -->
+    <string name="achievementDoorkeeper" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

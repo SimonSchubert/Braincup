@@ -27,6 +27,7 @@ import com.inspiredandroid.braincup.app.NurikabeUiState
 import com.inspiredandroid.braincup.app.MissingOperatorsUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
+import com.inspiredandroid.braincup.app.HeadCountUiState
 import com.inspiredandroid.braincup.app.SequenceCellType
 import com.inspiredandroid.braincup.app.SimonSaysUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
@@ -139,6 +140,34 @@ fun createQuickSumRevealUiState(): GameUiState = QuickSumUiState(
     answerLength = 2,
     revealedSum = "16",
     answerResult = RevealResult.CORRECT,
+)
+
+// Animation starts at the head of the walk, so the front person stands at the scene's edge.
+fun createHeadCountUiState(): GameUiState = HeadCountUiState(
+    phase = HeadCountGame.Phase.WATCHING,
+    moveKey = 3,
+    entering = 3,
+    leaving = 0,
+    entersFromLeft = true,
+    stepMillis = 1200,
+    moveIndex = 2,
+    moveCount = 6,
+    revealedCount = null,
+    answerResult = null,
+)
+
+// The fullest house the game allows, so the two-row reveal is covered.
+fun createHeadCountRevealUiState(): GameUiState = HeadCountUiState(
+    phase = HeadCountGame.Phase.ANSWER,
+    moveKey = 6,
+    entering = 0,
+    leaving = 0,
+    entersFromLeft = true,
+    stepMillis = 1200,
+    moveIndex = 5,
+    moveCount = 6,
+    revealedCount = HeadCountGame.MAX_OCCUPANTS,
+    answerResult = RevealResult.WRONG,
 )
 
 /**

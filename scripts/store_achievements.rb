@@ -116,6 +116,7 @@ GAME_MEDALS = [
   ["RULE_SHIFT", "Rule Shift", "Rule Breaker", "80_logic_rule_shift"],
   ["MINI_CHECKERS", "Mini Checkers", "Shot Caller", "87_logic_mini_checkers"],
   ["FLOCK", "Flock", "Flight Leader", "88_perception_flock"],
+  ["HEAD_COUNT", "Head Count", "Doorkeeper", "89_memory_head_count"],
 ].map do |game_type, game_name, title, icon|
   {
     game_type: game_type,

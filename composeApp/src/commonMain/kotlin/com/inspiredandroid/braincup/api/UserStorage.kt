@@ -85,6 +85,7 @@ class UserStorage(
         GOLD_VALUE_COMPARISON(Res.string.achievement_gold_value_comparison, Res.string.achievement_gold_value_comparison_desc),
         GOLD_PATTERN_SEQUENCE(Res.string.achievement_gold_pattern_sequence, Res.string.achievement_gold_pattern_sequence_desc),
         GOLD_COLOR_CONFUSION(Res.string.achievement_gold_color_confusion, Res.string.achievement_gold_color_confusion_desc),
+        GOLD_HEAD_COUNT(Res.string.achievement_gold_head_count, Res.string.achievement_gold_head_count_desc),
         GOLD_FLOCK(Res.string.achievement_gold_flock, Res.string.achievement_gold_flock_desc),
         GOLD_ORBIT_TRACKER(Res.string.achievement_gold_orbit_tracker, Res.string.achievement_gold_orbit_tracker_desc),
         GOLD_FLASH_CROWD(Res.string.achievement_gold_flash_crowd, Res.string.achievement_gold_flash_crowd_desc),

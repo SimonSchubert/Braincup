@@ -50,6 +50,7 @@ import com.inspiredandroid.braincup.ui.components.FlashCrowdDemo
 import com.inspiredandroid.braincup.ui.components.FlockDemo
 import com.inspiredandroid.braincup.ui.components.FractionCalculationDemo
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
+import com.inspiredandroid.braincup.ui.components.HeadCountDemo
 import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
@@ -142,6 +143,7 @@ fun InstructionsScreen(
                 GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
                 GameType.BUBBLE_SUM -> BubbleSumDemo(modifier = demoModifier)
                 GameType.QUICK_SUM -> QuickSumDemo(modifier = demoModifier)
+                GameType.HEAD_COUNT -> HeadCountDemo(modifier = demoModifier)
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
                 GameType.KNOT -> KnotDemo(modifier = demoModifier)
                 GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)

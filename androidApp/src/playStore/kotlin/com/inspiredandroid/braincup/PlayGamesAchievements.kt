@@ -440,6 +440,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.PATTERN_SEQUENCE -> R.string.achievementPatternProphet
     GameType.COLOR_CONFUSION -> R.string.achievementTrueColors
     GameType.FLOCK -> R.string.achievementFlightLeader
+    GameType.HEAD_COUNT -> R.string.achievementDoorkeeper
     GameType.FLASH_CROWD -> R.string.achievementCrowdCounter
     GameType.SCHULTE_TABLE -> R.string.achievementLightningGaze
     GameType.DIGIT_MEMORY -> R.string.achievementDigitSavant

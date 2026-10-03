@@ -443,6 +443,7 @@ class GameController(
             GameType.FLAGS -> startFlagsGame(gameType)
             GameType.DIGIT_MEMORY,
             GameType.QUICK_SUM,
+            GameType.HEAD_COUNT,
             -> startRevealRoundGame(gameType)
             GameType.BUBBLE_SUM -> startBubbleSumGame(gameType)
             GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
@@ -524,6 +525,7 @@ class GameController(
             is FlagsGame -> handleFlagsAnswer(currentState, game, answer.trim())
             is DigitMemoryGame -> handleDigitMemoryAnswer(currentState, game, answer.trim())
             is QuickSumGame -> handleQuickSumAnswer(currentState, game, answer.trim())
+            is HeadCountGame -> handleHeadCountAnswer(currentState, game, answer.trim())
             is NBackGame -> handleNBackAnswer(game, answer.trim())
             is SpotTheNewGame -> handleSpotTheNewAnswer(currentState, game, answer.trim())
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
@@ -947,6 +949,7 @@ class GameController(
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
         GameType.QUICK_SUM -> QuickSumGame()
+        GameType.HEAD_COUNT -> HeadCountGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         GameType.BULLS_AND_COWS -> BullsAndCowsGame()
         GameType.TRIO -> TrioGame()
@@ -2120,6 +2123,22 @@ class GameController(
         // Only a correct total advances the ramp; a wrong one replays the same tier with fresh
         // terms, so the pace never runs ahead of the player.
         val correct = game.submitSum(input)
+        if (correct) points++
+        emitUiState(game)
+        scope.launch {
+            delay(1.seconds)
+            advanceRevealRound(currentState.gameType, game, advanceDifficulty = correct)
+        }
+    }
+
+    private fun handleHeadCountAnswer(
+        currentState: GameState.Active,
+        game: HeadCountGame,
+        input: String,
+    ) {
+        if (game.phase != HeadCountGame.Phase.ANSWER) return
+
+        val correct = game.submitCount(input)
         if (correct) points++
         emitUiState(game)
         scope.launch {

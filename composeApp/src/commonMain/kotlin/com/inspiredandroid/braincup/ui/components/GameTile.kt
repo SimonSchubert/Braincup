@@ -799,6 +799,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.MENTAL_CALCULATION -> MentalCalculationPreview()
         GameType.BUBBLE_SUM -> BubbleSumPreview()
         GameType.QUICK_SUM -> QuickSumPreview()
+        GameType.HEAD_COUNT -> HeadCountPreview()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationPreview()
         GameType.CHAIN_CALCULATION -> ChainCalculationPreview()
         GameType.MISSING_OPERATORS -> MissingOperatorsPreview()
@@ -1116,6 +1117,17 @@ private fun QuickSumPreview() {
             }
         }
     }
+}
+
+@Composable
+private fun HeadCountPreview() {
+    HeadCountHouse(
+        entering = 2,
+        leaving = 0,
+        entersFromLeft = true,
+        walkProgress = 0.45f,
+        modifier = Modifier.fillMaxWidth().aspectRatio(HeadCountSceneAspect),
+    )
 }
 
 @Composable

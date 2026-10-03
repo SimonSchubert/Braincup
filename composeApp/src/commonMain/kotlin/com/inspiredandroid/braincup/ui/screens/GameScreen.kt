@@ -26,6 +26,7 @@ import com.inspiredandroid.braincup.app.FlockUiState
 import com.inspiredandroid.braincup.app.FractionCalculationUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.GhostGridUiState
+import com.inspiredandroid.braincup.app.HeadCountUiState
 import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.LightsOutUiState
 import com.inspiredandroid.braincup.app.MentalCalculationUiState
@@ -73,6 +74,7 @@ import com.inspiredandroid.braincup.ui.screens.games.FlashCrowdContent
 import com.inspiredandroid.braincup.ui.screens.games.FlockContent
 import com.inspiredandroid.braincup.ui.screens.games.FractionCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.GhostGridContent
+import com.inspiredandroid.braincup.ui.screens.games.HeadCountContent
 import com.inspiredandroid.braincup.ui.screens.games.KnotContent
 import com.inspiredandroid.braincup.ui.screens.games.LightsOutContent
 import com.inspiredandroid.braincup.ui.screens.games.MemorizeTimeProgressBar
@@ -172,6 +174,7 @@ fun GameScreen(
             when (gameUiState) {
                 is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
                 is QuickSumUiState -> QuickSumContent(gameUiState, onAnswer)
+                is HeadCountUiState -> HeadCountContent(gameUiState, onAnswer)
                 is BubbleSumUiState -> BubbleSumContent(
                     uiState = gameUiState,
                     liveFrames = bubbleSumFrames,

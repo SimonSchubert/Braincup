@@ -450,6 +450,16 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameHeadCount() {
+        snapGame(createHeadCountUiState(), 55_000L)
+    }
+
+    @Test
+    fun gameHeadCountReveal() {
+        snapGame(createHeadCountRevealUiState(), 52_000L)
+    }
+
+    @Test
     fun gameNBack() {
         snapGame(createNBackUiState(), 55_000L)
     }
@@ -813,6 +823,18 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.FLOCK,
+                storage = screenshotStorage(),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun instructionsHeadCount() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.HEAD_COUNT,
                 storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},

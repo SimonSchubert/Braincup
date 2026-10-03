@@ -404,6 +404,16 @@ enum class GameType(
         descriptionRes = Res.string.game_simon_says_desc,
         category = GameCategory.MEMORY,
     ),
+    HEAD_COUNT(
+        displayNameRes = Res.string.game_head_count,
+        id = "44",
+        // Score = rounds counted correctly in 60s. A round is 4-8 moves at 0.9-1.4s each, close to
+        // Quick Sum's ~4-7s of flashing, so its thresholds are borrowed. Tune after playtest.
+        goldScore = 7,
+        silverScore = 4,
+        descriptionRes = Res.string.game_head_count_desc,
+        category = GameCategory.MEMORY,
+    ),
     PRISM_CLEAR(
         displayNameRes = Res.string.game_prism_clear,
         id = "35",

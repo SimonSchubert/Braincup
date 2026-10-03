@@ -7,6 +7,7 @@ import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.FlockGame
 import com.inspiredandroid.braincup.games.GhostGridGame
+import com.inspiredandroid.braincup.games.HeadCountGame
 import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
@@ -127,6 +128,20 @@ data class QuickSumUiState(
     val termCount: Int,
     val answerLength: Int,
     val revealedSum: String?,
+    val answerResult: RevealResult?,
+) : GameUiState
+
+@Immutable
+data class HeadCountUiState(
+    val phase: HeadCountGame.Phase,
+    val moveKey: Int,
+    val entering: Int,
+    val leaving: Int,
+    val entersFromLeft: Boolean,
+    val stepMillis: Long,
+    val moveIndex: Int,
+    val moveCount: Int,
+    val revealedCount: Int?,
     val answerResult: RevealResult?,
 ) : GameUiState
 
