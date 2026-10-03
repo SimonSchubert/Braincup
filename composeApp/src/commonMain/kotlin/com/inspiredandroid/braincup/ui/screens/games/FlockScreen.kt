@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.composed
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.pointer.PointerInputScope
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.ui.unit.dp
@@ -34,13 +34,19 @@ internal fun ColumnScope.FlockContent(
 ) {
     val compact = LocalIsCompactHeight.current
     val isAwaitingNextTrial = uiState.feedback != AnswerFeedbackState.NORMAL
+    val currentOnAnswer by rememberUpdatedState(onAnswer)
+    val currentIsAwaitingNextTrial by rememberUpdatedState(isAwaitingNextTrial)
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxWidth()
             .height(if (compact) 200.dp else 320.dp)
-            .swipeDirection(isEnabled = !isAwaitingNextTrial) { onAnswer(it.name) },
+            .pointerInput(Unit) {
+                awaitSwipes { direction ->
+                    if (!currentIsAwaitingNextTrial) currentOnAnswer(direction.name)
+                }
+            },
     ) {
         FlockRow(
             target = uiState.target,
@@ -72,27 +78,20 @@ internal fun ColumnScope.FlockContent(
     )
 }
 
-private fun Modifier.swipeDirection(
-    isEnabled: Boolean,
-    onSwipe: (FlockGame.Direction) -> Unit,
-): Modifier = composed {
-    val currentOnSwipe by rememberUpdatedState(onSwipe)
-    val currentIsEnabled by rememberUpdatedState(isEnabled)
-    pointerInput(Unit) {
-        val threshold = 24.dp.toPx()
-        awaitEachGesture {
-            val down = awaitFirstDown(requireUnconsumed = false)
-            var travelled = Offset.Zero
-            while (true) {
-                val change = awaitPointerEvent().changes.firstOrNull { it.id == down.id } ?: break
-                if (!change.pressed) break
-                travelled += change.positionChange()
-                // Consumed so a compact layout's scrolling column cannot take a vertical swipe.
-                change.consume()
-                if (travelled.getDistance() >= threshold) {
-                    if (currentIsEnabled) currentOnSwipe(travelled.toDirection())
-                    break
-                }
+private suspend fun PointerInputScope.awaitSwipes(onSwipe: (FlockGame.Direction) -> Unit) {
+    val threshold = 24.dp.toPx()
+    awaitEachGesture {
+        val down = awaitFirstDown(requireUnconsumed = false)
+        var travelled = Offset.Zero
+        while (true) {
+            val change = awaitPointerEvent().changes.firstOrNull { it.id == down.id } ?: break
+            if (!change.pressed) break
+            travelled += change.positionChange()
+            // Consumed so a compact layout's scrolling column cannot take a vertical swipe.
+            change.consume()
+            if (travelled.getDistance() >= threshold) {
+                onSwipe(travelled.toDirection())
+                break
             }
         }
     }
