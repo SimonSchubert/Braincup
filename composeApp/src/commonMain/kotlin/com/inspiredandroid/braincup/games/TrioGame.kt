@@ -8,6 +8,8 @@ enum class TrioShape { CIRCLE, SQUARE, TRIANGLE }
 
 enum class TrioFill { SOLID, STRIPED, OUTLINE }
 
+enum class TrioTrait { SHAPE, COUNT, FILL }
+
 data class TrioCard(
     val shape: TrioShape,
     val count: Int,
@@ -18,19 +20,16 @@ data class TrioCard(
     }
 }
 
-/** True when no trait is mixed and at least one trait is shared. */
-fun isTrioSet(a: TrioCard, b: TrioCard, c: TrioCard): Boolean {
-    var shared = false
-    for (i in 0..2) {
-        val x = a.attribute(i)
-        val y = b.attribute(i)
-        val z = c.attribute(i)
-        val allSame = x == y && y == z
-        val allDifferent = x != y && y != z && x != z
-        if (!allSame && !allDifferent) return false
-        if (allSame) shared = true
-    }
-    return shared
+fun isTrioSet(a: TrioCard, b: TrioCard, c: TrioCard): Boolean = mixedTrioTraits(a, b, c).isEmpty() && sharesAnyTrait(a, b, c)
+
+fun sharesAnyTrait(a: TrioCard, b: TrioCard, c: TrioCard): Boolean = TrioTrait.entries.any { trait ->
+    a.attribute(trait) == b.attribute(trait) && b.attribute(trait) == c.attribute(trait)
+}
+
+/** The traits that are on two of the cards but not the third, which is what disqualifies a trio. */
+fun mixedTrioTraits(a: TrioCard, b: TrioCard, c: TrioCard): List<TrioTrait> = TrioTrait.entries.filter { trait ->
+    val values = setOf(a.attribute(trait), b.attribute(trait), c.attribute(trait))
+    values.size == 2
 }
 
 fun completingTrioCard(a: TrioCard, b: TrioCard): TrioCard = TrioCard(
@@ -45,13 +44,7 @@ fun completingTrioCard(a: TrioCard, b: TrioCard): TrioCard = TrioCard(
  * The third card is determined by the first two, so it cannot change the count: where [a] and [b]
  * differ it differs from both, and where they agree it agrees too.
  */
-fun trioSetHardness(a: TrioCard, b: TrioCard): Int {
-    var different = 0
-    for (i in 0..2) {
-        if (a.attribute(i) != b.attribute(i)) different++
-    }
-    return different
-}
+fun trioSetHardness(a: TrioCard, b: TrioCard): Int = TrioTrait.entries.count { a.attribute(it) != b.attribute(it) }
 
 fun findTrioSets(cards: List<TrioCard>): List<List<Int>> {
     val result = mutableListOf<List<Int>>()
@@ -77,20 +70,24 @@ fun allTrioCards(): List<TrioCard> = buildList {
     }
 }
 
-private fun TrioCard.attribute(index: Int): Int = when (index) {
-    0 -> shape.ordinal
-    1 -> count - 1
-    else -> fill.ordinal
+private fun TrioCard.attribute(trait: TrioTrait): Int = when (trait) {
+    TrioTrait.SHAPE -> shape.ordinal
+    TrioTrait.COUNT -> count - 1
+    TrioTrait.FILL -> fill.ordinal
 }
 
 private fun completeAttribute(x: Int, y: Int): Int = if (x == y) x else 3 - x - y
 
 /**
- * Find three cards that share a trait; every other trait is all-same or all-different.
+ * Find three cards that share at least one trait, with every other trait all different. Unlike
+ * the card game Set, a trio that differs in everything does not count: there is nothing shared to
+ * spot, and it was the example players found hardest to accept.
  *
  * 12 unique cards are dealt each round. Tapping toggles a card; the third tap is judged in place.
- * A wrong trio flashes and deselects so the same board can be searched again. Difficulty is the
- * hardness of the guaranteed set, derived from [round] so adaptive resume stays honest.
+ * A wrong trio flashes and deselects so the same board can be searched again, and [mixedTraits] or
+ * [sharesNothing] says what broke it until the next tap, since the rule is otherwise only learnt by
+ * guessing. Difficulty is the hardness of the guaranteed set, derived from [round] so adaptive
+ * resume stays honest.
  */
 class TrioGame(
     private val random: Random = Random.Default,
@@ -108,9 +105,17 @@ class TrioGame(
     var feedback: CardFeedback = CardFeedback.NONE
         private set
 
+    var mixedTraits: List<TrioTrait> = emptyList()
+        private set
+
+    var sharesNothing: Boolean = false
+        private set
+
     override fun generateRound() {
         selected = linkedSetOf()
         feedback = CardFeedback.NONE
+        mixedTraits = emptyList()
+        sharesNothing = false
         cards = dealBoard()
     }
 
@@ -119,6 +124,8 @@ class TrioGame(
             return TapResult.Ignored
         }
         if (index !in cards.indices) return TapResult.Ignored
+        mixedTraits = emptyList()
+        sharesNothing = false
         if (index in selected) {
             selected.remove(index)
             return TapResult.Toggled
@@ -128,7 +135,10 @@ class TrioGame(
         if (selected.size < 3) return TapResult.Toggled
 
         val picks = selected.toList()
-        val isSet = isTrioSet(cards[picks[0]], cards[picks[1]], cards[picks[2]])
+        val (a, b, c) = picks.map { cards[it] }
+        mixedTraits = mixedTrioTraits(a, b, c)
+        sharesNothing = mixedTraits.isEmpty() && !sharesAnyTrait(a, b, c)
+        val isSet = isTrioSet(a, b, c)
         feedback = if (isSet) CardFeedback.CORRECT else CardFeedback.WRONG
         if (!isSet) answeredAllCorrect = false
         return if (isSet) TapResult.Correct else TapResult.Wrong
@@ -152,6 +162,8 @@ class TrioGame(
         require(board.size == BOARD_SIZE)
         selected = linkedSetOf()
         feedback = CardFeedback.NONE
+        mixedTraits = emptyList()
+        sharesNothing = false
         cards = board
     }
 
@@ -186,6 +198,8 @@ class TrioGame(
             )
         }.toImmutableList(),
         columns = COLUMNS,
+        mixedTraits = mixedTraits.toImmutableList(),
+        sharesNothing = sharesNothing,
     )
 
     private fun dealBoard(): List<TrioCard> {

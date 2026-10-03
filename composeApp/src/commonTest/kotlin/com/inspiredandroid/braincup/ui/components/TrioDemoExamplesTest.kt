@@ -1,42 +1,46 @@
 package com.inspiredandroid.braincup.ui.components
 
+import com.inspiredandroid.braincup.games.TrioCard
+import com.inspiredandroid.braincup.games.TrioTrait
 import com.inspiredandroid.braincup.games.isTrioSet
+import com.inspiredandroid.braincup.games.mixedTrioTraits
+import com.inspiredandroid.braincup.games.sharesAnyTrait
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertTrue
 
 class TrioDemoExamplesTest {
 
-    /** A row captioned as rejected must be one the game rejects, and vice versa. */
     @Test
-    fun everyExampleIsJudgedTheWayItIsPresented() {
-        TrioExamples.forEach { example ->
-            assertEquals(3, example.cards.toSet().size, "not three distinct cards: ${example.cards}")
-            val (a, b, c) = example.cards
-            assertEquals(example.whyNot == null, isTrioSet(a, b, c), "misfiled: ${example.cards}")
-        }
+    fun theDemoShowsTriosThenNearMisses() {
+        val judged = TrioExamples.map { (a, b, c) -> isTrioSet(a, b, c) }
+        assertEquals(judged.sortedDescending(), judged, "a near miss is listed among the trios")
+        TrioExamples.forEach { assertEquals(3, it.toSet().size, "not three distinct cards: $it") }
     }
 
-    /** Each trait gets to be the shared one, so no reader concludes only shape or only fill can be. */
+    /** Every trait is the one held the same in some trio, and the one that breaks some near miss. */
     @Test
-    fun theAcceptedExamplesShareEachTraitAtLeastOnce() {
-        val shared = TrioExamples.filter { it.whyNot == null }.flatMap { example ->
-            traitVerdicts(example.cards).filter { it.second == TraitVerdict.SAME }.map { it.first }
-        }
-        assertEquals(3, shared.toSet().size, "not every trait is shared somewhere: $shared")
+    fun everyTraitTakesATurnOnBothSides() {
+        val (sets, notSets) = TrioExamples.partition { (a, b, c) -> isTrioSet(a, b, c) }
+        val sharedSomewhere = sets.flatMap { cards ->
+            TrioTrait.entries.filter { trait -> isSameOnAll(cards, trait) }
+        }.toSet()
+        val brokenSomewhere = notSets.flatMap { (a, b, c) -> mixedTrioTraits(a, b, c) }.toSet()
+        assertEquals(TrioTrait.entries.toSet(), sharedSomewhere)
+        assertEquals(TrioTrait.entries.toSet(), brokenSomewhere)
     }
 
-    /**
-     * The rejections carry captions naming why, so the rows have to break the rule where the
-     * captions say: shape alone on the first, nothing shared at all on the second.
-     */
+    private fun isSameOnAll(cards: List<TrioCard>, trait: TrioTrait): Boolean = when (trait) {
+        TrioTrait.SHAPE -> cards.map { it.shape }.toSet().size == 1
+        TrioTrait.COUNT -> cards.map { it.count }.toSet().size == 1
+        TrioTrait.FILL -> cards.map { it.fill }.toSet().size == 1
+    }
+
+    /** One caption per near miss, so each reads as one step away from a trio. */
     @Test
-    fun theCaptionsMatchTheRowsTheySitUnder() {
-        val rejected = TrioExamples.filter { it.whyNot != null }
-        assertEquals(
-            listOf(TraitVerdict.MIXED, TraitVerdict.DIFFERENT, TraitVerdict.SAME),
-            traitVerdicts(rejected[0].cards).map { it.second },
-        )
-        assertTrue(traitVerdicts(rejected[1].cards).none { it.second == TraitVerdict.SAME })
+    fun eachNearMissFailsForOneReason() {
+        TrioExamples.filterNot { (a, b, c) -> isTrioSet(a, b, c) }.forEach { (a, b, c) ->
+            val reasons = mixedTrioTraits(a, b, c).size + if (sharesAnyTrait(a, b, c)) 0 else 1
+            assertEquals(1, reasons, "$a, $b, $c")
+        }
     }
 }

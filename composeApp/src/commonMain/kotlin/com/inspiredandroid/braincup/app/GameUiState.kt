@@ -17,6 +17,7 @@ import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioGame
 import com.inspiredandroid.braincup.games.TrioShape
+import com.inspiredandroid.braincup.games.TrioTrait
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.matrix.MatrixPanel
 import com.inspiredandroid.braincup.games.tools.Animal
@@ -27,6 +28,7 @@ import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
 
 /** How an answer reveal marked a board cell or an answer button. */
@@ -431,6 +433,8 @@ data class ColorConfusionUiState(
 data class TrioUiState(
     val cards: ImmutableList<Card>,
     val columns: Int,
+    val mixedTraits: ImmutableList<TrioTrait> = persistentListOf(),
+    val sharesNothing: Boolean = false,
 ) : GameUiState {
     @Immutable
     data class Card(

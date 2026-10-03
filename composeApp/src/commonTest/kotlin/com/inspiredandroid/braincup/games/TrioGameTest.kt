@@ -23,6 +23,8 @@ class TrioGameTest {
         val b = TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED)
         val c = TrioCard(TrioShape.TRIANGLE, 3, TrioFill.OUTLINE)
         assertFalse(isTrioSet(a, b, c))
+        assertTrue(mixedTrioTraits(a, b, c).isEmpty())
+        assertFalse(sharesAnyTrait(a, b, c))
         assertEquals(3, trioSetHardness(a, b))
     }
 
@@ -32,6 +34,20 @@ class TrioGameTest {
         val b = TrioCard(TrioShape.CIRCLE, 1, TrioFill.STRIPED)
         val c = TrioCard(TrioShape.SQUARE, 1, TrioFill.OUTLINE)
         assertFalse(isTrioSet(a, b, c))
+        assertEquals(listOf(TrioTrait.SHAPE), mixedTrioTraits(a, b, c))
+    }
+
+    @Test
+    fun aWrongTrioNamesItsMixedTraitsUntilTheNextTap() {
+        val game = gameWithKnownSet()
+        game.tap(0)
+        game.tap(1)
+        assertEquals(TrioGame.TapResult.Wrong, game.tap(3))
+        assertEquals(TrioTrait.entries, game.mixedTraits)
+        game.clearSelection()
+        assertEquals(TrioTrait.entries, game.mixedTraits)
+        game.tap(0)
+        assertTrue(game.mixedTraits.isEmpty())
     }
 
     @Test

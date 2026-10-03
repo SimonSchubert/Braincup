@@ -13,10 +13,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_trio_howto
+import braincup.composeapp.generated.resources.trio_wrong_nothing_same
+import braincup.composeapp.generated.resources.trio_wrong_trait
 import com.inspiredandroid.braincup.app.TrioUiState
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioGame
@@ -25,6 +28,7 @@ import com.inspiredandroid.braincup.ui.components.GiveUpButton
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.TrioCardTile
 import com.inspiredandroid.braincup.ui.components.gridCellMaxSize
+import com.inspiredandroid.braincup.ui.components.label
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
 
@@ -45,10 +49,19 @@ internal fun TrioContent(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (!compact) {
+            // A wrong trio swaps the how-to line for what broke it, in the same slot, so a player
+            // who tried "same shape" learns the other traits count without opening the instructions.
+            val wrongReasons = if (uiState.sharesNothing) {
+                listOf(stringResource(Res.string.trio_wrong_nothing_same))
+            } else {
+                uiState.mixedTraits.map { stringResource(Res.string.trio_wrong_trait, stringResource(it.label)) }
+            }
             Text(
-                text = stringResource(Res.string.game_trio_howto),
+                text = wrongReasons.ifEmpty { listOf(stringResource(Res.string.game_trio_howto)) }.joinToString("\n"),
                 style = MaterialTheme.typography.bodyLarge,
+                color = if (wrongReasons.isEmpty()) Color.Unspecified else MaterialTheme.colorScheme.error,
                 textAlign = TextAlign.Center,
+                minLines = 3,
             )
             Spacer(Modifier.height(12.dp))
         }
