@@ -19,6 +19,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.compositeOver
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalDensity
@@ -43,6 +44,7 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.RuleShiftGame
 import com.inspiredandroid.braincup.games.SimonSaysGame
+import com.inspiredandroid.braincup.games.TrioCard
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioShape
 import com.inspiredandroid.braincup.games.formattedScore
@@ -2547,29 +2549,48 @@ private fun FlagsPreview() {
     }
 }
 
-private val TrioPreviewGlyphs = listOf(1, 2, 3)
+/**
+ * A board in miniature with the trio already found: three cards lit green, one shape each and a
+ * single mark so the shapes stay readable at tile size, beside a decoy. Raised and opaque rather
+ * than the game's pressed, translucent correct face, which reads as mud on the tile's background.
+ */
+private val TrioPreviewCards = listOf(
+    TrioCard(TrioShape.CIRCLE, 1, TrioFill.SOLID) to true,
+    TrioCard(TrioShape.SQUARE, 2, TrioFill.OUTLINE) to false,
+    TrioCard(TrioShape.TRIANGLE, 1, TrioFill.OUTLINE) to true,
+    TrioCard(TrioShape.SQUARE, 1, TrioFill.STRIPED) to true,
+)
+
+private val TrioPreviewFoundFace = SuccessGreen.copy(alpha = 0.4f).compositeOver(Color.White)
 
 @Composable
 private fun TrioPreview() {
-    val ink = GameColor.RED.composeColor()
-    Row(
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
     ) {
-        TrioPreviewGlyphs.forEach { count ->
-            TrioCardGlyphs(
-                shape = TrioShape.CIRCLE,
-                count = count,
-                fill = TrioFill.SOLID,
-                color = ink,
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f),
-            )
+        TrioPreviewCards.chunked(2).forEach { row ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                row.forEach { (card, found) ->
+                    PrismCard(
+                        face = if (found) TrioPreviewFoundFace else MaterialTheme.colorScheme.surfaceContainer,
+                        facet = PrismFacet.Cell,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp),
+                    ) {
+                        TrioCardGlyphs(
+                            shape = card.shape,
+                            count = card.count,
+                            fill = card.fill,
+                            color = Color.Black,
+                            modifier = Modifier.fillMaxSize(),
+                        )
+                    }
+                }
+            }
         }
     }
 }
