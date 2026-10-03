@@ -19,6 +19,6 @@
       android:pathData="M2 7.5l6.12 0l19.42 13.15l18.46 0l0 6.71l-18.46 0l-19.42 13.14l-6.12 0l0-4.12l18.33-12.37l-18.32-12.39l-.01 0z"
       android:fillColor="#007847"/>
   <path
-      android:pathData="M8.12 7.5l3.81 0l16.35 11l17.72 0l0 2.15l-18.46 0zm3.82 33l-3.82 0l19.42-13.13l18.46 0l0 2.14l-17.72 0z"
+      android:pathData="M8.12 7.5l3.81 0l16.35 11l17.72 0l0 2.15l-18.46 0zM11.94 40.5l-3.82 0l19.42-13.13l18.46 0l0 2.14l-17.72 0z"
       android:fillColor="#FFFFFF"/>
 </vector>
