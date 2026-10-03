@@ -99,3 +99,6 @@ val MentalRotationsCubeTop = Color(0xFF8B9DC3)
 val MentalRotationsCubeLeft = MentalRotationsCubeTop.darken(0.72f)
 val MentalRotationsCubeRight = MentalRotationsCubeTop.darken(0.52f)
 val MentalRotationsCubeEdge = Color(0xFF2B3245)
+
+// One hue for the whole flock: the target must be found by position, never by colour.
+val FlockBirdBlue = Color(0xFF3B82F6)

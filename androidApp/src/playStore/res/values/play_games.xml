@@ -57,6 +57,8 @@
     <!-- achievement Rule Breaker (Rule Shift) -->
     <string name="achievementRuleBreaker" translatable="false">CgkIuZrirtIVEAIQUQ</string>
     <string name="achievementShotCaller" translatable="false">CgkIuZrirtIVEAIQUg</string>
+    <!-- achievement Flight Leader (Flock) -->
+    <string name="achievementFlightLeader" translatable="false">CgkIuZrirtIVEAIQUw</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

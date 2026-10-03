@@ -550,6 +550,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameFlock() {
+        snapGame(createFlockUiState(), 45_000L)
+    }
+
+    @Test
     fun gameTrio() {
         snapGame(createTrioUiState(), 45_000L)
     }
@@ -796,6 +801,18 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.MENTAL_FLEX,
+                storage = screenshotStorage(),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun instructionsFlock() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.FLOCK,
                 storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},

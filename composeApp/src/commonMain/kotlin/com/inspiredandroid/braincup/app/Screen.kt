@@ -31,7 +31,7 @@ data class Finish(
     val targetsTotal: Int = -1,
     val mistakes: Int = -1,
     /**
-     * Color Confusion's congruency effect in milliseconds, or [NO_CONGRUENCY_EFFECT] when the run
+     * Color Confusion's or Flock's congruency effect in milliseconds, or [NO_CONGRUENCY_EFFECT] when the run
      * held too few correct trials of either kind to take a median from. The absent value cannot be
      * -1 like the fields above: a real effect can come out negative, and a run that came out that
      * way should say so rather than be hidden.

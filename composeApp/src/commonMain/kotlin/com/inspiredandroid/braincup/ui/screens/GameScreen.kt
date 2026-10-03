@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.app.ColoredShapesUiState
 import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlagsUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
+import com.inspiredandroid.braincup.app.FlockUiState
 import com.inspiredandroid.braincup.app.FractionCalculationUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.GhostGridUiState
@@ -69,6 +70,7 @@ import com.inspiredandroid.braincup.ui.screens.games.ColoredShapesContent
 import com.inspiredandroid.braincup.ui.screens.games.DigitMemoryContent
 import com.inspiredandroid.braincup.ui.screens.games.FlagsContent
 import com.inspiredandroid.braincup.ui.screens.games.FlashCrowdContent
+import com.inspiredandroid.braincup.ui.screens.games.FlockContent
 import com.inspiredandroid.braincup.ui.screens.games.FractionCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.GhostGridContent
 import com.inspiredandroid.braincup.ui.screens.games.KnotContent
@@ -201,6 +203,7 @@ fun GameScreen(
                 is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
                 is SimonSaysUiState -> SimonSaysContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+                is FlockUiState -> FlockContent(gameUiState, onAnswer)
                 is TrioUiState -> TrioContent(gameUiState, onAnswer, onGiveUp)
                 is OrbitTrackerUiState -> OrbitTrackerContent(
                     uiState = gameUiState,

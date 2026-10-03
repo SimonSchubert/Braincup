@@ -299,6 +299,18 @@ enum class GameType(
         category = GameCategory.PERCEPTION,
         requiresColorVision = true,
     ),
+    FLOCK(
+        displayNameRes = Res.string.game_flock,
+        id = "43",
+        // Score = correct trials in 60s. Paced like Color Confusion (one answer, then a 250ms mark),
+        // but a swipe among four directions is faster to pick than a swatch among four colours:
+        // flanker responses run near 500ms, so a run holds roughly 60 / (0.5 + 0.25) = 80 trials at
+        // the very top and fewer than 60 for most. Initial thresholds; tune after playtest.
+        goldScore = 45,
+        silverScore = 28,
+        descriptionRes = Res.string.game_flock_desc,
+        category = GameCategory.PERCEPTION,
+    ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
         id = "14",

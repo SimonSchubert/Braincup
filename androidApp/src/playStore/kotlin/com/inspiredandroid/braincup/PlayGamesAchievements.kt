@@ -439,6 +439,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.ORBIT_TRACKER -> R.string.achievementAstronomer
     GameType.PATTERN_SEQUENCE -> R.string.achievementPatternProphet
     GameType.COLOR_CONFUSION -> R.string.achievementTrueColors
+    GameType.FLOCK -> R.string.achievementFlightLeader
     GameType.FLASH_CROWD -> R.string.achievementCrowdCounter
     GameType.SCHULTE_TABLE -> R.string.achievementLightningGaze
     GameType.DIGIT_MEMORY -> R.string.achievementDigitSavant

@@ -47,6 +47,7 @@ import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.DigitMemoryDemo
 import com.inspiredandroid.braincup.ui.components.FlagsDemo
 import com.inspiredandroid.braincup.ui.components.FlashCrowdDemo
+import com.inspiredandroid.braincup.ui.components.FlockDemo
 import com.inspiredandroid.braincup.ui.components.FractionCalculationDemo
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
 import com.inspiredandroid.braincup.ui.components.KnotDemo
@@ -158,6 +159,7 @@ fun InstructionsScreen(
                 GameType.N_BACK -> NBackDemo(modifier = demoModifier)
                 GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
                 GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
+                GameType.FLOCK -> FlockDemo(modifier = demoModifier)
                 GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
                 GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
                 GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)

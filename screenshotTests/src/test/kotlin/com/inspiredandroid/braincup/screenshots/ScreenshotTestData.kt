@@ -20,6 +20,7 @@ import com.inspiredandroid.braincup.app.IqTestResultUiState
 import com.inspiredandroid.braincup.app.IqTestReviewItemUiState
 import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
+import com.inspiredandroid.braincup.app.FlockUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.NurikabeUiState
@@ -352,6 +353,13 @@ fun createPatternSequenceUiState(): GameUiState = PatternSequenceGame(Random(42L
 fun createColorConfusionUiState(): GameUiState = ColorConfusionGame(Random(4L)).apply {
     nextRound()
 }.toUiState()
+
+// Built directly rather than dealt, so the snapshot always shows the incongruent case the game is about.
+fun createFlockUiState(): GameUiState = FlockUiState(
+    target = FlockGame.Direction.LEFT,
+    flankers = FlockGame.Direction.RIGHT,
+    feedback = AnswerFeedbackState.NORMAL,
+)
 
 fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     nextRound()

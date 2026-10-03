@@ -46,6 +46,7 @@ enum GameCenterIds {
         "MENTAL_FLEX":           "achievement.quick_change",
         "RULE_SHIFT":            "achievement.rule_breaker",
         "MINI_CHECKERS":         "achievement.shot_caller",
+        "FLOCK":                 "achievement.flight_leader",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [
@@ -173,6 +174,7 @@ enum GameCenterIds {
         case "achievement.quick_change":          return UserStorage.Achievements.goldMentalFlex
         case "achievement.rule_breaker":          return UserStorage.Achievements.goldRuleShift
         case "achievement.shot_caller":           return UserStorage.Achievements.goldMiniCheckers
+        case "achievement.flight_leader":         return UserStorage.Achievements.goldFlock
         case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
         default: return nil
         }

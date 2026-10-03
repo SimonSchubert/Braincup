@@ -35,11 +35,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.checkers.CheckersPiece
 import com.inspiredandroid.braincup.checkers.CheckersSide
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.Cube
+import com.inspiredandroid.braincup.games.FlockGame
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.RuleShiftGame
@@ -808,6 +810,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.GHOST_GRID -> GhostGridPreview()
         GameType.SIMON_SAYS -> SimonSaysPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
+        GameType.FLOCK -> FlockPreview()
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
         GameType.MINI_CHESS -> MiniChessPreview()
@@ -2290,6 +2293,21 @@ private fun ColorConfusionPreview() {
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun FlockPreview() {
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(horizontal = 8.dp),
+    ) {
+        FlockRow(
+            target = FlockGame.Direction.LEFT,
+            flankers = FlockGame.Direction.RIGHT,
+            feedback = AnswerFeedbackState.NORMAL,
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 

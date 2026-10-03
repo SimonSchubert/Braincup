@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.checkers.CheckersBoard
 import com.inspiredandroid.braincup.checkers.CheckersMove
 import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.DigitMemoryGame
+import com.inspiredandroid.braincup.games.FlockGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.NBackGame
@@ -427,6 +428,13 @@ data class ColorConfusionUiState(
     val swatches: ImmutableList<ColorSwatchCell>,
     /** True while the feedback beat is up, so the row can stop taking taps. */
     val isAwaitingNextTrial: Boolean,
+) : GameUiState
+
+@Immutable
+data class FlockUiState(
+    val target: FlockGame.Direction,
+    val flankers: FlockGame.Direction,
+    val feedback: AnswerFeedbackState,
 ) : GameUiState
 
 @Immutable

@@ -7,6 +7,8 @@ import braincup.composeapp.generated.resources.science_digit_memory_paradigm
 import braincup.composeapp.generated.resources.science_digit_memory_summary
 import braincup.composeapp.generated.resources.science_flash_crowd_paradigm
 import braincup.composeapp.generated.resources.science_flash_crowd_summary
+import braincup.composeapp.generated.resources.science_flock_paradigm
+import braincup.composeapp.generated.resources.science_flock_summary
 import braincup.composeapp.generated.resources.science_ghost_grid_paradigm
 import braincup.composeapp.generated.resources.science_ghost_grid_summary
 import braincup.composeapp.generated.resources.science_mental_flex_paradigm
@@ -74,6 +76,11 @@ val GameType.science: GameScience?
             paradigmRes = Res.string.science_color_confusion_paradigm,
             summaryRes = Res.string.science_color_confusion_summary,
             citation = "Stroop, 1935; MacLeod, 1991",
+        )
+        GameType.FLOCK -> GameScience(
+            paradigmRes = Res.string.science_flock_paradigm,
+            summaryRes = Res.string.science_flock_summary,
+            citation = "Eriksen & Eriksen, 1974",
         )
         GameType.GHOST_GRID -> GameScience(
             paradigmRes = Res.string.science_ghost_grid_paradigm,

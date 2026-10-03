@@ -502,6 +502,7 @@ class GameController(
             is PathFinderGame -> handlePathFinderAnswer(currentState, game, answer.trim())
             is ColoredShapesGame -> handleColoredShapesAnswer(currentState, game, answer.trim())
             is ColorConfusionGame -> handleColorConfusionAnswer(currentState, game, answer.trim())
+            is FlockGame -> handleFlockAnswer(currentState, game, answer.trim())
             is OrbitTrackerGame -> handleOrbitTrackerAnswer(currentState, game, answer.trim())
             is FlashCrowdGame -> submitGenericAnswer(currentState, game, answer, showsSolutionOnWrong = false)
             is MiniSudokuGame -> handleMiniSudokuAnswer(currentState, game, answer.trim())
@@ -936,6 +937,7 @@ class GameController(
         GameType.GHOST_GRID -> GhostGridGame()
         GameType.SIMON_SAYS -> SimonSaysGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
+        GameType.FLOCK -> FlockGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.BUBBLE_SUM -> BubbleSumGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
@@ -1285,6 +1287,21 @@ class GameController(
         } else {
             ColorConfusionGame.WRONG_FEEDBACK_MILLIS
         }
+        scheduleNextRound(currentState.gameType, game, after = hold.milliseconds)
+    }
+
+    /** One flanker trial, paced like Color Confusion's and for the same reason. */
+    private fun handleFlockAnswer(
+        currentState: GameState.Active,
+        game: FlockGame,
+        input: String,
+    ) {
+        val direction = FlockGame.Direction.entries.firstOrNull { it.name == input } ?: return
+        val isCorrect = game.answer(direction) ?: return
+        if (isCorrect) points++
+        emitUiState(game)
+
+        val hold = if (isCorrect) FlockGame.CORRECT_FEEDBACK_MILLIS else FlockGame.WRONG_FEEDBACK_MILLIS
         scheduleNextRound(currentState.gameType, game, after = hold.milliseconds)
     }
 
@@ -1958,9 +1975,13 @@ class GameController(
         // own that disappears before the player can read it.
         val nBack = game as? NBackGame
 
-        // Color Confusion's congruency effect belongs here for the same reason: it is the reading
-        // the run produced, and it is gone the moment the player leaves this screen.
-        val stroop = game as? ColorConfusionGame
+        // The Stroop and flanker congruency effects belong here for the same reason: each is the
+        // reading the run produced, and it is gone the moment the player leaves this screen.
+        val congruencyEffect = when (game) {
+            is ColorConfusionGame -> game.congruencyEffectMillis()
+            is FlockGame -> game.congruencyEffectMillis()
+            else -> null
+        }
 
         navController.navigate(
             Finish(
@@ -1976,7 +1997,7 @@ class GameController(
                 targetsFound = nBack?.hits ?: -1,
                 targetsTotal = nBack?.let { NBackGame.TARGETS_PER_BLOCK } ?: -1,
                 mistakes = nBack?.errors ?: -1,
-                congruencyEffectMs = stroop?.congruencyEffectMillis() ?: NO_CONGRUENCY_EFFECT,
+                congruencyEffectMs = congruencyEffect ?: NO_CONGRUENCY_EFFECT,
             ),
         ) {
             popUpTo(MainMenu)

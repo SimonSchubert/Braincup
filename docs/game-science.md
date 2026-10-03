@@ -14,6 +14,7 @@ is meant to avoid.
 | Game | Paradigm | Citation | Why it qualifies |
 |---|---|---|---|
 | Color Confusion | Stroop Task | Stroop, 1935; MacLeod, 1991 | One word per trial, answered on its ink from a fixed colour row, against a scheduled mix of congruent and incongruent trials. The congruency cost is measured and reported. See below. |
+| Flock | Flanker Task | Eriksen & Eriksen, 1974 | Five identical birds in a tight row, the middle one the target, the four flankers either agreeing with it or pointing the opposite way, in an even scheduled mix. The congruency cost is measured and reported. See below. |
 | Flash Crowd | Non-Symbolic Number Comparison | Halberda, Mazzocco & Feigenson, 2008 | Ratio-driven difficulty, with dot area and dot size both controlled against count. See below. |
 | Ghost Grid | Corsi Block-Tapping Task | Corsi, 1972 | Forward spatial span, reproduced in order. Standard. |
 | Orbit Tracker | Multiple Object Tracking | Pylyshyn & Storm, 1988 | Textbook structure: cue targets, identical distractors, independent motion, select all. |
@@ -256,3 +257,32 @@ Lumosity $2M over in 2016. Describing the tasks rather than promising effects co
    no leading article.
 3. Add the `GameType` arm to `GameScience.science`.
 4. Re-record the Paparazzi snapshot for that game's instructions screen.
+
+## Flock and how it departs from the original flanker task
+
+Eriksen and Eriksen (1974) used letters, not arrows: a target letter flanked by letters mapped to
+the same response or to the other one. The arrow version that most later work runs, and that Flock
+follows, keeps the manipulation that matters: the flankers are not noise but carry a response of
+their own, so on an incongruent trial they prime the wrong answer and it has to be held back. The
+birds are drawn as swept-wing arrowheads on purpose, so that each one reads as a direction at a
+glance, and all five share one colour, so the target can only be found by its place in the row.
+
+Three departures, each chosen rather than imposed:
+
+**Four directions, not two.** A swipe has four natural answers, and a guess pays a quarter of the
+time instead of half. Incongruent flankers always point the *opposite* way, never sideways, so every
+incongruent trial carries the same maximal conflict instead of a mix of two strengths.
+
+**No neutral condition**, so, as for Color Confusion, the finish screen reports a congruency cost
+(incongruent minus congruent median) rather than interference. The same argument applies: a sixty-
+second run has too few trials to divide three ways.
+
+**Answers fire on swipe distance, not on release**, so the reading is a decision time and not a
+decision-plus-lift time. The swipe threshold adds a constant to both conditions, which cancels in the
+difference.
+
+The clock is part of the procedure here, as it is for Stroop: flanker blocks are scored on speed and
+accuracy. Congruency is dealt from a shuffled bag of four holding two congruent trials, the even
+split of the original study, and the target never repeats on consecutive trials, since a repeated
+response carries a speed-up of its own that would land unevenly across the two conditions.
+`FlockGameTest` asserts the schedule bag by bag.

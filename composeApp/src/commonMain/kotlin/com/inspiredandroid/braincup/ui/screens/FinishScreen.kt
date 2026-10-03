@@ -31,6 +31,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.medalTint
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -123,7 +124,14 @@ fun FinishScreen(
         }
 
         if (congruencyEffectMs != NO_CONGRUENCY_EFFECT) {
-            CongruencyEffectCard(millis = congruencyEffectMs)
+            CongruencyEffectCard(
+                millis = congruencyEffectMs,
+                explainer = if (gameType == GameType.FLOCK) {
+                    Res.string.finish_congruency_effect_explainer_flock
+                } else {
+                    Res.string.finish_congruency_effect_explainer
+                },
+            )
             Spacer(Modifier.height(16.dp))
         }
 
@@ -210,14 +218,14 @@ fun FinishScreen(
 }
 
 /**
- * The reading a Stroop run produces, which the score does not carry: how much longer the trials
- * whose word disagreed with the ink took than the ones where the two agreed.
+ * The reading a Stroop or flanker run produces, which the score does not carry: how much longer the
+ * trials with a conflicting distractor took than the ones where the distractor agreed.
  *
  * Shown with a sign, and negative values are shown as they are rather than floored at zero. A run
  * can genuinely come out that way, and rounding it up to "no cost" would be inventing a result.
  */
 @Composable
-private fun ColumnScope.CongruencyEffectCard(millis: Int) {
+private fun ColumnScope.CongruencyEffectCard(millis: Int, explainer: StringResource) {
     BrandedCard(
         modifier = sectionWidth(),
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
@@ -238,7 +246,7 @@ private fun ColumnScope.CongruencyEffectCard(millis: Int) {
             color = OnPrimaryContainer,
         )
         Text(
-            text = stringResource(Res.string.finish_congruency_effect_explainer),
+            text = stringResource(explainer),
             style = MaterialTheme.typography.bodySmall,
             textAlign = TextAlign.Center,
             color = OnPrimaryContainer.copy(alpha = 0.7f),
