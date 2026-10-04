@@ -88,7 +88,7 @@ fun RailYardDemo(modifier: Modifier = Modifier) {
             uiState = uiState,
             trains = { trains },
             pressedSwitch = pressedSwitch,
-            modifier = if (compact) Modifier.size(200.dp, 160.dp) else Modifier.size(260.dp, 240.dp),
+            modifier = if (compact) Modifier.size(240.dp, 150.dp) else Modifier.size(260.dp, 240.dp),
         )
 
         Spacer(Modifier.height(12.dp))

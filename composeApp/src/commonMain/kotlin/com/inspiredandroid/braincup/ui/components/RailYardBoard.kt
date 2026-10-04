@@ -104,7 +104,11 @@ fun RailYardBoard(
     }
 }
 
-/** Board pixels for the game's unit square, sized off the narrowest column the map can have. */
+/**
+ * Board pixels for the game's unit square. Pieces are sized off whichever is tighter, a column per
+ * station across or a row per level down, so a short board shrinks them before they collide and a
+ * tablet's big board grows them instead of leaving them lost in it.
+ */
 private class BoardGeometry(size: Size, uiState: RailYardUiState, density: Density) {
     private val inset: Float
     private val innerWidth: Float
@@ -116,7 +120,9 @@ private class BoardGeometry(size: Size, uiState: RailYardUiState, density: Densi
     init {
         with(density) {
             val columns = max(uiState.stations.size, 3)
-            unit = min(size.width / (columns + 0.6f), 52.dp.toPx())
+            val rows = (uiState.switches.map { it.position.y } + uiState.stations.map { it.position.y } + uiState.tunnel.y)
+                .distinct().size
+            unit = minOf(size.width / (columns + 1.6f), size.height / (rows * 1.3f), MaxUnit.toPx())
             inset = unit * 0.55f
             switchSize = unit * 0.5f
             depth = max(unit * 0.07f, PrismFacet.Cell.toPx())
@@ -127,6 +133,8 @@ private class BoardGeometry(size: Size, uiState: RailYardUiState, density: Densi
 
     fun toPx(point: RailYardGame.Point): Offset = Offset(inset + point.x * innerWidth, inset + point.y * innerHeight)
 }
+
+private val MaxUnit = 96.dp
 
 private fun rect(center: Offset, size: Size): List<Offset> {
     val left = center.x - size.width / 2f

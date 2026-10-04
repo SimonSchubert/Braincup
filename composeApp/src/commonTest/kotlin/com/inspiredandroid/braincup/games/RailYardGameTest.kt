@@ -94,8 +94,10 @@ class RailYardGameTest {
         val sy = min(s.first.y, s.second.y)..max(s.first.y, s.second.y)
         val tx = min(t.first.x, t.second.x)..max(t.first.x, t.second.x)
         val ty = min(t.first.y, t.second.y)..max(t.first.y, t.second.y)
-        return sx.start <= tx.endInclusive && tx.start <= sx.endInclusive &&
-            sy.start <= ty.endInclusive && ty.start <= sy.endInclusive
+        return sx.start <= tx.endInclusive &&
+            tx.start <= sx.endInclusive &&
+            sy.start <= ty.endInclusive &&
+            ty.start <= sy.endInclusive
     }
 
     @Test
