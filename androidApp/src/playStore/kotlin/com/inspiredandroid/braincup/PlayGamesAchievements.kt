@@ -50,18 +50,12 @@ fun initPlayGames(activity: ComponentActivity) {
     PlayGamesBridge.hasPlayStoreAccount = true
     PlayGamesBridge.onRefreshStoreProfile = ::refreshStoreProfile
 
-    val signInClient = PlayGames.getGamesSignInClient(activity)
-    signInClient.isAuthenticated.addOnCompleteListener { task ->
-        val authed = task.isSuccessful && task.result.isAuthenticated
-        if (authed) {
+    // Only the SDK's silent automatic sign-in at launch. An explicit signIn() here would open
+    // Google's account setup on every start for anyone without a Google account; the interactive
+    // flow is left to the leaderboard buttons (ensureSignedInAndLaunch).
+    PlayGames.getGamesSignInClient(activity).isAuthenticated.addOnCompleteListener { task ->
+        if (task.isSuccessful && task.result.isAuthenticated) {
             onPlayGamesAuthenticated(activity)
-        } else {
-            signInClient.signIn().addOnCompleteListener { signInTask ->
-                val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
-                if (signedIn) {
-                    onPlayGamesAuthenticated(activity)
-                }
-            }
         }
     }
 
@@ -232,7 +226,11 @@ private fun ensureSignedInAndLaunch(activity: ComponentActivity, id: String) {
                 launchLeaderboard(activity, id)
             } else {
                 PlayGames.getGamesSignInClient(activity).signIn()
-                    .addOnSuccessListener { launchLeaderboard(activity, id) }
+                    .addOnSuccessListener { result ->
+                        if (!result.isAuthenticated) return@addOnSuccessListener
+                        onPlayGamesAuthenticated(activity)
+                        launchLeaderboard(activity, id)
+                    }
                     .addOnFailureListener { e -> Log.w(TAG, "Play Games sign-in failed", e) }
             }
         }
