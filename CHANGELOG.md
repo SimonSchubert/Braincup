@@ -1,3 +1,26 @@
+## v3.8.0 - 2026-10-04
+
+### Features
+- Add Rail Yard, a train routing game: flip the switches so each colored train reaches the station
+  of its color. The map grows from three stations up to eight during a run, and trains already on
+  the board still count after the clock runs out.
+- Add Head Count, a working-memory game: people walk in and out of a house, and when the traffic
+  stops you say how many are inside. Its difficulty carries over from your last run.
+- Add Flock, a flanker task: swipe the way the middle bird flies while the birds around it point
+  the same way or the opposite way. The finish screen reports what the conflicting birds cost you.
+- Each new game has its own gold medal on Play Games and Game Center.
+
+### Fixes
+- Stop opening Google's account setup on every launch for players without a Google account.
+  Signing in from the leaderboard buttons now also restores progress.
+- Fix distorted flags on Android 9.
+- Loop the background music without a gap.
+
+### Improvements
+- Explain the Trio rule with examples, and say why a wrong guess is not a trio.
+- Show a found trio on the Trio menu tile.
+- Upgrade dependencies.
+
 ## v3.7.0 - 2026-09-27
 
 ### Features

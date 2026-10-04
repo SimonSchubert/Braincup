@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.8.0" date="2026-10-04">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.8.0</url>
+      <description>
+        <ul>
+          <li>Add Rail Yard: route each train to the station of its color</li>
+          <li>Add Head Count: keep track of who is inside the house</li>
+          <li>Add Flock: swipe the way the middle bird flies</li>
+          <li>Play Games no longer asks you to sign in at every launch</li>
+          <li>Trio explains its rule with examples and says why a guess is wrong</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.7.0" date="2026-09-27">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.7.0</url>
       <description>
@@ -164,15 +176,6 @@
           <li>Add Simon Says sound effects</li>
           <li>Fix Peg Solitaire tile preview</li>
           <li>Improve chess board sizing and performance</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.32.0" date="2026-07-29">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.32.0</url>
-      <description>
-        <ul>
-          <li>Add Bulls and Cows game</li>
-          <li>Add Missing Operators game</li>
         </ul>
       </description>
     </release>
