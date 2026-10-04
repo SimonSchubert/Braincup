@@ -214,6 +214,41 @@ class RailYardGameTest {
     }
 
     @Test
+    fun `winding down lets the trains already out arrive and score, then finishes`() {
+        for (seed in 0L until 10L) {
+            val game = newGame(seed)
+            game.runFor(9f) { perfectFrame() }
+            val stage = game.stageIndex
+            val deliveredBefore = game.delivered
+            val trainsOut = game.trains.size
+            assertTrue(trainsOut > 0, "seed $seed: nothing on the board to finish")
+
+            game.windDown()
+            assertFalse(game.isFinished)
+            val arrivals = mutableListOf<Boolean>()
+            var frames = 0
+            while (!game.isFinished) {
+                assertTrue(game.trains.size <= trainsOut, "seed $seed: a train left the tunnel after the clock")
+                arrivals += game.perfectFrame().arrivals
+                assertTrue(++frames < 60 * 30, "seed $seed: never finished")
+            }
+
+            assertEquals(trainsOut, arrivals.size)
+            assertEquals(deliveredBefore + trainsOut, game.delivered)
+            assertEquals(stage, game.stageIndex)
+        }
+    }
+
+    @Test
+    fun `winding down on an empty board finishes once the last mark fades`() {
+        val game = newGame(1L)
+        game.windDown()
+        assertTrue(game.isFinished)
+        repeat(60 * 5) { game.step(frame) }
+        assertTrue(game.trains.isEmpty())
+    }
+
+    @Test
     fun `only switches toggle`() {
         val game = newGame(3L)
         val switch = game.switchIndices().first()

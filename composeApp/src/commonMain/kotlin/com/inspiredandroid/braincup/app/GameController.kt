@@ -2105,9 +2105,13 @@ class GameController(
         emitUiState(game)
         _railYardTrains.value = game.frames()
         navController.navigate(Playing(gameType.id))
-        // finishGame, not finishCurrentGame: a run with no train at the wrong station earns the
-        // flawless bonus like any other timed game.
-        startTimer(onExpired = { finishGame(gameType, game) })
+        // At 0s the tunnel closes but the trains already out still arrive and score; the run ends
+        // once the last of them is in. finishGame, not finishCurrentGame: a run with no train at
+        // the wrong station earns the flawless bonus like any other timed game.
+        startTimer(onExpired = {
+            game.windDown()
+            if (game.isFinished) finishGame(gameType, game)
+        })
         game.startMotion(scope) { result ->
             for (isCorrect in result.arrivals) {
                 if (isCorrect) {
@@ -2117,6 +2121,7 @@ class GameController(
             }
             if (result.boardChanged) emitUiState(game)
             _railYardTrains.value = game.frames()
+            if (game.isFinished) finishGame(gameType, game)
         }
     }
 

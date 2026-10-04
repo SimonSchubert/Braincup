@@ -96,6 +96,12 @@ class RailYardGame(
     var delivered: Int = 0
         private set
 
+    var isWindingDown: Boolean = false
+        private set
+
+    /** The last train has arrived and its station's mark has been seen. */
+    val isFinished: Boolean get() = isWindingDown && movingTrains.isEmpty() && flashUntilByStation.isEmpty()
+
     private var correctThisStage = 0
     private var isSpawning = true
     private var spawnCountdownMs = 0L
@@ -114,6 +120,7 @@ class RailYardGame(
     override fun generateRound() {
         stageIndex = 0
         delivered = 0
+        isWindingDown = false
         clockMs = 0L
         movingTrains.clear()
         startStage()
@@ -124,6 +131,17 @@ class RailYardGame(
     fun stationIndices(): List<Int> = nodes.indices.filter { nodes[it].stationColor != null }
 
     fun branchOf(switchIndex: Int): Int = branchBySwitch.getValue(switchIndex)
+
+    /**
+     * Closes the tunnel for good once the clock is spent. Trains already out still run to a
+     * station and still count, so the last seconds of a run are never thrown away, and the map
+     * stops growing.
+     */
+    fun windDown() {
+        isWindingDown = true
+        isSpawning = false
+        stageBeatMs = null
+    }
 
     /** Returns false when [nodeIndex] is not a switch on the current map. */
     fun toggleSwitch(nodeIndex: Int): Boolean {
@@ -208,7 +226,7 @@ class RailYardGame(
             }
         }
 
-        if (!isSpawning && movingTrains.isEmpty() && stageIndex < STAGES.lastIndex) {
+        if (!isWindingDown && !isSpawning && movingTrains.isEmpty() && stageIndex < STAGES.lastIndex) {
             stageBeatMs = STAGE_BEAT_MS
         }
         return StepResult(arrivals, boardChanged)
