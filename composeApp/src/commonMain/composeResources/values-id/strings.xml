@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kebingungan Warna</string>
     <string name="game_flock">Kawanan Burung</string>
+    <string name="game_rail_yard">Stasiun Langsir</string>
     <string name="game_orbit_tracker">Pelacak Orbit</string>
     <string name="game_bubble_sum">Jumlah Gelembung</string>
     <string name="game_bubble_sum_desc">Jumlahkan angka di gelembung mengambang. Nanti angka berkedip — ingatlah.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>
     <string name="game_color_confusion_desc">Sebuah kata warna muncul dengan tinta berwarna. Ketuk warna tintanya, bukan warna yang disebut kata itu.</string>
     <string name="game_flock_desc">Sekawanan burung terbang lewat. Geser ke arah terbang burung di tengah, dan abaikan burung di sekitarnya.</string>
+    <string name="game_rail_yard_desc">Kereta berwarna keluar dari terowongan. Putar wesel supaya setiap kereta sampai di stasiun yang warnanya sama.</string>
     <string name="game_orbit_tracker_desc">Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.</string>
     <string name="game_flash_crowd_desc">Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Jangan menghitung — percaya insting Anda!</string>
     <string name="game_schulte_table_desc">Ketuk angka secara berurutan dari 1 secepat mungkin.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Peramal Pola</string>
     <string name="achievement_gold_color_confusion">Warna Sejati</string>
     <string name="achievement_gold_flock">Pemimpin Kawanan</string>
+    <string name="achievement_gold_rail_yard">Kepala Stasiun</string>
     <string name="achievement_gold_head_count">Penjaga Pintu</string>
     <string name="achievement_gold_flash_crowd">Penghitung Kerumunan</string>
     <string name="achievement_gold_schulte_table">Tatapan Kilat</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Menangkan medali emas di Urutan Pola</string>
     <string name="achievement_gold_color_confusion_desc">Menangkan medali emas di Kebingungan Warna</string>
     <string name="achievement_gold_flock_desc">Menangkan medali emas di Kawanan Burung</string>
+    <string name="achievement_gold_rail_yard_desc">Menangkan medali emas di Stasiun Langsir</string>
     <string name="achievement_gold_head_count_desc">Menangkan medali emas di Hitung Orang</string>
     <string name="achievement_gold_flash_crowd_desc">Menangkan medali emas di Kerumunan Kilat</string>
     <string name="achievement_gold_schulte_table_desc">Menangkan medali emas di Tabel Schulte</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">Kadang seluruh kawanan sepakat.</string>
     <string name="flock_demo_caption_trap">Ikut kawanan itulah jebakannya.</string>
     <string name="flock_demo_caption_recover">Jawabannya selalu burung di tengah.</string>
+    <string name="rail_yard_demo_title">Antar setiap kereta pulang</string>
+    <string name="rail_yard_demo_caption_colour">Tiap kereta ingin ke stasiun yang warnanya sama.</string>
+    <string name="rail_yard_demo_caption_switch">Ketuk wesel untuk mengirim kereta ke arah lain.</string>
+    <string name="rail_yard_demo_caption_many">Awasi semua kereta sekaligus.</string>
     <string name="spot_the_new_demo_title">Temukan yang baru</string>
     <string name="spot_the_new_demo_seen_label">Sudah dilihat sejauh ini</string>
     <string name="spot_the_new_demo_new">Ketuk hewan yang belum pernah kamu lihat sebelumnya.</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">Kartu tersisa: %1$d</string>
     <string name="game_color_confusion_howto">Ketuk warna tintanya.</string>
     <string name="game_flock_howto">Geser ke arah terbang burung di tengah.</string>
+    <string name="game_rail_yard_howto">Ketuk wesel untuk mengubah jalurnya.</string>
     <string name="trio_demo_title">Temukan trio</string>
     <string name="trio_demo_rule">Tiga kartu yang sama di setidaknya satu dari bentuk, jumlah, atau isian. Sisanya harus berbeda semua.</string>
     <string name="trio_trait_shape">Bentuk</string>

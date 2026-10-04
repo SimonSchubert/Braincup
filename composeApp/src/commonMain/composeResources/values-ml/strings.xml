@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">പ്രേത ഗ്രിഡ്</string>
     <string name="game_color_confusion">നിറങ്ങളുടെ കുഴപ്പം</string>
     <string name="game_flock">പക്ഷിക്കൂട്ടം</string>
+    <string name="game_rail_yard">റെയിൽ യാർഡ്</string>
     <string name="game_orbit_tracker">ഭ്രമണപഥ നിരീക്ഷണം</string>
     <string name="game_bubble_sum">കുമിള തുക</string>
     <string name="game_quick_sum">വേഗ തുക</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">കള്ളികൾ ഒന്നൊന്നായി തെളിയുന്നത് കാണുക, പിന്നെ അതേ ക്രമത്തിൽ അവയിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="game_color_confusion_desc">ഒരു നിറവാക്ക് നിറമുള്ള മഷിയിൽ കാണാം. മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക, വാക്ക് പറയുന്ന നിറത്തിലല്ല.</string>
     <string name="game_flock_desc">ഒരു പക്ഷിക്കൂട്ടം പറന്നുപോകുന്നു. നടുവിലെ പക്ഷി പറക്കുന്ന ദിശയിൽ സ്വൈപ്പ് ചെയ്യുക, ചുറ്റുമുള്ള പക്ഷികളെ ശ്രദ്ധിക്കേണ്ട.</string>
+    <string name="game_rail_yard_desc">നിറമുള്ള ട്രെയിനുകൾ തുരങ്കത്തിൽ നിന്ന് പുറത്തുവരുന്നു. ഓരോ ട്രെയിനും അതിന്റെ നിറത്തിലുള്ള സ്റ്റേഷനിൽ എത്തുംവിധം പോയിന്റുകൾ മാറ്റുക.</string>
     <string name="game_orbit_tracker_desc">എടുത്തുകാട്ടിയ പന്തുകൾ കാണുക, അവ നീങ്ങുമ്പോൾ പിന്തുടരുക. അവ നിന്നശേഷം യഥാർത്ഥ ലക്ഷ്യങ്ങൾ തിരഞ്ഞെടുക്കുക.</string>
     <string name="game_bubble_sum_desc">ഒഴുകുന്ന കുമിളകളിലെ അക്കങ്ങൾ കൂട്ടുക. പിന്നീട് അക്കങ്ങൾ മിന്നും — അവ ഓർത്തുവയ്ക്കുക.</string>
     <string name="bubble_sum_instruction">തുക എത്ര?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">ബാക്കി കാർഡുകൾ: %1$d</string>
     <string name="game_color_confusion_howto">മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="game_flock_howto">നടുവിലെ പക്ഷി പറക്കുന്ന ദിശയിൽ സ്വൈപ്പ് ചെയ്യുക.</string>
+    <string name="game_rail_yard_howto">പാളം മാറ്റാൻ പോയിന്റിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="trio_demo_title">ഒരു ത്രയം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">രൂപം, എണ്ണം, നിറയ്ക്കൽ ഇവയിൽ ഒന്നെങ്കിലും ഒരുപോലെയുള്ള മൂന്ന് ചീട്ടുകൾ. ബാക്കിയെല്ലാം ഓരോ ചീട്ടിലും വ്യത്യസ്തം.</string>
     <string name="trio_trait_shape">രൂപം</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">ചിലപ്പോൾ കൂട്ടം മുഴുവൻ ഒരേ ദിശയിൽ.</string>
     <string name="flock_demo_caption_trap">കൂട്ടത്തെ പിന്തുടരുന്നതാണ് കെണി.</string>
     <string name="flock_demo_caption_recover">ഉത്തരം എപ്പോഴും നടുവിലെ പക്ഷിയാണ്.</string>
+    <string name="rail_yard_demo_title">ഓരോ ട്രെയിനിനെയും വീട്ടിലെത്തിക്കുക</string>
+    <string name="rail_yard_demo_caption_colour">ഓരോ ട്രെയിനിനും അതിന്റെ നിറത്തിലുള്ള സ്റ്റേഷൻ വേണം.</string>
+    <string name="rail_yard_demo_caption_switch">പോയിന്റിൽ ടാപ്പ് ചെയ്താൽ ട്രെയിൻ മറ്റൊരു വഴിയേ പോകും.</string>
+    <string name="rail_yard_demo_caption_many">എല്ലാ ട്രെയിനുകളെയും ഒരേസമയം ശ്രദ്ധിക്കുക.</string>
     <string name="pattern_sequence_prompt">ഏത് കഷണമാണ് മാട്രിക്സ് പൂർത്തിയാക്കുന്നത്?</string>
     <string name="game_tap_original_targets">യഥാർത്ഥ ലക്ഷ്യങ്ങളിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="game_remember_targets">ലക്ഷ്യങ്ങൾ ഓർത്തുവയ്ക്കുക</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">മാതൃകാ പ്രവാചകൻ</string>
     <string name="achievement_gold_color_confusion">യഥാർത്ഥ നിറങ്ങൾ</string>
     <string name="achievement_gold_flock">കൂട്ടത്തലവൻ</string>
+    <string name="achievement_gold_rail_yard">സ്റ്റേഷൻ മാസ്റ്റർ</string>
     <string name="achievement_gold_head_count">ദ്വാരപാലകൻ</string>
     <string name="achievement_gold_flash_crowd">ആൾക്കൂട്ടം എണ്ണുന്നവൻ</string>
     <string name="achievement_gold_schulte_table">മിന്നൽ നോട്ടം</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">മാതൃകാ ക്രമത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_color_confusion_desc">നിറങ്ങളുടെ കുഴപ്പത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_flock_desc">പക്ഷിക്കൂട്ടത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_rail_yard_desc">റെയിൽ യാർഡിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_head_count_desc">തലയെണ്ണലിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_flash_crowd_desc">മിന്നൽ ആൾക്കൂട്ടത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_schulte_table_desc">ഷുൾട്ടെ പട്ടികയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>

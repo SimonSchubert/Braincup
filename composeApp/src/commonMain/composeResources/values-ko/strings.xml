@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">유령 격자</string>
     <string name="game_color_confusion">색상 혼동</string>
     <string name="game_flock">새 떼</string>
+    <string name="game_rail_yard">조차장</string>
     <string name="game_orbit_tracker">궤도 추적기</string>
     <string name="game_bubble_sum">버블 합계</string>
     <string name="game_bubble_sum_desc">떠다니는 버블의 숫자를 더하세요. 나중에는 숫자가 깜빡입니다. 기억하세요.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">타일이 하나씩 켜지는 것을 보고, 같은 순서로 탭하세요.</string>
     <string name="game_color_confusion_desc">색 단어가 색깔 잉크로 나타납니다. 글자가 말하는 색이 아니라 잉크의 색을 탭하세요.</string>
     <string name="game_flock_desc">새 떼가 날아갑니다. 가운데 새가 나는 방향으로 스와이프하고, 주변 새들은 무시하세요.</string>
+    <string name="game_rail_yard_desc">색깔 기차가 터널에서 나옵니다. 전환기를 눌러 기차가 자기 색깔의 역에 도착하게 하세요.</string>
     <string name="game_orbit_tracker_desc">강조된 공을 관찰한 후 움직임을 추적하세요. 멈춘 후 원래 목표물을 선택하세요.</string>
     <string name="game_flash_crowd_desc">각 쪽에 점이 잠깐 깜빡입니다. 점이 더 많았던 쪽을 탭하세요. 세지 마세요 — 직감을 믿으세요!</string>
     <string name="game_schulte_table_desc">1부터 순서대로 숫자를 최대한 빠르게 탭하세요.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">패턴 예언자</string>
     <string name="achievement_gold_color_confusion">진짜 색깔</string>
     <string name="achievement_gold_flock">편대장</string>
+    <string name="achievement_gold_rail_yard">역장</string>
     <string name="achievement_gold_head_count">문지기</string>
     <string name="achievement_gold_flash_crowd">군중 계수기</string>
     <string name="achievement_gold_schulte_table">번개 시선</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">패턴 시퀀스에서 금메달 획득</string>
     <string name="achievement_gold_color_confusion_desc">색상 혼동에서 금메달 획득</string>
     <string name="achievement_gold_flock_desc">새 떼에서 금메달 획득</string>
+    <string name="achievement_gold_rail_yard_desc">조차장에서 금메달 획득</string>
     <string name="achievement_gold_head_count_desc">인원 세기에서 금메달 획득</string>
     <string name="achievement_gold_flash_crowd_desc">플래시 크라우드에서 금메달 획득</string>
     <string name="achievement_gold_schulte_table_desc">슐테 테이블에서 금메달 획득</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">가끔은 새 떼 전체가 같은 방향입니다.</string>
     <string name="flock_demo_caption_trap">무리를 따라가는 것이 함정입니다.</string>
     <string name="flock_demo_caption_recover">답은 언제나 가운데 새입니다.</string>
+    <string name="rail_yard_demo_title">모든 기차를 집으로</string>
+    <string name="rail_yard_demo_caption_colour">기차는 같은 색깔의 역으로 가요.</string>
+    <string name="rail_yard_demo_caption_switch">전환기를 탭하면 반대쪽으로 가요.</string>
+    <string name="rail_yard_demo_caption_many">모든 기차를 동시에 지켜보세요.</string>
     <string name="spot_the_new_demo_title">새로운 것 찾기</string>
     <string name="spot_the_new_demo_seen_label">지금까지 본 것</string>
     <string name="spot_the_new_demo_new">아직 보지 못한 동물을 탭하세요.</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">남은 카드: %1$d</string>
     <string name="game_color_confusion_howto">잉크의 색을 탭하세요.</string>
     <string name="game_flock_howto">가운데 새가 나는 방향으로 스와이프하세요.</string>
+    <string name="game_rail_yard_howto">전환기를 탭하여 선로를 바꾸세요.</string>
     <string name="trio_demo_title">트리오 찾기</string>
     <string name="trio_demo_rule">모양, 개수, 채우기 중 하나 이상이 같은 카드 세 장. 나머지는 모두 달라야 해요.</string>
     <string name="trio_trait_shape">모양</string>

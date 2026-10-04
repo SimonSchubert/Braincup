@@ -275,6 +275,7 @@
     <string name="game_ghost_grid">Πλέγμα Φαντασμάτων</string>
     <string name="game_color_confusion">Σύγχυση Χρωμάτων</string>
     <string name="game_flock">Σμήνος</string>
+    <string name="game_rail_yard">Σιδηροδρομικός Κόμβος</string>
     <string name="game_orbit_tracker">Ιχνηλάτης Τροχιάς</string>
     <string name="game_bubble_sum">Άθροισμα φυσαλίδων</string>
     <string name="game_bubble_sum_desc">Πρόσθεσε τους αριθμούς στις αιωρούμενες φυσαλίδες. Αργότερα αναβοσβήνουν — θυμήσου τους.</string>
@@ -329,6 +330,7 @@
     <string name="game_ghost_grid_desc">Παρακολουθήστε τα πλακίδια να φωτίζονται ένα προς ένα, και μετά πατήστε τα ξανά με την ίδια σειρά.</string>
     <string name="game_color_confusion_desc">Εμφανίζεται μια λέξη χρώματος με χρωματιστό μελάνι. Πάτα το χρώμα του μελανιού, όχι το χρώμα που ονομάζει η λέξη.</string>
     <string name="game_flock_desc">Ένα σμήνος πουλιά περνάει από μπροστά σου. Σύρε προς τα εκεί που πετάει το μεσαίο πουλί και αγνόησε τα υπόλοιπα.</string>
+    <string name="game_rail_yard_desc">Χρωματιστά τρένα βγαίνουν από το τούνελ. Γύρνα τις βελόνες ώστε το καθένα να φτάσει στον σταθμό του χρώματός του.</string>
     <string name="game_orbit_tracker_desc">Παρακολουθήστε τις φωτεινές μπάλες και μετά το πώς κινούνται. Επιλέξτε τους αρχικούς στόχους αφού σταματήσουν.</string>
     <string name="game_flash_crowd_desc">Κουκκίδες αναβοσβήνουν για λίγο σε κάθε πλευρά. Πατήστε την πλευρά που είχε περισσότερες κουκκίδες. Μην μετράτε - μόνο ένστικτο!</string>
     <string name="game_schulte_table_desc">Πατήστε τους αριθμούς με τη σειρά από το 1 και μετά, όσο πιο γρήγορα μπορείτε.</string>
@@ -443,6 +445,10 @@
     <string name="flock_demo_caption_agree">Μερικές φορές όλο το σμήνος πετάει προς την ίδια μεριά.</string>
     <string name="flock_demo_caption_trap">Η παγίδα είναι να ακολουθήσεις το σμήνος.</string>
     <string name="flock_demo_caption_recover">Η απάντηση είναι πάντα το μεσαίο πουλί.</string>
+    <string name="rail_yard_demo_title">Στείλε κάθε τρένο σπίτι</string>
+    <string name="rail_yard_demo_caption_colour">Κάθε τρένο θέλει τον σταθμό με το χρώμα του.</string>
+    <string name="rail_yard_demo_caption_switch">Πάτα μια βελόνα για να στρίψει το τρένο αλλού.</string>
+    <string name="rail_yard_demo_caption_many">Πρόσεχε όλα τα τρένα ταυτόχρονα.</string>
     <string name="pattern_sequence_prompt">Ποιο κομμάτι ολοκληρώνει το μητρώο;</string>
     <string name="game_tap_original_targets">Πατήστε τους αρχικούς στόχους</string>
     <string name="game_remember_targets">Θυμηθείτε τους στόχους</string>
@@ -511,6 +517,7 @@
     <string name="achievement_gold_pattern_sequence">Προφήτης των Μοτίβων</string>
     <string name="achievement_gold_color_confusion">Αληθινά Χρώματα</string>
     <string name="achievement_gold_flock">Αρχηγός του σμήνους</string>
+    <string name="achievement_gold_rail_yard">Σταθμάρχης</string>
     <string name="achievement_gold_head_count">Θυρωρός</string>
     <string name="achievement_gold_flash_crowd">Μετρητής Πλήθους</string>
     <string name="achievement_gold_schulte_table">Αστραπιαίο Βλέμμα</string>
@@ -544,6 +551,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Ακολουθία Μοτίβου</string>
     <string name="achievement_gold_color_confusion_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σύγχυση Χρωμάτων</string>
     <string name="achievement_gold_flock_desc">Κέρδισε χρυσό μετάλλιο στο Σμήνος</string>
+    <string name="achievement_gold_rail_yard_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σιδηροδρομικός Κόμβος</string>
     <string name="achievement_gold_head_count_desc">Κέρδισε χρυσό μετάλλιο στην Καταμέτρηση</string>
     <string name="achievement_gold_flash_crowd_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Αστραπιαίο Πλήθος</string>
     <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Πίνακας Σούλτε</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Κάρτες που μένουν: %1$d</string>
     <string name="game_color_confusion_howto">Πάτα το χρώμα του μελανιού.</string>
     <string name="game_flock_howto">Σύρε προς τα εκεί που πετάει το μεσαίο πουλί.</string>
+    <string name="game_rail_yard_howto">Πάτα μια βελόνα για να αλλάξει η γραμμή της.</string>
     <string name="trio_demo_title">Βρες μια τριάδα</string>
     <string name="trio_demo_rule">Τρεις κάρτες με κοινό τουλάχιστον το σχήμα, το πλήθος ή το γέμισμα. Όλα τα άλλα πρέπει να διαφέρουν.</string>
     <string name="trio_trait_shape">Σχήμα</string>

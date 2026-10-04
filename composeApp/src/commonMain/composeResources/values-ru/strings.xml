@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Призрачная сетка</string>
     <string name="game_color_confusion">Цветовая путаница</string>
     <string name="game_flock">Стая</string>
+    <string name="game_rail_yard">Сортировочная станция</string>
     <string name="game_orbit_tracker">Отслеживание орбит</string>
     <string name="game_bubble_sum">Сумма пузырей</string>
     <string name="game_bubble_sum_desc">Сложите числа на плывущих пузырях. Позже числа мигают — запомните их.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
     <string name="game_color_confusion_desc">Слово цвета появляется цветными чернилами. Нажми цвет чернил, а не цвет, который называет слово.</string>
     <string name="game_flock_desc">Мимо пролетает стая птиц. Смахни туда, куда летит птица в центре, и не обращай внимания на остальных.</string>
+    <string name="game_rail_yard_desc">Цветные поезда выезжают из тоннеля. Переводи стрелки, чтобы каждый поезд пришёл на станцию своего цвета.</string>
     <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
     <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
     <string name="game_schulte_table_desc">Нажимайте числа по порядку, начиная с 1, как можно быстрее.</string>
@@ -268,6 +270,7 @@
     <string name="achievement_gold_pattern_sequence">Пророк узоров</string>
     <string name="achievement_gold_color_confusion">Истинные цвета</string>
     <string name="achievement_gold_flock">Вожак стаи</string>
+    <string name="achievement_gold_rail_yard">Начальник станции</string>
     <string name="achievement_gold_head_count">Привратник</string>
     <string name="achievement_gold_flash_crowd">Счётчик толпы</string>
     <string name="achievement_gold_schulte_table">Молниеносный взгляд</string>
@@ -301,6 +304,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Получи золотую медаль в Последовательность</string>
     <string name="achievement_gold_color_confusion_desc">Получи золотую медаль в Цветовая путаница</string>
     <string name="achievement_gold_flock_desc">Получи золотую медаль в Стае</string>
+    <string name="achievement_gold_rail_yard_desc">Получи золотую медаль в Сортировочной станции</string>
     <string name="achievement_gold_head_count_desc">Получи золотую медаль в Счёте гостей</string>
     <string name="achievement_gold_flash_crowd_desc">Получи золотую медаль в Мгновенная толпа</string>
     <string name="achievement_gold_schulte_table_desc">Получи золотую медаль в Таблица Шульте</string>
@@ -877,6 +881,10 @@
     <string name="flock_demo_caption_agree">Иногда вся стая летит заодно.</string>
     <string name="flock_demo_caption_trap">Ловушка в том, чтобы лететь за стаей.</string>
     <string name="flock_demo_caption_recover">Ответ всегда за средней птицей.</string>
+    <string name="rail_yard_demo_title">Отправь все поезда домой</string>
+    <string name="rail_yard_demo_caption_colour">Каждому поезду нужна станция его цвета.</string>
+    <string name="rail_yard_demo_caption_switch">Нажми на стрелку, и поезд поедет другим путём.</string>
+    <string name="rail_yard_demo_caption_many">Следи за всеми поездами сразу.</string>
     <string name="spot_the_new_demo_title">Найди новое</string>
     <string name="spot_the_new_demo_seen_label">Уже видел</string>
     <string name="spot_the_new_demo_new">Нажми на животное, которое ты ещё не видел.</string>
@@ -936,6 +944,7 @@
     <string name="game_rule_shift_cards_left">Осталось карт: %1$d</string>
     <string name="game_color_confusion_howto">Нажмите цвет чернил.</string>
     <string name="game_flock_howto">Смахни туда, куда летит средняя птица.</string>
+    <string name="game_rail_yard_howto">Нажми на стрелку, чтобы переключить путь.</string>
     <string name="trio_demo_title">Найди трио</string>
     <string name="trio_demo_rule">Три карты, у которых совпадает хотя бы форма, количество или заливка. Всё остальное должно быть разным.</string>
     <string name="trio_trait_shape">Форма</string>

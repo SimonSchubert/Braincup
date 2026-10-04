@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Geistergitter</string>
     <string name="game_color_confusion">Farbverwirrung</string>
     <string name="game_flock">Vogelschwarm</string>
+    <string name="game_rail_yard">Rangierbahnhof</string>
     <string name="game_orbit_tracker">Orbit-Tracker</string>
     <string name="game_bubble_sum">Blasensumme</string>
     <string name="game_bubble_sum_desc">Addiere die Zahlen auf den schwebenden Blasen. Später blinken Zahlen weg - merk sie dir.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Schau, wie die Felder nacheinander aufleuchten, und tippe sie in derselben Reihenfolge nach.</string>
     <string name="game_color_confusion_desc">Ein Farbwort erscheint in farbiger Tinte. Tippe die Farbe der Tinte an, nicht die Farbe, die das Wort nennt.</string>
     <string name="game_flock_desc">Ein Vogelschwarm fliegt vorbei. Wisch in die Richtung, in die der mittlere Vogel fliegt, und achte nicht auf die Vögel um ihn herum.</string>
+    <string name="game_rail_yard_desc">Bunte Züge rollen aus dem Tunnel. Stell die Weichen, damit jeder in den Bahnhof seiner Farbe einfährt.</string>
     <string name="game_orbit_tracker_desc">Merk dir die markierten Kugeln und verfolge sie, während sie sich bewegen. Wenn sie stehen, tippe die ursprünglichen Ziele an.</string>
     <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
     <string name="game_schulte_table_desc">Tippe die Zahlen so schnell du kannst der Reihe nach an, von 1 aufwärts.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Musterprophet</string>
     <string name="achievement_gold_color_confusion">Wahre Farben</string>
     <string name="achievement_gold_flock">Leitvogel</string>
+    <string name="achievement_gold_rail_yard">Bahnhofsvorsteher</string>
     <string name="achievement_gold_head_count">Türsteher</string>
     <string name="achievement_gold_flash_crowd">Mengenzähler</string>
     <string name="achievement_gold_schulte_table">Blitzblick</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Gewinne die Goldmedaille in Mustersequenz</string>
     <string name="achievement_gold_color_confusion_desc">Gewinne die Goldmedaille in Farbverwirrung</string>
     <string name="achievement_gold_flock_desc">Gewinne die Goldmedaille in Vogelschwarm</string>
+    <string name="achievement_gold_rail_yard_desc">Gewinne die Goldmedaille in Rangierbahnhof</string>
     <string name="achievement_gold_head_count_desc">Gewinne die Goldmedaille in Kommen und Gehen</string>
     <string name="achievement_gold_flash_crowd_desc">Gewinne die Goldmedaille in Blitzmenge</string>
     <string name="achievement_gold_schulte_table_desc">Gewinne die Goldmedaille in Schulte-Tabelle</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">Manchmal fliegt der ganze Schwarm gleich.</string>
     <string name="flock_demo_caption_trap">Dem Schwarm zu folgen ist die Falle.</string>
     <string name="flock_demo_caption_recover">Der mittlere Vogel ist immer die Antwort.</string>
+    <string name="rail_yard_demo_title">Bring jeden Zug nach Hause</string>
+    <string name="rail_yard_demo_caption_colour">Jeder Zug will in den Bahnhof seiner Farbe.</string>
+    <string name="rail_yard_demo_caption_switch">Tippe auf eine Weiche, um den Zug umzuleiten.</string>
+    <string name="rail_yard_demo_caption_many">Behalte alle Züge gleichzeitig im Blick.</string>
     <string name="spot_the_new_demo_title">Finde das Neue</string>
     <string name="spot_the_new_demo_seen_label">Bisher gesehen</string>
     <string name="spot_the_new_demo_new">Tippe auf das Tier, das du noch nicht gesehen hast.</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Karten übrig: %1$d</string>
     <string name="game_color_confusion_howto">Tippe die Farbe der Tinte an.</string>
     <string name="game_flock_howto">Wisch in die Flugrichtung des mittleren Vogels.</string>
+    <string name="game_rail_yard_howto">Tippe auf eine Weiche, um das Gleis zu wechseln.</string>
     <string name="trio_demo_title">Finde ein Trio</string>
     <string name="trio_demo_rule">Drei Karten, die mindestens Form, Anzahl oder Füllung gemeinsam haben. Alles andere muss verschieden sein.</string>
     <string name="trio_trait_shape">Form</string>

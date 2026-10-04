@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Grid ng Multo</string>
     <string name="game_color_confusion">Guluhan ng Kulay</string>
     <string name="game_flock">Kawan ng Ibon</string>
+    <string name="game_rail_yard">Bakuran ng Tren</string>
     <string name="game_orbit_tracker">Subaybay-Orbit</string>
     <string name="game_bubble_sum">Suma ng Bula</string>
     <string name="game_quick_sum">Mabilis na Suma</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Panoorin ang mga tile na umiilaw isa-isa, tapos i-tap ulit sa parehong pagkakasunod.</string>
     <string name="game_color_confusion_desc">May salitang kulay na lumilitaw sa may kulay na tinta. I-tap ang kulay ng tinta, hindi ang kulay na sinasabi ng salita.</string>
     <string name="game_flock_desc">May kawan ng ibong lumilipad. Mag-swipe kung saan lumilipad ang ibon sa gitna, at huwag pansinin ang mga ibon sa paligid nito.</string>
+    <string name="game_rail_yard_desc">Lumalabas sa tunnel ang mga kulay na tren. I-flip ang mga switch ng riles para marating ng bawat isa ang istasyon ng kulay nito.</string>
     <string name="game_orbit_tracker_desc">Panoorin ang mga naka-highlight na bola, tapos sundan sila habang gumagalaw. Piliin ang orihinal na targets paghinto nila.</string>
     <string name="game_bubble_sum_desc">Idagdag ang mga numero sa lumulutang na bubbles. Mamaya, kumikislap ang mga numero — tandaan mo sila.</string>
     <string name="bubble_sum_instruction">Ano ang kabuuan?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Natitirang baraha: %1$d</string>
     <string name="game_color_confusion_howto">I-tap ang kulay ng tinta.</string>
     <string name="game_flock_howto">Mag-swipe kung saan lumilipad ang ibon sa gitna.</string>
+    <string name="game_rail_yard_howto">I-tap ang switch ng riles para palitan ang daan nito.</string>
     <string name="trio_demo_title">Maghanap ng trio</string>
     <string name="trio_demo_rule">Tatlong card na pareho ang kahit isa sa hugis, dami, o fill. Dapat magkakaiba ang lahat ng iba pa.</string>
     <string name="trio_trait_shape">Hugis</string>
@@ -519,6 +522,10 @@
     <string name="flock_demo_caption_agree">Minsan iisa ang direksyon ng buong kawan.</string>
     <string name="flock_demo_caption_trap">Ang pagsunod sa kawan ang bitag.</string>
     <string name="flock_demo_caption_recover">Ang ibon sa gitna ang laging sagot.</string>
+    <string name="rail_yard_demo_title">Iuwi ang bawat tren</string>
+    <string name="rail_yard_demo_caption_colour">Gusto ng bawat tren ang istasyon na kapareho ng kulay nito.</string>
+    <string name="rail_yard_demo_caption_switch">I-tap ang switch ng riles para ibang daan ang tahakin.</string>
+    <string name="rail_yard_demo_caption_many">Bantayan ang lahat ng tren nang sabay.</string>
     <string name="pattern_sequence_prompt">Aling piraso ang kumukumpleto sa matrix?</string>
     <string name="game_tap_original_targets">I-tap ang orihinal na targets</string>
     <string name="game_remember_targets">Tandaan ang targets</string>
@@ -596,6 +603,7 @@
     <string name="achievement_gold_pattern_sequence">Propeta ng Pattern</string>
     <string name="achievement_gold_color_confusion">Tunay na Kulay</string>
     <string name="achievement_gold_flock">Pinuno ng Kawan</string>
+    <string name="achievement_gold_rail_yard">Hepe ng Istasyon</string>
     <string name="achievement_gold_head_count">Bantay-Pinto</string>
     <string name="achievement_gold_flash_crowd">Tagabilang ng Dami</string>
     <string name="achievement_gold_schulte_table">Kidlat na Tingin</string>
@@ -638,6 +646,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Manalo ng gold medal sa Pattern Sequence</string>
     <string name="achievement_gold_color_confusion_desc">Manalo ng gold medal sa Color Confusion</string>
     <string name="achievement_gold_flock_desc">Manalo ng gold medal sa Kawan ng Ibon</string>
+    <string name="achievement_gold_rail_yard_desc">Manalo ng gold medal sa Bakuran ng Tren</string>
     <string name="achievement_gold_head_count_desc">Manalo ng gold medal sa Bilang ng Tao</string>
     <string name="achievement_gold_flash_crowd_desc">Manalo ng gold medal sa Flash Crowd</string>
     <string name="achievement_gold_schulte_table_desc">Manalo ng gold medal sa Schulte Table</string>

@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Spookraster</string>
     <string name="game_color_confusion">Kleurverwarring</string>
     <string name="game_flock">Vogelzwerm</string>
+    <string name="game_rail_yard">Rangeerterrein</string>
     <string name="game_orbit_tracker">Baanvolger</string>
     <string name="game_bubble_sum">Bellensom</string>
     <string name="game_bubble_sum_desc">Tel de getallen op de zwevende bellen op. Later knipperen de getallen — onthoud ze.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.</string>
     <string name="game_color_confusion_desc">Er verschijnt een kleurwoord in gekleurde inkt. Tik de kleur van de inkt aan, niet de kleur die het woord noemt.</string>
     <string name="game_flock_desc">Een zwerm vogels vliegt voorbij. Veeg in de richting waarin de middelste vogel vliegt, en let niet op de vogels eromheen.</string>
+    <string name="game_rail_yard_desc">Gekleurde treinen rijden uit de tunnel. Zet de wissels om, zodat elke trein bij het station van zijn kleur aankomt.</string>
     <string name="game_orbit_tracker_desc">Kijk naar de gemarkeerde ballen en volg ze terwijl ze bewegen. Selecteer de oorspronkelijke doelen nadat ze stoppen.</string>
     <string name="game_flash_crowd_desc">Stippen flitsen kort aan elke kant. Tik op de kant met meer stippen. Tel niet — vertrouw op je instinct!</string>
     <string name="game_schulte_table_desc">Tik de nummers zo snel mogelijk op volgorde vanaf 1.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Patroonprofeet</string>
     <string name="achievement_gold_color_confusion">Ware kleuren</string>
     <string name="achievement_gold_flock">Voorvlieger</string>
+    <string name="achievement_gold_rail_yard">Stationschef</string>
     <string name="achievement_gold_head_count">Portier</string>
     <string name="achievement_gold_flash_crowd">Mensenteller</string>
     <string name="achievement_gold_schulte_table">Bliksemblik</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Win de gouden medaille in Patroonreeks</string>
     <string name="achievement_gold_color_confusion_desc">Win de gouden medaille in Kleurverwarring</string>
     <string name="achievement_gold_flock_desc">Win de gouden medaille in Vogelzwerm</string>
+    <string name="achievement_gold_rail_yard_desc">Win de gouden medaille in Rangeerterrein</string>
     <string name="achievement_gold_head_count_desc">Win de gouden medaille in Koppen tellen</string>
     <string name="achievement_gold_flash_crowd_desc">Win de gouden medaille in Flitsmenigte</string>
     <string name="achievement_gold_schulte_table_desc">Win de gouden medaille in Schulte-tabel</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">Soms vliegt de hele zwerm dezelfde kant op.</string>
     <string name="flock_demo_caption_trap">De zwerm volgen is de val.</string>
     <string name="flock_demo_caption_recover">De middelste vogel is altijd het antwoord.</string>
+    <string name="rail_yard_demo_title">Breng elke trein thuis</string>
+    <string name="rail_yard_demo_caption_colour">Elke trein wil naar het station van zijn kleur.</string>
+    <string name="rail_yard_demo_caption_switch">Tik op een wissel om de trein een andere kant op te sturen.</string>
+    <string name="rail_yard_demo_caption_many">Hou alle treinen tegelijk in de gaten.</string>
     <string name="spot_the_new_demo_title">Spot het nieuwe</string>
     <string name="spot_the_new_demo_seen_label">Tot nu toe gezien</string>
     <string name="spot_the_new_demo_new">Tik op het dier dat je nog niet eerder hebt gezien.</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Kaarten over: %1$d</string>
     <string name="game_color_confusion_howto">Tik de kleur van de inkt aan.</string>
     <string name="game_flock_howto">Veeg in de vliegrichting van de middelste vogel.</string>
+    <string name="game_rail_yard_howto">Tik op een wissel om het spoor te veranderen.</string>
     <string name="trio_demo_title">Vind een trio</string>
     <string name="trio_demo_rule">Drie kaarten met minstens dezelfde vorm, hetzelfde aantal of dezelfde vulling. De rest moet overal anders zijn.</string>
     <string name="trio_trait_shape">Vorm</string>

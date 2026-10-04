@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Vaiduoklių tinklelis</string>
     <string name="game_color_confusion">Spalvų painiava</string>
     <string name="game_flock">Pulkas</string>
+    <string name="game_rail_yard">Rūšiavimo stotis</string>
     <string name="game_orbit_tracker">Orbitų sekiklis</string>
     <string name="game_bubble_sum">Burbulų suma</string>
     <string name="game_quick_sum">Greitoji suma</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.</string>
     <string name="game_color_confusion_desc">Spalvos žodis pasirodo spalvotu rašalu. Paliesk rašalo spalvą, ne tą, kurią žodis įvardija.</string>
     <string name="game_flock_desc">Pro šalį praskrenda paukščių pulkas. Perbrauk ta kryptimi, kuria skrenda vidurinis paukštis, ir nekreipk dėmesio į kitus.</string>
+    <string name="game_rail_yard_desc">Spalvoti traukiniai išvažiuoja iš tunelio. Perjunk iešmus, kad kiekvienas traukinys pasiektų savo spalvos stotį.</string>
     <string name="game_orbit_tracker_desc">Stebėk paryškintus rutuliukus ir sek juos, kol juda. Kai sustos, pasirink pradinius taikinius.</string>
     <string name="game_bubble_sum_desc">Sudėk skaičius ant plaukiojančių burbulų. Vėliau skaičiai mirksi — įsimink juos.</string>
     <string name="bubble_sum_instruction">Kokia suma?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Liko kortų: %1$d</string>
     <string name="game_color_confusion_howto">Paliesk rašalo spalvą.</string>
     <string name="game_flock_howto">Perbrauk ten, kur skrenda vidurinis paukštis.</string>
+    <string name="game_rail_yard_howto">Paliesk iešmą, kad pakeistum kelią.</string>
     <string name="trio_demo_title">Rask trio</string>
     <string name="trio_demo_rule">Trys kortelės, kurių sutampa bent forma, kiekis ar užpildas. Visa kita turi skirtis.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -527,6 +530,10 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="flock_demo_caption_agree">Kartais visas pulkas skrenda ta pačia kryptimi.</string>
     <string name="flock_demo_caption_trap">Spąstai yra sekti pulką.</string>
     <string name="flock_demo_caption_recover">Atsakymas visada yra vidurinis paukštis.</string>
+    <string name="rail_yard_demo_title">Parsiųsk kiekvieną traukinį namo</string>
+    <string name="rail_yard_demo_caption_colour">Kiekvienas traukinys važiuoja į savo spalvos stotį.</string>
+    <string name="rail_yard_demo_caption_switch">Paliesk iešmą ir traukinys pasuks kitu keliu.</string>
+    <string name="rail_yard_demo_caption_many">Stebėk visus traukinius vienu metu.</string>
     <string name="pattern_sequence_prompt">Kuri dalelė papildo matricą?</string>
     <string name="game_tap_original_targets">Paliesk pradinius taikinius</string>
     <string name="game_remember_targets">Įsimink taikinius</string>
@@ -604,6 +611,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_pattern_sequence">Raštų pranašas</string>
     <string name="achievement_gold_color_confusion">Tikroji spalva</string>
     <string name="achievement_gold_flock">Pulko vedlys</string>
+    <string name="achievement_gold_rail_yard">Stoties viršininkas</string>
     <string name="achievement_gold_head_count">Durininkas</string>
     <string name="achievement_gold_flash_crowd">Minios skaičiuotojas</string>
     <string name="achievement_gold_schulte_table">Žaibiškas žvilgsnis</string>
@@ -646,6 +654,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Laimėk aukso medalį Raštų sekoje</string>
     <string name="achievement_gold_color_confusion_desc">Laimėk aukso medalį Spalvų painiavoje</string>
     <string name="achievement_gold_flock_desc">Laimėk aukso medalį žaidime Pulkas</string>
+    <string name="achievement_gold_rail_yard_desc">Laimėk aukso medalį žaidime Rūšiavimo stotis</string>
     <string name="achievement_gold_head_count_desc">Laimėk aukso medalį žaidime Kas viduje</string>
     <string name="achievement_gold_flash_crowd_desc">Laimėk aukso medalį Blyksinčioje minioje</string>
     <string name="achievement_gold_schulte_table_desc">Laimėk aukso medalį Šultės lentelėje</string>

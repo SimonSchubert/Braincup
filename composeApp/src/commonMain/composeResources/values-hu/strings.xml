@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Szellemrács</string>
     <string name="game_color_confusion">Színzavar</string>
     <string name="game_flock">Madárraj</string>
+    <string name="game_rail_yard">Rendezőpályaudvar</string>
     <string name="game_orbit_tracker">Pályakövető</string>
     <string name="game_bubble_sum">Buborékszám</string>
     <string name="game_quick_sum">Gyors összeg</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Figyeld, ahogy a mezők egymás után kigyulladnak, majd koppints rájuk ugyanabban a sorrendben.</string>
     <string name="game_color_confusion_desc">Egy színszó jelenik meg színes tintával. Koppints a tinta színére, ne arra, amit a szó mond.</string>
     <string name="game_flock_desc">Elrepül előtted egy madárraj. Húzd az ujjad arra, amerre a középső madár repül, a többivel ne törődj.</string>
+    <string name="game_rail_yard_desc">Színes vonatok jönnek ki az alagútból. Állítsd a váltókat úgy, hogy minden vonat a saját színű állomására érjen.</string>
     <string name="game_orbit_tracker_desc">Figyeld a kiemelt golyókat, majd kövesd őket, ahogy mozognak. A megállás után válaszd ki az eredeti célokat.</string>
     <string name="game_bubble_sum_desc">Add össze a lebegő buborékok számait. Később a számok villognak — jegyezd meg őket.</string>
     <string name="bubble_sum_instruction">Mennyi az összeg?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Hátralévő lapok: %1$d</string>
     <string name="game_color_confusion_howto">Koppints a tinta színére.</string>
     <string name="game_flock_howto">Húzd arra, amerre a középső madár repül.</string>
+    <string name="game_rail_yard_howto">Koppints egy váltóra, hogy átállítsd a vágányt.</string>
     <string name="trio_demo_title">Találj egy triót</string>
     <string name="trio_demo_rule">Három kártya, amelyeken legalább az alak, a darabszám vagy a kitöltés azonos. Minden másnak különböznie kell.</string>
     <string name="trio_trait_shape">Alak</string>
@@ -521,6 +524,10 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="flock_demo_caption_agree">Néha az egész raj egy irányba repül.</string>
     <string name="flock_demo_caption_trap">A csapda az, ha a rajt követed.</string>
     <string name="flock_demo_caption_recover">A válasz mindig a középső madár.</string>
+    <string name="rail_yard_demo_title">Küldj haza minden vonatot</string>
+    <string name="rail_yard_demo_caption_colour">Minden vonat a saját színű állomására tart.</string>
+    <string name="rail_yard_demo_caption_switch">Koppints egy váltóra, és a vonat másfelé megy tovább.</string>
+    <string name="rail_yard_demo_caption_many">Figyelj az összes vonatra egyszerre.</string>
     <string name="pattern_sequence_prompt">Melyik darab egészíti ki a mátrixot?</string>
     <string name="game_tap_original_targets">Koppints az eredeti célokra</string>
     <string name="game_remember_targets">Jegyezd meg a célokat</string>
@@ -598,6 +605,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_pattern_sequence">Mintaproféta</string>
     <string name="achievement_gold_color_confusion">Igazi színek</string>
     <string name="achievement_gold_flock">Rajvezér</string>
+    <string name="achievement_gold_rail_yard">Állomásfőnök</string>
     <string name="achievement_gold_head_count">Ajtónálló</string>
     <string name="achievement_gold_flash_crowd">Tömegszámláló</string>
     <string name="achievement_gold_schulte_table">Villámpillantás</string>
@@ -640,6 +648,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_pattern_sequence_desc">Nyerj aranyérmet Mintasorozat játékban</string>
     <string name="achievement_gold_color_confusion_desc">Nyerj aranyérmet Színzavar játékban</string>
     <string name="achievement_gold_flock_desc">Nyerj aranyérmet Madárraj játékban</string>
+    <string name="achievement_gold_rail_yard_desc">Nyerj aranyérmet Rendezőpályaudvar játékban</string>
     <string name="achievement_gold_head_count_desc">Nyerj aranyérmet Létszám játékban</string>
     <string name="achievement_gold_flash_crowd_desc">Nyerj aranyérmet Villanótömeg játékban</string>
     <string name="achievement_gold_schulte_table_desc">Nyerj aranyérmet Schulte-tábla játékban</string>

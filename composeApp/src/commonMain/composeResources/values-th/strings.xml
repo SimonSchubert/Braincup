@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">ตารางผี</string>
     <string name="game_color_confusion">สีสับสน</string>
     <string name="game_flock">ฝูงนก</string>
+    <string name="game_rail_yard">ลานสับราง</string>
     <string name="game_orbit_tracker">ติดตามวงโคจร</string>
     <string name="game_bubble_sum">ผลรวมฟอง</string>
     <string name="game_bubble_sum_desc">บวกตัวเลขบนฟองที่ลอย ภายหลังตัวเลขจะกะพริบ — จำไว้</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">ดูช่องสว่างขึ้นทีละช่อง แล้วแตะตามลำดับเดิม</string>
     <string name="game_color_confusion_desc">คำสีปรากฏด้วยหมึกสี แตะสีของหมึก ไม่ใช่สีที่คำบอก</string>
     <string name="game_flock_desc">ฝูงนกบินผ่านไป ปัดไปทางที่นกตัวกลางบิน และไม่ต้องสนใจนกรอบ ๆ</string>
+    <string name="game_rail_yard_desc">รถไฟหลากสีวิ่งออกจากอุโมงค์ สับประแจให้รถไฟแต่ละขบวนไปถึงสถานีสีเดียวกัน</string>
     <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
     <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
     <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">ผู้พยากรณ์รูปแบบ</string>
     <string name="achievement_gold_color_confusion">สีที่แท้จริง</string>
     <string name="achievement_gold_flock">จ่าฝูง</string>
+    <string name="achievement_gold_rail_yard">นายสถานี</string>
     <string name="achievement_gold_head_count">ผู้เฝ้าประตู</string>
     <string name="achievement_gold_flash_crowd">ผู้นับฝูงชน</string>
     <string name="achievement_gold_schulte_table">สายตาฟ้าผ่า</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">ชนะเหรียญทองในลำดับรูปแบบ</string>
     <string name="achievement_gold_color_confusion_desc">ชนะเหรียญทองในสีสับสน</string>
     <string name="achievement_gold_flock_desc">ชนะเหรียญทองในฝูงนก</string>
+    <string name="achievement_gold_rail_yard_desc">ชนะเหรียญทองในลานสับราง</string>
     <string name="achievement_gold_head_count_desc">ชนะเหรียญทองในนับคน</string>
     <string name="achievement_gold_flash_crowd_desc">ชนะเหรียญทองในฝูงชนวาบ</string>
     <string name="achievement_gold_schulte_table_desc">ชนะเหรียญทองในตารางชูลเทอ</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">บางครั้งทั้งฝูงก็บินไปทางเดียวกัน</string>
     <string name="flock_demo_caption_trap">กับดักคือการบินตามฝูง</string>
     <string name="flock_demo_caption_recover">คำตอบคือนกตัวกลางเสมอ</string>
+    <string name="rail_yard_demo_title">ส่งรถไฟทุกขบวนกลับบ้าน</string>
+    <string name="rail_yard_demo_caption_colour">รถไฟแต่ละขบวนอยากไปสถานีสีเดียวกับตัวเอง</string>
+    <string name="rail_yard_demo_caption_switch">แตะประแจเพื่อส่งรถไฟไปอีกทาง</string>
+    <string name="rail_yard_demo_caption_many">คอยดูรถไฟทุกขบวนพร้อมกัน</string>
     <string name="spot_the_new_demo_title">หาตัวใหม่</string>
     <string name="spot_the_new_demo_seen_label">ที่เคยเห็นมาแล้ว</string>
     <string name="spot_the_new_demo_new">แตะสัตว์ที่คุณยังไม่เคยเห็นมาก่อน</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">ไพ่ที่เหลือ: %1$d</string>
     <string name="game_color_confusion_howto">แตะสีของหมึก</string>
     <string name="game_flock_howto">ปัดไปทางที่นกตัวกลางบิน</string>
+    <string name="game_rail_yard_howto">แตะประแจเพื่อเปลี่ยนราง</string>
     <string name="trio_demo_title">หาทริโอ</string>
     <string name="trio_demo_rule">ไพ่สามใบที่รูปทรง จำนวน หรือการเติมสีเหมือนกันอย่างน้อยหนึ่งอย่าง ส่วนที่เหลือต้องต่างกันหมด</string>
     <string name="trio_trait_shape">รูปทรง</string>

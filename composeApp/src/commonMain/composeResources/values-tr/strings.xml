@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Hayalet Izgara</string>
     <string name="game_color_confusion">Renk Karmaşası</string>
     <string name="game_flock">Kuş Sürüsü</string>
+    <string name="game_rail_yard">Tren Garı</string>
     <string name="game_orbit_tracker">Yörünge Takipçisi</string>
     <string name="game_bubble_sum">Baloncuk Toplamı</string>
     <string name="game_bubble_sum_desc">Yüzen baloncuklardaki sayıları topla. Sonra sayılar yanıp söner — ezberle.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
     <string name="game_color_confusion_desc">Bir renk kelimesi renkli mürekkeple görünür. Mürekkebin rengine dokun, kelimenin söylediği renge değil.</string>
     <string name="game_flock_desc">Önünden bir kuş sürüsü geçiyor. Ortadaki kuş hangi yöne uçuyorsa o yöne kaydır, çevresindeki kuşlara aldırma.</string>
+    <string name="game_rail_yard_desc">Renkli trenler tünelden çıkıyor. Makasları çevir ki her tren kendi renginin istasyonuna varsın.</string>
     <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
     <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
     <string name="game_schulte_table_desc">Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Desen Kâhini</string>
     <string name="achievement_gold_color_confusion">Gerçek Renkler</string>
     <string name="achievement_gold_flock">Sürü Başı</string>
+    <string name="achievement_gold_rail_yard">İstasyon Şefi</string>
     <string name="achievement_gold_head_count">Kapı Bekçisi</string>
     <string name="achievement_gold_flash_crowd">Kalabalık Sayar</string>
     <string name="achievement_gold_schulte_table">Şimşek Bakış</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Desen Dizisi oyununda altın madalya kazan</string>
     <string name="achievement_gold_color_confusion_desc">Renk Karmaşası oyununda altın madalya kazan</string>
     <string name="achievement_gold_flock_desc">Kuş Sürüsü oyununda altın madalya kazan</string>
+    <string name="achievement_gold_rail_yard_desc">Tren Garı oyununda altın madalya kazan</string>
     <string name="achievement_gold_head_count_desc">Nüfus Sayımı oyununda altın madalya kazan</string>
     <string name="achievement_gold_flash_crowd_desc">Flaş Kalabalık oyununda altın madalya kazan</string>
     <string name="achievement_gold_schulte_table_desc">Schulte Tablosu oyununda altın madalya kazan</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">Bazen bütün sürü aynı yöne uçar.</string>
     <string name="flock_demo_caption_trap">Tuzak, sürüye uymaktır.</string>
     <string name="flock_demo_caption_recover">Cevap her zaman ortadaki kuştur.</string>
+    <string name="rail_yard_demo_title">Her treni evine gönder</string>
+    <string name="rail_yard_demo_caption_colour">Her tren kendi renginin istasyonuna gitmek ister.</string>
+    <string name="rail_yard_demo_caption_switch">Treni öbür yöne yollamak için makasa dokun.</string>
+    <string name="rail_yard_demo_caption_many">Aynı anda tüm trenleri takip et.</string>
     <string name="spot_the_new_demo_title">Yeniyi bul</string>
     <string name="spot_the_new_demo_seen_label">Şimdiye kadar görülenler</string>
     <string name="spot_the_new_demo_new">Daha önce görmediğin hayvana dokun.</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">Kalan kart: %1$d</string>
     <string name="game_color_confusion_howto">Mürekkebin rengine dokunun.</string>
     <string name="game_flock_howto">Ortadaki kuşun uçtuğu yöne kaydır.</string>
+    <string name="game_rail_yard_howto">Rayını değiştirmek için bir makasa dokun.</string>
     <string name="trio_demo_title">Üçlü bul</string>
     <string name="trio_demo_rule">Şekil, adet veya dolgudan en az biri üç kartta aynı. Geri kalan her şey her kartta farklı.</string>
     <string name="trio_trait_shape">Şekil</string>

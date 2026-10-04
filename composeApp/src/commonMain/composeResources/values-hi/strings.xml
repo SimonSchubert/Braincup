@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">भूत ग्रिड</string>
     <string name="game_color_confusion">रंग भ्रम</string>
     <string name="game_flock">पंछियों का झुंड</string>
+    <string name="game_rail_yard">रेल यार्ड</string>
     <string name="game_orbit_tracker">ऑर्बिट ट्रैकर</string>
     <string name="game_bubble_sum">बुलबुला योग</string>
     <string name="game_bubble_sum_desc">तैरते बुलबुलों पर संख्याएँ जोड़ें। बाद में संख्याएँ झपकेंगी — याद रखें।</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">टाइलों को एक-एक करके जलते हुए देखें, फिर उन्हें उसी क्रम में टैप करें।</string>
     <string name="game_color_confusion_desc">एक रंग का शब्द रंगीन स्याही में दिखता है। स्याही के रंग पर टैप करें, उस रंग पर नहीं जो शब्द बताता है।</string>
     <string name="game_flock_desc">पंछियों का एक झुंड उड़ता हुआ गुज़रता है। बीच वाला पंछी जिस ओर उड़ रहा है, उस ओर स्वाइप करें, और आसपास के पंछियों को अनदेखा करें।</string>
+    <string name="game_rail_yard_desc">रंगीन ट्रेनें सुरंग से निकलती हैं। कांटे बदलें, ताकि हर ट्रेन अपने रंग के स्टेशन पर पहुंचे।</string>
     <string name="game_orbit_tracker_desc">हाइलाइट की गई गेंदों को देखें, फिर उनकी गति को ट्रैक करें। रुकने के बाद मूल लक्ष्यों को चुनें।</string>
     <string name="game_flash_crowd_desc">हर तरफ कुछ देर के लिए बिंदु चमकते हैं। जिस तरफ अधिक बिंदु थे, उसे टैप करें। गिनें नहीं — अपनी अंतर्ज्ञान पर भरोसा करें!</string>
     <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">पैटर्न भविष्यवक्ता</string>
     <string name="achievement_gold_color_confusion">असली रंग</string>
     <string name="achievement_gold_flock">झुंड का अगुआ</string>
+    <string name="achievement_gold_rail_yard">स्टेशन मास्टर</string>
     <string name="achievement_gold_head_count">द्वारपाल</string>
     <string name="achievement_gold_flash_crowd">भीड़ गिनने वाला</string>
     <string name="achievement_gold_schulte_table">बिजली नज़र</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">पैटर्न अनुक्रम में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_color_confusion_desc">रंग भ्रम में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_flock_desc">पंछियों के झुंड में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_rail_yard_desc">रेल यार्ड में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_head_count_desc">घर की गिनती में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_flash_crowd_desc">फ्लैश क्राउड में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_schulte_table_desc">शुल्ते तालिका में स्वर्ण पदक जीतें</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">कभी-कभी पूरा झुंड एक ही ओर उड़ता है।</string>
     <string name="flock_demo_caption_trap">झुंड के पीछे चल देना ही जाल है।</string>
     <string name="flock_demo_caption_recover">उत्तर हमेशा बीच वाला पंछी होता है।</string>
+    <string name="rail_yard_demo_title">हर ट्रेन को घर पहुंचाएं</string>
+    <string name="rail_yard_demo_caption_colour">हर ट्रेन को अपने रंग का स्टेशन चाहिए।</string>
+    <string name="rail_yard_demo_caption_switch">कांटे पर टैप करें, ट्रेन दूसरी ओर जाएगी।</string>
+    <string name="rail_yard_demo_caption_many">सभी ट्रेनों पर एक साथ नज़र रखें।</string>
     <string name="spot_the_new_demo_title">नया पहचानें</string>
     <string name="spot_the_new_demo_seen_label">अब तक देखे गए</string>
     <string name="spot_the_new_demo_new">वह जानवर टैप करें जिसे आपने पहले नहीं देखा।</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">शेष कार्ड: %1$d</string>
     <string name="game_color_confusion_howto">स्याही के रंग पर टैप करें।</string>
     <string name="game_flock_howto">बीच वाला पंछी जिस ओर उड़े, उस ओर स्वाइप करें।</string>
+    <string name="game_rail_yard_howto">पटरी बदलने के लिए कांटे पर टैप करें।</string>
     <string name="trio_demo_title">तिकड़ी खोजें</string>
     <string name="trio_demo_rule">तीन पत्ते जिनकी आकृति, संख्या या भराव में से कम से कम एक चीज़ एक जैसी हो। बाकी सब हर पत्ते पर अलग।</string>
     <string name="trio_trait_shape">आकृति</string>

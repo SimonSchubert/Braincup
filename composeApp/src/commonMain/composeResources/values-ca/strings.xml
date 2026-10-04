@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Graella fantasma</string>
     <string name="game_color_confusion">Confusió de colors</string>
     <string name="game_flock">Estol</string>
+    <string name="game_rail_yard">Pati de maniobres</string>
     <string name="game_orbit_tracker">Seguidor d'òrbites</string>
     <string name="game_bubble_sum">Suma de bombolles</string>
     <string name="game_quick_sum">Suma ràpida</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.</string>
     <string name="game_color_confusion_desc">Apareix una paraula de color amb tinta de color. Toca el color de la tinta, no el que diu la paraula.</string>
     <string name="game_flock_desc">Passa volant un estol d'ocells. Llisca cap on vola l'ocell del mig i no facis cas dels que l'envolten.</string>
+    <string name="game_rail_yard_desc">Trens de colors surten del túnel. Canvia les agulles perquè cadascun arribi a l'estació del seu color.</string>
     <string name="game_orbit_tracker_desc">Mira les boles destacades i segueix-les mentre es mouen. Tria els objectius originals quan s'aturin.</string>
     <string name="game_bubble_sum_desc">Suma els números de les bombolles flotants. Més endavant els números parpellegen: recorda'ls.</string>
     <string name="bubble_sum_instruction">Quina és la suma?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Cartes restants: %1$d</string>
     <string name="game_color_confusion_howto">Toca el color de la tinta.</string>
     <string name="game_flock_howto">Llisca cap on vola l'ocell del mig.</string>
+    <string name="game_rail_yard_howto">Toca una agulla per canviar de via.</string>
     <string name="trio_demo_title">Troba un trio</string>
     <string name="trio_demo_rule">Tres cartes que coincideixen almenys en forma, quantitat o farciment. Tota la resta ha de ser diferent.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -521,6 +524,10 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="flock_demo_caption_agree">De vegades tot l'estol coincideix.</string>
     <string name="flock_demo_caption_trap">Seguir l'estol és el parany.</string>
     <string name="flock_demo_caption_recover">L'ocell del mig sempre és la resposta.</string>
+    <string name="rail_yard_demo_title">Porta cada tren a casa</string>
+    <string name="rail_yard_demo_caption_colour">Cada tren vol l'estació del seu color.</string>
+    <string name="rail_yard_demo_caption_switch">Toca una agulla per desviar el tren.</string>
+    <string name="rail_yard_demo_caption_many">Vigila tots els trens alhora.</string>
     <string name="pattern_sequence_prompt">Quina peça completa la matriu?</string>
     <string name="game_tap_original_targets">Toca els objectius originals</string>
     <string name="game_remember_targets">Recorda els objectius</string>
@@ -598,6 +605,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_pattern_sequence">Profeta de patrons</string>
     <string name="achievement_gold_color_confusion">Color just</string>
     <string name="achievement_gold_flock">Cap d'esquadrilla</string>
+    <string name="achievement_gold_rail_yard">Cap d'estació</string>
     <string name="achievement_gold_head_count">Porter</string>
     <string name="achievement_gold_flash_crowd">Comptador de multituds</string>
     <string name="achievement_gold_schulte_table">Mirada llampec</string>
@@ -640,6 +648,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Guanya la medalla d'or a la Seqüència de patrons</string>
     <string name="achievement_gold_color_confusion_desc">Guanya la medalla d'or a la Confusió de colors</string>
     <string name="achievement_gold_flock_desc">Guanya la medalla d'or a l'Estol</string>
+    <string name="achievement_gold_rail_yard_desc">Guanya la medalla d'or al Pati de maniobres</string>
     <string name="achievement_gold_head_count_desc">Guanya la medalla d'or al Vaivé</string>
     <string name="achievement_gold_flash_crowd_desc">Guanya la medalla d'or a la Multitud llampec</string>
     <string name="achievement_gold_schulte_table_desc">Guanya la medalla d'or a la Taula de Schulte</string>

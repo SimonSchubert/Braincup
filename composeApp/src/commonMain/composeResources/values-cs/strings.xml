@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Mřížka duchů</string>
     <string name="game_color_confusion">Zmatek barev</string>
     <string name="game_flock">Hejno</string>
+    <string name="game_rail_yard">Seřaďovací nádraží</string>
     <string name="game_orbit_tracker">Sledovač drah</string>
     <string name="game_bubble_sum">Součet bublin</string>
     <string name="game_quick_sum">Rychlý součet</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Sleduj, jak se dlaždice rozsvěcují jedna po druhé, a klepni na ně ve stejném pořadí.</string>
     <string name="game_color_confusion_desc">Barevné slovo se objeví barevným inkoustem. Klepni na barvu inkoustu, ne na barvu, kterou slovo říká.</string>
     <string name="game_flock_desc">Kolem proletí hejno ptáků. Přejeď prstem tam, kam letí prostřední pták, a ostatních si nevšímej.</string>
+    <string name="game_rail_yard_desc">Barevné vlaky vyjíždějí z tunelu. Přehazuj výhybky, aby každý vlak dojel na stanici své barvy.</string>
     <string name="game_orbit_tracker_desc">Sleduj zvýrazněné koule a drž je, když se pohybují. Po zastavení vyber původní cíle.</string>
     <string name="game_bubble_sum_desc">Sečti čísla na plovoucích bublinách. Později čísla blikají — zapamatuj si je.</string>
     <string name="bubble_sum_instruction">Jaký je součet?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Zbývá karet: %1$d</string>
     <string name="game_color_confusion_howto">Klepni na barvu inkoustu.</string>
     <string name="game_flock_howto">Přejeď tam, kam letí prostřední pták.</string>
+    <string name="game_rail_yard_howto">Klepni na výhybku a změň kolej.</string>
     <string name="trio_demo_title">Najdi trio</string>
     <string name="trio_demo_rule">Tři karty, které mají společný aspoň tvar, počet nebo výplň. Všechno ostatní musí být pokaždé jiné.</string>
     <string name="trio_trait_shape">Tvar</string>
@@ -527,6 +530,10 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="flock_demo_caption_agree">Někdy celé hejno letí stejně.</string>
     <string name="flock_demo_caption_trap">Past je letět s hejnem.</string>
     <string name="flock_demo_caption_recover">Odpovědí je vždy prostřední pták.</string>
+    <string name="rail_yard_demo_title">Pošli každý vlak domů</string>
+    <string name="rail_yard_demo_caption_colour">Každý vlak patří na stanici své barvy.</string>
+    <string name="rail_yard_demo_caption_switch">Klepni na výhybku a vlak pojede jinou cestou.</string>
+    <string name="rail_yard_demo_caption_many">Hlídej všechny vlaky najednou.</string>
     <string name="pattern_sequence_prompt">Který dílek doplní matici?</string>
     <string name="game_tap_original_targets">Klepni na původní cíle</string>
     <string name="game_remember_targets">Zapamatuj si cíle</string>
@@ -604,6 +611,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_pattern_sequence">Prorok vzorů</string>
     <string name="achievement_gold_color_confusion">Pravá barva</string>
     <string name="achievement_gold_flock">Vůdce hejna</string>
+    <string name="achievement_gold_rail_yard">Přednosta stanice</string>
     <string name="achievement_gold_head_count">Vrátný</string>
     <string name="achievement_gold_flash_crowd">Počítač davu</string>
     <string name="achievement_gold_schulte_table">Bleskový pohled</string>
@@ -646,6 +654,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Získej zlatou medaili v Posloupnost vzorů</string>
     <string name="achievement_gold_color_confusion_desc">Získej zlatou medaili v Zmatek barev</string>
     <string name="achievement_gold_flock_desc">Získej zlatou medaili v Hejnu</string>
+    <string name="achievement_gold_rail_yard_desc">Získej zlatou medaili v Seřaďovacím nádraží</string>
     <string name="achievement_gold_head_count_desc">Získej zlatou medaili v Počítání hostů</string>
     <string name="achievement_gold_flash_crowd_desc">Získej zlatou medaili v Zábleskový dav</string>
     <string name="achievement_gold_schulte_table_desc">Získej zlatou medaili v Schultova tabulka</string>

@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">جدول شبح</string>
     <string name="game_color_confusion">آشوب رنگ</string>
     <string name="game_flock">دستهٔ پرندگان</string>
+    <string name="game_rail_yard">محوطه راه‌آهن</string>
     <string name="game_orbit_tracker">ردیاب مدار</string>
     <string name="game_bubble_sum">جمع حباب‌ها</string>
     <string name="game_quick_sum">جمع سریع</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">ببین خانه‌ها به چه ترتیبی روشن می‌شوند، بعد به همان ترتیب رویشان بزن.</string>
     <string name="game_color_confusion_desc">یک واژهٔ رنگ با جوهر رنگی ظاهر می‌شود. روی رنگ جوهر بزن، نه رنگی که واژه می‌گوید.</string>
     <string name="game_flock_desc">دسته‌ای پرنده از جلویت می‌گذرد. به سمتی که پرندهٔ وسطی پرواز می‌کند بکش و پرنده‌های اطرافش را نادیده بگیر.</string>
+    <string name="game_rail_yard_desc">قطارهای رنگی از تونل بیرون می‌آیند. سوزن‌ها را جابه‌جا کن تا هر قطار به ایستگاه هم‌رنگ خودش برسد.</string>
     <string name="game_orbit_tracker_desc">توپ‌های نشان‌دار را ببین و در حین حرکت دنبالشان کن. پس از توقف، همان‌ها را انتخاب کن.</string>
     <string name="game_bubble_sum_desc">عددهای روی حباب‌های شناور را جمع کن. بعدتر بعضی عددها چشمک می‌زنند؛ به خاطرشان بسپار.</string>
     <string name="bubble_sum_instruction">حاصل جمع چند است؟</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">کارت‌های باقی‌مانده: %1$d</string>
     <string name="game_color_confusion_howto">روی رنگ جوهر بزن.</string>
     <string name="game_flock_howto">به سمت پرواز پرندهٔ وسطی بکش.</string>
+    <string name="game_rail_yard_howto">برای عوض کردن مسیر، روی سوزن بزن.</string>
     <string name="trio_demo_title">یک تریو پیدا کن</string>
     <string name="trio_demo_rule">سه کارت که دست‌کم در شکل، تعداد یا پرشدگی یکی‌اند. بقیه چیزها در هر کارت فرق دارد.</string>
     <string name="trio_trait_shape">شکل</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">گاهی همهٔ دسته هم‌جهت‌اند.</string>
     <string name="flock_demo_caption_trap">دام همان دنبال کردن دسته است.</string>
     <string name="flock_demo_caption_recover">پاسخ همیشه پرندهٔ وسطی است.</string>
+    <string name="rail_yard_demo_title">هر قطار را به خانه برسان</string>
+    <string name="rail_yard_demo_caption_colour">هر قطار ایستگاهی هم‌رنگ خودش دارد.</string>
+    <string name="rail_yard_demo_caption_switch">روی سوزن بزن تا قطار به مسیر دیگر برود.</string>
+    <string name="rail_yard_demo_caption_many">حواست به همه قطارها باشد.</string>
     <string name="pattern_sequence_prompt">کدام قطعه ماتریس را کامل می‌کند؟</string>
     <string name="game_tap_original_targets">روی هدف‌های اولیه بزن</string>
     <string name="game_remember_targets">هدف‌ها را به خاطر بسپار</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">پیشگوی الگو</string>
     <string name="achievement_gold_color_confusion">رنگ‌های راستین</string>
     <string name="achievement_gold_flock">سردستهٔ پرواز</string>
+    <string name="achievement_gold_rail_yard">رئیس ایستگاه</string>
     <string name="achievement_gold_head_count">دربان</string>
     <string name="achievement_gold_flash_crowd">شمارنده جمعیت</string>
     <string name="achievement_gold_schulte_table">نگاه آذرخشی</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">مدال طلای دنباله الگو را بگیر</string>
     <string name="achievement_gold_color_confusion_desc">مدال طلای آشوب رنگ را بگیر</string>
     <string name="achievement_gold_flock_desc">مدال طلای دستهٔ پرندگان را بگیر</string>
+    <string name="achievement_gold_rail_yard_desc">مدال طلای محوطه راه‌آهن را بگیر</string>
     <string name="achievement_gold_head_count_desc">مدال طلای سرشماری را بگیر</string>
     <string name="achievement_gold_flash_crowd_desc">مدال طلای جمعیت آنی را بگیر</string>
     <string name="achievement_gold_schulte_table_desc">مدال طلای جدول شولته را بگیر</string>

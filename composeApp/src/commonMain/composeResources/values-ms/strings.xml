@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kekeliruan Warna</string>
     <string name="game_flock">Kawanan Burung</string>
+    <string name="game_rail_yard">Depoh Kereta Api</string>
     <string name="game_orbit_tracker">Penjejak Orbit</string>
     <string name="game_bubble_sum">Jumlah Gelembung</string>
     <string name="game_quick_sum">Jumlah Pantas</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Tonton jubin menyala satu demi satu, kemudian ketik semula dalam urutan yang sama.</string>
     <string name="game_color_confusion_desc">Satu perkataan warna muncul dengan dakwat berwarna. Ketik warna dakwatnya, bukan warna yang disebut perkataan itu.</string>
     <string name="game_flock_desc">Sekawan burung terbang lalu. Leret ke arah burung di tengah terbang, dan abaikan burung di sekelilingnya.</string>
+    <string name="game_rail_yard_desc">Kereta api berwarna keluar dari terowong. Tukar suis landasan supaya setiap satu tiba di stesen yang sama warnanya.</string>
     <string name="game_orbit_tracker_desc">Tonton bola yang diserlahkan, kemudian jejaki mereka semasa bergerak. Pilih sasaran asal selepas mereka berhenti.</string>
     <string name="game_bubble_sum_desc">Jumlahkan nombor pada gelembung terapung. Kemudian nombor berkelip — ingatinya.</string>
     <string name="bubble_sum_instruction">Berapakah jumlahnya?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Kad berbaki: %1$d</string>
     <string name="game_color_confusion_howto">Ketik warna dakwatnya.</string>
     <string name="game_flock_howto">Leret ke arah burung di tengah terbang.</string>
+    <string name="game_rail_yard_howto">Ketik suis landasan untuk menukar jalurnya.</string>
     <string name="trio_demo_title">Cari trio</string>
     <string name="trio_demo_rule">Tiga kad yang sama sekurang-kurangnya satu daripada bentuk, bilangan atau isian. Yang lain mesti semuanya berbeza.</string>
     <string name="trio_trait_shape">Bentuk</string>
@@ -519,6 +522,10 @@
     <string name="flock_demo_caption_agree">Kadangkala seluruh kawanan sehaluan.</string>
     <string name="flock_demo_caption_trap">Mengikut kawanan itulah perangkapnya.</string>
     <string name="flock_demo_caption_recover">Jawapannya sentiasa burung di tengah.</string>
+    <string name="rail_yard_demo_title">Hantar setiap kereta api pulang</string>
+    <string name="rail_yard_demo_caption_colour">Setiap kereta api mahu ke stesen yang sama warnanya.</string>
+    <string name="rail_yard_demo_caption_switch">Ketik suis landasan untuk menghantarnya ke arah lain.</string>
+    <string name="rail_yard_demo_caption_many">Awasi setiap kereta api serentak.</string>
     <string name="pattern_sequence_prompt">Kepingan mana yang melengkapkan matriks?</string>
     <string name="game_tap_original_targets">Ketik sasaran asal</string>
     <string name="game_remember_targets">Ingat sasaran</string>
@@ -596,6 +603,7 @@
     <string name="achievement_gold_pattern_sequence">Nabi Corak</string>
     <string name="achievement_gold_color_confusion">Warna Sebenar</string>
     <string name="achievement_gold_flock">Ketua Kawanan</string>
+    <string name="achievement_gold_rail_yard">Ketua Stesen</string>
     <string name="achievement_gold_head_count">Penjaga Pintu</string>
     <string name="achievement_gold_flash_crowd">Pengira Kumpulan</string>
     <string name="achievement_gold_schulte_table">Pandangan Kilat</string>
@@ -638,6 +646,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Menangi pingat emas dalam Jujukan Corak</string>
     <string name="achievement_gold_color_confusion_desc">Menangi pingat emas dalam Kekeliruan Warna</string>
     <string name="achievement_gold_flock_desc">Menangi pingat emas dalam Kawanan Burung</string>
+    <string name="achievement_gold_rail_yard_desc">Menangi pingat emas dalam Depoh Kereta Api</string>
     <string name="achievement_gold_head_count_desc">Menangi pingat emas dalam Kira Orang</string>
     <string name="achievement_gold_flash_crowd_desc">Menangi pingat emas dalam Kumpulan Kilat</string>
     <string name="achievement_gold_schulte_table_desc">Menangi pingat emas dalam Jadual Schulte</string>

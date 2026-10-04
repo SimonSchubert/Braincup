@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">ভুতুড়ে গ্রিড</string>
     <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
     <string name="game_flock">পাখির ঝাঁক</string>
+    <string name="game_rail_yard">রেল ইয়ার্ড</string>
     <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
     <string name="game_bubble_sum">বুদবুদ যোগফল</string>
     <string name="game_bubble_sum_desc">ভাসমান বুদবুদের সংখ্যা যোগ করুন। পরে সংখ্যাগুলো ঝলকায় — মনে রাখুন।</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">টাইলগুলো একে একে জ্বলতে দেখুন, তারপর একই ক্রমে ট্যাপ করুন।</string>
     <string name="game_color_confusion_desc">একটি রঙের শব্দ রঙিন কালিতে দেখা যায়। কালির রঙে ট্যাপ করুন, শব্দ যে রঙ বলে সেটাতে নয়।</string>
     <string name="game_flock_desc">এক ঝাঁক পাখি উড়ে যায়। মাঝের পাখিটি যেদিকে উড়ছে সেদিকে সোয়াইপ করুন, আর আশেপাশের পাখিগুলোকে উপেক্ষা করুন।</string>
+    <string name="game_rail_yard_desc">রঙিন ট্রেন সুড়ঙ্গ থেকে বেরোয়। পয়েন্ট বদলান, যাতে প্রতিটি ট্রেন নিজের রঙের স্টেশনে পৌঁছায়।</string>
     <string name="game_orbit_tracker_desc">হাইলাইট করা বলগুলো দেখুন, তারপর সেগুলো নড়াচড়ার সময় ট্র্যাক করুন। থামার পরে মূল লক্ষ্যগুলো নির্বাচন করুন।</string>
     <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">প্যাটার্ন ভবিষ্যদ্বক্তা</string>
     <string name="achievement_gold_color_confusion">সত্যিকারের রং</string>
     <string name="achievement_gold_flock">ঝাঁকের সর্দার</string>
+    <string name="achievement_gold_rail_yard">স্টেশন মাস্টার</string>
     <string name="achievement_gold_head_count">দ্বাররক্ষী</string>
     <string name="achievement_gold_flash_crowd">ভিড় গণনাকারী</string>
     <string name="achievement_gold_schulte_table">বিদ্যুৎ দৃষ্টি</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">প্যাটার্ন সিকোয়েন্স-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_color_confusion_desc">রঙ বিভ্রান্তি-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_flock_desc">পাখির ঝাঁকে স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_rail_yard_desc">রেল ইয়ার্ড-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_head_count_desc">মাথা গুনতিতে স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_flash_crowd_desc">ফ্ল্যাশ ক্রাউড-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_schulte_table_desc">শুল্টে টেবিল-এ স্বর্ণপদক জিতুন</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">কখনও কখনও পুরো ঝাঁক একই দিকে ওড়ে।</string>
     <string name="flock_demo_caption_trap">ফাঁদটা হলো ঝাঁকের পিছু নেওয়া।</string>
     <string name="flock_demo_caption_recover">উত্তর সবসময় মাঝের পাখিটাই।</string>
+    <string name="rail_yard_demo_title">প্রতিটি ট্রেনকে বাড়ি পৌঁছে দিন</string>
+    <string name="rail_yard_demo_caption_colour">প্রতিটি ট্রেনের নিজের রঙের স্টেশন আছে।</string>
+    <string name="rail_yard_demo_caption_switch">পয়েন্টে ট্যাপ করলে ট্রেন অন্য দিকে যাবে।</string>
+    <string name="rail_yard_demo_caption_many">সব ট্রেনের দিকে একসঙ্গে নজর রাখুন।</string>
     <string name="spot_the_new_demo_title">নতুনটি খুঁজুন</string>
     <string name="spot_the_new_demo_seen_label">এখন পর্যন্ত দেখা হয়েছে</string>
     <string name="spot_the_new_demo_new">আপনি আগে যে প্রাণীটি দেখেননি সেটিতে ট্যাপ করুন।</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">বাকি কার্ড: %1$d</string>
     <string name="game_color_confusion_howto">কালির রঙে ট্যাপ করুন।</string>
     <string name="game_flock_howto">মাঝের পাখিটি যেদিকে ওড়ে সেদিকে সোয়াইপ করুন।</string>
+    <string name="game_rail_yard_howto">লাইন বদলাতে পয়েন্টে ট্যাপ করুন।</string>
     <string name="trio_demo_title">একটি ত্রয়ী খুঁজুন</string>
     <string name="trio_demo_rule">তিনটি তাস, যাদের আকৃতি, সংখ্যা বা ভরাটের অন্তত একটি একই। বাকি সব প্রতিটি তাসে আলাদা।</string>
     <string name="trio_trait_shape">আকৃতি</string>

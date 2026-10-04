@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Spøkelsesrutenett</string>
     <string name="game_color_confusion">Fargeforvirring</string>
     <string name="game_flock">Fugleflokk</string>
+    <string name="game_rail_yard">Rangerbane</string>
     <string name="game_orbit_tracker">Banefølger</string>
     <string name="game_bubble_sum">Boblesum</string>
     <string name="game_quick_sum">Hurtigsum</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Se brikkene lyse én etter én, og trykk dem tilbake i samme rekkefølge.</string>
     <string name="game_color_confusion_desc">Et fargeord dukker opp i farget blekk. Trykk på fargen på blekket, ikke fargen ordet nevner.</string>
     <string name="game_flock_desc">En flokk fugler flyr forbi. Sveip den veien fuglen i midten flyr, og overse fuglene rundt den.</string>
+    <string name="game_rail_yard_desc">Fargede tog ruller ut av tunnelen. Still sporveksler slik at hvert tog kommer til stasjonen i sin farge.</string>
     <string name="game_orbit_tracker_desc">Se de fremhevede ballene, og følg dem mens de beveger seg. Velg de opprinnelige målene når de stopper.</string>
     <string name="game_bubble_sum_desc">Legg sammen tallene på de flytende boblene. Senere blinker tallene — husk dem.</string>
     <string name="bubble_sum_instruction">Hva er summen?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Kort igjen: %1$d</string>
     <string name="game_color_confusion_howto">Trykk på fargen på blekket.</string>
     <string name="game_flock_howto">Sveip den veien den midterste fuglen flyr.</string>
+    <string name="game_rail_yard_howto">Trykk på en sporveksel for å bytte spor.</string>
     <string name="trio_demo_title">Finn en trio</string>
     <string name="trio_demo_rule">Tre kort med minst samme form, antall eller fyll. Alt annet må være forskjellig på alle tre.</string>
     <string name="trio_trait_shape">Form</string>
@@ -521,6 +524,10 @@ Flytt Cow — den blir en Bull.</string>
     <string name="flock_demo_caption_agree">Noen ganger flyr hele flokken samme vei.</string>
     <string name="flock_demo_caption_trap">Å følge flokken er fella.</string>
     <string name="flock_demo_caption_recover">Den midterste fuglen er alltid svaret.</string>
+    <string name="rail_yard_demo_title">Send hvert tog hjem</string>
+    <string name="rail_yard_demo_caption_colour">Hvert tog vil til stasjonen i sin farge.</string>
+    <string name="rail_yard_demo_caption_switch">Trykk på en sporveksel for å sende toget en annen vei.</string>
+    <string name="rail_yard_demo_caption_many">Hold øye med alle togene samtidig.</string>
     <string name="pattern_sequence_prompt">Hvilken brikke fullfører matrisen?</string>
     <string name="game_tap_original_targets">Trykk på de opprinnelige målene</string>
     <string name="game_remember_targets">Husk målene</string>
@@ -598,6 +605,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_gold_pattern_sequence">Mønsterprofet</string>
     <string name="achievement_gold_color_confusion">Sanne farger</string>
     <string name="achievement_gold_flock">Flokkleder</string>
+    <string name="achievement_gold_rail_yard">Stasjonssjef</string>
     <string name="achievement_gold_head_count">Dørvakt</string>
     <string name="achievement_gold_flash_crowd">Mengdeteller</string>
     <string name="achievement_gold_schulte_table">Lynblikk</string>
@@ -640,6 +648,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Vinn gullmedaljen i Mønstersekvens</string>
     <string name="achievement_gold_color_confusion_desc">Vinn gullmedaljen i Fargeforvirring</string>
     <string name="achievement_gold_flock_desc">Vinn gullmedaljen i Fugleflokk</string>
+    <string name="achievement_gold_rail_yard_desc">Vinn gullmedaljen i Rangerbane</string>
     <string name="achievement_gold_head_count_desc">Vinn gullmedaljen i Folketelling</string>
     <string name="achievement_gold_flash_crowd_desc">Vinn gullmedaljen i Lynmengde</string>
     <string name="achievement_gold_schulte_table_desc">Vinn gullmedaljen i Schulte-tabell</string>

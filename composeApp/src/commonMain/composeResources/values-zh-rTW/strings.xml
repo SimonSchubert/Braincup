@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">幽靈方格</string>
     <string name="game_color_confusion">顏色混淆</string>
     <string name="game_flock">鳥群</string>
+    <string name="game_rail_yard">調車場</string>
     <string name="game_orbit_tracker">軌道追蹤</string>
     <string name="game_bubble_sum">氣泡求和</string>
     <string name="game_bubble_sum_desc">把漂浮氣泡上的數字相加。之後數字會閃爍——要記住它們。</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">觀察方格逐個亮起，然後按相同順序點選它們。</string>
     <string name="game_color_confusion_desc">一個顏色詞以彩色墨水出現。點選墨水的顏色，不要點詞所說的顏色。</string>
     <string name="game_flock_desc">一群鳥飛過。朝中間那隻鳥飛的方向滑動，別管牠周圍的鳥。</string>
+    <string name="game_rail_yard_desc">彩色列車從隧道駛出。扳動道岔，讓每列車開到和自己顏色相同的車站。</string>
     <string name="game_orbit_tracker_desc">觀察高亮的球，然後在它們移動時追蹤。停止後選擇最初的目標。</string>
     <string name="game_flash_crowd_desc">每側短暫閃現圓點。點選圓點更多的一側。不要數 — 相信你的直覺！</string>
     <string name="game_schulte_table_desc">儘快按1到N的順序點選數字。</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">圖案先知</string>
     <string name="achievement_gold_color_confusion">本色</string>
     <string name="achievement_gold_flock">領頭雁</string>
+    <string name="achievement_gold_rail_yard">站長</string>
     <string name="achievement_gold_head_count">看門人</string>
     <string name="achievement_gold_flash_crowd">群眾計數器</string>
     <string name="achievement_gold_schulte_table">閃電之眼</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">在圖案序列中贏得金牌</string>
     <string name="achievement_gold_color_confusion_desc">在顏色混淆中贏得金牌</string>
     <string name="achievement_gold_flock_desc">在鳥群中贏得金牌</string>
+    <string name="achievement_gold_rail_yard_desc">在調車場中贏得金牌</string>
     <string name="achievement_gold_head_count_desc">在數人頭中贏得金牌</string>
     <string name="achievement_gold_flash_crowd_desc">在閃現人群中贏得金牌</string>
     <string name="achievement_gold_schulte_table_desc">在舒爾特方格中贏得金牌</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">有時整群鳥方向一致。</string>
     <string name="flock_demo_caption_trap">跟著鳥群走就是陷阱。</string>
     <string name="flock_demo_caption_recover">答案永遠是中間那隻鳥。</string>
+    <string name="rail_yard_demo_title">送每列車回家</string>
+    <string name="rail_yard_demo_caption_colour">每列車都要開到同色的車站。</string>
+    <string name="rail_yard_demo_caption_switch">點按道岔，列車就會改走另一條路。</string>
+    <string name="rail_yard_demo_caption_many">同時留意每一列車。</string>
     <string name="spot_the_new_demo_title">找出新出現的</string>
     <string name="spot_the_new_demo_seen_label">已見過的</string>
     <string name="spot_the_new_demo_new">點選你之前沒見過的動物。</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">剩餘卡片：%1$d</string>
     <string name="game_color_confusion_howto">點選墨水的顏色。</string>
     <string name="game_flock_howto">朝中間那隻鳥飛的方向滑動。</string>
+    <string name="game_rail_yard_howto">點按道岔來切換軌道。</string>
     <string name="trio_demo_title">找出三重組</string>
     <string name="trio_demo_rule">三張牌的形狀、數量或填色至少有一項相同，其餘必須各不相同。</string>
     <string name="trio_trait_shape">形狀</string>

@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Spökruta</string>
     <string name="game_color_confusion">Färgförvirring</string>
     <string name="game_flock">Fågelflock</string>
+    <string name="game_rail_yard">Rangerbangård</string>
     <string name="game_orbit_tracker">Banföljare</string>
     <string name="game_bubble_sum">Bubbelsumma</string>
     <string name="game_quick_sum">Snabbsamma</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.</string>
     <string name="game_color_confusion_desc">Ett färgord visas i färgat bläck. Tryck på bläckets färg, inte färgen ordet nämner.</string>
     <string name="game_flock_desc">En flock fåglar flyger förbi. Svep åt det håll som fågeln i mitten flyger, och strunta i fåglarna runt den.</string>
+    <string name="game_rail_yard_desc">Färgglada tåg rullar ut ur tunneln. Ställ växlarna så att varje tåg når stationen i sin färg.</string>
     <string name="game_orbit_tracker_desc">Titta på de markerade bollarna och följ dem när de rör sig. Välj originalmålen när de stannar.</string>
     <string name="game_bubble_sum_desc">Addera talen på de flytande bubblorna. Senare blinkar talen — kom ihåg dem.</string>
     <string name="bubble_sum_instruction">Vad blir summan?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Kort kvar: %1$d</string>
     <string name="game_color_confusion_howto">Tryck på bläckets färg.</string>
     <string name="game_flock_howto">Svep åt det håll mittenfågeln flyger.</string>
+    <string name="game_rail_yard_howto">Tryck på en växel för att byta spår.</string>
     <string name="trio_demo_title">Hitta en trio</string>
     <string name="trio_demo_rule">Tre kort med minst samma form, antal eller fyllning. Allt annat måste vara olika på alla tre.</string>
     <string name="trio_trait_shape">Form</string>
@@ -519,6 +522,10 @@
     <string name="flock_demo_caption_agree">Ibland flyger hela flocken åt samma håll.</string>
     <string name="flock_demo_caption_trap">Att följa flocken är fällan.</string>
     <string name="flock_demo_caption_recover">Mittenfågeln är alltid svaret.</string>
+    <string name="rail_yard_demo_title">Skicka hem varje tåg</string>
+    <string name="rail_yard_demo_caption_colour">Varje tåg vill till stationen i sin färg.</string>
+    <string name="rail_yard_demo_caption_switch">Tryck på en växel för att skicka tåget åt andra hållet.</string>
+    <string name="rail_yard_demo_caption_many">Håll koll på alla tåg samtidigt.</string>
     <string name="pattern_sequence_prompt">Vilken bit kompletterar matrisen?</string>
     <string name="game_tap_original_targets">Tryck på originalmålen</string>
     <string name="game_remember_targets">Kom ihåg målen</string>
@@ -596,6 +603,7 @@
     <string name="achievement_gold_pattern_sequence">Mönsterprofet</string>
     <string name="achievement_gold_color_confusion">Äkta färger</string>
     <string name="achievement_gold_flock">Ledarfågel</string>
+    <string name="achievement_gold_rail_yard">Stationsinspektor</string>
     <string name="achievement_gold_head_count">Dörrvakt</string>
     <string name="achievement_gold_flash_crowd">Mängdräknare</string>
     <string name="achievement_gold_schulte_table">Blixtblick</string>
@@ -638,6 +646,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Vinn guldmedalj i Mönstersekvens</string>
     <string name="achievement_gold_color_confusion_desc">Vinn guldmedalj i Färgförvirring</string>
     <string name="achievement_gold_flock_desc">Vinn guldmedalj i Fågelflock</string>
+    <string name="achievement_gold_rail_yard_desc">Vinn guldmedalj i Rangerbangård</string>
     <string name="achievement_gold_head_count_desc">Vinn guldmedalj i Folkräkning</string>
     <string name="achievement_gold_flash_crowd_desc">Vinn guldmedalj i Blixtmängd</string>
     <string name="achievement_gold_schulte_table_desc">Vinn guldmedalj i Schultetabell</string>

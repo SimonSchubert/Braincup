@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Mriežka duchov</string>
     <string name="game_color_confusion">Zámiena farieb</string>
     <string name="game_flock">Kŕdeľ</string>
+    <string name="game_rail_yard">Zriaďovacia stanica</string>
     <string name="game_orbit_tracker">Sledovač dráh</string>
     <string name="game_bubble_sum">Súčet bublín</string>
     <string name="game_quick_sum">Rýchly súčet</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Sleduj, ako sa dlaždice rozsvietia jedna po druhej, a ťukni na ne v rovnakom poradí.</string>
     <string name="game_color_confusion_desc">Farebné slovo sa objaví farebným atramentom. Ťukni na farbu atramentu, nie na farbu, ktorú slovo hovorí.</string>
     <string name="game_flock_desc">Okolo preletí kŕdeľ vtákov. Potiahni prstom tam, kam letí vták v strede, a ostatných si nevšímaj.</string>
+    <string name="game_rail_yard_desc">Farebné vlaky vychádzajú z tunela. Prehadzuj výhybky, aby každý vlak došiel na stanicu svojej farby.</string>
     <string name="game_orbit_tracker_desc">Sleduj zvýraznené gule a drž ich, keď sa pohybujú. Po zastavení vyber pôvodné ciele.</string>
     <string name="game_bubble_sum_desc">Spočítaj čísla na plávajúcich bublinách. Neskôr čísla blikajú — zapamätaj si ich.</string>
     <string name="bubble_sum_instruction">Aký je súčet?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Zostáva kariet: %1$d</string>
     <string name="game_color_confusion_howto">Ťukni na farbu atramentu.</string>
     <string name="game_flock_howto">Potiahni tam, kam letí prostredný vták.</string>
+    <string name="game_rail_yard_howto">Ťukni na výhybku a zmeň koľaj.</string>
     <string name="trio_demo_title">Nájdi trio</string>
     <string name="trio_demo_rule">Tri karty, ktoré majú spoločný aspoň tvar, počet alebo výplň. Všetko ostatné musí byť zakaždým iné.</string>
     <string name="trio_trait_shape">Tvar</string>
@@ -527,6 +530,10 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="flock_demo_caption_agree">Niekedy letí celý kŕdeľ rovnako.</string>
     <string name="flock_demo_caption_trap">Pasca je ísť s kŕdľom.</string>
     <string name="flock_demo_caption_recover">Odpoveďou je vždy prostredný vták.</string>
+    <string name="rail_yard_demo_title">Pošli každý vlak domov</string>
+    <string name="rail_yard_demo_caption_colour">Každý vlak patrí na stanicu svojej farby.</string>
+    <string name="rail_yard_demo_caption_switch">Ťukni na výhybku a vlak pôjde inou cestou.</string>
+    <string name="rail_yard_demo_caption_many">Sleduj všetky vlaky naraz.</string>
     <string name="pattern_sequence_prompt">Ktorý dielik doplní maticu?</string>
     <string name="game_tap_original_targets">Ťukni na pôvodné ciele</string>
     <string name="game_remember_targets">Zapamätaj si ciele</string>
@@ -604,6 +611,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_pattern_sequence">Prorok vzorov</string>
     <string name="achievement_gold_color_confusion">Pravá farba</string>
     <string name="achievement_gold_flock">Vodca kŕdľa</string>
+    <string name="achievement_gold_rail_yard">Prednosta stanice</string>
     <string name="achievement_gold_head_count">Vrátnik</string>
     <string name="achievement_gold_flash_crowd">Počítač davu</string>
     <string name="achievement_gold_schulte_table">Bleskový pohľad</string>
@@ -646,6 +654,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Získaj zlatú medailu v Postupnosti vzorov</string>
     <string name="achievement_gold_color_confusion_desc">Získaj zlatú medailu v Zámene farieb</string>
     <string name="achievement_gold_flock_desc">Získaj zlatú medailu v Kŕdli</string>
+    <string name="achievement_gold_rail_yard_desc">Získaj zlatú medailu v hre Zriaďovacia stanica</string>
     <string name="achievement_gold_head_count_desc">Získaj zlatú medailu v hre Kto je dnu</string>
     <string name="achievement_gold_flash_crowd_desc">Získaj zlatú medailu v Zábleskovom dave</string>
     <string name="achievement_gold_schulte_table_desc">Získaj zlatú medailu v Schulteho tabuľke</string>

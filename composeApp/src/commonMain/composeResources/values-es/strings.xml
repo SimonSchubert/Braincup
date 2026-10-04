@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Cuadrícula Fantasma</string>
     <string name="game_color_confusion">Confusión de Colores</string>
     <string name="game_flock">Bandada</string>
+    <string name="game_rail_yard">Patio de maniobras</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
     <string name="game_bubble_sum">Suma burbujas</string>
     <string name="game_bubble_sum_desc">Suma los números de las burbujas flotantes. Luego parpadean: recuérdalos.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Observa cómo se iluminan las casillas una por una y luego tócalas en el mismo orden.</string>
     <string name="game_color_confusion_desc">Aparece una palabra de color en tinta de color. Toca el color de la tinta, no el que dice la palabra.</string>
     <string name="game_flock_desc">Pasa volando una bandada de pájaros. Desliza hacia donde vuela el pájaro del medio e ignora a los de alrededor.</string>
+    <string name="game_rail_yard_desc">Trenes de colores salen del túnel. Cambia las agujas para que cada uno llegue a la estación de su color.</string>
     <string name="game_orbit_tracker_desc">Observa las bolas resaltadas y luego síguelas mientras se mueven. Selecciona los objetivos originales después de que se detengan.</string>
     <string name="game_flash_crowd_desc">Los puntos parpadean brevemente en cada lado. Toca el lado que tenía más puntos. ¡No cuentes, confía en tu instinto!</string>
     <string name="game_schulte_table_desc">Toca los números en orden a partir del 1 lo más rápido que puedas.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Profeta de patrones</string>
     <string name="achievement_gold_color_confusion">Colores verdaderos</string>
     <string name="achievement_gold_flock">Líder de vuelo</string>
+    <string name="achievement_gold_rail_yard">Jefe de estación</string>
     <string name="achievement_gold_head_count">Portero</string>
     <string name="achievement_gold_flash_crowd">Contador de multitudes</string>
     <string name="achievement_gold_schulte_table">Mirada veloz</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Gana la medalla de oro en Secuencia de patrones</string>
     <string name="achievement_gold_color_confusion_desc">Gana la medalla de oro en Confusión de Colores</string>
     <string name="achievement_gold_flock_desc">Gana la medalla de oro en Bandada</string>
+    <string name="achievement_gold_rail_yard_desc">Gana la medalla de oro en Patio de maniobras</string>
     <string name="achievement_gold_head_count_desc">Gana la medalla de oro en Vaivén</string>
     <string name="achievement_gold_flash_crowd_desc">Gana la medalla de oro en Multitud Relámpago</string>
     <string name="achievement_gold_schulte_table_desc">Gana la medalla de oro en Tabla de Schulte</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">A veces toda la bandada coincide.</string>
     <string name="flock_demo_caption_trap">Seguir a la bandada es la trampa.</string>
     <string name="flock_demo_caption_recover">El pájaro del medio siempre es la respuesta.</string>
+    <string name="rail_yard_demo_title">Lleva cada tren a casa</string>
+    <string name="rail_yard_demo_caption_colour">Cada tren quiere la estación de su color.</string>
+    <string name="rail_yard_demo_caption_switch">Toca una aguja para desviar el tren.</string>
+    <string name="rail_yard_demo_caption_many">Vigila todos los trenes a la vez.</string>
     <string name="spot_the_new_demo_title">Detecta el nuevo</string>
     <string name="spot_the_new_demo_seen_label">Vistos hasta ahora</string>
     <string name="spot_the_new_demo_new">Toca el animal que no has visto antes.</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>
     <string name="game_color_confusion_howto">Toca el color de la tinta.</string>
     <string name="game_flock_howto">Desliza hacia donde vuela el pájaro del medio.</string>
+    <string name="game_rail_yard_howto">Toca una aguja para cambiar de vía.</string>
     <string name="trio_demo_title">Encuentra un trío</string>
     <string name="trio_demo_rule">Tres cartas que coinciden al menos en forma, cantidad o relleno. Todo lo demás tiene que ser distinto.</string>
     <string name="trio_trait_shape">Forma</string>

@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Grila fantomă</string>
     <string name="game_color_confusion">Confuzie de culori</string>
     <string name="game_flock">Stol</string>
+    <string name="game_rail_yard">Gară de triaj</string>
     <string name="game_orbit_tracker">Urmăritor de orbite</string>
     <string name="game_bubble_sum">Suma bulelor</string>
     <string name="game_quick_sum">Sumă rapidă</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Urmărește cum se aprind dalele una câte una, apoi apasă-le în aceeași ordine.</string>
     <string name="game_color_confusion_desc">Un cuvânt de culoare apare în cerneală colorată. Apasă culoarea cernelii, nu culoarea pe care o spune cuvântul.</string>
     <string name="game_flock_desc">Un stol de păsări trece în zbor. Glisează în direcția în care zboară pasărea din mijloc și ignoră-le pe celelalte.</string>
+    <string name="game_rail_yard_desc">Trenuri colorate ies din tunel. Schimbă macazurile ca fiecare tren să ajungă în gara culorii lui.</string>
     <string name="game_orbit_tracker_desc">Urmărește bilele evidențiate, apoi ține-le minte pe măsură ce se mișcă. Selectează țintele originale după ce se opresc.</string>
     <string name="game_bubble_sum_desc">Adună numerele de pe bulele care plutesc. Mai târziu numerele clipesc — ține-le minte.</string>
     <string name="bubble_sum_instruction">Cât e suma?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Cărți rămase: %1$d</string>
     <string name="game_color_confusion_howto">Apasă culoarea cernelii.</string>
     <string name="game_flock_howto">Glisează în direcția păsării din mijloc.</string>
+    <string name="game_rail_yard_howto">Apasă un macaz ca să schimbi linia.</string>
     <string name="trio_demo_title">Găsește un trio</string>
     <string name="trio_demo_rule">Trei cărți cu cel puțin forma, numărul sau umplerea la fel. Restul trebuie să difere la toate.</string>
     <string name="trio_trait_shape">Formă</string>
@@ -527,6 +530,10 @@ Mută Cow — devine Bull.</string>
     <string name="flock_demo_caption_agree">Uneori tot stolul zboară la fel.</string>
     <string name="flock_demo_caption_trap">Capcana e să urmezi stolul.</string>
     <string name="flock_demo_caption_recover">Pasărea din mijloc e mereu răspunsul.</string>
+    <string name="rail_yard_demo_title">Trimite fiecare tren acasă</string>
+    <string name="rail_yard_demo_caption_colour">Fiecare tren vrea gara culorii lui.</string>
+    <string name="rail_yard_demo_caption_switch">Apasă un macaz ca să trimiți trenul pe altă cale.</string>
+    <string name="rail_yard_demo_caption_many">Ține ochii pe toate trenurile deodată.</string>
     <string name="pattern_sequence_prompt">Care piesă completează matricea?</string>
     <string name="game_tap_original_targets">Apasă țintele originale</string>
     <string name="game_remember_targets">Ține minte țintele</string>
@@ -604,6 +611,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_pattern_sequence">Profet al modelelor</string>
     <string name="achievement_gold_color_confusion">Culori adevărate</string>
     <string name="achievement_gold_flock">Cap de stol</string>
+    <string name="achievement_gold_rail_yard">Șef de gară</string>
     <string name="achievement_gold_head_count">Portar</string>
     <string name="achievement_gold_flash_crowd">Numărător de mulțimi</string>
     <string name="achievement_gold_schulte_table">Privire fulger</string>
@@ -646,6 +654,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Câștigă medalia de aur la Secvență de modele</string>
     <string name="achievement_gold_color_confusion_desc">Câștigă medalia de aur la Confuzie de culori</string>
     <string name="achievement_gold_flock_desc">Câștigă medalia de aur la Stol</string>
+    <string name="achievement_gold_rail_yard_desc">Câștigă medalia de aur la Gară de triaj</string>
     <string name="achievement_gold_head_count_desc">Câștigă medalia de aur la Du-te-vino</string>
     <string name="achievement_gold_flash_crowd_desc">Câștigă medalia de aur la Mulțime fulger</string>
     <string name="achievement_gold_schulte_table_desc">Câștigă medalia de aur la Tabel Schulte</string>

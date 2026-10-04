@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Mreža duhova</string>
     <string name="game_color_confusion">Zabuna boja</string>
     <string name="game_flock">Jato</string>
+    <string name="game_rail_yard">Ranžirni kolodvor</string>
     <string name="game_orbit_tracker">Pratitelj orbita</string>
     <string name="game_bubble_sum">Zbroj mjehurića</string>
     <string name="game_quick_sum">Brzi zbroj</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.</string>
     <string name="game_color_confusion_desc">Riječ boje pojavi se u obojenoj tinti. Dodirni boju tinte, ne boju koju riječ govori.</string>
     <string name="game_flock_desc">Pokraj tebe proleti jato ptica. Povuci prstom u smjeru u kojem leti ptica u sredini i ne obaziri se na ostale.</string>
+    <string name="game_rail_yard_desc">Obojeni vlakovi izlaze iz tunela. Prebacuj skretnice da svaki vlak stigne na kolodvor svoje boje.</string>
     <string name="game_orbit_tracker_desc">Prati istaknute kugle i drži ih dok se kreću. Kad stanu, odaberi izvorne ciljeve.</string>
     <string name="game_bubble_sum_desc">Zbroji brojeve na plutajućim mjehurićima. Kasnije brojevi trepere — zapamti ih.</string>
     <string name="bubble_sum_instruction">Koliki je zbroj?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Preostalo karata: %1$d</string>
     <string name="game_color_confusion_howto">Dodirni boju tinte.</string>
     <string name="game_flock_howto">Povuci u smjeru srednje ptice.</string>
+    <string name="game_rail_yard_howto">Dodirni skretnicu da promijeniš kolosijek.</string>
     <string name="trio_demo_title">Pronađi trio</string>
     <string name="trio_demo_rule">Tri karte koje imaju zajednički barem oblik, broj ili ispunu. Sve ostalo mora se razlikovati na svakoj.</string>
     <string name="trio_trait_shape">Oblik</string>
@@ -527,6 +530,10 @@ Premjesti Cow — postat će Bull.</string>
     <string name="flock_demo_caption_agree">Ponekad cijelo jato leti istim smjerom.</string>
     <string name="flock_demo_caption_trap">Zamka je pratiti jato.</string>
     <string name="flock_demo_caption_recover">Odgovor je uvijek srednja ptica.</string>
+    <string name="rail_yard_demo_title">Pošalji svaki vlak kući</string>
+    <string name="rail_yard_demo_caption_colour">Svaki vlak ide na kolodvor svoje boje.</string>
+    <string name="rail_yard_demo_caption_switch">Dodirni skretnicu i vlak će krenuti drugim putem.</string>
+    <string name="rail_yard_demo_caption_many">Pazi na sve vlakove odjednom.</string>
     <string name="pattern_sequence_prompt">Koji dijelić dopunjuje matricu?</string>
     <string name="game_tap_original_targets">Dodirni izvorne ciljeve</string>
     <string name="game_remember_targets">Zapamti ciljeve</string>
@@ -604,6 +611,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_gold_pattern_sequence">Prorok uzoraka</string>
     <string name="achievement_gold_color_confusion">Prava boja</string>
     <string name="achievement_gold_flock">Predvodnik jata</string>
+    <string name="achievement_gold_rail_yard">Šef kolodvora</string>
     <string name="achievement_gold_head_count">Vratar</string>
     <string name="achievement_gold_flash_crowd">Brojač gomile</string>
     <string name="achievement_gold_schulte_table">Munjeviti pogled</string>
@@ -646,6 +654,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Osvoji zlatnu medalju u Nizu uzoraka</string>
     <string name="achievement_gold_color_confusion_desc">Osvoji zlatnu medalju u Zabuni boja</string>
     <string name="achievement_gold_flock_desc">Osvoji zlatnu medalju u Jatu</string>
+    <string name="achievement_gold_rail_yard_desc">Osvoji zlatnu medalju u igri Ranžirni kolodvor</string>
     <string name="achievement_gold_head_count_desc">Osvoji zlatnu medalju u igri Tko je unutra</string>
     <string name="achievement_gold_flash_crowd_desc">Osvoji zlatnu medalju u Bljeskovitoj gomili</string>
     <string name="achievement_gold_schulte_table_desc">Osvoji zlatnu medalju u Schulteovoj tablici</string>

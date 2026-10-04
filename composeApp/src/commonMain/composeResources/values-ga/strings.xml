@@ -310,6 +310,7 @@
     <string name="game_ghost_grid">Eangach thaibhsí</string>
     <string name="game_color_confusion">Mearbhall dathanna</string>
     <string name="game_flock">Ealta</string>
+    <string name="game_rail_yard">Clós traenach</string>
     <string name="game_orbit_tracker">Lorgaire fithise</string>
     <string name="game_bubble_sum">Suim boilgeog</string>
     <string name="game_quick_sum">Suim thapa</string>
@@ -348,6 +349,7 @@
     <string name="game_ghost_grid_desc">Féach ar na tíl ag lasadh ceann i ndiaidh a chéile, ansin tapáil iad san ord céanna.</string>
     <string name="game_color_confusion_desc">Tagann focal datha i ndúch daite. Tapáil dath an dúigh, ní an dath a ainmníonn an focal.</string>
     <string name="game_flock_desc">Téann ealta éan thart. Svaidhpeáil sa treo a bhfuil an t-éan sa lár ag eitilt, agus ná bac leis na héin timpeall air.</string>
+    <string name="game_rail_yard_desc">Tagann traenacha daite amach as an tollán. Athraigh na pointí ionas go sroichfidh gach ceann acu stáisiún a datha.</string>
     <string name="game_orbit_tracker_desc">Féach ar na liathróidí aibhsithe agus lean iad agus iad ag gluaiseacht. Roghnaigh na spriceanna bunaidh nuair a stopann siad.</string>
     <string name="game_bubble_sum_desc">Suimigh na huimhreacha ar na boilgeoga snámha. Níos déanaí caochaíonn na huimhreacha — meabhraigh iad.</string>
     <string name="bubble_sum_instruction">Cad é an tsuim?</string>
@@ -408,6 +410,7 @@
     <string name="game_rule_shift_cards_left">Cártaí fágtha: %1$d</string>
     <string name="game_color_confusion_howto">Tapáil dath an dúigh.</string>
     <string name="game_flock_howto">Svaidhpeáil i dtreo an éin láir.</string>
+    <string name="game_rail_yard_howto">Tapáil pointe chun a rian a athrú.</string>
     <string name="trio_demo_title">Faigh trio</string>
     <string name="trio_demo_rule">Trí chárta a bhfuil ar a laghad cruth, líon nó líonadh céanna orthu. Caithfidh gach rud eile a bheith difriúil ar fad.</string>
     <string name="trio_trait_shape">Cruth</string>
@@ -539,6 +542,10 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="flock_demo_caption_agree">Uaireanta aontaíonn an ealta ar fad.</string>
     <string name="flock_demo_caption_trap">Is é leanúint na healta an gaiste.</string>
     <string name="flock_demo_caption_recover">Is é an t-éan láir an freagra i gcónaí.</string>
+    <string name="rail_yard_demo_title">Seol gach traein abhaile</string>
+    <string name="rail_yard_demo_caption_colour">Ba mhaith le gach traein dul go stáisiún a datha.</string>
+    <string name="rail_yard_demo_caption_switch">Tapáil pointe chun an traein a sheoladh an treo eile.</string>
+    <string name="rail_yard_demo_caption_many">Coinnigh súil ar gach traein ag an am céanna.</string>
     <string name="pattern_sequence_prompt">Cén píosa a chomhlánaíonn an mhaitrís?</string>
     <string name="game_tap_original_targets">Tapáil na spriceanna bunaidh</string>
     <string name="game_remember_targets">Meabhraigh na spriceanna</string>
@@ -616,6 +623,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_pattern_sequence">Fáidh patrún</string>
     <string name="achievement_gold_color_confusion">An dath ceart</string>
     <string name="achievement_gold_flock">Ceann na healta</string>
+    <string name="achievement_gold_rail_yard">Máistir stáisiúin</string>
     <string name="achievement_gold_head_count">Doirseoir</string>
     <string name="achievement_gold_flash_crowd">Áiritheoir slua</string>
     <string name="achievement_gold_schulte_table">Súil splanc</string>
@@ -658,6 +666,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_pattern_sequence_desc">Bain bonn óir amach i Seicheamh patrún</string>
     <string name="achievement_gold_color_confusion_desc">Bain bonn óir amach i Mearbhall dathanna</string>
     <string name="achievement_gold_flock_desc">Bain bonn óir amach in Ealta</string>
+    <string name="achievement_gold_rail_yard_desc">Bain bonn óir amach i gClós traenach</string>
     <string name="achievement_gold_head_count_desc">Bain bonn óir amach in Isteach is amach</string>
     <string name="achievement_gold_flash_crowd_desc">Bain bonn óir amach i Slua splanc</string>
     <string name="achievement_gold_schulte_table_desc">Bain bonn óir amach i dTábla Schulte</string>

@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">شبكة الأشباح</string>
     <string name="game_color_confusion">ارتباك الألوان</string>
     <string name="game_flock">السرب</string>
+    <string name="game_rail_yard">ساحة القطارات</string>
     <string name="game_orbit_tracker">تتبع المدار</string>
     <string name="game_bubble_sum">مجموع الفقاعات</string>
     <string name="game_bubble_sum_desc">اجمع الأرقام على الفقاعات العائمة. لاحقًا تومض الأرقام — احفظها.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
     <string name="game_color_confusion_desc">تظهر كلمة لون بحبر ملوّن. المس لون الحبر، لا اللون الذي تسميه الكلمة.</string>
     <string name="game_flock_desc">يمرّ أمامك سرب من الطيور. اسحب في الاتجاه الذي يطير فيه الطائر الأوسط، وتجاهل الطيور من حوله.</string>
+    <string name="game_rail_yard_desc">تخرج قطارات ملوّنة من النفق. بدّل التحويلات ليصل كل قطار إلى محطة لونه.</string>
     <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
     <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
     <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
@@ -274,6 +276,7 @@
     <string name="achievement_gold_pattern_sequence">نبي الأنماط</string>
     <string name="achievement_gold_color_confusion">الألوان الحقيقية</string>
     <string name="achievement_gold_flock">قائد السرب</string>
+    <string name="achievement_gold_rail_yard">ناظر المحطة</string>
     <string name="achievement_gold_head_count">حارس الباب</string>
     <string name="achievement_gold_flash_crowd">عدّاد الحشود</string>
     <string name="achievement_gold_schulte_table">نظرة برق</string>
@@ -307,6 +310,7 @@
     <string name="achievement_gold_pattern_sequence_desc">اربح الميدالية الذهبية في تسلسل الأنماط</string>
     <string name="achievement_gold_color_confusion_desc">اربح الميدالية الذهبية في ارتباك الألوان</string>
     <string name="achievement_gold_flock_desc">اربح الميدالية الذهبية في السرب</string>
+    <string name="achievement_gold_rail_yard_desc">اربح الميدالية الذهبية في ساحة القطارات</string>
     <string name="achievement_gold_head_count_desc">اربح الميدالية الذهبية في عدّ الرؤوس</string>
     <string name="achievement_gold_flash_crowd_desc">اربح الميدالية الذهبية في حشد الوميض</string>
     <string name="achievement_gold_schulte_table_desc">اربح الميدالية الذهبية في جدول شولت</string>
@@ -888,6 +892,10 @@
     <string name="flock_demo_caption_agree">أحيانًا يتفق السرب كله.</string>
     <string name="flock_demo_caption_trap">الفخ هو أن تتبع السرب.</string>
     <string name="flock_demo_caption_recover">الطائر الأوسط هو الجواب دائمًا.</string>
+    <string name="rail_yard_demo_title">أوصل كل قطار إلى بيته</string>
+    <string name="rail_yard_demo_caption_colour">لكل قطار محطة بلونه.</string>
+    <string name="rail_yard_demo_caption_switch">انقر على تحويلة ليتجه القطار في الاتجاه الآخر.</string>
+    <string name="rail_yard_demo_caption_many">راقب كل القطارات في وقت واحد.</string>
     <string name="spot_the_new_demo_title">اكتشف الجديد</string>
     <string name="spot_the_new_demo_seen_label">ما شوهد حتى الآن</string>
     <string name="spot_the_new_demo_new">انقر على الحيوان الذي لم تره من قبل.</string>
@@ -949,6 +957,7 @@
     <string name="game_rule_shift_cards_left">البطاقات المتبقية: %1$d</string>
     <string name="game_color_confusion_howto">المس لون الحبر.</string>
     <string name="game_flock_howto">اسحب في اتجاه الطائر الأوسط.</string>
+    <string name="game_rail_yard_howto">انقر على تحويلة لتغيير مسارها.</string>
     <string name="trio_demo_title">اعثر على ثلاثي</string>
     <string name="trio_demo_rule">ثلاث بطاقات تتطابق في الشكل أو العدد أو التعبئة على الأقل. وكل ما عدا ذلك يختلف في كل بطاقة.</string>
     <string name="trio_trait_shape">الشكل</string>

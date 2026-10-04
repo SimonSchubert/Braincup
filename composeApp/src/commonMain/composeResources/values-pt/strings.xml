@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Grade Fantasma</string>
     <string name="game_color_confusion">Confusão de Cores</string>
     <string name="game_flock">Bando</string>
+    <string name="game_rail_yard">Pátio de manobras</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
     <string name="game_bubble_sum">Soma bolhas</string>
     <string name="game_bubble_sum_desc">Some os números nas bolhas flutuantes. Depois os números piscam — memorize-os.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.</string>
     <string name="game_color_confusion_desc">Uma palavra de cor aparece em tinta colorida. Toque na cor da tinta, não na que a palavra diz.</string>
     <string name="game_flock_desc">Um bando de pássaros passa. Deslize na direção em que voa o pássaro do meio e ignore os que estão à volta dele.</string>
+    <string name="game_rail_yard_desc">Trens coloridos saem do túnel. Mude as agulhas para que cada um chegue à estação da sua cor.</string>
     <string name="game_orbit_tracker_desc">Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.</string>
     <string name="game_flash_crowd_desc">Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos. Não conte — confie no seu instinto!</string>
     <string name="game_schulte_table_desc">Toque nos números em ordem a partir de 1 o mais rápido que puder.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Profeta dos padrões</string>
     <string name="achievement_gold_color_confusion">Cores verdadeiras</string>
     <string name="achievement_gold_flock">Líder de voo</string>
+    <string name="achievement_gold_rail_yard">Chefe de estação</string>
     <string name="achievement_gold_head_count">Porteiro</string>
     <string name="achievement_gold_flash_crowd">Contador de multidões</string>
     <string name="achievement_gold_schulte_table">Olhar relâmpago</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Ganhe a medalha de ouro em Sequência de padrões</string>
     <string name="achievement_gold_color_confusion_desc">Ganhe a medalha de ouro em Confusão de Cores</string>
     <string name="achievement_gold_flock_desc">Ganhe a medalha de ouro em Bando</string>
+    <string name="achievement_gold_rail_yard_desc">Ganhe a medalha de ouro em Pátio de manobras</string>
     <string name="achievement_gold_head_count_desc">Ganhe a medalha de ouro em Vaivém</string>
     <string name="achievement_gold_flash_crowd_desc">Ganhe a medalha de ouro em Multidão Relâmpago</string>
     <string name="achievement_gold_schulte_table_desc">Ganhe a medalha de ouro em Tabela de Schulte</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">Às vezes o bando inteiro concorda.</string>
     <string name="flock_demo_caption_trap">Seguir o bando é a armadilha.</string>
     <string name="flock_demo_caption_recover">O pássaro do meio é sempre a resposta.</string>
+    <string name="rail_yard_demo_title">Leve cada trem para casa</string>
+    <string name="rail_yard_demo_caption_colour">Cada trem quer a estação da sua cor.</string>
+    <string name="rail_yard_demo_caption_switch">Toque em uma agulha para desviar o trem.</string>
+    <string name="rail_yard_demo_caption_many">Fique de olho em todos os trens ao mesmo tempo.</string>
     <string name="spot_the_new_demo_title">Encontre o novo</string>
     <string name="spot_the_new_demo_seen_label">Visto até agora</string>
     <string name="spot_the_new_demo_new">Toque no animal que você ainda não viu.</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>
     <string name="game_color_confusion_howto">Toque na cor da tinta.</string>
     <string name="game_flock_howto">Deslize na direção do pássaro do meio.</string>
+    <string name="game_rail_yard_howto">Toque em uma agulha para mudar de trilho.</string>
     <string name="trio_demo_title">Encontre um trio</string>
     <string name="trio_demo_rule">Três cartas iguais em pelo menos forma, quantidade ou preenchimento. Todo o resto tem de ser diferente.</string>
     <string name="trio_trait_shape">Forma</string>

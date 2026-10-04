@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">ਭੂਤ ਗਰਿੱਡ</string>
     <string name="game_color_confusion">ਰੰਗਾਂ ਦੀ ਉਲਝਣ</string>
     <string name="game_flock">ਡਾਰ</string>
+    <string name="game_rail_yard">ਰੇਲ ਯਾਰਡ</string>
     <string name="game_orbit_tracker">ਪੰਧ ਨਿਗਰਾਨ</string>
     <string name="game_bubble_sum">ਬੁਲਬੁਲਾ ਜੋੜ</string>
     <string name="game_quick_sum">ਤੇਜ਼ ਜੋੜ</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">ਖਾਨੇ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਜਗਦੇ ਵੇਖੋ, ਫਿਰ ਉਸੇ ਤਰਤੀਬ ਵਿੱਚ ਉਨ੍ਹਾਂ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="game_color_confusion_desc">ਰੰਗ ਦੱਸਣ ਵਾਲਾ ਸ਼ਬਦ ਰੰਗੀਲੀ ਸਿਆਹੀ ਵਿੱਚ ਆਉਂਦਾ ਹੈ। ਸਿਆਹੀ ਦੇ ਰੰਗ ਉੱਤੇ ਟੈਪ ਕਰੋ, ਉਸ ਰੰਗ ਉੱਤੇ ਨਹੀਂ ਜੋ ਸ਼ਬਦ ਦੱਸਦਾ ਹੈ।</string>
     <string name="game_flock_desc">ਪੰਛੀਆਂ ਦੀ ਇੱਕ ਡਾਰ ਉੱਡਦੀ ਲੰਘਦੀ ਹੈ। ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਜਿਸ ਪਾਸੇ ਉੱਡ ਰਿਹਾ ਹੈ, ਉਸ ਪਾਸੇ ਸਵਾਈਪ ਕਰੋ, ਅਤੇ ਆਲੇ-ਦੁਆਲੇ ਦੇ ਪੰਛੀਆਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ।</string>
+    <string name="game_rail_yard_desc">ਰੰਗ-ਬਿਰੰਗੀਆਂ ਗੱਡੀਆਂ ਸੁਰੰਗ ਵਿੱਚੋਂ ਨਿਕਲਦੀਆਂ ਹਨ। ਕਾਂਟੇ ਬਦਲੋ, ਤਾਂ ਜੋ ਹਰ ਗੱਡੀ ਆਪਣੇ ਰੰਗ ਦੇ ਸਟੇਸ਼ਨ ਤੱਕ ਪਹੁੰਚੇ।</string>
     <string name="game_orbit_tracker_desc">ਉਭਾਰੀਆਂ ਗੇਂਦਾਂ ਵੇਖੋ, ਹਿਲਦਿਆਂ ਉਨ੍ਹਾਂ ਦਾ ਪਿੱਛਾ ਕਰੋ। ਰੁਕਣ ਬਾਅਦ ਅਸਲ ਨਿਸ਼ਾਨੇ ਚੁਣੋ।</string>
     <string name="game_bubble_sum_desc">ਤੈਰਦੇ ਬੁਲਬੁਲਿਆਂ ਉੱਤੇ ਨੰਬਰ ਜੋੜੋ। ਬਾਅਦ ਵਿੱਚ ਨੰਬਰ ਟਿਮਟਿਮਾਉਂਦੇ ਹਨ — ਉਨ੍ਹਾਂ ਨੂੰ ਯਾਦ ਰੱਖੋ।</string>
     <string name="bubble_sum_instruction">ਜੋੜ ਕਿੰਨਾ ਹੈ?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">ਬਾਕੀ ਪੱਤੇ: %1$d</string>
     <string name="game_color_confusion_howto">ਸਿਆਹੀ ਦੇ ਰੰਗ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="game_flock_howto">ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਜਿਸ ਪਾਸੇ ਉੱਡੇ, ਉਸ ਪਾਸੇ ਸਵਾਈਪ ਕਰੋ।</string>
+    <string name="game_rail_yard_howto">ਪਟੜੀ ਬਦਲਣ ਲਈ ਕਾਂਟੇ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="trio_demo_title">ਤਿੱਕੜੀ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਤਿੰਨ ਪੱਤੇ ਜਿਨ੍ਹਾਂ ਦਾ ਆਕਾਰ, ਗਿਣਤੀ ਜਾਂ ਭਰਾਈ ਵਿੱਚੋਂ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਇੱਕੋ ਹੋਵੇ। ਬਾਕੀ ਸਭ ਹਰ ਪੱਤੇ ਉੱਤੇ ਵੱਖਰਾ।</string>
     <string name="trio_trait_shape">ਆਕਾਰ</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">ਕਦੇ-ਕਦੇ ਸਾਰੀ ਡਾਰ ਇੱਕੋ ਪਾਸੇ ਉੱਡਦੀ ਹੈ।</string>
     <string name="flock_demo_caption_trap">ਡਾਰ ਦੇ ਮਗਰ ਲੱਗਣਾ ਹੀ ਫੰਦਾ ਹੈ।</string>
     <string name="flock_demo_caption_recover">ਜਵਾਬ ਹਮੇਸ਼ਾ ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਹੀ ਹੈ।</string>
+    <string name="rail_yard_demo_title">ਹਰ ਗੱਡੀ ਨੂੰ ਘਰ ਪਹੁੰਚਾਓ</string>
+    <string name="rail_yard_demo_caption_colour">ਹਰ ਗੱਡੀ ਨੂੰ ਆਪਣੇ ਰੰਗ ਦਾ ਸਟੇਸ਼ਨ ਚਾਹੀਦਾ ਹੈ।</string>
+    <string name="rail_yard_demo_caption_switch">ਕਾਂਟੇ ਉੱਤੇ ਟੈਪ ਕਰੋ, ਗੱਡੀ ਦੂਜੇ ਪਾਸੇ ਜਾਵੇਗੀ।</string>
+    <string name="rail_yard_demo_caption_many">ਸਾਰੀਆਂ ਗੱਡੀਆਂ ਉੱਤੇ ਇੱਕੋ ਵੇਲੇ ਨਜ਼ਰ ਰੱਖੋ।</string>
     <string name="pattern_sequence_prompt">ਕਿਹੜਾ ਟੁਕੜਾ ਮੈਟ੍ਰਿਕਸ ਪੂਰਾ ਕਰਦਾ ਹੈ?</string>
     <string name="game_tap_original_targets">ਅਸਲ ਨਿਸ਼ਾਨਿਆਂ ਉੱਤੇ ਟੈਪ ਕਰੋ</string>
     <string name="game_remember_targets">ਨਿਸ਼ਾਨੇ ਯਾਦ ਰੱਖੋ</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">ਨਮੂਨਾ ਭਵਿੱਖਬਾਣੀ</string>
     <string name="achievement_gold_color_confusion">ਅਸਲੀ ਰੰਗ</string>
     <string name="achievement_gold_flock">ਡਾਰ ਦਾ ਆਗੂ</string>
+    <string name="achievement_gold_rail_yard">ਸਟੇਸ਼ਨ ਮਾਸਟਰ</string>
     <string name="achievement_gold_head_count">ਦਰਬਾਨ</string>
     <string name="achievement_gold_flash_crowd">ਭੀੜ ਗਿਣਨ ਵਾਲਾ</string>
     <string name="achievement_gold_schulte_table">ਬਿਜਲੀ ਨਜ਼ਰ</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">ਨਮੂਨਾ ਲੜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_color_confusion_desc">ਰੰਗਾਂ ਦੀ ਉਲਝਣ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_flock_desc">ਡਾਰ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_rail_yard_desc">ਰੇਲ ਯਾਰਡ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_head_count_desc">ਘਰ ਦੀ ਗਿਣਤੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_flash_crowd_desc">ਲਿਸ਼ਕਦੀ ਭੀੜ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_schulte_table_desc">ਸ਼ੁਲਟੇ ਸਾਰਣੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>

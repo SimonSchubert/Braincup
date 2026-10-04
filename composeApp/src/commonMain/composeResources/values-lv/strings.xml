@@ -302,6 +302,7 @@
     <string name="game_ghost_grid">Rēgu režģis</string>
     <string name="game_color_confusion">Krāsu sajukums</string>
     <string name="game_flock">Bars</string>
+    <string name="game_rail_yard">Šķirotava</string>
     <string name="game_orbit_tracker">Orbītu izsekotājs</string>
     <string name="game_bubble_sum">Burbuļu summa</string>
     <string name="game_quick_sum">Ātrā summa</string>
@@ -340,6 +341,7 @@
     <string name="game_ghost_grid_desc">Skaties, kā flīzes iedegas viena pēc otras, un pieskaries tām tajā pašā secībā.</string>
     <string name="game_color_confusion_desc">Krāsas vārds parādās krāsainā tintē. Pieskaries tintes krāsai, nevis krāsai, ko nosauc vārds.</string>
     <string name="game_flock_desc">Garām aizlido putnu bars. Pavelc virzienā, kurā lido vidējais putns, un nepievērs uzmanību pārējiem.</string>
+    <string name="game_rail_yard_desc">Krāsainie vilcieni izbrauc no tuneļa. Pārslēdz pārmijas, lai katrs vilciens nonāktu savas krāsas stacijā.</string>
     <string name="game_orbit_tracker_desc">Skaties izceltās bumbiņas un turi tās, kamēr tās kustas. Kad apstājas, izvēlies sākotnējos mērķus.</string>
     <string name="game_bubble_sum_desc">Saskaiti skaitļus uz peldošajiem burbuļiem. Vēlāk skaitļi mirgo — atceries tos.</string>
     <string name="bubble_sum_instruction">Kāda ir summa?</string>
@@ -400,6 +402,7 @@
     <string name="game_rule_shift_cards_left">Atlikušas kārtis: %1$d</string>
     <string name="game_color_confusion_howto">Pieskaries tintes krāsai.</string>
     <string name="game_flock_howto">Pavelc uz to pusi, kur lido vidējais putns.</string>
+    <string name="game_rail_yard_howto">Pieskaries pārmijai, lai nomainītu sliedes.</string>
     <string name="trio_demo_title">Atrodi trio</string>
     <string name="trio_demo_rule">Trīs kārtis, kurām sakrīt vismaz forma, skaits vai pildījums. Visam pārējam jāatšķiras.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -527,6 +530,10 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="flock_demo_caption_agree">Dažreiz viss bars lido vienā virzienā.</string>
     <string name="flock_demo_caption_trap">Lamatas ir sekot baram.</string>
     <string name="flock_demo_caption_recover">Atbilde vienmēr ir vidējais putns.</string>
+    <string name="rail_yard_demo_title">Nosūti katru vilcienu mājās</string>
+    <string name="rail_yard_demo_caption_colour">Katrs vilciens brauc uz savas krāsas staciju.</string>
+    <string name="rail_yard_demo_caption_switch">Pieskaries pārmijai, un vilciens brauks citā virzienā.</string>
+    <string name="rail_yard_demo_caption_many">Skaties uz visiem vilcieniem reizē.</string>
     <string name="pattern_sequence_prompt">Kurš gabals papildina matricu?</string>
     <string name="game_tap_original_targets">Pieskaries sākotnējiem mērķiem</string>
     <string name="game_remember_targets">Atceries mērķus</string>
@@ -604,6 +611,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_pattern_sequence">Rakstu pravietis</string>
     <string name="achievement_gold_color_confusion">Īstā krāsa</string>
     <string name="achievement_gold_flock">Bara vadonis</string>
+    <string name="achievement_gold_rail_yard">Stacijas priekšnieks</string>
     <string name="achievement_gold_head_count">Durvju sargs</string>
     <string name="achievement_gold_flash_crowd">Pūļa skaitītājs</string>
     <string name="achievement_gold_schulte_table">Zibens skatiens</string>
@@ -646,6 +654,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Iegūsti zelta medaļu Rakstu secībā</string>
     <string name="achievement_gold_color_confusion_desc">Iegūsti zelta medaļu Krāsu sajukumā</string>
     <string name="achievement_gold_flock_desc">Iegūsti zelta medaļu spēlē Bars</string>
+    <string name="achievement_gold_rail_yard_desc">Iegūsti zelta medaļu spēlē Šķirotava</string>
     <string name="achievement_gold_head_count_desc">Iegūsti zelta medaļu spēlē Kas ir iekšā</string>
     <string name="achievement_gold_flash_crowd_desc">Iegūsti zelta medaļu Mirgojošajā pūlī</string>
     <string name="achievement_gold_schulte_table_desc">Iegūsti zelta medaļu Šultes tabulā</string>

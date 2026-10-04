@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Siatka Duchów</string>
     <string name="game_color_confusion">Zamieszanie Kolorów</string>
     <string name="game_flock">Stado</string>
+    <string name="game_rail_yard">Stacja rozrządowa</string>
     <string name="game_orbit_tracker">Śledzenie Orbit</string>
     <string name="game_bubble_sum">Suma baniek</string>
     <string name="game_bubble_sum_desc">Dodaj liczby na unoszących się bańkach. Później liczby mrugają — zapamiętaj je.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>
     <string name="game_color_confusion_desc">Kolorowe słowo pojawia się w kolorowym atramencie. Dotknij koloru atramentu, nie koloru, który słowo nazywa.</string>
     <string name="game_flock_desc">Obok przelatuje stado ptaków. Przesuń palcem w stronę, w którą leci środkowy ptak, i nie zwracaj uwagi na pozostałe.</string>
+    <string name="game_rail_yard_desc">Kolorowe pociągi wyjeżdżają z tunelu. Przestawiaj rozjazdy, aby każdy pociąg dojechał na stację swojego koloru.</string>
     <string name="game_orbit_tracker_desc">Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.</string>
     <string name="game_flash_crowd_desc">Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek. Nie licz — zaufaj swojemu instynktowi!</string>
     <string name="game_schulte_table_desc">Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.</string>
@@ -268,6 +270,7 @@
     <string name="achievement_gold_pattern_sequence">Prorok wzorów</string>
     <string name="achievement_gold_color_confusion">Prawdziwe barwy</string>
     <string name="achievement_gold_flock">Przewodnik stada</string>
+    <string name="achievement_gold_rail_yard">Naczelnik stacji</string>
     <string name="achievement_gold_head_count">Odźwierny</string>
     <string name="achievement_gold_flash_crowd">Liczyciel tłumu</string>
     <string name="achievement_gold_schulte_table">Błyskawiczne spojrzenie</string>
@@ -301,6 +304,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Zdobądź złoty medal w Sekwencja wzorów</string>
     <string name="achievement_gold_color_confusion_desc">Zdobądź złoty medal w Zamieszanie Kolorów</string>
     <string name="achievement_gold_flock_desc">Zdobądź złoty medal w Stadzie</string>
+    <string name="achievement_gold_rail_yard_desc">Zdobądź złoty medal w Stacji rozrządowej</string>
     <string name="achievement_gold_head_count_desc">Zdobądź złoty medal w Liczeniu gości</string>
     <string name="achievement_gold_flash_crowd_desc">Zdobądź złoty medal w Błyskawiczny Tłum</string>
     <string name="achievement_gold_schulte_table_desc">Zdobądź złoty medal w Tablica Schulte'a</string>
@@ -878,6 +882,10 @@
     <string name="flock_demo_caption_agree">Czasem całe stado leci razem.</string>
     <string name="flock_demo_caption_trap">Pułapką jest podążanie za stadem.</string>
     <string name="flock_demo_caption_recover">Odpowiedzią zawsze jest środkowy ptak.</string>
+    <string name="rail_yard_demo_title">Odeślij każdy pociąg do domu</string>
+    <string name="rail_yard_demo_caption_colour">Każdy pociąg jedzie na stację swojego koloru.</string>
+    <string name="rail_yard_demo_caption_switch">Dotknij rozjazdu, a pociąg pojedzie drugim torem.</string>
+    <string name="rail_yard_demo_caption_many">Pilnuj wszystkich pociągów naraz.</string>
     <string name="spot_the_new_demo_title">Znajdź nowy</string>
     <string name="spot_the_new_demo_seen_label">Dotychczas widziane</string>
     <string name="spot_the_new_demo_new">Dotknij zwierzęcia, którego wcześniej nie widziałeś.</string>
@@ -937,6 +945,7 @@
     <string name="game_rule_shift_cards_left">Pozostało kart: %1$d</string>
     <string name="game_color_confusion_howto">Dotknij koloru atramentu.</string>
     <string name="game_flock_howto">Przesuń tam, dokąd leci środkowy ptak.</string>
+    <string name="game_rail_yard_howto">Dotknij rozjazdu, aby zmienić tor.</string>
     <string name="trio_demo_title">Znajdź trio</string>
     <string name="trio_demo_rule">Trzy karty, które mają wspólny co najmniej kształt, liczbę lub wypełnienie. Cała reszta musi być wszędzie inna.</string>
     <string name="trio_trait_shape">Kształt</string>

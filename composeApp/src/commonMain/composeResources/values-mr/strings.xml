@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">भूत ग्रिड</string>
     <string name="game_color_confusion">रंगांचा गोंधळ</string>
     <string name="game_flock">थवा</string>
+    <string name="game_rail_yard">रेल यार्ड</string>
     <string name="game_orbit_tracker">कक्षा मागोवा</string>
     <string name="game_bubble_sum">बुडबुडे बेरीज</string>
     <string name="game_quick_sum">झटपट बेरीज</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">चौकटी एकामागून एक उजळताना पहा, मग त्याच क्रमाने त्यांवर टॅप करा.</string>
     <string name="game_color_confusion_desc">एक रंगशब्द रंगीत शाईत दिसतो. शाईच्या रंगावर टॅप करा, शब्द सांगतो त्या रंगावर नाही.</string>
     <string name="game_flock_desc">पक्ष्यांचा एक थवा उडत जातो. मधला पक्षी ज्या दिशेने उडतो त्या दिशेने स्वाइप करा, आणि आजूबाजूच्या पक्ष्यांकडे दुर्लक्ष करा.</string>
+    <string name="game_rail_yard_desc">रंगीत रेल्वे बोगद्यातून बाहेर पडतात. काटे बदला, म्हणजे प्रत्येक रेल्वे आपल्या रंगाच्या स्टेशनवर पोहोचेल.</string>
     <string name="game_orbit_tracker_desc">ठळक केलेले चेंडू पहा, ते हलताना त्यांचा मागोवा घ्या. ते थांबल्यावर मूळ लक्ष्ये निवडा.</string>
     <string name="game_bubble_sum_desc">तरंगत्या बुडबुड्यांवरील अंकांची बेरीज करा. नंतर अंक लुकलुकतात — ते लक्षात ठेवा.</string>
     <string name="bubble_sum_instruction">बेरीज किती?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">उरलेली पत्ते: %1$d</string>
     <string name="game_color_confusion_howto">शाईच्या रंगावर टॅप करा.</string>
     <string name="game_flock_howto">मधला पक्षी उडतो त्या दिशेने स्वाइप करा.</string>
+    <string name="game_rail_yard_howto">रूळ बदलण्यासाठी काट्यावर टॅप करा.</string>
     <string name="trio_demo_title">त्रिकूट शोधा</string>
     <string name="trio_demo_rule">तीन पत्ते ज्यांचा आकार, संख्या किंवा भरणी यांपैकी किमान एक सारखे आहे. बाकी सगळे प्रत्येक पत्त्यावर वेगळे.</string>
     <string name="trio_trait_shape">आकार</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">कधीकधी सगळा थवा एकाच दिशेने उडतो.</string>
     <string name="flock_demo_caption_trap">थव्यामागे जाणे हाच सापळा आहे.</string>
     <string name="flock_demo_caption_recover">उत्तर नेहमी मधला पक्षीच असतो.</string>
+    <string name="rail_yard_demo_title">प्रत्येक रेल्वेला घरी पोहोचवा</string>
+    <string name="rail_yard_demo_caption_colour">प्रत्येक रेल्वेला स्वतःच्या रंगाचे स्टेशन हवे.</string>
+    <string name="rail_yard_demo_caption_switch">काट्यावर टॅप करा, रेल्वे दुसऱ्या बाजूला जाईल.</string>
+    <string name="rail_yard_demo_caption_many">सर्व रेल्वेंवर एकाच वेळी लक्ष ठेवा.</string>
     <string name="pattern_sequence_prompt">कोणता तुकडा मॅट्रिक्स पूर्ण करतो?</string>
     <string name="game_tap_original_targets">मूळ लक्ष्यांवर टॅप करा</string>
     <string name="game_remember_targets">लक्ष्ये लक्षात ठेवा</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">नमुना द्रष्टा</string>
     <string name="achievement_gold_color_confusion">खरे रंग</string>
     <string name="achievement_gold_flock">थव्याचा म्होरक्या</string>
+    <string name="achievement_gold_rail_yard">स्टेशन मास्तर</string>
     <string name="achievement_gold_head_count">द्वारपाल</string>
     <string name="achievement_gold_flash_crowd">गर्दी मोजणारा</string>
     <string name="achievement_gold_schulte_table">विजेची नजर</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">नमुना क्रमात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_color_confusion_desc">रंगांच्या गोंधळात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_flock_desc">थव्यात सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_rail_yard_desc">रेल यार्डमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_head_count_desc">डोकीमोजणीत सुवर्णपदक जिंका</string>
     <string name="achievement_gold_flash_crowd_desc">क्षणिक गर्दीत सुवर्णपदक जिंका</string>
     <string name="achievement_gold_schulte_table_desc">शुल्टे तक्त्यात सुवर्णपदक जिंका</string>

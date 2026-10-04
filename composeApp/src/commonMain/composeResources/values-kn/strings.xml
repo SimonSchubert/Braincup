@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">ಭೂತ ಗ್ರಿಡ್</string>
     <string name="game_color_confusion">ಬಣ್ಣಗಳ ಗೊಂದಲ</string>
     <string name="game_flock">ಹಕ್ಕಿಗಳ ಹಿಂಡು</string>
+    <string name="game_rail_yard">ರೈಲು ಯಾರ್ಡ್</string>
     <string name="game_orbit_tracker">ಕಕ್ಷೆ ಜಾಡು</string>
     <string name="game_bubble_sum">ಗುಳ್ಳೆ ಮೊತ್ತ</string>
     <string name="game_quick_sum">ತ್ವರಿತ ಮೊತ್ತ</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">ಚೌಕಗಳು ಒಂದೊಂದಾಗಿ ಬೆಳಗುವುದನ್ನು ನೋಡಿ, ನಂತರ ಅದೇ ಕ್ರಮದಲ್ಲಿ ಅವುಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="game_color_confusion_desc">ಒಂದು ಬಣ್ಣದ ಪದ ಬಣ್ಣದ ಶಾಯಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ. ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ಪದ ಹೇಳುವ ಬಣ್ಣವನ್ನು ಅಲ್ಲ.</string>
     <string name="game_flock_desc">ಹಕ್ಕಿಗಳ ಹಿಂಡೊಂದು ಹಾರಿ ಹೋಗುತ್ತದೆ. ನಡುವಿನ ಹಕ್ಕಿ ಹಾರುವ ದಿಕ್ಕಿಗೆ ಸ್ವೈಪ್ ಮಾಡಿ, ಸುತ್ತಲಿನ ಹಕ್ಕಿಗಳನ್ನು ಲೆಕ್ಕಿಸಬೇಡಿ.</string>
+    <string name="game_rail_yard_desc">ಬಣ್ಣದ ರೈಲುಗಳು ಸುರಂಗದಿಂದ ಹೊರಬರುತ್ತವೆ. ಪ್ರತಿ ರೈಲು ತನ್ನ ಬಣ್ಣದ ನಿಲ್ದಾಣ ತಲುಪುವಂತೆ ಪಾಯಿಂಟ್‌ಗಳನ್ನು ಬದಲಾಯಿಸಿ.</string>
     <string name="game_orbit_tracker_desc">ಎತ್ತಿ ತೋರಿಸಿದ ಚೆಂಡುಗಳನ್ನು ನೋಡಿ, ಅವು ಚಲಿಸುವಾಗ ಜಾಡು ಹಿಡಿಯಿರಿ. ಅವು ನಿಂತ ಮೇಲೆ ಮೂಲ ಗುರಿಗಳನ್ನು ಆರಿಸಿ.</string>
     <string name="game_bubble_sum_desc">ತೇಲುವ ಗುಳ್ಳೆಗಳ ಮೇಲಿನ ಸಂಖ್ಯೆಗಳನ್ನು ಕೂಡಿಸಿ. ನಂತರ ಸಂಖ್ಯೆಗಳು ಮಿನುಗುತ್ತವೆ — ಅವನ್ನು ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ.</string>
     <string name="bubble_sum_instruction">ಮೊತ್ತ ಎಷ್ಟು?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">ಉಳಿದ ಕಾರ್ಡ್‌ಗಳು: %1$d</string>
     <string name="game_color_confusion_howto">ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="game_flock_howto">ನಡುವಿನ ಹಕ್ಕಿ ಹಾರುವ ದಿಕ್ಕಿಗೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
+    <string name="game_rail_yard_howto">ಹಳಿ ಬದಲಾಯಿಸಲು ಪಾಯಿಂಟ್ ಅನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="trio_demo_title">ತ್ರಿವಳಿಯನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಆಕಾರ, ಸಂಖ್ಯೆ ಅಥವಾ ತುಂಬುವಿಕೆಯಲ್ಲಿ ಕನಿಷ್ಠ ಒಂದು ಒಂದೇ ಆಗಿರುವ ಮೂರು ಎಲೆಗಳು. ಉಳಿದೆಲ್ಲವೂ ಪ್ರತಿ ಎಲೆಯಲ್ಲಿ ಬೇರೆ.</string>
     <string name="trio_trait_shape">ಆಕಾರ</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">ಕೆಲವೊಮ್ಮೆ ಇಡೀ ಹಿಂಡು ಒಂದೇ ದಿಕ್ಕಿಗೆ.</string>
     <string name="flock_demo_caption_trap">ಹಿಂಡನ್ನು ಅನುಸರಿಸುವುದೇ ಬಲೆ.</string>
     <string name="flock_demo_caption_recover">ಉತ್ತರ ಯಾವಾಗಲೂ ನಡುವಿನ ಹಕ್ಕಿಯೇ.</string>
+    <string name="rail_yard_demo_title">ಪ್ರತಿ ರೈಲನ್ನೂ ಮನೆ ಸೇರಿಸಿ</string>
+    <string name="rail_yard_demo_caption_colour">ಪ್ರತಿ ರೈಲಿಗೂ ತನ್ನ ಬಣ್ಣದ ನಿಲ್ದಾಣ ಬೇಕು.</string>
+    <string name="rail_yard_demo_caption_switch">ಪಾಯಿಂಟ್ ಟ್ಯಾಪ್ ಮಾಡಿದರೆ ರೈಲು ಬೇರೆ ಕಡೆ ಹೋಗುತ್ತದೆ.</string>
+    <string name="rail_yard_demo_caption_many">ಎಲ್ಲಾ ರೈಲುಗಳ ಮೇಲೆ ಒಮ್ಮೆಲೇ ಕಣ್ಣಿಡಿ.</string>
     <string name="pattern_sequence_prompt">ಯಾವ ತುಂಡು ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ?</string>
     <string name="game_tap_original_targets">ಮೂಲ ಗುರಿಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="game_remember_targets">ಗುರಿಗಳನ್ನು ನೆನಪಿಡಿ</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">ವಿನ್ಯಾಸ ದ್ರಷ್ಟಾರ</string>
     <string name="achievement_gold_color_confusion">ನಿಜವಾದ ಬಣ್ಣಗಳು</string>
     <string name="achievement_gold_flock">ಹಿಂಡಿನ ನಾಯಕ</string>
+    <string name="achievement_gold_rail_yard">ಸ್ಟೇಷನ್ ಮಾಸ್ಟರ್</string>
     <string name="achievement_gold_head_count">ದ್ವಾರಪಾಲಕ</string>
     <string name="achievement_gold_flash_crowd">ಗುಂಪು ಎಣಿಸುವವ</string>
     <string name="achievement_gold_schulte_table">ಮಿಂಚಿನ ದೃಷ್ಟಿ</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">ವಿನ್ಯಾಸ ಅನುಕ್ರಮದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_color_confusion_desc">ಬಣ್ಣಗಳ ಗೊಂದಲದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_flock_desc">ಹಕ್ಕಿಗಳ ಹಿಂಡಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_rail_yard_desc">ರೈಲು ಯಾರ್ಡ್‌ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_head_count_desc">ತಲೆ ಎಣಿಕೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_flash_crowd_desc">ಮಿಂಚಿನ ಗುಂಪಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_schulte_table_desc">ಶುಲ್ಟೆ ಕೋಷ್ಟಕದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>

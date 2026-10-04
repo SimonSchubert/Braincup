@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Griglia Fantasma</string>
     <string name="game_color_confusion">Confusione di Colori</string>
     <string name="game_flock">Stormo</string>
+    <string name="game_rail_yard">Scalo ferroviario</string>
     <string name="game_orbit_tracker">Inseguitore di Orbite</string>
     <string name="game_bubble_sum">Somma bolle</string>
     <string name="game_bubble_sum_desc">Somma i numeri sulle bolle fluttuanti. Poi i numeri lampeggiano: memorizzali.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Osserva le caselle illuminarsi una alla volta, poi toccale nello stesso ordine.</string>
     <string name="game_color_confusion_desc">Compare una parola di colore in inchiostro colorato. Tocca il colore dell'inchiostro, non quello che dice la parola.</string>
     <string name="game_flock_desc">Uno stormo di uccelli passa in volo. Scorri nella direzione dell'uccello al centro e ignora quelli intorno.</string>
+    <string name="game_rail_yard_desc">Treni colorati escono dalla galleria. Aziona gli scambi in modo che ognuno arrivi alla stazione del suo colore.</string>
     <string name="game_orbit_tracker_desc">Osserva le palle evidenziate, poi seguile mentre si muovono. Seleziona i bersagli originali dopo che si fermano.</string>
     <string name="game_flash_crowd_desc">I punti lampeggiano brevemente su ogni lato. Tocca il lato che aveva più punti. Non contare — fidati del tuo istinto!</string>
     <string name="game_schulte_table_desc">Tocca i numeri in ordine dal 1 in su il più velocemente possibile.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Profeta dei motivi</string>
     <string name="achievement_gold_color_confusion">Colori veri</string>
     <string name="achievement_gold_flock">Capostormo</string>
+    <string name="achievement_gold_rail_yard">Capostazione</string>
     <string name="achievement_gold_head_count">Buttafuori</string>
     <string name="achievement_gold_flash_crowd">Contatore di folle</string>
     <string name="achievement_gold_schulte_table">Sguardo fulmineo</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Vinci la medaglia d'oro in Sequenza di schemi</string>
     <string name="achievement_gold_color_confusion_desc">Vinci la medaglia d'oro in Confusione di Colori</string>
     <string name="achievement_gold_flock_desc">Vinci la medaglia d'oro in Stormo</string>
+    <string name="achievement_gold_rail_yard_desc">Vinci la medaglia d'oro in Scalo ferroviario</string>
     <string name="achievement_gold_head_count_desc">Vinci la medaglia d'oro in Viavai</string>
     <string name="achievement_gold_flash_crowd_desc">Vinci la medaglia d'oro in Folla Lampo</string>
     <string name="achievement_gold_schulte_table_desc">Vinci la medaglia d'oro in Tabella di Schulte</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">A volte tutto lo stormo concorda.</string>
     <string name="flock_demo_caption_trap">Seguire lo stormo è la trappola.</string>
     <string name="flock_demo_caption_recover">L'uccello al centro è sempre la risposta.</string>
+    <string name="rail_yard_demo_title">Porta ogni treno a casa</string>
+    <string name="rail_yard_demo_caption_colour">Ogni treno vuole la stazione del suo colore.</string>
+    <string name="rail_yard_demo_caption_switch">Tocca uno scambio per mandare il treno dall'altra parte.</string>
+    <string name="rail_yard_demo_caption_many">Tieni d'occhio tutti i treni insieme.</string>
     <string name="spot_the_new_demo_title">Trova il nuovo</string>
     <string name="spot_the_new_demo_seen_label">Visti finora</string>
     <string name="spot_the_new_demo_new">Tocca l'animale che non hai ancora visto.</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Carte rimaste: %1$d</string>
     <string name="game_color_confusion_howto">Tocca il colore dell'inchiostro.</string>
     <string name="game_flock_howto">Scorri dove vola l'uccello al centro.</string>
+    <string name="game_rail_yard_howto">Tocca uno scambio per cambiare binario.</string>
     <string name="trio_demo_title">Trova un trio</string>
     <string name="trio_demo_rule">Tre carte con in comune almeno forma, quantità o riempimento. Tutto il resto deve essere diverso.</string>
     <string name="trio_trait_shape">Forma</string>

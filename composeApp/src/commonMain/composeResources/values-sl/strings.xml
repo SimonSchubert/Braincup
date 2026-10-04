@@ -306,6 +306,7 @@
     <string name="game_ghost_grid">Mreža duhov</string>
     <string name="game_color_confusion">Zmeda barv</string>
     <string name="game_flock">Jata</string>
+    <string name="game_rail_yard">Rangirna postaja</string>
     <string name="game_orbit_tracker">Sledilec orbit</string>
     <string name="game_bubble_sum">Vsota mehurčkov</string>
     <string name="game_quick_sum">Hitra vsota</string>
@@ -344,6 +345,7 @@
     <string name="game_ghost_grid_desc">Spremljaj, kako se ploščice prižigajo ena za drugo, in se jih dotakni v istem vrstnem redu.</string>
     <string name="game_color_confusion_desc">Barvna beseda se pojavi v obarvanem črnilu. Dotakni se barve črnila, ne barve, ki jo beseda pove.</string>
     <string name="game_flock_desc">Mimo prileti jata ptic. Povleci v smer, v katero leti ptica na sredini, in se ne meni za ptice okoli nje.</string>
+    <string name="game_rail_yard_desc">Barvni vlaki se pripeljejo iz predora. Prestavljaj kretnice, da vsak vlak pride na postajo svoje barve.</string>
     <string name="game_orbit_tracker_desc">Spremljaj osvetljene kroglice in jih drži, ko se premikajo. Ko se ustavijo, izberi izvirne cilje.</string>
     <string name="game_bubble_sum_desc">Seštej števila na plavajočih mehurčkih. Kasneje števila utripajo — zapomni si jih.</string>
     <string name="bubble_sum_instruction">Kolikšna je vsota?</string>
@@ -404,6 +406,7 @@
     <string name="game_rule_shift_cards_left">Preostalo kart: %1$d</string>
     <string name="game_color_confusion_howto">Dotakni se barve črnila.</string>
     <string name="game_flock_howto">Povleci v smer, kamor leti srednja ptica.</string>
+    <string name="game_rail_yard_howto">Dotakni se kretnice, da spremeniš tir.</string>
     <string name="trio_demo_title">Najdi trio</string>
     <string name="trio_demo_rule">Tri karte, ki imajo skupno vsaj obliko, število ali polnilo. Vse drugo se mora vsakič razlikovati.</string>
     <string name="trio_trait_shape">Oblika</string>
@@ -533,6 +536,10 @@ Premakni Cow — postal bo Bull.</string>
     <string name="flock_demo_caption_agree">Včasih vsa jata leti v isto smer.</string>
     <string name="flock_demo_caption_trap">Past je, da slediš jati.</string>
     <string name="flock_demo_caption_recover">Odgovor je vedno srednja ptica.</string>
+    <string name="rail_yard_demo_title">Pošlji vsak vlak domov</string>
+    <string name="rail_yard_demo_caption_colour">Vsak vlak gre na postajo svoje barve.</string>
+    <string name="rail_yard_demo_caption_switch">Dotakni se kretnice in vlak bo zapeljal po drugem tiru.</string>
+    <string name="rail_yard_demo_caption_many">Pazi na vse vlake hkrati.</string>
     <string name="pattern_sequence_prompt">Kateri kos dopolni matriko?</string>
     <string name="game_tap_original_targets">Dotakni se izvirnih ciljev</string>
     <string name="game_remember_targets">Zapomni si cilje</string>
@@ -610,6 +617,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_pattern_sequence">Prerok vzorcev</string>
     <string name="achievement_gold_color_confusion">Prava barva</string>
     <string name="achievement_gold_flock">Vodja jate</string>
+    <string name="achievement_gold_rail_yard">Postajni načelnik</string>
     <string name="achievement_gold_head_count">Vratar</string>
     <string name="achievement_gold_flash_crowd">Števec množice</string>
     <string name="achievement_gold_schulte_table">Bliskovit pogled</string>
@@ -652,6 +660,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Osvoji zlato medaljo v Zaporedju vzorcev</string>
     <string name="achievement_gold_color_confusion_desc">Osvoji zlato medaljo v Zmedi barv</string>
     <string name="achievement_gold_flock_desc">Osvoji zlato medaljo v Jati</string>
+    <string name="achievement_gold_rail_yard_desc">Osvoji zlato medaljo v igri Rangirna postaja</string>
     <string name="achievement_gold_head_count_desc">Osvoji zlato medaljo v igri Kdo je notri</string>
     <string name="achievement_gold_flash_crowd_desc">Osvoji zlato medaljo v Utripajoči množici</string>
     <string name="achievement_gold_schulte_table_desc">Osvoji zlato medaljo v Schultetovi tabeli</string>

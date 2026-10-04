@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">ゴーストグリッド</string>
     <string name="game_color_confusion">カラーコンフュージョン</string>
     <string name="game_flock">鳥の群れ</string>
+    <string name="game_rail_yard">操車場</string>
     <string name="game_orbit_tracker">オービットトラッカー</string>
     <string name="game_bubble_sum">バブル合計</string>
     <string name="game_bubble_sum_desc">浮かぶバブルの数字を足しましょう。後で数字が点滅します。覚えておいてください。</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
     <string name="game_color_confusion_desc">色の単語が色つきのインクで現れます。インクの色をタップしてください。言葉が示す色ではありません。</string>
     <string name="game_flock_desc">鳥の群れが飛んでいきます。真ん中の鳥が飛ぶ方向にスワイプしましょう。周りの鳥は無視して。</string>
+    <string name="game_rail_yard_desc">色つきの列車がトンネルから出てきます。ポイントを切り替えて、それぞれの色の駅に届けましょう。</string>
     <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
     <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">パターン預言者</string>
     <string name="achievement_gold_color_confusion">真の色</string>
     <string name="achievement_gold_flock">編隊長</string>
+    <string name="achievement_gold_rail_yard">駅長</string>
     <string name="achievement_gold_head_count">門番</string>
     <string name="achievement_gold_flash_crowd">群衆カウンター</string>
     <string name="achievement_gold_schulte_table">稲妻の視線</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">パターンシーケンスで金メダルを獲得</string>
     <string name="achievement_gold_color_confusion_desc">カラーコンフュージョンで金メダルを獲得</string>
     <string name="achievement_gold_flock_desc">鳥の群れで金メダルを獲得</string>
+    <string name="achievement_gold_rail_yard_desc">操車場で金メダルを獲得</string>
     <string name="achievement_gold_head_count_desc">人数カウントで金メダルを獲得</string>
     <string name="achievement_gold_flash_crowd_desc">フラッシュクラウドで金メダルを獲得</string>
     <string name="achievement_gold_schulte_table_desc">シュルテ表で金メダルを獲得</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">ときには群れ全体がそろいます。</string>
     <string name="flock_demo_caption_trap">群れにつられるのが罠です。</string>
     <string name="flock_demo_caption_recover">答えはいつでも真ん中の鳥です。</string>
+    <string name="rail_yard_demo_title">全部の列車を駅へ</string>
+    <string name="rail_yard_demo_caption_colour">列車は同じ色の駅へ向かいます。</string>
+    <string name="rail_yard_demo_caption_switch">ポイントをタップすると、進む向きが変わります。</string>
+    <string name="rail_yard_demo_caption_many">すべての列車から目を離さないで。</string>
     <string name="spot_the_new_demo_title">新しいものを見つける</string>
     <string name="spot_the_new_demo_seen_label">これまでに見たもの</string>
     <string name="spot_the_new_demo_new">まだ見ていない動物をタップしてください。</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">残りのカード: %1$d</string>
     <string name="game_color_confusion_howto">インクの色をタップしてください。</string>
     <string name="game_flock_howto">真ん中の鳥が飛ぶ方向にスワイプしてください。</string>
+    <string name="game_rail_yard_howto">ポイントをタップして線路を切り替えます。</string>
     <string name="trio_demo_title">トリオを見つける</string>
     <string name="trio_demo_rule">形・数・塗りのうち1つ以上がそろった3枚。残りはすべてバラバラ。</string>
     <string name="trio_trait_shape">形</string>

@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">దెయ్యం గ్రిడ్</string>
     <string name="game_color_confusion">రంగుల గందరగోళం</string>
     <string name="game_flock">పక్షుల గుంపు</string>
+    <string name="game_rail_yard">రైలు యార్డ్</string>
     <string name="game_orbit_tracker">కక్ష్య ట్రాకర్</string>
     <string name="game_bubble_sum">బుడగల మొత్తం</string>
     <string name="game_quick_sum">వేగవంతమైన మొత్తం</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">టైల్స్ ఒక్కొక్కటిగా వెలగడం చూడండి, తర్వాత అదే క్రమంలో వాటిని నొక్కండి.</string>
     <string name="game_color_confusion_desc">ఒక రంగు పదం రంగుల సిరాలో కనిపిస్తుంది. సిరా రంగును నొక్కండి, పదం చెప్పే రంగును కాదు.</string>
     <string name="game_flock_desc">ఒక పక్షుల గుంపు ఎగురుతూ వెళ్తుంది. మధ్యలోని పక్షి ఎగిరే దిశలో స్వైప్ చేయండి, చుట్టూ ఉన్న పక్షులను పట్టించుకోకండి.</string>
+    <string name="game_rail_yard_desc">రంగురంగుల రైళ్లు సొరంగం నుంచి బయటకు వస్తాయి. ప్రతి రైలు తన రంగు స్టేషన్‌కు చేరేలా పాయింట్లను మార్చండి.</string>
     <string name="game_orbit_tracker_desc">హైలైట్ చేసిన బంతులను చూడండి, అవి కదులుతున్నప్పుడు వాటిని గమనించండి. ఆగిన తర్వాత అసలు లక్ష్యాలను ఎంచుకోండి.</string>
     <string name="game_bubble_sum_desc">తేలియాడే బుడగలపై సంఖ్యలను కూడండి. తర్వాత సంఖ్యలు మెరుస్తాయి — వాటిని గుర్తుంచుకోండి.</string>
     <string name="bubble_sum_instruction">మొత్తం ఎంత?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">మిగిలిన కార్డులు: %1$d</string>
     <string name="game_color_confusion_howto">సిరా రంగును నొక్కండి.</string>
     <string name="game_flock_howto">మధ్య పక్షి ఎగిరే దిశలో స్వైప్ చేయండి.</string>
+    <string name="game_rail_yard_howto">పట్టాలు మార్చడానికి పాయింట్‌ను నొక్కండి.</string>
     <string name="trio_demo_title">త్రయాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">ఆకారం, సంఖ్య, నింపు వీటిలో కనీసం ఒకటి ఒకేలా ఉన్న మూడు కార్డులు. మిగతావన్నీ ప్రతి కార్డులో వేరు.</string>
     <string name="trio_trait_shape">ఆకారం</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">కొన్నిసార్లు గుంపంతా ఒకే దిశలో.</string>
     <string name="flock_demo_caption_trap">గుంపును అనుసరించడమే ఉచ్చు.</string>
     <string name="flock_demo_caption_recover">సమాధానం ఎప్పుడూ మధ్య పక్షియే.</string>
+    <string name="rail_yard_demo_title">ప్రతి రైలును ఇంటికి చేర్చండి</string>
+    <string name="rail_yard_demo_caption_colour">ప్రతి రైలుకు తన రంగు స్టేషన్ కావాలి.</string>
+    <string name="rail_yard_demo_caption_switch">పాయింట్‌ను నొక్కితే రైలు మరో వైపు వెళ్తుంది.</string>
+    <string name="rail_yard_demo_caption_many">అన్ని రైళ్లపై ఒకేసారి కన్నేసి ఉంచండి.</string>
     <string name="pattern_sequence_prompt">ఏ ముక్క మాత్రికను పూర్తి చేస్తుంది?</string>
     <string name="game_tap_original_targets">అసలు లక్ష్యాలను నొక్కండి</string>
     <string name="game_remember_targets">లక్ష్యాలను గుర్తుంచుకోండి</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">నమూనా ప్రవక్త</string>
     <string name="achievement_gold_color_confusion">నిజ రంగులు</string>
     <string name="achievement_gold_flock">గుంపు నాయకుడు</string>
+    <string name="achievement_gold_rail_yard">స్టేషన్ మాస్టర్</string>
     <string name="achievement_gold_head_count">ద్వారపాలకుడు</string>
     <string name="achievement_gold_flash_crowd">గుంపు లెక్కింపరి</string>
     <string name="achievement_gold_schulte_table">మెరుపు చూపు</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">నమూనా క్రమంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_color_confusion_desc">రంగుల గందరగోళంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_flock_desc">పక్షుల గుంపులో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_rail_yard_desc">రైలు యార్డ్‌లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_head_count_desc">తలల లెక్కలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_flash_crowd_desc">మెరుపు గుంపులో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_schulte_table_desc">షుల్టే పట్టికలో బంగారు పతకం గెలవండి</string>

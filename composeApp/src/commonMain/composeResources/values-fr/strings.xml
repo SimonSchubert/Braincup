@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">Grille Fantôme</string>
     <string name="game_color_confusion">Confusion de Couleurs</string>
     <string name="game_flock">Nuée</string>
+    <string name="game_rail_yard">Gare de triage</string>
     <string name="game_orbit_tracker">Traqueur d'Orbites</string>
     <string name="game_bubble_sum">Somme bulles</string>
     <string name="game_bubble_sum_desc">Additionne les nombres sur les bulles flottantes. Plus tard, les nombres clignotent — mémorise-les.</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">Regarde les cases s'allumer une par une, puis touche-les dans le même ordre.</string>
     <string name="game_color_confusion_desc">Un mot de couleur apparaît en encre colorée. Touche la couleur de l'encre, pas celle que le mot dit.</string>
     <string name="game_flock_desc">Une nuée d'oiseaux passe. Glisse dans le sens où vole l'oiseau du milieu et ignore ceux qui l'entourent.</string>
+    <string name="game_rail_yard_desc">Des trains colorés sortent du tunnel. Manœuvre les aiguillages pour que chacun arrive à la gare de sa couleur.</string>
     <string name="game_orbit_tracker_desc">Repère les balles en surbrillance, puis suis-les pendant qu'elles bougent. Quand elles s'arrêtent, touche les cibles de départ.</string>
     <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touche le côté qui en avait plus. Ne compte pas - fie-toi à ton instinct !</string>
     <string name="game_schulte_table_desc">Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">Prophète des motifs</string>
     <string name="achievement_gold_color_confusion">Vraies couleurs</string>
     <string name="achievement_gold_flock">Chef d'escadrille</string>
+    <string name="achievement_gold_rail_yard">Chef de gare</string>
     <string name="achievement_gold_head_count">Portier</string>
     <string name="achievement_gold_flash_crowd">Compteur de foule</string>
     <string name="achievement_gold_schulte_table">Regard éclair</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">Gagne la médaille d'or en Séquence de motifs</string>
     <string name="achievement_gold_color_confusion_desc">Gagne la médaille d'or en Confusion de Couleurs</string>
     <string name="achievement_gold_flock_desc">Gagne la médaille d'or à Nuée</string>
+    <string name="achievement_gold_rail_yard_desc">Gagne la médaille d'or à la Gare de triage</string>
     <string name="achievement_gold_head_count_desc">Gagne la médaille d'or à Va-et-vient</string>
     <string name="achievement_gold_flash_crowd_desc">Gagne la médaille d'or en Foule Éclair</string>
     <string name="achievement_gold_schulte_table_desc">Gagne la médaille d'or en Table de Schulte</string>
@@ -868,6 +872,10 @@
     <string name="flock_demo_caption_agree">Parfois toute la nuée va dans le même sens.</string>
     <string name="flock_demo_caption_trap">Suivre la nuée, voilà le piège.</string>
     <string name="flock_demo_caption_recover">L'oiseau du milieu est toujours la réponse.</string>
+    <string name="rail_yard_demo_title">Envoie chaque train à bon port</string>
+    <string name="rail_yard_demo_caption_colour">Chaque train vise la gare de sa couleur.</string>
+    <string name="rail_yard_demo_caption_switch">Touche un aiguillage pour dévier le train.</string>
+    <string name="rail_yard_demo_caption_many">Garde un œil sur tous les trains à la fois.</string>
     <string name="spot_the_new_demo_title">Repère le nouveau</string>
     <string name="spot_the_new_demo_seen_label">Vus jusqu'ici</string>
     <string name="spot_the_new_demo_new">Touche l'animal que tu n'as pas encore vu.</string>
@@ -925,6 +933,7 @@
     <string name="game_rule_shift_cards_left">Cartes restantes : %1$d</string>
     <string name="game_color_confusion_howto">Touche la couleur de l'encre.</string>
     <string name="game_flock_howto">Glisse dans le sens de l'oiseau du milieu.</string>
+    <string name="game_rail_yard_howto">Touche un aiguillage pour changer de voie.</string>
     <string name="trio_demo_title">Trouve un trio</string>
     <string name="trio_demo_rule">Trois cartes qui ont au moins la forme, le nombre ou le remplissage en commun. Tout le reste doit être différent.</string>
     <string name="trio_trait_shape">Forme</string>

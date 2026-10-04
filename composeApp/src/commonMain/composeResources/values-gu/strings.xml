@@ -282,6 +282,7 @@
     <string name="game_ghost_grid">ભૂત ગ્રિડ</string>
     <string name="game_color_confusion">રંગોની ગૂંચવણ</string>
     <string name="game_flock">પંખીઓનું ટોળું</string>
+    <string name="game_rail_yard">રેલ યાર્ડ</string>
     <string name="game_orbit_tracker">કક્ષા ટ્રેકર</string>
     <string name="game_bubble_sum">પરપોટા સરવાળો</string>
     <string name="game_quick_sum">ઝડપી સરવાળો</string>
@@ -320,6 +321,7 @@
     <string name="game_ghost_grid_desc">ખાનાં એક પછી એક ઝળહળે તે જુઓ, પછી એ જ ક્રમમાં તેમના પર ટેપ કરો.</string>
     <string name="game_color_confusion_desc">એક રંગનો શબ્દ રંગીન શાહીમાં દેખાય છે. શાહીના રંગ પર ટેપ કરો, શબ્દ જે રંગ કહે તેના પર નહીં.</string>
     <string name="game_flock_desc">પંખીઓનું એક ટોળું ઊડતું પસાર થાય છે. વચ્ચેનું પંખી જે દિશામાં ઊડે છે તે દિશામાં સ્વાઇપ કરો, અને આજુબાજુનાં પંખીઓને અવગણો.</string>
+    <string name="game_rail_yard_desc">રંગબેરંગી ટ્રેનો ટનલમાંથી નીકળે છે. કાંટા બદલો, જેથી દરેક ટ્રેન પોતાના રંગના સ્ટેશને પહોંચે.</string>
     <string name="game_orbit_tracker_desc">ઉજાગર કરેલા દડા જુઓ, તે ખસે ત્યારે તેમનો પીછો કરો. તે અટકે પછી મૂળ લક્ષ્યો પસંદ કરો.</string>
     <string name="game_bubble_sum_desc">તરતા પરપોટા પરના અંકો સરવાળો. પછી અંકો ઝબકે છે — તે યાદ રાખો.</string>
     <string name="bubble_sum_instruction">સરવાળો કેટલો?</string>
@@ -380,6 +382,7 @@
     <string name="game_rule_shift_cards_left">બાકી પત્તાં: %1$d</string>
     <string name="game_color_confusion_howto">શાહીના રંગ પર ટેપ કરો.</string>
     <string name="game_flock_howto">વચ્ચેનું પંખી જે દિશામાં ઊડે તે દિશામાં સ્વાઇપ કરો.</string>
+    <string name="game_rail_yard_howto">પાટો બદલવા કાંટા પર ટેપ કરો.</string>
     <string name="trio_demo_title">ત્રિપુટી શોધો</string>
     <string name="trio_demo_rule">ત્રણ પત્તાં જેમાં આકાર, સંખ્યા કે ભરાવમાંથી ઓછામાં ઓછું એક સરખું હોય. બાકી બધું દરેક પત્તામાં અલગ.</string>
     <string name="trio_trait_shape">આકાર</string>
@@ -503,6 +506,10 @@
     <string name="flock_demo_caption_agree">ક્યારેક આખું ટોળું એક જ દિશામાં ઊડે છે.</string>
     <string name="flock_demo_caption_trap">ટોળાની પાછળ જવું એ જ જાળ છે.</string>
     <string name="flock_demo_caption_recover">જવાબ હંમેશાં વચ્ચેનું પંખી જ છે.</string>
+    <string name="rail_yard_demo_title">દરેક ટ્રેનને ઘરે પહોંચાડો</string>
+    <string name="rail_yard_demo_caption_colour">દરેક ટ્રેનને પોતાના રંગનું સ્ટેશન જોઈએ.</string>
+    <string name="rail_yard_demo_caption_switch">કાંટા પર ટેપ કરો, ટ્રેન બીજી તરફ જશે.</string>
+    <string name="rail_yard_demo_caption_many">બધી ટ્રેનો પર એકસાથે નજર રાખો.</string>
     <string name="pattern_sequence_prompt">કયો ટુકડો મેટ્રિક્સ પૂરો કરે છે?</string>
     <string name="game_tap_original_targets">મૂળ લક્ષ્યો પર ટેપ કરો</string>
     <string name="game_remember_targets">લક્ષ્યો યાદ રાખો</string>
@@ -580,6 +587,7 @@
     <string name="achievement_gold_pattern_sequence">ભાત ભાખનાર</string>
     <string name="achievement_gold_color_confusion">સાચા રંગ</string>
     <string name="achievement_gold_flock">ટોળાનો આગેવાન</string>
+    <string name="achievement_gold_rail_yard">સ્ટેશન માસ્તર</string>
     <string name="achievement_gold_head_count">દ્વારપાળ</string>
     <string name="achievement_gold_flash_crowd">ભીડ ગણનાર</string>
     <string name="achievement_gold_schulte_table">વીજળી નજર</string>
@@ -622,6 +630,7 @@
     <string name="achievement_gold_pattern_sequence_desc">ભાત ક્રમમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_color_confusion_desc">રંગોની ગૂંચવણમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_flock_desc">પંખીઓના ટોળામાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_rail_yard_desc">રેલ યાર્ડમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_head_count_desc">ઘરની ગણતરીમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_flash_crowd_desc">ઝબકતી ભીડમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_schulte_table_desc">શુલ્ટે કોષ્ટકમાં સુવર્ણ ચંદ્રક જીતો</string>

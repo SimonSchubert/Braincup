@@ -61,6 +61,7 @@
     <string name="game_ghost_grid">幽灵方格</string>
     <string name="game_color_confusion">颜色混淆</string>
     <string name="game_flock">鸟群</string>
+    <string name="game_rail_yard">调车场</string>
     <string name="game_orbit_tracker">轨道追踪</string>
     <string name="game_bubble_sum">气泡求和</string>
     <string name="game_bubble_sum_desc">把漂浮气泡上的数字相加。之后数字会闪烁——要记住它们。</string>
@@ -115,6 +116,7 @@
     <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>
     <string name="game_color_confusion_desc">一个颜色词以彩色墨水出现。点击墨水的颜色，不要点词所说的颜色。</string>
     <string name="game_flock_desc">一群鸟飞过。朝中间那只鸟飞的方向滑动，别管它周围的鸟。</string>
+    <string name="game_rail_yard_desc">彩色列车从隧道驶出。扳动道岔，让每列车开到和自己颜色相同的车站。</string>
     <string name="game_orbit_tracker_desc">观察高亮的球，然后在它们移动时追踪。停止后选择最初的目标。</string>
     <string name="game_flash_crowd_desc">每侧短暂闪现圆点。点击圆点更多的一侧。不要数 — 相信你的直觉！</string>
     <string name="game_schulte_table_desc">尽快按1到N的顺序点击数字。</string>
@@ -262,6 +264,7 @@
     <string name="achievement_gold_pattern_sequence">图案先知</string>
     <string name="achievement_gold_color_confusion">本色</string>
     <string name="achievement_gold_flock">领头雁</string>
+    <string name="achievement_gold_rail_yard">站长</string>
     <string name="achievement_gold_head_count">看门人</string>
     <string name="achievement_gold_flash_crowd">群众计数器</string>
     <string name="achievement_gold_schulte_table">闪电之眼</string>
@@ -295,6 +298,7 @@
     <string name="achievement_gold_pattern_sequence_desc">在图案序列中赢得金牌</string>
     <string name="achievement_gold_color_confusion_desc">在颜色混淆中赢得金牌</string>
     <string name="achievement_gold_flock_desc">在鸟群中赢得金牌</string>
+    <string name="achievement_gold_rail_yard_desc">在调车场中赢得金牌</string>
     <string name="achievement_gold_head_count_desc">在数人头中赢得金牌</string>
     <string name="achievement_gold_flash_crowd_desc">在闪现人群中赢得金牌</string>
     <string name="achievement_gold_schulte_table_desc">在舒尔特方格中赢得金牌</string>
@@ -867,6 +871,10 @@
     <string name="flock_demo_caption_agree">有时整群鸟方向一致。</string>
     <string name="flock_demo_caption_trap">跟着鸟群走就是陷阱。</string>
     <string name="flock_demo_caption_recover">答案永远是中间那只鸟。</string>
+    <string name="rail_yard_demo_title">送每列车回家</string>
+    <string name="rail_yard_demo_caption_colour">每列车都要开到同色的车站。</string>
+    <string name="rail_yard_demo_caption_switch">点按道岔，列车就会改走另一条路。</string>
+    <string name="rail_yard_demo_caption_many">同时留意每一列车。</string>
     <string name="spot_the_new_demo_title">找出新出现的</string>
     <string name="spot_the_new_demo_seen_label">已见过的</string>
     <string name="spot_the_new_demo_new">点击你之前没见过的动物。</string>
@@ -924,6 +932,7 @@
     <string name="game_rule_shift_cards_left">剩余卡片：%1$d</string>
     <string name="game_color_confusion_howto">点击墨水的颜色。</string>
     <string name="game_flock_howto">朝中间那只鸟飞的方向滑动。</string>
+    <string name="game_rail_yard_howto">点按道岔来切换轨道。</string>
     <string name="trio_demo_title">找出三重组</string>
     <string name="trio_demo_rule">三张牌的形状、数量或填充至少有一项相同，其余必须各不相同。</string>
     <string name="trio_trait_shape">形状</string>

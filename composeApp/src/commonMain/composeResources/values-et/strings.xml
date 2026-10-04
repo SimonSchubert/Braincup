@@ -298,6 +298,7 @@
     <string name="game_ghost_grid">Tondivõrk</string>
     <string name="game_color_confusion">Värvisegadus</string>
     <string name="game_flock">Linnuparv</string>
+    <string name="game_rail_yard">Rangeerijaam</string>
     <string name="game_orbit_tracker">Orbiidijälgija</string>
     <string name="game_bubble_sum">Mullisumma</string>
     <string name="game_quick_sum">Kiirsumma</string>
@@ -336,6 +337,7 @@
     <string name="game_ghost_grid_desc">Vaata, kuidas plaadid süttivad ükshaaval, ja puuduta need tagasi samas järjekorras.</string>
     <string name="game_color_confusion_desc">Värvisõna ilmub värvilises tindis. Puuduta tindi värvi, mitte seda värvi, mida sõna nimetab.</string>
     <string name="game_flock_desc">Linnuparv lendab mööda. Libista sinnapoole, kuhu lendab keskmine lind, ja ära pane tähele selle ümber olevaid linde.</string>
+    <string name="game_rail_yard_desc">Värvilised rongid sõidavad tunnelist välja. Pööra pöörmeid, et iga rong jõuaks oma värvi jaama.</string>
     <string name="game_orbit_tracker_desc">Vaata esile tõstetud palle ja jälgi neid, kui need liiguvad. Vali algsed sihtmärgid, kui need peatuvad.</string>
     <string name="game_bubble_sum_desc">Liida kokku ujuavate mullide numbrid. Hiljem numbrid vilguvad — jäta need meelde.</string>
     <string name="bubble_sum_instruction">Mis on summa?</string>
@@ -396,6 +398,7 @@
     <string name="game_rule_shift_cards_left">Kaarte jäänud: %1$d</string>
     <string name="game_color_confusion_howto">Puuduta tindi värvi.</string>
     <string name="game_flock_howto">Libista keskmise linnu lennusuunas.</string>
+    <string name="game_rail_yard_howto">Puuduta pöörmet, et rada vahetada.</string>
     <string name="trio_demo_title">Leia trio</string>
     <string name="trio_demo_rule">Kolm kaarti, millel kattub vähemalt kuju, arv või täide. Kõik muu peab igal kaardil erinema.</string>
     <string name="trio_trait_shape">Kuju</string>
@@ -521,6 +524,10 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="flock_demo_caption_agree">Vahel lendab kogu parv ühes suunas.</string>
     <string name="flock_demo_caption_trap">Lõks on parvele järgnemine.</string>
     <string name="flock_demo_caption_recover">Vastus on alati keskmine lind.</string>
+    <string name="rail_yard_demo_title">Saada iga rong koju</string>
+    <string name="rail_yard_demo_caption_colour">Iga rong sõidab oma värvi jaama.</string>
+    <string name="rail_yard_demo_caption_switch">Puuduta pöörmet ja rong sõidab teist teed.</string>
+    <string name="rail_yard_demo_caption_many">Hoia silma peal kõigil rongidel korraga.</string>
     <string name="pattern_sequence_prompt">Milline tükk täiendab maatriksit?</string>
     <string name="game_tap_original_targets">Puuduta algseid sihtmärke</string>
     <string name="game_remember_targets">Jäta sihtmärgid meelde</string>
@@ -598,6 +605,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_pattern_sequence">Mustrite prohvet</string>
     <string name="achievement_gold_color_confusion">Õige värv</string>
     <string name="achievement_gold_flock">Eeslendaja</string>
+    <string name="achievement_gold_rail_yard">Jaamaülem</string>
     <string name="achievement_gold_head_count">Uksehoidja</string>
     <string name="achievement_gold_flash_crowd">Grupilugeja</string>
     <string name="achievement_gold_schulte_table">Välkpilk</string>
@@ -640,6 +648,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_pattern_sequence_desc">Võida kuldmedal Mustrijadas</string>
     <string name="achievement_gold_color_confusion_desc">Võida kuldmedal Värvisegaduses</string>
     <string name="achievement_gold_flock_desc">Võida kuldmedal Linnuparves</string>
+    <string name="achievement_gold_rail_yard_desc">Võida kuldmedal mängus Rangeerijaam</string>
     <string name="achievement_gold_head_count_desc">Võida kuldmedal Rahvaloenduses</string>
     <string name="achievement_gold_flash_crowd_desc">Võida kuldmedal Välgugrupis</string>
     <string name="achievement_gold_schulte_table_desc">Võida kuldmedal Schulte tabelis</string>
