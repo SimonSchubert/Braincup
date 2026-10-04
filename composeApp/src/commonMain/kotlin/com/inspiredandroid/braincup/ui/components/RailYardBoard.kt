@@ -39,7 +39,6 @@ import com.inspiredandroid.braincup.ui.theme.RailYardTunnelStone
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlin.math.hypot
 import kotlin.math.max
-import kotlin.math.min
 
 /**
  * The yard on a prism board: tracks, switches, the tunnel, stations and trains, drawn in one canvas.
