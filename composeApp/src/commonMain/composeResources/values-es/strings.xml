@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">Coste de congruencia</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Cuánto más tardaste cuando la palabra no coincidía con la tinta</string>
+    <string name="finish_congruency_effect_explainer_flock">Cuánto más tardaste cuando la bandada volaba en contra del pájaro del medio</string>
     <string name="button_play_random">Juego aleatorio</string>
     <string name="button_give_up">Rendirse</string>
     <string name="button_stay">Seguir</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">Secuencia de patrones</string>
     <string name="game_ghost_grid">Cuadrícula Fantasma</string>
     <string name="game_color_confusion">Confusión de Colores</string>
+    <string name="game_flock">Bandada</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
     <string name="game_bubble_sum">Suma burbujas</string>
     <string name="game_bubble_sum_desc">Suma los números de las burbujas flotantes. Luego parpadean: recuérdalos.</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">Contable de burbujas</string>
     <string name="achievement_gold_bubble_sum_desc">Gana la medalla de oro en Suma burbujas</string>
     <string name="game_quick_sum">Suma rápida</string>
+    <string name="game_head_count">Vaivén</string>
     <string name="game_quick_sum_desc">Los números aparecen de uno en uno. Súmalos e introduce el total.</string>
     <string name="quick_sum_instruction">¿Cuál es el total?</string>
     <string name="quick_sum_watch">Observa</string>
     <string name="quick_sum_demo_title">Los números aparecen de uno en uno</string>
     <string name="quick_sum_demo_flash">Lleva la cuenta mentalmente.</string>
     <string name="quick_sum_demo_total">Introduce el total.</string>
+    <string name="game_head_count_desc">La gente entra y sale de una casa. Lleva la cuenta y, cuando todo se calme, di cuántos hay dentro.</string>
+    <string name="head_count_watch">Cuenta</string>
+    <string name="head_count_instruction">¿Cuántos hay dentro?</string>
+    <string name="head_count_demo_title">La casa empieza vacía</string>
+    <string name="head_count_demo_in">Cuenta quién entra…</string>
+    <string name="head_count_demo_out">…y quién vuelve a salir.</string>
+    <string name="head_count_demo_both">A veces, las dos cosas a la vez.</string>
+    <string name="head_count_demo_answer">Quedan dos dentro.</string>
     <string name="achievement_gold_quick_sum">Ábaco relámpago</string>
     <string name="achievement_gold_quick_sum_desc">Gana la medalla de oro en Suma rápida</string>
     <string name="game_flash_crowd">Multitud Relámpago</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">Descubre la regla que recorre cada fila de la cuadrícula y elige la pieza que la completa.</string>
     <string name="game_ghost_grid_desc">Observa cómo se iluminan las casillas una por una y luego tócalas en el mismo orden.</string>
     <string name="game_color_confusion_desc">Aparece una palabra de color en tinta de color. Toca el color de la tinta, no el que dice la palabra.</string>
+    <string name="game_flock_desc">Pasa volando una bandada de pájaros. Desliza hacia donde vuela el pájaro del medio e ignora a los de alrededor.</string>
     <string name="game_orbit_tracker_desc">Observa las bolas resaltadas y luego síguelas mientras se mueven. Selecciona los objetivos originales después de que se detengan.</string>
     <string name="game_flash_crowd_desc">Los puntos parpadean brevemente en cada lado. Toca el lado que tenía más puntos. ¡No cuentes, confía en tu instinto!</string>
     <string name="game_schulte_table_desc">Toca los números en orden a partir del 1 lo más rápido que puedas.</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">Astrónomo</string>
     <string name="achievement_gold_pattern_sequence">Profeta de patrones</string>
     <string name="achievement_gold_color_confusion">Colores verdaderos</string>
+    <string name="achievement_gold_flock">Líder de vuelo</string>
+    <string name="achievement_gold_head_count">Portero</string>
     <string name="achievement_gold_flash_crowd">Contador de multitudes</string>
     <string name="achievement_gold_schulte_table">Mirada veloz</string>
     <string name="achievement_gold_flags">Abanderado</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Gana la medalla de oro en Rastreador de Órbitas</string>
     <string name="achievement_gold_pattern_sequence_desc">Gana la medalla de oro en Secuencia de patrones</string>
     <string name="achievement_gold_color_confusion_desc">Gana la medalla de oro en Confusión de Colores</string>
+    <string name="achievement_gold_flock_desc">Gana la medalla de oro en Bandada</string>
+    <string name="achievement_gold_head_count_desc">Gana la medalla de oro en Vaivén</string>
     <string name="achievement_gold_flash_crowd_desc">Gana la medalla de oro en Multitud Relámpago</string>
     <string name="achievement_gold_schulte_table_desc">Gana la medalla de oro en Tabla de Schulte</string>
     <string name="achievement_gold_flags_desc">Gana la medalla de oro en Banderas</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">Una medida estándar de la capacidad espacial: decidir si dos figuras son el mismo cuerpo girado o imágenes especulares que ninguna rotación puede hacer coincidir.</string>
     <string name="science_color_confusion_paradigm">Tarea de Stroop</string>
     <string name="science_color_confusion_summary">Una medida estándar de la inhibición: nombrar el color en que está impresa una palabra, mientras leer la palabra misma ofrece una respuesta más rápida que compite con ella.</string>
+    <string name="science_flock_paradigm">Tarea de flancos</string>
+    <string name="science_flock_summary">Una medida estándar de la atención selectiva: responder al elemento central de una fila mientras los de al lado apuntan en la misma dirección o en la contraria, y hay que ignorarlos cuando no coinciden.</string>
     <string name="science_digit_memory_paradigm">Tarea de Brown-Peterson</string>
     <string name="science_digit_memory_summary">Una medida estándar de la memoria de trabajo: mantener una secuencia mientras otra tarea ocupa el mismo espacio mental.</string>
     <string name="science_pattern_sequence_paradigm">Razonamiento matricial</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">A veces los dos coinciden.</string>
     <string name="color_confusion_demo_caption_trap">Leer la palabra es la trampa.</string>
     <string name="color_confusion_demo_caption_recover">La tinta siempre es la respuesta.</string>
+    <string name="flock_demo_title">Sigue al pájaro del medio</string>
+    <string name="flock_demo_caption_middle">Solo cuenta el pájaro del medio.</string>
+    <string name="flock_demo_caption_agree">A veces toda la bandada coincide.</string>
+    <string name="flock_demo_caption_trap">Seguir a la bandada es la trampa.</string>
+    <string name="flock_demo_caption_recover">El pájaro del medio siempre es la respuesta.</string>
     <string name="spot_the_new_demo_title">Detecta el nuevo</string>
     <string name="spot_the_new_demo_seen_label">Vistos hasta ahora</string>
     <string name="spot_the_new_demo_new">Toca el animal que no has visto antes.</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">¿A qué carta clave pertenece?</string>
     <string name="game_rule_shift_cards_left">Cartas restantes: %1$d</string>
     <string name="game_color_confusion_howto">Toca el color de la tinta.</string>
+    <string name="game_flock_howto">Desliza hacia donde vuela el pájaro del medio.</string>
     <string name="trio_demo_title">Encuentra un trío</string>
     <string name="trio_demo_rule">Tres cartas que coinciden al menos en forma, cantidad o relleno. Todo lo demás tiene que ser distinto.</string>
     <string name="trio_trait_shape">Forma</string>

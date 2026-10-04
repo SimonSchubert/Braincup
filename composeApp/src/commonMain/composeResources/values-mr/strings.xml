@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">सुसंगततेची किंमत</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">शब्द आणि शाई जुळत नव्हते तेव्हा तुम्हाला किती जास्त वेळ लागला</string>
+    <string name="finish_congruency_effect_explainer_flock">थवा मधल्या पक्ष्याच्या उलट उडत होता तेव्हा तुम्हाला किती जास्त वेळ लागला</string>
 
     <string name="feedback_solution">उत्तर: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">नमुना क्रम</string>
     <string name="game_ghost_grid">भूत ग्रिड</string>
     <string name="game_color_confusion">रंगांचा गोंधळ</string>
+    <string name="game_flock">थवा</string>
     <string name="game_orbit_tracker">कक्षा मागोवा</string>
     <string name="game_bubble_sum">बुडबुडे बेरीज</string>
     <string name="game_quick_sum">झटपट बेरीज</string>
+    <string name="game_head_count">डोकीमोजणी</string>
     <string name="game_flash_crowd">क्षणिक गर्दी</string>
     <string name="game_schulte_table">शुल्टे तक्ता</string>
     <string name="game_mini_chess">छोटे बुद्धिबळ</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">ग्रिडच्या प्रत्येक रांगेत चालणारा नियम ओळखा आणि तो पूर्ण करणारा तुकडा निवडा.</string>
     <string name="game_ghost_grid_desc">चौकटी एकामागून एक उजळताना पहा, मग त्याच क्रमाने त्यांवर टॅप करा.</string>
     <string name="game_color_confusion_desc">एक रंगशब्द रंगीत शाईत दिसतो. शाईच्या रंगावर टॅप करा, शब्द सांगतो त्या रंगावर नाही.</string>
+    <string name="game_flock_desc">पक्ष्यांचा एक थवा उडत जातो. मधला पक्षी ज्या दिशेने उडतो त्या दिशेने स्वाइप करा, आणि आजूबाजूच्या पक्ष्यांकडे दुर्लक्ष करा.</string>
     <string name="game_orbit_tracker_desc">ठळक केलेले चेंडू पहा, ते हलताना त्यांचा मागोवा घ्या. ते थांबल्यावर मूळ लक्ष्ये निवडा.</string>
     <string name="game_bubble_sum_desc">तरंगत्या बुडबुड्यांवरील अंकांची बेरीज करा. नंतर अंक लुकलुकतात — ते लक्षात ठेवा.</string>
     <string name="bubble_sum_instruction">बेरीज किती?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">अंक एकामागून एक चमकतात</string>
     <string name="quick_sum_demo_flash">मनातल्या मनात बेरीज करत रहा.</string>
     <string name="quick_sum_demo_total">एकूण भरा.</string>
+    <string name="game_head_count_desc">माणसे एका घरात ये-जा करतात. मोजत रहा, आणि सगळे थांबले की आत किती आहेत ते सांगा.</string>
+    <string name="head_count_watch">मोजत रहा</string>
+    <string name="head_count_instruction">आत किती आहेत?</string>
+    <string name="head_count_demo_title">सुरुवातीला घर रिकामे असते</string>
+    <string name="head_count_demo_in">कोण आत गेले ते मोजा…</string>
+    <string name="head_count_demo_out">…आणि कोण परत बाहेर आले.</string>
+    <string name="head_count_demo_both">कधीकधी दोन्ही एकाच वेळी.</string>
+    <string name="head_count_demo_answer">आत अजून दोघे आहेत.</string>
     <string name="game_flash_crowd_desc">दोन्ही बाजूंना ठिपके क्षणभर चमकतात. जास्त ठिपके असलेल्या बाजूवर टॅप करा. मोजू नका — अंतःप्रेरणेवर विश्वास ठेवा!</string>
     <string name="game_schulte_table_desc">1 पासून वरच्या दिशेने अंकांवर शक्य तितक्या वेगाने क्रमाने टॅप करा.</string>
     <string name="game_schulte_instruction">अंकांवर क्रमाने टॅप करा: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">हा कोणत्या मुख्य पत्त्याशी जुळतो?</string>
     <string name="game_rule_shift_cards_left">उरलेली पत्ते: %1$d</string>
     <string name="game_color_confusion_howto">शाईच्या रंगावर टॅप करा.</string>
+    <string name="game_flock_howto">मधला पक्षी उडतो त्या दिशेने स्वाइप करा.</string>
     <string name="trio_demo_title">त्रिकूट शोधा</string>
     <string name="trio_demo_rule">तीन पत्ते ज्यांचा आकार, संख्या किंवा भरणी यांपैकी किमान एक सारखे आहे. बाकी सगळे प्रत्येक पत्त्यावर वेगळे.</string>
     <string name="trio_trait_shape">आकार</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">कधीकधी दोन्ही जुळतात.</string>
     <string name="color_confusion_demo_caption_trap">शब्द वाचणे हाच सापळा आहे.</string>
     <string name="color_confusion_demo_caption_recover">उत्तर नेहमी शाईच असते.</string>
+    <string name="flock_demo_title">मधल्या पक्ष्याकडे लक्ष ठेवा</string>
+    <string name="flock_demo_caption_middle">फक्त मधला पक्षी महत्त्वाचा.</string>
+    <string name="flock_demo_caption_agree">कधीकधी सगळा थवा एकाच दिशेने उडतो.</string>
+    <string name="flock_demo_caption_trap">थव्यामागे जाणे हाच सापळा आहे.</string>
+    <string name="flock_demo_caption_recover">उत्तर नेहमी मधला पक्षीच असतो.</string>
     <string name="pattern_sequence_prompt">कोणता तुकडा मॅट्रिक्स पूर्ण करतो?</string>
     <string name="game_tap_original_targets">मूळ लक्ष्यांवर टॅप करा</string>
     <string name="game_remember_targets">लक्ष्ये लक्षात ठेवा</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">खगोलशास्त्रज्ञ</string>
     <string name="achievement_gold_pattern_sequence">नमुना द्रष्टा</string>
     <string name="achievement_gold_color_confusion">खरे रंग</string>
+    <string name="achievement_gold_flock">थव्याचा म्होरक्या</string>
+    <string name="achievement_gold_head_count">द्वारपाल</string>
     <string name="achievement_gold_flash_crowd">गर्दी मोजणारा</string>
     <string name="achievement_gold_schulte_table">विजेची नजर</string>
     <string name="achievement_gold_flags">ध्वजधारी</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">कक्षा मागोव्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_pattern_sequence_desc">नमुना क्रमात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_color_confusion_desc">रंगांच्या गोंधळात सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_flock_desc">थव्यात सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_head_count_desc">डोकीमोजणीत सुवर्णपदक जिंका</string>
     <string name="achievement_gold_flash_crowd_desc">क्षणिक गर्दीत सुवर्णपदक जिंका</string>
     <string name="achievement_gold_schulte_table_desc">शुल्टे तक्त्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_flags_desc">ध्वजांमध्ये सुवर्णपदक जिंका</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">अवकाशीय क्षमतेचे प्रमाणित माप: दोन आकृती एकच घन फिरवलेला आहे की कोणत्याही फिरवण्याने न जुळणारी आरशातील प्रतिमा आहे हे ठरवणे.</string>
     <string name="science_color_confusion_paradigm">स्ट्रूप कार्य</string>
     <string name="science_color_confusion_summary">प्रतिबंधाचे प्रमाणित माप: शब्द ज्या रंगात छापला आहे त्याचे नाव सांगणे, तर शब्द वाचणेच अधिक जलद, स्पर्धक उत्तर पुढे करते.</string>
+    <string name="science_flock_paradigm">फ्लँकर कार्य</string>
+    <string name="science_flock_summary">निवडक लक्षाचे प्रमाणित माप: रांगेतील मधल्या वस्तूला प्रतिसाद देणे, तर तिच्या बाजूच्या वस्तू त्याच किंवा उलट दिशेला निर्देश करतात आणि जुळत नसतील तेव्हा त्यांच्याकडे दुर्लक्ष करावे लागते.</string>
     <string name="science_digit_memory_paradigm">ब्राउन-पीटरसन कार्य</string>
     <string name="science_digit_memory_summary">कार्यकारी स्मृतीचे प्रमाणित माप: एक मालिका लक्षात ठेवणे, तर दुसरे असंबद्ध काम तीच मानसिक जागा व्यापत असते.</string>
     <string name="science_pattern_sequence_paradigm">मॅट्रिक्स तर्क</string>

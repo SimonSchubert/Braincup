@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">كلفة التوافق</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">كم استغرقت وقتًا أطول حين اختلفت الكلمة عن الحبر</string>
+    <string name="finish_congruency_effect_explainer_flock">كم استغرقت وقتًا أطول حين طار السرب عكس الطائر الأوسط</string>
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_stay">ابق</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">تسلسل الأنماط</string>
     <string name="game_ghost_grid">شبكة الأشباح</string>
     <string name="game_color_confusion">ارتباك الألوان</string>
+    <string name="game_flock">السرب</string>
     <string name="game_orbit_tracker">تتبع المدار</string>
     <string name="game_bubble_sum">مجموع الفقاعات</string>
     <string name="game_bubble_sum_desc">اجمع الأرقام على الفقاعات العائمة. لاحقًا تومض الأرقام — احفظها.</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">محاسب الفقاعات</string>
     <string name="achievement_gold_bubble_sum_desc">افز بالميدالية الذهبية في مجموع الفقاعات</string>
     <string name="game_quick_sum">الجمع السريع</string>
+    <string name="game_head_count">عدّ الرؤوس</string>
     <string name="game_quick_sum_desc">تظهر الأرقام واحدًا تلو الآخر. اجمعها وأدخل المجموع.</string>
     <string name="quick_sum_instruction">ما هو المجموع؟</string>
     <string name="quick_sum_watch">راقب</string>
     <string name="quick_sum_demo_title">تظهر الأرقام واحدًا تلو الآخر</string>
     <string name="quick_sum_demo_flash">اجمع في ذهنك أولًا بأول.</string>
     <string name="quick_sum_demo_total">أدخل المجموع.</string>
+    <string name="game_head_count_desc">يدخل الناس إلى بيت ويخرجون منه. تابع العدّ، وحين يهدأ كل شيء قل كم شخصًا في الداخل.</string>
+    <string name="head_count_watch">تابع العدّ</string>
+    <string name="head_count_instruction">كم شخصًا في الداخل؟</string>
+    <string name="head_count_demo_title">يبدأ البيت فارغًا</string>
+    <string name="head_count_demo_in">عُدّ من يدخل…</string>
+    <string name="head_count_demo_out">…ومن يخرج مجددًا.</string>
+    <string name="head_count_demo_both">وأحيانًا الاثنان معًا.</string>
+    <string name="head_count_demo_answer">ما زال اثنان في الداخل.</string>
     <string name="achievement_gold_quick_sum">المعداد الخاطف</string>
     <string name="achievement_gold_quick_sum_desc">احصل على الميدالية الذهبية في الجمع السريع</string>
     <string name="game_flash_crowd">حشد الوميض</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">اكتشف القاعدة التي تسري في كل صف من الشبكة، ثم اختر القطعة التي تكملها.</string>
     <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
     <string name="game_color_confusion_desc">تظهر كلمة لون بحبر ملوّن. المس لون الحبر، لا اللون الذي تسميه الكلمة.</string>
+    <string name="game_flock_desc">يمرّ أمامك سرب من الطيور. اسحب في الاتجاه الذي يطير فيه الطائر الأوسط، وتجاهل الطيور من حوله.</string>
     <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
     <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
     <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
@@ -261,6 +273,8 @@
     <string name="achievement_gold_orbit_tracker">عالم الفلك</string>
     <string name="achievement_gold_pattern_sequence">نبي الأنماط</string>
     <string name="achievement_gold_color_confusion">الألوان الحقيقية</string>
+    <string name="achievement_gold_flock">قائد السرب</string>
+    <string name="achievement_gold_head_count">حارس الباب</string>
     <string name="achievement_gold_flash_crowd">عدّاد الحشود</string>
     <string name="achievement_gold_schulte_table">نظرة برق</string>
     <string name="achievement_gold_flags">حامل الراية</string>
@@ -292,6 +306,8 @@
     <string name="achievement_gold_orbit_tracker_desc">اربح الميدالية الذهبية في تتبع المدار</string>
     <string name="achievement_gold_pattern_sequence_desc">اربح الميدالية الذهبية في تسلسل الأنماط</string>
     <string name="achievement_gold_color_confusion_desc">اربح الميدالية الذهبية في ارتباك الألوان</string>
+    <string name="achievement_gold_flock_desc">اربح الميدالية الذهبية في السرب</string>
+    <string name="achievement_gold_head_count_desc">اربح الميدالية الذهبية في عدّ الرؤوس</string>
     <string name="achievement_gold_flash_crowd_desc">اربح الميدالية الذهبية في حشد الوميض</string>
     <string name="achievement_gold_schulte_table_desc">اربح الميدالية الذهبية في جدول شولت</string>
     <string name="achievement_gold_flags_desc">اربح الميدالية الذهبية في الأعلام</string>
@@ -337,6 +353,8 @@
     <string name="science_mental_rotations_summary">مقياس قياسي للقدرة المكانية: تحديد ما إذا كان الشكلان جسمًا واحدًا مُدارًا أم صورتين متعاكستين لا يوفّق بينهما أي تدوير.</string>
     <string name="science_color_confusion_paradigm">مهمة ستروب</string>
     <string name="science_color_confusion_summary">مقياس قياسي للكبح: تسمية اللون الذي طُبعت به الكلمة، بينما قراءة الكلمة نفسها تقدّم إجابة أسرع تنافسها.</string>
+    <string name="science_flock_paradigm">مهمة فلانكر</string>
+    <string name="science_flock_summary">مقياس قياسي للانتباه الانتقائي: الاستجابة للعنصر الأوسط في صف بينما تشير العناصر المجاورة له إلى الاتجاه نفسه أو المعاكس، ويجب تجاهلها حين تخالفه.</string>
     <string name="science_digit_memory_paradigm">مهمة براون-بيترسون</string>
     <string name="science_digit_memory_summary">مقياس قياسي للذاكرة العاملة: الاحتفاظ بتسلسل بينما تشغل مهمة أخرى الحيز الذهني نفسه.</string>
     <string name="science_pattern_sequence_paradigm">الاستدلال المصفوفي</string>
@@ -865,6 +883,11 @@
     <string name="color_confusion_demo_caption_agree">أحيانًا يتفق الاثنان.</string>
     <string name="color_confusion_demo_caption_trap">الفخ هو أن تقرأ الكلمة.</string>
     <string name="color_confusion_demo_caption_recover">الحبر هو الجواب دائمًا.</string>
+    <string name="flock_demo_title">اتبع الطائر الأوسط</string>
+    <string name="flock_demo_caption_middle">الطائر الأوسط وحده يهمّ.</string>
+    <string name="flock_demo_caption_agree">أحيانًا يتفق السرب كله.</string>
+    <string name="flock_demo_caption_trap">الفخ هو أن تتبع السرب.</string>
+    <string name="flock_demo_caption_recover">الطائر الأوسط هو الجواب دائمًا.</string>
     <string name="spot_the_new_demo_title">اكتشف الجديد</string>
     <string name="spot_the_new_demo_seen_label">ما شوهد حتى الآن</string>
     <string name="spot_the_new_demo_new">انقر على الحيوان الذي لم تره من قبل.</string>
@@ -925,6 +948,7 @@
     <string name="game_rule_shift_howto">إلى أي بطاقة مفتاحية تنتمي؟</string>
     <string name="game_rule_shift_cards_left">البطاقات المتبقية: %1$d</string>
     <string name="game_color_confusion_howto">المس لون الحبر.</string>
+    <string name="game_flock_howto">اسحب في اتجاه الطائر الأوسط.</string>
     <string name="trio_demo_title">اعثر على ثلاثي</string>
     <string name="trio_demo_rule">ثلاث بطاقات تتطابق في الشكل أو العدد أو التعبئة على الأقل. وكل ما عدا ذلك يختلف في كل بطاقة.</string>
     <string name="trio_trait_shape">الشكل</string>

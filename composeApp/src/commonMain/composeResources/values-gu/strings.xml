@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">સુસંગતતાની કિંમત</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">શબ્દ અને શાહી ન મળતાં હોય ત્યારે તમને કેટલો વધુ સમય લાગ્યો</string>
+    <string name="finish_congruency_effect_explainer_flock">ટોળું વચ્ચેના પંખીથી ઊલટું ઊડતું હોય ત્યારે તમને કેટલો વધુ સમય લાગ્યો</string>
 
     <string name="feedback_solution">ઉકેલ: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">ભાત ક્રમ</string>
     <string name="game_ghost_grid">ભૂત ગ્રિડ</string>
     <string name="game_color_confusion">રંગોની ગૂંચવણ</string>
+    <string name="game_flock">પંખીઓનું ટોળું</string>
     <string name="game_orbit_tracker">કક્ષા ટ્રેકર</string>
     <string name="game_bubble_sum">પરપોટા સરવાળો</string>
     <string name="game_quick_sum">ઝડપી સરવાળો</string>
+    <string name="game_head_count">ઘરની ગણતરી</string>
     <string name="game_flash_crowd">ઝબકતી ભીડ</string>
     <string name="game_schulte_table">શુલ્ટે કોષ્ટક</string>
     <string name="game_mini_chess">નાનું ચેસ</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">ગ્રિડની દરેક હરોળમાં ચાલતો નિયમ શોધો, પછી તેને પૂરો કરતો ટુકડો પસંદ કરો.</string>
     <string name="game_ghost_grid_desc">ખાનાં એક પછી એક ઝળહળે તે જુઓ, પછી એ જ ક્રમમાં તેમના પર ટેપ કરો.</string>
     <string name="game_color_confusion_desc">એક રંગનો શબ્દ રંગીન શાહીમાં દેખાય છે. શાહીના રંગ પર ટેપ કરો, શબ્દ જે રંગ કહે તેના પર નહીં.</string>
+    <string name="game_flock_desc">પંખીઓનું એક ટોળું ઊડતું પસાર થાય છે. વચ્ચેનું પંખી જે દિશામાં ઊડે છે તે દિશામાં સ્વાઇપ કરો, અને આજુબાજુનાં પંખીઓને અવગણો.</string>
     <string name="game_orbit_tracker_desc">ઉજાગર કરેલા દડા જુઓ, તે ખસે ત્યારે તેમનો પીછો કરો. તે અટકે પછી મૂળ લક્ષ્યો પસંદ કરો.</string>
     <string name="game_bubble_sum_desc">તરતા પરપોટા પરના અંકો સરવાળો. પછી અંકો ઝબકે છે — તે યાદ રાખો.</string>
     <string name="bubble_sum_instruction">સરવાળો કેટલો?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">અંકો એક પછી એક ઝબકે છે</string>
     <string name="quick_sum_demo_flash">મનમાં જ સરવાળો કરતા રહો.</string>
     <string name="quick_sum_demo_total">કુલ દાખલ કરો.</string>
+    <string name="game_head_count_desc">લોકો એક ઘરમાં આવજા કરે છે. ગણતરી રાખો, અને બધું શાંત થાય ત્યારે કહો કે અંદર કેટલા છે.</string>
+    <string name="head_count_watch">ગણતા રહો</string>
+    <string name="head_count_instruction">અંદર કેટલા છે?</string>
+    <string name="head_count_demo_title">શરૂઆતમાં ઘર ખાલી છે</string>
+    <string name="head_count_demo_in">કોણ અંદર ગયું તે ગણો…</string>
+    <string name="head_count_demo_out">…અને કોણ પાછું બહાર આવ્યું.</string>
+    <string name="head_count_demo_both">ક્યારેક બંને એકસાથે.</string>
+    <string name="head_count_demo_answer">અંદર હજી બે જણ છે.</string>
     <string name="game_flash_crowd_desc">બંને બાજુ ટપકાં ક્ષણભર ઝબકે છે. જે બાજુ વધુ ટપકાં હતાં તેના પર ટેપ કરો. ગણશો નહીં — તમારી સૂઝ પર ભરોસો રાખો!</string>
     <string name="game_schulte_table_desc">1 થી ઉપરની તરફ અંકો પર બને તેટલી ઝડપથી ક્રમમાં ટેપ કરો.</string>
     <string name="game_schulte_instruction">અંકો પર ક્રમમાં ટેપ કરો: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">એ કયા મુખ્ય પત્તા સાથે જાય છે?</string>
     <string name="game_rule_shift_cards_left">બાકી પત્તાં: %1$d</string>
     <string name="game_color_confusion_howto">શાહીના રંગ પર ટેપ કરો.</string>
+    <string name="game_flock_howto">વચ્ચેનું પંખી જે દિશામાં ઊડે તે દિશામાં સ્વાઇપ કરો.</string>
     <string name="trio_demo_title">ત્રિપુટી શોધો</string>
     <string name="trio_demo_rule">ત્રણ પત્તાં જેમાં આકાર, સંખ્યા કે ભરાવમાંથી ઓછામાં ઓછું એક સરખું હોય. બાકી બધું દરેક પત્તામાં અલગ.</string>
     <string name="trio_trait_shape">આકાર</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">ક્યારેક બંને એકસરખા હોય છે.</string>
     <string name="color_confusion_demo_caption_trap">શબ્દ વાંચી લેવો એ જ જાળ છે.</string>
     <string name="color_confusion_demo_caption_recover">જવાબ હંમેશાં શાહી જ છે.</string>
+    <string name="flock_demo_title">વચ્ચેના પંખી પર નજર રાખો</string>
+    <string name="flock_demo_caption_middle">ફક્ત વચ્ચેનું પંખી ગણાય છે.</string>
+    <string name="flock_demo_caption_agree">ક્યારેક આખું ટોળું એક જ દિશામાં ઊડે છે.</string>
+    <string name="flock_demo_caption_trap">ટોળાની પાછળ જવું એ જ જાળ છે.</string>
+    <string name="flock_demo_caption_recover">જવાબ હંમેશાં વચ્ચેનું પંખી જ છે.</string>
     <string name="pattern_sequence_prompt">કયો ટુકડો મેટ્રિક્સ પૂરો કરે છે?</string>
     <string name="game_tap_original_targets">મૂળ લક્ષ્યો પર ટેપ કરો</string>
     <string name="game_remember_targets">લક્ષ્યો યાદ રાખો</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">ખગોળશાસ્ત્રી</string>
     <string name="achievement_gold_pattern_sequence">ભાત ભાખનાર</string>
     <string name="achievement_gold_color_confusion">સાચા રંગ</string>
+    <string name="achievement_gold_flock">ટોળાનો આગેવાન</string>
+    <string name="achievement_gold_head_count">દ્વારપાળ</string>
     <string name="achievement_gold_flash_crowd">ભીડ ગણનાર</string>
     <string name="achievement_gold_schulte_table">વીજળી નજર</string>
     <string name="achievement_gold_flags">ધ્વજધારી</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">કક્ષા ટ્રેકરમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_pattern_sequence_desc">ભાત ક્રમમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_color_confusion_desc">રંગોની ગૂંચવણમાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_flock_desc">પંખીઓના ટોળામાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_head_count_desc">ઘરની ગણતરીમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_flash_crowd_desc">ઝબકતી ભીડમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_schulte_table_desc">શુલ્ટે કોષ્ટકમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_flags_desc">ધ્વજમાં સુવર્ણ ચંદ્રક જીતો</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">અવકાશી ક્ષમતાનું પ્રમાણભૂત માપ: બે આકૃતિઓ એક જ ઘન ફેરવેલો છે કે કોઈ પરિભ્રમણથી ન મળે તેવી અરીસા-પ્રતિમા છે તે નક્કી કરવું.</string>
     <string name="science_color_confusion_paradigm">સ્ટ્રૂપ કાર્ય</string>
     <string name="science_color_confusion_summary">નિરોધનું પ્રમાણભૂત માપ: શબ્દ જે રંગમાં છપાયો છે તેનું નામ આપવું, જ્યારે શબ્દ વાંચવો એ જ વધુ ઝડપી, હરીફ જવાબ આગળ ધરે છે.</string>
+    <string name="science_flock_paradigm">ફ્લેન્કર કાર્ય</string>
+    <string name="science_flock_summary">પસંદગીયુક્ત ધ્યાનનું પ્રમાણભૂત માપ: હરોળમાં વચ્ચેની વસ્તુને પ્રતિભાવ આપવો, જ્યારે તેની બાજુની વસ્તુઓ એ જ દિશામાં કે ઊલટી દિશામાં સંકેત કરે છે, અને ન મળે ત્યારે તેમને અવગણવી પડે છે.</string>
     <string name="science_digit_memory_paradigm">બ્રાઉન-પીટરસન કાર્ય</string>
     <string name="science_digit_memory_summary">કાર્યકારી સ્મૃતિનું પ્રમાણભૂત માપ: એક શ્રેણી પકડી રાખવી જ્યારે બીજું અસંબંધિત કાર્ય એ જ માનસિક જગ્યા રોકે છે.</string>
     <string name="science_pattern_sequence_paradigm">મેટ્રિક્સ તર્ક</string>

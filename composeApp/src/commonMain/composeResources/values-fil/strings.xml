@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Halaga ng pagkakatugma</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Gaano ka pa katagal noong hindi magkatugma ang salita at ang tinta</string>
+    <string name="finish_congruency_effect_explainer_flock">Gaano ka pa katagal noong salungat ang lipad ng kawan sa ibon sa gitna</string>
 
     <string name="feedback_solution">Solusyon: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Sunod-sunod na Pattern</string>
     <string name="game_ghost_grid">Grid ng Multo</string>
     <string name="game_color_confusion">Guluhan ng Kulay</string>
+    <string name="game_flock">Kawan ng Ibon</string>
     <string name="game_orbit_tracker">Subaybay-Orbit</string>
     <string name="game_bubble_sum">Suma ng Bula</string>
     <string name="game_quick_sum">Mabilis na Suma</string>
+    <string name="game_head_count">Bilang ng Tao</string>
     <string name="game_flash_crowd">Biglaang Dami</string>
     <string name="game_schulte_table">Talahanayang Schulte</string>
     <string name="game_mini_chess">Mini Ahedres</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Alamin ang rule sa bawat row ng grid, tapos piliin ang piraso na kumukumpleto nito.</string>
     <string name="game_ghost_grid_desc">Panoorin ang mga tile na umiilaw isa-isa, tapos i-tap ulit sa parehong pagkakasunod.</string>
     <string name="game_color_confusion_desc">May salitang kulay na lumilitaw sa may kulay na tinta. I-tap ang kulay ng tinta, hindi ang kulay na sinasabi ng salita.</string>
+    <string name="game_flock_desc">May kawan ng ibong lumilipad. Mag-swipe kung saan lumilipad ang ibon sa gitna, at huwag pansinin ang mga ibon sa paligid nito.</string>
     <string name="game_orbit_tracker_desc">Panoorin ang mga naka-highlight na bola, tapos sundan sila habang gumagalaw. Piliin ang orihinal na targets paghinto nila.</string>
     <string name="game_bubble_sum_desc">Idagdag ang mga numero sa lumulutang na bubbles. Mamaya, kumikislap ang mga numero — tandaan mo sila.</string>
     <string name="bubble_sum_instruction">Ano ang kabuuan?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Kumikislap ang mga numero isa-isa</string>
     <string name="quick_sum_demo_flash">Panatilihin ang running total sa isip.</string>
     <string name="quick_sum_demo_total">I-enter ang total.</string>
+    <string name="game_head_count_desc">May mga taong pumapasok at lumalabas sa isang bahay. Bilangin sila, at pagtahimik na, sabihin kung ilan ang nasa loob.</string>
+    <string name="head_count_watch">Magbilang</string>
+    <string name="head_count_instruction">Ilan ang nasa loob?</string>
+    <string name="head_count_demo_title">Walang laman ang bahay sa simula</string>
+    <string name="head_count_demo_in">Bilangin ang pumapasok…</string>
+    <string name="head_count_demo_out">…at ang lumalabas ulit.</string>
+    <string name="head_count_demo_both">Minsan sabay ang dalawa.</string>
+    <string name="head_count_demo_answer">Dalawa pa ang nasa loob.</string>
     <string name="game_flash_crowd_desc">Saglit na kumikislap ang dots sa bawat panig. I-tap ang panig na may mas maraming dots. Huwag magbilang — pagkatiwalaan ang instinct!</string>
     <string name="game_schulte_table_desc">I-tap ang mga numero nang sunud-sunod mula 1 pataas nang mabilis.</string>
     <string name="game_schulte_instruction">I-tap ang mga numero nang sunud-sunod: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Saang pangunahing baraha ito kabilang?</string>
     <string name="game_rule_shift_cards_left">Natitirang baraha: %1$d</string>
     <string name="game_color_confusion_howto">I-tap ang kulay ng tinta.</string>
+    <string name="game_flock_howto">Mag-swipe kung saan lumilipad ang ibon sa gitna.</string>
     <string name="trio_demo_title">Maghanap ng trio</string>
     <string name="trio_demo_rule">Tatlong card na pareho ang kahit isa sa hugis, dami, o fill. Dapat magkakaiba ang lahat ng iba pa.</string>
     <string name="trio_trait_shape">Hugis</string>
@@ -501,6 +514,11 @@
     <string name="color_confusion_demo_caption_agree">Minsan magkatugma ang dalawa.</string>
     <string name="color_confusion_demo_caption_trap">Ang pagbasa sa salita ang bitag.</string>
     <string name="color_confusion_demo_caption_recover">Ang tinta ang laging sagot.</string>
+    <string name="flock_demo_title">Sundan ang ibon sa gitna</string>
+    <string name="flock_demo_caption_middle">Ang ibon lang sa gitna ang mahalaga.</string>
+    <string name="flock_demo_caption_agree">Minsan iisa ang direksyon ng buong kawan.</string>
+    <string name="flock_demo_caption_trap">Ang pagsunod sa kawan ang bitag.</string>
+    <string name="flock_demo_caption_recover">Ang ibon sa gitna ang laging sagot.</string>
     <string name="pattern_sequence_prompt">Aling piraso ang kumukumpleto sa matrix?</string>
     <string name="game_tap_original_targets">I-tap ang orihinal na targets</string>
     <string name="game_remember_targets">Tandaan ang targets</string>
@@ -577,6 +595,8 @@
     <string name="achievement_gold_orbit_tracker">Astronomo</string>
     <string name="achievement_gold_pattern_sequence">Propeta ng Pattern</string>
     <string name="achievement_gold_color_confusion">Tunay na Kulay</string>
+    <string name="achievement_gold_flock">Pinuno ng Kawan</string>
+    <string name="achievement_gold_head_count">Bantay-Pinto</string>
     <string name="achievement_gold_flash_crowd">Tagabilang ng Dami</string>
     <string name="achievement_gold_schulte_table">Kidlat na Tingin</string>
     <string name="achievement_gold_flags">Tagadala ng Bandila</string>
@@ -617,6 +637,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Manalo ng gold medal sa Orbit Tracker</string>
     <string name="achievement_gold_pattern_sequence_desc">Manalo ng gold medal sa Pattern Sequence</string>
     <string name="achievement_gold_color_confusion_desc">Manalo ng gold medal sa Color Confusion</string>
+    <string name="achievement_gold_flock_desc">Manalo ng gold medal sa Kawan ng Ibon</string>
+    <string name="achievement_gold_head_count_desc">Manalo ng gold medal sa Bilang ng Tao</string>
     <string name="achievement_gold_flash_crowd_desc">Manalo ng gold medal sa Flash Crowd</string>
     <string name="achievement_gold_schulte_table_desc">Manalo ng gold medal sa Schulte Table</string>
     <string name="achievement_gold_flags_desc">Manalo ng gold medal sa Mga Watawat</string>
@@ -694,6 +716,8 @@
     <string name="science_mental_rotations_summary">Karaniwang sukatan ng spatial na kakayahan: pagpapasya kung ang dalawang hugis ay iisang bagay na iniikot, o mga salaming imahe na walang pag-ikot ang makakatugma.</string>
     <string name="science_color_confusion_paradigm">Gawaing Stroop</string>
     <string name="science_color_confusion_summary">Karaniwang sukatan ng inhibisyon: pagpangalan sa kulay ng tintang ipinalimbag sa isang salita, samantalang ang pagbasa mismo sa salita ay nag-aalok ng mas mabilis at nakikipagtunggaling sagot.</string>
+    <string name="science_flock_paradigm">Gawaing Flanker</string>
+    <string name="science_flock_summary">Karaniwang sukatan ng piling atensyon: pagtugon sa nasa gitna ng isang hanay, samantalang ang mga katabi nito ay nakaturo sa parehong direksyon o sa kabila, at dapat balewalain kapag hindi tugma.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson Task</string>
     <string name="science_digit_memory_summary">Karaniwang sukatan ng working memory: paghawak sa isang serye habang may ibang gawaing sumasakop sa parehong espasyo ng isip.</string>
     <string name="science_pattern_sequence_paradigm">Matrix Reasoning</string>

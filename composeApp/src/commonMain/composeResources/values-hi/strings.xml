@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">अनुरूपता की कीमत</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">जब शब्द और स्याही अलग थे तो आपको कितना अधिक समय लगा</string>
+    <string name="finish_congruency_effect_explainer_flock">जब झुंड बीच वाले पंछी से उलटी ओर उड़ा तो आपको कितना अधिक समय लगा</string>
     <string name="button_play_random">रैंडम गेम खेलें</string>
     <string name="button_give_up">हार मानें</string>
     <string name="button_stay">रुकें</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">पैटर्न अनुक्रम</string>
     <string name="game_ghost_grid">भूत ग्रिड</string>
     <string name="game_color_confusion">रंग भ्रम</string>
+    <string name="game_flock">पंछियों का झुंड</string>
     <string name="game_orbit_tracker">ऑर्बिट ट्रैकर</string>
     <string name="game_bubble_sum">बुलबुला योग</string>
     <string name="game_bubble_sum_desc">तैरते बुलबुलों पर संख्याएँ जोड़ें। बाद में संख्याएँ झपकेंगी — याद रखें।</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">बुलबुला लेखाकार</string>
     <string name="achievement_gold_bubble_sum_desc">बुलबुला योग में स्वर्ण पदक जीतें</string>
     <string name="game_quick_sum">तेज़ जोड़</string>
+    <string name="game_head_count">घर की गिनती</string>
     <string name="game_quick_sum_desc">संख्याएँ एक-एक करके चमकती हैं। उन्हें जोड़ें और कुल दर्ज करें।</string>
     <string name="quick_sum_instruction">कुल कितना है?</string>
     <string name="quick_sum_watch">देखें</string>
     <string name="quick_sum_demo_title">संख्याएँ एक-एक करके चमकती हैं</string>
     <string name="quick_sum_demo_flash">मन ही मन जोड़ते रहें।</string>
     <string name="quick_sum_demo_total">कुल दर्ज करें।</string>
+    <string name="game_head_count_desc">लोग एक घर में आते-जाते हैं। गिनती रखें, और जब सब थम जाए तो बताएँ कि अंदर कितने हैं।</string>
+    <string name="head_count_watch">गिनते रहें</string>
+    <string name="head_count_instruction">अंदर कितने हैं?</string>
+    <string name="head_count_demo_title">घर शुरू में खाली है</string>
+    <string name="head_count_demo_in">गिनें कौन अंदर गया…</string>
+    <string name="head_count_demo_out">…और कौन वापस बाहर निकला।</string>
+    <string name="head_count_demo_both">कभी-कभी दोनों एक साथ।</string>
+    <string name="head_count_demo_answer">अंदर अब भी दो लोग हैं।</string>
     <string name="achievement_gold_quick_sum">बिजली अबेकस</string>
     <string name="achievement_gold_quick_sum_desc">तेज़ जोड़ में स्वर्ण पदक जीतें</string>
     <string name="game_flash_crowd">फ्लैश क्राउड</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">ग्रिड की हर पंक्ति में चलने वाला नियम पहचानें, फिर उसे पूरा करने वाला टुकड़ा चुनें।</string>
     <string name="game_ghost_grid_desc">टाइलों को एक-एक करके जलते हुए देखें, फिर उन्हें उसी क्रम में टैप करें।</string>
     <string name="game_color_confusion_desc">एक रंग का शब्द रंगीन स्याही में दिखता है। स्याही के रंग पर टैप करें, उस रंग पर नहीं जो शब्द बताता है।</string>
+    <string name="game_flock_desc">पंछियों का एक झुंड उड़ता हुआ गुज़रता है। बीच वाला पंछी जिस ओर उड़ रहा है, उस ओर स्वाइप करें, और आसपास के पंछियों को अनदेखा करें।</string>
     <string name="game_orbit_tracker_desc">हाइलाइट की गई गेंदों को देखें, फिर उनकी गति को ट्रैक करें। रुकने के बाद मूल लक्ष्यों को चुनें।</string>
     <string name="game_flash_crowd_desc">हर तरफ कुछ देर के लिए बिंदु चमकते हैं। जिस तरफ अधिक बिंदु थे, उसे टैप करें। गिनें नहीं — अपनी अंतर्ज्ञान पर भरोसा करें!</string>
     <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">खगोलविद्</string>
     <string name="achievement_gold_pattern_sequence">पैटर्न भविष्यवक्ता</string>
     <string name="achievement_gold_color_confusion">असली रंग</string>
+    <string name="achievement_gold_flock">झुंड का अगुआ</string>
+    <string name="achievement_gold_head_count">द्वारपाल</string>
     <string name="achievement_gold_flash_crowd">भीड़ गिनने वाला</string>
     <string name="achievement_gold_schulte_table">बिजली नज़र</string>
     <string name="achievement_gold_flags">ध्वजवाहक</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">ऑर्बिट ट्रैकर में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_pattern_sequence_desc">पैटर्न अनुक्रम में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_color_confusion_desc">रंग भ्रम में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_flock_desc">पंछियों के झुंड में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_head_count_desc">घर की गिनती में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_flash_crowd_desc">फ्लैश क्राउड में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_schulte_table_desc">शुल्ते तालिका में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_flags_desc">झंडे में स्वर्ण पदक जीतें</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">स्थानिक क्षमता का मानक माप: यह तय करना कि दो आकृतियाँ एक ही ठोस को घुमाकर बनी हैं या दर्पण-प्रतिबिंब हैं जिन्हें कोई घुमाव नहीं मिला सकता।</string>
     <string name="science_color_confusion_paradigm">स्ट्रूप कार्य</string>
     <string name="science_color_confusion_summary">अवरोधन का मानक माप: उस रंग का नाम बताना जिसमें शब्द छपा है, जबकि शब्द को पढ़ना ही एक तेज़, प्रतिस्पर्धी उत्तर सामने रख देता है।</string>
+    <string name="science_flock_paradigm">फ्लैंकर कार्य</string>
+    <string name="science_flock_summary">चयनात्मक ध्यान का मानक माप: एक पंक्ति में बीच वाली वस्तु पर प्रतिक्रिया देना, जबकि उसके दोनों ओर की वस्तुएँ उसी दिशा में या उलटी दिशा में इशारा करती हैं, और अलग होने पर उन्हें अनदेखा करना पड़ता है।</string>
     <string name="science_digit_memory_paradigm">ब्राउन-पीटरसन कार्य</string>
     <string name="science_digit_memory_summary">कार्यशील स्मृति का मानक माप: किसी क्रम को थामे रखना जब कोई असंबद्ध कार्य उसी मानसिक जगह को घेरे हुए हो।</string>
     <string name="science_pattern_sequence_paradigm">मैट्रिक्स तर्क</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">कभी-कभी दोनों एक ही होते हैं।</string>
     <string name="color_confusion_demo_caption_trap">जाल यही है कि शब्द पढ़ लिया जाए।</string>
     <string name="color_confusion_demo_caption_recover">उत्तर हमेशा स्याही होती है।</string>
+    <string name="flock_demo_title">बीच वाले पंछी पर नज़र रखें</string>
+    <string name="flock_demo_caption_middle">सिर्फ़ बीच वाला पंछी मायने रखता है।</string>
+    <string name="flock_demo_caption_agree">कभी-कभी पूरा झुंड एक ही ओर उड़ता है।</string>
+    <string name="flock_demo_caption_trap">झुंड के पीछे चल देना ही जाल है।</string>
+    <string name="flock_demo_caption_recover">उत्तर हमेशा बीच वाला पंछी होता है।</string>
     <string name="spot_the_new_demo_title">नया पहचानें</string>
     <string name="spot_the_new_demo_seen_label">अब तक देखे गए</string>
     <string name="spot_the_new_demo_new">वह जानवर टैप करें जिसे आपने पहले नहीं देखा।</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">यह किस कुंजी कार्ड से मेल खाता है?</string>
     <string name="game_rule_shift_cards_left">शेष कार्ड: %1$d</string>
     <string name="game_color_confusion_howto">स्याही के रंग पर टैप करें।</string>
+    <string name="game_flock_howto">बीच वाला पंछी जिस ओर उड़े, उस ओर स्वाइप करें।</string>
     <string name="trio_demo_title">तिकड़ी खोजें</string>
     <string name="trio_demo_rule">तीन पत्ते जिनकी आकृति, संख्या या भराव में से कम से कम एक चीज़ एक जैसी हो। बाकी सब हर पत्ते पर अलग।</string>
     <string name="trio_trait_shape">आकृति</string>

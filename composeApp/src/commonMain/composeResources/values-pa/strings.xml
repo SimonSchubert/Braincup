@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">ਮੇਲ ਦੀ ਕੀਮਤ</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">ਜਦੋਂ ਸ਼ਬਦ ਅਤੇ ਸਿਆਹੀ ਨਹੀਂ ਮਿਲਦੇ ਸਨ, ਤੁਹਾਨੂੰ ਕਿੰਨਾ ਵੱਧ ਸਮਾਂ ਲੱਗਾ</string>
+    <string name="finish_congruency_effect_explainer_flock">ਜਦੋਂ ਡਾਰ ਵਿਚਕਾਰਲੇ ਪੰਛੀ ਤੋਂ ਉਲਟ ਉੱਡਦੀ ਸੀ, ਤੁਹਾਨੂੰ ਕਿੰਨਾ ਵੱਧ ਸਮਾਂ ਲੱਗਾ</string>
 
     <string name="feedback_solution">ਹੱਲ: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">ਨਮੂਨਾ ਲੜੀ</string>
     <string name="game_ghost_grid">ਭੂਤ ਗਰਿੱਡ</string>
     <string name="game_color_confusion">ਰੰਗਾਂ ਦੀ ਉਲਝਣ</string>
+    <string name="game_flock">ਡਾਰ</string>
     <string name="game_orbit_tracker">ਪੰਧ ਨਿਗਰਾਨ</string>
     <string name="game_bubble_sum">ਬੁਲਬੁਲਾ ਜੋੜ</string>
     <string name="game_quick_sum">ਤੇਜ਼ ਜੋੜ</string>
+    <string name="game_head_count">ਘਰ ਦੀ ਗਿਣਤੀ</string>
     <string name="game_flash_crowd">ਲਿਸ਼ਕਦੀ ਭੀੜ</string>
     <string name="game_schulte_table">ਸ਼ੁਲਟੇ ਸਾਰਣੀ</string>
     <string name="game_mini_chess">ਨਿੱਕੀ ਸ਼ਤਰੰਜ</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">ਗਰਿੱਡ ਦੀ ਹਰ ਕਤਾਰ ਵਿੱਚ ਚੱਲਦਾ ਨਿਯਮ ਲੱਭੋ, ਫਿਰ ਉਸ ਨੂੰ ਪੂਰਾ ਕਰਨ ਵਾਲਾ ਟੁਕੜਾ ਚੁਣੋ।</string>
     <string name="game_ghost_grid_desc">ਖਾਨੇ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਜਗਦੇ ਵੇਖੋ, ਫਿਰ ਉਸੇ ਤਰਤੀਬ ਵਿੱਚ ਉਨ੍ਹਾਂ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="game_color_confusion_desc">ਰੰਗ ਦੱਸਣ ਵਾਲਾ ਸ਼ਬਦ ਰੰਗੀਲੀ ਸਿਆਹੀ ਵਿੱਚ ਆਉਂਦਾ ਹੈ। ਸਿਆਹੀ ਦੇ ਰੰਗ ਉੱਤੇ ਟੈਪ ਕਰੋ, ਉਸ ਰੰਗ ਉੱਤੇ ਨਹੀਂ ਜੋ ਸ਼ਬਦ ਦੱਸਦਾ ਹੈ।</string>
+    <string name="game_flock_desc">ਪੰਛੀਆਂ ਦੀ ਇੱਕ ਡਾਰ ਉੱਡਦੀ ਲੰਘਦੀ ਹੈ। ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਜਿਸ ਪਾਸੇ ਉੱਡ ਰਿਹਾ ਹੈ, ਉਸ ਪਾਸੇ ਸਵਾਈਪ ਕਰੋ, ਅਤੇ ਆਲੇ-ਦੁਆਲੇ ਦੇ ਪੰਛੀਆਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ।</string>
     <string name="game_orbit_tracker_desc">ਉਭਾਰੀਆਂ ਗੇਂਦਾਂ ਵੇਖੋ, ਹਿਲਦਿਆਂ ਉਨ੍ਹਾਂ ਦਾ ਪਿੱਛਾ ਕਰੋ। ਰੁਕਣ ਬਾਅਦ ਅਸਲ ਨਿਸ਼ਾਨੇ ਚੁਣੋ।</string>
     <string name="game_bubble_sum_desc">ਤੈਰਦੇ ਬੁਲਬੁਲਿਆਂ ਉੱਤੇ ਨੰਬਰ ਜੋੜੋ। ਬਾਅਦ ਵਿੱਚ ਨੰਬਰ ਟਿਮਟਿਮਾਉਂਦੇ ਹਨ — ਉਨ੍ਹਾਂ ਨੂੰ ਯਾਦ ਰੱਖੋ।</string>
     <string name="bubble_sum_instruction">ਜੋੜ ਕਿੰਨਾ ਹੈ?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">ਨੰਬਰ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਲਿਸ਼ਕਦੇ ਹਨ</string>
     <string name="quick_sum_demo_flash">ਮਨ ਵਿੱਚ ਹੀ ਜੋੜ ਕਰਦੇ ਰਹੋ।</string>
     <string name="quick_sum_demo_total">ਕੁੱਲ ਭਰੋ।</string>
+    <string name="game_head_count_desc">ਲੋਕ ਇੱਕ ਘਰ ਵਿੱਚ ਆਉਂਦੇ-ਜਾਂਦੇ ਹਨ। ਗਿਣਤੀ ਰੱਖੋ, ਅਤੇ ਜਦੋਂ ਸਭ ਰੁਕ ਜਾਵੇ ਤਾਂ ਦੱਸੋ ਕਿ ਅੰਦਰ ਕਿੰਨੇ ਹਨ।</string>
+    <string name="head_count_watch">ਗਿਣਦੇ ਰਹੋ</string>
+    <string name="head_count_instruction">ਅੰਦਰ ਕਿੰਨੇ ਹਨ?</string>
+    <string name="head_count_demo_title">ਸ਼ੁਰੂ ਵਿੱਚ ਘਰ ਖ਼ਾਲੀ ਹੈ</string>
+    <string name="head_count_demo_in">ਗਿਣੋ ਕੌਣ ਅੰਦਰ ਗਿਆ…</string>
+    <string name="head_count_demo_out">…ਅਤੇ ਕੌਣ ਵਾਪਸ ਬਾਹਰ ਆਇਆ।</string>
+    <string name="head_count_demo_both">ਕਦੇ-ਕਦੇ ਦੋਵੇਂ ਇੱਕੋ ਵੇਲੇ।</string>
+    <string name="head_count_demo_answer">ਅੰਦਰ ਅਜੇ ਵੀ ਦੋ ਜਣੇ ਹਨ।</string>
     <string name="game_flash_crowd_desc">ਦੋਵੇਂ ਪਾਸੇ ਬਿੰਦੀਆਂ ਪਲ ਭਰ ਲਿਸ਼ਕਦੀਆਂ ਹਨ। ਜਿਸ ਪਾਸੇ ਵੱਧ ਸਨ ਉਸ ਉੱਤੇ ਟੈਪ ਕਰੋ। ਗਿਣੋ ਨਾ — ਆਪਣੀ ਸੂਝ ਉੱਤੇ ਭਰੋਸਾ ਕਰੋ!</string>
     <string name="game_schulte_table_desc">1 ਤੋਂ ਉੱਪਰ ਵੱਲ ਨੰਬਰਾਂ ਉੱਤੇ ਜਿੰਨੀ ਤੇਜ਼ੀ ਨਾਲ ਹੋ ਸਕੇ ਤਰਤੀਬ ਵਿੱਚ ਟੈਪ ਕਰੋ।</string>
     <string name="game_schulte_instruction">ਨੰਬਰਾਂ ਉੱਤੇ ਤਰਤੀਬ ਵਿੱਚ ਟੈਪ ਕਰੋ: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">ਇਹ ਕਿਸ ਮੁੱਖ ਪੱਤੇ ਨਾਲ ਜਾਂਦਾ ਹੈ?</string>
     <string name="game_rule_shift_cards_left">ਬਾਕੀ ਪੱਤੇ: %1$d</string>
     <string name="game_color_confusion_howto">ਸਿਆਹੀ ਦੇ ਰੰਗ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="game_flock_howto">ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਜਿਸ ਪਾਸੇ ਉੱਡੇ, ਉਸ ਪਾਸੇ ਸਵਾਈਪ ਕਰੋ।</string>
     <string name="trio_demo_title">ਤਿੱਕੜੀ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਤਿੰਨ ਪੱਤੇ ਜਿਨ੍ਹਾਂ ਦਾ ਆਕਾਰ, ਗਿਣਤੀ ਜਾਂ ਭਰਾਈ ਵਿੱਚੋਂ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਇੱਕੋ ਹੋਵੇ। ਬਾਕੀ ਸਭ ਹਰ ਪੱਤੇ ਉੱਤੇ ਵੱਖਰਾ।</string>
     <string name="trio_trait_shape">ਆਕਾਰ</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">ਕਦੇ-ਕਦੇ ਦੋਵੇਂ ਇੱਕੋ ਹੁੰਦੇ ਹਨ।</string>
     <string name="color_confusion_demo_caption_trap">ਫੰਦਾ ਇਹੀ ਹੈ ਕਿ ਸ਼ਬਦ ਪੜ੍ਹ ਲਿਆ ਜਾਵੇ।</string>
     <string name="color_confusion_demo_caption_recover">ਜਵਾਬ ਹਮੇਸ਼ਾ ਸਿਆਹੀ ਹੀ ਹੈ।</string>
+    <string name="flock_demo_title">ਵਿਚਕਾਰਲੇ ਪੰਛੀ 'ਤੇ ਨਜ਼ਰ ਰੱਖੋ</string>
+    <string name="flock_demo_caption_middle">ਸਿਰਫ਼ ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਮਾਇਨੇ ਰੱਖਦਾ ਹੈ।</string>
+    <string name="flock_demo_caption_agree">ਕਦੇ-ਕਦੇ ਸਾਰੀ ਡਾਰ ਇੱਕੋ ਪਾਸੇ ਉੱਡਦੀ ਹੈ।</string>
+    <string name="flock_demo_caption_trap">ਡਾਰ ਦੇ ਮਗਰ ਲੱਗਣਾ ਹੀ ਫੰਦਾ ਹੈ।</string>
+    <string name="flock_demo_caption_recover">ਜਵਾਬ ਹਮੇਸ਼ਾ ਵਿਚਕਾਰਲਾ ਪੰਛੀ ਹੀ ਹੈ।</string>
     <string name="pattern_sequence_prompt">ਕਿਹੜਾ ਟੁਕੜਾ ਮੈਟ੍ਰਿਕਸ ਪੂਰਾ ਕਰਦਾ ਹੈ?</string>
     <string name="game_tap_original_targets">ਅਸਲ ਨਿਸ਼ਾਨਿਆਂ ਉੱਤੇ ਟੈਪ ਕਰੋ</string>
     <string name="game_remember_targets">ਨਿਸ਼ਾਨੇ ਯਾਦ ਰੱਖੋ</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">ਖਗੋਲ ਵਿਗਿਆਨੀ</string>
     <string name="achievement_gold_pattern_sequence">ਨਮੂਨਾ ਭਵਿੱਖਬਾਣੀ</string>
     <string name="achievement_gold_color_confusion">ਅਸਲੀ ਰੰਗ</string>
+    <string name="achievement_gold_flock">ਡਾਰ ਦਾ ਆਗੂ</string>
+    <string name="achievement_gold_head_count">ਦਰਬਾਨ</string>
     <string name="achievement_gold_flash_crowd">ਭੀੜ ਗਿਣਨ ਵਾਲਾ</string>
     <string name="achievement_gold_schulte_table">ਬਿਜਲੀ ਨਜ਼ਰ</string>
     <string name="achievement_gold_flags">ਝੰਡਾਬਰਦਾਰ</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">ਪੰਧ ਨਿਗਰਾਨ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_pattern_sequence_desc">ਨਮੂਨਾ ਲੜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_color_confusion_desc">ਰੰਗਾਂ ਦੀ ਉਲਝਣ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_flock_desc">ਡਾਰ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_head_count_desc">ਘਰ ਦੀ ਗਿਣਤੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_flash_crowd_desc">ਲਿਸ਼ਕਦੀ ਭੀੜ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_schulte_table_desc">ਸ਼ੁਲਟੇ ਸਾਰਣੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_flags_desc">ਝੰਡਿਆਂ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">ਥਾਂ-ਸਬੰਧੀ ਸਮਰੱਥਾ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਇਹ ਤੈਅ ਕਰਨਾ ਕਿ ਦੋ ਆਕਾਰ ਇੱਕੋ ਵਸਤੂ ਘੁਮਾਈ ਹੋਈ ਹਨ ਜਾਂ ਸ਼ੀਸ਼ੇ ਵਾਲੇ ਅਕਸ, ਜਿਨ੍ਹਾਂ ਨੂੰ ਕੋਈ ਘੁਮਾਅ ਨਹੀਂ ਮਿਲਾ ਸਕਦਾ।</string>
     <string name="science_color_confusion_paradigm">ਸਟਰੂਪ ਕਾਰਜ</string>
     <string name="science_color_confusion_summary">ਰੋਕ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਉਸ ਰੰਗ ਦਾ ਨਾਂ ਦੱਸਣਾ ਜਿਸ ਵਿੱਚ ਸ਼ਬਦ ਛਪਿਆ ਹੈ, ਜਦੋਂ ਕਿ ਸ਼ਬਦ ਪੜ੍ਹਨਾ ਹੀ ਇੱਕ ਤੇਜ਼, ਮੁਕਾਬਲੇਬਾਜ਼ ਜਵਾਬ ਅੱਗੇ ਕਰ ਦਿੰਦਾ ਹੈ।</string>
+    <string name="science_flock_paradigm">ਫਲੈਂਕਰ ਕਾਰਜ</string>
+    <string name="science_flock_summary">ਚੋਣਵੇਂ ਧਿਆਨ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਕਤਾਰ ਵਿੱਚ ਵਿਚਕਾਰਲੀ ਚੀਜ਼ ਦਾ ਜਵਾਬ ਦੇਣਾ, ਜਦੋਂ ਕਿ ਉਸ ਦੇ ਨਾਲ ਦੀਆਂ ਚੀਜ਼ਾਂ ਉਸੇ ਪਾਸੇ ਜਾਂ ਉਲਟ ਪਾਸੇ ਇਸ਼ਾਰਾ ਕਰਦੀਆਂ ਹਨ, ਅਤੇ ਵੱਖਰੀਆਂ ਹੋਣ 'ਤੇ ਉਨ੍ਹਾਂ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰਨਾ ਪੈਂਦਾ ਹੈ।</string>
     <string name="science_digit_memory_paradigm">ਬ੍ਰਾਊਨ-ਪੀਟਰਸਨ ਕਾਰਜ</string>
     <string name="science_digit_memory_summary">ਕਾਰਜਸ਼ੀਲ ਯਾਦਦਾਸ਼ਤ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਇੱਕ ਲੜੀ ਸੰਭਾਲੀ ਰੱਖਣੀ ਜਦੋਂ ਕੋਈ ਹੋਰ ਕੰਮ ਉਸੇ ਮਾਨਸਿਕ ਥਾਂ ਨੂੰ ਘੇਰੀ ਬੈਠਾ ਹੋਵੇ।</string>
     <string name="science_pattern_sequence_paradigm">ਮੈਟ੍ਰਿਕਸ ਤਰਕ</string>

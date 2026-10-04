@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Kongruenskostnad</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Hur mycket längre tid du tog när ordet och bläcket inte stämde överens</string>
+    <string name="finish_congruency_effect_explainer_flock">Hur mycket längre tid du tog när flocken flög åt andra hållet än mittenfågeln</string>
 
     <string name="feedback_solution">Lösning: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Mönstersekvens</string>
     <string name="game_ghost_grid">Spökruta</string>
     <string name="game_color_confusion">Färgförvirring</string>
+    <string name="game_flock">Fågelflock</string>
     <string name="game_orbit_tracker">Banföljare</string>
     <string name="game_bubble_sum">Bubbelsumma</string>
     <string name="game_quick_sum">Snabbsamma</string>
+    <string name="game_head_count">Folkräkning</string>
     <string name="game_flash_crowd">Blixtmängd</string>
     <string name="game_schulte_table">Schultetabell</string>
     <string name="game_mini_chess">Minischack</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Lista ut regeln längs varje rad i rutnätet och välj biten som kompletterar det.</string>
     <string name="game_ghost_grid_desc">Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.</string>
     <string name="game_color_confusion_desc">Ett färgord visas i färgat bläck. Tryck på bläckets färg, inte färgen ordet nämner.</string>
+    <string name="game_flock_desc">En flock fåglar flyger förbi. Svep åt det håll som fågeln i mitten flyger, och strunta i fåglarna runt den.</string>
     <string name="game_orbit_tracker_desc">Titta på de markerade bollarna och följ dem när de rör sig. Välj originalmålen när de stannar.</string>
     <string name="game_bubble_sum_desc">Addera talen på de flytande bubblorna. Senare blinkar talen — kom ihåg dem.</string>
     <string name="bubble_sum_instruction">Vad blir summan?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Tal blinkar ett i taget</string>
     <string name="quick_sum_demo_flash">Håll en löpande summa i huvudet.</string>
     <string name="quick_sum_demo_total">Ange totalt.</string>
+    <string name="game_head_count_desc">Folk går in och ut ur ett hus. Håll räkningen och säg hur många som är inne när det har lugnat sig.</string>
+    <string name="head_count_watch">Håll räkningen</string>
+    <string name="head_count_instruction">Hur många är inne?</string>
+    <string name="head_count_demo_title">Huset är tomt från början</string>
+    <string name="head_count_demo_in">Räkna dem som går in…</string>
+    <string name="head_count_demo_out">…och dem som kommer ut igen.</string>
+    <string name="head_count_demo_both">Ibland båda samtidigt.</string>
+    <string name="head_count_demo_answer">Två är kvar inne.</string>
     <string name="game_flash_crowd_desc">Prickar blinkar kort på varje sida. Tryck på sidan som hade fler prickar. Räkna inte — lita på instinkten!</string>
     <string name="game_schulte_table_desc">Tryck på talen i ordning från 1 och uppåt så snabbt du kan.</string>
     <string name="game_schulte_instruction">Tryck på talen i ordning: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Vilket nyckelkort hör det till?</string>
     <string name="game_rule_shift_cards_left">Kort kvar: %1$d</string>
     <string name="game_color_confusion_howto">Tryck på bläckets färg.</string>
+    <string name="game_flock_howto">Svep åt det håll mittenfågeln flyger.</string>
     <string name="trio_demo_title">Hitta en trio</string>
     <string name="trio_demo_rule">Tre kort med minst samma form, antal eller fyllning. Allt annat måste vara olika på alla tre.</string>
     <string name="trio_trait_shape">Form</string>
@@ -501,6 +514,11 @@
     <string name="color_confusion_demo_caption_agree">Ibland är de överens.</string>
     <string name="color_confusion_demo_caption_trap">Att läsa ordet är fällan.</string>
     <string name="color_confusion_demo_caption_recover">Bläcket är alltid svaret.</string>
+    <string name="flock_demo_title">Följ mittenfågeln</string>
+    <string name="flock_demo_caption_middle">Bara mittenfågeln räknas.</string>
+    <string name="flock_demo_caption_agree">Ibland flyger hela flocken åt samma håll.</string>
+    <string name="flock_demo_caption_trap">Att följa flocken är fällan.</string>
+    <string name="flock_demo_caption_recover">Mittenfågeln är alltid svaret.</string>
     <string name="pattern_sequence_prompt">Vilken bit kompletterar matrisen?</string>
     <string name="game_tap_original_targets">Tryck på originalmålen</string>
     <string name="game_remember_targets">Kom ihåg målen</string>
@@ -577,6 +595,8 @@
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Mönsterprofet</string>
     <string name="achievement_gold_color_confusion">Äkta färger</string>
+    <string name="achievement_gold_flock">Ledarfågel</string>
+    <string name="achievement_gold_head_count">Dörrvakt</string>
     <string name="achievement_gold_flash_crowd">Mängdräknare</string>
     <string name="achievement_gold_schulte_table">Blixtblick</string>
     <string name="achievement_gold_flags">Flagbärare</string>
@@ -617,6 +637,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Vinn guldmedalj i Banföljare</string>
     <string name="achievement_gold_pattern_sequence_desc">Vinn guldmedalj i Mönstersekvens</string>
     <string name="achievement_gold_color_confusion_desc">Vinn guldmedalj i Färgförvirring</string>
+    <string name="achievement_gold_flock_desc">Vinn guldmedalj i Fågelflock</string>
+    <string name="achievement_gold_head_count_desc">Vinn guldmedalj i Folkräkning</string>
     <string name="achievement_gold_flash_crowd_desc">Vinn guldmedalj i Blixtmängd</string>
     <string name="achievement_gold_schulte_table_desc">Vinn guldmedalj i Schultetabell</string>
     <string name="achievement_gold_flags_desc">Vinn guldmedalj i Flaggor</string>
@@ -694,6 +716,8 @@
     <string name="science_mental_rotations_summary">Ett standardmått på spatial förmåga: att avgöra om två figurer är samma kropp vriden, eller spegelbilder som ingen rotation får att stämma.</string>
     <string name="science_color_confusion_paradigm">Stroop-uppgiften</string>
     <string name="science_color_confusion_summary">Ett standardmått på inhibition: att benämna färgen ett ord är tryckt i, medan själva läsningen av ordet ger ett snabbare, konkurrerande svar.</string>
+    <string name="science_flock_paradigm">Flanker-uppgiften</string>
+    <string name="science_flock_summary">Ett standardmått på selektiv uppmärksamhet: att reagera på det mittersta objektet i en rad medan objekten bredvid pekar åt samma eller motsatt håll och måste ignoreras när de inte stämmer överens.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-uppgiften</string>
     <string name="science_digit_memory_summary">Ett standardmått på arbetsminnet: att hålla kvar en följd medan en annan uppgift upptar samma mentala utrymme.</string>
     <string name="science_pattern_sequence_paradigm">Matrisresonemang</string>

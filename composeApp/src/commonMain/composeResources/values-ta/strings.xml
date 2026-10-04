@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">ஒத்திசைவின் விலை</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">சொல்லும் மையும் ஒத்துப்போகாதபோது உங்களுக்கு எவ்வளவு அதிக நேரம் பிடித்தது</string>
+    <string name="finish_congruency_effect_explainer_flock">கூட்டம் நடுப் பறவைக்கு எதிர்த்திசையில் பறந்தபோது உங்களுக்கு எவ்வளவு அதிக நேரம் பிடித்தது</string>
 
     <string name="feedback_solution">தீர்வு: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">வடிவ வரிசை</string>
     <string name="game_ghost_grid">பேய்க் கட்டம்</string>
     <string name="game_color_confusion">வண்ணக் குழப்பம்</string>
+    <string name="game_flock">பறவைக் கூட்டம்</string>
     <string name="game_orbit_tracker">சுற்றுப்பாதைக் கண்காணிப்பான்</string>
     <string name="game_bubble_sum">குமிழிக் கூட்டல்</string>
     <string name="game_quick_sum">விரைவுக் கூட்டல்</string>
+    <string name="game_head_count">தலைக்கணக்கு</string>
     <string name="game_flash_crowd">மின்னல் கூட்டம்</string>
     <string name="game_schulte_table">ஷுல்ட்டே அட்டவணை</string>
     <string name="game_mini_chess">சிறு சதுரங்கம்</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">கட்டத்தின் ஒவ்வொரு வரிசையிலும் ஓடும் விதியைக் கண்டறிந்து, அதை நிறைவுசெய்யும் துண்டைத் தேர்வுசெய்யுங்கள்.</string>
     <string name="game_ghost_grid_desc">கட்டங்கள் ஒவ்வொன்றாக ஒளிர்வதைப் பாருங்கள், பிறகு அதே வரிசையில் அவற்றைத் தட்டுங்கள்.</string>
     <string name="game_color_confusion_desc">ஒரு வண்ணச் சொல் வண்ண மையில் தோன்றும். மையின் நிறத்தைத் தட்டுங்கள், சொல் சொல்லும் நிறத்தை அல்ல.</string>
+    <string name="game_flock_desc">ஒரு பறவைக் கூட்டம் பறந்து போகிறது. நடுவில் உள்ள பறவை பறக்கும் திசையில் ஸ்வைப் செய்யுங்கள், சுற்றியுள்ள பறவைகளைக் கண்டுகொள்ளாதீர்கள்.</string>
     <string name="game_orbit_tracker_desc">தனித்துக் காட்டப்பட்ட பந்துகளைப் பாருங்கள், அவை நகரும்போது கண்காணியுங்கள். அவை நின்றபிறகு அசல் இலக்குகளைத் தேர்வுசெய்யுங்கள்.</string>
     <string name="game_bubble_sum_desc">மிதக்கும் குமிழிகளில் உள்ள எண்களைக் கூட்டுங்கள். பின்னர் எண்கள் சிமிட்டும் — அவற்றை நினைவில் வையுங்கள்.</string>
     <string name="bubble_sum_instruction">கூட்டுத்தொகை என்ன?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">எண்கள் ஒவ்வொன்றாக மின்னும்</string>
     <string name="quick_sum_demo_flash">மனதுக்குள் மொத்தத்தைக் கூட்டிக்கொண்டே வாருங்கள்.</string>
     <string name="quick_sum_demo_total">மொத்தத்தை உள்ளிடுங்கள்.</string>
+    <string name="game_head_count_desc">ஆட்கள் ஒரு வீட்டுக்குள் போகிறார்கள், வெளியே வருகிறார்கள். எண்ணிக்கொண்டே இருங்கள்; எல்லாம் அடங்கியதும் உள்ளே எத்தனை பேர் என்று சொல்லுங்கள்.</string>
+    <string name="head_count_watch">எண்ணுங்கள்</string>
+    <string name="head_count_instruction">உள்ளே எத்தனை பேர்?</string>
+    <string name="head_count_demo_title">முதலில் வீடு காலி</string>
+    <string name="head_count_demo_in">உள்ளே போகிறவர்களையும்…</string>
+    <string name="head_count_demo_out">…வெளியே வருகிறவர்களையும் எண்ணுங்கள்.</string>
+    <string name="head_count_demo_both">சில நேரம் இரண்டும் ஒரே சமயத்தில்.</string>
+    <string name="head_count_demo_answer">இன்னும் இரண்டு பேர் உள்ளே இருக்கிறார்கள்.</string>
     <string name="game_flash_crowd_desc">ஒவ்வொரு பக்கத்திலும் புள்ளிகள் சிறிது நேரம் மின்னும். அதிக புள்ளிகள் இருந்த பக்கத்தைத் தட்டுங்கள். எண்ண வேண்டாம் — உள்ளுணர்வை நம்புங்கள்!</string>
     <string name="game_schulte_table_desc">1 இலிருந்து மேல்நோக்கி எண்களை முடிந்தவரை வேகமாக வரிசையாகத் தட்டுங்கள்.</string>
     <string name="game_schulte_instruction">எண்களை வரிசையாகத் தட்டுங்கள்: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">இது எந்த முக்கியச் சீட்டுடன் சேரும்?</string>
     <string name="game_rule_shift_cards_left">மீதமுள்ள சீட்டுகள்: %1$d</string>
     <string name="game_color_confusion_howto">மையின் நிறத்தைத் தட்டுங்கள்.</string>
+    <string name="game_flock_howto">நடுப் பறவை பறக்கும் திசையில் ஸ்வைப் செய்யுங்கள்.</string>
     <string name="trio_demo_title">மூவரைக் கண்டுபிடியுங்கள்</string>
     <string name="trio_demo_rule">வடிவம், எண்ணிக்கை, நிரப்பல் இவற்றில் குறைந்தது ஒன்று ஒன்றாக உள்ள மூன்று அட்டைகள். மற்ற அனைத்தும் ஒவ்வொரு அட்டையிலும் வேறு.</string>
     <string name="trio_trait_shape">வடிவம்</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">சில நேரம் இரண்டும் ஒன்றாகவே இருக்கும்.</string>
     <string name="color_confusion_demo_caption_trap">சொல்லைப் படிப்பதுதான் பொறி.</string>
     <string name="color_confusion_demo_caption_recover">விடை எப்போதும் மைதான்.</string>
+    <string name="flock_demo_title">நடுப் பறவையைப் பின்தொடருங்கள்</string>
+    <string name="flock_demo_caption_middle">நடுப் பறவை மட்டுமே கணக்கு.</string>
+    <string name="flock_demo_caption_agree">சில நேரம் கூட்டம் முழுவதும் ஒரே திசையில்.</string>
+    <string name="flock_demo_caption_trap">கூட்டத்தைப் பின்தொடர்வதுதான் பொறி.</string>
+    <string name="flock_demo_caption_recover">விடை எப்போதும் நடுப் பறவைதான்.</string>
     <string name="pattern_sequence_prompt">எந்தத் துண்டு அணியை நிறைவுசெய்கிறது?</string>
     <string name="game_tap_original_targets">அசல் இலக்குகளைத் தட்டுங்கள்</string>
     <string name="game_remember_targets">இலக்குகளை நினைவில் வையுங்கள்</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">வானியலாளர்</string>
     <string name="achievement_gold_pattern_sequence">வடிவ தீர்க்கதரிசி</string>
     <string name="achievement_gold_color_confusion">உண்மையான வண்ணங்கள்</string>
+    <string name="achievement_gold_flock">கூட்டத் தலைவர்</string>
+    <string name="achievement_gold_head_count">வாயில் காவலர்</string>
     <string name="achievement_gold_flash_crowd">கூட்டம் எண்ணுபவர்</string>
     <string name="achievement_gold_schulte_table">மின்னல் பார்வை</string>
     <string name="achievement_gold_flags">கொடி ஏந்துபவர்</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">சுற்றுப்பாதைக் கண்காணிப்பானில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_pattern_sequence_desc">வடிவ வரிசையில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_color_confusion_desc">வண்ணக் குழப்பத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
+    <string name="achievement_gold_flock_desc">பறவைக் கூட்டத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
+    <string name="achievement_gold_head_count_desc">தலைக்கணக்கில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_flash_crowd_desc">மின்னல் கூட்டத்தில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_schulte_table_desc">ஷுல்ட்டே அட்டவணையில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_flags_desc">கொடிகளில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">வெளியியல் திறனின் நியமமான அளவீடு: இரு உருவங்கள் ஒரே திண்மம் திருப்பப்பட்டதா, அல்லது எந்தச் சுழற்சியாலும் பொருந்தாத கண்ணாடிப் பிம்பங்களா என்று தீர்மானிப்பது.</string>
     <string name="science_color_confusion_paradigm">ஸ்ட்ரூப் பணி</string>
     <string name="science_color_confusion_summary">தடுப்பின் நியமமான அளவீடு: ஒரு சொல் எந்த நிறத்தில் அச்சிடப்பட்டுள்ளதோ அதைப் பெயரிடுவது, அதே சமயம் சொல்லைப் படிப்பதே வேகமான, போட்டியிடும் ஒரு விடையை முன்வைக்கிறது.</string>
+    <string name="science_flock_paradigm">ஃபிளாங்கர் பணி</string>
+    <string name="science_flock_summary">தேர்ந்தெடுத்த கவனத்தின் நியமமான அளவீடு: ஒரு வரிசையின் நடுவில் உள்ளதற்குப் பதிலளிப்பது; பக்கத்தில் உள்ளவை அதே திசையிலோ எதிர்த்திசையிலோ காட்டும், முரண்படும்போது அவற்றைப் புறக்கணிக்க வேண்டும்.</string>
     <string name="science_digit_memory_paradigm">பிரவுன்-பீட்டர்சன் பணி</string>
     <string name="science_digit_memory_summary">செயல் நினைவின் நியமமான அளவீடு: தொடர்பற்ற ஒரு பணி அதே மனப் பரப்பை ஆக்கிரமிக்கும்போது ஒரு தொடரைப் பிடித்து வைத்திருப்பது.</string>
     <string name="science_pattern_sequence_paradigm">அணி பகுத்தறிவு</string>

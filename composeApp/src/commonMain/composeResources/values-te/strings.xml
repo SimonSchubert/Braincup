@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">అనుగుణ్యత ఖరీదు</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">పదం, సిరా కలవనప్పుడు మీకు ఎంత ఎక్కువ సమయం పట్టింది</string>
+    <string name="finish_congruency_effect_explainer_flock">గుంపు మధ్య పక్షికి ఎదురుగా ఎగిరినప్పుడు మీకు ఎంత ఎక్కువ సమయం పట్టింది</string>
 
     <string name="feedback_solution">పరిష్కారం: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">నమూనా క్రమం</string>
     <string name="game_ghost_grid">దెయ్యం గ్రిడ్</string>
     <string name="game_color_confusion">రంగుల గందరగోళం</string>
+    <string name="game_flock">పక్షుల గుంపు</string>
     <string name="game_orbit_tracker">కక్ష్య ట్రాకర్</string>
     <string name="game_bubble_sum">బుడగల మొత్తం</string>
     <string name="game_quick_sum">వేగవంతమైన మొత్తం</string>
+    <string name="game_head_count">తలల లెక్క</string>
     <string name="game_flash_crowd">మెరుపు గుంపు</string>
     <string name="game_schulte_table">షుల్టే పట్టిక</string>
     <string name="game_mini_chess">మినీ చదరంగం</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">గ్రిడ్ ప్రతి వరుసలో నడిచే నియమాన్ని కనిపెట్టి, దాన్ని పూర్తి చేసే ముక్కను ఎంచుకోండి.</string>
     <string name="game_ghost_grid_desc">టైల్స్ ఒక్కొక్కటిగా వెలగడం చూడండి, తర్వాత అదే క్రమంలో వాటిని నొక్కండి.</string>
     <string name="game_color_confusion_desc">ఒక రంగు పదం రంగుల సిరాలో కనిపిస్తుంది. సిరా రంగును నొక్కండి, పదం చెప్పే రంగును కాదు.</string>
+    <string name="game_flock_desc">ఒక పక్షుల గుంపు ఎగురుతూ వెళ్తుంది. మధ్యలోని పక్షి ఎగిరే దిశలో స్వైప్ చేయండి, చుట్టూ ఉన్న పక్షులను పట్టించుకోకండి.</string>
     <string name="game_orbit_tracker_desc">హైలైట్ చేసిన బంతులను చూడండి, అవి కదులుతున్నప్పుడు వాటిని గమనించండి. ఆగిన తర్వాత అసలు లక్ష్యాలను ఎంచుకోండి.</string>
     <string name="game_bubble_sum_desc">తేలియాడే బుడగలపై సంఖ్యలను కూడండి. తర్వాత సంఖ్యలు మెరుస్తాయి — వాటిని గుర్తుంచుకోండి.</string>
     <string name="bubble_sum_instruction">మొత్తం ఎంత?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">సంఖ్యలు ఒక్కొక్కటిగా మెరుస్తాయి</string>
     <string name="quick_sum_demo_flash">మనసులోనే మొత్తాన్ని కూడుతూ ఉండండి.</string>
     <string name="quick_sum_demo_total">మొత్తాన్ని నమోదు చేయండి.</string>
+    <string name="game_head_count_desc">మనుషులు ఒక ఇంట్లోకి వెళ్తారు, బయటికి వస్తారు. లెక్కపెడుతూ ఉండండి, అంతా ఆగాక లోపల ఎంత మంది ఉన్నారో చెప్పండి.</string>
+    <string name="head_count_watch">లెక్కపెట్టండి</string>
+    <string name="head_count_instruction">లోపల ఎంత మంది ఉన్నారు?</string>
+    <string name="head_count_demo_title">మొదట ఇల్లు ఖాళీ</string>
+    <string name="head_count_demo_in">లోపలికి వెళ్ళేవాళ్ళనూ…</string>
+    <string name="head_count_demo_out">…బయటికి వచ్చేవాళ్ళనూ లెక్కపెట్టండి.</string>
+    <string name="head_count_demo_both">కొన్నిసార్లు రెండూ ఒకేసారి.</string>
+    <string name="head_count_demo_answer">ఇంకా ఇద్దరు లోపల ఉన్నారు.</string>
     <string name="game_flash_crowd_desc">ప్రతి వైపు చుక్కలు క్షణం పాటు మెరుస్తాయి. ఎక్కువ చుక్కలు ఉన్న వైపు నొక్కండి. లెక్కపెట్టవద్దు — మీ అంతర్ దృష్టిని నమ్మండి!</string>
     <string name="game_schulte_table_desc">1 నుండి పైకి సంఖ్యలను వీలైనంత వేగంగా వరుసగా నొక్కండి.</string>
     <string name="game_schulte_instruction">సంఖ్యలను వరుసగా నొక్కండి: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">ఇది ఏ కీలక కార్డుకు చెందుతుంది?</string>
     <string name="game_rule_shift_cards_left">మిగిలిన కార్డులు: %1$d</string>
     <string name="game_color_confusion_howto">సిరా రంగును నొక్కండి.</string>
+    <string name="game_flock_howto">మధ్య పక్షి ఎగిరే దిశలో స్వైప్ చేయండి.</string>
     <string name="trio_demo_title">త్రయాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">ఆకారం, సంఖ్య, నింపు వీటిలో కనీసం ఒకటి ఒకేలా ఉన్న మూడు కార్డులు. మిగతావన్నీ ప్రతి కార్డులో వేరు.</string>
     <string name="trio_trait_shape">ఆకారం</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">కొన్నిసార్లు రెండూ ఒకటే.</string>
     <string name="color_confusion_demo_caption_trap">పదాన్ని చదవడమే ఉచ్చు.</string>
     <string name="color_confusion_demo_caption_recover">సమాధానం ఎప్పుడూ సిరాయే.</string>
+    <string name="flock_demo_title">మధ్య పక్షిని అనుసరించండి</string>
+    <string name="flock_demo_caption_middle">మధ్య పక్షి మాత్రమే లెక్క.</string>
+    <string name="flock_demo_caption_agree">కొన్నిసార్లు గుంపంతా ఒకే దిశలో.</string>
+    <string name="flock_demo_caption_trap">గుంపును అనుసరించడమే ఉచ్చు.</string>
+    <string name="flock_demo_caption_recover">సమాధానం ఎప్పుడూ మధ్య పక్షియే.</string>
     <string name="pattern_sequence_prompt">ఏ ముక్క మాత్రికను పూర్తి చేస్తుంది?</string>
     <string name="game_tap_original_targets">అసలు లక్ష్యాలను నొక్కండి</string>
     <string name="game_remember_targets">లక్ష్యాలను గుర్తుంచుకోండి</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">ఖగోళ శాస్త్రవేత్త</string>
     <string name="achievement_gold_pattern_sequence">నమూనా ప్రవక్త</string>
     <string name="achievement_gold_color_confusion">నిజ రంగులు</string>
+    <string name="achievement_gold_flock">గుంపు నాయకుడు</string>
+    <string name="achievement_gold_head_count">ద్వారపాలకుడు</string>
     <string name="achievement_gold_flash_crowd">గుంపు లెక్కింపరి</string>
     <string name="achievement_gold_schulte_table">మెరుపు చూపు</string>
     <string name="achievement_gold_flags">పతాక ధారి</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">కక్ష్య ట్రాకర్‌లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_pattern_sequence_desc">నమూనా క్రమంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_color_confusion_desc">రంగుల గందరగోళంలో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_flock_desc">పక్షుల గుంపులో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_head_count_desc">తలల లెక్కలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_flash_crowd_desc">మెరుపు గుంపులో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_schulte_table_desc">షుల్టే పట్టికలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_flags_desc">పతాకాలలో బంగారు పతకం గెలవండి</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">ప్రాదేశిక సామర్థ్యానికి ప్రామాణిక కొలత: రెండు ఆకారాలు ఒకే ఘనం తిప్పినవా, లేక ఏ భ్రమణమూ కలపలేని అద్దపు ప్రతిబింబాలా అని తేల్చడం.</string>
     <string name="science_color_confusion_paradigm">స్ట్రూప్ కర్తవ్యం</string>
     <string name="science_color_confusion_summary">నిరోధానికి ప్రామాణిక కొలత: ఒక పదం ఏ రంగులో ముద్రితమైందో దాన్ని పేర్కొనడం, అదే సమయంలో పదాన్ని చదవడమే వేగవంతమైన, పోటీపడే సమాధానాన్ని ముందుకు తెస్తుంది.</string>
+    <string name="science_flock_paradigm">ఫ్లాంకర్ కర్తవ్యం</string>
+    <string name="science_flock_summary">ఎంపిక చేసిన శ్రద్ధకు ప్రామాణిక కొలత: ఒక వరుసలో మధ్య అంశానికి స్పందించడం, పక్కనున్నవి అదే దిశలో లేదా వ్యతిరేక దిశలో చూపుతాయి, అవి విభేదించినప్పుడు వాటిని పట్టించుకోకూడదు.</string>
     <string name="science_digit_memory_paradigm">బ్రౌన్-పీటర్సన్ పని</string>
     <string name="science_digit_memory_summary">పని జ్ఞాపకశక్తికి ప్రామాణిక కొలత: సంబంధం లేని మరో పని అదే మానసిక స్థలాన్ని ఆక్రమించి ఉండగా ఒక శ్రేణిని పట్టుకుని ఉంచడం.</string>
     <string name="science_pattern_sequence_paradigm">మాత్రిక తార్కికత</string>

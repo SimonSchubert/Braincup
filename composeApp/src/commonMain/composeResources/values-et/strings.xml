@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Kongruentsuse hind</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Kui palju kauem sul läks, kui sõna ja tint olid vastuolus</string>
+    <string name="finish_congruency_effect_explainer_flock">Kui palju kauem sul läks, kui parv lendas keskmisele linnule vastassuunas</string>
 
     <string name="feedback_solution">Lahendus: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Mustrijada</string>
     <string name="game_ghost_grid">Tondivõrk</string>
     <string name="game_color_confusion">Värvisegadus</string>
+    <string name="game_flock">Linnuparv</string>
     <string name="game_orbit_tracker">Orbiidijälgija</string>
     <string name="game_bubble_sum">Mullisumma</string>
     <string name="game_quick_sum">Kiirsumma</string>
+    <string name="game_head_count">Rahvaloendus</string>
     <string name="game_flash_crowd">Välgugrupp</string>
     <string name="game_schulte_table">Schulte tabel</string>
     <string name="game_mini_chess">Minimale</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Selgita reegel igal real ja vali tükk, mis selle täiendab.</string>
     <string name="game_ghost_grid_desc">Vaata, kuidas plaadid süttivad ükshaaval, ja puuduta need tagasi samas järjekorras.</string>
     <string name="game_color_confusion_desc">Värvisõna ilmub värvilises tindis. Puuduta tindi värvi, mitte seda värvi, mida sõna nimetab.</string>
+    <string name="game_flock_desc">Linnuparv lendab mööda. Libista sinnapoole, kuhu lendab keskmine lind, ja ära pane tähele selle ümber olevaid linde.</string>
     <string name="game_orbit_tracker_desc">Vaata esile tõstetud palle ja jälgi neid, kui need liiguvad. Vali algsed sihtmärgid, kui need peatuvad.</string>
     <string name="game_bubble_sum_desc">Liida kokku ujuavate mullide numbrid. Hiljem numbrid vilguvad — jäta need meelde.</string>
     <string name="bubble_sum_instruction">Mis on summa?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Numbrid vilguvad ükshaaval</string>
     <string name="quick_sum_demo_flash">Hoia jooksev summa peas.</string>
     <string name="quick_sum_demo_total">Sisesta summa.</string>
+    <string name="game_head_count_desc">Inimesed käivad majast sisse ja välja. Pea arvet ja kui kõik rahuneb, ütle, mitu on sees.</string>
+    <string name="head_count_watch">Pea arvet</string>
+    <string name="head_count_instruction">Mitu on sees?</string>
+    <string name="head_count_demo_title">Maja on alguses tühi</string>
+    <string name="head_count_demo_in">Loe, kes läheb sisse…</string>
+    <string name="head_count_demo_out">…ja kes tuleb tagasi välja.</string>
+    <string name="head_count_demo_both">Vahel mõlemat korraga.</string>
+    <string name="head_count_demo_answer">Kaks on veel sees.</string>
     <string name="game_flash_crowd_desc">Punktid vilguvad lühidalt kummalgi poolel. Puuduta poolt, kus neid oli rohkem. Ära loe — usalda instinkti!</string>
     <string name="game_schulte_table_desc">Puuduta numbreid järjekorras ühest ülespoole nii kiiresti kui oskad.</string>
     <string name="game_schulte_instruction">Puuduta numbreid järjekorras: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Millise võtmekaardi juurde see kuulub?</string>
     <string name="game_rule_shift_cards_left">Kaarte jäänud: %1$d</string>
     <string name="game_color_confusion_howto">Puuduta tindi värvi.</string>
+    <string name="game_flock_howto">Libista keskmise linnu lennusuunas.</string>
     <string name="trio_demo_title">Leia trio</string>
     <string name="trio_demo_rule">Kolm kaarti, millel kattub vähemalt kuju, arv või täide. Kõik muu peab igal kaardil erinema.</string>
     <string name="trio_trait_shape">Kuju</string>
@@ -503,6 +516,11 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="color_confusion_demo_caption_agree">Vahel need kaks langevad kokku.</string>
     <string name="color_confusion_demo_caption_trap">Lõks on sõna lugemine.</string>
     <string name="color_confusion_demo_caption_recover">Vastus on alati tint.</string>
+    <string name="flock_demo_title">Jälgi keskmist lindu</string>
+    <string name="flock_demo_caption_middle">Loeb ainult keskmine lind.</string>
+    <string name="flock_demo_caption_agree">Vahel lendab kogu parv ühes suunas.</string>
+    <string name="flock_demo_caption_trap">Lõks on parvele järgnemine.</string>
+    <string name="flock_demo_caption_recover">Vastus on alati keskmine lind.</string>
     <string name="pattern_sequence_prompt">Milline tükk täiendab maatriksit?</string>
     <string name="game_tap_original_targets">Puuduta algseid sihtmärke</string>
     <string name="game_remember_targets">Jäta sihtmärgid meelde</string>
@@ -579,6 +597,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronoom</string>
     <string name="achievement_gold_pattern_sequence">Mustrite prohvet</string>
     <string name="achievement_gold_color_confusion">Õige värv</string>
+    <string name="achievement_gold_flock">Eeslendaja</string>
+    <string name="achievement_gold_head_count">Uksehoidja</string>
     <string name="achievement_gold_flash_crowd">Grupilugeja</string>
     <string name="achievement_gold_schulte_table">Välkpilk</string>
     <string name="achievement_gold_flags">Lipukandja</string>
@@ -619,6 +639,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Võida kuldmedal Orbiidijälgijas</string>
     <string name="achievement_gold_pattern_sequence_desc">Võida kuldmedal Mustrijadas</string>
     <string name="achievement_gold_color_confusion_desc">Võida kuldmedal Värvisegaduses</string>
+    <string name="achievement_gold_flock_desc">Võida kuldmedal Linnuparves</string>
+    <string name="achievement_gold_head_count_desc">Võida kuldmedal Rahvaloenduses</string>
     <string name="achievement_gold_flash_crowd_desc">Võida kuldmedal Välgugrupis</string>
     <string name="achievement_gold_schulte_table_desc">Võida kuldmedal Schulte tabelis</string>
     <string name="achievement_gold_flags_desc">Võida kuldmedal Lippudes</string>
@@ -696,6 +718,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="science_mental_rotations_summary">Ruumilise võimekuse standardmõõt: otsustada, kas kaks kujundit on sama keha pööratuna või peegelpildid, mida ükski pööre kokku ei vii.</string>
     <string name="science_color_confusion_paradigm">Stroopi ülesanne</string>
     <string name="science_color_confusion_summary">Pidurduse standardmõõt: nimetada värv, millega sõna on trükitud, samal ajal kui sõna enda lugemine pakub kiiremat, võistlevat vastust.</string>
+    <string name="science_flock_paradigm">Flankeri ülesanne</string>
+    <string name="science_flock_summary">Valikulise tähelepanu standardmõõt: reageerida rea keskmisele elemendile, samal ajal kui selle kõrval olevad elemendid näitavad samas või vastassuunas ja neid tuleb eirata, kui need ei lange kokku.</string>
     <string name="science_digit_memory_paradigm">Browni-Petersoni ülesanne</string>
     <string name="science_digit_memory_summary">Töömälu standardmõõt: jada hoidmine ajal, mil teine ülesanne hõivab sama vaimse ruumi.</string>
     <string name="science_pattern_sequence_paradigm">Maatriksarutlus</string>

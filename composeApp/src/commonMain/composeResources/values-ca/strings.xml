@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Cost de congruència</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Quant més has trigat quan la paraula no coincidia amb la tinta</string>
+    <string name="finish_congruency_effect_explainer_flock">Quant més has trigat quan l'estol volava en contra de l'ocell del mig</string>
 
     <string name="feedback_solution">Solució: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Seqüència de patrons</string>
     <string name="game_ghost_grid">Graella fantasma</string>
     <string name="game_color_confusion">Confusió de colors</string>
+    <string name="game_flock">Estol</string>
     <string name="game_orbit_tracker">Seguidor d'òrbites</string>
     <string name="game_bubble_sum">Suma de bombolles</string>
     <string name="game_quick_sum">Suma ràpida</string>
+    <string name="game_head_count">Vaivé</string>
     <string name="game_flash_crowd">Multitud llampec</string>
     <string name="game_schulte_table">Taula de Schulte</string>
     <string name="game_mini_chess">Mini escacs</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Descobreix la regla de cada fila i tria la peça que la completa.</string>
     <string name="game_ghost_grid_desc">Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.</string>
     <string name="game_color_confusion_desc">Apareix una paraula de color amb tinta de color. Toca el color de la tinta, no el que diu la paraula.</string>
+    <string name="game_flock_desc">Passa volant un estol d'ocells. Llisca cap on vola l'ocell del mig i no facis cas dels que l'envolten.</string>
     <string name="game_orbit_tracker_desc">Mira les boles destacades i segueix-les mentre es mouen. Tria els objectius originals quan s'aturin.</string>
     <string name="game_bubble_sum_desc">Suma els números de les bombolles flotants. Més endavant els números parpellegen: recorda'ls.</string>
     <string name="bubble_sum_instruction">Quina és la suma?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Els números parpellegen un darrere l'altre</string>
     <string name="quick_sum_demo_flash">Mantén la suma corrent al cap.</string>
     <string name="quick_sum_demo_total">Introdueix el total.</string>
+    <string name="game_head_count_desc">La gent entra i surt d'una casa. Porta el compte i, quan tot es calmi, digues quants n'hi ha a dins.</string>
+    <string name="head_count_watch">Compta</string>
+    <string name="head_count_instruction">Quants n'hi ha a dins?</string>
+    <string name="head_count_demo_title">La casa comença buida</string>
+    <string name="head_count_demo_in">Compta qui hi entra…</string>
+    <string name="head_count_demo_out">…i qui en torna a sortir.</string>
+    <string name="head_count_demo_both">De vegades, tot alhora.</string>
+    <string name="head_count_demo_answer">Encara n'hi ha dos a dins.</string>
     <string name="game_flash_crowd_desc">Els punts parpellegen breument a cada costat. Toca el costat on n'hi havia més. No comptis: confia en l'instint!</string>
     <string name="game_schulte_table_desc">Toca els números en ordre des de l'1 cap amunt tan ràpid com puguis.</string>
     <string name="game_schulte_instruction">Toca els números en ordre: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">A quina carta clau pertany?</string>
     <string name="game_rule_shift_cards_left">Cartes restants: %1$d</string>
     <string name="game_color_confusion_howto">Toca el color de la tinta.</string>
+    <string name="game_flock_howto">Llisca cap on vola l'ocell del mig.</string>
     <string name="trio_demo_title">Troba un trio</string>
     <string name="trio_demo_rule">Tres cartes que coincideixen almenys en forma, quantitat o farciment. Tota la resta ha de ser diferent.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -503,6 +516,11 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="color_confusion_demo_caption_agree">De vegades tots dos coincideixen.</string>
     <string name="color_confusion_demo_caption_trap">Llegir la paraula és el parany.</string>
     <string name="color_confusion_demo_caption_recover">La tinta sempre és la resposta.</string>
+    <string name="flock_demo_title">Segueix l'ocell del mig</string>
+    <string name="flock_demo_caption_middle">Només compta l'ocell del mig.</string>
+    <string name="flock_demo_caption_agree">De vegades tot l'estol coincideix.</string>
+    <string name="flock_demo_caption_trap">Seguir l'estol és el parany.</string>
+    <string name="flock_demo_caption_recover">L'ocell del mig sempre és la resposta.</string>
     <string name="pattern_sequence_prompt">Quina peça completa la matriu?</string>
     <string name="game_tap_original_targets">Toca els objectius originals</string>
     <string name="game_remember_targets">Recorda els objectius</string>
@@ -579,6 +597,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astrònom</string>
     <string name="achievement_gold_pattern_sequence">Profeta de patrons</string>
     <string name="achievement_gold_color_confusion">Color just</string>
+    <string name="achievement_gold_flock">Cap d'esquadrilla</string>
+    <string name="achievement_gold_head_count">Porter</string>
     <string name="achievement_gold_flash_crowd">Comptador de multituds</string>
     <string name="achievement_gold_schulte_table">Mirada llampec</string>
     <string name="achievement_gold_flags">Portaestendard</string>
@@ -619,6 +639,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Guanya la medalla d'or al Seguidor d'òrbites</string>
     <string name="achievement_gold_pattern_sequence_desc">Guanya la medalla d'or a la Seqüència de patrons</string>
     <string name="achievement_gold_color_confusion_desc">Guanya la medalla d'or a la Confusió de colors</string>
+    <string name="achievement_gold_flock_desc">Guanya la medalla d'or a l'Estol</string>
+    <string name="achievement_gold_head_count_desc">Guanya la medalla d'or al Vaivé</string>
     <string name="achievement_gold_flash_crowd_desc">Guanya la medalla d'or a la Multitud llampec</string>
     <string name="achievement_gold_schulte_table_desc">Guanya la medalla d'or a la Taula de Schulte</string>
     <string name="achievement_gold_flags_desc">Guanya la medalla d'or a Banderes</string>
@@ -696,6 +718,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="science_mental_rotations_summary">Una mesura estàndard de la capacitat espacial: decidir si dues figures són el mateix cos girat o imatges especulars que cap rotació no pot fer coincidir.</string>
     <string name="science_color_confusion_paradigm">Tasca de Stroop</string>
     <string name="science_color_confusion_summary">Una mesura estàndard de la inhibició: anomenar el color amb què està impresa una paraula, mentre llegir la paraula mateixa ofereix una resposta més ràpida que hi competeix.</string>
+    <string name="science_flock_paradigm">Tasca de flancs</string>
+    <string name="science_flock_summary">Una mesura estàndard de l'atenció selectiva: respondre a l'element central d'una filera mentre els del costat apunten en la mateixa direcció o en la contrària, i cal ignorar-los quan no coincideixen.</string>
     <string name="science_digit_memory_paradigm">Tasca de Brown-Peterson</string>
     <string name="science_digit_memory_summary">Una mesura estàndard de la memòria de treball: mantenir una seqüència mentre una altra tasca ocupa el mateix espai mental.</string>
     <string name="science_pattern_sequence_paradigm">Raonament matricial</string>

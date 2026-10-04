@@ -261,6 +261,7 @@
     <string name="finish_congruency_effect_title">Kongruencijos kaina</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Kiek ilgiau užtrukai, kai žodis nesutapo su rašalu</string>
+    <string name="finish_congruency_effect_explainer_flock">Kiek ilgiau užtrukai, kai pulkas skrido priešinga kryptimi nei vidurinis paukštis</string>
 
     <string name="feedback_solution">Sprendimas: %1$s</string>
 
@@ -300,9 +301,11 @@
     <string name="game_pattern_sequence">Raštų seka</string>
     <string name="game_ghost_grid">Vaiduoklių tinklelis</string>
     <string name="game_color_confusion">Spalvų painiava</string>
+    <string name="game_flock">Pulkas</string>
     <string name="game_orbit_tracker">Orbitų sekiklis</string>
     <string name="game_bubble_sum">Burbulų suma</string>
     <string name="game_quick_sum">Greitoji suma</string>
+    <string name="game_head_count">Kas viduje</string>
     <string name="game_flash_crowd">Blyksinti minia</string>
     <string name="game_schulte_table">Šultės lentelė</string>
     <string name="game_mini_chess">Mini šachmatai</string>
@@ -336,6 +339,7 @@
     <string name="game_pattern_sequence_desc">Atrask taisyklę kiekvienoje tinklelio eilutėje ir pasirink dalelę, kuri ją papildo.</string>
     <string name="game_ghost_grid_desc">Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.</string>
     <string name="game_color_confusion_desc">Spalvos žodis pasirodo spalvotu rašalu. Paliesk rašalo spalvą, ne tą, kurią žodis įvardija.</string>
+    <string name="game_flock_desc">Pro šalį praskrenda paukščių pulkas. Perbrauk ta kryptimi, kuria skrenda vidurinis paukštis, ir nekreipk dėmesio į kitus.</string>
     <string name="game_orbit_tracker_desc">Stebėk paryškintus rutuliukus ir sek juos, kol juda. Kai sustos, pasirink pradinius taikinius.</string>
     <string name="game_bubble_sum_desc">Sudėk skaičius ant plaukiojančių burbulų. Vėliau skaičiai mirksi — įsimink juos.</string>
     <string name="bubble_sum_instruction">Kokia suma?</string>
@@ -348,6 +352,14 @@
     <string name="quick_sum_demo_title">Skaičiai mirksi vienas po kito</string>
     <string name="quick_sum_demo_flash">Laikyk einamąją sumą galvoje.</string>
     <string name="quick_sum_demo_total">Įvesk sumą.</string>
+    <string name="game_head_count_desc">Žmonės įeina į namą ir išeina iš jo. Skaičiuok, o kai viskas nurims, pasakyk, kiek jų viduje.</string>
+    <string name="head_count_watch">Skaičiuok</string>
+    <string name="head_count_instruction">Kiek jų viduje?</string>
+    <string name="head_count_demo_title">Iš pradžių namas tuščias</string>
+    <string name="head_count_demo_in">Skaičiuok, kas įeina…</string>
+    <string name="head_count_demo_out">…ir kas vėl išeina.</string>
+    <string name="head_count_demo_both">Kartais abiem kryptimis iš karto.</string>
+    <string name="head_count_demo_answer">Viduje dar liko du.</string>
     <string name="game_flash_crowd_desc">Taškai trumpai sumirksi abiejose pusėse. Paliesk pusę, kurioje jų buvo daugiau. Neskaičiuok — pasitikėk instinktu!</string>
     <string name="game_schulte_table_desc">Paliesk skaičius iš eilės nuo 1 kuo greičiau.</string>
     <string name="game_schulte_instruction">Paliesk skaičius iš eilės: 1, 2, 3...</string>
@@ -387,6 +399,7 @@
     <string name="game_rule_shift_howto">Kuriai raktinei kortai ji priklauso?</string>
     <string name="game_rule_shift_cards_left">Liko kortų: %1$d</string>
     <string name="game_color_confusion_howto">Paliesk rašalo spalvą.</string>
+    <string name="game_flock_howto">Perbrauk ten, kur skrenda vidurinis paukštis.</string>
     <string name="trio_demo_title">Rask trio</string>
     <string name="trio_demo_rule">Trys kortelės, kurių sutampa bent forma, kiekis ar užpildas. Visa kita turi skirtis.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -509,6 +522,11 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="color_confusion_demo_caption_agree">Kartais abu sutampa.</string>
     <string name="color_confusion_demo_caption_trap">Spąstai yra perskaityti žodį.</string>
     <string name="color_confusion_demo_caption_recover">Atsakymas visada yra rašalas.</string>
+    <string name="flock_demo_title">Sek vidurinį paukštį</string>
+    <string name="flock_demo_caption_middle">Svarbus tik vidurinis paukštis.</string>
+    <string name="flock_demo_caption_agree">Kartais visas pulkas skrenda ta pačia kryptimi.</string>
+    <string name="flock_demo_caption_trap">Spąstai yra sekti pulką.</string>
+    <string name="flock_demo_caption_recover">Atsakymas visada yra vidurinis paukštis.</string>
     <string name="pattern_sequence_prompt">Kuri dalelė papildo matricą?</string>
     <string name="game_tap_original_targets">Paliesk pradinius taikinius</string>
     <string name="game_remember_targets">Įsimink taikinius</string>
@@ -585,6 +603,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronomas</string>
     <string name="achievement_gold_pattern_sequence">Raštų pranašas</string>
     <string name="achievement_gold_color_confusion">Tikroji spalva</string>
+    <string name="achievement_gold_flock">Pulko vedlys</string>
+    <string name="achievement_gold_head_count">Durininkas</string>
     <string name="achievement_gold_flash_crowd">Minios skaičiuotojas</string>
     <string name="achievement_gold_schulte_table">Žaibiškas žvilgsnis</string>
     <string name="achievement_gold_flags">Vėliavnešys</string>
@@ -625,6 +645,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Laimėk aukso medalį Orbitų sekiklyje</string>
     <string name="achievement_gold_pattern_sequence_desc">Laimėk aukso medalį Raštų sekoje</string>
     <string name="achievement_gold_color_confusion_desc">Laimėk aukso medalį Spalvų painiavoje</string>
+    <string name="achievement_gold_flock_desc">Laimėk aukso medalį žaidime Pulkas</string>
+    <string name="achievement_gold_head_count_desc">Laimėk aukso medalį žaidime Kas viduje</string>
     <string name="achievement_gold_flash_crowd_desc">Laimėk aukso medalį Blyksinčioje minioje</string>
     <string name="achievement_gold_schulte_table_desc">Laimėk aukso medalį Šultės lentelėje</string>
     <string name="achievement_gold_flags_desc">Laimėk aukso medalį Vėliavose</string>
@@ -702,6 +724,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="science_mental_rotations_summary">Standartinis erdvinio mąstymo matas: nuspręsti, ar dvi figūros yra tas pats pasuktas kūnas, ar veidrodiniai atvaizdai, kurių joks pasukimas nesutapatins.</string>
     <string name="science_color_confusion_paradigm">Strupo užduotis</string>
     <string name="science_color_confusion_summary">Standartinis slopinimo matas: įvardyti spalvą, kuria išspausdintas žodis, kai pats žodžio skaitymas siūlo greitesnį, konkuruojantį atsakymą.</string>
+    <string name="science_flock_paradigm">Flankerių užduotis</string>
+    <string name="science_flock_summary">Standartinis selektyviojo dėmesio matas: reaguoti į vidurinį eilės elementą, kai šalia esantys elementai rodo ta pačia arba priešinga kryptimi ir, kai nesutampa, turi būti ignoruojami.</string>
     <string name="science_digit_memory_paradigm">Brauno ir Petersono užduotis</string>
     <string name="science_digit_memory_summary">Standartinis darbinės atminties matas: išlaikyti seką, kol kita užduotis užima tą pačią mintinę erdvę.</string>
     <string name="science_pattern_sequence_paradigm">Matricinis samprotavimas</string>

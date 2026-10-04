@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Kongruenskostnad</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Hvor mye lengre tid du brukte når ordet og blekket var uenige</string>
+    <string name="finish_congruency_effect_explainer_flock">Hvor mye lengre tid du brukte når flokken fløy motsatt vei av den midterste fuglen</string>
 
     <string name="feedback_solution">Løsning: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Mønstersekvens</string>
     <string name="game_ghost_grid">Spøkelsesrutenett</string>
     <string name="game_color_confusion">Fargeforvirring</string>
+    <string name="game_flock">Fugleflokk</string>
     <string name="game_orbit_tracker">Banefølger</string>
     <string name="game_bubble_sum">Boblesum</string>
     <string name="game_quick_sum">Hurtigsum</string>
+    <string name="game_head_count">Folketelling</string>
     <string name="game_flash_crowd">Lynmengde</string>
     <string name="game_schulte_table">Schulte-tabell</string>
     <string name="game_mini_chess">Minisjakk</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Finn regelen i hver rad i rutenettet, og velg brikken som fullfører den.</string>
     <string name="game_ghost_grid_desc">Se brikkene lyse én etter én, og trykk dem tilbake i samme rekkefølge.</string>
     <string name="game_color_confusion_desc">Et fargeord dukker opp i farget blekk. Trykk på fargen på blekket, ikke fargen ordet nevner.</string>
+    <string name="game_flock_desc">En flokk fugler flyr forbi. Sveip den veien fuglen i midten flyr, og overse fuglene rundt den.</string>
     <string name="game_orbit_tracker_desc">Se de fremhevede ballene, og følg dem mens de beveger seg. Velg de opprinnelige målene når de stopper.</string>
     <string name="game_bubble_sum_desc">Legg sammen tallene på de flytende boblene. Senere blinker tallene — husk dem.</string>
     <string name="bubble_sum_instruction">Hva er summen?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Tall blinker ett om gangen</string>
     <string name="quick_sum_demo_flash">Hold en løpende sum i hodet.</string>
     <string name="quick_sum_demo_total">Skriv inn totalen.</string>
+    <string name="game_head_count_desc">Folk går inn og ut av et hus. Tell med, og si hvor mange som er inne når det blir stille.</string>
+    <string name="head_count_watch">Tell med</string>
+    <string name="head_count_instruction">Hvor mange er inne?</string>
+    <string name="head_count_demo_title">Huset starter tomt</string>
+    <string name="head_count_demo_in">Tell hvem som går inn…</string>
+    <string name="head_count_demo_out">…og hvem som kommer ut igjen.</string>
+    <string name="head_count_demo_both">Noen ganger begge deler samtidig.</string>
+    <string name="head_count_demo_answer">To er fortsatt inne.</string>
     <string name="game_flash_crowd_desc">Prikkene blinker kort på hver side. Trykk på siden som hadde flest. Ikke tell — stol på instinktet!</string>
     <string name="game_schulte_table_desc">Trykk på tallene i rekkefølge fra 1 og oppover så fort du kan.</string>
     <string name="game_schulte_instruction">Trykk på tallene i rekkefølge: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Hvilket nøkkelkort hører det til?</string>
     <string name="game_rule_shift_cards_left">Kort igjen: %1$d</string>
     <string name="game_color_confusion_howto">Trykk på fargen på blekket.</string>
+    <string name="game_flock_howto">Sveip den veien den midterste fuglen flyr.</string>
     <string name="trio_demo_title">Finn en trio</string>
     <string name="trio_demo_rule">Tre kort med minst samme form, antall eller fyll. Alt annet må være forskjellig på alle tre.</string>
     <string name="trio_trait_shape">Form</string>
@@ -503,6 +516,11 @@ Flytt Cow — den blir en Bull.</string>
     <string name="color_confusion_demo_caption_agree">Noen ganger er de enige.</string>
     <string name="color_confusion_demo_caption_trap">Å lese ordet er fella.</string>
     <string name="color_confusion_demo_caption_recover">Blekket er alltid svaret.</string>
+    <string name="flock_demo_title">Følg den midterste fuglen</string>
+    <string name="flock_demo_caption_middle">Bare den midterste fuglen teller.</string>
+    <string name="flock_demo_caption_agree">Noen ganger flyr hele flokken samme vei.</string>
+    <string name="flock_demo_caption_trap">Å følge flokken er fella.</string>
+    <string name="flock_demo_caption_recover">Den midterste fuglen er alltid svaret.</string>
     <string name="pattern_sequence_prompt">Hvilken brikke fullfører matrisen?</string>
     <string name="game_tap_original_targets">Trykk på de opprinnelige målene</string>
     <string name="game_remember_targets">Husk målene</string>
@@ -579,6 +597,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Mønsterprofet</string>
     <string name="achievement_gold_color_confusion">Sanne farger</string>
+    <string name="achievement_gold_flock">Flokkleder</string>
+    <string name="achievement_gold_head_count">Dørvakt</string>
     <string name="achievement_gold_flash_crowd">Mengdeteller</string>
     <string name="achievement_gold_schulte_table">Lynblikk</string>
     <string name="achievement_gold_flags">Fanebærer</string>
@@ -619,6 +639,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Vinn gullmedaljen i Banefølger</string>
     <string name="achievement_gold_pattern_sequence_desc">Vinn gullmedaljen i Mønstersekvens</string>
     <string name="achievement_gold_color_confusion_desc">Vinn gullmedaljen i Fargeforvirring</string>
+    <string name="achievement_gold_flock_desc">Vinn gullmedaljen i Fugleflokk</string>
+    <string name="achievement_gold_head_count_desc">Vinn gullmedaljen i Folketelling</string>
     <string name="achievement_gold_flash_crowd_desc">Vinn gullmedaljen i Lynmengde</string>
     <string name="achievement_gold_schulte_table_desc">Vinn gullmedaljen i Schulte-tabell</string>
     <string name="achievement_gold_flags_desc">Vinn gullmedaljen i Flagg</string>
@@ -696,6 +718,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="science_mental_rotations_summary">Et standardmål for romlig evne: å avgjøre om to figurer er det samme legemet dreid, eller speilbilder som ingen rotasjon kan få til å passe.</string>
     <string name="science_color_confusion_paradigm">Stroop-oppgaven</string>
     <string name="science_color_confusion_summary">Et standardmål for inhibisjon: å nevne fargen et ord er trykt i, mens det å lese selve ordet gir et raskere, konkurrerende svar.</string>
+    <string name="science_flock_paradigm">Flanker-oppgaven</string>
+    <string name="science_flock_summary">Et standardmål for selektiv oppmerksomhet: å svare på det midterste elementet i en rekke mens elementene ved siden av peker samme vei eller motsatt vei, og må overses når de er uenige.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-oppgaven</string>
     <string name="science_digit_memory_summary">Et standardmål for arbeidsminnet: å holde på en rekke mens en annen oppgave opptar den samme mentale plassen.</string>
     <string name="science_pattern_sequence_paradigm">Matriseresonnering</string>

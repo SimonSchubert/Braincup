@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">പൊരുത്തത്തിന്റെ വില</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">വാക്കും മഷിയും യോജിക്കാതിരുന്നപ്പോൾ നിങ്ങൾക്ക് എത്ര സമയം കൂടുതൽ വേണ്ടിവന്നു</string>
+    <string name="finish_congruency_effect_explainer_flock">കൂട്ടം നടുവിലെ പക്ഷിക്ക് എതിരെ പറന്നപ്പോൾ നിങ്ങൾക്ക് എത്ര സമയം കൂടുതൽ വേണ്ടിവന്നു</string>
 
     <string name="feedback_solution">പരിഹാരം: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">മാതൃകാ ക്രമം</string>
     <string name="game_ghost_grid">പ്രേത ഗ്രിഡ്</string>
     <string name="game_color_confusion">നിറങ്ങളുടെ കുഴപ്പം</string>
+    <string name="game_flock">പക്ഷിക്കൂട്ടം</string>
     <string name="game_orbit_tracker">ഭ്രമണപഥ നിരീക്ഷണം</string>
     <string name="game_bubble_sum">കുമിള തുക</string>
     <string name="game_quick_sum">വേഗ തുക</string>
+    <string name="game_head_count">തലയെണ്ണൽ</string>
     <string name="game_flash_crowd">മിന്നൽ ആൾക്കൂട്ടം</string>
     <string name="game_schulte_table">ഷുൾട്ടെ പട്ടിക</string>
     <string name="game_mini_chess">കുഞ്ഞൻ ചെസ്സ്</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">ഗ്രിഡിന്റെ ഓരോ നിരയിലും ഓടുന്ന നിയമം കണ്ടെത്തി, അതിനെ പൂർത്തിയാക്കുന്ന കഷണം തിരഞ്ഞെടുക്കുക.</string>
     <string name="game_ghost_grid_desc">കള്ളികൾ ഒന്നൊന്നായി തെളിയുന്നത് കാണുക, പിന്നെ അതേ ക്രമത്തിൽ അവയിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="game_color_confusion_desc">ഒരു നിറവാക്ക് നിറമുള്ള മഷിയിൽ കാണാം. മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക, വാക്ക് പറയുന്ന നിറത്തിലല്ല.</string>
+    <string name="game_flock_desc">ഒരു പക്ഷിക്കൂട്ടം പറന്നുപോകുന്നു. നടുവിലെ പക്ഷി പറക്കുന്ന ദിശയിൽ സ്വൈപ്പ് ചെയ്യുക, ചുറ്റുമുള്ള പക്ഷികളെ ശ്രദ്ധിക്കേണ്ട.</string>
     <string name="game_orbit_tracker_desc">എടുത്തുകാട്ടിയ പന്തുകൾ കാണുക, അവ നീങ്ങുമ്പോൾ പിന്തുടരുക. അവ നിന്നശേഷം യഥാർത്ഥ ലക്ഷ്യങ്ങൾ തിരഞ്ഞെടുക്കുക.</string>
     <string name="game_bubble_sum_desc">ഒഴുകുന്ന കുമിളകളിലെ അക്കങ്ങൾ കൂട്ടുക. പിന്നീട് അക്കങ്ങൾ മിന്നും — അവ ഓർത്തുവയ്ക്കുക.</string>
     <string name="bubble_sum_instruction">തുക എത്ര?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">അക്കങ്ങൾ ഒന്നൊന്നായി മിന്നും</string>
     <string name="quick_sum_demo_flash">മനസ്സിൽ തന്നെ തുക കൂട്ടിക്കൊണ്ടിരിക്കുക.</string>
     <string name="quick_sum_demo_total">ആകെത്തുക നൽകുക.</string>
+    <string name="game_head_count_desc">ആളുകൾ ഒരു വീട്ടിലേക്ക് കയറുകയും ഇറങ്ങുകയും ചെയ്യും. എണ്ണിക്കൊണ്ടിരിക്കുക, എല്ലാം നിലയ്ക്കുമ്പോൾ അകത്ത് എത്ര പേരുണ്ടെന്ന് പറയുക.</string>
+    <string name="head_count_watch">എണ്ണുക</string>
+    <string name="head_count_instruction">അകത്ത് എത്ര പേരുണ്ട്?</string>
+    <string name="head_count_demo_title">ആദ്യം വീട് ശൂന്യം</string>
+    <string name="head_count_demo_in">അകത്ത് കയറുന്നവരെയും…</string>
+    <string name="head_count_demo_out">…പുറത്തിറങ്ങുന്നവരെയും എണ്ണുക.</string>
+    <string name="head_count_demo_both">ചിലപ്പോൾ രണ്ടും ഒരേസമയം.</string>
+    <string name="head_count_demo_answer">ഇനിയും രണ്ടുപേർ അകത്തുണ്ട്.</string>
     <string name="game_flash_crowd_desc">ഇരുവശത്തും കുത്തുകൾ ഒരു നിമിഷം മിന്നും. കൂടുതൽ കുത്തുകളുണ്ടായിരുന്ന വശത്ത് ടാപ്പ് ചെയ്യുക. എണ്ണരുത് — നിങ്ങളുടെ ഉൾക്കാഴ്ചയെ വിശ്വസിക്കുക!</string>
     <string name="game_schulte_table_desc">1 മുതൽ മുകളിലേക്ക് അക്കങ്ങളിൽ കഴിയുന്നത്ര വേഗത്തിൽ ക്രമത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="game_schulte_instruction">അക്കങ്ങളിൽ ക്രമത്തിൽ ടാപ്പ് ചെയ്യുക: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">ഇത് ഏത് പ്രധാന കാർഡിനൊപ്പമാണ്?</string>
     <string name="game_rule_shift_cards_left">ബാക്കി കാർഡുകൾ: %1$d</string>
     <string name="game_color_confusion_howto">മഷിയുടെ നിറത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="game_flock_howto">നടുവിലെ പക്ഷി പറക്കുന്ന ദിശയിൽ സ്വൈപ്പ് ചെയ്യുക.</string>
     <string name="trio_demo_title">ഒരു ത്രയം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">രൂപം, എണ്ണം, നിറയ്ക്കൽ ഇവയിൽ ഒന്നെങ്കിലും ഒരുപോലെയുള്ള മൂന്ന് ചീട്ടുകൾ. ബാക്കിയെല്ലാം ഓരോ ചീട്ടിലും വ്യത്യസ്തം.</string>
     <string name="trio_trait_shape">രൂപം</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">ചിലപ്പോൾ രണ്ടും ഒന്നുതന്നെ.</string>
     <string name="color_confusion_demo_caption_trap">വാക്ക് വായിക്കുന്നതാണ് കെണി.</string>
     <string name="color_confusion_demo_caption_recover">ഉത്തരം എപ്പോഴും മഷിയാണ്.</string>
+    <string name="flock_demo_title">നടുവിലെ പക്ഷിയെ പിന്തുടരുക</string>
+    <string name="flock_demo_caption_middle">നടുവിലെ പക്ഷി മാത്രമേ കണക്കിലുള്ളൂ.</string>
+    <string name="flock_demo_caption_agree">ചിലപ്പോൾ കൂട്ടം മുഴുവൻ ഒരേ ദിശയിൽ.</string>
+    <string name="flock_demo_caption_trap">കൂട്ടത്തെ പിന്തുടരുന്നതാണ് കെണി.</string>
+    <string name="flock_demo_caption_recover">ഉത്തരം എപ്പോഴും നടുവിലെ പക്ഷിയാണ്.</string>
     <string name="pattern_sequence_prompt">ഏത് കഷണമാണ് മാട്രിക്സ് പൂർത്തിയാക്കുന്നത്?</string>
     <string name="game_tap_original_targets">യഥാർത്ഥ ലക്ഷ്യങ്ങളിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="game_remember_targets">ലക്ഷ്യങ്ങൾ ഓർത്തുവയ്ക്കുക</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">ജ്യോതിശാസ്ത്രജ്ഞൻ</string>
     <string name="achievement_gold_pattern_sequence">മാതൃകാ പ്രവാചകൻ</string>
     <string name="achievement_gold_color_confusion">യഥാർത്ഥ നിറങ്ങൾ</string>
+    <string name="achievement_gold_flock">കൂട്ടത്തലവൻ</string>
+    <string name="achievement_gold_head_count">ദ്വാരപാലകൻ</string>
     <string name="achievement_gold_flash_crowd">ആൾക്കൂട്ടം എണ്ണുന്നവൻ</string>
     <string name="achievement_gold_schulte_table">മിന്നൽ നോട്ടം</string>
     <string name="achievement_gold_flags">പതാകവാഹകൻ</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">ഭ്രമണപഥ നിരീക്ഷണത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_pattern_sequence_desc">മാതൃകാ ക്രമത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_color_confusion_desc">നിറങ്ങളുടെ കുഴപ്പത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_flock_desc">പക്ഷിക്കൂട്ടത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_head_count_desc">തലയെണ്ണലിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_flash_crowd_desc">മിന്നൽ ആൾക്കൂട്ടത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_schulte_table_desc">ഷുൾട്ടെ പട്ടികയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_flags_desc">പതാകകളിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">സ്ഥലബോധത്തിന്റെ മാനക അളവ്: രണ്ട് രൂപങ്ങൾ ഒരേ ഘനം തിരിച്ചതാണോ, അതോ ഒരു ഭ്രമണത്തിനും ചേർക്കാനാവാത്ത കണ്ണാടിപ്രതിബിംബങ്ങളാണോ എന്ന് തീരുമാനിക്കുക.</string>
     <string name="science_color_confusion_paradigm">സ്ട്രൂപ്പ് ടാസ്ക്</string>
     <string name="science_color_confusion_summary">തടസ്സപ്പെടുത്തലിന്റെ മാനക അളവ്: ഒരു വാക്ക് ഏത് നിറത്തിൽ അച്ചടിച്ചിരിക്കുന്നു എന്ന് പറയുക, അതേസമയം വാക്ക് വായിക്കുന്നത് തന്നെ വേഗമേറിയ, മത്സരിക്കുന്ന ഒരു ഉത്തരം മുന്നോട്ടുവയ്ക്കുന്നു.</string>
+    <string name="science_flock_paradigm">ഫ്ലാങ്കർ ടാസ്ക്</string>
+    <string name="science_flock_summary">തിരഞ്ഞെടുത്ത ശ്രദ്ധയുടെ മാനക അളവ്: ഒരു നിരയുടെ നടുവിലെ ഇനത്തോട് പ്രതികരിക്കുക, അരികിലുള്ളവ അതേ ദിശയിലോ എതിർദിശയിലോ ചൂണ്ടും, യോജിക്കാത്തപ്പോൾ അവയെ അവഗണിക്കണം.</string>
     <string name="science_digit_memory_paradigm">ബ്രൗൺ-പീറ്റേഴ്സൺ ടാസ്ക്</string>
     <string name="science_digit_memory_summary">പ്രവർത്തന ഓർമയുടെ മാനക അളവ്: ബന്ധമില്ലാത്ത മറ്റൊരു ജോലി അതേ മാനസിക ഇടം കൈയടക്കുമ്പോൾ ഒരു ശ്രേണി പിടിച്ചുനിർത്തുക.</string>
     <string name="science_pattern_sequence_paradigm">മാട്രിക്സ് യുക്തി</string>

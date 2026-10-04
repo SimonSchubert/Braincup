@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">一致性代價</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">當文字與墨色不一致時，你多花了多少時間</string>
+    <string name="finish_congruency_effect_explainer_flock">當鳥群與中間那隻鳥反向飛時，你多花了多少時間</string>
     <string name="button_play_random">隨機遊戲</string>
     <string name="button_give_up">放棄</string>
     <string name="button_stay">繼續</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">圖案序列</string>
     <string name="game_ghost_grid">幽靈方格</string>
     <string name="game_color_confusion">顏色混淆</string>
+    <string name="game_flock">鳥群</string>
     <string name="game_orbit_tracker">軌道追蹤</string>
     <string name="game_bubble_sum">氣泡求和</string>
     <string name="game_bubble_sum_desc">把漂浮氣泡上的數字相加。之後數字會閃爍——要記住它們。</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">氣泡會計</string>
     <string name="achievement_gold_bubble_sum_desc">在氣泡求和中贏得金牌</string>
     <string name="game_quick_sum">快速求和</string>
+    <string name="game_head_count">數人頭</string>
     <string name="game_quick_sum_desc">數字逐個閃現。把它們相加並輸入總和。</string>
     <string name="quick_sum_instruction">總和是多少？</string>
     <string name="quick_sum_watch">注意看</string>
     <string name="quick_sum_demo_title">數字逐個閃現</string>
     <string name="quick_sum_demo_flash">在心裡累加。</string>
     <string name="quick_sum_demo_total">輸入總和。</string>
+    <string name="game_head_count_desc">人們在一棟房子裡進進出出。一直數著，等安靜下來，說出裡面有幾個人。</string>
+    <string name="head_count_watch">注意數</string>
+    <string name="head_count_instruction">裡面有幾個人？</string>
+    <string name="head_count_demo_title">房子一開始是空的</string>
+    <string name="head_count_demo_in">數一數誰進去了…</string>
+    <string name="head_count_demo_out">…又有誰出來了。</string>
+    <string name="head_count_demo_both">有時同時進出。</string>
+    <string name="head_count_demo_answer">裡面還有兩個人。</string>
     <string name="achievement_gold_quick_sum">閃電算盤</string>
     <string name="achievement_gold_quick_sum_desc">在快速求和中贏得金牌</string>
     <string name="game_flash_crowd">閃現人群</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">找出貫穿網格每一列的規律，然後選出補全它的圖塊。</string>
     <string name="game_ghost_grid_desc">觀察方格逐個亮起，然後按相同順序點選它們。</string>
     <string name="game_color_confusion_desc">一個顏色詞以彩色墨水出現。點選墨水的顏色，不要點詞所說的顏色。</string>
+    <string name="game_flock_desc">一群鳥飛過。朝中間那隻鳥飛的方向滑動，別管牠周圍的鳥。</string>
     <string name="game_orbit_tracker_desc">觀察高亮的球，然後在它們移動時追蹤。停止後選擇最初的目標。</string>
     <string name="game_flash_crowd_desc">每側短暫閃現圓點。點選圓點更多的一側。不要數 — 相信你的直覺！</string>
     <string name="game_schulte_table_desc">儘快按1到N的順序點選數字。</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">天文學家</string>
     <string name="achievement_gold_pattern_sequence">圖案先知</string>
     <string name="achievement_gold_color_confusion">本色</string>
+    <string name="achievement_gold_flock">領頭雁</string>
+    <string name="achievement_gold_head_count">看門人</string>
     <string name="achievement_gold_flash_crowd">群眾計數器</string>
     <string name="achievement_gold_schulte_table">閃電之眼</string>
     <string name="achievement_gold_flags">旗手</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">在軌道追蹤中贏得金牌</string>
     <string name="achievement_gold_pattern_sequence_desc">在圖案序列中贏得金牌</string>
     <string name="achievement_gold_color_confusion_desc">在顏色混淆中贏得金牌</string>
+    <string name="achievement_gold_flock_desc">在鳥群中贏得金牌</string>
+    <string name="achievement_gold_head_count_desc">在數人頭中贏得金牌</string>
     <string name="achievement_gold_flash_crowd_desc">在閃現人群中贏得金牌</string>
     <string name="achievement_gold_schulte_table_desc">在舒爾特方格中贏得金牌</string>
     <string name="achievement_gold_flags_desc">在國旗中贏得金牌</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">空間能力的標準測量：判斷兩個圖形是同一個物體轉了個方向，還是任何旋轉都無法重合的鏡像。</string>
     <string name="science_color_confusion_paradigm">斯特魯普任務</string>
     <string name="science_color_confusion_summary">抑制能力的標準測量：說出一個詞印刷時所用的顏色，而閱讀這個詞本身卻提供了一個更快的、相互競爭的答案。</string>
+    <string name="science_flock_paradigm">側翼作業</string>
+    <string name="science_flock_summary">選擇性注意的標準測量：對一排中間的項目做出反應，而它兩旁的項目指向相同或相反的方向，方向不一致時必須忽略它們。</string>
     <string name="science_digit_memory_paradigm">布朗-彼得森作業</string>
     <string name="science_digit_memory_summary">工作記憶的標準測量：在一項無關作業占用同一心理空間時，仍保持住一串序列。</string>
     <string name="science_pattern_sequence_paradigm">矩陣推理</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">有時兩者是一致的。</string>
     <string name="color_confusion_demo_caption_trap">讀出那個詞就是陷阱。</string>
     <string name="color_confusion_demo_caption_recover">答案永遠是墨色。</string>
+    <string name="flock_demo_title">跟著中間那隻鳥</string>
+    <string name="flock_demo_caption_middle">只有中間那隻鳥才算。</string>
+    <string name="flock_demo_caption_agree">有時整群鳥方向一致。</string>
+    <string name="flock_demo_caption_trap">跟著鳥群走就是陷阱。</string>
+    <string name="flock_demo_caption_recover">答案永遠是中間那隻鳥。</string>
     <string name="spot_the_new_demo_title">找出新出現的</string>
     <string name="spot_the_new_demo_seen_label">已見過的</string>
     <string name="spot_the_new_demo_new">點選你之前沒見過的動物。</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">它屬於哪張關鍵卡片？</string>
     <string name="game_rule_shift_cards_left">剩餘卡片：%1$d</string>
     <string name="game_color_confusion_howto">點選墨水的顏色。</string>
+    <string name="game_flock_howto">朝中間那隻鳥飛的方向滑動。</string>
     <string name="trio_demo_title">找出三重組</string>
     <string name="trio_demo_rule">三張牌的形狀、數量或填色至少有一項相同，其餘必須各不相同。</string>
     <string name="trio_trait_shape">形狀</string>

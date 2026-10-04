@@ -250,6 +250,7 @@
     <string name="finish_congruency_effect_title">Κόστος συμβατότητας</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Πόσο περισσότερο άργησες όταν η λέξη διαφωνούσε με το μελάνι</string>
+    <string name="finish_congruency_effect_explainer_flock">Πόσο περισσότερο άργησες όταν το σμήνος πετούσε αντίθετα από το μεσαίο πουλί</string>
 
     <string name="feedback_solution">Λύση: %1$s</string>
 
@@ -273,6 +274,7 @@
     <string name="game_pattern_sequence">Ακολουθία Μοτίβου</string>
     <string name="game_ghost_grid">Πλέγμα Φαντασμάτων</string>
     <string name="game_color_confusion">Σύγχυση Χρωμάτων</string>
+    <string name="game_flock">Σμήνος</string>
     <string name="game_orbit_tracker">Ιχνηλάτης Τροχιάς</string>
     <string name="game_bubble_sum">Άθροισμα φυσαλίδων</string>
     <string name="game_bubble_sum_desc">Πρόσθεσε τους αριθμούς στις αιωρούμενες φυσαλίδες. Αργότερα αναβοσβήνουν — θυμήσου τους.</string>
@@ -283,12 +285,21 @@
     <string name="achievement_gold_bubble_sum">Λογιστής φυσαλίδων</string>
     <string name="achievement_gold_bubble_sum_desc">Κέρδισε χρυσό μετάλλιο στο Άθροισμα φυσαλίδων</string>
     <string name="game_quick_sum">Γρήγορο άθροισμα</string>
+    <string name="game_head_count">Καταμέτρηση</string>
     <string name="game_quick_sum_desc">Οι αριθμοί εμφανίζονται ένας-ένας. Πρόσθεσέ τους και δώσε το σύνολο.</string>
     <string name="quick_sum_instruction">Ποιο είναι το σύνολο;</string>
     <string name="quick_sum_watch">Πρόσεχε</string>
     <string name="quick_sum_demo_title">Οι αριθμοί εμφανίζονται ένας-ένας</string>
     <string name="quick_sum_demo_flash">Κράτα το άθροισμα στο μυαλό σου.</string>
     <string name="quick_sum_demo_total">Δώσε το σύνολο.</string>
+    <string name="game_head_count_desc">Άνθρωποι μπαινοβγαίνουν σε ένα σπίτι. Μέτρα τους, και όταν ησυχάσει, πες πόσοι είναι μέσα.</string>
+    <string name="head_count_watch">Μέτρα</string>
+    <string name="head_count_instruction">Πόσοι είναι μέσα;</string>
+    <string name="head_count_demo_title">Στην αρχή το σπίτι είναι άδειο</string>
+    <string name="head_count_demo_in">Μέτρα ποιος μπαίνει…</string>
+    <string name="head_count_demo_out">…και ποιος ξαναβγαίνει.</string>
+    <string name="head_count_demo_both">Μερικές φορές και τα δύο μαζί.</string>
+    <string name="head_count_demo_answer">Μέσα είναι ακόμα δύο.</string>
     <string name="achievement_gold_quick_sum">Άβακας αστραπή</string>
     <string name="achievement_gold_quick_sum_desc">Κέρδισε χρυσό μετάλλιο στο Γρήγορο άθροισμα</string>
     <string name="game_flash_crowd">Αστραπιαίο Πλήθος</string>
@@ -317,6 +328,7 @@
     <string name="game_pattern_sequence_desc">Βρες τον κανόνα που διατρέχει κάθε γραμμή του πλέγματος και διάλεξε το κομμάτι που τον ολοκληρώνει.</string>
     <string name="game_ghost_grid_desc">Παρακολουθήστε τα πλακίδια να φωτίζονται ένα προς ένα, και μετά πατήστε τα ξανά με την ίδια σειρά.</string>
     <string name="game_color_confusion_desc">Εμφανίζεται μια λέξη χρώματος με χρωματιστό μελάνι. Πάτα το χρώμα του μελανιού, όχι το χρώμα που ονομάζει η λέξη.</string>
+    <string name="game_flock_desc">Ένα σμήνος πουλιά περνάει από μπροστά σου. Σύρε προς τα εκεί που πετάει το μεσαίο πουλί και αγνόησε τα υπόλοιπα.</string>
     <string name="game_orbit_tracker_desc">Παρακολουθήστε τις φωτεινές μπάλες και μετά το πώς κινούνται. Επιλέξτε τους αρχικούς στόχους αφού σταματήσουν.</string>
     <string name="game_flash_crowd_desc">Κουκκίδες αναβοσβήνουν για λίγο σε κάθε πλευρά. Πατήστε την πλευρά που είχε περισσότερες κουκκίδες. Μην μετράτε - μόνο ένστικτο!</string>
     <string name="game_schulte_table_desc">Πατήστε τους αριθμούς με τη σειρά από το 1 και μετά, όσο πιο γρήγορα μπορείτε.</string>
@@ -426,6 +438,11 @@
     <string name="color_confusion_demo_caption_agree">Μερικές φορές τα δύο συμφωνούν.</string>
     <string name="color_confusion_demo_caption_trap">Η παγίδα είναι να διαβάσεις τη λέξη.</string>
     <string name="color_confusion_demo_caption_recover">Η απάντηση είναι πάντα το μελάνι.</string>
+    <string name="flock_demo_title">Ακολούθα το μεσαίο πουλί</string>
+    <string name="flock_demo_caption_middle">Μετράει μόνο το μεσαίο πουλί.</string>
+    <string name="flock_demo_caption_agree">Μερικές φορές όλο το σμήνος πετάει προς την ίδια μεριά.</string>
+    <string name="flock_demo_caption_trap">Η παγίδα είναι να ακολουθήσεις το σμήνος.</string>
+    <string name="flock_demo_caption_recover">Η απάντηση είναι πάντα το μεσαίο πουλί.</string>
     <string name="pattern_sequence_prompt">Ποιο κομμάτι ολοκληρώνει το μητρώο;</string>
     <string name="game_tap_original_targets">Πατήστε τους αρχικούς στόχους</string>
     <string name="game_remember_targets">Θυμηθείτε τους στόχους</string>
@@ -493,6 +510,8 @@
     <string name="achievement_gold_orbit_tracker">Αστρονόμος</string>
     <string name="achievement_gold_pattern_sequence">Προφήτης των Μοτίβων</string>
     <string name="achievement_gold_color_confusion">Αληθινά Χρώματα</string>
+    <string name="achievement_gold_flock">Αρχηγός του σμήνους</string>
+    <string name="achievement_gold_head_count">Θυρωρός</string>
     <string name="achievement_gold_flash_crowd">Μετρητής Πλήθους</string>
     <string name="achievement_gold_schulte_table">Αστραπιαίο Βλέμμα</string>
     <string name="achievement_gold_flags">Σημαιοφόρος</string>
@@ -524,6 +543,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Ιχνηλάτης Τροχιάς</string>
     <string name="achievement_gold_pattern_sequence_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Ακολουθία Μοτίβου</string>
     <string name="achievement_gold_color_confusion_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σύγχυση Χρωμάτων</string>
+    <string name="achievement_gold_flock_desc">Κέρδισε χρυσό μετάλλιο στο Σμήνος</string>
+    <string name="achievement_gold_head_count_desc">Κέρδισε χρυσό μετάλλιο στην Καταμέτρηση</string>
     <string name="achievement_gold_flash_crowd_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Αστραπιαίο Πλήθος</string>
     <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Πίνακας Σούλτε</string>
     <string name="achievement_gold_flags_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σημαίες</string>
@@ -601,6 +622,8 @@
     <string name="science_mental_rotations_summary">Τυπικό μέτρο της χωρικής ικανότητας: να αποφασίσεις αν δύο σχήματα είναι το ίδιο στερεό στραμμένο ή κατοπτρικές εικόνες που καμία περιστροφή δεν ταιριάζει.</string>
     <string name="science_color_confusion_paradigm">Δοκιμασία Stroop</string>
     <string name="science_color_confusion_summary">Τυπικό μέτρο της αναστολής: να ονομάσεις το χρώμα με το οποίο είναι τυπωμένη μια λέξη, ενώ η ίδια η ανάγνωση της λέξης προσφέρει μια ταχύτερη, ανταγωνιστική απάντηση.</string>
+    <string name="science_flock_paradigm">Δοκιμασία Flanker</string>
+    <string name="science_flock_summary">Τυπικό μέτρο της επιλεκτικής προσοχής: να αντιδράσεις στο μεσαίο στοιχείο μιας σειράς, ενώ τα διπλανά του δείχνουν προς την ίδια ή την αντίθετη κατεύθυνση και πρέπει να αγνοηθούν όταν διαφωνούν.</string>
     <string name="science_digit_memory_paradigm">Δοκιμασία Brown-Peterson</string>
     <string name="science_digit_memory_summary">Τυπικό μέτρο της εργαζόμενης μνήμης: να συγκρατείς μια ακολουθία ενώ μια άλλη εργασία καταλαμβάνει τον ίδιο νοητικό χώρο.</string>
     <string name="science_pattern_sequence_paradigm">Συλλογιστική με πίνακες</string>
@@ -901,6 +924,7 @@
     <string name="game_rule_shift_howto">Σε ποια κάρτα-κλειδί ανήκει;</string>
     <string name="game_rule_shift_cards_left">Κάρτες που μένουν: %1$d</string>
     <string name="game_color_confusion_howto">Πάτα το χρώμα του μελανιού.</string>
+    <string name="game_flock_howto">Σύρε προς τα εκεί που πετάει το μεσαίο πουλί.</string>
     <string name="trio_demo_title">Βρες μια τριάδα</string>
     <string name="trio_demo_rule">Τρεις κάρτες με κοινό τουλάχιστον το σχήμα, το πλήθος ή το γέμισμα. Όλα τα άλλα πρέπει να διαφέρουν.</string>
     <string name="trio_trait_shape">Σχήμα</string>

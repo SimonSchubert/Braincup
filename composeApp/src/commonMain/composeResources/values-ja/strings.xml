@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">一致コスト</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">言葉とインクが食い違ったとき、どれだけ余計に時間がかかったか</string>
+    <string name="finish_congruency_effect_explainer_flock">群れが真ん中の鳥と逆に飛んだとき、どれだけ余計に時間がかかったか</string>
     <string name="button_play_random">ランダムゲーム</string>
     <string name="button_give_up">ギブアップ</string>
     <string name="button_stay">続ける</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">パターンシーケンス</string>
     <string name="game_ghost_grid">ゴーストグリッド</string>
     <string name="game_color_confusion">カラーコンフュージョン</string>
+    <string name="game_flock">鳥の群れ</string>
     <string name="game_orbit_tracker">オービットトラッカー</string>
     <string name="game_bubble_sum">バブル合計</string>
     <string name="game_bubble_sum_desc">浮かぶバブルの数字を足しましょう。後で数字が点滅します。覚えておいてください。</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">バブル会計士</string>
     <string name="achievement_gold_bubble_sum_desc">バブル合計で金メダルを獲得</string>
     <string name="game_quick_sum">フラッシュ暗算</string>
+    <string name="game_head_count">人数カウント</string>
     <string name="game_quick_sum_desc">数字が一つずつ表示されます。足して合計を入力しましょう。</string>
     <string name="quick_sum_instruction">合計は？</string>
     <string name="quick_sum_watch">見る</string>
     <string name="quick_sum_demo_title">数字が一つずつ表示されます</string>
     <string name="quick_sum_demo_flash">頭の中で足していって。</string>
     <string name="quick_sum_demo_total">合計を入力。</string>
+    <string name="game_head_count_desc">人が家に出たり入ったりします。数え続けて、動きが止まったら中に何人いるか答えましょう。</string>
+    <string name="head_count_watch">数えて</string>
+    <string name="head_count_instruction">中に何人いる？</string>
+    <string name="head_count_demo_title">家は最初は空っぽ</string>
+    <string name="head_count_demo_in">入る人を数えて…</string>
+    <string name="head_count_demo_out">…出てくる人も。</string>
+    <string name="head_count_demo_both">ときには出入りが同時に。</string>
+    <string name="head_count_demo_answer">中にはまだ2人います。</string>
     <string name="achievement_gold_quick_sum">フラッシュそろばん</string>
     <string name="achievement_gold_quick_sum_desc">フラッシュ暗算で金メダルを獲得</string>
     <string name="game_flash_crowd">フラッシュクラウド</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">グリッドの各行を貫く規則を見つけ、それを完成させるピースを選んでください。</string>
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
     <string name="game_color_confusion_desc">色の単語が色つきのインクで現れます。インクの色をタップしてください。言葉が示す色ではありません。</string>
+    <string name="game_flock_desc">鳥の群れが飛んでいきます。真ん中の鳥が飛ぶ方向にスワイプしましょう。周りの鳥は無視して。</string>
     <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
     <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">天文学者</string>
     <string name="achievement_gold_pattern_sequence">パターン預言者</string>
     <string name="achievement_gold_color_confusion">真の色</string>
+    <string name="achievement_gold_flock">編隊長</string>
+    <string name="achievement_gold_head_count">門番</string>
     <string name="achievement_gold_flash_crowd">群衆カウンター</string>
     <string name="achievement_gold_schulte_table">稲妻の視線</string>
     <string name="achievement_gold_flags">旗手</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">オービットトラッカーで金メダルを獲得</string>
     <string name="achievement_gold_pattern_sequence_desc">パターンシーケンスで金メダルを獲得</string>
     <string name="achievement_gold_color_confusion_desc">カラーコンフュージョンで金メダルを獲得</string>
+    <string name="achievement_gold_flock_desc">鳥の群れで金メダルを獲得</string>
+    <string name="achievement_gold_head_count_desc">人数カウントで金メダルを獲得</string>
     <string name="achievement_gold_flash_crowd_desc">フラッシュクラウドで金メダルを獲得</string>
     <string name="achievement_gold_schulte_table_desc">シュルテ表で金メダルを獲得</string>
     <string name="achievement_gold_flags_desc">国旗で金メダルを獲得</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">空間能力の標準的な指標。二つの図形が同じ立体を回したものか、どんな回転でも重ならない鏡像かを判断する。</string>
     <string name="science_color_confusion_paradigm">ストループ課題</string>
     <string name="science_color_confusion_summary">抑制の標準的な指標。単語が印刷されている色を答える一方で、単語そのものを読むことがより速く競合する答えを差し出す。</string>
+    <string name="science_flock_paradigm">フランカー課題</string>
+    <string name="science_flock_summary">選択的注意の標準的な指標。一列に並んだ項目の真ん中に反応する一方で、両隣の項目は同じ向きか逆向きを指し、食い違うときは無視しなければならない。</string>
     <string name="science_digit_memory_paradigm">ブラウン・ピーターソン課題</string>
     <string name="science_digit_memory_summary">作業記憶の標準的な指標。無関係な課題が同じ心的作業領域を占めるあいだ、系列を保持する。</string>
     <string name="science_pattern_sequence_paradigm">マトリックス推理</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">ときには両方が一致します。</string>
     <string name="color_confusion_demo_caption_trap">言葉を読むことが罠です。</string>
     <string name="color_confusion_demo_caption_recover">答えはいつでもインクです。</string>
+    <string name="flock_demo_title">真ん中の鳥についていこう</string>
+    <string name="flock_demo_caption_middle">大事なのは真ん中の鳥だけです。</string>
+    <string name="flock_demo_caption_agree">ときには群れ全体がそろいます。</string>
+    <string name="flock_demo_caption_trap">群れにつられるのが罠です。</string>
+    <string name="flock_demo_caption_recover">答えはいつでも真ん中の鳥です。</string>
     <string name="spot_the_new_demo_title">新しいものを見つける</string>
     <string name="spot_the_new_demo_seen_label">これまでに見たもの</string>
     <string name="spot_the_new_demo_new">まだ見ていない動物をタップしてください。</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">どのキーカードに属しますか？</string>
     <string name="game_rule_shift_cards_left">残りのカード: %1$d</string>
     <string name="game_color_confusion_howto">インクの色をタップしてください。</string>
+    <string name="game_flock_howto">真ん中の鳥が飛ぶ方向にスワイプしてください。</string>
     <string name="trio_demo_title">トリオを見つける</string>
     <string name="trio_demo_rule">形・数・塗りのうち1つ以上がそろった3枚。残りはすべてバラバラ。</string>
     <string name="trio_trait_shape">形</string>

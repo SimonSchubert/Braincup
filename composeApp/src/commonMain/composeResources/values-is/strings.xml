@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Samræmiskostnaður</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Hversu miklu lengur þú varst þegar orðið og blekið stönguðust á</string>
+    <string name="finish_congruency_effect_explainer_flock">Hversu miklu lengur þú varst þegar hópurinn flaug í öfuga átt við miðfuglinn</string>
 
     <string name="feedback_solution">Lausn: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Mynsturröð</string>
     <string name="game_ghost_grid">Drauganet</string>
     <string name="game_color_confusion">Litaruglingur</string>
+    <string name="game_flock">Fuglager</string>
     <string name="game_orbit_tracker">Brautarfylgjandi</string>
     <string name="game_bubble_sum">Kúlasumma</string>
     <string name="game_quick_sum">Hraðsumma</string>
+    <string name="game_head_count">Manntal</string>
     <string name="game_flash_crowd">Leifturþyrping</string>
     <string name="game_schulte_table">Schulte-tafla</string>
     <string name="game_mini_chess">Míniskák</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Finndu regluna í hverri röð og veldu bitann sem lýkur henni.</string>
     <string name="game_ghost_grid_desc">Horfðu á flísarnar kvikna eina af annarri og ýttu á þær í sömu röð.</string>
     <string name="game_color_confusion_desc">Litarorð birtist í lituðu bleki. Ýttu á lit bleksins, ekki litinn sem orðið nefnir.</string>
+    <string name="game_flock_desc">Fuglager flýgur hjá. Strjúktu í þá átt sem fuglinn í miðjunni flýgur og hunsaðu fuglana í kringum hann.</string>
     <string name="game_orbit_tracker_desc">Horfðu á auðkenndar kúlur og fylgdu þeim þegar þær hreyfast. Veldu upphaflegu skotmörkin þegar þær stoppa.</string>
     <string name="game_bubble_sum_desc">Leggðu saman tölurnar á fljótandi kúlunum. Síðar blikka tölurnar — mundu þær.</string>
     <string name="bubble_sum_instruction">Hver er summan?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Tölur blikka ein af annarri</string>
     <string name="quick_sum_demo_flash">Haltu rennandi summu í hausnum.</string>
     <string name="quick_sum_demo_total">Sláðu inn heildina.</string>
+    <string name="game_head_count_desc">Fólk gengur inn og út úr húsi. Teldu með og segðu hve margir eru inni þegar allt er orðið kyrrt.</string>
+    <string name="head_count_watch">Teldu með</string>
+    <string name="head_count_instruction">Hve margir eru inni?</string>
+    <string name="head_count_demo_title">Húsið er tómt í byrjun</string>
+    <string name="head_count_demo_in">Teldu hverjir fara inn…</string>
+    <string name="head_count_demo_out">…og hverjir koma aftur út.</string>
+    <string name="head_count_demo_both">Stundum hvort tveggja í einu.</string>
+    <string name="head_count_demo_answer">Tveir eru enn inni.</string>
     <string name="game_flash_crowd_desc">Punktar blikka stutt á hvorri hlið. Ýttu á hliðina þar sem fleiri voru. Ekki telja — treystu eðlishvötinni!</string>
     <string name="game_schulte_table_desc">Ýttu á tölur í röð frá 1 og upp eins hratt og þú getur.</string>
     <string name="game_schulte_instruction">Ýttu á tölur í röð: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Við hvaða lykilspil á það?</string>
     <string name="game_rule_shift_cards_left">Spil eftir: %1$d</string>
     <string name="game_color_confusion_howto">Ýttu á lit bleksins.</string>
+    <string name="game_flock_howto">Strjúktu í flugstefnu miðfuglsins.</string>
     <string name="trio_demo_title">Finndu trio</string>
     <string name="trio_demo_rule">Þrjú spil með að minnsta kosti sama form, fjölda eða fyllingu. Allt annað verður að vera ólíkt.</string>
     <string name="trio_trait_shape">Form</string>
@@ -503,6 +516,11 @@ Færðu Cow — hann verður Bull.</string>
     <string name="color_confusion_demo_caption_agree">Stundum eru þau sammála.</string>
     <string name="color_confusion_demo_caption_trap">Að lesa orðið er gildran.</string>
     <string name="color_confusion_demo_caption_recover">Blekið er alltaf svarið.</string>
+    <string name="flock_demo_title">Fylgdu miðfuglinum</string>
+    <string name="flock_demo_caption_middle">Aðeins miðfuglinn skiptir máli.</string>
+    <string name="flock_demo_caption_agree">Stundum flýgur allur hópurinn eins.</string>
+    <string name="flock_demo_caption_trap">Að elta hópinn er gildran.</string>
+    <string name="flock_demo_caption_recover">Miðfuglinn er alltaf svarið.</string>
     <string name="pattern_sequence_prompt">Hvaða biti lýkur fylkinu?</string>
     <string name="game_tap_original_targets">Ýttu á upphaflegu skotmörkin</string>
     <string name="game_remember_targets">Mundu skotmörkin</string>
@@ -579,6 +597,8 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_gold_orbit_tracker">Stjörnufræðingur</string>
     <string name="achievement_gold_pattern_sequence">Mynstursjáandi</string>
     <string name="achievement_gold_color_confusion">Rétti liturinn</string>
+    <string name="achievement_gold_flock">Forystufugl</string>
+    <string name="achievement_gold_head_count">Dyravörður</string>
     <string name="achievement_gold_flash_crowd">Þyrpingateljari</string>
     <string name="achievement_gold_schulte_table">Leiftursýn</string>
     <string name="achievement_gold_flags">Fánaberi</string>
@@ -619,6 +639,8 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Vinnu gullverðlaun í Brautarfylgjanda</string>
     <string name="achievement_gold_pattern_sequence_desc">Vinnu gullverðlaun í Mynsturröð</string>
     <string name="achievement_gold_color_confusion_desc">Vinnu gullverðlaun í Litaruglingi</string>
+    <string name="achievement_gold_flock_desc">Vinnu gullverðlaun í Fuglageri</string>
+    <string name="achievement_gold_head_count_desc">Vinnu gullverðlaun í Manntali</string>
     <string name="achievement_gold_flash_crowd_desc">Vinnu gullverðlaun í Leifturþyrpingu</string>
     <string name="achievement_gold_schulte_table_desc">Vinnu gullverðlaun í Schulte-töflu</string>
     <string name="achievement_gold_flags_desc">Vinnu gullverðlaun í Fánum</string>
@@ -696,6 +718,8 @@ Færðu Cow — hann verður Bull.</string>
     <string name="science_mental_rotations_summary">Staðlað mat á rúmskynjun: að ákveða hvort tvær myndir séu sami hluturinn snúinn eða spegilmyndir sem enginn snúningur fær til að passa.</string>
     <string name="science_color_confusion_paradigm">Stroop-verkefnið</string>
     <string name="science_color_confusion_summary">Staðlað mat á hömlun: að nefna litinn sem orð er prentað í, á meðan lestur orðsins sjálfs býður hraðara, keppandi svar.</string>
+    <string name="science_flock_paradigm">Flanker-verkefnið</string>
+    <string name="science_flock_summary">Staðlað mat á valbundinni athygli: að bregðast við miðatriðinu í röð á meðan atriðin við hliðina vísa í sömu átt eða öfuga átt og þarf að hunsa þau þegar þau eru ósammála.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-verkefnið</string>
     <string name="science_digit_memory_summary">Staðlað mat á vinnsluminni: að halda röð meðan annað verkefni tekur sama hugarrými.</string>
     <string name="science_pattern_sequence_paradigm">Fylkjarökhugsun</string>

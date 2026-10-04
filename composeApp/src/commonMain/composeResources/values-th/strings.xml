@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">ต้นทุนความสอดคล้อง</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">คุณใช้เวลานานขึ้นเท่าใดเมื่อคำกับหมึกไม่ตรงกัน</string>
+    <string name="finish_congruency_effect_explainer_flock">คุณใช้เวลานานขึ้นเท่าใดเมื่อฝูงบินสวนทางกับนกตัวกลาง</string>
     <string name="button_play_random">เล่นเกมสุ่ม</string>
     <string name="button_give_up">ยอมแพ้</string>
     <string name="button_stay">อยู่ต่อ</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">ลำดับรูปแบบ</string>
     <string name="game_ghost_grid">ตารางผี</string>
     <string name="game_color_confusion">สีสับสน</string>
+    <string name="game_flock">ฝูงนก</string>
     <string name="game_orbit_tracker">ติดตามวงโคจร</string>
     <string name="game_bubble_sum">ผลรวมฟอง</string>
     <string name="game_bubble_sum_desc">บวกตัวเลขบนฟองที่ลอย ภายหลังตัวเลขจะกะพริบ — จำไว้</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">นักบัญชีฟอง</string>
     <string name="achievement_gold_bubble_sum_desc">ชนะเหรียญทองในผลรวมฟอง</string>
     <string name="game_quick_sum">บวกเร็ว</string>
+    <string name="game_head_count">นับคน</string>
     <string name="game_quick_sum_desc">ตัวเลขจะปรากฏทีละตัว บวกทั้งหมดแล้วใส่ผลรวม</string>
     <string name="quick_sum_instruction">ผลรวมคือเท่าไร?</string>
     <string name="quick_sum_watch">ดูให้ดี</string>
     <string name="quick_sum_demo_title">ตัวเลขปรากฏทีละตัว</string>
     <string name="quick_sum_demo_flash">บวกสะสมไว้ในใจ</string>
     <string name="quick_sum_demo_total">ใส่ผลรวม</string>
+    <string name="game_head_count_desc">ผู้คนเดินเข้าออกบ้าน นับไว้ให้ดี พอทุกอย่างนิ่งแล้ว บอกว่ามีกี่คนอยู่ข้างใน</string>
+    <string name="head_count_watch">นับไว้</string>
+    <string name="head_count_instruction">ข้างในมีกี่คน?</string>
+    <string name="head_count_demo_title">ตอนแรกบ้านว่างเปล่า</string>
+    <string name="head_count_demo_in">นับคนที่เดินเข้า…</string>
+    <string name="head_count_demo_out">…และคนที่เดินออกมา</string>
+    <string name="head_count_demo_both">บางทีก็เข้าออกพร้อมกัน</string>
+    <string name="head_count_demo_answer">ยังเหลืออยู่ข้างในสองคน</string>
     <string name="achievement_gold_quick_sum">ลูกคิดสายฟ้า</string>
     <string name="achievement_gold_quick_sum_desc">ชนะเหรียญทองในบวกเร็ว</string>
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">หากฎที่ทอดผ่านแต่ละแถวของตาราง แล้วเลือกชิ้นส่วนที่เติมเต็มมัน</string>
     <string name="game_ghost_grid_desc">ดูช่องสว่างขึ้นทีละช่อง แล้วแตะตามลำดับเดิม</string>
     <string name="game_color_confusion_desc">คำสีปรากฏด้วยหมึกสี แตะสีของหมึก ไม่ใช่สีที่คำบอก</string>
+    <string name="game_flock_desc">ฝูงนกบินผ่านไป ปัดไปทางที่นกตัวกลางบิน และไม่ต้องสนใจนกรอบ ๆ</string>
     <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
     <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
     <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">นักดาราศาสตร์</string>
     <string name="achievement_gold_pattern_sequence">ผู้พยากรณ์รูปแบบ</string>
     <string name="achievement_gold_color_confusion">สีที่แท้จริง</string>
+    <string name="achievement_gold_flock">จ่าฝูง</string>
+    <string name="achievement_gold_head_count">ผู้เฝ้าประตู</string>
     <string name="achievement_gold_flash_crowd">ผู้นับฝูงชน</string>
     <string name="achievement_gold_schulte_table">สายตาฟ้าผ่า</string>
     <string name="achievement_gold_flags">ผู้ถือธง</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">ชนะเหรียญทองในติดตามวงโคจร</string>
     <string name="achievement_gold_pattern_sequence_desc">ชนะเหรียญทองในลำดับรูปแบบ</string>
     <string name="achievement_gold_color_confusion_desc">ชนะเหรียญทองในสีสับสน</string>
+    <string name="achievement_gold_flock_desc">ชนะเหรียญทองในฝูงนก</string>
+    <string name="achievement_gold_head_count_desc">ชนะเหรียญทองในนับคน</string>
     <string name="achievement_gold_flash_crowd_desc">ชนะเหรียญทองในฝูงชนวาบ</string>
     <string name="achievement_gold_schulte_table_desc">ชนะเหรียญทองในตารางชูลเทอ</string>
     <string name="achievement_gold_flags_desc">ชนะเหรียญทองในธง</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">มาตรวัดมาตรฐานของความสามารถเชิงมิติสัมพันธ์: ตัดสินว่าสองรูปคือวัตถุเดียวกันที่ถูกหมุน หรือเป็นภาพสะท้อนที่ไม่มีการหมุนใดทำให้ทับกันได้</string>
     <string name="science_color_confusion_paradigm">งานสตรูป</string>
     <string name="science_color_confusion_summary">มาตรวัดมาตรฐานของการยับยั้ง: การเรียกชื่อสีที่ใช้พิมพ์คำ ขณะที่การอ่านตัวคำเองให้คำตอบที่เร็วกว่าและแข่งขันกันอยู่</string>
+    <string name="science_flock_paradigm">งานแฟลงเกอร์</string>
+    <string name="science_flock_summary">มาตรวัดมาตรฐานของความใส่ใจแบบเลือกสรร: ตอบสนองต่อสิ่งที่อยู่ตรงกลางแถว ขณะที่สิ่งข้าง ๆ ชี้ไปทางเดียวกันหรือทางตรงข้าม และต้องเมินเมื่อชี้ขัดกัน</string>
     <string name="science_digit_memory_paradigm">งานบราวน์-ปีเตอร์สัน</string>
     <string name="science_digit_memory_summary">มาตรวัดมาตรฐานของความจำใช้งาน: การเก็บลำดับไว้ขณะที่งานอื่นเข้ามาใช้พื้นที่ความคิดเดียวกัน</string>
     <string name="science_pattern_sequence_paradigm">การให้เหตุผลเชิงเมทริกซ์</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">บางครั้งทั้งสองก็ตรงกัน</string>
     <string name="color_confusion_demo_caption_trap">กับดักคือการอ่านคำนั้น</string>
     <string name="color_confusion_demo_caption_recover">คำตอบคือสีหมึกเสมอ</string>
+    <string name="flock_demo_title">ตามนกตัวกลาง</string>
+    <string name="flock_demo_caption_middle">นับแค่นกตัวกลาง</string>
+    <string name="flock_demo_caption_agree">บางครั้งทั้งฝูงก็บินไปทางเดียวกัน</string>
+    <string name="flock_demo_caption_trap">กับดักคือการบินตามฝูง</string>
+    <string name="flock_demo_caption_recover">คำตอบคือนกตัวกลางเสมอ</string>
     <string name="spot_the_new_demo_title">หาตัวใหม่</string>
     <string name="spot_the_new_demo_seen_label">ที่เคยเห็นมาแล้ว</string>
     <string name="spot_the_new_demo_new">แตะสัตว์ที่คุณยังไม่เคยเห็นมาก่อน</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">ใบนี้เข้ากับไพ่หลักใบไหน</string>
     <string name="game_rule_shift_cards_left">ไพ่ที่เหลือ: %1$d</string>
     <string name="game_color_confusion_howto">แตะสีของหมึก</string>
+    <string name="game_flock_howto">ปัดไปทางที่นกตัวกลางบิน</string>
     <string name="trio_demo_title">หาทริโอ</string>
     <string name="trio_demo_rule">ไพ่สามใบที่รูปทรง จำนวน หรือการเติมสีเหมือนกันอย่างน้อยหนึ่งอย่าง ส่วนที่เหลือต้องต่างกันหมด</string>
     <string name="trio_trait_shape">รูปทรง</string>

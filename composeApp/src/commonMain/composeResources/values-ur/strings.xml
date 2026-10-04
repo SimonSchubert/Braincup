@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">مطابقت کی قیمت</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">جب لفظ اور سیاہی مختلف تھے تو آپ نے کتنا زیادہ وقت لیا</string>
+    <string name="finish_congruency_effect_explainer_flock">جب جھنڈ درمیانی پرندے کے الٹ اڑا تو آپ نے کتنا زیادہ وقت لیا</string>
 
     <string name="feedback_solution">حل: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">پیٹرن سلسلہ</string>
     <string name="game_ghost_grid">شبح گرڈ</string>
     <string name="game_color_confusion">رنگ الجھاؤ</string>
+    <string name="game_flock">جھنڈ</string>
     <string name="game_orbit_tracker">مدار سراغ</string>
     <string name="game_bubble_sum">بلبلہ جمع</string>
     <string name="game_quick_sum">فوری جمع</string>
+    <string name="game_head_count">مردم شماری</string>
     <string name="game_flash_crowd">فلیش بھیڑ</string>
     <string name="game_schulte_table">شولٹے جدول</string>
     <string name="game_mini_chess">چھوٹی شطرنج</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">ہر قطار کا قاعدہ معلوم کریں، پھر وہ ٹکڑا چنیں جو اسے مکمل کرے۔</string>
     <string name="game_ghost_grid_desc">خانے ایک ایک کر کے روشن ہوتے دیکھیں، پھر اسی ترتیب میں دبائیں۔</string>
     <string name="game_color_confusion_desc">ایک رنگ کا لفظ رنگین سیاہی میں آتا ہے۔ سیاہی کا رنگ دبائیں، وہ رنگ نہیں جو لفظ بتاتا ہے۔</string>
+    <string name="game_flock_desc">پرندوں کا ایک جھنڈ اڑتا ہوا گزرتا ہے۔ درمیانی پرندہ جس طرف اڑ رہا ہے اسی طرف سوائپ کریں، اور اس کے اردگرد کے پرندوں کو نظر انداز کریں۔</string>
     <string name="game_orbit_tracker_desc">نمایاں گیندیں دیکھیں، حرکت میں ان کا پیچھا کریں۔ رکنے کے بعد اصل اہداف منتخب کریں۔</string>
     <string name="game_bubble_sum_desc">تیرتے بلبلوں کے اعداد جمع کریں۔ بعد میں اعداد جھپکیں گے — یاد رکھیں۔</string>
     <string name="bubble_sum_instruction">حاصل جمع کیا ہے؟</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">اعداد ایک ایک چمکتے ہیں</string>
     <string name="quick_sum_demo_flash">ذہن میں چلتا جمع رکھیں۔</string>
     <string name="quick_sum_demo_total">کل درج کریں۔</string>
+    <string name="game_head_count_desc">لوگ ایک گھر میں آتے جاتے ہیں۔ گنتی جاری رکھیں، اور جب سب تھم جائے تو بتائیں کہ اندر کتنے ہیں۔</string>
+    <string name="head_count_watch">گنتے رہیں</string>
+    <string name="head_count_instruction">اندر کتنے ہیں؟</string>
+    <string name="head_count_demo_title">گھر شروع میں خالی ہے</string>
+    <string name="head_count_demo_in">گنیں کون اندر جاتا ہے…</string>
+    <string name="head_count_demo_out">…اور کون واپس باہر آتا ہے۔</string>
+    <string name="head_count_demo_both">کبھی دونوں ایک ساتھ۔</string>
+    <string name="head_count_demo_answer">دو ابھی بھی اندر ہیں۔</string>
     <string name="game_flash_crowd_desc">دونوں طرف نقطے لمحے بھر چمکتے ہیں۔ زیادہ نقطوں والی طرف دبائیں۔ گنیں نہیں — فطری اندازہ لگائیں!</string>
     <string name="game_schulte_table_desc">اعداد 1 سے اوپر کی ترتیب میں جتنی جلدی ہو سکے دبائیں۔</string>
     <string name="game_schulte_instruction">اعداد ترتیب سے دبائیں: 1، 2، 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">یہ کس کلیدی کارڈ سے تعلق رکھتا ہے؟</string>
     <string name="game_rule_shift_cards_left">باقی کارڈ: %1$d</string>
     <string name="game_color_confusion_howto">سیاہی کے رنگ پر دبائیں۔</string>
+    <string name="game_flock_howto">درمیانی پرندے کی سمت میں سوائپ کریں۔</string>
     <string name="trio_demo_title">ٹریو تلاش کریں</string>
     <string name="trio_demo_rule">تین کارڈ جن کی شکل، تعداد یا بھراؤ میں سے کم از کم ایک چیز ایک جیسی ہو۔ باقی سب ہر کارڈ پر مختلف۔</string>
     <string name="trio_trait_shape">شکل</string>
@@ -501,6 +514,11 @@
     <string name="color_confusion_demo_caption_agree">کبھی کبھی دونوں ایک ہوتے ہیں۔</string>
     <string name="color_confusion_demo_caption_trap">پھندا یہ ہے کہ لفظ پڑھ لیا جائے۔</string>
     <string name="color_confusion_demo_caption_recover">جواب ہمیشہ سیاہی ہوتا ہے۔</string>
+    <string name="flock_demo_title">درمیانی پرندے کے پیچھے چلیں</string>
+    <string name="flock_demo_caption_middle">صرف درمیانی پرندہ اہم ہے۔</string>
+    <string name="flock_demo_caption_agree">کبھی پورا جھنڈ ایک ہی طرف اڑتا ہے۔</string>
+    <string name="flock_demo_caption_trap">پھندا یہ ہے کہ جھنڈ کے پیچھے چل پڑیں۔</string>
+    <string name="flock_demo_caption_recover">جواب ہمیشہ درمیانی پرندہ ہوتا ہے۔</string>
     <string name="pattern_sequence_prompt">کون سا ٹکڑا میٹرکس مکمل کرتا ہے؟</string>
     <string name="game_tap_original_targets">اصل اہداف دبائیں</string>
     <string name="game_remember_targets">اہداف یاد رکھیں</string>
@@ -577,6 +595,8 @@
     <string name="achievement_gold_orbit_tracker">فلکیات دان</string>
     <string name="achievement_gold_pattern_sequence">پیٹرن نبی</string>
     <string name="achievement_gold_color_confusion">اصل رنگ</string>
+    <string name="achievement_gold_flock">جھنڈ کا سردار</string>
+    <string name="achievement_gold_head_count">دربان</string>
     <string name="achievement_gold_flash_crowd">بھیڑ شمار</string>
     <string name="achievement_gold_schulte_table">بجلی کی نظر</string>
     <string name="achievement_gold_flags">جھنڈا بردار</string>
@@ -617,6 +637,8 @@
     <string name="achievement_gold_orbit_tracker_desc">مدار سراغ میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_pattern_sequence_desc">پیٹرن سلسلہ میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_color_confusion_desc">رنگ الجھاؤ میں طلائی تمغہ جیتیں</string>
+    <string name="achievement_gold_flock_desc">جھنڈ میں طلائی تمغہ جیتیں</string>
+    <string name="achievement_gold_head_count_desc">مردم شماری میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_flash_crowd_desc">فلیش بھیڑ میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_schulte_table_desc">شولٹے جدول میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_flags_desc">جھنڈے میں طلائی تمغہ جیتیں</string>
@@ -694,6 +716,8 @@
     <string name="science_mental_rotations_summary">مکانی صلاحیت کا معیاری پیمانہ: یہ طے کرنا کہ دو شکلیں ایک ہی جسم کو گھما کر بنی ہیں یا آئینے کے عکس ہیں جنہیں کوئی گردش نہیں ملا سکتی۔</string>
     <string name="science_color_confusion_paradigm">سٹروپ ٹاسک</string>
     <string name="science_color_confusion_summary">روک تھام کا معیاری پیمانہ: اس رنگ کا نام لینا جس میں لفظ چھپا ہے، جبکہ خود لفظ پڑھنا ایک تیز تر، مسابقتی جواب پیش کرتا ہے۔</string>
+    <string name="science_flock_paradigm">فلینکر ٹاسک</string>
+    <string name="science_flock_summary">انتخابی توجہ کا معیاری پیمانہ: قطار کی درمیانی چیز پر ردعمل دینا، جبکہ اس کے برابر والی چیزیں اسی سمت یا الٹی سمت اشارہ کرتی ہیں، اور اختلاف کی صورت میں انہیں نظر انداز کرنا ہوتا ہے۔</string>
     <string name="science_digit_memory_paradigm">براؤن-پیٹرسن ٹاسک</string>
     <string name="science_digit_memory_summary">کارگر یادداشت کا معیاری پیمانہ: ایک ترتیب کو تھامے رکھنا جب کوئی غیر متعلقہ کام اسی ذہنی جگہ کو گھیرے ہوئے ہو۔</string>
     <string name="science_pattern_sequence_paradigm">میٹرکس استدلال</string>

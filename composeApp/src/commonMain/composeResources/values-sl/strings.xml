@@ -265,6 +265,7 @@
     <string name="finish_congruency_effect_title">Cena skladnosti</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Koliko dlje si porabil, ko se beseda ni ujemala s črnilom</string>
+    <string name="finish_congruency_effect_explainer_flock">Koliko dlje si porabil, ko je jata letela v nasprotno smer kot srednja ptica</string>
 
     <string name="feedback_solution">Rešitev: %1$s</string>
 
@@ -304,9 +305,11 @@
     <string name="game_pattern_sequence">Zaporedje vzorcev</string>
     <string name="game_ghost_grid">Mreža duhov</string>
     <string name="game_color_confusion">Zmeda barv</string>
+    <string name="game_flock">Jata</string>
     <string name="game_orbit_tracker">Sledilec orbit</string>
     <string name="game_bubble_sum">Vsota mehurčkov</string>
     <string name="game_quick_sum">Hitra vsota</string>
+    <string name="game_head_count">Kdo je notri</string>
     <string name="game_flash_crowd">Utripajoča množica</string>
     <string name="game_schulte_table">Schultetova tabela</string>
     <string name="game_mini_chess">Mini šah</string>
@@ -340,6 +343,7 @@
     <string name="game_pattern_sequence_desc">Odkrij pravilo v vsaki vrstici mreže in izberi kos, ki ga dopolni.</string>
     <string name="game_ghost_grid_desc">Spremljaj, kako se ploščice prižigajo ena za drugo, in se jih dotakni v istem vrstnem redu.</string>
     <string name="game_color_confusion_desc">Barvna beseda se pojavi v obarvanem črnilu. Dotakni se barve črnila, ne barve, ki jo beseda pove.</string>
+    <string name="game_flock_desc">Mimo prileti jata ptic. Povleci v smer, v katero leti ptica na sredini, in se ne meni za ptice okoli nje.</string>
     <string name="game_orbit_tracker_desc">Spremljaj osvetljene kroglice in jih drži, ko se premikajo. Ko se ustavijo, izberi izvirne cilje.</string>
     <string name="game_bubble_sum_desc">Seštej števila na plavajočih mehurčkih. Kasneje števila utripajo — zapomni si jih.</string>
     <string name="bubble_sum_instruction">Kolikšna je vsota?</string>
@@ -352,6 +356,14 @@
     <string name="quick_sum_demo_title">Števila utripajo eno za drugim</string>
     <string name="quick_sum_demo_flash">Drži tekočo vsoto v glavi.</string>
     <string name="quick_sum_demo_total">Vnesi vsoto.</string>
+    <string name="game_head_count_desc">Ljudje hodijo v hišo in iz nje. Štej, in ko vse utihne, povej, koliko jih je notri.</string>
+    <string name="head_count_watch">Štej</string>
+    <string name="head_count_instruction">Koliko jih je notri?</string>
+    <string name="head_count_demo_title">Hiša je na začetku prazna</string>
+    <string name="head_count_demo_in">Štej, kdo vstopi…</string>
+    <string name="head_count_demo_out">…in kdo spet pride ven.</string>
+    <string name="head_count_demo_both">Včasih oboje hkrati.</string>
+    <string name="head_count_demo_answer">Notri sta še dva.</string>
     <string name="game_flash_crowd_desc">Pikice na kratko utripnejo na vsaki strani. Dotakni se strani, kjer jih je bilo več. Ne štej — zaupaj instinktu!</string>
     <string name="game_schulte_table_desc">Dotikaj se števil po vrsti od 1 navzgor čim hitreje.</string>
     <string name="game_schulte_instruction">Dotikaj se števil po vrsti: 1, 2, 3...</string>
@@ -391,6 +403,7 @@
     <string name="game_rule_shift_howto">H kateri ključni karti sodi?</string>
     <string name="game_rule_shift_cards_left">Preostalo kart: %1$d</string>
     <string name="game_color_confusion_howto">Dotakni se barve črnila.</string>
+    <string name="game_flock_howto">Povleci v smer, kamor leti srednja ptica.</string>
     <string name="trio_demo_title">Najdi trio</string>
     <string name="trio_demo_rule">Tri karte, ki imajo skupno vsaj obliko, število ali polnilo. Vse drugo se mora vsakič razlikovati.</string>
     <string name="trio_trait_shape">Oblika</string>
@@ -515,6 +528,11 @@ Premakni Cow — postal bo Bull.</string>
     <string name="color_confusion_demo_caption_agree">Včasih se ujemata.</string>
     <string name="color_confusion_demo_caption_trap">Past je, da prebereš besedo.</string>
     <string name="color_confusion_demo_caption_recover">Odgovor je vedno črnilo.</string>
+    <string name="flock_demo_title">Sledi srednji ptici</string>
+    <string name="flock_demo_caption_middle">Šteje le srednja ptica.</string>
+    <string name="flock_demo_caption_agree">Včasih vsa jata leti v isto smer.</string>
+    <string name="flock_demo_caption_trap">Past je, da slediš jati.</string>
+    <string name="flock_demo_caption_recover">Odgovor je vedno srednja ptica.</string>
     <string name="pattern_sequence_prompt">Kateri kos dopolni matriko?</string>
     <string name="game_tap_original_targets">Dotakni se izvirnih ciljev</string>
     <string name="game_remember_targets">Zapomni si cilje</string>
@@ -591,6 +609,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Prerok vzorcev</string>
     <string name="achievement_gold_color_confusion">Prava barva</string>
+    <string name="achievement_gold_flock">Vodja jate</string>
+    <string name="achievement_gold_head_count">Vratar</string>
     <string name="achievement_gold_flash_crowd">Števec množice</string>
     <string name="achievement_gold_schulte_table">Bliskovit pogled</string>
     <string name="achievement_gold_flags">Praporščak</string>
@@ -631,6 +651,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Osvoji zlato medaljo v Sledilcu orbit</string>
     <string name="achievement_gold_pattern_sequence_desc">Osvoji zlato medaljo v Zaporedju vzorcev</string>
     <string name="achievement_gold_color_confusion_desc">Osvoji zlato medaljo v Zmedi barv</string>
+    <string name="achievement_gold_flock_desc">Osvoji zlato medaljo v Jati</string>
+    <string name="achievement_gold_head_count_desc">Osvoji zlato medaljo v igri Kdo je notri</string>
     <string name="achievement_gold_flash_crowd_desc">Osvoji zlato medaljo v Utripajoči množici</string>
     <string name="achievement_gold_schulte_table_desc">Osvoji zlato medaljo v Schultetovi tabeli</string>
     <string name="achievement_gold_flags_desc">Osvoji zlato medaljo v Zastavah</string>
@@ -708,6 +730,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="science_mental_rotations_summary">Standardna mera prostorske sposobnosti: presoditi, ali sta lika isto telo, le zavrteno, ali zrcalni sliki, ki ju noben zasuk ne poravna.</string>
     <string name="science_color_confusion_paradigm">Stroopova naloga</string>
     <string name="science_color_confusion_summary">Standardna mera inhibicije: poimenovati barvo, s katero je natisnjena beseda, medtem ko branje besede same ponuja hitrejši, tekmujoči odgovor.</string>
+    <string name="science_flock_paradigm">Naloga flankerjev</string>
+    <string name="science_flock_summary">Standardna mera selektivne pozornosti: odzvati se na srednji element v vrsti, medtem ko elementi ob njem kažejo v isto ali nasprotno smer in jih je treba prezreti, ko se ne ujemajo.</string>
     <string name="science_digit_memory_paradigm">Brown-Petersonova naloga</string>
     <string name="science_digit_memory_summary">Standardna mera delovnega spomina: zadržati zaporedje, medtem ko drugo opravilo zaseda isti miselni prostor.</string>
     <string name="science_pattern_sequence_paradigm">Matrično sklepanje</string>

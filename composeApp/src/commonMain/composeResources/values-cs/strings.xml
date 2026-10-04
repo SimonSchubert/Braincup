@@ -261,6 +261,7 @@
     <string name="finish_congruency_effect_title">Cena kongruence</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">O kolik déle ti to trvalo, když se slovo s inkoustem neshodovalo</string>
+    <string name="finish_congruency_effect_explainer_flock">O kolik déle ti to trvalo, když hejno letělo proti prostřednímu ptákovi</string>
 
     <string name="feedback_solution">Řešení: %1$s</string>
 
@@ -300,9 +301,11 @@
     <string name="game_pattern_sequence">Posloupnost vzorů</string>
     <string name="game_ghost_grid">Mřížka duchů</string>
     <string name="game_color_confusion">Zmatek barev</string>
+    <string name="game_flock">Hejno</string>
     <string name="game_orbit_tracker">Sledovač drah</string>
     <string name="game_bubble_sum">Součet bublin</string>
     <string name="game_quick_sum">Rychlý součet</string>
+    <string name="game_head_count">Počítání hostů</string>
     <string name="game_flash_crowd">Zábleskový dav</string>
     <string name="game_schulte_table">Schultova tabulka</string>
     <string name="game_mini_chess">Mini šachy</string>
@@ -336,6 +339,7 @@
     <string name="game_pattern_sequence_desc">Odhal pravidlo v každém řádku mřížky a vyber dílek, který ho doplní.</string>
     <string name="game_ghost_grid_desc">Sleduj, jak se dlaždice rozsvěcují jedna po druhé, a klepni na ně ve stejném pořadí.</string>
     <string name="game_color_confusion_desc">Barevné slovo se objeví barevným inkoustem. Klepni na barvu inkoustu, ne na barvu, kterou slovo říká.</string>
+    <string name="game_flock_desc">Kolem proletí hejno ptáků. Přejeď prstem tam, kam letí prostřední pták, a ostatních si nevšímej.</string>
     <string name="game_orbit_tracker_desc">Sleduj zvýrazněné koule a drž je, když se pohybují. Po zastavení vyber původní cíle.</string>
     <string name="game_bubble_sum_desc">Sečti čísla na plovoucích bublinách. Později čísla blikají — zapamatuj si je.</string>
     <string name="bubble_sum_instruction">Jaký je součet?</string>
@@ -348,6 +352,14 @@
     <string name="quick_sum_demo_title">Čísla blikají jedno po druhém</string>
     <string name="quick_sum_demo_flash">Drž si průběžný součet v hlavě.</string>
     <string name="quick_sum_demo_total">Zadej součet.</string>
+    <string name="game_head_count_desc">Lidé chodí do domu a zase ven. Počítej je, a když se všechno uklidní, řekni, kolik jich je uvnitř.</string>
+    <string name="head_count_watch">Počítej</string>
+    <string name="head_count_instruction">Kolik jich je uvnitř?</string>
+    <string name="head_count_demo_title">Na začátku je dům prázdný</string>
+    <string name="head_count_demo_in">Počítej, kdo vejde…</string>
+    <string name="head_count_demo_out">…a kdo zase vyjde.</string>
+    <string name="head_count_demo_both">Někdy obojí najednou.</string>
+    <string name="head_count_demo_answer">Uvnitř zůstali dva.</string>
     <string name="game_flash_crowd_desc">Tečky krátce bliknou na každé straně. Klepni na stranu, kde jich bylo víc. Nečítej — věř instinktu!</string>
     <string name="game_schulte_table_desc">Klepej na čísla v pořadí od 1 nahoru co nejrychleji.</string>
     <string name="game_schulte_instruction">Klepej na čísla v pořadí: 1, 2, 3...</string>
@@ -387,6 +399,7 @@
     <string name="game_rule_shift_howto">Ke které klíčové kartě patří?</string>
     <string name="game_rule_shift_cards_left">Zbývá karet: %1$d</string>
     <string name="game_color_confusion_howto">Klepni na barvu inkoustu.</string>
+    <string name="game_flock_howto">Přejeď tam, kam letí prostřední pták.</string>
     <string name="trio_demo_title">Najdi trio</string>
     <string name="trio_demo_rule">Tři karty, které mají společný aspoň tvar, počet nebo výplň. Všechno ostatní musí být pokaždé jiné.</string>
     <string name="trio_trait_shape">Tvar</string>
@@ -509,6 +522,11 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="color_confusion_demo_caption_agree">Někdy se ty dvě shodnou.</string>
     <string name="color_confusion_demo_caption_trap">Past je přečíst si to slovo.</string>
     <string name="color_confusion_demo_caption_recover">Odpovědí je vždy inkoust.</string>
+    <string name="flock_demo_title">Sleduj prostředního ptáka</string>
+    <string name="flock_demo_caption_middle">Počítá se jen prostřední pták.</string>
+    <string name="flock_demo_caption_agree">Někdy celé hejno letí stejně.</string>
+    <string name="flock_demo_caption_trap">Past je letět s hejnem.</string>
+    <string name="flock_demo_caption_recover">Odpovědí je vždy prostřední pták.</string>
     <string name="pattern_sequence_prompt">Který dílek doplní matici?</string>
     <string name="game_tap_original_targets">Klepni na původní cíle</string>
     <string name="game_remember_targets">Zapamatuj si cíle</string>
@@ -585,6 +603,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Prorok vzorů</string>
     <string name="achievement_gold_color_confusion">Pravá barva</string>
+    <string name="achievement_gold_flock">Vůdce hejna</string>
+    <string name="achievement_gold_head_count">Vrátný</string>
     <string name="achievement_gold_flash_crowd">Počítač davu</string>
     <string name="achievement_gold_schulte_table">Bleskový pohled</string>
     <string name="achievement_gold_flags">Vlajkonoš</string>
@@ -625,6 +645,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Získej zlatou medaili v Sledovač drah</string>
     <string name="achievement_gold_pattern_sequence_desc">Získej zlatou medaili v Posloupnost vzorů</string>
     <string name="achievement_gold_color_confusion_desc">Získej zlatou medaili v Zmatek barev</string>
+    <string name="achievement_gold_flock_desc">Získej zlatou medaili v Hejnu</string>
+    <string name="achievement_gold_head_count_desc">Získej zlatou medaili v Počítání hostů</string>
     <string name="achievement_gold_flash_crowd_desc">Získej zlatou medaili v Zábleskový dav</string>
     <string name="achievement_gold_schulte_table_desc">Získej zlatou medaili v Schultova tabulka</string>
     <string name="achievement_gold_flags_desc">Získej zlatou medaili ve Vlajky</string>
@@ -702,6 +724,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="science_mental_rotations_summary">Standardní míra prostorové představivosti: rozhodnout, zda jsou dva útvary totéž těleso otočené, nebo zrcadlové obrazy, které žádné otočení nesrovná.</string>
     <string name="science_color_confusion_paradigm">Stroopův test</string>
     <string name="science_color_confusion_summary">Standardní míra inhibice: pojmenovat barvu, kterou je slovo vytištěno, zatímco čtení samotného slova nabízí rychlejší, soupeřící odpověď.</string>
+    <string name="science_flock_paradigm">Flankerová úloha</string>
+    <string name="science_flock_summary">Standardní míra selektivní pozornosti: reagovat na prostřední položku v řadě, zatímco ty vedle ní ukazují stejným nebo opačným směrem a je třeba je ignorovat, když se s ní neshodují.</string>
     <string name="science_digit_memory_paradigm">Brownova-Petersonova úloha</string>
     <string name="science_digit_memory_summary">Standardní míra pracovní paměti: udržet řadu, zatímco jiná úloha zabírá stejný myšlenkový prostor.</string>
     <string name="science_pattern_sequence_paradigm">Maticové usuzování</string>

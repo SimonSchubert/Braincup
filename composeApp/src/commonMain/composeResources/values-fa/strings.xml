@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">هزینهٔ همخوانی</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">وقتی واژه با جوهر ناهمخوان بود، چقدر بیشتر طول کشید</string>
+    <string name="finish_congruency_effect_explainer_flock">وقتی دسته خلاف پرندهٔ وسطی پرواز کرد، چقدر بیشتر طول کشید</string>
 
     <string name="feedback_solution">پاسخ: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">دنباله الگو</string>
     <string name="game_ghost_grid">جدول شبح</string>
     <string name="game_color_confusion">آشوب رنگ</string>
+    <string name="game_flock">دستهٔ پرندگان</string>
     <string name="game_orbit_tracker">ردیاب مدار</string>
     <string name="game_bubble_sum">جمع حباب‌ها</string>
     <string name="game_quick_sum">جمع سریع</string>
+    <string name="game_head_count">سرشماری</string>
     <string name="game_flash_crowd">جمعیت آنی</string>
     <string name="game_schulte_table">جدول شولته</string>
     <string name="game_mini_chess">شطرنج کوچک</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">قاعده‌ای را که در هر سطر جدول جریان دارد کشف کن و قطعه‌ای را که آن را کامل می‌کند انتخاب کن.</string>
     <string name="game_ghost_grid_desc">ببین خانه‌ها به چه ترتیبی روشن می‌شوند، بعد به همان ترتیب رویشان بزن.</string>
     <string name="game_color_confusion_desc">یک واژهٔ رنگ با جوهر رنگی ظاهر می‌شود. روی رنگ جوهر بزن، نه رنگی که واژه می‌گوید.</string>
+    <string name="game_flock_desc">دسته‌ای پرنده از جلویت می‌گذرد. به سمتی که پرندهٔ وسطی پرواز می‌کند بکش و پرنده‌های اطرافش را نادیده بگیر.</string>
     <string name="game_orbit_tracker_desc">توپ‌های نشان‌دار را ببین و در حین حرکت دنبالشان کن. پس از توقف، همان‌ها را انتخاب کن.</string>
     <string name="game_bubble_sum_desc">عددهای روی حباب‌های شناور را جمع کن. بعدتر بعضی عددها چشمک می‌زنند؛ به خاطرشان بسپار.</string>
     <string name="bubble_sum_instruction">حاصل جمع چند است؟</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">عددها یکی‌یکی ظاهر می‌شوند</string>
     <string name="quick_sum_demo_flash">جمع را در ذهنت نگه دار.</string>
     <string name="quick_sum_demo_total">مجموع را وارد کن.</string>
+    <string name="game_head_count_desc">آدم‌ها به خانه‌ای می‌روند و از آن بیرون می‌آیند. حساب را نگه دار و وقتی همه‌چیز آرام شد، بگو چند نفر داخل‌اند.</string>
+    <string name="head_count_watch">بشمار</string>
+    <string name="head_count_instruction">چند نفر داخل‌اند؟</string>
+    <string name="head_count_demo_title">خانه اول خالی است</string>
+    <string name="head_count_demo_in">بشمار چه کسی می‌رود تو…</string>
+    <string name="head_count_demo_out">…و چه کسی برمی‌گردد بیرون.</string>
+    <string name="head_count_demo_both">گاهی هر دو با هم.</string>
+    <string name="head_count_demo_answer">دو نفر هنوز داخل‌اند.</string>
     <string name="game_flash_crowd_desc">نقطه‌ها لحظه‌ای در هر طرف ظاهر می‌شوند. سمتی را بزن که نقطه بیشتری داشت. نشمار، به شمّت اعتماد کن!</string>
     <string name="game_schulte_table_desc">هر چه سریع‌تر می‌توانی عددها را از 1 به بالا به ترتیب بزن.</string>
     <string name="game_schulte_instruction">عددها را به ترتیب بزن: 1، 2، 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">به کدام کارت کلیدی تعلق دارد؟</string>
     <string name="game_rule_shift_cards_left">کارت‌های باقی‌مانده: %1$d</string>
     <string name="game_color_confusion_howto">روی رنگ جوهر بزن.</string>
+    <string name="game_flock_howto">به سمت پرواز پرندهٔ وسطی بکش.</string>
     <string name="trio_demo_title">یک تریو پیدا کن</string>
     <string name="trio_demo_rule">سه کارت که دست‌کم در شکل، تعداد یا پرشدگی یکی‌اند. بقیه چیزها در هر کارت فرق دارد.</string>
     <string name="trio_trait_shape">شکل</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">گاهی هر دو یکی می‌شوند.</string>
     <string name="color_confusion_demo_caption_trap">دام همان خواندن واژه است.</string>
     <string name="color_confusion_demo_caption_recover">پاسخ همیشه جوهر است.</string>
+    <string name="flock_demo_title">دنبال پرندهٔ وسطی برو</string>
+    <string name="flock_demo_caption_middle">فقط پرندهٔ وسطی مهم است.</string>
+    <string name="flock_demo_caption_agree">گاهی همهٔ دسته هم‌جهت‌اند.</string>
+    <string name="flock_demo_caption_trap">دام همان دنبال کردن دسته است.</string>
+    <string name="flock_demo_caption_recover">پاسخ همیشه پرندهٔ وسطی است.</string>
     <string name="pattern_sequence_prompt">کدام قطعه ماتریس را کامل می‌کند؟</string>
     <string name="game_tap_original_targets">روی هدف‌های اولیه بزن</string>
     <string name="game_remember_targets">هدف‌ها را به خاطر بسپار</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">اخترشناس</string>
     <string name="achievement_gold_pattern_sequence">پیشگوی الگو</string>
     <string name="achievement_gold_color_confusion">رنگ‌های راستین</string>
+    <string name="achievement_gold_flock">سردستهٔ پرواز</string>
+    <string name="achievement_gold_head_count">دربان</string>
     <string name="achievement_gold_flash_crowd">شمارنده جمعیت</string>
     <string name="achievement_gold_schulte_table">نگاه آذرخشی</string>
     <string name="achievement_gold_flags">پرچم‌دار</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">مدال طلای ردیاب مدار را بگیر</string>
     <string name="achievement_gold_pattern_sequence_desc">مدال طلای دنباله الگو را بگیر</string>
     <string name="achievement_gold_color_confusion_desc">مدال طلای آشوب رنگ را بگیر</string>
+    <string name="achievement_gold_flock_desc">مدال طلای دستهٔ پرندگان را بگیر</string>
+    <string name="achievement_gold_head_count_desc">مدال طلای سرشماری را بگیر</string>
     <string name="achievement_gold_flash_crowd_desc">مدال طلای جمعیت آنی را بگیر</string>
     <string name="achievement_gold_schulte_table_desc">مدال طلای جدول شولته را بگیر</string>
     <string name="achievement_gold_flags_desc">مدال طلای پرچم‌ها را بگیر</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">سنجه‌ای استاندارد برای توانایی فضایی: تصمیم دربارهٔ اینکه دو شکل یک جسم چرخیده‌اند یا تصویرهای آینه‌ای که هیچ چرخشی آن‌ها را بر هم منطبق نمی‌کند.</string>
     <string name="science_color_confusion_paradigm">تکلیف استروپ</string>
     <string name="science_color_confusion_summary">سنجه‌ای استاندارد برای بازداری: نام بردن رنگی که واژه با آن چاپ شده، در حالی که خواندن خودِ واژه پاسخی سریع‌تر و رقیب پیش می‌کشد.</string>
+    <string name="science_flock_paradigm">تکلیف فلنکر</string>
+    <string name="science_flock_summary">سنجه‌ای استاندارد برای توجه انتخابی: پاسخ دادن به مورد وسطِ یک ردیف، در حالی که موردهای کناری‌اش هم‌جهت یا خلاف‌جهت‌اند و وقتی ناهمخوان‌اند باید نادیده گرفته شوند.</string>
     <string name="science_digit_memory_paradigm">تکلیف براون-پیترسون</string>
     <string name="science_digit_memory_summary">سنجه‌ای استاندارد برای حافظهٔ کاری: نگه‌داشتن یک رشته در حالی که کاری بی‌ربط همان فضای ذهنی را اشغال کرده است.</string>
     <string name="science_pattern_sequence_paradigm">استدلال ماتریسی</string>

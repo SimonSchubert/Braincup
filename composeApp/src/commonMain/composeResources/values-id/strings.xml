@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">Biaya kesesuaian</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Berapa lebih lama waktumu saat kata dan tinta tidak sejalan</string>
+    <string name="finish_congruency_effect_explainer_flock">Berapa lebih lama waktumu saat kawanan terbang berlawanan dengan burung di tengah</string>
     <string name="button_play_random">Permainan Acak</string>
     <string name="button_give_up">Menyerah</string>
     <string name="button_stay">Tetap</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">Urutan Pola</string>
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kebingungan Warna</string>
+    <string name="game_flock">Kawanan Burung</string>
     <string name="game_orbit_tracker">Pelacak Orbit</string>
     <string name="game_bubble_sum">Jumlah Gelembung</string>
     <string name="game_bubble_sum_desc">Jumlahkan angka di gelembung mengambang. Nanti angka berkedip — ingatlah.</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">Akuntan Gelembung</string>
     <string name="achievement_gold_bubble_sum_desc">Raih medali emas di Jumlah Gelembung</string>
     <string name="game_quick_sum">Jumlah Kilat</string>
+    <string name="game_head_count">Hitung Orang</string>
     <string name="game_quick_sum_desc">Angka muncul satu per satu. Jumlahkan dan masukkan totalnya.</string>
     <string name="quick_sum_instruction">Berapa totalnya?</string>
     <string name="quick_sum_watch">Perhatikan</string>
     <string name="quick_sum_demo_title">Angka muncul satu per satu</string>
     <string name="quick_sum_demo_flash">Hitung terus dalam kepala.</string>
     <string name="quick_sum_demo_total">Masukkan totalnya.</string>
+    <string name="game_head_count_desc">Orang-orang keluar masuk sebuah rumah. Terus hitung, dan saat semuanya diam, sebutkan berapa orang di dalam.</string>
+    <string name="head_count_watch">Terus hitung</string>
+    <string name="head_count_instruction">Berapa orang di dalam?</string>
+    <string name="head_count_demo_title">Awalnya rumah kosong</string>
+    <string name="head_count_demo_in">Hitung siapa yang masuk…</string>
+    <string name="head_count_demo_out">…dan siapa yang keluar lagi.</string>
+    <string name="head_count_demo_both">Kadang keduanya bersamaan.</string>
+    <string name="head_count_demo_answer">Masih ada dua orang di dalam.</string>
     <string name="achievement_gold_quick_sum">Sempoa Kilat</string>
     <string name="achievement_gold_quick_sum_desc">Menangkan medali emas di Jumlah Kilat</string>
     <string name="game_flash_crowd">Kerumunan Kilat</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">Temukan aturan yang berjalan di setiap baris kisi, lalu pilih kepingan yang melengkapinya.</string>
     <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>
     <string name="game_color_confusion_desc">Sebuah kata warna muncul dengan tinta berwarna. Ketuk warna tintanya, bukan warna yang disebut kata itu.</string>
+    <string name="game_flock_desc">Sekawanan burung terbang lewat. Geser ke arah terbang burung di tengah, dan abaikan burung di sekitarnya.</string>
     <string name="game_orbit_tracker_desc">Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.</string>
     <string name="game_flash_crowd_desc">Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Jangan menghitung — percaya insting Anda!</string>
     <string name="game_schulte_table_desc">Ketuk angka secara berurutan dari 1 secepat mungkin.</string>
@@ -249,6 +261,8 @@
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Peramal Pola</string>
     <string name="achievement_gold_color_confusion">Warna Sejati</string>
+    <string name="achievement_gold_flock">Pemimpin Kawanan</string>
+    <string name="achievement_gold_head_count">Penjaga Pintu</string>
     <string name="achievement_gold_flash_crowd">Penghitung Kerumunan</string>
     <string name="achievement_gold_schulte_table">Tatapan Kilat</string>
     <string name="achievement_gold_flags">Pembawa Bendera</string>
@@ -280,6 +294,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Menangkan medali emas di Pelacak Orbit</string>
     <string name="achievement_gold_pattern_sequence_desc">Menangkan medali emas di Urutan Pola</string>
     <string name="achievement_gold_color_confusion_desc">Menangkan medali emas di Kebingungan Warna</string>
+    <string name="achievement_gold_flock_desc">Menangkan medali emas di Kawanan Burung</string>
+    <string name="achievement_gold_head_count_desc">Menangkan medali emas di Hitung Orang</string>
     <string name="achievement_gold_flash_crowd_desc">Menangkan medali emas di Kerumunan Kilat</string>
     <string name="achievement_gold_schulte_table_desc">Menangkan medali emas di Tabel Schulte</string>
     <string name="achievement_gold_flags_desc">Menangkan medali emas di Bendera</string>
@@ -352,6 +368,8 @@
     <string name="science_mental_rotations_summary">Ukuran baku untuk kemampuan spasial: menentukan apakah dua bangun adalah benda yang sama yang diputar, atau bayangan cermin yang tak bisa disamakan oleh rotasi apa pun.</string>
     <string name="science_color_confusion_paradigm">Tugas Stroop</string>
     <string name="science_color_confusion_summary">Ukuran baku untuk inhibisi: menyebut warna tinta sebuah kata dicetak, sementara membaca katanya sendiri menyodorkan jawaban lain yang lebih cepat dan bersaing.</string>
+    <string name="science_flock_paradigm">Tugas Flanker</string>
+    <string name="science_flock_summary">Ukuran baku untuk atensi selektif: merespons item di tengah sebuah baris, sementara item di sampingnya menunjuk ke arah yang sama atau berlawanan dan harus diabaikan saat tidak sejalan.</string>
     <string name="science_digit_memory_paradigm">Tugas Brown-Peterson</string>
     <string name="science_digit_memory_summary">Ukuran baku untuk memori kerja: menahan sebuah urutan sementara tugas lain mengisi ruang pikiran yang sama.</string>
     <string name="science_pattern_sequence_paradigm">Penalaran Matriks</string>
@@ -844,6 +862,11 @@
     <string name="color_confusion_demo_caption_agree">Kadang keduanya sepakat.</string>
     <string name="color_confusion_demo_caption_trap">Membaca katanya itulah jebakannya.</string>
     <string name="color_confusion_demo_caption_recover">Jawabannya selalu tinta.</string>
+    <string name="flock_demo_title">Ikuti burung di tengah</string>
+    <string name="flock_demo_caption_middle">Hanya burung di tengah yang dihitung.</string>
+    <string name="flock_demo_caption_agree">Kadang seluruh kawanan sepakat.</string>
+    <string name="flock_demo_caption_trap">Ikut kawanan itulah jebakannya.</string>
+    <string name="flock_demo_caption_recover">Jawabannya selalu burung di tengah.</string>
     <string name="spot_the_new_demo_title">Temukan yang baru</string>
     <string name="spot_the_new_demo_seen_label">Sudah dilihat sejauh ini</string>
     <string name="spot_the_new_demo_new">Ketuk hewan yang belum pernah kamu lihat sebelumnya.</string>
@@ -900,6 +923,7 @@
     <string name="game_rule_shift_howto">Kartu kunci mana tempatnya?</string>
     <string name="game_rule_shift_cards_left">Kartu tersisa: %1$d</string>
     <string name="game_color_confusion_howto">Ketuk warna tintanya.</string>
+    <string name="game_flock_howto">Geser ke arah terbang burung di tengah.</string>
     <string name="trio_demo_title">Temukan trio</string>
     <string name="trio_demo_rule">Tiga kartu yang sama di setidaknya satu dari bentuk, jumlah, atau isian. Sisanya harus berbeda semua.</string>
     <string name="trio_trait_shape">Bentuk</string>

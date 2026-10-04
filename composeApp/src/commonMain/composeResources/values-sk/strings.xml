@@ -261,6 +261,7 @@
     <string name="finish_congruency_effect_title">Cena kongruencie</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">O koľko dlhšie ti to trvalo, keď sa slovo s atramentom nezhodovalo</string>
+    <string name="finish_congruency_effect_explainer_flock">O koľko dlhšie ti to trvalo, keď kŕdeľ letel proti prostrednému vtákovi</string>
 
     <string name="feedback_solution">Riešenie: %1$s</string>
 
@@ -300,9 +301,11 @@
     <string name="game_pattern_sequence">Postupnosť vzorov</string>
     <string name="game_ghost_grid">Mriežka duchov</string>
     <string name="game_color_confusion">Zámiena farieb</string>
+    <string name="game_flock">Kŕdeľ</string>
     <string name="game_orbit_tracker">Sledovač dráh</string>
     <string name="game_bubble_sum">Súčet bublín</string>
     <string name="game_quick_sum">Rýchly súčet</string>
+    <string name="game_head_count">Kto je dnu</string>
     <string name="game_flash_crowd">Zábleskový dav</string>
     <string name="game_schulte_table">Schulteho tabuľka</string>
     <string name="game_mini_chess">Mini šach</string>
@@ -336,6 +339,7 @@
     <string name="game_pattern_sequence_desc">Odhaľ pravidlo v každom riadku mriežky a vyber dielik, ktorý ho doplní.</string>
     <string name="game_ghost_grid_desc">Sleduj, ako sa dlaždice rozsvietia jedna po druhej, a ťukni na ne v rovnakom poradí.</string>
     <string name="game_color_confusion_desc">Farebné slovo sa objaví farebným atramentom. Ťukni na farbu atramentu, nie na farbu, ktorú slovo hovorí.</string>
+    <string name="game_flock_desc">Okolo preletí kŕdeľ vtákov. Potiahni prstom tam, kam letí vták v strede, a ostatných si nevšímaj.</string>
     <string name="game_orbit_tracker_desc">Sleduj zvýraznené gule a drž ich, keď sa pohybujú. Po zastavení vyber pôvodné ciele.</string>
     <string name="game_bubble_sum_desc">Spočítaj čísla na plávajúcich bublinách. Neskôr čísla blikajú — zapamätaj si ich.</string>
     <string name="bubble_sum_instruction">Aký je súčet?</string>
@@ -348,6 +352,14 @@
     <string name="quick_sum_demo_title">Čísla blikajú jedno po druhom</string>
     <string name="quick_sum_demo_flash">Drž si priebežný súčet v hlave.</string>
     <string name="quick_sum_demo_total">Zadaj súčet.</string>
+    <string name="game_head_count_desc">Ľudia vchádzajú do domu a vychádzajú z neho. Počítaj, a keď všetko stíchne, povedz, koľko ich je dnu.</string>
+    <string name="head_count_watch">Počítaj</string>
+    <string name="head_count_instruction">Koľko ich je dnu?</string>
+    <string name="head_count_demo_title">Dom je na začiatku prázdny</string>
+    <string name="head_count_demo_in">Počítaj, kto vojde…</string>
+    <string name="head_count_demo_out">…a kto zase vyjde.</string>
+    <string name="head_count_demo_both">Niekedy oboje naraz.</string>
+    <string name="head_count_demo_answer">Dnu sú ešte dvaja.</string>
     <string name="game_flash_crowd_desc">Bodky krátko zablikajú na každej strane. Ťukni na stranu, kde ich bolo viac. Nepočítaj — ver inštinktu!</string>
     <string name="game_schulte_table_desc">Ťukaj na čísla v poradí od 1 nahor čo najrýchlejšie.</string>
     <string name="game_schulte_instruction">Ťukaj na čísla v poradí: 1, 2, 3...</string>
@@ -387,6 +399,7 @@
     <string name="game_rule_shift_howto">Ku ktorej kľúčovej karte patrí?</string>
     <string name="game_rule_shift_cards_left">Zostáva kariet: %1$d</string>
     <string name="game_color_confusion_howto">Ťukni na farbu atramentu.</string>
+    <string name="game_flock_howto">Potiahni tam, kam letí prostredný vták.</string>
     <string name="trio_demo_title">Nájdi trio</string>
     <string name="trio_demo_rule">Tri karty, ktoré majú spoločný aspoň tvar, počet alebo výplň. Všetko ostatné musí byť zakaždým iné.</string>
     <string name="trio_trait_shape">Tvar</string>
@@ -509,6 +522,11 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="color_confusion_demo_caption_agree">Niekedy sa tie dve zhodujú.</string>
     <string name="color_confusion_demo_caption_trap">Pasca je prečítať si to slovo.</string>
     <string name="color_confusion_demo_caption_recover">Odpoveďou je vždy atrament.</string>
+    <string name="flock_demo_title">Sleduj prostredného vtáka</string>
+    <string name="flock_demo_caption_middle">Počíta sa len prostredný vták.</string>
+    <string name="flock_demo_caption_agree">Niekedy letí celý kŕdeľ rovnako.</string>
+    <string name="flock_demo_caption_trap">Pasca je ísť s kŕdľom.</string>
+    <string name="flock_demo_caption_recover">Odpoveďou je vždy prostredný vták.</string>
     <string name="pattern_sequence_prompt">Ktorý dielik doplní maticu?</string>
     <string name="game_tap_original_targets">Ťukni na pôvodné ciele</string>
     <string name="game_remember_targets">Zapamätaj si ciele</string>
@@ -585,6 +603,8 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronóm</string>
     <string name="achievement_gold_pattern_sequence">Prorok vzorov</string>
     <string name="achievement_gold_color_confusion">Pravá farba</string>
+    <string name="achievement_gold_flock">Vodca kŕdľa</string>
+    <string name="achievement_gold_head_count">Vrátnik</string>
     <string name="achievement_gold_flash_crowd">Počítač davu</string>
     <string name="achievement_gold_schulte_table">Bleskový pohľad</string>
     <string name="achievement_gold_flags">Vlajkonosič</string>
@@ -625,6 +645,8 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Získaj zlatú medailu v Sledovači dráh</string>
     <string name="achievement_gold_pattern_sequence_desc">Získaj zlatú medailu v Postupnosti vzorov</string>
     <string name="achievement_gold_color_confusion_desc">Získaj zlatú medailu v Zámene farieb</string>
+    <string name="achievement_gold_flock_desc">Získaj zlatú medailu v Kŕdli</string>
+    <string name="achievement_gold_head_count_desc">Získaj zlatú medailu v hre Kto je dnu</string>
     <string name="achievement_gold_flash_crowd_desc">Získaj zlatú medailu v Zábleskovom dave</string>
     <string name="achievement_gold_schulte_table_desc">Získaj zlatú medailu v Schulteho tabuľke</string>
     <string name="achievement_gold_flags_desc">Získaj zlatú medailu vo Vlajkách</string>
@@ -702,6 +724,8 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="science_mental_rotations_summary">Štandardná miera priestorovej predstavivosti: rozhodnúť, či sú dva útvary to isté teleso otočené, alebo zrkadlové obrazy, ktoré žiadne otočenie nezosúladí.</string>
     <string name="science_color_confusion_paradigm">Stroopov test</string>
     <string name="science_color_confusion_summary">Štandardná miera inhibície: pomenovať farbu, ktorou je slovo vytlačené, kým čítanie samotného slova ponúka rýchlejšiu, súperiacu odpoveď.</string>
+    <string name="science_flock_paradigm">Flankerová úloha</string>
+    <string name="science_flock_summary">Štandardná miera selektívnej pozornosti: reagovať na prostrednú položku v rade, kým položky vedľa nej ukazujú rovnakým alebo opačným smerom a pri nesúlade ich treba ignorovať.</string>
     <string name="science_digit_memory_paradigm">Brownova-Petersonova úloha</string>
     <string name="science_digit_memory_summary">Štandardná miera pracovnej pamäti: udržať rad, kým iná úloha zaberá ten istý myšlienkový priestor.</string>
     <string name="science_pattern_sequence_paradigm">Maticové usudzovanie</string>

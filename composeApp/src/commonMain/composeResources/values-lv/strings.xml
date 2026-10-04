@@ -261,6 +261,7 @@
     <string name="finish_congruency_effect_title">Kongruences cena</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Cik ilgāk tev vajadzēja, kad vārds nesakrita ar tinti</string>
+    <string name="finish_congruency_effect_explainer_flock">Cik ilgāk tev vajadzēja, kad bars lidoja pretēji vidējam putnam</string>
 
     <string name="feedback_solution">Risinājums: %1$s</string>
 
@@ -300,9 +301,11 @@
     <string name="game_pattern_sequence">Rakstu secība</string>
     <string name="game_ghost_grid">Rēgu režģis</string>
     <string name="game_color_confusion">Krāsu sajukums</string>
+    <string name="game_flock">Bars</string>
     <string name="game_orbit_tracker">Orbītu izsekotājs</string>
     <string name="game_bubble_sum">Burbuļu summa</string>
     <string name="game_quick_sum">Ātrā summa</string>
+    <string name="game_head_count">Kas ir iekšā</string>
     <string name="game_flash_crowd">Mirgojošais pūlis</string>
     <string name="game_schulte_table">Šultes tabula</string>
     <string name="game_mini_chess">Mini šahs</string>
@@ -336,6 +339,7 @@
     <string name="game_pattern_sequence_desc">Atklāj likumu katrā režģa rindā un izvēlies gabalu, kas to papildina.</string>
     <string name="game_ghost_grid_desc">Skaties, kā flīzes iedegas viena pēc otras, un pieskaries tām tajā pašā secībā.</string>
     <string name="game_color_confusion_desc">Krāsas vārds parādās krāsainā tintē. Pieskaries tintes krāsai, nevis krāsai, ko nosauc vārds.</string>
+    <string name="game_flock_desc">Garām aizlido putnu bars. Pavelc virzienā, kurā lido vidējais putns, un nepievērs uzmanību pārējiem.</string>
     <string name="game_orbit_tracker_desc">Skaties izceltās bumbiņas un turi tās, kamēr tās kustas. Kad apstājas, izvēlies sākotnējos mērķus.</string>
     <string name="game_bubble_sum_desc">Saskaiti skaitļus uz peldošajiem burbuļiem. Vēlāk skaitļi mirgo — atceries tos.</string>
     <string name="bubble_sum_instruction">Kāda ir summa?</string>
@@ -348,6 +352,14 @@
     <string name="quick_sum_demo_title">Skaitļi mirgo viens pēc otra</string>
     <string name="quick_sum_demo_flash">Turi tekošo summu galvā.</string>
     <string name="quick_sum_demo_total">Ievadi summu.</string>
+    <string name="game_head_count_desc">Cilvēki ienāk mājā un iznāk no tās. Skaiti, un, kad viss norimst, pasaki, cik ir iekšā.</string>
+    <string name="head_count_watch">Skaiti</string>
+    <string name="head_count_instruction">Cik ir iekšā?</string>
+    <string name="head_count_demo_title">Sākumā māja ir tukša</string>
+    <string name="head_count_demo_in">Skaiti, kas ieiet…</string>
+    <string name="head_count_demo_out">…un kas atkal iznāk ārā.</string>
+    <string name="head_count_demo_both">Dažreiz abos virzienos reizē.</string>
+    <string name="head_count_demo_answer">Iekšā vēl ir divi.</string>
     <string name="game_flash_crowd_desc">Punkti īsi nomirgo katrā pusē. Pieskaries pusei, kurā to bija vairāk. Neskaiti — uzticies instinktam!</string>
     <string name="game_schulte_table_desc">Pieskaries skaitļiem pēc kārtas no 1 uz augšu tik ātri, cik vari.</string>
     <string name="game_schulte_instruction">Pieskaries skaitļiem pēc kārtas: 1, 2, 3...</string>
@@ -387,6 +399,7 @@
     <string name="game_rule_shift_howto">Pie kuras atslēgas kārts tā pieder?</string>
     <string name="game_rule_shift_cards_left">Atlikušas kārtis: %1$d</string>
     <string name="game_color_confusion_howto">Pieskaries tintes krāsai.</string>
+    <string name="game_flock_howto">Pavelc uz to pusi, kur lido vidējais putns.</string>
     <string name="trio_demo_title">Atrodi trio</string>
     <string name="trio_demo_rule">Trīs kārtis, kurām sakrīt vismaz forma, skaits vai pildījums. Visam pārējam jāatšķiras.</string>
     <string name="trio_trait_shape">Forma</string>
@@ -509,6 +522,11 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="color_confusion_demo_caption_agree">Dažreiz abi sakrīt.</string>
     <string name="color_confusion_demo_caption_trap">Lamatas ir izlasīt vārdu.</string>
     <string name="color_confusion_demo_caption_recover">Atbilde vienmēr ir tinte.</string>
+    <string name="flock_demo_title">Seko vidējam putnam</string>
+    <string name="flock_demo_caption_middle">Skaitās tikai vidējais putns.</string>
+    <string name="flock_demo_caption_agree">Dažreiz viss bars lido vienā virzienā.</string>
+    <string name="flock_demo_caption_trap">Lamatas ir sekot baram.</string>
+    <string name="flock_demo_caption_recover">Atbilde vienmēr ir vidējais putns.</string>
     <string name="pattern_sequence_prompt">Kurš gabals papildina matricu?</string>
     <string name="game_tap_original_targets">Pieskaries sākotnējiem mērķiem</string>
     <string name="game_remember_targets">Atceries mērķus</string>
@@ -585,6 +603,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronoms</string>
     <string name="achievement_gold_pattern_sequence">Rakstu pravietis</string>
     <string name="achievement_gold_color_confusion">Īstā krāsa</string>
+    <string name="achievement_gold_flock">Bara vadonis</string>
+    <string name="achievement_gold_head_count">Durvju sargs</string>
     <string name="achievement_gold_flash_crowd">Pūļa skaitītājs</string>
     <string name="achievement_gold_schulte_table">Zibens skatiens</string>
     <string name="achievement_gold_flags">Karognesējs</string>
@@ -625,6 +645,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Iegūsti zelta medaļu Orbītu izsekotājā</string>
     <string name="achievement_gold_pattern_sequence_desc">Iegūsti zelta medaļu Rakstu secībā</string>
     <string name="achievement_gold_color_confusion_desc">Iegūsti zelta medaļu Krāsu sajukumā</string>
+    <string name="achievement_gold_flock_desc">Iegūsti zelta medaļu spēlē Bars</string>
+    <string name="achievement_gold_head_count_desc">Iegūsti zelta medaļu spēlē Kas ir iekšā</string>
     <string name="achievement_gold_flash_crowd_desc">Iegūsti zelta medaļu Mirgojošajā pūlī</string>
     <string name="achievement_gold_schulte_table_desc">Iegūsti zelta medaļu Šultes tabulā</string>
     <string name="achievement_gold_flags_desc">Iegūsti zelta medaļu Karogos</string>
@@ -702,6 +724,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="science_mental_rotations_summary">Standarta mērs telpiskajai domāšanai: izlemt, vai divas figūras ir viens un tas pats pagriezts ķermenis vai spoguļattēli, ko neviens pagrieziens nesavieno.</string>
     <string name="science_color_confusion_paradigm">Strūpa uzdevums</string>
     <string name="science_color_confusion_summary">Standarta inhibīcijas mērs: nosaukt krāsu, kādā vārds ir iespiests, kamēr paša vārda lasīšana piedāvā ātrāku, konkurējošu atbildi.</string>
+    <string name="science_flock_paradigm">Flankeru uzdevums</string>
+    <string name="science_flock_summary">Standarta selektīvās uzmanības mērs: reaģēt uz vidējo elementu rindā, kamēr blakus esošie elementi norāda tajā pašā vai pretējā virzienā un, ja nesakrīt, ir jāignorē.</string>
     <string name="science_digit_memory_paradigm">Brauna un Pītersona uzdevums</string>
     <string name="science_digit_memory_summary">Standarta mērs darba atmiņai: noturēt virkni, kamēr cits uzdevums aizņem to pašu domāšanas telpu.</string>
     <string name="science_pattern_sequence_paradigm">Matricu spriešana</string>

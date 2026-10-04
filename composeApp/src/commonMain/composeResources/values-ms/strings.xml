@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Kos kesepadanan</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Berapa lama lagi anda ambil apabila perkataan tidak sepadan dengan dakwat</string>
+    <string name="finish_congruency_effect_explainer_flock">Berapa lama lagi anda ambil apabila kawanan terbang bertentangan dengan burung di tengah</string>
 
     <string name="feedback_solution">Penyelesaian: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Jujukan Corak</string>
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kekeliruan Warna</string>
+    <string name="game_flock">Kawanan Burung</string>
     <string name="game_orbit_tracker">Penjejak Orbit</string>
     <string name="game_bubble_sum">Jumlah Gelembung</string>
     <string name="game_quick_sum">Jumlah Pantas</string>
+    <string name="game_head_count">Kira Orang</string>
     <string name="game_flash_crowd">Kumpulan Kilat</string>
     <string name="game_schulte_table">Jadual Schulte</string>
     <string name="game_mini_chess">Mini Catur</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Fahami peraturan pada setiap baris grid, kemudian pilih kepingan yang melengkapkannya.</string>
     <string name="game_ghost_grid_desc">Tonton jubin menyala satu demi satu, kemudian ketik semula dalam urutan yang sama.</string>
     <string name="game_color_confusion_desc">Satu perkataan warna muncul dengan dakwat berwarna. Ketik warna dakwatnya, bukan warna yang disebut perkataan itu.</string>
+    <string name="game_flock_desc">Sekawan burung terbang lalu. Leret ke arah burung di tengah terbang, dan abaikan burung di sekelilingnya.</string>
     <string name="game_orbit_tracker_desc">Tonton bola yang diserlahkan, kemudian jejaki mereka semasa bergerak. Pilih sasaran asal selepas mereka berhenti.</string>
     <string name="game_bubble_sum_desc">Jumlahkan nombor pada gelembung terapung. Kemudian nombor berkelip — ingatinya.</string>
     <string name="bubble_sum_instruction">Berapakah jumlahnya?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Nombor berkelip satu demi satu</string>
     <string name="quick_sum_demo_flash">Simpan jumlah berjalan dalam kepala.</string>
     <string name="quick_sum_demo_total">Masukkan jumlahnya.</string>
+    <string name="game_head_count_desc">Orang ramai keluar masuk sebuah rumah. Terus kira, dan apabila semuanya senyap, sebut berapa orang di dalam.</string>
+    <string name="head_count_watch">Terus kira</string>
+    <string name="head_count_instruction">Berapa orang di dalam?</string>
+    <string name="head_count_demo_title">Mula-mula rumah kosong</string>
+    <string name="head_count_demo_in">Kira siapa yang masuk…</string>
+    <string name="head_count_demo_out">…dan siapa yang keluar semula.</string>
+    <string name="head_count_demo_both">Kadangkala kedua-duanya serentak.</string>
+    <string name="head_count_demo_answer">Masih ada dua orang di dalam.</string>
     <string name="game_flash_crowd_desc">Titik berkelip sekejap di setiap belah. Ketik belah yang ada lebih banyak titik. Jangan kira — percayai naluri!</string>
     <string name="game_schulte_table_desc">Ketik nombor mengikut tertib dari 1 ke atas secepat mungkin.</string>
     <string name="game_schulte_instruction">Ketik nombor mengikut tertib: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Kad kunci mana tempatnya?</string>
     <string name="game_rule_shift_cards_left">Kad berbaki: %1$d</string>
     <string name="game_color_confusion_howto">Ketik warna dakwatnya.</string>
+    <string name="game_flock_howto">Leret ke arah burung di tengah terbang.</string>
     <string name="trio_demo_title">Cari trio</string>
     <string name="trio_demo_rule">Tiga kad yang sama sekurang-kurangnya satu daripada bentuk, bilangan atau isian. Yang lain mesti semuanya berbeza.</string>
     <string name="trio_trait_shape">Bentuk</string>
@@ -501,6 +514,11 @@
     <string name="color_confusion_demo_caption_agree">Kadangkala kedua-duanya sepadan.</string>
     <string name="color_confusion_demo_caption_trap">Membaca perkataannya itulah perangkapnya.</string>
     <string name="color_confusion_demo_caption_recover">Jawapannya sentiasa dakwat.</string>
+    <string name="flock_demo_title">Ikut burung di tengah</string>
+    <string name="flock_demo_caption_middle">Hanya burung di tengah yang dikira.</string>
+    <string name="flock_demo_caption_agree">Kadangkala seluruh kawanan sehaluan.</string>
+    <string name="flock_demo_caption_trap">Mengikut kawanan itulah perangkapnya.</string>
+    <string name="flock_demo_caption_recover">Jawapannya sentiasa burung di tengah.</string>
     <string name="pattern_sequence_prompt">Kepingan mana yang melengkapkan matriks?</string>
     <string name="game_tap_original_targets">Ketik sasaran asal</string>
     <string name="game_remember_targets">Ingat sasaran</string>
@@ -577,6 +595,8 @@
     <string name="achievement_gold_orbit_tracker">Ahli Astronomi</string>
     <string name="achievement_gold_pattern_sequence">Nabi Corak</string>
     <string name="achievement_gold_color_confusion">Warna Sebenar</string>
+    <string name="achievement_gold_flock">Ketua Kawanan</string>
+    <string name="achievement_gold_head_count">Penjaga Pintu</string>
     <string name="achievement_gold_flash_crowd">Pengira Kumpulan</string>
     <string name="achievement_gold_schulte_table">Pandangan Kilat</string>
     <string name="achievement_gold_flags">Pembawa Bendera</string>
@@ -617,6 +637,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Menangi pingat emas dalam Penjejak Orbit</string>
     <string name="achievement_gold_pattern_sequence_desc">Menangi pingat emas dalam Jujukan Corak</string>
     <string name="achievement_gold_color_confusion_desc">Menangi pingat emas dalam Kekeliruan Warna</string>
+    <string name="achievement_gold_flock_desc">Menangi pingat emas dalam Kawanan Burung</string>
+    <string name="achievement_gold_head_count_desc">Menangi pingat emas dalam Kira Orang</string>
     <string name="achievement_gold_flash_crowd_desc">Menangi pingat emas dalam Kumpulan Kilat</string>
     <string name="achievement_gold_schulte_table_desc">Menangi pingat emas dalam Jadual Schulte</string>
     <string name="achievement_gold_flags_desc">Menangi pingat emas dalam Bendera</string>
@@ -694,6 +716,8 @@
     <string name="science_mental_rotations_summary">Ukuran piawai bagi keupayaan ruang: menentukan sama ada dua bentuk ialah jasad yang sama tetapi diputar, atau imej cermin yang tiada putaran dapat menyamakannya.</string>
     <string name="science_color_confusion_paradigm">Tugasan Stroop</string>
     <string name="science_color_confusion_summary">Ukuran piawai bagi inhibisi: menamakan warna dakwat sesuatu perkataan dicetak, sementara membaca perkataan itu sendiri menawarkan jawapan lain yang lebih pantas dan bersaing.</string>
+    <string name="science_flock_paradigm">Tugasan Flanker</string>
+    <string name="science_flock_summary">Ukuran piawai bagi perhatian terpilih: bertindak balas kepada item di tengah sebaris, sementara item di sebelahnya menghala ke arah sama atau bertentangan, dan perlu diabaikan apabila tidak sepadan.</string>
     <string name="science_digit_memory_paradigm">Tugas Brown-Peterson</string>
     <string name="science_digit_memory_summary">Ukuran piawai bagi ingatan bekerja: mengekalkan satu turutan sementara tugas lain memenuhi ruang minda yang sama.</string>
     <string name="science_pattern_sequence_paradigm">Penaakulan Matriks</string>

@@ -11,6 +11,7 @@
     <string name="finish_congruency_effect_title">Цена конгруэнтности</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Насколько дольше вы отвечали, когда слово расходилось с чернилами</string>
+    <string name="finish_congruency_effect_explainer_flock">Насколько дольше уходило на ответ, когда стая летела против средней птицы</string>
     <string name="button_play_random">Случайная игра</string>
     <string name="button_give_up">Сдаться</string>
     <string name="button_stay">Остаться</string>
@@ -59,6 +60,7 @@
     <string name="game_pattern_sequence">Последовательность</string>
     <string name="game_ghost_grid">Призрачная сетка</string>
     <string name="game_color_confusion">Цветовая путаница</string>
+    <string name="game_flock">Стая</string>
     <string name="game_orbit_tracker">Отслеживание орбит</string>
     <string name="game_bubble_sum">Сумма пузырей</string>
     <string name="game_bubble_sum_desc">Сложите числа на плывущих пузырях. Позже числа мигают — запомните их.</string>
@@ -69,12 +71,21 @@
     <string name="achievement_gold_bubble_sum">Пузырьковый бухгалтер</string>
     <string name="achievement_gold_bubble_sum_desc">Завоюй золотую медаль в Сумма пузырей</string>
     <string name="game_quick_sum">Быстрая сумма</string>
+    <string name="game_head_count">Счёт гостей</string>
     <string name="game_quick_sum_desc">Числа появляются по одному. Сложите их и введите сумму.</string>
     <string name="quick_sum_instruction">Чему равна сумма?</string>
     <string name="quick_sum_watch">Смотрите</string>
     <string name="quick_sum_demo_title">Числа появляются по одному</string>
     <string name="quick_sum_demo_flash">Считайте в уме по ходу.</string>
     <string name="quick_sum_demo_total">Введите сумму.</string>
+    <string name="game_head_count_desc">Люди входят в дом и выходят. Следи за счётом, а когда всё стихнет, скажи, сколько их внутри.</string>
+    <string name="head_count_watch">Считай</string>
+    <string name="head_count_instruction">Сколько в доме?</string>
+    <string name="head_count_demo_title">Сначала дом пуст</string>
+    <string name="head_count_demo_in">Считай, кто входит…</string>
+    <string name="head_count_demo_out">…и кто выходит обратно.</string>
+    <string name="head_count_demo_both">Иногда и то и другое сразу.</string>
+    <string name="head_count_demo_answer">Внутри ещё двое.</string>
     <string name="achievement_gold_quick_sum">Молниеносные счёты</string>
     <string name="achievement_gold_quick_sum_desc">Завоюй золотую медаль в Быстрая сумма</string>
     <string name="game_flash_crowd">Мгновенная толпа</string>
@@ -103,6 +114,7 @@
     <string name="game_pattern_sequence_desc">Найдите правило, которое проходит по каждой строке сетки, и выберите фигуру, завершающую её.</string>
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
     <string name="game_color_confusion_desc">Слово цвета появляется цветными чернилами. Нажми цвет чернил, а не цвет, который называет слово.</string>
+    <string name="game_flock_desc">Мимо пролетает стая птиц. Смахни туда, куда летит птица в центре, и не обращай внимания на остальных.</string>
     <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
     <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
     <string name="game_schulte_table_desc">Нажимайте числа по порядку, начиная с 1, как можно быстрее.</string>
@@ -255,6 +267,8 @@
     <string name="achievement_gold_orbit_tracker">Астроном</string>
     <string name="achievement_gold_pattern_sequence">Пророк узоров</string>
     <string name="achievement_gold_color_confusion">Истинные цвета</string>
+    <string name="achievement_gold_flock">Вожак стаи</string>
+    <string name="achievement_gold_head_count">Привратник</string>
     <string name="achievement_gold_flash_crowd">Счётчик толпы</string>
     <string name="achievement_gold_schulte_table">Молниеносный взгляд</string>
     <string name="achievement_gold_flags">Знаменосец</string>
@@ -286,6 +300,8 @@
     <string name="achievement_gold_orbit_tracker_desc">Получи золотую медаль в Отслеживание орбит</string>
     <string name="achievement_gold_pattern_sequence_desc">Получи золотую медаль в Последовательность</string>
     <string name="achievement_gold_color_confusion_desc">Получи золотую медаль в Цветовая путаница</string>
+    <string name="achievement_gold_flock_desc">Получи золотую медаль в Стае</string>
+    <string name="achievement_gold_head_count_desc">Получи золотую медаль в Счёте гостей</string>
     <string name="achievement_gold_flash_crowd_desc">Получи золотую медаль в Мгновенная толпа</string>
     <string name="achievement_gold_schulte_table_desc">Получи золотую медаль в Таблица Шульте</string>
     <string name="achievement_gold_flags_desc">Получи золотую медаль в Флаги</string>
@@ -358,6 +374,8 @@
     <string name="science_mental_rotations_summary">Стандартная мера пространственных способностей: решить, одно ли это тело в повороте или зеркальные отражения, которые никаким вращением не совместить.</string>
     <string name="science_color_confusion_paradigm">Тест Струпа</string>
     <string name="science_color_confusion_summary">Стандартная мера торможения: назвать цвет, которым напечатано слово, тогда как чтение самого слова подсказывает более быстрый, конкурирующий ответ.</string>
+    <string name="science_flock_paradigm">Фланкерная задача</string>
+    <string name="science_flock_summary">Стандартная мера избирательного внимания: ответить на средний элемент ряда, когда соседние указывают в ту же или в противоположную сторону и их нужно игнорировать, если они не совпадают.</string>
     <string name="science_digit_memory_paradigm">Задача Брауна-Петерсона</string>
     <string name="science_digit_memory_summary">Стандартная мера рабочей памяти: удерживать последовательность, пока другая задача занимает то же мысленное пространство.</string>
     <string name="science_pattern_sequence_paradigm">Матричные рассуждения</string>
@@ -854,6 +872,11 @@
     <string name="color_confusion_demo_caption_agree">Иногда они совпадают.</string>
     <string name="color_confusion_demo_caption_trap">Ловушка в том, чтобы прочитать слово.</string>
     <string name="color_confusion_demo_caption_recover">Ответ всегда в чернилах.</string>
+    <string name="flock_demo_title">Следи за средней птицей</string>
+    <string name="flock_demo_caption_middle">Важна только средняя птица.</string>
+    <string name="flock_demo_caption_agree">Иногда вся стая летит заодно.</string>
+    <string name="flock_demo_caption_trap">Ловушка в том, чтобы лететь за стаей.</string>
+    <string name="flock_demo_caption_recover">Ответ всегда за средней птицей.</string>
     <string name="spot_the_new_demo_title">Найди новое</string>
     <string name="spot_the_new_demo_seen_label">Уже видел</string>
     <string name="spot_the_new_demo_new">Нажми на животное, которое ты ещё не видел.</string>
@@ -912,6 +935,7 @@
     <string name="game_rule_shift_howto">К какой ключевой карте она относится?</string>
     <string name="game_rule_shift_cards_left">Осталось карт: %1$d</string>
     <string name="game_color_confusion_howto">Нажмите цвет чернил.</string>
+    <string name="game_flock_howto">Смахни туда, куда летит средняя птица.</string>
     <string name="trio_demo_title">Найди трио</string>
     <string name="trio_demo_rule">Три карты, у которых совпадает хотя бы форма, количество или заливка. Всё остальное должно быть разным.</string>
     <string name="trio_trait_shape">Форма</string>

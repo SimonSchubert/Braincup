@@ -269,6 +269,7 @@
     <string name="finish_congruency_effect_title">Costas comhréire</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Cé mhéad níos faide a thóg sé ort nuair nár réitigh an focal leis an dúch</string>
+    <string name="finish_congruency_effect_explainer_flock">Cé mhéad níos faide a thóg sé ort nuair a d'eitil an ealta in aghaidh an éin láir</string>
 
     <string name="feedback_solution">Réiteach: %1$s</string>
 
@@ -308,9 +309,11 @@
     <string name="game_pattern_sequence">Seicheamh patrún</string>
     <string name="game_ghost_grid">Eangach thaibhsí</string>
     <string name="game_color_confusion">Mearbhall dathanna</string>
+    <string name="game_flock">Ealta</string>
     <string name="game_orbit_tracker">Lorgaire fithise</string>
     <string name="game_bubble_sum">Suim boilgeog</string>
     <string name="game_quick_sum">Suim thapa</string>
+    <string name="game_head_count">Isteach is amach</string>
     <string name="game_flash_crowd">Slua splanc</string>
     <string name="game_schulte_table">Tábla Schulte</string>
     <string name="game_mini_chess">Mionfhicheall</string>
@@ -344,6 +347,7 @@
     <string name="game_pattern_sequence_desc">Faigh an riail i ngach ró agus roghnaigh an píosa a chomhlánaíonn í.</string>
     <string name="game_ghost_grid_desc">Féach ar na tíl ag lasadh ceann i ndiaidh a chéile, ansin tapáil iad san ord céanna.</string>
     <string name="game_color_confusion_desc">Tagann focal datha i ndúch daite. Tapáil dath an dúigh, ní an dath a ainmníonn an focal.</string>
+    <string name="game_flock_desc">Téann ealta éan thart. Svaidhpeáil sa treo a bhfuil an t-éan sa lár ag eitilt, agus ná bac leis na héin timpeall air.</string>
     <string name="game_orbit_tracker_desc">Féach ar na liathróidí aibhsithe agus lean iad agus iad ag gluaiseacht. Roghnaigh na spriceanna bunaidh nuair a stopann siad.</string>
     <string name="game_bubble_sum_desc">Suimigh na huimhreacha ar na boilgeoga snámha. Níos déanaí caochaíonn na huimhreacha — meabhraigh iad.</string>
     <string name="bubble_sum_instruction">Cad é an tsuim?</string>
@@ -356,6 +360,14 @@
     <string name="quick_sum_demo_title">Caochaíonn uimhreacha ceann ar cheann</string>
     <string name="quick_sum_demo_flash">Coinnigh suim reatha i d’aigne.</string>
     <string name="quick_sum_demo_total">Cuir isteach an t-iomlán.</string>
+    <string name="game_head_count_desc">Siúlann daoine isteach agus amach as teach. Coinnigh cuntas, agus nuair a thagann ciúnas, abair cé mhéad atá istigh.</string>
+    <string name="head_count_watch">Comhair</string>
+    <string name="head_count_instruction">Cé mhéad atá istigh?</string>
+    <string name="head_count_demo_title">Bíonn an teach folamh ar dtús</string>
+    <string name="head_count_demo_in">Comhair cé a théann isteach…</string>
+    <string name="head_count_demo_out">…agus cé a thagann amach arís.</string>
+    <string name="head_count_demo_both">Uaireanta, an dá rud le chéile.</string>
+    <string name="head_count_demo_answer">Tá beirt fós istigh.</string>
     <string name="game_flash_crowd_desc">Caochaíonn poncanna go gairid ar gach taobh. Tapáil an taobh a raibh níos mó orthu. Ná comhaireamh — cuir muinín i d’instinct!</string>
     <string name="game_schulte_table_desc">Tapáil uimhreacha in ord ó 1 aníos chomh tapa agus is féidir.</string>
     <string name="game_schulte_instruction">Tapáil uimhreacha in ord: 1, 2, 3...</string>
@@ -395,6 +407,7 @@
     <string name="game_rule_shift_howto">Cén eochairchárta lena mbaineann sé?</string>
     <string name="game_rule_shift_cards_left">Cártaí fágtha: %1$d</string>
     <string name="game_color_confusion_howto">Tapáil dath an dúigh.</string>
+    <string name="game_flock_howto">Svaidhpeáil i dtreo an éin láir.</string>
     <string name="trio_demo_title">Faigh trio</string>
     <string name="trio_demo_rule">Trí chárta a bhfuil ar a laghad cruth, líon nó líonadh céanna orthu. Caithfidh gach rud eile a bheith difriúil ar fad.</string>
     <string name="trio_trait_shape">Cruth</string>
@@ -521,6 +534,11 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="color_confusion_demo_caption_agree">Uaireanta aontaíonn an bheirt acu.</string>
     <string name="color_confusion_demo_caption_trap">Is é léamh an fhocail an gaiste.</string>
     <string name="color_confusion_demo_caption_recover">Is é an dúch an freagra i gcónaí.</string>
+    <string name="flock_demo_title">Lean an t-éan láir</string>
+    <string name="flock_demo_caption_middle">Níl tábhacht ach leis an éan láir.</string>
+    <string name="flock_demo_caption_agree">Uaireanta aontaíonn an ealta ar fad.</string>
+    <string name="flock_demo_caption_trap">Is é leanúint na healta an gaiste.</string>
+    <string name="flock_demo_caption_recover">Is é an t-éan láir an freagra i gcónaí.</string>
     <string name="pattern_sequence_prompt">Cén píosa a chomhlánaíonn an mhaitrís?</string>
     <string name="game_tap_original_targets">Tapáil na spriceanna bunaidh</string>
     <string name="game_remember_targets">Meabhraigh na spriceanna</string>
@@ -597,6 +615,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_orbit_tracker">Réalteolaí</string>
     <string name="achievement_gold_pattern_sequence">Fáidh patrún</string>
     <string name="achievement_gold_color_confusion">An dath ceart</string>
+    <string name="achievement_gold_flock">Ceann na healta</string>
+    <string name="achievement_gold_head_count">Doirseoir</string>
     <string name="achievement_gold_flash_crowd">Áiritheoir slua</string>
     <string name="achievement_gold_schulte_table">Súil splanc</string>
     <string name="achievement_gold_flags">Iompróir brataí</string>
@@ -637,6 +657,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_orbit_tracker_desc">Bain bonn óir amach i Lorgaire fithise</string>
     <string name="achievement_gold_pattern_sequence_desc">Bain bonn óir amach i Seicheamh patrún</string>
     <string name="achievement_gold_color_confusion_desc">Bain bonn óir amach i Mearbhall dathanna</string>
+    <string name="achievement_gold_flock_desc">Bain bonn óir amach in Ealta</string>
+    <string name="achievement_gold_head_count_desc">Bain bonn óir amach in Isteach is amach</string>
     <string name="achievement_gold_flash_crowd_desc">Bain bonn óir amach i Slua splanc</string>
     <string name="achievement_gold_schulte_table_desc">Bain bonn óir amach i dTábla Schulte</string>
     <string name="achievement_gold_flags_desc">Bain bonn óir amach i mBratacha</string>
@@ -714,6 +736,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="science_mental_rotations_summary">Gnáthbheart ar an gcumas spásúil: a shocrú an é an cruth céanna casta atá sa dá fhíor, nó scátháníomhánna nach dtagann aon rothlú leo.</string>
     <string name="science_color_confusion_paradigm">Tasc Stroop</string>
     <string name="science_color_confusion_summary">Gnáthbheart ar an gcosc: dath a ainmniú a bhfuil focal clóite ann, agus léamh an fhocail féin ag tairiscint freagra níos tapúla atá san iomaíocht leis.</string>
+    <string name="science_flock_paradigm">Tasc flanker</string>
+    <string name="science_flock_summary">Gnáthbheart ar an aird roghnaíoch: freagairt don mhír i lár sraithe agus na míreanna lena taobh ag díriú sa treo céanna nó sa treo eile, agus neamhaird le déanamh orthu nuair nach n-aontaíonn siad.</string>
     <string name="science_digit_memory_paradigm">Tasc Brown-Peterson</string>
     <string name="science_digit_memory_summary">Gnáthbheart ar an gcuimhne oibre: sraith a choinneáil agus tasc eile ag glacadh na spáis intinne céanna.</string>
     <string name="science_pattern_sequence_paradigm">Réasúnaíocht Maitrísí</string>

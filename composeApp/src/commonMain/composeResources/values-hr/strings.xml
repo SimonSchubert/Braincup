@@ -261,6 +261,7 @@
     <string name="finish_congruency_effect_title">Cijena kongruentnosti</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Koliko ti je dulje trebalo kad se riječ nije slagala s tintom</string>
+    <string name="finish_congruency_effect_explainer_flock">Koliko ti je dulje trebalo kad je jato letjelo suprotno od srednje ptice</string>
 
     <string name="feedback_solution">Rješenje: %1$s</string>
 
@@ -300,9 +301,11 @@
     <string name="game_pattern_sequence">Niz uzoraka</string>
     <string name="game_ghost_grid">Mreža duhova</string>
     <string name="game_color_confusion">Zabuna boja</string>
+    <string name="game_flock">Jato</string>
     <string name="game_orbit_tracker">Pratitelj orbita</string>
     <string name="game_bubble_sum">Zbroj mjehurića</string>
     <string name="game_quick_sum">Brzi zbroj</string>
+    <string name="game_head_count">Tko je unutra</string>
     <string name="game_flash_crowd">Bljeskovita gomila</string>
     <string name="game_schulte_table">Schulteova tablica</string>
     <string name="game_mini_chess">Mini šah</string>
@@ -336,6 +339,7 @@
     <string name="game_pattern_sequence_desc">Otkrij pravilo u svakom retku mreže i odaberi dijelić koji ga dopunjuje.</string>
     <string name="game_ghost_grid_desc">Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.</string>
     <string name="game_color_confusion_desc">Riječ boje pojavi se u obojenoj tinti. Dodirni boju tinte, ne boju koju riječ govori.</string>
+    <string name="game_flock_desc">Pokraj tebe proleti jato ptica. Povuci prstom u smjeru u kojem leti ptica u sredini i ne obaziri se na ostale.</string>
     <string name="game_orbit_tracker_desc">Prati istaknute kugle i drži ih dok se kreću. Kad stanu, odaberi izvorne ciljeve.</string>
     <string name="game_bubble_sum_desc">Zbroji brojeve na plutajućim mjehurićima. Kasnije brojevi trepere — zapamti ih.</string>
     <string name="bubble_sum_instruction">Koliki je zbroj?</string>
@@ -348,6 +352,14 @@
     <string name="quick_sum_demo_title">Brojevi trepere jedan za drugim</string>
     <string name="quick_sum_demo_flash">Drži tekući zbroj u glavi.</string>
     <string name="quick_sum_demo_total">Unesi zbroj.</string>
+    <string name="game_head_count_desc">Ljudi ulaze u kuću i izlaze iz nje. Broji, a kad sve utihne, reci koliko ih je unutra.</string>
+    <string name="head_count_watch">Broji</string>
+    <string name="head_count_instruction">Koliko ih je unutra?</string>
+    <string name="head_count_demo_title">Kuća je na početku prazna</string>
+    <string name="head_count_demo_in">Broji tko ulazi…</string>
+    <string name="head_count_demo_out">…i tko opet izlazi.</string>
+    <string name="head_count_demo_both">Ponekad oboje odjednom.</string>
+    <string name="head_count_demo_answer">Unutra je još dvoje.</string>
     <string name="game_flash_crowd_desc">Točkice kratko trepnu na svakoj strani. Dodirni stranu na kojoj ih je bilo više. Ne broji — vjeruj instinktu!</string>
     <string name="game_schulte_table_desc">Dodiruj brojeve redom od 1 naviše što brže možeš.</string>
     <string name="game_schulte_instruction">Dodiruj brojeve redom: 1, 2, 3...</string>
@@ -387,6 +399,7 @@
     <string name="game_rule_shift_howto">Uz koju ključnu kartu ide?</string>
     <string name="game_rule_shift_cards_left">Preostalo karata: %1$d</string>
     <string name="game_color_confusion_howto">Dodirni boju tinte.</string>
+    <string name="game_flock_howto">Povuci u smjeru srednje ptice.</string>
     <string name="trio_demo_title">Pronađi trio</string>
     <string name="trio_demo_rule">Tri karte koje imaju zajednički barem oblik, broj ili ispunu. Sve ostalo mora se razlikovati na svakoj.</string>
     <string name="trio_trait_shape">Oblik</string>
@@ -509,6 +522,11 @@ Premjesti Cow — postat će Bull.</string>
     <string name="color_confusion_demo_caption_agree">Ponekad se to dvoje slaže.</string>
     <string name="color_confusion_demo_caption_trap">Zamka je pročitati riječ.</string>
     <string name="color_confusion_demo_caption_recover">Odgovor je uvijek tinta.</string>
+    <string name="flock_demo_title">Prati srednju pticu</string>
+    <string name="flock_demo_caption_middle">Važna je samo srednja ptica.</string>
+    <string name="flock_demo_caption_agree">Ponekad cijelo jato leti istim smjerom.</string>
+    <string name="flock_demo_caption_trap">Zamka je pratiti jato.</string>
+    <string name="flock_demo_caption_recover">Odgovor je uvijek srednja ptica.</string>
     <string name="pattern_sequence_prompt">Koji dijelić dopunjuje matricu?</string>
     <string name="game_tap_original_targets">Dodirni izvorne ciljeve</string>
     <string name="game_remember_targets">Zapamti ciljeve</string>
@@ -585,6 +603,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_gold_orbit_tracker">Astronom</string>
     <string name="achievement_gold_pattern_sequence">Prorok uzoraka</string>
     <string name="achievement_gold_color_confusion">Prava boja</string>
+    <string name="achievement_gold_flock">Predvodnik jata</string>
+    <string name="achievement_gold_head_count">Vratar</string>
     <string name="achievement_gold_flash_crowd">Brojač gomile</string>
     <string name="achievement_gold_schulte_table">Munjeviti pogled</string>
     <string name="achievement_gold_flags">Zastavonoša</string>
@@ -625,6 +645,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Osvoji zlatnu medalju u Pratitelju orbita</string>
     <string name="achievement_gold_pattern_sequence_desc">Osvoji zlatnu medalju u Nizu uzoraka</string>
     <string name="achievement_gold_color_confusion_desc">Osvoji zlatnu medalju u Zabuni boja</string>
+    <string name="achievement_gold_flock_desc">Osvoji zlatnu medalju u Jatu</string>
+    <string name="achievement_gold_head_count_desc">Osvoji zlatnu medalju u igri Tko je unutra</string>
     <string name="achievement_gold_flash_crowd_desc">Osvoji zlatnu medalju u Bljeskovitoj gomili</string>
     <string name="achievement_gold_schulte_table_desc">Osvoji zlatnu medalju u Schulteovoj tablici</string>
     <string name="achievement_gold_flags_desc">Osvoji zlatnu medalju u Zastavama</string>
@@ -702,6 +724,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="science_mental_rotations_summary">Standardna mjera prostorne sposobnosti: odlučiti jesu li dva lika isto tijelo zakrenuto ili zrcalne slike koje nijedna rotacija ne može poklopiti.</string>
     <string name="science_color_confusion_paradigm">Stroopov zadatak</string>
     <string name="science_color_confusion_summary">Standardna mjera inhibicije: imenovati boju kojom je riječ otisnuta, dok samo čitanje riječi nudi brži, suparnički odgovor.</string>
+    <string name="science_flock_paradigm">Flanker zadatak</string>
+    <string name="science_flock_summary">Standardna mjera selektivne pažnje: reagirati na srednji element u nizu dok elementi pokraj njega pokazuju u istom ili suprotnom smjeru, a kad se ne slažu, treba ih zanemariti.</string>
     <string name="science_digit_memory_paradigm">Brown-Petersonov zadatak</string>
     <string name="science_digit_memory_summary">Standardna mjera radnog pamćenja: zadržati niz dok drugi zadatak zauzima isti misaoni prostor.</string>
     <string name="science_pattern_sequence_paradigm">Matrično zaključivanje</string>

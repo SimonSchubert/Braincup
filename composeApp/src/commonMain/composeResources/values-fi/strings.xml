@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">Kongruenssin hinta</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">Kuinka paljon kauemmin sinulla kesti, kun sana ja muste olivat eri mieltä</string>
+    <string name="finish_congruency_effect_explainer_flock">Kuinka paljon kauemmin sinulla kesti, kun parvi lensi eri suuntaan kuin keskimmäinen lintu</string>
 
     <string name="feedback_solution">Ratkaisu: %1$s</string>
 
@@ -296,9 +297,11 @@
     <string name="game_pattern_sequence">Kuviosekvenssi</string>
     <string name="game_ghost_grid">Aaveruudukko</string>
     <string name="game_color_confusion">Värisekaannus</string>
+    <string name="game_flock">Lintuparvi</string>
     <string name="game_orbit_tracker">Rataseuraaja</string>
     <string name="game_bubble_sum">Kuplasumma</string>
     <string name="game_quick_sum">Pikasumma</string>
+    <string name="game_head_count">Pääluku</string>
     <string name="game_flash_crowd">Salamajoukko</string>
     <string name="game_schulte_table">Schulte-taulukko</string>
     <string name="game_mini_chess">Minishakki</string>
@@ -332,6 +335,7 @@
     <string name="game_pattern_sequence_desc">Selvitä sääntö jokaisella rivillä ja valitse pala, joka täydentää sen.</string>
     <string name="game_ghost_grid_desc">Katso, miten ruudut syttyvät yksi kerrallaan, ja napauta ne takaisin samassa järjestyksessä.</string>
     <string name="game_color_confusion_desc">Värisana ilmestyy värillisellä musteella. Napauta musteen väriä, ei sitä väriä, jonka sana nimeää.</string>
+    <string name="game_flock_desc">Lintuparvi lentää ohi. Pyyhkäise siihen suuntaan, johon keskimmäinen lintu lentää, äläkä välitä sen ympärillä olevista linnuista.</string>
     <string name="game_orbit_tracker_desc">Katso korostettuja palloja ja seuraa niitä, kun ne liikkuvat. Valitse alkuperäiset kohteet, kun ne pysähtyvät.</string>
     <string name="game_bubble_sum_desc">Laske kelluvien kuplien numerot yhteen. Myöhemmin numerot vilkkuvat — muista ne.</string>
     <string name="bubble_sum_instruction">Mikä on summa?</string>
@@ -344,6 +348,14 @@
     <string name="quick_sum_demo_title">Numerot vilkkuvat yksi kerrallaan</string>
     <string name="quick_sum_demo_flash">Pidä juokseva summa päässäsi.</string>
     <string name="quick_sum_demo_total">Syötä kokonaissumma.</string>
+    <string name="game_head_count_desc">Ihmisiä kulkee taloon sisään ja sieltä ulos. Pysy laskuissa, ja kun liike loppuu, kerro montako sisällä on.</string>
+    <string name="head_count_watch">Pysy laskuissa</string>
+    <string name="head_count_instruction">Montako on sisällä?</string>
+    <string name="head_count_demo_title">Talo on aluksi tyhjä</string>
+    <string name="head_count_demo_in">Laske, kuka menee sisään…</string>
+    <string name="head_count_demo_out">…ja kuka tulee takaisin ulos.</string>
+    <string name="head_count_demo_both">Joskus molemmat yhtä aikaa.</string>
+    <string name="head_count_demo_answer">Kaksi on yhä sisällä.</string>
     <string name="game_flash_crowd_desc">Pisteet vilkkuvat lyhyesti kummallakin puolella. Napauta puolta, jossa oli enemmän. Älä laske — luota vaistoosi!</string>
     <string name="game_schulte_table_desc">Napauta numeroita järjestyksessä ykkösestä ylöspäin niin nopeasti kuin osaat.</string>
     <string name="game_schulte_instruction">Napauta numeroita järjestyksessä: 1, 2, 3...</string>
@@ -383,6 +395,7 @@
     <string name="game_rule_shift_howto">Minkä avainkortin luo se kuuluu?</string>
     <string name="game_rule_shift_cards_left">Kortteja jäljellä: %1$d</string>
     <string name="game_color_confusion_howto">Napauta musteen väriä.</string>
+    <string name="game_flock_howto">Pyyhkäise keskimmäisen linnun lentosuuntaan.</string>
     <string name="trio_demo_title">Löydä trio</string>
     <string name="trio_demo_rule">Kolme korttia, joilla on ainakin sama muoto, määrä tai täyttö. Kaiken muun pitää olla eri kaikissa.</string>
     <string name="trio_trait_shape">Muoto</string>
@@ -503,6 +516,11 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="color_confusion_demo_caption_agree">Joskus ne ovat samaa mieltä.</string>
     <string name="color_confusion_demo_caption_trap">Ansa on lukea sana.</string>
     <string name="color_confusion_demo_caption_recover">Vastaus on aina muste.</string>
+    <string name="flock_demo_title">Seuraa keskimmäistä lintua</string>
+    <string name="flock_demo_caption_middle">Vain keskimmäinen lintu ratkaisee.</string>
+    <string name="flock_demo_caption_agree">Joskus koko parvi lentää samaan suuntaan.</string>
+    <string name="flock_demo_caption_trap">Ansa on seurata parvea.</string>
+    <string name="flock_demo_caption_recover">Vastaus on aina keskimmäinen lintu.</string>
     <string name="pattern_sequence_prompt">Mikä pala täydentää matriisin?</string>
     <string name="game_tap_original_targets">Napauta alkuperäisiä kohteita</string>
     <string name="game_remember_targets">Muista kohteet</string>
@@ -579,6 +597,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_orbit_tracker">Tähtitieteilijä</string>
     <string name="achievement_gold_pattern_sequence">Kuvioprofeetta</string>
     <string name="achievement_gold_color_confusion">Oikeat värit</string>
+    <string name="achievement_gold_flock">Aurankärki</string>
+    <string name="achievement_gold_head_count">Ovimies</string>
     <string name="achievement_gold_flash_crowd">Joukonlaskija</string>
     <string name="achievement_gold_schulte_table">Salamakatse</string>
     <string name="achievement_gold_flags">Lipunkantaja</string>
@@ -619,6 +639,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_orbit_tracker_desc">Voita kultamitali Rataseuraajassa</string>
     <string name="achievement_gold_pattern_sequence_desc">Voita kultamitali Kuviosekvenssissä</string>
     <string name="achievement_gold_color_confusion_desc">Voita kultamitali Värisekaannuksessa</string>
+    <string name="achievement_gold_flock_desc">Voita kultamitali Lintuparvessa</string>
+    <string name="achievement_gold_head_count_desc">Voita kultamitali Päälukussa</string>
     <string name="achievement_gold_flash_crowd_desc">Voita kultamitali Salamajoukossa</string>
     <string name="achievement_gold_schulte_table_desc">Voita kultamitali Schulte-taulukossa</string>
     <string name="achievement_gold_flags_desc">Voita kultamitali Lipuissa</string>
@@ -696,6 +718,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="science_mental_rotations_summary">Vakiomittari avaruudelliselle hahmottamiselle: sen päättely, ovatko kaksi kuviota sama kappale käännettynä vai peilikuvia, joita mikään kierto ei saa vastaamaan toisiaan.</string>
     <string name="science_color_confusion_paradigm">Stroopin tehtävä</string>
     <string name="science_color_confusion_summary">Vakiomittari inhibitiolle: nimetä väri, jolla sana on painettu, kun sanan lukeminen itsessään tarjoaa nopeamman, kilpailevan vastauksen.</string>
+    <string name="science_flock_paradigm">Flanker-tehtävä</string>
+    <string name="science_flock_summary">Vakiomittari valikoivalle tarkkaavaisuudelle: reagoida rivin keskimmäiseen kohteeseen, kun viereiset kohteet osoittavat samaan tai vastakkaiseen suuntaan ja ne on jätettävä huomiotta, kun ne ovat eri mieltä.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson-tehtävä</string>
     <string name="science_digit_memory_summary">Vakiomittari työmuistille: sarjan pitäminen mielessä, kun toinen tehtävä varaa saman mielen tilan.</string>
     <string name="science_pattern_sequence_paradigm">Matriisipäättely</string>

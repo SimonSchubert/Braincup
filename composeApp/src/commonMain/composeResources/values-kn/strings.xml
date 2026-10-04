@@ -257,6 +257,7 @@
     <string name="finish_congruency_effect_title">ಹೊಂದಾಣಿಕೆಯ ಬೆಲೆ</string>
     <string name="finish_congruency_effect_value">%1$s ms</string>
     <string name="finish_congruency_effect_explainer">ಪದ ಮತ್ತು ಶಾಯಿ ಹೊಂದದಿದ್ದಾಗ ನಿಮಗೆ ಎಷ್ಟು ಹೆಚ್ಚು ಸಮಯ ಬೇಕಾಯಿತು</string>
+    <string name="finish_congruency_effect_explainer_flock">ಹಿಂಡು ನಡುವಿನ ಹಕ್ಕಿಗೆ ವಿರುದ್ಧ ದಿಕ್ಕಿಗೆ ಹಾರಿದಾಗ ನಿಮಗೆ ಎಷ್ಟು ಹೆಚ್ಚು ಸಮಯ ಬೇಕಾಯಿತು</string>
 
     <string name="feedback_solution">ಪರಿಹಾರ: %1$s</string>
 
@@ -280,9 +281,11 @@
     <string name="game_pattern_sequence">ವಿನ್ಯಾಸ ಅನುಕ್ರಮ</string>
     <string name="game_ghost_grid">ಭೂತ ಗ್ರಿಡ್</string>
     <string name="game_color_confusion">ಬಣ್ಣಗಳ ಗೊಂದಲ</string>
+    <string name="game_flock">ಹಕ್ಕಿಗಳ ಹಿಂಡು</string>
     <string name="game_orbit_tracker">ಕಕ್ಷೆ ಜಾಡು</string>
     <string name="game_bubble_sum">ಗುಳ್ಳೆ ಮೊತ್ತ</string>
     <string name="game_quick_sum">ತ್ವರಿತ ಮೊತ್ತ</string>
+    <string name="game_head_count">ತಲೆ ಎಣಿಕೆ</string>
     <string name="game_flash_crowd">ಮಿಂಚಿನ ಗುಂಪು</string>
     <string name="game_schulte_table">ಶುಲ್ಟೆ ಕೋಷ್ಟಕ</string>
     <string name="game_mini_chess">ಪುಟ್ಟ ಚದುರಂಗ</string>
@@ -316,6 +319,7 @@
     <string name="game_pattern_sequence_desc">ಗ್ರಿಡ್‌ನ ಪ್ರತಿ ಸಾಲಿನಲ್ಲಿ ಸಾಗುವ ನಿಯಮವನ್ನು ಕಂಡುಹಿಡಿದು, ಅದನ್ನು ಪೂರ್ಣಗೊಳಿಸುವ ತುಂಡನ್ನು ಆರಿಸಿ.</string>
     <string name="game_ghost_grid_desc">ಚೌಕಗಳು ಒಂದೊಂದಾಗಿ ಬೆಳಗುವುದನ್ನು ನೋಡಿ, ನಂತರ ಅದೇ ಕ್ರಮದಲ್ಲಿ ಅವುಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="game_color_confusion_desc">ಒಂದು ಬಣ್ಣದ ಪದ ಬಣ್ಣದ ಶಾಯಿಯಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ. ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ಪದ ಹೇಳುವ ಬಣ್ಣವನ್ನು ಅಲ್ಲ.</string>
+    <string name="game_flock_desc">ಹಕ್ಕಿಗಳ ಹಿಂಡೊಂದು ಹಾರಿ ಹೋಗುತ್ತದೆ. ನಡುವಿನ ಹಕ್ಕಿ ಹಾರುವ ದಿಕ್ಕಿಗೆ ಸ್ವೈಪ್ ಮಾಡಿ, ಸುತ್ತಲಿನ ಹಕ್ಕಿಗಳನ್ನು ಲೆಕ್ಕಿಸಬೇಡಿ.</string>
     <string name="game_orbit_tracker_desc">ಎತ್ತಿ ತೋರಿಸಿದ ಚೆಂಡುಗಳನ್ನು ನೋಡಿ, ಅವು ಚಲಿಸುವಾಗ ಜಾಡು ಹಿಡಿಯಿರಿ. ಅವು ನಿಂತ ಮೇಲೆ ಮೂಲ ಗುರಿಗಳನ್ನು ಆರಿಸಿ.</string>
     <string name="game_bubble_sum_desc">ತೇಲುವ ಗುಳ್ಳೆಗಳ ಮೇಲಿನ ಸಂಖ್ಯೆಗಳನ್ನು ಕೂಡಿಸಿ. ನಂತರ ಸಂಖ್ಯೆಗಳು ಮಿನುಗುತ್ತವೆ — ಅವನ್ನು ನೆನಪಿಟ್ಟುಕೊಳ್ಳಿ.</string>
     <string name="bubble_sum_instruction">ಮೊತ್ತ ಎಷ್ಟು?</string>
@@ -328,6 +332,14 @@
     <string name="quick_sum_demo_title">ಸಂಖ್ಯೆಗಳು ಒಂದೊಂದಾಗಿ ಮಿಂಚುತ್ತವೆ</string>
     <string name="quick_sum_demo_flash">ಮನಸ್ಸಿನಲ್ಲೇ ಮೊತ್ತ ಕೂಡಿಸುತ್ತಾ ಇರಿ.</string>
     <string name="quick_sum_demo_total">ಒಟ್ಟು ನಮೂದಿಸಿ.</string>
+    <string name="game_head_count_desc">ಜನರು ಒಂದು ಮನೆಯೊಳಗೆ ಹೋಗುತ್ತಾರೆ, ಹೊರಗೆ ಬರುತ್ತಾರೆ. ಎಣಿಸುತ್ತಾ ಇರಿ, ಎಲ್ಲ ನಿಂತಾಗ ಒಳಗೆ ಎಷ್ಟು ಜನ ಇದ್ದಾರೆ ಎಂದು ಹೇಳಿ.</string>
+    <string name="head_count_watch">ಎಣಿಸಿ</string>
+    <string name="head_count_instruction">ಒಳಗೆ ಎಷ್ಟು ಜನ ಇದ್ದಾರೆ?</string>
+    <string name="head_count_demo_title">ಮೊದಲು ಮನೆ ಖಾಲಿ</string>
+    <string name="head_count_demo_in">ಒಳಗೆ ಹೋಗುವವರನ್ನೂ…</string>
+    <string name="head_count_demo_out">…ಹೊರಗೆ ಬರುವವರನ್ನೂ ಎಣಿಸಿ.</string>
+    <string name="head_count_demo_both">ಕೆಲವೊಮ್ಮೆ ಎರಡೂ ಒಟ್ಟಿಗೆ.</string>
+    <string name="head_count_demo_answer">ಇನ್ನೂ ಇಬ್ಬರು ಒಳಗಿದ್ದಾರೆ.</string>
     <string name="game_flash_crowd_desc">ಎರಡೂ ಬದಿಗಳಲ್ಲಿ ಚುಕ್ಕೆಗಳು ಕ್ಷಣಕಾಲ ಮಿಂಚುತ್ತವೆ. ಹೆಚ್ಚು ಚುಕ್ಕೆಗಳಿದ್ದ ಬದಿಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಎಣಿಸಬೇಡಿ — ನಿಮ್ಮ ಅಂತಃಪ್ರಜ್ಞೆಯನ್ನು ನಂಬಿ!</string>
     <string name="game_schulte_table_desc">1 ರಿಂದ ಮೇಲಕ್ಕೆ ಸಂಖ್ಯೆಗಳನ್ನು ಸಾಧ್ಯವಾದಷ್ಟು ವೇಗವಾಗಿ ಕ್ರಮವಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="game_schulte_instruction">ಸಂಖ್ಯೆಗಳನ್ನು ಕ್ರಮವಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ: 1, 2, 3...</string>
@@ -367,6 +379,7 @@
     <string name="game_rule_shift_howto">ಇದು ಯಾವ ಪ್ರಮುಖ ಕಾರ್ಡ್‌ಗೆ ಸೇರುತ್ತದೆ?</string>
     <string name="game_rule_shift_cards_left">ಉಳಿದ ಕಾರ್ಡ್‌ಗಳು: %1$d</string>
     <string name="game_color_confusion_howto">ಶಾಯಿಯ ಬಣ್ಣವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="game_flock_howto">ನಡುವಿನ ಹಕ್ಕಿ ಹಾರುವ ದಿಕ್ಕಿಗೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
     <string name="trio_demo_title">ತ್ರಿವಳಿಯನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಆಕಾರ, ಸಂಖ್ಯೆ ಅಥವಾ ತುಂಬುವಿಕೆಯಲ್ಲಿ ಕನಿಷ್ಠ ಒಂದು ಒಂದೇ ಆಗಿರುವ ಮೂರು ಎಲೆಗಳು. ಉಳಿದೆಲ್ಲವೂ ಪ್ರತಿ ಎಲೆಯಲ್ಲಿ ಬೇರೆ.</string>
     <string name="trio_trait_shape">ಆಕಾರ</string>
@@ -485,6 +498,11 @@
     <string name="color_confusion_demo_caption_agree">ಕೆಲವೊಮ್ಮೆ ಎರಡೂ ಒಂದೇ ಆಗಿರುತ್ತವೆ.</string>
     <string name="color_confusion_demo_caption_trap">ಪದವನ್ನು ಓದುವುದೇ ಬಲೆ.</string>
     <string name="color_confusion_demo_caption_recover">ಉತ್ತರ ಯಾವಾಗಲೂ ಶಾಯಿಯೇ.</string>
+    <string name="flock_demo_title">ನಡುವಿನ ಹಕ್ಕಿಯನ್ನು ಅನುಸರಿಸಿ</string>
+    <string name="flock_demo_caption_middle">ನಡುವಿನ ಹಕ್ಕಿ ಮಾತ್ರ ಲೆಕ್ಕಕ್ಕೆ.</string>
+    <string name="flock_demo_caption_agree">ಕೆಲವೊಮ್ಮೆ ಇಡೀ ಹಿಂಡು ಒಂದೇ ದಿಕ್ಕಿಗೆ.</string>
+    <string name="flock_demo_caption_trap">ಹಿಂಡನ್ನು ಅನುಸರಿಸುವುದೇ ಬಲೆ.</string>
+    <string name="flock_demo_caption_recover">ಉತ್ತರ ಯಾವಾಗಲೂ ನಡುವಿನ ಹಕ್ಕಿಯೇ.</string>
     <string name="pattern_sequence_prompt">ಯಾವ ತುಂಡು ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ?</string>
     <string name="game_tap_original_targets">ಮೂಲ ಗುರಿಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="game_remember_targets">ಗುರಿಗಳನ್ನು ನೆನಪಿಡಿ</string>
@@ -561,6 +579,8 @@
     <string name="achievement_gold_orbit_tracker">ಖಗೋಳಶಾಸ್ತ್ರಜ್ಞ</string>
     <string name="achievement_gold_pattern_sequence">ವಿನ್ಯಾಸ ದ್ರಷ್ಟಾರ</string>
     <string name="achievement_gold_color_confusion">ನಿಜವಾದ ಬಣ್ಣಗಳು</string>
+    <string name="achievement_gold_flock">ಹಿಂಡಿನ ನಾಯಕ</string>
+    <string name="achievement_gold_head_count">ದ್ವಾರಪಾಲಕ</string>
     <string name="achievement_gold_flash_crowd">ಗುಂಪು ಎಣಿಸುವವ</string>
     <string name="achievement_gold_schulte_table">ಮಿಂಚಿನ ದೃಷ್ಟಿ</string>
     <string name="achievement_gold_flags">ಧ್ವಜಧಾರಿ</string>
@@ -601,6 +621,8 @@
     <string name="achievement_gold_orbit_tracker_desc">ಕಕ್ಷೆ ಜಾಡಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_pattern_sequence_desc">ವಿನ್ಯಾಸ ಅನುಕ್ರಮದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_color_confusion_desc">ಬಣ್ಣಗಳ ಗೊಂದಲದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_flock_desc">ಹಕ್ಕಿಗಳ ಹಿಂಡಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_head_count_desc">ತಲೆ ಎಣಿಕೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_flash_crowd_desc">ಮಿಂಚಿನ ಗುಂಪಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_schulte_table_desc">ಶುಲ್ಟೆ ಕೋಷ್ಟಕದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_flags_desc">ಧ್ವಜಗಳಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
@@ -678,6 +700,8 @@
     <string name="science_mental_rotations_summary">ಪ್ರಾದೇಶಿಕ ಸಾಮರ್ಥ್ಯದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಎರಡು ಆಕೃತಿಗಳು ಒಂದೇ ಘನವನ್ನು ತಿರುಗಿಸಿದವೇ, ಅಥವಾ ಯಾವ ತಿರುಗುವಿಕೆಯೂ ಹೊಂದಿಸಲಾಗದ ಕನ್ನಡಿ ಬಿಂಬಗಳೇ ಎಂದು ನಿರ್ಧರಿಸುವುದು.</string>
     <string name="science_color_confusion_paradigm">ಸ್ಟ್ರೂಪ್ ಕಾರ್ಯ</string>
     <string name="science_color_confusion_summary">ಪ್ರತಿಬಂಧದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಪದವು ಯಾವ ಬಣ್ಣದಲ್ಲಿ ಮುದ್ರಿತವಾಗಿದೆಯೋ ಅದನ್ನು ಹೆಸರಿಸುವುದು, ಆದರೆ ಪದವನ್ನು ಓದುವುದೇ ವೇಗವಾದ, ಪೈಪೋಟಿಯ ಉತ್ತರವನ್ನು ಮುಂದಿಡುತ್ತದೆ.</string>
+    <string name="science_flock_paradigm">ಫ್ಲ್ಯಾಂಕರ್ ಕಾರ್ಯ</string>
+    <string name="science_flock_summary">ಆಯ್ದ ಗಮನದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಸಾಲಿನ ನಡುವಿನ ವಸ್ತುವಿಗೆ ಪ್ರತಿಕ್ರಿಯಿಸುವುದು, ಪಕ್ಕದವು ಅದೇ ದಿಕ್ಕಿಗೋ ವಿರುದ್ಧ ದಿಕ್ಕಿಗೋ ತೋರಿಸುತ್ತವೆ, ಅವು ಭಿನ್ನವಾದಾಗ ಅವನ್ನು ಕಡೆಗಣಿಸಬೇಕು.</string>
     <string name="science_digit_memory_paradigm">ಬ್ರೌನ್-ಪೀಟರ್ಸನ್ ಕಾರ್ಯ</string>
     <string name="science_digit_memory_summary">ಕಾರ್ಯ ಸ್ಮರಣೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಸಂಬಂಧವಿಲ್ಲದ ಬೇರೊಂದು ಕೆಲಸ ಅದೇ ಮಾನಸಿಕ ಜಾಗವನ್ನು ಆಕ್ರಮಿಸಿರುವಾಗ ಒಂದು ಸರಣಿಯನ್ನು ಹಿಡಿದಿಟ್ಟುಕೊಳ್ಳುವುದು.</string>
     <string name="science_pattern_sequence_paradigm">ಮ್ಯಾಟ್ರಿಕ್ಸ್ ತರ್ಕ</string>
