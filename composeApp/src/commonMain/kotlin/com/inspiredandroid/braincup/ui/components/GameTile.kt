@@ -2340,24 +2340,24 @@ private fun RailYardPreview() {
 // keeps the smallest yard there is, one switch and a train already heading the right way.
 private val RailYardPreviewState = RailYardUiState(
     layoutKey = 0,
-    tunnel = RailYardGame.Point(0.5f, 0.08f),
+    tunnel = RailYardGame.Point(0.5f, 0.04f),
     tracks = persistentListOf(
-        RailYardUiState.Track(persistentListOf(RailYardGame.Point(0.5f, 0.08f), RailYardGame.Point(0.5f, 0.42f)), isOpen = true),
+        RailYardUiState.Track(persistentListOf(RailYardGame.Point(0.5f, 0.04f), RailYardGame.Point(0.5f, 0.33f)), isOpen = true),
         RailYardUiState.Track(
-            persistentListOf(RailYardGame.Point(0.5f, 0.42f), RailYardGame.Point(0.18f, 0.42f), RailYardGame.Point(0.18f, 0.86f)),
+            persistentListOf(RailYardGame.Point(0.5f, 0.33f), RailYardGame.Point(0.18f, 0.33f), RailYardGame.Point(0.18f, 0.92f)),
             isOpen = true,
         ),
         RailYardUiState.Track(
-            persistentListOf(RailYardGame.Point(0.5f, 0.42f), RailYardGame.Point(0.82f, 0.42f), RailYardGame.Point(0.82f, 0.86f)),
+            persistentListOf(RailYardGame.Point(0.5f, 0.33f), RailYardGame.Point(0.82f, 0.33f), RailYardGame.Point(0.82f, 0.92f)),
             isOpen = false,
         ),
     ),
-    switches = persistentListOf(RailYardUiState.Switch(nodeIndex = 1, position = RailYardGame.Point(0.5f, 0.42f), turnsRight = false)),
+    switches = persistentListOf(RailYardUiState.Switch(nodeIndex = 1, position = RailYardGame.Point(0.5f, 0.33f), turnsRight = false)),
     stations = persistentListOf(
-        RailYardUiState.Station(RailYardGame.Point(0.18f, 0.86f), GameColor.RED, RailYardGame.StationFlash.NONE),
-        RailYardUiState.Station(RailYardGame.Point(0.82f, 0.86f), GameColor.BLUE, RailYardGame.StationFlash.NONE),
+        RailYardUiState.Station(RailYardGame.Point(0.18f, 0.92f), GameColor.RED, RailYardGame.StationFlash.NONE),
+        RailYardUiState.Station(RailYardGame.Point(0.82f, 0.92f), GameColor.BLUE, RailYardGame.StationFlash.NONE),
     ),
-    trains = persistentListOf(RailYardGame.TrainFrame(x = 0.3f, y = 0.42f, isHorizontal = true, color = GameColor.RED)),
+    trains = persistentListOf(RailYardGame.TrainFrame(x = 0.18f, y = 0.52f, isHorizontal = false, color = GameColor.RED)),
 )
 
 @Composable
