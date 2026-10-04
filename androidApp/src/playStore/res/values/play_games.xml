@@ -60,9 +60,9 @@
     <!-- achievement Flight Leader (Flock) -->
     <string name="achievementFlightLeader" translatable="false">CgkIuZrirtIVEAIQUw</string>
     <!-- achievement Doorkeeper (Head Count) -->
-    <string name="achievementDoorkeeper" translatable="false"></string>
+    <string name="achievementDoorkeeper" translatable="false">CgkIuZrirtIVEAIQVA</string>
     <!-- achievement Station Master (Rail Yard) -->
-    <string name="achievementStationMaster" translatable="false"></string>
+    <string name="achievementStationMaster" translatable="false">CgkIuZrirtIVEAIQVQ</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
