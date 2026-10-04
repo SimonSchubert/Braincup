@@ -2190,7 +2190,8 @@ class GameController(
         game: HeadCountGame,
         input: String,
     ) {
-        if (game.phase != HeadCountGame.Phase.ANSWER) return
+        // Two pad taps in one frame both arrive before the reveal repaints the pad.
+        if (game.phase != HeadCountGame.Phase.ANSWER || game.answerResult != null) return
 
         val correct = game.submitCount(input)
         if (correct) points++
