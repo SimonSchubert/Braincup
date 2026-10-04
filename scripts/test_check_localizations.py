@@ -106,6 +106,24 @@ class StaleSourceKeysTest(unittest.TestCase):
             [],
         )
 
+    def test_reviewed_entry_passes_only_for_the_english_it_names(self) -> None:
+        english_now = {"trio_trait_count": "Number"}
+        english_history = {"trio_trait_count": [(10, "How many"), (20, "Number")]}
+        locale_now = {"trio_trait_count": "数"}
+        locale_history = {"trio_trait_count": [(15, "数")]}
+        self.assertEqual(
+            stale_source_keys(
+                english_now, english_history, locale_now, locale_history, {"trio_trait_count": "Number"},
+            ),
+            [],
+        )
+        self.assertEqual(
+            stale_source_keys(
+                english_now, english_history, locale_now, locale_history, {"trio_trait_count": "How many"},
+            ),
+            ["trio_trait_count"],
+        )
+
     def test_ignores_learn_catalog_keys(self) -> None:
         english_now = {"learn_unit_title": "New title"}
         english_history = {"learn_unit_title": [(10, "Old title"), (20, "New title")]}

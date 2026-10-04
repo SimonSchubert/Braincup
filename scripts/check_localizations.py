@@ -231,15 +231,19 @@ def stale_source_keys(
     english_history: dict[str, list[tuple[int, str]]],
     locale_now: dict[str, str],
     locale_history: dict[str, list[tuple[int, str]]],
+    reviewed: dict[str, str] | None = None,
 ) -> list[str]:
     """UI keys whose English changed after this locale last wrote them.
 
     A working-tree rewrite of the locale value (it differs from the last committed value)
-    counts as catching up, so uncommitted retranslations pass the check.
+    counts as catching up, so uncommitted retranslations pass the check. So does a [reviewed]
+    entry naming the current English, for a translation that already fits the new wording.
     """
     stale: list[str] = []
     for key, now in english_now.items():
         if is_pending(key) or key not in locale_now:
+            continue
+        if reviewed is not None and reviewed.get(key) == now:
             continue
         loc_hist = locale_history.get(key)
         if not loc_hist:
@@ -313,6 +317,12 @@ DEFAULT_RESOURCES_DIR = (
     Path(__file__).resolve().parents[1]
     / "composeApp/src/commonMain/composeResources"
 )
+# A reworded English source does not always need a new translation ("How many" -> "Number" is
+# still "数"), and the history scan ignores a commit that leaves a value as it was. Entries here
+# are {locale: {key: english}}: the key passes while its English still reads exactly that, so the
+# next rewording flags it again.
+DEFAULT_REVIEWED_FILE = Path(__file__).resolve().parent / "localization_reviewed.json"
+
 DEFAULT_LOCALES_CONFIG = (
     Path(__file__).resolve().parents[1]
     / "androidApp/src/main/res/xml/locales_config.xml"
@@ -434,9 +444,16 @@ def extract_string_keys(path: Path) -> set[str]:
     return keys
 
 
+def load_reviewed(path: Path) -> dict[str, dict[str, str]]:
+    if not path.is_file():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def check_localizations(
     resources_dir: Path,
     supported_locales: list[str],
+    reviewed: dict[str, dict[str, str]] | None = None,
 ) -> CheckResult:
     base_locale = "en"
     base_file = strings_file(resources_dir, base_locale)
@@ -533,6 +550,7 @@ def check_localizations(
                         english_history,
                         locale_values,
                         locale_histories.get(locale, {}),
+                        (reviewed or {}).get(locale),
                     )
                     if english_history is not None
                     else []
@@ -729,7 +747,7 @@ def main() -> int:
             )
         supported_locales = [locale for locale in supported_locales if locale in args.locales]
 
-    result = check_localizations(args.resources_dir, supported_locales)
+    result = check_localizations(args.resources_dir, supported_locales, load_reviewed(DEFAULT_REVIEWED_FILE))
 
     if args.json:
         print_json_report(result)

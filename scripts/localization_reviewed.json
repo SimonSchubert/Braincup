@@ -1,0 +1,14 @@
+{
+  "ar": {"trio_trait_count": "Number"},
+  "ca": {
+    "trio_demo_title": "Find a trio",
+    "trio_demo_group_set": "Trio",
+    "trio_demo_group_not_set": "Not a trio"
+  },
+  "is": {"trio_trait_count": "Number"},
+  "ja": {"trio_trait_count": "Number"},
+  "ko": {"trio_trait_count": "Number"},
+  "th": {"trio_trait_count": "Number"},
+  "zh": {"trio_trait_count": "Number"},
+  "zh-TW": {"trio_trait_count": "Number"}
+}
