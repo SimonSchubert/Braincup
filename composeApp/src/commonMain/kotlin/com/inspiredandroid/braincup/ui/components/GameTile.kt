@@ -2332,7 +2332,7 @@ private fun RailYardPreview() {
     RailYardBoard(
         uiState = RailYardPreviewState,
         trains = { RailYardPreviewState.trains },
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(6.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(14.dp),
     )
 }
 
@@ -2357,7 +2357,7 @@ private val RailYardPreviewState = RailYardUiState(
         RailYardUiState.Station(RailYardGame.Point(0.18f, 0.86f), GameColor.RED, RailYardGame.StationFlash.NONE),
         RailYardUiState.Station(RailYardGame.Point(0.82f, 0.86f), GameColor.BLUE, RailYardGame.StationFlash.NONE),
     ),
-    trains = persistentListOf(RailYardGame.TrainFrame(x = 0.18f, y = 0.6f, isHorizontal = false, color = GameColor.RED)),
+    trains = persistentListOf(RailYardGame.TrainFrame(x = 0.3f, y = 0.42f, isHorizontal = true, color = GameColor.RED)),
 )
 
 @Composable
