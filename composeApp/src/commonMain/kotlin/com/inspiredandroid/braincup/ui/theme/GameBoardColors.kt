@@ -107,7 +107,6 @@ val HeadCountWall = Color(0xFFF3E3C3)
 val HeadCountRoof = Color(0xFFC2410C)
 val HeadCountDoor = Color(0xFF6B4226)
 val HeadCountWindow = Color(0xFF93C5FD)
-val HeadCountGround = Color(0xFF94A3B8)
 
 // Neither red nor green, which the reveal uses for right and wrong. A person's colour carries no
 // meaning; the variety only stops a batch from reading as one blob.

@@ -2031,6 +2031,7 @@ class GameController(
 
         val game = createGame(gameType)
         check(game is RevealRoundGame) { "${gameType.name} is not a reveal-round game" }
+        resumeAdaptiveDifficulty(gameType, game)
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)

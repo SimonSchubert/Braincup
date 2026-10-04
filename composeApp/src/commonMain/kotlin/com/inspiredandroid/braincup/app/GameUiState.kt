@@ -140,8 +140,6 @@ data class HeadCountUiState(
     val leaving: Int,
     val entersFromLeft: Boolean,
     val stepMillis: Long,
-    val moveIndex: Int,
-    val moveCount: Int,
     val revealedCount: Int?,
     val answerResult: RevealResult?,
 ) : GameUiState

@@ -71,8 +71,22 @@ class HeadCountGameTest {
             gameAt(startRound, seed.toLong()).moves.any { it.entering > 0 && it.leaving > 0 }
         }
         assertFalse(hasSimultaneous(0))
-        assertFalse(hasSimultaneous(3))
-        assertTrue(hasSimultaneous(4), "the mixed tier should send people in and out at once")
+        assertFalse(hasSimultaneous(5))
+        assertTrue(hasSimultaneous(6), "from round seven people should go in and out at once")
+    }
+
+    @Test
+    fun everyRoundIsOnlyALittleHarderThanTheOneBefore() {
+        // Several knobs turning on the same round is what made the first ramp feel like a wall.
+        (1..14).forEach { r ->
+            val before = gameAt(r - 1)
+            val after = gameAt(r)
+            assertTrue(after.moves.size - before.moves.size in 0..1, "round $r added more than one move")
+            assertTrue(
+                before.stepDurationMs() - after.stepDurationMs() in 0..50,
+                "round $r sped up by more than 50ms",
+            )
+        }
     }
 
     @Test
@@ -132,7 +146,7 @@ class HeadCountGameTest {
         val seenMoves = mutableListOf<Int>()
         game.startTimedPhase(this) {
             val state = game.toUiState()
-            if (state.phase == HeadCountGame.Phase.WATCHING && state.moveIndex >= 0) seenMoves += state.moveIndex
+            if (state.phase == HeadCountGame.Phase.WATCHING && game.currentMoveIndex >= 0) seenMoves += game.currentMoveIndex
             assertNull(state.revealedCount, "the count must stay hidden until answered")
         }
         testScheduler.advanceUntilIdle()
@@ -155,5 +169,15 @@ class HeadCountGameTest {
 
         assertTrue(before != game.moves, "the quit dialog must not buy a second look at the same moves")
         assertEquals(HeadCountGame.Phase.ANSWER, game.phase)
+    }
+
+    @Test
+    fun theRampCarriesOverToTheNextRun() {
+        assertTrue(HeadCountGame().adaptiveDifficulty)
+        assertEquals(
+            4,
+            GameType.HEAD_COUNT.difficultyBonus(startRound = 9, baseScore = 5, adaptiveDifficulty = true),
+            "a resumed run earns the start-round bonus, capped at silver",
+        )
     }
 }

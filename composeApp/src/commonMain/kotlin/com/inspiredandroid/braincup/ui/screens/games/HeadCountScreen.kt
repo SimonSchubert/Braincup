@@ -3,14 +3,11 @@ package com.inspiredandroid.braincup.ui.screens.games
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -23,7 +20,8 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import org.jetbrains.compose.resources.stringResource
 
 private val HouseMaxWidth = 420.dp
-private val CompactHouseHeight = 150.dp
+private val CompactHouseHeight = 190.dp
+private val RevealCardSlotHeight = 112.dp
 
 /**
  * Share of a step the walk takes. The rest is a still beat with nobody moving, so one batch never
@@ -46,9 +44,10 @@ internal fun ColumnScope.HeadCountContent(
 
 @Composable
 private fun HeadCountWatchingContent(uiState: HeadCountUiState) {
-    val walk = remember { Animatable(0f) }
-    LaunchedEffect(uiState.moveKey) {
-        walk.snapTo(0f)
+    // Keyed, not snapped back inside the effect: the effect only runs after the frame that shows the
+    // new move, and that frame would draw it at the previous walk's progress.
+    val walk = remember(uiState.moveKey) { Animatable(0f) }
+    LaunchedEffect(walk) {
         walk.animateTo(
             targetValue = 1f,
             animationSpec = tween((uiState.stepMillis * WalkFraction).toInt(), easing = LinearEasing),
@@ -71,7 +70,22 @@ private fun HeadCountWatchingContent(uiState: HeadCountUiState) {
             modifier = Modifier.houseSize(),
         )
         Spacer(Modifier.height(20.dp))
-        HeadCountProgressDots(index = uiState.moveIndex, count = uiState.moveCount)
+        // Compact height shows the reveal beside the house, so there is no card to make room for.
+        if (!LocalIsCompactHeight.current) BelowHouseSlot {}
+    }
+}
+
+/**
+ * Reserves the result card's height while watching too, so the house stays put when the next
+ * round starts instead of jumping by the card's height.
+ */
+@Composable
+private fun BelowHouseSlot(content: @Composable () -> Unit) {
+    Box(
+        modifier = Modifier.heightIn(min = RevealCardSlotHeight),
+        contentAlignment = Alignment.TopCenter,
+    ) {
+        content()
     }
 }
 
@@ -80,21 +94,6 @@ private fun Modifier.houseSize(): Modifier = if (LocalIsCompactHeight.current) {
     height(CompactHouseHeight).aspectRatio(HeadCountSceneAspect)
 } else {
     widthIn(max = HouseMaxWidth).fillMaxWidth().padding(horizontal = 16.dp).aspectRatio(HeadCountSceneAspect)
-}
-
-@Composable
-private fun HeadCountProgressDots(index: Int, count: Int) {
-    val accent = MaterialTheme.colorScheme.primary
-    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-        repeat(count) { i ->
-            Box(
-                modifier = Modifier
-                    .size(8.dp)
-                    .clip(CircleShape)
-                    .background(if (i <= index) accent else accent.copy(alpha = 0.25f)),
-            )
-        }
-    }
 }
 
 @Composable
@@ -139,7 +138,7 @@ private fun HeadCountAnswerContent(
                 Spacer(Modifier.height(20.dp))
                 HeadCountRevealedHouse(count = reveal)
                 Spacer(Modifier.height(20.dp))
-                HeadCountRevealCard(count = reveal, correct = correct, compact = false)
+                BelowHouseSlot { HeadCountRevealCard(count = reveal, correct = correct, compact = false) }
             } else {
                 Spacer(Modifier.height(16.dp))
                 NumberPadWithInput(onInputChange = onInputChange)
@@ -204,8 +203,6 @@ private fun HeadCountWatchingPreview() {
                 leaving = 1,
                 entersFromLeft = true,
                 stepMillis = 1200,
-                moveIndex = 1,
-                moveCount = 6,
                 revealedCount = null,
                 answerResult = null,
             ),
@@ -226,8 +223,6 @@ private fun HeadCountAnswerPreview() {
                 leaving = 0,
                 entersFromLeft = true,
                 stepMillis = 1200,
-                moveIndex = 5,
-                moveCount = 6,
                 revealedCount = null,
                 answerResult = null,
             ),
@@ -248,8 +243,6 @@ private fun HeadCountRevealPreview() {
                 leaving = 0,
                 entersFromLeft = true,
                 stepMillis = 1200,
-                moveIndex = 5,
-                moveCount = 6,
                 revealedCount = 7,
                 answerResult = RevealResult.CORRECT,
             ),

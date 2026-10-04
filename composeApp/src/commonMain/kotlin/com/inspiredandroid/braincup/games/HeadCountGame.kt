@@ -13,17 +13,16 @@ import kotlin.time.Duration.Companion.milliseconds
  * stops the player enters how many are inside.
  *
  * Built like [QuickSumGame]: a [Phase.WATCHING] reveal the player cannot speed up, then a one-shot
- * [Phase.ANSWER]. The difference is that every step can push the tally either way, and from the
- * mixed tier on people go in and come out in the same step, from either side, which is what turns
+ * [Phase.ANSWER]. The difference is that every step can push the tally either way, and higher up
+ * people arrive from either side and go in and come out in the same step, which is what turns
  * counting into tracking.
  *
- * A correct count advances the ramp; a wrong one replays the same tier with fresh traffic.
+ * A correct count advances the ramp; a wrong one replays the same tier with fresh traffic. Unlike
+ * Quick Sum the ramp carries over: the next run starts a few rounds below where this one ended.
  */
 class HeadCountGame(private val random: Random = Random.Default) :
     Game(),
     RevealRoundGame {
-    override val adaptiveDifficulty: Boolean = false
-
     enum class Phase { WATCHING, ANSWER }
 
     data class Move(
@@ -60,24 +59,35 @@ class HeadCountGame(private val random: Random = Random.Default) :
     private data class DifficultyConfig(
         val moveCount: Int,
         val maxBatch: Int,
-        val isMixed: Boolean,
+        val isBothSides: Boolean,
+        val simultaneousChance: Float,
         val stepMs: Long,
     )
 
     /**
-     * Two rounds per tier for the same reason as Quick Sum: the difficulty never carries over and a
-     * round costs about 8-10s, so the whole ramp has to fit inside one 60s run.
+     * One round per step, and each step changes as little as it can: a longer round, a bigger
+     * batch, a second route, then people crossing in the same move, a little more often each time.
+     * Several of those landing on one round is what made the old two-round tiers feel like a wall.
      */
-    private fun configForRound(r: Int): DifficultyConfig = when {
-        r <= 1 -> DifficultyConfig(moveCount = 4, maxBatch = 1, isMixed = false, stepMs = 1400)
-        r <= 3 -> DifficultyConfig(moveCount = 5, maxBatch = 2, isMixed = false, stepMs = 1300)
-        r <= 5 -> DifficultyConfig(moveCount = 6, maxBatch = 2, isMixed = true, stepMs = 1200)
-        r <= 7 -> DifficultyConfig(moveCount = 7, maxBatch = 3, isMixed = true, stepMs = 1100)
-        r <= 9 -> DifficultyConfig(moveCount = 7, maxBatch = 3, isMixed = true, stepMs = 1000)
-        else -> DifficultyConfig(moveCount = MAX_MOVES, maxBatch = 3, isMixed = true, stepMs = MIN_STEP_MS)
-    }
+    private fun configForRound(r: Int): DifficultyConfig = Ramp[r.coerceAtMost(Ramp.lastIndex)]
 
     companion object {
+        private val Ramp = listOf(
+            DifficultyConfig(moveCount = 4, maxBatch = 1, isBothSides = false, simultaneousChance = 0f, stepMs = 1400),
+            DifficultyConfig(moveCount = 4, maxBatch = 1, isBothSides = false, simultaneousChance = 0f, stepMs = 1350),
+            DifficultyConfig(moveCount = 5, maxBatch = 1, isBothSides = false, simultaneousChance = 0f, stepMs = 1300),
+            DifficultyConfig(moveCount = 5, maxBatch = 2, isBothSides = false, simultaneousChance = 0f, stepMs = 1300),
+            DifficultyConfig(moveCount = 5, maxBatch = 2, isBothSides = true, simultaneousChance = 0f, stepMs = 1250),
+            DifficultyConfig(moveCount = 6, maxBatch = 2, isBothSides = true, simultaneousChance = 0f, stepMs = 1250),
+            DifficultyConfig(moveCount = 6, maxBatch = 2, isBothSides = true, simultaneousChance = 0.15f, stepMs = 1200),
+            DifficultyConfig(moveCount = 6, maxBatch = 2, isBothSides = true, simultaneousChance = 0.25f, stepMs = 1150),
+            DifficultyConfig(moveCount = 7, maxBatch = 2, isBothSides = true, simultaneousChance = 0.3f, stepMs = 1100),
+            DifficultyConfig(moveCount = 7, maxBatch = 3, isBothSides = true, simultaneousChance = 0.3f, stepMs = 1050),
+            DifficultyConfig(moveCount = 7, maxBatch = 3, isBothSides = true, simultaneousChance = 0.35f, stepMs = 1000),
+            DifficultyConfig(moveCount = 8, maxBatch = 3, isBothSides = true, simultaneousChance = 0.4f, stepMs = 950),
+            DifficultyConfig(moveCount = MAX_MOVES, maxBatch = MAX_BATCH, isBothSides = true, simultaneousChance = 0.4f, stepMs = MIN_STEP_MS),
+        )
+
         /** Keeps the answer a single digit, so the pad's submit-on-length reveals nothing. */
         const val MAX_OCCUPANTS = 9
 
@@ -95,9 +105,6 @@ class HeadCountGame(private val random: Random = Random.Default) :
         const val LEAD_IN_MS = 700L
 
         private const val FIRST_MOVE_MAX_ENTERING = 3
-
-        /** Share of moves in a mixed tier where people go in and come out at once. */
-        private const val SIMULTANEOUS_CHANCE = 0.4f
     }
 
     override fun generateRound() {
@@ -112,7 +119,8 @@ class HeadCountGame(private val random: Random = Random.Default) :
         var occupants = 0
         return List(config.moveCount) { index ->
             val move = if (index == 0) {
-                Move(entering = random.nextInt(1, FIRST_MOVE_MAX_ENTERING + 1), leaving = 0, entersFromLeft = true)
+                val maxEntering = minOf(config.maxBatch + 1, FIRST_MOVE_MAX_ENTERING)
+                Move(entering = random.nextInt(1, maxEntering + 1), leaving = 0, entersFromLeft = true)
             } else {
                 nextMove(occupants, config)
             }
@@ -122,9 +130,9 @@ class HeadCountGame(private val random: Random = Random.Default) :
     }
 
     private fun nextMove(occupants: Int, config: DifficultyConfig): Move {
-        val entersFromLeft = !config.isMixed || random.nextBoolean()
+        val entersFromLeft = !config.isBothSides || random.nextBoolean()
         val room = MAX_OCCUPANTS - occupants
-        if (config.isMixed && occupants > 0 && random.nextFloat() < SIMULTANEOUS_CHANCE) {
+        if (occupants > 0 && random.nextFloat() < config.simultaneousChance) {
             val leaving = random.nextInt(1, minOf(config.maxBatch, occupants) + 1)
             val entering = random.nextInt(1, minOf(config.maxBatch, room + leaving) + 1)
             return Move(entering = entering, leaving = leaving, entersFromLeft = entersFromLeft)
@@ -212,8 +220,6 @@ class HeadCountGame(private val random: Random = Random.Default) :
             leaving = move?.leaving ?: 0,
             entersFromLeft = move?.entersFromLeft ?: true,
             stepMillis = stepDurationMs(),
-            moveIndex = currentMoveIndex,
-            moveCount = moves.size,
             revealedCount = if (answerResult != null) occupants() else null,
             answerResult = answerResult,
         )

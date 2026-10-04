@@ -61,40 +61,7 @@ fun PrismPolygon(
                 }
 
                 val polygonPath = Path().apply { buildPolygon(front) }
-
-                var sumX = 0f
-                var sumY = 0f
-                for (p in front) {
-                    sumX += p.x
-                    sumY += p.y
-                }
-                val cx = sumX / front.size
-                val cy = sumY / front.size
-
-                val sidePaths = mutableListOf<Path>()
-                for (i in front.indices) {
-                    val j = (i + 1) % front.size
-                    val p1 = front[i]
-                    val p2 = front[j]
-                    val ex = p2.x - p1.x
-                    val ey = p2.y - p1.y
-                    val toMidX = (p1.x + p2.x) * 0.5f - cx
-                    val toMidY = (p1.y + p2.y) * 0.5f - cy
-                    val flip = -ey * toMidX + ex * toMidY < 0f
-                    val nx = if (flip) ey else -ey
-                    val ny = if (flip) -ex else ex
-                    if ((nx + ny) * d > 0f) {
-                        sidePaths.add(
-                            Path().apply {
-                                moveTo(p1.x, p1.y)
-                                lineTo(p2.x, p2.y)
-                                lineTo(p2.x + d, p2.y + d)
-                                lineTo(p1.x + d, p1.y + d)
-                                close()
-                            },
-                        )
-                    }
-                }
+                val sidePaths = prismSidePaths(front, d)
 
                 onDrawBehind {
                     translate(d, d) { drawPath(polygonPath, resolvedBottom) }
@@ -105,6 +72,63 @@ fun PrismPolygon(
             },
         )
     }
+}
+
+/**
+ * [PrismPolygon] for a canvas: [points] are the front face in pixels, extruded [depth] down-right.
+ * Draws opaque; fade a whole prism through a layer, or its back face shows through the front.
+ */
+fun DrawScope.drawPrismPolygon(
+    points: List<Offset>,
+    face: Color,
+    depth: Float,
+    side: Color? = null,
+    bottom: Color? = null,
+) {
+    if (points.size < 3) return
+    val polygonPath = Path().apply { buildPolygon(points) }
+    translate(depth, depth) { drawPath(polygonPath, bottom ?: face.darken(PrismShade.Bottom)) }
+    val resolvedSide = side ?: face.darken(PrismShade.Side)
+    for (p in prismSidePaths(points, depth)) drawPath(p, resolvedSide)
+    drawPath(polygonPath, face)
+}
+
+/** The quads joining each down-right-facing edge of [front] to its copy [depth] down-right. */
+private fun prismSidePaths(front: List<Offset>, depth: Float): List<Path> {
+    var sumX = 0f
+    var sumY = 0f
+    for (p in front) {
+        sumX += p.x
+        sumY += p.y
+    }
+    val cx = sumX / front.size
+    val cy = sumY / front.size
+
+    val sidePaths = mutableListOf<Path>()
+    for (i in front.indices) {
+        val j = (i + 1) % front.size
+        val p1 = front[i]
+        val p2 = front[j]
+        val ex = p2.x - p1.x
+        val ey = p2.y - p1.y
+        val toMidX = (p1.x + p2.x) * 0.5f - cx
+        val toMidY = (p1.y + p2.y) * 0.5f - cy
+        val flip = -ey * toMidX + ex * toMidY < 0f
+        val nx = if (flip) ey else -ey
+        val ny = if (flip) -ex else ex
+        if ((nx + ny) * depth > 0f) {
+            sidePaths.add(
+                Path().apply {
+                    moveTo(p1.x, p1.y)
+                    lineTo(p2.x, p2.y)
+                    lineTo(p2.x + depth, p2.y + depth)
+                    lineTo(p1.x + depth, p1.y + depth)
+                    close()
+                },
+            )
+        }
+    }
+    return sidePaths
 }
 
 /** Prism-styled disc. Front and back are true circles; only the down-right facet ring is polygonal. */

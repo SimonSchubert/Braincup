@@ -59,8 +59,8 @@ fun HeadCountDemo(modifier: Modifier = Modifier) {
         walk.snapTo(0f)
         delay(IntroMillis)
         for (i in DemoSteps.indices) {
-            stepIndex = i
             walk.snapTo(0f)
+            stepIndex = i
             walk.animateTo(1f, tween(WalkMillis, easing = LinearEasing))
             delay(StillMillis)
         }

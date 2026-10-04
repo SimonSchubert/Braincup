@@ -150,8 +150,6 @@ fun createHeadCountUiState(): GameUiState = HeadCountUiState(
     leaving = 0,
     entersFromLeft = true,
     stepMillis = 1200,
-    moveIndex = 2,
-    moveCount = 6,
     revealedCount = null,
     answerResult = null,
 )
@@ -164,8 +162,6 @@ fun createHeadCountRevealUiState(): GameUiState = HeadCountUiState(
     leaving = 0,
     entersFromLeft = true,
     stepMillis = 1200,
-    moveIndex = 5,
-    moveCount = 6,
     revealedCount = HeadCountGame.MAX_OCCUPANTS,
     answerResult = RevealResult.WRONG,
 )

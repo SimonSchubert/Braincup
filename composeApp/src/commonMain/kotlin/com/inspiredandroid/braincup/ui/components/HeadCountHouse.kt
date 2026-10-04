@@ -4,14 +4,12 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Paint
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import com.inspiredandroid.braincup.ui.theme.HeadCountDoor
-import com.inspiredandroid.braincup.ui.theme.HeadCountGround
 import com.inspiredandroid.braincup.ui.theme.HeadCountPeople
 import com.inspiredandroid.braincup.ui.theme.HeadCountRoof
 import com.inspiredandroid.braincup.ui.theme.HeadCountWall
@@ -32,11 +30,11 @@ private const val RoofPeak = 0.18f
 private const val RoofLift = 0.16f
 private const val DoorHalfWidth = 0.045f
 private const val DoorTop = 0.62f
+private const val HouseDepth = 0.025f
 private const val PersonHeight = 0.3f
 private const val QueueSpacing = 0.22f
 private const val RevealPersonHeight = 0.18f
 private const val RevealRowRise = 0.21f
-private const val RevealedHouseAlpha = 0.3f
 private const val RevealPerRow = 5
 
 /**
@@ -46,9 +44,9 @@ private const val RevealPerRow = 5
  * into the door, [leaving] people step out of it and walk off the other side. A batch walks at one
  * pace in single file, so the last of them reaches the door exactly at 1.
  *
- * With [revealedOccupants] set the roof lifts, the house fades and that many people show through
- * it, which is how the answer is shown: as the house the player was keeping count of, not as a
- * bare number.
+ * With [revealedOccupants] set the roof lifts and the front wall is drawn as a cutaway with that
+ * many people standing inside, which is how the answer is shown: as the house the player was
+ * keeping count of, not as a bare number.
  */
 @Composable
 fun HeadCountHouse(
@@ -61,50 +59,51 @@ fun HeadCountHouse(
 ) {
     Canvas(modifier = modifier.clipToBounds()) {
         if (revealedOccupants != null) {
-            drawHouse(roofLift = RoofLift, alpha = RevealedHouseAlpha)
+            drawHouse(roofLift = RoofLift, isCutaway = true)
             drawOccupants(revealedOccupants)
         } else {
-            drawHouse(roofLift = 0f, alpha = 1f)
+            drawHouse(roofLift = 0f, isCutaway = false)
         }
         drawEntering(entering, entersFromLeft, walkProgress)
         drawLeaving(leaving, leavesToRight = entersFromLeft, walkProgress)
     }
 }
 
-private fun DrawScope.drawHouse(roofLift: Float, alpha: Float) {
+/** Every part sits [HouseDepth] above [GroundY], so its extrusion is what lands on the ground. */
+private fun DrawScope.drawHouse(roofLift: Float, isCutaway: Boolean) {
     val w = size.width
     val h = size.height
-    drawLine(
-        color = HeadCountGround,
-        start = Offset(0f, GroundY * h),
-        end = Offset(w, GroundY * h),
-        strokeWidth = h * 0.012f,
+    val depth = HouseDepth * h
+    val base = GroundY * h - depth
+    drawPrismPolygon(
+        points = chamferRect(WallLeft * w, WallTop * h, WallRight * w, base, cut = depth * 1.5f),
+        face = HeadCountWall,
+        depth = depth,
     )
-    drawRect(
-        color = HeadCountWall,
-        topLeft = Offset(WallLeft * w, WallTop * h),
-        size = Size((WallRight - WallLeft) * w, (GroundY - WallTop) * h),
-        alpha = alpha,
-    )
-    val window = Size(0.05f * w, 0.1f * h)
-    listOf(0.39f, 0.56f).forEach { left ->
-        drawRect(color = HeadCountWindow, topLeft = Offset(left * w, 0.52f * h), size = window, alpha = alpha)
+    if (!isCutaway) {
+        listOf(0.39f, 0.56f).forEach { left ->
+            drawPrismPolygon(
+                points = chamferRect(left * w, 0.52f * h, (left + 0.05f) * w, 0.62f * h, cut = depth * 0.6f),
+                face = HeadCountWindow,
+                depth = depth * 0.4f,
+            )
+        }
+        drawPrismPolygon(
+            points = chamferRect((0.5f - DoorHalfWidth) * w, DoorTop * h, (0.5f + DoorHalfWidth) * w, base, cut = depth),
+            face = HeadCountDoor,
+            depth = depth * 0.4f,
+        )
     }
-    drawRoundRect(
-        alpha = alpha,
-        color = HeadCountDoor,
-        topLeft = Offset((0.5f - DoorHalfWidth) * w, DoorTop * h),
-        size = Size(DoorHalfWidth * 2 * w, (GroundY - DoorTop) * h),
-        cornerRadius = CornerRadius(DoorHalfWidth * w * 0.5f),
+    val eaves = (WallTop - roofLift + 0.02f) * h
+    drawPrismPolygon(
+        points = listOf(
+            Offset((WallLeft - RoofOverhang) * w, eaves),
+            Offset(0.5f * w, (RoofPeak - roofLift) * h),
+            Offset((WallRight + RoofOverhang) * w, eaves),
+        ),
+        face = HeadCountRoof,
+        depth = depth,
     )
-    val roofBase = (WallTop - roofLift) * h
-    val roof = Path().apply {
-        moveTo((WallLeft - RoofOverhang) * w, roofBase + 0.02f * h)
-        lineTo(0.5f * w, (RoofPeak - roofLift) * h)
-        lineTo((WallRight + RoofOverhang) * w, roofBase + 0.02f * h)
-        close()
-    }
-    drawPath(roof, HeadCountRoof, alpha = alpha)
 }
 
 private fun DrawScope.drawEntering(count: Int, fromLeft: Boolean, progress: Float) {
@@ -118,11 +117,9 @@ private fun DrawScope.drawEntering(count: Int, fromLeft: Boolean, progress: Floa
     repeat(count) { j ->
         val x = startX - j * spacing + progress * travel
         if (x >= doorX) return@repeat
-        drawWalker(
-            x = if (fromLeft) x else w - x,
-            alpha = fadeNearDoor(doorX - x, h),
-            colorIndex = j,
-        )
+        withAlpha(fadeNearDoor(doorX - x, h)) {
+            drawWalker(x = if (fromLeft) x else w - x, colorIndex = j)
+        }
     }
 }
 
@@ -137,18 +134,16 @@ private fun DrawScope.drawLeaving(count: Int, leavesToRight: Boolean, progress: 
     repeat(count) { j ->
         val x = doorX + progress * travel - j * spacing
         if (x <= doorX) return@repeat
-        drawWalker(
-            x = if (leavesToRight) x else w - x,
-            alpha = fadeNearDoor(x - doorX, h),
-            colorIndex = j + 2,
-        )
+        withAlpha(fadeNearDoor(x - doorX, h)) {
+            drawWalker(x = if (leavesToRight) x else w - x, colorIndex = j + 2)
+        }
     }
 }
 
 /** People melt into the doorway rather than popping, so a batch never seems to lose someone. */
 private fun fadeNearDoor(distance: Float, height: Float): Float = (distance / (PersonHeight * height * 0.35f)).coerceIn(0f, 1f)
 
-private fun DrawScope.drawWalker(x: Float, alpha: Float, colorIndex: Int) {
+private fun DrawScope.drawWalker(x: Float, colorIndex: Int) {
     val h = size.height
     val personHeight = PersonHeight * h
     val bob = abs(sin(x / (personHeight * 0.45f) * PI.toFloat())) * personHeight * 0.04f
@@ -156,7 +151,7 @@ private fun DrawScope.drawWalker(x: Float, alpha: Float, colorIndex: Int) {
         centerX = x,
         feetY = GroundY * h - bob,
         height = personHeight,
-        color = HeadCountPeople[colorIndex % HeadCountPeople.size].copy(alpha = alpha),
+        color = HeadCountPeople[colorIndex % HeadCountPeople.size],
     )
 }
 
@@ -182,14 +177,42 @@ private fun DrawScope.drawOccupants(count: Int) {
 }
 
 private fun DrawScope.drawPerson(centerX: Float, feetY: Float, height: Float, color: Color) {
-    val headRadius = height * 0.17f
-    drawCircle(color = color, radius = headRadius, center = Offset(centerX, feetY - height + headRadius))
-    val bodyWidth = height * 0.5f
-    val bodyTop = feetY - height * 0.6f
-    drawRoundRect(
-        color = color,
-        topLeft = Offset(centerX - bodyWidth / 2, bodyTop),
-        size = Size(bodyWidth, feetY - bodyTop),
-        cornerRadius = CornerRadius(bodyWidth * 0.4f),
+    val depth = height * 0.07f
+    val base = feetY - depth
+    val bodyWidth = height * 0.48f
+    val bodyTop = base - height * 0.55f
+    drawPrismPolygon(
+        points = chamferRect(centerX - bodyWidth / 2, bodyTop, centerX + bodyWidth / 2, base, cut = bodyWidth * 0.2f),
+        face = color,
+        depth = depth,
     )
+    val headSize = height * 0.3f
+    val headBottom = bodyTop - height * 0.06f
+    drawPrismPolygon(
+        points = chamferRect(centerX - headSize / 2, headBottom - headSize, centerX + headSize / 2, headBottom, cut = headSize * 0.3f),
+        face = color,
+        depth = depth,
+    )
+}
+
+/** The prism silhouette: a rectangle with its top-right and bottom-left corners cut. */
+private fun chamferRect(left: Float, top: Float, right: Float, bottom: Float, cut: Float): List<Offset> = listOf(
+    Offset(left, top),
+    Offset(right - cut, top),
+    Offset(right, top + cut),
+    Offset(right, bottom),
+    Offset(left + cut, bottom),
+    Offset(left, bottom - cut),
+)
+
+/** A prism is drawn back to front, so it has to fade as one layer or its back shows through. */
+private inline fun DrawScope.withAlpha(alpha: Float, block: DrawScope.() -> Unit) {
+    if (alpha >= 1f) {
+        block()
+        return
+    }
+    if (alpha <= 0f) return
+    drawContext.canvas.saveLayer(Rect(Offset.Zero, size), Paint().apply { this.alpha = alpha })
+    block()
+    drawContext.canvas.restore()
 }
