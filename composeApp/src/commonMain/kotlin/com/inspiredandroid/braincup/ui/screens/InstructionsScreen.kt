@@ -68,6 +68,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismClearDemo
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.QuickSumDemo
+import com.inspiredandroid.braincup.ui.components.RailYardDemo
 import com.inspiredandroid.braincup.ui.components.RuleShiftDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.ScienceNoteCard
@@ -162,6 +163,7 @@ fun InstructionsScreen(
                 GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
                 GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
                 GameType.FLOCK -> FlockDemo(modifier = demoModifier)
+                GameType.RAIL_YARD -> RailYardDemo(modifier = demoModifier)
                 GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
                 GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
                 GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)

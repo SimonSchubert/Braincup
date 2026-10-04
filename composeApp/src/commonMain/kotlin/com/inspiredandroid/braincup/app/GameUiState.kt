@@ -12,6 +12,7 @@ import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
+import com.inspiredandroid.braincup.games.RailYardGame
 import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.games.RuleShiftCard
 import com.inspiredandroid.braincup.games.SimonSaysGame
@@ -451,6 +452,29 @@ data class FlockUiState(
     val flankers: FlockGame.Direction,
     val feedback: AnswerFeedbackState,
 ) : GameUiState
+
+@Immutable
+data class RailYardUiState(
+    val layoutKey: Int,
+    val tunnel: RailYardGame.Point,
+    val tracks: ImmutableList<Track>,
+    val switches: ImmutableList<Switch>,
+    val stations: ImmutableList<Station>,
+    val trains: ImmutableList<RailYardGame.TrainFrame>,
+) : GameUiState {
+    @Immutable
+    data class Track(val points: ImmutableList<RailYardGame.Point>, val isOpen: Boolean)
+
+    @Immutable
+    data class Switch(val nodeIndex: Int, val position: RailYardGame.Point, val turnsRight: Boolean)
+
+    @Immutable
+    data class Station(
+        val position: RailYardGame.Point,
+        val color: GameColor,
+        val flash: RailYardGame.StationFlash,
+    )
+}
 
 @Immutable
 data class TrioUiState(

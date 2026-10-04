@@ -81,6 +81,10 @@ class GameController(
     val bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>> =
         _bubbleSumFrames.asStateFlow()
 
+    /** Rail Yard train positions per animation frame; the yard itself stays on [gameUiState]. */
+    private val _railYardTrains = MutableStateFlow<List<RailYardGame.TrainFrame>>(emptyList())
+    val railYardTrains: StateFlow<List<RailYardGame.TrainFrame>> = _railYardTrains.asStateFlow()
+
     private val _gameUiState = MutableStateFlow<GameUiState?>(null)
     val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
 
@@ -113,6 +117,9 @@ class GameController(
     val isInSessionMode: Boolean get() = inSessionMode
     private var cpuMoveJob: Job? = null
     private var timerJob: Job? = null
+
+    /** Kept across a pause so the resumed clock still ends a game that finishes on the clock. */
+    private var onTimerExpired: (() -> Unit)? = null
     private var stopwatchJob: Job? = null
 
     private var timersPaused = false
@@ -446,6 +453,7 @@ class GameController(
             GameType.HEAD_COUNT,
             -> startRevealRoundGame(gameType)
             GameType.BUBBLE_SUM -> startBubbleSumGame(gameType)
+            GameType.RAIL_YARD -> startRailYardGame(gameType)
             GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
             GameType.WORDLE -> startWordleGame(gameType)
             GameType.BULLS_AND_COWS -> startBullsAndCowsGame(gameType)
@@ -504,6 +512,7 @@ class GameController(
             is ColoredShapesGame -> handleColoredShapesAnswer(currentState, game, answer.trim())
             is ColorConfusionGame -> handleColorConfusionAnswer(currentState, game, answer.trim())
             is FlockGame -> handleFlockAnswer(currentState, game, answer.trim())
+            is RailYardGame -> handleRailYardAnswer(game, answer.trim())
             is OrbitTrackerGame -> handleOrbitTrackerAnswer(currentState, game, answer.trim())
             is FlashCrowdGame -> submitGenericAnswer(currentState, game, answer, showsSolutionOnWrong = false)
             is MiniSudokuGame -> handleMiniSudokuAnswer(currentState, game, answer.trim())
@@ -837,8 +846,12 @@ class GameController(
         }
     }
 
-    /** Ticks [_timeRemaining] down from [GAME_TIME_MILLIS] since [startTime]. */
-    private fun startTimer() {
+    /**
+     * Ticks [_timeRemaining] down from [GAME_TIME_MILLIS] since [startTime]. Most games end on the
+     * first answer after 0s; a game with no answers to wait for passes [onExpired] instead.
+     */
+    private fun startTimer(onExpired: (() -> Unit)? = null) {
+        onTimerExpired = onExpired
         timerJob?.cancel()
         timerJob = scope.launch {
             while (true) {
@@ -846,7 +859,10 @@ class GameController(
                 val remaining = (GAME_TIME_MILLIS - elapsed).coerceAtLeast(0)
                 _timeRemaining.value = remaining
 
-                if (remaining <= 0) return@launch
+                if (remaining <= 0) {
+                    onTimerExpired?.invoke()
+                    return@launch
+                }
                 delay(100.milliseconds)
             }
         }
@@ -895,7 +911,7 @@ class GameController(
                 startTime = Clock.System.now().toEpochMilliseconds() -
                     (GAME_TIME_MILLIS - pausedRemainingMillis)
                 _timeRemaining.value = pausedRemainingMillis
-                startTimer()
+                startTimer(onTimerExpired)
             }
             TimerKind.STOPWATCH -> {
                 startTime = Clock.System.now().toEpochMilliseconds() - pausedElapsedMillis
@@ -940,6 +956,7 @@ class GameController(
         GameType.SIMON_SAYS -> SimonSaysGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
         GameType.FLOCK -> FlockGame()
+        GameType.RAIL_YARD -> RailYardGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.BUBBLE_SUM -> BubbleSumGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
@@ -2075,6 +2092,37 @@ class GameController(
 
     private fun emitBubbleSumFrame(game: BubbleSumGame) {
         _bubbleSumFrames.value = game.frames()
+    }
+
+    private fun startRailYardGame(gameType: GameType) {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = GAME_TIME_MILLIS
+
+        val game = RailYardGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        emitUiState(game)
+        _railYardTrains.value = game.frames()
+        navController.navigate(Playing(gameType.id))
+        // finishGame, not finishCurrentGame: a run with no train at the wrong station earns the
+        // flawless bonus like any other timed game.
+        startTimer(onExpired = { finishGame(gameType, game) })
+        game.startMotion(scope) { result ->
+            for (isCorrect in result.arrivals) {
+                if (isCorrect) {
+                    points++
+                    _intermediateCorrectEvents.tryEmit(Unit)
+                }
+            }
+            if (result.boardChanged) emitUiState(game)
+            _railYardTrains.value = game.frames()
+        }
+    }
+
+    private fun handleRailYardAnswer(game: RailYardGame, input: String) {
+        val switch = input.intArg(BoardCommand.TAP) ?: return
+        if (game.toggleSwitch(switch)) emitUiState(game)
     }
 
     private fun handleDigitMemoryAnswer(

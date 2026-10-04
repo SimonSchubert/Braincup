@@ -118,3 +118,16 @@ val HeadCountPeople = listOf(
     Color(0xFF0D9488),
     Color(0xFFF59E0B),
 )
+
+// The yard keeps one look in both themes, like the other boards. The ground is a dark slate rather
+// than grass so that every station colour, green included, stands off it.
+val RailYardGround = Color(0xFF3F4A56)
+val RailYardFrame = PuzzleSlateFrame
+val RailYardRail = Color(0xFFD7DEE6)
+val RailYardSleeper = Color(0xFF8A6A4C)
+val RailYardClosedRail = Color(0xFF6B7684)
+val RailYardClosedSleeper = Color(0xFF55606C)
+val RailYardTunnel = Color(0xFF151A21)
+val RailYardTunnelStone = Color(0xFF9AA3AE)
+val RailYardSwitchFace = Color(0xFFF8FAFC)
+val RailYardSwitchInk = Color(0xFF1F2937)

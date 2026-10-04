@@ -390,6 +390,20 @@ fun createFlockUiState(): GameUiState = FlockUiState(
     feedback = AnswerFeedbackState.NORMAL,
 )
 
+// Played by the game's own autopilot until a later map has three trains out and a station showing
+// its mark, so the snapshot carries the whole mechanic rather than an empty first second.
+fun createRailYardUiState(): GameUiState {
+    val game = RailYardGame(Random(5L)).apply { nextRound() }
+    repeat(60 * 60) {
+        game.toggleSwitch(game.switchToFlip(lookahead = 0.05f) ?: -1)
+        game.step(1f / 60f)
+        val state = game.toUiState()
+        val isShowingMark = state.stations.any { it.flash != RailYardGame.StationFlash.NONE }
+        if (game.stageIndex >= 1 && state.trains.size >= 3 && isShowingMark) return state
+    }
+    error("Rail Yard snapshot never reached three trains")
+}
+
 fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     nextRound()
     tap(0)

@@ -117,6 +117,7 @@ GAME_MEDALS = [
   ["MINI_CHECKERS", "Mini Checkers", "Shot Caller", "87_logic_mini_checkers"],
   ["FLOCK", "Flock", "Flight Leader", "88_perception_flock"],
   ["HEAD_COUNT", "Head Count", "Doorkeeper", "89_memory_head_count"],
+  ["RAIL_YARD", "Rail Yard", "Station Master", "90_perception_rail_yard"],
 ].map do |game_type, game_name, title, icon|
   {
     game_type: game_type,

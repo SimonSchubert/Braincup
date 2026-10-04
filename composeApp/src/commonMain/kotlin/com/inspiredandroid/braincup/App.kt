@@ -469,6 +469,7 @@ fun App(
                                         orbitBallPositions = controller.orbitBallPositions,
                                         bubbleSumFrames = controller.bubbleSumFrames,
                                         onBubbleSumArenaSize = controller::setBubbleSumArenaSize,
+                                        railYardTrains = controller.railYardTrains,
                                     )
 
                                     if (showQuitDialog) {

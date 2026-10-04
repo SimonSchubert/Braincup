@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.AnswerFeedbackState
+import com.inspiredandroid.braincup.app.RailYardUiState
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.checkers.CheckersPiece
 import com.inspiredandroid.braincup.checkers.CheckersSide
@@ -44,6 +45,7 @@ import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.FlockGame
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
+import com.inspiredandroid.braincup.games.RailYardGame
 import com.inspiredandroid.braincup.games.RuleShiftGame
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.TrioCard
@@ -113,6 +115,7 @@ import com.inspiredandroid.braincup.ui.theme.medalTint
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import com.inspiredandroid.braincup.ui.theme.tileFace
 import com.inspiredandroid.braincup.ui.theme.tileTextColor
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -812,6 +815,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SIMON_SAYS -> SimonSaysPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
         GameType.FLOCK -> FlockPreview()
+        GameType.RAIL_YARD -> RailYardPreview()
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
         GameType.MINI_CHESS -> MiniChessPreview()
@@ -2322,6 +2326,39 @@ private fun FlockPreview() {
         )
     }
 }
+
+@Composable
+private fun RailYardPreview() {
+    RailYardBoard(
+        uiState = RailYardPreviewState,
+        trains = { RailYardPreviewState.trains },
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(6.dp),
+    )
+}
+
+// Drawn by hand rather than dealt: a generated map is too dense to read at tile size, so the tile
+// keeps the smallest yard there is, one switch and a train already heading the right way.
+private val RailYardPreviewState = RailYardUiState(
+    layoutKey = 0,
+    tunnel = RailYardGame.Point(0.5f, 0.08f),
+    tracks = persistentListOf(
+        RailYardUiState.Track(persistentListOf(RailYardGame.Point(0.5f, 0.08f), RailYardGame.Point(0.5f, 0.42f)), isOpen = true),
+        RailYardUiState.Track(
+            persistentListOf(RailYardGame.Point(0.5f, 0.42f), RailYardGame.Point(0.18f, 0.42f), RailYardGame.Point(0.18f, 0.86f)),
+            isOpen = true,
+        ),
+        RailYardUiState.Track(
+            persistentListOf(RailYardGame.Point(0.5f, 0.42f), RailYardGame.Point(0.82f, 0.42f), RailYardGame.Point(0.82f, 0.86f)),
+            isOpen = false,
+        ),
+    ),
+    switches = persistentListOf(RailYardUiState.Switch(nodeIndex = 1, position = RailYardGame.Point(0.5f, 0.42f), turnsRight = false)),
+    stations = persistentListOf(
+        RailYardUiState.Station(RailYardGame.Point(0.18f, 0.86f), GameColor.RED, RailYardGame.StationFlash.NONE),
+        RailYardUiState.Station(RailYardGame.Point(0.82f, 0.86f), GameColor.BLUE, RailYardGame.StationFlash.NONE),
+    ),
+    trains = persistentListOf(RailYardGame.TrainFrame(x = 0.18f, y = 0.6f, isHorizontal = false, color = GameColor.RED)),
+)
 
 @Composable
 private fun FlashCrowdPreview() {

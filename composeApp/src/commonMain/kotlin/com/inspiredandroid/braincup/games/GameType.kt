@@ -311,6 +311,17 @@ enum class GameType(
         descriptionRes = Res.string.game_flock_desc,
         category = GameCategory.PERCEPTION,
     ),
+    RAIL_YARD(
+        displayNameRes = Res.string.game_rail_yard,
+        id = "45",
+        // Score = trains delivered to the right station in 60s. A perfect autopilot delivers 17-20
+        // and reaches the six-station map; leaving the switches alone lands 4-8 by chance. Both
+        // bounds are asserted in RailYardGameTest. Initial thresholds; tune after playtest.
+        goldScore = 14,
+        silverScore = 9,
+        descriptionRes = Res.string.game_rail_yard_desc,
+        category = GameCategory.PERCEPTION,
+    ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
         id = "14",

@@ -565,6 +565,11 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameRailYard() {
+        snapGame(createRailYardUiState(), 43_000L)
+    }
+
+    @Test
     fun gameTrio() {
         snapGame(createTrioUiState(), 45_000L)
     }
@@ -823,6 +828,18 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.FLOCK,
+                storage = screenshotStorage(),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun instructionsRailYard() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.RAIL_YARD,
                 storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},

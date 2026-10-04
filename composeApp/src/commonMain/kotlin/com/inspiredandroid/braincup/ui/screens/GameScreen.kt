@@ -43,6 +43,7 @@ import com.inspiredandroid.braincup.app.PathFinderUiState
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
+import com.inspiredandroid.braincup.app.RailYardUiState
 import com.inspiredandroid.braincup.app.RuleShiftUiState
 import com.inspiredandroid.braincup.app.SchulteTableUiState
 import com.inspiredandroid.braincup.app.SherlockCalculationUiState
@@ -58,6 +59,7 @@ import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
 import com.inspiredandroid.braincup.games.BubbleSumGame
+import com.inspiredandroid.braincup.games.RailYardGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.ui.components.GameScaffold
@@ -92,6 +94,7 @@ import com.inspiredandroid.braincup.ui.screens.games.PathFinderContent
 import com.inspiredandroid.braincup.ui.screens.games.PatternSequenceContent
 import com.inspiredandroid.braincup.ui.screens.games.PrismClearContent
 import com.inspiredandroid.braincup.ui.screens.games.QuickSumContent
+import com.inspiredandroid.braincup.ui.screens.games.RailYardContent
 import com.inspiredandroid.braincup.ui.screens.games.RuleShiftContent
 import com.inspiredandroid.braincup.ui.screens.games.SchulteTableContent
 import com.inspiredandroid.braincup.ui.screens.games.SherlockCalculationContent
@@ -130,6 +133,7 @@ fun GameScreen(
     orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
     bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>>? = null,
     onBubbleSumArenaSize: (Float, Float) -> Unit = { _, _ -> },
+    railYardTrains: StateFlow<List<RailYardGame.TrainFrame>>? = null,
 ) {
     val progressBarModifier = Modifier
         .fillMaxWidth()
@@ -165,6 +169,7 @@ fun GameScreen(
         },
         fillContent = gameUiState is FlagsUiState ||
             gameUiState is BubbleSumUiState ||
+            gameUiState is RailYardUiState ||
             gameUiState is BullsAndCowsUiState,
     ) {
         // Force LTR for gameplay content: math expressions, digit sequences, directional
@@ -207,6 +212,7 @@ fun GameScreen(
                 is SimonSaysUiState -> SimonSaysContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
                 is FlockUiState -> FlockContent(gameUiState, onAnswer)
+                is RailYardUiState -> RailYardContent(gameUiState, onAnswer, railYardTrains)
                 is TrioUiState -> TrioContent(gameUiState, onAnswer, onGiveUp)
                 is OrbitTrackerUiState -> OrbitTrackerContent(
                     uiState = gameUiState,

@@ -61,6 +61,8 @@
     <string name="achievementFlightLeader" translatable="false">CgkIuZrirtIVEAIQUw</string>
     <!-- achievement Doorkeeper (Head Count) -->
     <string name="achievementDoorkeeper" translatable="false"></string>
+    <!-- achievement Station Master (Rail Yard) -->
+    <string name="achievementStationMaster" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

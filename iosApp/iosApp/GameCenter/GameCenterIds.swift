@@ -48,6 +48,7 @@ enum GameCenterIds {
         "MINI_CHECKERS":         "achievement.shot_caller",
         "FLOCK":                 "achievement.flight_leader",
         "HEAD_COUNT":            "achievement.doorkeeper",
+        "RAIL_YARD":             "achievement.station_master",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [
@@ -177,6 +178,7 @@ enum GameCenterIds {
         case "achievement.shot_caller":           return UserStorage.Achievements.goldMiniCheckers
         case "achievement.flight_leader":         return UserStorage.Achievements.goldFlock
         case "achievement.doorkeeper":            return UserStorage.Achievements.goldHeadCount
+        case "achievement.station_master":        return UserStorage.Achievements.goldRailYard
         case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
         default: return nil
         }
