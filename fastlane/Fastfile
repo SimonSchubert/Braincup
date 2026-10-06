@@ -131,6 +131,37 @@ platform :ios do
     UI.important("files again when you are done, otherwise 'fastlane ios deploy' will push them back.")
   end
 
+  desc "Resubmit the open version with its existing build after a metadata-only rejection"
+  lane :resubmit do
+    app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"),
+      issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_#{ENV.fetch('ASC_KEY_ID')}.p8"),
+      in_house: false,
+    )
+    metadata_path = File.expand_path("metadata/ios", __dir__)
+    release_notes = collect_release_notes(metadata_path)
+    verify_every_store_locale_has_release_notes(release_notes)
+    cancel_rejected_review_submission
+
+    upload_to_app_store(
+      metadata_path: metadata_path,
+      release_notes: release_notes,
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      skip_metadata: false,
+      submit_for_review: true,
+      automatic_release: true,
+      force: true,
+      precheck_include_in_app_purchases: false,
+      submission_information: {
+        export_compliance_uses_encryption: false,
+        content_rights_contains_third_party_content: false,
+        add_id_info_uses_idfa: false,
+      },
+    )
+  end
+
   desc "Build, archive, upload to App Store Connect, submit for review, auto-release"
   lane :deploy do
     app_store_connect_api_key(
@@ -191,6 +222,7 @@ def collect_release_notes(metadata_path)
     if text.empty?
       UI.user_error!("Release notes are empty: #{path}. Run /release (it writes every locale), or fill the file in by hand.")
     end
+    reject_other_platform_mentions(path, text)
     [File.basename(File.dirname(path)), text]
   end
 
@@ -198,6 +230,31 @@ def collect_release_notes(metadata_path)
     UI.user_error!("Release notes missing: #{File.join(metadata_path, 'en-US', 'release_notes.txt')}. Run /release first (it writes this file), or create it manually with the 'What's New' text.")
   end
   notes
+end
+
+# A rejected submission stays open as UNRESOLVED_ISSUES, refuses to take the version back, and blocks
+# a new one ("A review submission is already in progress"). Cancelling it keeps the version and build.
+def cancel_rejected_review_submission
+  app = Spaceship::ConnectAPI::App.find(CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier))
+  rejected = app.get_review_submissions.find { |s| s.state == "UNRESOLVED_ISSUES" }
+  return if rejected.nil?
+
+  UI.message("Cancelling rejected review submission #{rejected.id}")
+  rejected.cancel_submission
+  30.times do
+    break unless app.get_review_submissions.find { |s| s.id == rejected.id }&.state == "CANCELING"
+    sleep(5)
+  end
+end
+
+# App Review rejects "What's New" that names another platform (Guideline 2.3.10, 3.8.0 was sent
+# back for "Fix distorted flags on Android 9"). Play Games is Google's, so it counts too.
+OTHER_PLATFORM_TERMS = /android|google|play games|play store|f-droid|flatpak|linux|windows|desktop|web\b|wasm/i
+
+def reject_other_platform_mentions(path, text)
+  hits = text.lines.grep(OTHER_PLATFORM_TERMS).map(&:strip)
+  return if hits.empty?
+  UI.user_error!("#{path} mentions another platform, which App Review rejects (Guideline 2.3.10). Drop or reword these lines:\n  #{hits.join("\n  ")}")
 end
 
 # App Store Connect rejects an update whose localizations do not all have "What's New", and a

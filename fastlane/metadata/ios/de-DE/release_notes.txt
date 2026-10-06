@@ -1,7 +1,5 @@
 Neu: Rangierbahnhof, bring jeden Zug zum Bahnhof seiner Farbe
 Neu: Kommen und Gehen, behalte im Blick, wer im Haus ist
 Neu: Vogelschwarm, wische in die Richtung, in die der mittlere Vogel fliegt
-Play Games fragt nicht mehr bei jedem Start nach der Anmeldung
 Trio erklärt seine Regel mit Beispielen und sagt, warum ein Tipp falsch ist
-Verzerrte Flaggen unter Android 9 behoben
 Die Hintergrundmusik läuft ohne Lücke in Schleife

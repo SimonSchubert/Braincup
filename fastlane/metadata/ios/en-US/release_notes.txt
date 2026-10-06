@@ -1,7 +1,5 @@
 Add Rail Yard: route each train to the station of its color
 Add Head Count: keep track of who is inside the house
 Add Flock: swipe the way the middle bird flies
-Play Games no longer asks you to sign in at every launch
 Trio explains its rule with examples and says why a guess is wrong
-Fix distorted flags on Android 9
 Background music loops without a gap
