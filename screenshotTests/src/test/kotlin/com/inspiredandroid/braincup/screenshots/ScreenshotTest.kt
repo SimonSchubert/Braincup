@@ -391,6 +391,13 @@ class ScreenshotTest {
     }
 
     @Test
+    fun answerFeedbackCorrect() {
+        paparazzi.snap {
+            AnswerFeedbackScreen(isCorrect = true, message = null)
+        }
+    }
+
+    @Test
     fun answerFeedbackWrong() {
         paparazzi.snap {
             AnswerFeedbackScreen(isCorrect = false, message = null)

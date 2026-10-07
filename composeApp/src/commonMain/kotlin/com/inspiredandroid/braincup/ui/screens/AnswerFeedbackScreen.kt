@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -16,7 +15,6 @@ import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -26,11 +24,9 @@ fun AnswerFeedbackScreen(
 ) {
     GameScaffold {
         if (isCorrect) {
-            Image(
-                painterResource(Res.drawable.ic_mascot_thumbs_up),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(200.dp),
+            Mascot(
+                mood = MascotMood.APPROVING,
+                modifier = Modifier.height(200.dp),
             )
         } else {
             Mascot(

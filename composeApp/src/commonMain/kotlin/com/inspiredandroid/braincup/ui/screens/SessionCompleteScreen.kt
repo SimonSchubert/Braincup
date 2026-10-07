@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -21,6 +20,8 @@ import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.components.mascot.Mascot
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.components.sectionWidth
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -29,7 +30,6 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.pluralStringResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -58,9 +58,8 @@ fun SessionCompleteScreen(
         onBack = onDone,
         scrollable = true,
     ) {
-        Image(
-            painterResource(Res.drawable.ic_mascot_thumbs_up),
-            contentDescription = null,
+        Mascot(
+            mood = MascotMood.APPROVING,
             modifier = Modifier
                 .height(120.dp)
                 .align(Alignment.CenterHorizontally),

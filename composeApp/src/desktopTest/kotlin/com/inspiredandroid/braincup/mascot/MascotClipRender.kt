@@ -38,12 +38,14 @@ class MascotClipRender {
         outDir.mkdirs()
         val fps = 30
         val seconds = System.getenv("MASCOT_CLIP_SECONDS")?.toInt() ?: 14
-        val tapFrames = listOf(330)
+        val tapFrames = listOf(380)
         val moodAtFrame = mapOf(
-            45 to MascotMood.SAD,
-            120 to MascotMood.NEUTRAL,
-            165 to MascotMood.DELIGHTED,
-            255 to MascotMood.NEUTRAL,
+            30 to MascotMood.APPROVING,
+            100 to MascotMood.NEUTRAL,
+            140 to MascotMood.SAD,
+            200 to MascotMood.NEUTRAL,
+            240 to MascotMood.DELIGHTED,
+            320 to MascotMood.NEUTRAL,
         )
         var mood by mutableStateOf(MascotMood.NEUTRAL)
         val scheduler = TestCoroutineScheduler()
@@ -57,7 +59,7 @@ class MascotClipRender {
         try {
             scene.setContent {
                 Box(Modifier.fillMaxSize().background(Color.White), contentAlignment = Alignment.BottomCenter) {
-                    Mascot(Modifier.padding(bottom = 12.dp).fillMaxSize(0.7f), mood = mood)
+                    Mascot(Modifier.padding(start = 56.dp, bottom = 12.dp).fillMaxSize(0.62f), mood = mood)
                 }
             }
             for (frame in 0 until fps * seconds) {
