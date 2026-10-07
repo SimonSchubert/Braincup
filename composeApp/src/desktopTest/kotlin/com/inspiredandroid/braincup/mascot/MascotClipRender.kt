@@ -4,6 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.ImageComposeScene
@@ -15,6 +18,7 @@ import androidx.compose.ui.input.pointer.PointerType
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.ui.components.mascot.Mascot
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import kotlinx.coroutines.test.TestCoroutineScheduler
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import org.jetbrains.skia.EncodedImageFormat
@@ -34,7 +38,14 @@ class MascotClipRender {
         outDir.mkdirs()
         val fps = 30
         val seconds = System.getenv("MASCOT_CLIP_SECONDS")?.toInt() ?: 14
-        val tapFrames = listOf(75, 300)
+        val tapFrames = listOf(330)
+        val moodAtFrame = mapOf(
+            45 to MascotMood.SAD,
+            120 to MascotMood.NEUTRAL,
+            165 to MascotMood.DELIGHTED,
+            255 to MascotMood.NEUTRAL,
+        )
+        var mood by mutableStateOf(MascotMood.NEUTRAL)
         val scheduler = TestCoroutineScheduler()
         val scene = ImageComposeScene(
             width = 440,
@@ -46,7 +57,7 @@ class MascotClipRender {
         try {
             scene.setContent {
                 Box(Modifier.fillMaxSize().background(Color.White), contentAlignment = Alignment.BottomCenter) {
-                    Mascot(Modifier.padding(bottom = 12.dp).fillMaxSize(0.7f))
+                    Mascot(Modifier.padding(bottom = 12.dp).fillMaxSize(0.7f), mood = mood)
                 }
             }
             for (frame in 0 until fps * seconds) {
@@ -54,6 +65,7 @@ class MascotClipRender {
                 val delta = millis - scheduler.currentTime
                 if (delta > 0) scheduler.advanceTimeBy(delta)
                 scheduler.runCurrent()
+                moodAtFrame[frame]?.let { mood = it }
                 if (frame in tapFrames) scene.tap(PointerEventType.Press, center, millis)
                 if (frame - 2 in tapFrames) scene.tap(PointerEventType.Release, center, millis)
                 val image = scene.render(nanoTime = millis * 1_000_000L)

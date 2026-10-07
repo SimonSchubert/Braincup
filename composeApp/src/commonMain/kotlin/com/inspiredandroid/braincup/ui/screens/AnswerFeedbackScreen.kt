@@ -11,6 +11,8 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.ui.components.GameScaffold
+import com.inspiredandroid.braincup.ui.components.mascot.Mascot
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -31,11 +33,9 @@ fun AnswerFeedbackScreen(
                     .size(200.dp),
             )
         } else {
-            Image(
-                painterResource(Res.drawable.ic_mascot_sad),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(200.dp),
+            Mascot(
+                mood = MascotMood.SAD,
+                modifier = Modifier.height(200.dp),
             )
             if (message != null) {
                 Text(

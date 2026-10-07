@@ -24,6 +24,8 @@ import com.inspiredandroid.braincup.ui.components.ChunkyCross
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.components.mascot.Mascot
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.components.sectionWidth
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -71,6 +73,16 @@ fun FinishScreen(
         onBack = onMenu,
     ) {
         val medalTint = gameType.medalTint(score)
+
+        if (isNewHighscore) {
+            Mascot(
+                mood = MascotMood.DELIGHTED,
+                modifier = Modifier
+                    .height(120.dp)
+                    .align(Alignment.CenterHorizontally),
+            )
+            Spacer(Modifier.height(8.dp))
+        }
 
         if (medalTint != null) {
             PrismTrophy(

@@ -12,6 +12,7 @@ import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.ui.screens.AnswerFeedbackScreen
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
@@ -386,6 +387,13 @@ class ScreenshotTest {
                 onPlayAgain = {},
                 onMenu = {},
             )
+        }
+    }
+
+    @Test
+    fun answerFeedbackWrong() {
+        paparazzi.snap {
+            AnswerFeedbackScreen(isCorrect = false, message = null)
         }
     }
 

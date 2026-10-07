@@ -12,11 +12,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.runtime.withFrameNanos
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.graphics.drawscope.scale
@@ -24,14 +27,22 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalInspectionMode
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
 import kotlin.random.Random
 
+enum class MascotMood {
+    NEUTRAL,
+    DELIGHTED,
+    SAD,
+}
+
 internal enum class MascotPart {
     BODY,
     GLASSES,
+    GLASSES_SHADOW,
     LENS,
     MOUTH,
     LEFT_LEG,
@@ -62,20 +73,39 @@ private val mascotShapes: List<MascotShape> by lazy {
     }
 }
 
+private val glassesShapes: List<MascotShape> by lazy {
+    mascotShapes.filter {
+        it.part == MascotPart.GLASSES || it.part == MascotPart.LENS || it.part == MascotPart.GLASSES_SHADOW
+    }
+}
+
 private const val BODY_BASE_Y = 645f
 private const val BODY_CENTER_X = 340f
 private const val BODY_HEIGHT = 630f
 private val RIGHT_HEEL = Offset(390f, 815f)
+private val GLASSES_HINGE = Offset(60f, 300f)
+private const val GLASSES_SLIP_DEGREES = 11f
+private const val GLASSES_LIFT_DEGREES = 5f
+private const val GLASSES_LIFT_Y = 165f
+private val FACE_ANCHOR = Offset(460f, 420f)
 
 private const val BREATH_PERIOD_S = 3.4f
 private const val SWAY_PERIOD_S = 5.3f
 private const val GLASSES_LAG_S = 0.14f
 private const val GLINT_DURATION_S = 0.6f
 private const val TAP_DURATION_S = 0.22f
+private const val BLINK_DURATION_S = 0.14f
+
+private val FaceFront = Color(0xFFFF9678)
+private val FaceSide = Color(0xFFF87B57)
+private val Ink = Color(0xFF2B2622)
+private val MouthRed = Color(0xFFA82D0C)
+private val Tongue = Color(0xFFFF6F5E)
 
 /**
- * Mutable pose of the rig, advanced by [step]. Squash is a damped spring so that landings
- * jiggle like jelly; positive values squash, negative values stretch.
+ * Mutable pose of the rig, advanced by [step]. Squash and the glasses are damped springs so
+ * that landings jiggle and the glasses overshoot. Squash: positive squashes, negative
+ * stretches. Glasses: positive slips them down the nose, negative lifts them onto the forehead.
  */
 private class MascotAnimator(seed: Int) {
     private val random = Random(seed)
@@ -85,18 +115,56 @@ private class MascotAnimator(seed: Int) {
         private set
     var squash = 0f
         private set
+    var glasses = 0f
+        private set
     var toeAngle = 0f
         private set
     var glint = -1f
         private set
+    var eyeOpenness = 1f
+        private set
+    var mood = MascotMood.NEUTRAL
+        private set
 
     private var squashVelocity = 0f
     private var squashTarget = 0f
+    private var glassesVelocity = 0f
+    private var glassesTarget = 0f
+    private var glassesTargetAtLaunch: Float? = null
     private var liftVelocity = 0f
     private var airborne = false
     private var anticipationLeft = 0f
     private var nextGlintAt = 1.5f
     private var nextFootTapAt = 4f + random.nextFloat() * 3f
+    private var nextBlinkAt = 1.2f
+
+    fun snapTo(mood: MascotMood) {
+        this.mood = mood
+        squash = restSquash(mood)
+        squashTarget = squash
+        glasses = restGlasses(mood)
+        glassesTarget = glasses
+    }
+
+    fun setMood(mood: MascotMood) {
+        if (mood == this.mood) return
+        this.mood = mood
+        squashTarget = restSquash(mood)
+        if (mood == MascotMood.DELIGHTED) {
+            jump()
+            glassesTargetAtLaunch = restGlasses(mood)
+        } else {
+            glassesTarget = restGlasses(mood)
+        }
+    }
+
+    private fun restSquash(mood: MascotMood) = if (mood == MascotMood.SAD) 0.16f else 0f
+
+    private fun restGlasses(mood: MascotMood) = when (mood) {
+        MascotMood.NEUTRAL -> 0f
+        MascotMood.DELIGHTED -> -1f
+        MascotMood.SAD -> 1f
+    }
 
     fun jump() {
         if (airborne || anticipationLeft > 0f) return
@@ -118,6 +186,7 @@ private class MascotAnimator(seed: Int) {
         time += dt
         updateGlint()
         updateFootTap()
+        updateBlink()
     }
 
     private fun integrate(h: Float) {
@@ -126,8 +195,10 @@ private class MascotAnimator(seed: Int) {
             if (anticipationLeft <= 0f) {
                 airborne = true
                 liftVelocity = 820f
-                squashTarget = 0f
+                squashTarget = restSquash(mood)
                 squashVelocity = -14f
+                glassesTargetAtLaunch?.let { glassesTarget = it }
+                glassesTargetAtLaunch = null
             }
         }
         if (airborne) {
@@ -139,10 +210,10 @@ private class MascotAnimator(seed: Int) {
                 squashVelocity += 9f
             }
         }
-        val stiffness = 320f
-        val damping = 11f
-        squashVelocity += (stiffness * (squashTarget - squash) - damping * squashVelocity) * h
+        squashVelocity += (320f * (squashTarget - squash) - 11f * squashVelocity) * h
         squash += squashVelocity * h
+        glassesVelocity += (150f * (glassesTarget - glasses) - 10f * glassesVelocity) * h
+        glasses += glassesVelocity * h
     }
 
     private fun updateGlint() {
@@ -155,12 +226,12 @@ private class MascotAnimator(seed: Int) {
         }
     }
 
-    // Two quick toe taps on the right foot, as if keeping time.
+    // Two quick toe taps on the right foot, as if keeping time. Only a relaxed mascot taps.
     private fun updateFootTap() {
         val sinceStart = time - nextFootTapAt
         toeAngle = when {
             sinceStart < 0f -> 0f
-            sinceStart < 2 * TAP_DURATION_S -> {
+            sinceStart < 2 * TAP_DURATION_S && mood == MascotMood.NEUTRAL -> {
                 val phase = (sinceStart % TAP_DURATION_S) / TAP_DURATION_S
                 -11f * sin(PI.toFloat() * phase)
             }
@@ -170,12 +241,24 @@ private class MascotAnimator(seed: Int) {
             }
         }
     }
+
+    private fun updateBlink() {
+        val sinceStart = time - nextBlinkAt
+        eyeOpenness = when {
+            sinceStart < 0f -> 1f
+            sinceStart < BLINK_DURATION_S -> 1f - 0.9f * sin(PI.toFloat() * sinceStart / BLINK_DURATION_S)
+            else -> {
+                nextBlinkAt = time + 2.2f + random.nextFloat() * 2.5f
+                1f
+            }
+        }
+    }
 }
 
 /**
  * Point-wise deformation for one frame. The body scales from its base so breathing and
  * squash keep the feet planted, and the crown sways more than the base so the brain bends
- * instead of tilting rigidly.
+ * instead of tilting rigidly. The glasses ride the body, then turn about the ear hinge.
  */
 private class MascotDeformer {
     private var bodyBreath = 0f
@@ -185,36 +268,46 @@ private class MascotDeformer {
     private var lift = 0f
     private var toeCos = 1f
     private var toeSin = 0f
+    private var glassesCos = 1f
+    private var glassesSin = 0f
+    private var glassesLift = 0f
+    var bodyScaleX = 1f
+        private set
+    var bodyScaleY = 1f
+        private set
     var x = 0f
         private set
     var y = 0f
         private set
 
-    fun update(animator: MascotAnimator?) {
-        if (animator == null) {
-            bodyBreath = 0f
-            glassesBreath = 0f
-            squash = 0f
-            sway = 0f
-            lift = 0f
-            toeCos = 1f
-            toeSin = 0f
-            return
-        }
+    fun update(animator: MascotAnimator) {
         bodyBreath = animator.breath()
         glassesBreath = animator.breath(GLASSES_LAG_S)
         squash = animator.squash
         sway = animator.sway()
         lift = animator.lift
-        val radians = animator.toeAngle * PI.toFloat() / 180f
-        toeCos = cos(radians)
-        toeSin = sin(radians)
+        val toeRadians = animator.toeAngle * PI.toFloat() / 180f
+        toeCos = cos(toeRadians)
+        toeSin = sin(toeRadians)
+        val g = animator.glasses
+        val glassesDegrees = if (g >= 0f) GLASSES_SLIP_DEGREES * g else GLASSES_LIFT_DEGREES * g
+        glassesCos = cos(glassesDegrees * PI.toFloat() / 180f)
+        glassesSin = sin(glassesDegrees * PI.toFloat() / 180f)
+        glassesLift = if (g < 0f) GLASSES_LIFT_Y * g else 0f
+        bodyScaleX = 1f - 0.007f * bodyBreath + 0.09f * squash
+        bodyScaleY = 1f + 0.016f * bodyBreath - 0.13f * squash
     }
 
     fun map(part: MascotPart, px: Float, py: Float) {
         when (part) {
             MascotPart.BODY, MascotPart.MOUTH -> mapBody(px, py, bodyBreath)
-            MascotPart.GLASSES, MascotPart.LENS -> mapBody(px, py, glassesBreath)
+            MascotPart.GLASSES, MascotPart.LENS, MascotPart.GLASSES_SHADOW -> {
+                mapBody(px, py, glassesBreath)
+                val dx = x - GLASSES_HINGE.x
+                val dy = y - GLASSES_HINGE.y
+                x = GLASSES_HINGE.x + dx * glassesCos - dy * glassesSin
+                y = GLASSES_HINGE.y + dx * glassesSin + dy * glassesCos + glassesLift
+            }
             MascotPart.RIGHT_SHOE -> {
                 val dx = px - RIGHT_HEEL.x
                 val dy = py - RIGHT_HEEL.y
@@ -237,24 +330,37 @@ private class MascotDeformer {
     }
 }
 
+private class MascotPaths(shapeCount: Int) {
+    val shapes = List(shapeCount) { Path() }
+    val lensClip = Path()
+    val faceFill = Path()
+    val faceFrontClip = Path()
+    val faceSideClip = Path()
+    val scratch = Path()
+}
+
 /**
  * The brain mascot, alive: it breathes, its crown sways, its sunglasses catch the light and
- * it taps a foot now and then. Tapping it makes it hop. Inspection mode draws the rest pose,
- * which matches the `ic_mascot` drawable.
+ * it taps a foot now and then. Tapping it makes it hop. A [mood] change plays as a reaction:
+ * delighted hops and lifts the glasses to show wide eyes, sad slumps and lets them slip.
+ * Inspection mode draws the settled pose of [mood] without animating.
  */
 @Composable
 fun Mascot(
     modifier: Modifier = Modifier,
+    mood: MascotMood = MascotMood.NEUTRAL,
     seed: Int = 0,
 ) {
     val inInspection = LocalInspectionMode.current
-    val animator = remember(seed) { if (inInspection) null else MascotAnimator(seed) }
+    val animator = remember(seed) { MascotAnimator(seed) }
     val deformer = remember { MascotDeformer() }
-    val paths = remember { mascotShapes.map { Path() } }
-    val lensClip = remember { Path() }
+    val paths = remember { MascotPaths(mascotShapes.size) }
     var frameNanos by remember { mutableLongStateOf(0L) }
 
-    if (animator != null) {
+    if (inInspection) {
+        remember(mood) { animator.snapTo(mood) }
+    } else {
+        LaunchedEffect(mood) { animator.setMood(mood) }
         LaunchedEffect(animator) {
             var last = withFrameNanos { it }
             while (true) {
@@ -267,10 +373,10 @@ fun Mascot(
         }
     }
 
-    val tapModifier = if (animator != null) {
-        Modifier.pointerInput(animator) { detectTapGestures { animator.jump() } }
-    } else {
+    val tapModifier = if (inInspection) {
         Modifier
+    } else {
+        Modifier.pointerInput(animator) { detectTapGestures { animator.jump() } }
     }
 
     Canvas(
@@ -282,33 +388,176 @@ fun Mascot(
         frameNanos
         deformer.update(animator)
         scale(size.width / MASCOT_VIEWPORT_WIDTH, pivot = Offset.Zero) {
-            lensClip.rewind()
-            mascotShapes.forEachIndexed { index, shape ->
-                val path = paths[index]
-                buildPath(path, shape, deformer)
-                drawPath(path, shape.color)
-                if (shape.part == MascotPart.LENS) lensClip.addPath(path)
-            }
-            val glint = animator?.glint ?: -1f
-            if (glint >= 0f) drawGlint(lensClip, glint)
+            drawMascot(animator, deformer, paths)
         }
     }
 }
 
-private fun buildPath(path: Path, shape: MascotShape, deformer: MascotDeformer) {
+private fun DrawScope.drawMascot(animator: MascotAnimator, deformer: MascotDeformer, paths: MascotPaths) {
+    val glassesMoved = abs(animator.glasses) > 0.002f
+    // The traced art has no face behind the glasses, so paint one in once they move.
+    if (glassesMoved) drawFaceBehindGlasses(deformer, paths)
+    val faceMood = when {
+        animator.glasses < -0.35f -> MascotMood.DELIGHTED
+        animator.glasses > 0.35f -> MascotMood.SAD
+        else -> MascotMood.NEUTRAL
+    }
+    var faceDrawn = false
+    paths.lensClip.rewind()
+    mascotShapes.forEachIndexed { index, shape ->
+        val isGlasses = shape.part == MascotPart.GLASSES || shape.part == MascotPart.LENS
+        if (isGlasses && !faceDrawn) {
+            faceDrawn = true
+            if (glassesMoved) {
+                withFaceTransform(deformer) { drawFace(animator, faceMood) }
+            }
+        }
+        if (shape.part == MascotPart.MOUTH && faceMood != MascotMood.NEUTRAL) return@forEachIndexed
+        val path = paths.shapes[index]
+        buildPath(path, shape, deformer, shape.part)
+        drawPath(path, shape.color)
+        if (shape.part == MascotPart.LENS) paths.lensClip.addPath(path)
+    }
+    if (animator.glint >= 0f) drawGlint(paths.lensClip, animator.glint)
+}
+
+private fun DrawScope.drawFaceBehindGlasses(deformer: MascotDeformer, paths: MascotPaths) {
+    paths.faceFill.rewind()
+    for (shape in glassesShapes) {
+        buildPath(paths.scratch, shape, deformer, MascotPart.BODY)
+        paths.faceFill.addPath(paths.scratch)
+    }
+    // The front panel meets the side of the head along this line, sampled above and below
+    // the glasses.
+    paths.faceFrontClip.setPolygon(deformer, 193f, 200f, 235f, 480f, 668f, 480f, 668f, 200f)
+    paths.faceSideClip.setPolygon(deformer, 0f, 200f, 193f, 200f, 235f, 480f, 0f, 480f)
+    // The outline stroke closes hairline gaps where the fill meets the body's antialiased edge.
+    clipPath(paths.faceFrontClip) {
+        drawPath(paths.faceFill, FaceFront)
+        drawPath(paths.faceFill, FaceFront, style = faceSeamStroke)
+    }
+    clipPath(paths.faceSideClip) {
+        drawPath(paths.faceFill, FaceSide)
+        drawPath(paths.faceFill, FaceSide, style = faceSeamStroke)
+    }
+}
+
+private val faceSeamStroke = Stroke(width = 6f)
+
+private fun Path.setPolygon(deformer: MascotDeformer, vararg points: Float) {
+    rewind()
+    for (i in points.indices step 2) {
+        deformer.map(MascotPart.BODY, points[i], points[i + 1])
+        if (i == 0) moveTo(deformer.x, deformer.y) else lineTo(deformer.x, deformer.y)
+    }
+    close()
+}
+
+// Features are authored in rest-pose coordinates and follow the body's local scale.
+private inline fun DrawScope.withFaceTransform(deformer: MascotDeformer, block: DrawScope.() -> Unit) {
+    deformer.map(MascotPart.BODY, FACE_ANCHOR.x, FACE_ANCHOR.y)
+    translate(deformer.x - FACE_ANCHOR.x, deformer.y - FACE_ANCHOR.y) {
+        scale(deformer.bodyScaleX, deformer.bodyScaleY, pivot = FACE_ANCHOR) { block() }
+    }
+}
+
+private fun DrawScope.drawFace(animator: MascotAnimator, faceMood: MascotMood) {
+    // Fading in with the glasses keeps a sliver of eye from flickering at a lens edge.
+    val alpha = ((abs(animator.glasses) - 0.1f) / 0.35f).coerceIn(0f, 1f)
+    if (alpha <= 0f) return
+    val openness = animator.eyeOpenness
+    if (animator.glasses < 0f) {
+        drawEye(Offset(335f, 345f), 30f, 40f, openness, 0f, 0f, alpha)
+        drawEye(Offset(585f, 330f), 32f, 42f, openness, 0f, 0f, alpha)
+        drawBrow(Offset(300f, 272f), Offset(360f, 262f), alpha)
+        drawBrow(Offset(550f, 252f), Offset(615f, 250f), alpha)
+    } else {
+        drawEye(Offset(335f, 318f), 27f, 32f, openness, 26f, 8f, alpha)
+        drawEye(Offset(585f, 300f), 28f, 34f, openness, 10f, 28f, alpha)
+        drawBrow(Offset(300f, 262f), Offset(362f, 244f), alpha)
+        drawBrow(Offset(552f, 236f), Offset(612f, 252f), alpha)
+    }
+    when (faceMood) {
+        MascotMood.DELIGHTED -> {
+            drawPath(grinPath, MouthRed)
+            drawPath(tonguePath, Tongue)
+        }
+        MascotMood.SAD -> drawPath(frownPath, MouthRed, style = Stroke(width = 15f, cap = StrokeCap.Round))
+        MascotMood.NEUTRAL -> Unit
+    }
+}
+
+/** [lidLeft] and [lidRight] lower the upper lid at each corner, which is what reads as sad. */
+private fun DrawScope.drawEye(
+    center: Offset,
+    radiusX: Float,
+    radiusY: Float,
+    openness: Float,
+    lidLeft: Float,
+    lidRight: Float,
+    alpha: Float,
+) {
+    val eye = Rect(center.x - radiusX, center.y - radiusY * openness, center.x + radiusX, center.y + radiusY * openness)
+    val lid = Path().apply {
+        moveTo(eye.left - 5f, center.y - radiusY + lidLeft)
+        lineTo(eye.right + 5f, center.y - radiusY + lidRight)
+        lineTo(eye.right + 5f, eye.bottom + 5f)
+        lineTo(eye.left - 5f, eye.bottom + 5f)
+        close()
+    }
+    clipPath(lid) {
+        drawOval(Ink, topLeft = eye.topLeft, size = eye.size, alpha = alpha)
+        if (openness > 0.5f) {
+            val highlightY = if (lidLeft + lidRight > 0f) center.y + radiusY * 0.1f else center.y - radiusY * 0.35f
+            drawCircle(
+                Color.White,
+                radius = radiusX * 0.33f,
+                center = Offset(center.x - radiusX * 0.28f, highlightY),
+                alpha = alpha,
+            )
+        }
+    }
+}
+
+private fun DrawScope.drawBrow(from: Offset, to: Offset, alpha: Float) {
+    drawLine(Ink, from, to, strokeWidth = 16f, cap = StrokeCap.Round, alpha = alpha)
+}
+
+private val grinPath = Path().apply {
+    moveTo(415f, 485f)
+    quadraticTo(458f, 488f, 500f, 478f)
+    quadraticTo(495f, 540f, 455f, 540f)
+    quadraticTo(418f, 540f, 415f, 485f)
+    close()
+}
+
+private val tonguePath = Path().apply {
+    moveTo(432f, 525f)
+    quadraticTo(458f, 512f, 485f, 522f)
+    quadraticTo(470f, 540f, 455f, 540f)
+    quadraticTo(440f, 540f, 432f, 525f)
+    close()
+}
+
+private val frownPath = Path().apply {
+    moveTo(425f, 572f)
+    quadraticTo(458f, 545f, 492f, 568f)
+}
+
+private fun buildPath(path: Path, shape: MascotShape, deformer: MascotDeformer, mapAs: MascotPart) {
     path.rewind()
     for (points in shape.subpaths) {
-        deformer.map(shape.part, points[0], points[1])
+        deformer.map(mapAs, points[0], points[1])
         path.moveTo(deformer.x, deformer.y)
         var i = 2
         while (i < points.size) {
-            deformer.map(shape.part, points[i], points[i + 1])
+            deformer.map(mapAs, points[i], points[i + 1])
             val x1 = deformer.x
             val y1 = deformer.y
-            deformer.map(shape.part, points[i + 2], points[i + 3])
+            deformer.map(mapAs, points[i + 2], points[i + 3])
             val x2 = deformer.x
             val y2 = deformer.y
-            deformer.map(shape.part, points[i + 4], points[i + 5])
+            deformer.map(mapAs, points[i + 4], points[i + 5])
             path.cubicTo(x1, y1, x2, y2, deformer.x, deformer.y)
             i += 6
         }

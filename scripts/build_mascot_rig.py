@@ -25,6 +25,8 @@ MOUTH_COLOR = "#A82D0C"
 LEG_TOP = 630
 SHOE_TOP = 712
 MIDLINE_X = 340
+# The shading the glasses cast along their lower edge; it has to travel with them when they move.
+GLASSES_SHADOW_BOX = (90, 320, 680, 440)
 
 
 def tokenize(data):
@@ -103,6 +105,11 @@ def contains(outer, inner):
     return outer[0] <= inner[0] and outer[1] <= inner[1] and outer[2] >= inner[2] and outer[3] >= inner[3]
 
 
+def signed_area(sub):
+    pts = [sub[0]] + [seg[2] for seg in sub[1:]]
+    return sum(a[0] * b[1] - b[0] * a[1] for a, b in zip(pts, pts[1:] + pts[:1])) / 2
+
+
 def classify(color, box):
     cx, cy = (box[0] + box[2]) / 2, (box[1] + box[3]) / 2
     side = "LEFT" if cx < MIDLINE_X else "RIGHT"
@@ -114,6 +121,8 @@ def classify(color, box):
         return "MOUTH"
     if color in GLASSES_COLORS:
         return "LENS" if color in LENS_COLORS else "GLASSES"
+    if contains(GLASSES_SHADOW_BOX, box):
+        return "GLASSES_SHADOW"
     return "BODY"
 
 
@@ -128,10 +137,17 @@ def main():
         color = element.get(ANDROID + "fillColor")
         subs = parse_subpaths(element.get(ANDROID + "pathData"))
         boxes = [bbox(s) for s in subs]
+        areas = [signed_area(s) for s in subs]
         parts = []
         for index, box in enumerate(boxes):
+            # A hole winds against its parent; under the nonzero rule it only cuts while both
+            # shapes are drawn together, so it must land in the same part.
             parent = next(
-                (p for p in range(index) if boxes[p] != box and contains(boxes[p], box)),
+                (
+                    p
+                    for p in range(index)
+                    if boxes[p] != box and contains(boxes[p], box) and areas[p] * areas[index] < 0
+                ),
                 None,
             )
             parts.append(parts[parent] if parent is not None else classify(color, box))
