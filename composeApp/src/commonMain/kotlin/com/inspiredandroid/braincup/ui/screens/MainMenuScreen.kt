@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
@@ -47,6 +46,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.ReversiTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.mascot.Mascot
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
@@ -254,9 +254,7 @@ fun MainMenuScreenContent(
 
             if (totalXp > 0) {
                 Box(modifier = Modifier.fillMaxWidth()) {
-                    Image(
-                        painter = painterResource(Res.drawable.ic_mascot),
-                        contentDescription = null,
+                    Mascot(
                         modifier = Modifier
                             .padding(top = 16.dp)
                             .align(Alignment.Center)
@@ -291,11 +289,7 @@ fun MainMenuScreenContent(
                             modifier = Modifier.padding(horizontal = SettingsIconClearance),
                         )
                         Spacer(Modifier.height(12.dp))
-                        Image(
-                            painterResource(Res.drawable.ic_mascot),
-                            contentDescription = null,
-                            modifier = Modifier.height(150.dp),
-                        )
+                        Mascot(modifier = Modifier.height(150.dp))
                         Spacer(Modifier.height(12.dp))
                         Text(
                             text = stringResource(Res.string.app_tagline),
