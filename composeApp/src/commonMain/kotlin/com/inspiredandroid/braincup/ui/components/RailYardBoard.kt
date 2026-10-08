@@ -61,6 +61,8 @@ fun RailYardBoard(
     modifier: Modifier = Modifier,
     onSwitchTap: ((Int) -> Unit)? = null,
     pressedSwitch: Int? = null,
+    ground: Color = RailYardGround,
+    rail: Color = RailYardRail,
 ) {
     val faces = GameColor.entries.associateWith { it.composeColor() }
     val patterns = GameColor.entries.associateWith { it.visiblePattern() }
@@ -86,11 +88,11 @@ fun RailYardBoard(
         }
     }
 
-    PrismCard(face = RailYardGround, facet = PrismFacet.Board, modifier = modifier) {
+    PrismCard(face = ground, facet = PrismFacet.Board, modifier = modifier) {
         Canvas(modifier = Modifier.fillMaxSize().then(tapModifier)) {
             val geometry = BoardGeometry(size, uiState, this)
-            uiState.tracks.filter { !it.isOpen }.forEach { drawTrack(it, geometry) }
-            uiState.tracks.filter { it.isOpen }.forEach { drawTrack(it, geometry) }
+            uiState.tracks.filter { !it.isOpen }.forEach { drawTrack(it, geometry, rail) }
+            uiState.tracks.filter { it.isOpen }.forEach { drawTrack(it, geometry, rail) }
             uiState.switches.forEach { drawSwitch(it, geometry, isPressed = it.nodeIndex == pressedSwitch) }
             // Trains ride over the switches so one is never lost under a key, and slip under the
             // tunnel and the stations so they come out of one and disappear into the other.
@@ -175,7 +177,7 @@ private fun DrawScope.drawPrism(points: List<Offset>, face: Color, depth: Float)
  * A raised track is the same band drawn three times, back, side and front, each a step further
  * up-left: the stroke equivalent of [drawPrism]'s extrusion.
  */
-private fun DrawScope.drawTrack(track: RailYardUiState.Track, geometry: BoardGeometry) {
+private fun DrawScope.drawTrack(track: RailYardUiState.Track, geometry: BoardGeometry, rail: Color) {
     val path = chamferedPath(track.points.map(geometry::toPx), cut = geometry.unit * 0.3f)
     val stroke = Stroke(width = geometry.unit * 0.2f, cap = StrokeCap.Butt, join = StrokeJoin.Miter)
     if (!track.isOpen) {
@@ -183,9 +185,9 @@ private fun DrawScope.drawTrack(track: RailYardUiState.Track, geometry: BoardGeo
         return
     }
     val depth = geometry.depth
-    translate(depth, depth) { drawPath(path, RailYardRail.darken(PrismShade.Bottom), style = stroke) }
-    translate(depth / 2f, depth / 2f) { drawPath(path, RailYardRail.darken(PrismShade.Side), style = stroke) }
-    drawPath(path, RailYardRail, style = stroke)
+    translate(depth, depth) { drawPath(path, rail.darken(PrismShade.Bottom), style = stroke) }
+    translate(depth / 2f, depth / 2f) { drawPath(path, rail.darken(PrismShade.Side), style = stroke) }
+    drawPath(path, rail, style = stroke)
 }
 
 /** A polyline with each inner corner cut at 45 degrees, the prism silhouette's own corner. */

@@ -100,6 +100,7 @@ import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.PuzzleSlateFrame
+import com.inspiredandroid.braincup.ui.theme.RailYardGround
 import com.inspiredandroid.braincup.ui.theme.ReversiBlackDisc
 import com.inspiredandroid.braincup.ui.theme.ReversiBoardFrame
 import com.inspiredandroid.braincup.ui.theme.ReversiFelt
@@ -1274,7 +1275,8 @@ private fun SherlockCalculationPreview() {
         PreviewKey(
             label = SherlockPreviewGoal,
             fitter = goalFitter,
-            face = PuzzleSlateFrame,
+            face = PreviewCardFace,
+            ink = Primary,
             modifier = Modifier.fillMaxWidth(0.5f).weight(1f),
         )
         Spacer(Modifier.height(4.dp))
@@ -2354,10 +2356,13 @@ private fun FlockPreview() {
 
 @Composable
 private fun RailYardPreview() {
+    // The light card every other board preview sits on, so the rails flip to the yard's dark slate.
     RailYardBoard(
         uiState = RailYardPreviewState,
         trains = { RailYardPreviewState.trains },
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(14.dp),
+        modifier = Modifier.previewSquare(inset = 14.dp),
+        ground = PreviewCardFace,
+        rail = RailYardGround,
     )
 }
 
@@ -2586,7 +2591,7 @@ private fun PrismClearPreview() {
         modifier = Modifier.previewWide(),
     ) {
         Column(
-            modifier = Modifier.fillMaxSize().padding(4.dp),
+            modifier = Modifier.fillMaxSize().background(PreviewCardFace).padding(4.dp),
             verticalArrangement = Arrangement.Center,
         ) {
             PrismClearPreviewPattern.chunked(PrismClearPreviewColumns).forEach { row ->
