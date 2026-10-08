@@ -18,25 +18,41 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
+import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import java.util.Locale
 
 class TileGalleryScreenshotTest {
     @get:Rule
     val paparazzi = Paparazzi(
-        deviceConfig = DeviceConfig.PIXEL_9A.copy(softButtons = false, screenWidth = 2800, screenHeight = 3800),
+        deviceConfig = DeviceConfig.PIXEL_9A.copy(
+            softButtons = false,
+            screenWidth = 5200,
+            screenHeight = 6400,
+            locale = System.getenv("LOCALE"),
+        ),
         showSystemUi = false,
         renderingMode = SessionParams.RenderingMode.SHRINK,
         maxPercentDifference = 0.1,
     )
 
+    private val originalLocale: Locale = Locale.getDefault()
+
     @OptIn(ExperimentalResourceApi::class)
     @Before
     fun setup() {
+        System.getenv("LOCALE")?.let { Locale.setDefault(javaLocale(it)) }
         setResourceReaderAndroidContext(paparazzi.context)
+    }
+
+    @After
+    fun tearDown() {
+        Locale.setDefault(originalLocale)
     }
 
     @Test
@@ -52,7 +68,10 @@ class TileGalleryScreenshotTest {
     private fun snapTiles(types: List<GameType>, perRow: Int) {
         paparazzi.unsafeUpdateConfig(theme = "android:Theme.Material.NoActionBar")
         paparazzi.snapshot {
-            CompositionLocalProvider(LocalInspectionMode provides true) {
+            CompositionLocalProvider(
+                LocalInspectionMode provides true,
+                LocalAccessiblePalette provides (System.getenv("ACCESSIBLE") == "1"),
+            ) {
                 BraincupTheme(colorScheme = DarkColorScheme) {
                     Column(
                         modifier = Modifier.background(Color(0xFF1C1715)).padding(12.dp),
@@ -66,7 +85,7 @@ class TileGalleryScreenshotTest {
                                         highscore = 0,
                                         onPlay = {},
                                         onViewScore = {},
-                                        modifier = Modifier.size(160.dp),
+                                        modifier = Modifier.size((System.getenv("TILE_DP")?.toInt() ?: 160).dp),
                                     )
                                 }
                             }

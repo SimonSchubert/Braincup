@@ -246,8 +246,8 @@ private fun PreviewKey(
 ) {
     BoxWithConstraints(modifier = modifier) {
         val labelStyle = fitter.fitTo(
-            cellWidth = (maxWidth - PrismFacet.Cell - PreviewKeyLabelMargin * 2).coerceAtLeast(0.dp),
-            cellHeight = (maxHeight - PrismFacet.Cell - PreviewKeyLabelMargin * 2).coerceAtLeast(0.dp),
+            cellWidth = (maxWidth - PrismFacet.Cell) * PreviewLabelFill,
+            cellHeight = (maxHeight - PrismFacet.Cell) * PreviewLabelFill,
         )
         ColorPrismCell(face = face, modifier = Modifier.fillMaxSize())
         Box(
@@ -267,7 +267,11 @@ private fun PreviewKey(
     }
 }
 
-private val PreviewKeyLabelMargin = 2.dp
+/**
+ * Share of a face a fitted label may take. A fraction rather than a fixed margin, so a label on a
+ * 300dp tablet tile keeps the same breathing room it has on a 150dp phone tile.
+ */
+private const val PreviewLabelFill = 0.72f
 
 // The board-sized chamfer of PrismSlot swallows a slot this small.
 private val PreviewSlotShape = PrismChamferShape(PrismFacet.Cell)
@@ -287,9 +291,22 @@ private fun PreviewSlot(modifier: Modifier = Modifier, selected: Boolean = false
     )
 }
 
-/** Bold number-font labels, sized large so [rememberPreviewTextFitter] only ever scales them down. */
+/** A shape on a raised card, the way the shape games deal their figures. Null is an empty card. */
 @Composable
-private fun previewNumberStyle(): TextStyle = MaterialTheme.typography.headlineMedium.copy(
+private fun PreviewShapeCard(figure: Figure?, modifier: Modifier = Modifier) {
+    PrismCard(face = PreviewCardFace, facet = PrismFacet.Cell, modifier = modifier) {
+        if (figure != null) {
+            ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(4.dp))
+        }
+    }
+}
+
+/**
+ * Bold number-font labels. Display size because [PreviewTextFitter] only ever scales down: with a
+ * smaller base the labels stop growing while their cards keep growing on wide tiles.
+ */
+@Composable
+private fun previewNumberStyle(): TextStyle = MaterialTheme.typography.displayLarge.copy(
     fontFamily = numberFontFamily(),
     fontWeight = FontWeight.Bold,
 )
@@ -639,7 +656,7 @@ private fun IqTestPreview() {
     val belowFace = MaterialTheme.colorScheme.primary
     val aboveFace = MaterialTheme.colorScheme.surfaceContainer
     Row(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewSquare(),
         horizontalArrangement = Arrangement.spacedBy(2.dp),
         verticalAlignment = Alignment.Bottom,
     ) {
@@ -868,19 +885,18 @@ private val RuleShiftPreviewKeys = RuleShiftGame.keyCards.map { Figure(it.shape,
 @Composable
 private fun RuleShiftPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewWide(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
     ) {
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        ) {
             RuleShiftPreviewKeys.forEach { figure ->
-                ShapeCanvas(
-                    figure = figure,
-                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(3.dp),
-                )
+                PreviewShapeCard(figure = figure, modifier = Modifier.weight(1f).aspectRatio(1f))
             }
         }
-        Spacer(Modifier.height(10.dp))
         ShapeCanvas(
             figure = Figure(Shape.CROSS, GameColor.BLUE),
             modifier = Modifier.weight(1f).aspectRatio(1f),
@@ -898,21 +914,20 @@ private val MentalFlexPreviewCandidates = listOf(
 @Composable
 private fun MentalFlexPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewWide(),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
     ) {
         ShapeCanvas(
             figure = MentalFlexPreviewTarget,
             modifier = Modifier.weight(1f).aspectRatio(1f),
         )
-        Spacer(Modifier.height(6.dp))
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier.fillMaxWidth(0.8f),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        ) {
             MentalFlexPreviewCandidates.forEach { figure ->
-                ShapeCanvas(
-                    figure = figure,
-                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(3.dp),
-                )
+                PreviewShapeCard(figure = figure, modifier = Modifier.weight(1f).aspectRatio(1f))
             }
         }
     }
@@ -920,18 +935,23 @@ private fun MentalFlexPreview() {
 
 @Composable
 private fun AnomalyPuzzlePreview() {
+    PreviewShapeGrid(AnomalyPuzzlePreviewFigures)
+}
+
+/** Two rows of two shape cards, the board of the shape-memory and odd-one-out games. */
+@Composable
+private fun PreviewShapeGrid(figures: List<Figure?>) {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        modifier = Modifier.previewSquare(),
+        verticalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterVertically),
     ) {
-        AnomalyPuzzlePreviewFigures.chunked(2).forEach { row ->
-            Row(modifier = Modifier.fillMaxWidth()) {
+        figures.chunked(2).forEach { row ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+            ) {
                 row.forEach { figure ->
-                    ShapeCanvas(
-                        figure = figure,
-                        modifier = Modifier.weight(1f).aspectRatio(1f).padding(3.dp),
-                    )
+                    PreviewShapeCard(figure = figure, modifier = Modifier.weight(1f).aspectRatio(1f))
                 }
             }
         }
@@ -941,25 +961,15 @@ private fun AnomalyPuzzlePreview() {
 @Composable
 private fun PathFinderPreview() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(24.dp),
+        modifier = Modifier.previewSquare(inset = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        // Arrow directions row
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(2.dp),
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
             PathFinderPreviewDirections.forEach {
-                ShapeCanvas(
-                    figure = it.figure,
-                    modifier = Modifier.size(16.dp),
-                )
+                ShapeCanvas(figure = it.figure, modifier = Modifier.size(20.dp))
             }
         }
-        Spacer(Modifier.height(4.dp))
-
-        // 4x4 mini grid
         Column(modifier = Modifier.weight(1f).aspectRatio(1f)) {
             PathFinderPreviewGrid.forEach { row ->
                 Row(modifier = Modifier.fillMaxWidth()) {
@@ -976,16 +986,29 @@ private fun PathFinderPreview() {
     }
 }
 
+private val ColoredShapesPreviewKeys = listOf("3", "4", "7")
+
+/** The figure to describe over the number keys it is answered on. */
 @Composable
 private fun ColoredShapesPreview() {
-    Box(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        contentAlignment = Alignment.Center,
+    val fitter = rememberPreviewTextFitter(ColoredShapesPreviewKeys, previewNumberStyle())
+    Column(
+        modifier = Modifier.previewSquare(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterVertically),
     ) {
         ShapeCanvas(
             figure = Figure(Shape.HEART, GameColor.BLUE),
-            modifier = Modifier.size(48.dp),
+            modifier = Modifier.weight(1f).aspectRatio(1f),
         )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        ) {
+            ColoredShapesPreviewKeys.forEach { key ->
+                PreviewKey(label = key, fitter = fitter, modifier = Modifier.weight(1f).aspectRatio(1f))
+            }
+        }
     }
 }
 
@@ -993,7 +1016,7 @@ private fun ColoredShapesPreview() {
 private fun SpotTheNewPreview() {
     val newAnimal = SpotTheNewPreviewAnimals.last()
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -1031,69 +1054,36 @@ private fun SpotTheNewPreview() {
 
 @Composable
 private fun VisualMemoryPreview() {
-    Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-    ) {
-        VisualMemoryPreviewFigures.chunked(2).forEach { row ->
-            Row(modifier = Modifier.fillMaxWidth()) {
-                row.forEach { figure ->
-                    PrismCard(
-                        face = MaterialTheme.colorScheme.surfaceContainer,
-                        facet = PrismFacet.Cell,
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(2.dp),
-                    ) {
-                        Box(
-                            modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center,
-                        ) {
-                            if (figure != null) {
-                                ShapeCanvas(
-                                    figure = figure,
-                                    modifier = Modifier.fillMaxSize().padding(4.dp),
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
+    PreviewShapeGrid(VisualMemoryPreviewFigures)
 }
 
 private const val MentalCalculationPreviewProblem = "8 + 15"
-private val MentalCalculationPreviewKeys = listOf(listOf("7", "8", "9"), listOf("4", "5", "6"))
+private val MentalCalculationPreviewKeys = listOf("7", "8", "9", "0")
 
-/** The problem on its card over the top of the number pad it is answered on. */
+/** The problem on its card over a row of the number keys it is answered on. */
 @Composable
 private fun MentalCalculationPreview() {
     val numberStyle = previewNumberStyle()
     val problemFitter = rememberPreviewTextFitter(listOf(MentalCalculationPreviewProblem), numberStyle)
-    val keyFitter = rememberPreviewTextFitter(MentalCalculationPreviewKeys.flatten(), numberStyle)
+    val keyFitter = rememberPreviewTextFitter(MentalCalculationPreviewKeys, numberStyle)
     Column(
-        modifier = Modifier.previewSquare(),
-        verticalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        modifier = Modifier.previewWide(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
     ) {
         PreviewKey(
             label = MentalCalculationPreviewProblem,
             fitter = problemFitter,
             face = PreviewCardFace,
             ink = PreviewCardInk,
-            modifier = Modifier.fillMaxWidth().weight(1.2f),
+            modifier = Modifier.fillMaxWidth().weight(1f),
         )
-        Spacer(Modifier.height(4.dp))
-        MentalCalculationPreviewKeys.forEach { row ->
-            Row(
-                modifier = Modifier.fillMaxWidth().weight(1f),
-                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
-            ) {
-                row.forEach { key ->
-                    PreviewKey(label = key, fitter = keyFitter, modifier = Modifier.weight(1f).fillMaxHeight())
-                }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        ) {
+            MentalCalculationPreviewKeys.forEach { key ->
+                PreviewKey(label = key, fitter = keyFitter, modifier = Modifier.weight(1f).aspectRatio(1f))
             }
         }
     }
@@ -1155,12 +1145,15 @@ private fun QuickSumPreview() {
             ink = PreviewCardInk,
             modifier = Modifier.weight(1f).aspectRatio(1f),
         )
-        Row(horizontalArrangement = Arrangement.spacedBy(5.dp)) {
+        Row(
+            modifier = Modifier.fillMaxWidth(0.42f),
+            horizontalArrangement = Arrangement.spacedBy(5.dp),
+        ) {
             repeat(QuickSumPreviewTerms) { index ->
                 ColorPrismCell(
                     face = if (index < QuickSumPreviewShown) Primary else PreviewCardFace,
                     facet = PrismFacet.Dot,
-                    modifier = Modifier.size(10.dp),
+                    modifier = Modifier.weight(1f).aspectRatio(1f),
                 )
             }
         }
@@ -1274,7 +1267,7 @@ private fun SherlockCalculationPreview() {
     val numberFitter = rememberPreviewTextFitter(numberLabels, numberStyle)
     val goalFitter = rememberPreviewTextFitter(listOf(SherlockPreviewGoal), numberStyle)
     Column(
-        modifier = Modifier.previewSquare(),
+        modifier = Modifier.previewWide(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterVertically),
     ) {
@@ -1282,23 +1275,21 @@ private fun SherlockCalculationPreview() {
             label = SherlockPreviewGoal,
             fitter = goalFitter,
             face = PuzzleSlateFrame,
-            modifier = Modifier.fillMaxWidth(0.6f).weight(1f),
+            modifier = Modifier.fillMaxWidth(0.5f).weight(1f),
         )
         Spacer(Modifier.height(4.dp))
-        SherlockPreviewNumbers.chunked(3).forEach { row ->
-            Row(
-                modifier = Modifier.fillMaxWidth().weight(1f),
-                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterHorizontally),
-            ) {
-                row.forEach { number ->
-                    PreviewKey(
-                        label = number.toString(),
-                        fitter = numberFitter,
-                        face = PreviewCardFace,
-                        ink = PreviewCardInk,
-                        modifier = Modifier.fillMaxHeight().aspectRatio(1f),
-                    )
-                }
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+        ) {
+            SherlockPreviewNumbers.forEach { number ->
+                PreviewKey(
+                    label = number.toString(),
+                    fitter = numberFitter,
+                    face = PreviewCardFace,
+                    ink = PreviewCardInk,
+                    modifier = Modifier.weight(1f).aspectRatio(1f),
+                )
             }
         }
     }
@@ -1314,16 +1305,16 @@ private fun ChainCalculationPreview() {
         previewNumberStyle(),
     )
     Column(
-        modifier = Modifier.previewSquare(),
+        modifier = Modifier.previewWide(),
         verticalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterVertically),
     ) {
         ChainCalculationPreviewTokens.forEach { row ->
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+                modifier = Modifier.fillMaxWidth().weight(1f),
+                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterHorizontally),
             ) {
                 row.forEach { token ->
-                    val cell = Modifier.weight(1f).aspectRatio(1f)
+                    val cell = Modifier.fillMaxHeight().aspectRatio(1f)
                     when {
                         token == null -> PreviewSlot(modifier = cell, selected = true)
                         token.first().isDigit() -> PreviewKey(
@@ -1388,7 +1379,7 @@ private fun ValueComparisonPreview() {
     val vsFitter = rememberPreviewTextFitter(vsLabels, MaterialTheme.typography.labelMedium)
     // The two answer buttons of the game, stacked, with the versus between them.
     Column(
-        modifier = Modifier.previewSquare(),
+        modifier = Modifier.previewWide(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -1413,13 +1404,12 @@ private fun ValueComparisonPreview() {
 @Composable
 private fun MiniSudokuPreview() {
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    val digits = remember { MiniSudokuPreviewGrid.flatten().filter { it.isNotEmpty() } }
+    val fitter = rememberPreviewTextFitter(digits, previewNumberStyle())
     PrismCard(
         face = PreviewTextColor,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         // The prism face is the outer border now; the gaps between cells stay as grid lines.
         Column(
@@ -1432,7 +1422,7 @@ private fun MiniSudokuPreview() {
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
                 ) {
                     row.forEach { cell ->
-                        Box(
+                        BoxWithConstraints(
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight()
@@ -1441,10 +1431,10 @@ private fun MiniSudokuPreview() {
                         ) {
                             Text(
                                 text = cell,
-                                style = MaterialTheme.typography.titleMedium,
-                                fontFamily = numberFontFamily(),
-                                fontWeight = FontWeight.Bold,
+                                style = fitter.fitTo(maxWidth * 0.5f, maxHeight * 0.5f),
                                 color = MaterialTheme.colorScheme.onSurface,
+                                maxLines = 1,
+                                softWrap = false,
                             )
                         }
                     }
@@ -1479,10 +1469,7 @@ private fun NormalSudokuPreview() {
     PrismCard(
         face = PreviewTextColor,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize().background(cellColor)) {
             val n = 9
@@ -1520,10 +1507,7 @@ private fun MatchstickRiddlesPreview() {
     PrismCard(
         face = PreviewTextColor,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize().background(LightColorScheme.surface)) {
             val w = size.width
@@ -1554,10 +1538,7 @@ private fun ReversiPreview() {
     PrismCard(
         face = ReversiBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize().background(ReversiGridLine)) {
             for (row in 0 until 6) {
@@ -1617,10 +1598,7 @@ private fun CheckersPreviewBoard(size: Int, pieceOnDarkSquare: (row: Int, col: I
     PrismCard(
         face = CheckersBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             for (row in 0 until size) {
@@ -1652,10 +1630,7 @@ private fun PegSolitairePreview() {
     PrismCard(
         face = frame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(
             modifier = Modifier
@@ -1699,17 +1674,14 @@ private fun PegSolitairePreview() {
 @Composable
 private fun SchulteTablePreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         val numberLabels = remember {
             SchulteTablePreviewGrid.flatten().map { it.number.toString() }
         }
-        val numberStyle = MaterialTheme.typography.labelSmall.copy(
-            fontFamily = numberFontFamily(),
-            fontWeight = FontWeight.Bold,
-        )
+        val numberStyle = previewNumberStyle()
         val fitter = rememberPreviewTextFitter(numberLabels, numberStyle)
         SchulteTablePreviewGrid.forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
@@ -1729,7 +1701,7 @@ private fun SchulteTablePreview() {
                         BoxWithConstraints(contentAlignment = Alignment.Center) {
                             Text(
                                 text = cell.number.toString(),
-                                style = fitter.fitTo(maxWidth, maxHeight),
+                                style = fitter.fitTo(maxWidth * PreviewLabelFill, maxHeight * PreviewLabelFill),
                                 color = MaterialTheme.colorScheme.onSurface.copy(
                                     alpha = if (cell.tapped) 0.4f else 1f,
                                 ),
@@ -1747,7 +1719,7 @@ private fun SchulteTablePreview() {
 @Composable
 private fun GhostGridPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -1780,7 +1752,7 @@ private const val SimonSaysPreviewLitPad = 1
 @Composable
 private fun SimonSaysPreview() {
     SimonDisc(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewSquare(),
     ) { index, quadrant, padModifier ->
         val base = SimonSaysGame.PADS[index].composeColor()
         Box(
@@ -1795,7 +1767,7 @@ private fun SimonSaysPreview() {
 @Composable
 private fun LightsOutPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -1827,10 +1799,7 @@ private fun ShikakuPreview() {
     PrismCard(
         face = ShikakuBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(
             modifier = Modifier.fillMaxSize(),
@@ -1890,10 +1859,7 @@ private fun NurikabePreview() {
     PrismCard(
         face = NurikabeBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(
             modifier = Modifier.fillMaxSize(),
@@ -1939,10 +1905,7 @@ private fun CatQueensPreview() {
     PrismCard(
         face = CatQueensBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(20.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(
             modifier = Modifier.fillMaxSize(),
@@ -1986,10 +1949,7 @@ private fun KnotPreview() {
     PrismCard(
         face = KnotBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {
             val cellW = size.width / n
@@ -2020,14 +1980,14 @@ private fun WordlePreview() {
             ?: WordlePreviewPuzzles.forTag("en")
     } ?: return
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         // Every letter of the puzzle drives one shared size: Bungee is proportional, so fitting each
         // cell on its own would render "I" larger than "W" in the same row.
         val letters = remember(puzzle) { puzzle.guesses.flatMap { it.map(Char::toString) } }
-        val letterStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+        val letterStyle = MaterialTheme.typography.displayLarge.copy(fontWeight = FontWeight.Bold)
         val fitter = rememberPreviewTextFitter(letters, letterStyle)
         puzzle.guesses.forEach { guess ->
             val states = puzzle.statesFor(guess)
@@ -2072,13 +2032,10 @@ private fun SlidingPuzzlePreview() {
     val numberLabels = remember {
         SlidingPuzzlePreviewLabels.filter { it != 0 }.map { it.toString() }
     }
-    val numberStyle = MaterialTheme.typography.labelSmall.copy(
-        fontFamily = numberFontFamily(),
-        fontWeight = FontWeight.Bold,
-    )
+    val numberStyle = previewNumberStyle()
     val fitter = rememberPreviewTextFitter(numberLabels, numberStyle)
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -2104,7 +2061,7 @@ private fun SlidingPuzzlePreview() {
                             BoxWithConstraints(contentAlignment = Alignment.Center) {
                                 Text(
                                     text = label.toString(),
-                                    style = fitter.fitTo(maxWidth, maxHeight),
+                                    style = fitter.fitTo(maxWidth * PreviewLabelFill, maxHeight * PreviewLabelFill),
                                     color = LightColorScheme.onPrimaryContainer,
                                     maxLines = 1,
                                     softWrap = false,
@@ -2211,34 +2168,30 @@ private fun TowerOfHanoiPreviewDisk(size: Int, height: Dp) {
 
 @Composable
 private fun PatternSequencePreview() {
+    val fitter = rememberPreviewTextFitter(listOf("?"), previewNumberStyle())
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier.previewSquare(),
+        verticalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterVertically),
     ) {
         repeat(2) { row ->
             Row(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
             ) {
                 repeat(2) { column ->
                     val index = row * 2 + column
+                    val cell = Modifier.weight(1f).aspectRatio(1f)
                     if (index == PatternSequencePreviewFigures.size) {
-                        PrismCard(
-                            face = MaterialTheme.colorScheme.surfaceContainer,
-                            facet = PrismFacet.Cell,
-                            modifier = Modifier.weight(1f).fillMaxHeight(),
-                        ) {
-                            Text(
-                                text = "?",
-                                style = MaterialTheme.typography.labelMedium,
-                                color = MaterialTheme.colorScheme.onPrimaryContainer,
-                            )
-                        }
-                    } else {
-                        ShapeCanvas(
-                            figure = PatternSequencePreviewFigures[index],
-                            modifier = Modifier.weight(1f).fillMaxHeight().padding(3.dp),
+                        // The cell the player supplies, in the game's highlighted face.
+                        PreviewKey(
+                            label = "?",
+                            fitter = fitter,
+                            face = LightColorScheme.secondaryContainer,
+                            ink = PreviewCardInk,
+                            modifier = cell,
                         )
+                    } else {
+                        PreviewShapeCard(figure = PatternSequencePreviewFigures[index], modifier = cell)
                     }
                 }
             }
@@ -2257,17 +2210,14 @@ private fun OrbitTrackerPreview() {
     PrismCard(
         face = OrbitTrackerBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
-            val ballRadius = size.width * 0.06f
+            val ballRadius = size.width * 0.08f
             OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
                 drawPrismCircle(
                     center = Offset(x * size.width, y * size.height),
@@ -2304,17 +2254,14 @@ private fun BubbleSumPreview() {
     PrismCard(
         face = BubbleSumBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
                 .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
-            val ballRadius = size.width * 0.12f
+            val ballRadius = size.width * 0.15f
             BubbleSumPreviewBubbles.forEachIndexed { index, (x, y, value) ->
                 val warning = index == BubbleSumPreviewWarningBubble
                 val center = Offset(x * size.width, y * size.height)
@@ -2336,7 +2283,7 @@ private fun BubbleSumPreview() {
                 }
                 val measured = textMeasurer.measure(
                     text = AnnotatedString(value.toString()),
-                    style = if (warning) warningDigitStyle else digitStyle,
+                    style = (if (warning) warningDigitStyle else digitStyle).copy(fontSize = ballRadius.toSp()),
                 )
                 drawText(
                     textLayoutResult = measured,
@@ -2354,23 +2301,19 @@ private fun BubbleSumPreview() {
 private fun ColorConfusionPreview() {
     val (word, ink) = ColorConfusionPreviewWord
     val label = word.localizedName()
-    val fitter = rememberPreviewTextFitter(listOf(label), MaterialTheme.typography.labelSmall)
+    val fitter = rememberPreviewTextFitter(listOf(label), MaterialTheme.typography.headlineMedium)
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        modifier = Modifier.previewWide(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
         BoxWithConstraints(
             contentAlignment = Alignment.Center,
-            modifier = Modifier.fillMaxWidth().weight(1.6f),
+            modifier = Modifier.fillMaxWidth().weight(1f),
         ) {
-            val style = fitter.fitTo(
-                cellWidth = (maxWidth - 4.dp).coerceAtLeast(0.dp),
-                cellHeight = maxHeight,
-            )
             Text(
                 text = label,
-                style = style,
+                style = fitter.fitTo(maxWidth, maxHeight),
                 color = ink.composeColor(),
                 textAlign = TextAlign.Center,
                 maxLines = 1,
@@ -2379,31 +2322,32 @@ private fun ColorConfusionPreview() {
         }
         Spacer(Modifier.height(4.dp))
         Row(
-            modifier = Modifier.fillMaxWidth().weight(1f),
-            horizontalArrangement = Arrangement.spacedBy(3.dp),
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
         ) {
             ColorConfusionGame.RESPONSE_COLORS.forEach { swatch ->
-                PrismCard(
+                ColorPrismCell(
                     face = swatch.composeColor(),
-                    facet = PrismFacet.Cell,
-                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                    modifier = Modifier.weight(1f).aspectRatio(1f),
                 )
             }
         }
     }
 }
 
+/** The flock on a strip of sky, so the birds sit on something rather than float on the tile. */
 @Composable
 private fun FlockPreview() {
-    Box(
-        contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(horizontal = 8.dp),
+    PrismCard(
+        face = PreviewCardFace,
+        facet = PrismFacet.Cell,
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
     ) {
         FlockRow(
             target = FlockGame.Direction.LEFT,
             flankers = FlockGame.Direction.RIGHT,
             feedback = AnswerFeedbackState.NORMAL,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(horizontal = 6.dp, vertical = 10.dp),
         )
     }
 }
@@ -2441,31 +2385,38 @@ private val RailYardPreviewState = RailYardUiState(
     trains = persistentListOf(RailYardGame.TrainFrame(x = 0.18f, y = 0.52f, isHorizontal = false, color = GameColor.RED)),
 )
 
+/** Two side-by-side panels, one per crowd, so the tile reads as a comparison of two fields. */
 @Composable
 private fun FlashCrowdPreview() {
     Row(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier.previewWide(),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
     ) {
-        Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
-            FlashCrowdPreviewLeftDots.forEach { (x, y, r) ->
+        FlashCrowdPreviewPanel(FlashCrowdPreviewLeftDots, FlashCrowdBlue, FlashCrowdBlueSide, FlashCrowdBlueBottom)
+        FlashCrowdPreviewPanel(FlashCrowdPreviewRightDots, FlashCrowdYellow, FlashCrowdYellowSide, FlashCrowdYellowBottom)
+    }
+}
+
+@Composable
+private fun RowScope.FlashCrowdPreviewPanel(
+    dots: List<Triple<Float, Float, Float>>,
+    face: Color,
+    side: Color,
+    bottom: Color,
+) {
+    PrismCard(
+        face = PreviewCardFace,
+        facet = PrismFacet.Cell,
+        modifier = Modifier.weight(1f).fillMaxHeight(),
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize().padding(4.dp)) {
+            dots.forEach { (x, y, r) ->
                 drawPrismCircle(
                     center = Offset(x * size.width, y * size.height),
                     radius = r * size.width,
-                    face = FlashCrowdBlue,
-                    side = FlashCrowdBlueSide,
-                    bottom = FlashCrowdBlueBottom,
-                )
-            }
-        }
-        Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
-            FlashCrowdPreviewRightDots.forEach { (x, y, r) ->
-                drawPrismCircle(
-                    center = Offset(x * size.width, y * size.height),
-                    radius = r * size.width,
-                    face = FlashCrowdYellow,
-                    side = FlashCrowdYellowSide,
-                    bottom = FlashCrowdYellowBottom,
+                    face = face,
+                    side = side,
+                    bottom = bottom,
                 )
             }
         }
@@ -2477,10 +2428,7 @@ private fun MiniChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             for (row in 2 downTo 0) {
@@ -2550,10 +2498,7 @@ private fun NormalChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             for (row in 0..7) {
@@ -2602,10 +2547,7 @@ private fun SoloChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
         facet = PrismFacet.Preview,
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(24.dp),
+        modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             for (row in 0..2) {
@@ -2635,64 +2577,74 @@ private fun SoloChessPreview() {
     }
 }
 
+/** A well with blocks settled to the bottom, the way a Prism Clear board fills up. */
 @Composable
 private fun PrismClearPreview() {
-    val pattern = listOf(
-        0, 2, 2, -1, -1, -1,
-        2, 0, 1, 0, 1, 1,
-    )
-    Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+    PrismCard(
+        face = PuzzleSlateFrame,
+        facet = PrismFacet.Preview,
+        modifier = Modifier.previewWide(),
     ) {
-        for (row in 0 until 2) {
-            Row(modifier = Modifier.fillMaxWidth()) {
-                for (col in 0 until 6) {
-                    val ordinal = pattern[row * 6 + col]
-                    val face = if (ordinal < 0) {
-                        MaterialTheme.colorScheme.surfaceContainerHighest
-                    } else {
-                        PrismTileType.entries[ordinal].color.composeColor()
+        Column(
+            modifier = Modifier.fillMaxSize().padding(4.dp),
+            verticalArrangement = Arrangement.Center,
+        ) {
+            PrismClearPreviewPattern.chunked(PrismClearPreviewColumns).forEach { row ->
+                Row(modifier = Modifier.fillMaxWidth()) {
+                    row.forEach { ordinal ->
+                        val cell = Modifier.weight(1f).aspectRatio(1f).padding(1.dp)
+                        if (ordinal == null) {
+                            Spacer(cell)
+                        } else {
+                            ColorPrismCell(face = PrismTileType.entries[ordinal].color.composeColor(), modifier = cell)
+                        }
                     }
-                    ColorPrismCell(
-                        face = face,
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(1.dp),
-                    )
                 }
             }
         }
     }
 }
 
+private const val PrismClearPreviewColumns = 6
+private val PrismClearPreviewPattern: List<Int?> = listOf(
+    null, null, null, 1, null, null,
+    0, null, 2, 1, null, 0,
+    2, 0, 2, 0, 1, 1,
+)
+
 private val FlagsPreviewDrawables: List<DrawableResource> = listOf(
     Res.drawable.flag_japan,
     Res.drawable.flag_brazil,
     Res.drawable.flag_france,
+    Res.drawable.flag_canada,
 )
 
+/** A hand of flag cards, each on its own white card. */
 @Composable
 private fun FlagsPreview() {
-    val borderColor = LightColorScheme.outlineVariant
-    Row(
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(16.dp),
-        horizontalArrangement = Arrangement.spacedBy(6.dp),
-        verticalAlignment = Alignment.CenterVertically,
+    Column(
+        modifier = Modifier.previewSquare(),
+        verticalArrangement = Arrangement.spacedBy(PreviewKeyGap, Alignment.CenterVertically),
     ) {
-        FlagsPreviewDrawables.forEach { drawable ->
-            Image(
-                painter = painterResource(drawable),
-                contentDescription = null,
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f),
-            )
+        FlagsPreviewDrawables.chunked(2).forEach { row ->
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(PreviewKeyGap),
+            ) {
+                row.forEach { drawable ->
+                    PrismCard(
+                        face = Color.White,
+                        facet = PrismFacet.Cell,
+                        modifier = Modifier.weight(1f).aspectRatio(1f),
+                    ) {
+                        Image(
+                            painter = painterResource(drawable),
+                            contentDescription = null,
+                            modifier = Modifier.fillMaxSize().padding(2.dp),
+                        )
+                    }
+                }
+            }
         }
     }
 }
@@ -2714,7 +2666,7 @@ private val TrioPreviewFoundFace = SuccessGreen.copy(alpha = 0.4f).compositeOver
 @Composable
 private fun TrioPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.previewSquare(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -2755,13 +2707,16 @@ private val MentalRotationsPreviewFigure = listOf(
 
 @Composable
 private fun MentalRotationsPreview() {
-    MentalRotationsPair(
-        reference = MentalRotationsPreviewFigure.toProjection(),
-        candidate = mirror(MentalRotationsPreviewFigure).toProjection(),
-        modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(8.dp),
-        spacing = 6.dp,
-    )
+    PrismCard(
+        face = PreviewCardFace,
+        facet = PrismFacet.Preview,
+        modifier = Modifier.previewWide(),
+    ) {
+        MentalRotationsPair(
+            reference = MentalRotationsPreviewFigure.toProjection(),
+            candidate = mirror(MentalRotationsPreviewFigure).toProjection(),
+            modifier = Modifier.fillMaxSize().padding(6.dp),
+            spacing = 6.dp,
+        )
+    }
 }
