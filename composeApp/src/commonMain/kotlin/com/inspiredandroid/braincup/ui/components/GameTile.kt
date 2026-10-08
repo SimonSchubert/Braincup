@@ -65,10 +65,7 @@ import com.inspiredandroid.braincup.ui.screens.games.PuzzleClueCacheSize
 import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
 import com.inspiredandroid.braincup.ui.screens.games.drawRegionBorders
 import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
-import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
-import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
-import com.inspiredandroid.braincup.ui.theme.CheckersBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CheckersDarkSquare
 import com.inspiredandroid.braincup.ui.theme.CheckersLightSquare
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
@@ -80,17 +77,13 @@ import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
 import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
 import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
-import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
 import com.inspiredandroid.braincup.ui.theme.KnotCellColor
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
-import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
-import com.inspiredandroid.braincup.ui.theme.OrbitTrackerBoardFrame
-import com.inspiredandroid.braincup.ui.theme.PegBoardFrame
 import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
 import com.inspiredandroid.braincup.ui.theme.PegHole
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -99,14 +92,11 @@ import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
-import com.inspiredandroid.braincup.ui.theme.PuzzleSlateFrame
 import com.inspiredandroid.braincup.ui.theme.RailYardGround
 import com.inspiredandroid.braincup.ui.theme.ReversiBlackDisc
-import com.inspiredandroid.braincup.ui.theme.ReversiBoardFrame
 import com.inspiredandroid.braincup.ui.theme.ReversiFelt
 import com.inspiredandroid.braincup.ui.theme.ReversiGridLine
 import com.inspiredandroid.braincup.ui.theme.ReversiWhiteDisc
-import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
@@ -291,6 +281,25 @@ private fun PreviewSlot(modifier: Modifier = Modifier, selected: Boolean = false
             ),
     )
 }
+
+/**
+ * The board every framed preview sits on. One light face and one grey shading for all of them, so
+ * no tile's board reads darker or deeper than its neighbour's whatever the game's own frame is.
+ */
+@Composable
+private fun PreviewBoard(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+    PrismCard(
+        face = PreviewCardFace,
+        side = PreviewBoardSide,
+        bottom = PreviewBoardBottom,
+        facet = PrismFacet.Preview,
+        modifier = modifier,
+        content = content,
+    )
+}
+
+private val PreviewBoardSide = PreviewCardFace.darken(PrismShade.Side)
+private val PreviewBoardBottom = PreviewCardFace.darken(PrismShade.Bottom)
 
 /** A shape on a raised card, the way the shape games deal their figures. Null is an empty card. */
 @Composable
@@ -1408,9 +1417,7 @@ private fun MiniSudokuPreview() {
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
     val digits = remember { MiniSudokuPreviewGrid.flatten().filter { it.isNotEmpty() } }
     val fitter = rememberPreviewTextFitter(digits, previewNumberStyle())
-    PrismCard(
-        face = PreviewTextColor,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         // The prism face is the outer border now; the gaps between cells stay as grid lines.
@@ -1468,9 +1475,7 @@ private fun NormalSudokuPreview() {
     val cellColor = LightColorScheme.surface
     val thinLine = PreviewTextColor.copy(alpha = 0.2f)
     val boldLine = PreviewTextColor
-    PrismCard(
-        face = PreviewTextColor,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize().background(cellColor)) {
@@ -1506,9 +1511,7 @@ private fun NormalSudokuPreview() {
 private fun MatchstickRiddlesPreview() {
     val body = MatchstickColors.WoodBody
     val head = MatchstickColors.WoodHead
-    PrismCard(
-        face = PreviewTextColor,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize().background(LightColorScheme.surface)) {
@@ -1537,9 +1540,7 @@ private val ReversiPreviewWhite: Set<Int> = setOf(7, 13, 16, 19, 22, 25)
 
 @Composable
 private fun ReversiPreview() {
-    PrismCard(
-        face = ReversiBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize().background(ReversiGridLine)) {
@@ -1597,9 +1598,7 @@ private fun MiniCheckersPreview() {
 
 @Composable
 private fun CheckersPreviewBoard(size: Int, pieceOnDarkSquare: (row: Int, col: Int) -> CheckersPiece?) {
-    PrismCard(
-        face = CheckersBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -1626,12 +1625,9 @@ private fun CheckersPreviewBoard(size: Int, pieceOnDarkSquare: (row: Int, col: I
 
 @Composable
 private fun PegSolitairePreview() {
-    val frame = PegBoardFrame
     val surface = PegBoardSurface
     val hole = PegHole
-    PrismCard(
-        face = frame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(
@@ -1800,9 +1796,7 @@ private fun ShikakuPreview() {
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val n = ShikakuPreviewSize
-    PrismCard(
-        face = ShikakuBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(
@@ -1860,9 +1854,7 @@ private fun NurikabePreview() {
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val n = NurikabePreviewSize
-    PrismCard(
-        face = NurikabeBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(
@@ -1906,9 +1898,7 @@ private fun CatQueensPreview() {
     val borderColor = PreviewTextColor
     val catPainter = rememberVectorPainter(CatFace)
     val n = CatQueensPreviewSize
-    PrismCard(
-        face = CatQueensBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(
@@ -1950,9 +1940,7 @@ private fun CatQueensPreview() {
 private fun KnotPreview() {
     val gridLineColor = PreviewTextColor.copy(alpha = 0.15f)
     val n = KnotPreviewSize
-    PrismCard(
-        face = KnotBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize()) {
@@ -2211,9 +2199,7 @@ private fun OrbitTrackerPreview() {
     val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
     val variantSide = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.7f) }
     val variantBottom = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.5f) }
-    PrismCard(
-        face = OrbitTrackerBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(
@@ -2255,9 +2241,7 @@ private fun BubbleSumPreview() {
         fontWeight = FontWeight.Bold,
     )
     val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
-    PrismCard(
-        face = BubbleSumBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Canvas(
@@ -2342,9 +2326,7 @@ private fun ColorConfusionPreview() {
 /** The flock on a strip of sky, so the birds sit on something rather than float on the tile. */
 @Composable
 private fun FlockPreview() {
-    PrismCard(
-        face = PreviewCardFace,
-        facet = PrismFacet.Cell,
+    PreviewBoard(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
     ) {
         FlockRow(
@@ -2365,6 +2347,7 @@ private fun RailYardPreview() {
         modifier = Modifier.previewSquare(inset = 14.dp),
         ground = PreviewCardFace,
         rail = RailYardGround,
+        facet = PrismFacet.Preview,
     )
 }
 
@@ -2411,9 +2394,7 @@ private fun RowScope.FlashCrowdPreviewPanel(
     side: Color,
     bottom: Color,
 ) {
-    PrismCard(
-        face = PreviewCardFace,
-        facet = PrismFacet.Cell,
+    PreviewBoard(
         modifier = Modifier.weight(1f).fillMaxHeight(),
     ) {
         Canvas(modifier = Modifier.fillMaxSize().padding(4.dp)) {
@@ -2432,9 +2413,7 @@ private fun RowScope.FlashCrowdPreviewPanel(
 
 @Composable
 private fun MiniChessPreview() {
-    PrismCard(
-        face = ChessBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -2502,9 +2481,7 @@ private val ChessBackRank: List<DrawableResource> = listOf(
 // [MiniChessPreview]. Reuses [MiniChessPreviewPiece] for the haloed pieces.
 @Composable
 private fun NormalChessPreview() {
-    PrismCard(
-        face = ChessBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -2551,9 +2528,7 @@ private val SoloChessPreviewPieces: Map<Int, DrawableResource> = mapOf(
 
 @Composable
 private fun SoloChessPreview() {
-    PrismCard(
-        face = ChessBoardFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
@@ -2587,9 +2562,7 @@ private fun SoloChessPreview() {
 /** A well with blocks settled to the bottom, the way a Prism Clear board fills up. */
 @Composable
 private fun PrismClearPreview() {
-    PrismCard(
-        face = PuzzleSlateFrame,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewWide(),
     ) {
         Column(
@@ -2714,9 +2687,7 @@ private val MentalRotationsPreviewFigure = listOf(
 
 @Composable
 private fun MentalRotationsPreview() {
-    PrismCard(
-        face = PreviewCardFace,
-        facet = PrismFacet.Preview,
+    PreviewBoard(
         modifier = Modifier.previewWide(),
     ) {
         MentalRotationsPair(

@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.RailYardUiState
 import com.inspiredandroid.braincup.games.RailYardGame
@@ -63,6 +64,7 @@ fun RailYardBoard(
     pressedSwitch: Int? = null,
     ground: Color = RailYardGround,
     rail: Color = RailYardRail,
+    facet: Dp = PrismFacet.Board,
 ) {
     val faces = GameColor.entries.associateWith { it.composeColor() }
     val patterns = GameColor.entries.associateWith { it.visiblePattern() }
@@ -88,7 +90,7 @@ fun RailYardBoard(
         }
     }
 
-    PrismCard(face = ground, facet = PrismFacet.Board, modifier = modifier) {
+    PrismCard(face = ground, facet = facet, modifier = modifier) {
         Canvas(modifier = Modifier.fillMaxSize().then(tapModifier)) {
             val geometry = BoardGeometry(size, uiState, this)
             uiState.tracks.filter { !it.isOpen }.forEach { drawTrack(it, geometry, rail) }
