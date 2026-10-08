@@ -1753,8 +1753,10 @@ private const val SimonSaysPreviewLitPad = 1
 
 @Composable
 private fun SimonSaysPreview() {
+    // The light card face the other boards sit on rather than the game's slate body.
     SimonDisc(
         modifier = Modifier.previewSquare(),
+        bodyColor = PreviewCardFace,
     ) { index, quadrant, padModifier ->
         val base = SimonSaysGame.PADS[index].composeColor()
         Box(

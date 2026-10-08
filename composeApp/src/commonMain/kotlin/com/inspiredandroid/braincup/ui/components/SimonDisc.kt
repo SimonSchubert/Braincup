@@ -164,6 +164,7 @@ internal fun Modifier.simonPadSurface(
 @Composable
 internal fun SimonDisc(
     modifier: Modifier = Modifier,
+    bodyColor: Color = SimonBodyColor,
     pad: @Composable (index: Int, quadrant: SimonQuadrant, padModifier: Modifier) -> Unit,
 ) {
     Box(modifier = modifier) {
@@ -175,7 +176,7 @@ internal fun SimonDisc(
             drawPrismCircle(
                 center = center + Offset(padDepth / 2f, padDepth / 2f),
                 radius = size.width * 0.53f + padDepth * 0.71f,
-                face = SimonBodyColor,
+                face = bodyColor,
                 depth = padDepth,
             )
         }
@@ -196,7 +197,7 @@ internal fun SimonDisc(
         // Sized off the board rather than a fixed dp so the cap keeps its proportion when the
         // board shrinks below its max width on narrow screens.
         Canvas(Modifier.matchParentSize()) {
-            drawPrismCircle(center = center, radius = size.width * 0.09f, face = SimonBodyColor)
+            drawPrismCircle(center = center, radius = size.width * 0.09f, face = bodyColor)
         }
     }
 }
