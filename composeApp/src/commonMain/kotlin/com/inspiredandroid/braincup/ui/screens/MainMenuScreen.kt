@@ -10,8 +10,11 @@ import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -47,6 +50,8 @@ import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.ReversiTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.mascot.Mascot
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
+import com.inspiredandroid.braincup.ui.components.mascot.menuMascotMood
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
@@ -61,8 +66,14 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
+import kotlinx.coroutines.delay
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import kotlin.time.Clock
+import kotlin.time.Duration.Companion.minutes
+import kotlin.time.Duration.Companion.seconds
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 /** Width the settings button occupies in the header, kept clear so the title cannot run under it. */
@@ -127,7 +138,10 @@ fun MainMenuScreen(
         }
     }
 
+    val mascotMood = rememberMenuMascotMood(controller, completedToday)
+
     MainMenuScreenContent(
+        mascotMood = mascotMood,
         totalXp = totalXp,
         sessionStreak = sessionStreak,
         sessionProgressIndex = progressIndex,
@@ -158,8 +172,32 @@ fun MainMenuScreen(
     )
 }
 
+/**
+ * A greeting when the player returns after a break, then whatever the hour and the streak call
+ * for, re-read every minute so the mascot dozes off at bedtime while the menu stays open.
+ */
+@Composable
+private fun rememberMenuMascotMood(controller: GameController, completedToday: Boolean): MascotMood {
+    var mood by remember { mutableStateOf(MascotMood.NEUTRAL) }
+    LaunchedEffect(controller, completedToday) {
+        if (controller.consumeWelcomeBack()) {
+            mood = MascotMood.DELIGHTED
+            delay(WELCOME_BACK_HOLD)
+        }
+        while (true) {
+            val hour = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).hour
+            mood = menuMascotMood(hour, controller.storage.isStreakAtRisk())
+            delay(1.minutes)
+        }
+    }
+    return mood
+}
+
+private val WELCOME_BACK_HOLD = 2.5.seconds
+
 @Composable
 fun MainMenuScreenContent(
+    mascotMood: MascotMood = MascotMood.NEUTRAL,
     totalXp: Int,
     sessionStreak: Int,
     sessionProgressIndex: Int,
@@ -255,6 +293,7 @@ fun MainMenuScreenContent(
             if (totalXp > 0) {
                 Box(modifier = Modifier.fillMaxWidth()) {
                     Mascot(
+                        mood = mascotMood,
                         modifier = Modifier
                             .padding(top = 16.dp)
                             .align(Alignment.Center)
@@ -289,7 +328,7 @@ fun MainMenuScreenContent(
                             modifier = Modifier.padding(horizontal = SettingsIconClearance),
                         )
                         Spacer(Modifier.height(12.dp))
-                        Mascot(modifier = Modifier.height(150.dp))
+                        Mascot(mood = mascotMood, modifier = Modifier.height(150.dp))
                         Spacer(Modifier.height(12.dp))
                         Text(
                             text = stringResource(Res.string.app_tagline),

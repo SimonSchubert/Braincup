@@ -188,6 +188,7 @@ class UserStorage(
         const val KEY_SESSION_SCORES = "session_scores"
         const val KEY_SESSION_INDEX = "session_index"
         const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
+        const val KEY_LAST_OPEN_DAY = "last_open_day"
         const val KEY_RECENT_GAMES = "recent_games"
 
         // Per-category shuffle bags: the games not yet drawn in the current rotation cycle,
@@ -1246,6 +1247,16 @@ class UserStorage(
         store.putString(KEY_SESSION_SCORES, updated)
         store.putInt(KEY_SESSION_INDEX, store.getInt(KEY_SESSION_INDEX, 0) + 1)
     }
+
+    /** Records [today] as the latest open and returns the days since the one before, or null on a first open. */
+    fun recordAppOpenDay(today: Int = todayEpochDay()): Int? {
+        val previous = store.getIntOrNull(KEY_LAST_OPEN_DAY)
+        store.putInt(KEY_LAST_OPEN_DAY, today)
+        return previous?.let { today - it }
+    }
+
+    /** The streak survives today only if today's session gets played: yesterday's was the last one. */
+    fun isStreakAtRisk(today: Int = todayEpochDay()): Boolean = getSessionStreak() > 0 && store.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today - 1
 
     fun isSessionCompletedToday(): Boolean {
         val today = todayEpochDay()

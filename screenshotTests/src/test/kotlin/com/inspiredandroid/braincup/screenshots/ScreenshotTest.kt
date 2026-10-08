@@ -12,6 +12,7 @@ import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.screens.AnswerFeedbackScreen
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
@@ -119,6 +120,38 @@ class ScreenshotTest {
     fun mainMenu() {
         paparazzi.snap(darkTheme = true) {
             MainMenuScreenContent(
+                totalXp = 250,
+                sessionStreak = 14,
+                sessionProgressIndex = 0,
+                sessionTotalGames = 4,
+                sessionCompletedToday = false,
+                highscores = mainMenuHighscores,
+                unlockedCount = 5,
+            )
+        }
+    }
+
+    @Test
+    fun mainMenuMascotSleepy() {
+        paparazzi.snap(darkTheme = true) {
+            MainMenuScreenContent(
+                mascotMood = MascotMood.SLEEPY,
+                totalXp = 250,
+                sessionStreak = 14,
+                sessionProgressIndex = 0,
+                sessionTotalGames = 4,
+                sessionCompletedToday = false,
+                highscores = mainMenuHighscores,
+                unlockedCount = 5,
+            )
+        }
+    }
+
+    @Test
+    fun mainMenuMascotWorried() {
+        paparazzi.snap(darkTheme = false) {
+            MainMenuScreenContent(
+                mascotMood = MascotMood.WORRIED,
                 totalXp = 250,
                 sessionStreak = 14,
                 sessionProgressIndex = 0,

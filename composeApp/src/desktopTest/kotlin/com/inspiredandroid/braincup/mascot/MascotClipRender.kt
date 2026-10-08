@@ -27,7 +27,8 @@ import kotlin.test.Test
 
 /**
  * Renders the animated mascot to a PNG sequence for review. Skipped unless MASCOT_CLIP_DIR is
- * set. Frame time and coroutine time advance from one counter, as the promo renderer did,
+ * set; MASCOT_CLIP_MOODS replaces the mood script as `frame=MOOD,...`. Frame time and
+ * coroutine time advance from one counter, as the promo renderer did,
  * so the tap gesture's timeouts agree with the animation clock.
  */
 class MascotClipRender {
@@ -39,14 +40,17 @@ class MascotClipRender {
         val fps = 30
         val seconds = System.getenv("MASCOT_CLIP_SECONDS")?.toInt() ?: 14
         val tapFrames = listOf(380)
-        val moodAtFrame = mapOf(
-            30 to MascotMood.APPROVING,
-            100 to MascotMood.NEUTRAL,
-            140 to MascotMood.SAD,
-            200 to MascotMood.NEUTRAL,
-            240 to MascotMood.DELIGHTED,
-            320 to MascotMood.NEUTRAL,
-        )
+        val moodAtFrame = System.getenv("MASCOT_CLIP_MOODS")
+            ?.split(',')
+            ?.associate { entry -> entry.substringBefore('=').toInt() to MascotMood.valueOf(entry.substringAfter('=')) }
+            ?: mapOf(
+                30 to MascotMood.APPROVING,
+                100 to MascotMood.NEUTRAL,
+                140 to MascotMood.SAD,
+                200 to MascotMood.NEUTRAL,
+                240 to MascotMood.DELIGHTED,
+                320 to MascotMood.NEUTRAL,
+            )
         var mood by mutableStateOf(MascotMood.NEUTRAL)
         val scheduler = TestCoroutineScheduler()
         val scene = ImageComposeScene(

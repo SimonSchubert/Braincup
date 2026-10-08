@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipPath
@@ -38,6 +39,8 @@ enum class MascotMood {
     DELIGHTED,
     SAD,
     APPROVING,
+    WORRIED,
+    SLEEPY,
 }
 
 internal enum class MascotPart {
@@ -95,17 +98,23 @@ private const val ARM_TUCK_DEGREES = 30f
 private val ARM_TUCK_OFFSET = Offset(300f, 40f)
 
 private const val BREATH_PERIOD_S = 3.4f
+private const val SLEEPY_BREATH_PERIOD_S = 5.5f
 private const val SWAY_PERIOD_S = 5.3f
 private const val GLASSES_LAG_S = 0.14f
 private const val GLINT_DURATION_S = 0.6f
 private const val TAP_DURATION_S = 0.22f
 private const val BLINK_DURATION_S = 0.14f
+private const val YAWN_DURATION_S = 1.9f
+private const val SNORE_PERIOD_S = 3f
 
 private val FaceFront = Color(0xFFFF9678)
 private val FaceSide = Color(0xFFF87B57)
 private val Ink = Color(0xFF2B2622)
 private val MouthRed = Color(0xFFA82D0C)
 private val Tongue = Color(0xFFFF6F5E)
+
+// The temple arm's lavender, which reads on both the light and the dark menu.
+private val SnoreZ = Color(0xFFC2AEFD)
 
 /**
  * Mutable pose of the rig, advanced by [step]. Squash and the glasses are damped springs so
@@ -133,6 +142,18 @@ private class MascotAnimator(seed: Int) {
     var mood = MascotMood.NEUTRAL
         private set
 
+    // The glasses take a moment to settle back after a mood ends; the face keeps that mood's
+    // look until they are back in place.
+    var glassesMood = MascotMood.SAD
+        private set
+    var yawn = 0f
+        private set
+    var sleepiness = 0f
+        private set
+
+    private var breathPhase = 0f
+    private var nextYawnAt = 0f
+
     private var squashVelocity = 0f
     private var squashTarget = 0f
     private var glassesVelocity = 0f
@@ -149,6 +170,8 @@ private class MascotAnimator(seed: Int) {
 
     fun snapTo(mood: MascotMood) {
         this.mood = mood
+        rememberGlassesMood(mood)
+        sleepiness = if (mood == MascotMood.SLEEPY) 1f else 0f
         squash = restSquash(mood)
         squashTarget = squash
         glasses = restGlasses(mood)
@@ -160,6 +183,8 @@ private class MascotAnimator(seed: Int) {
     fun setMood(mood: MascotMood) {
         if (mood == this.mood) return
         this.mood = mood
+        rememberGlassesMood(mood)
+        if (mood == MascotMood.SLEEPY) nextYawnAt = time + 2.5f
         squashTarget = restSquash(mood)
         armTarget = restArm(mood)
         if (mood == MascotMood.APPROVING) {
@@ -175,7 +200,15 @@ private class MascotAnimator(seed: Int) {
         }
     }
 
-    private fun restSquash(mood: MascotMood) = if (mood == MascotMood.SAD) 0.16f else 0f
+    private fun rememberGlassesMood(mood: MascotMood) {
+        if (restGlasses(mood) != 0f) glassesMood = mood
+    }
+
+    private fun restSquash(mood: MascotMood) = when (mood) {
+        MascotMood.SAD -> 0.16f
+        MascotMood.SLEEPY -> 0.08f
+        else -> 0f
+    }
 
     private fun restArm(mood: MascotMood) = if (mood == MascotMood.APPROVING) 1f else 0f
 
@@ -183,6 +216,9 @@ private class MascotAnimator(seed: Int) {
         MascotMood.NEUTRAL, MascotMood.APPROVING -> 0f
         MascotMood.DELIGHTED -> -1f
         MascotMood.SAD -> 1f
+        // No sunglasses at night: pushed up, they leave the heavy eyelids in view.
+        MascotMood.SLEEPY -> -0.85f
+        MascotMood.WORRIED -> 0.75f
     }
 
     fun jump() {
@@ -191,7 +227,11 @@ private class MascotAnimator(seed: Int) {
         squashTarget = 0.55f
     }
 
-    fun breath(lagSeconds: Float = 0f) = sin(2f * PI.toFloat() * (time - lagSeconds) / BREATH_PERIOD_S)
+    // Accumulated rather than derived from time, so slowing down for sleep does not jump the phase.
+    fun breath(lagSeconds: Float = 0f): Float {
+        val period = BREATH_PERIOD_S + (SLEEPY_BREATH_PERIOD_S - BREATH_PERIOD_S) * sleepiness
+        return (1f + 0.8f * sleepiness) * sin(breathPhase - 2f * PI.toFloat() * lagSeconds / period)
+    }
 
     fun sway() = 7f * sin(2f * PI.toFloat() * time / SWAY_PERIOD_S)
 
@@ -203,9 +243,14 @@ private class MascotAnimator(seed: Int) {
             remaining -= h
         }
         time += dt
+        val sleepTarget = if (mood == MascotMood.SLEEPY) 1f else 0f
+        sleepiness += (sleepTarget - sleepiness) * min(1f, dt * 1.5f)
+        val period = BREATH_PERIOD_S + (SLEEPY_BREATH_PERIOD_S - BREATH_PERIOD_S) * sleepiness
+        breathPhase = (breathPhase + 2f * PI.toFloat() * dt / period) % (2f * PI.toFloat())
         updateGlint()
         updateFootTap()
         updateBlink()
+        updateYawn()
     }
 
     private fun integrate(h: Float) {
@@ -247,17 +292,32 @@ private class MascotAnimator(seed: Int) {
         }
     }
 
-    // Two quick toe taps on the right foot, as if keeping time. Only a relaxed mascot taps.
+    // Quick toe taps on the right foot: now and then when relaxed, keeping time; often and
+    // in threes when worried, as if waiting on the player.
     private fun updateFootTap() {
+        val worried = mood == MascotMood.WORRIED
+        val taps = if (worried) 3 else 2
         val sinceStart = time - nextFootTapAt
         toeAngle = when {
             sinceStart < 0f -> 0f
-            sinceStart < 2 * TAP_DURATION_S && mood == MascotMood.NEUTRAL -> {
+            sinceStart < taps * TAP_DURATION_S && (worried || mood == MascotMood.NEUTRAL) -> {
                 val phase = (sinceStart % TAP_DURATION_S) / TAP_DURATION_S
                 -11f * sin(PI.toFloat() * phase)
             }
             else -> {
-                nextFootTapAt = time + 7f + random.nextFloat() * 5f
+                nextFootTapAt = time + if (worried) 1.2f + random.nextFloat() else 7f + random.nextFloat() * 5f
+                0f
+            }
+        }
+    }
+
+    private fun updateYawn() {
+        val sinceStart = time - nextYawnAt
+        yawn = when {
+            mood != MascotMood.SLEEPY || sinceStart < 0f -> 0f
+            sinceStart < YAWN_DURATION_S -> sin(PI.toFloat() * sinceStart / YAWN_DURATION_S).let { it * it }
+            else -> {
+                nextYawnAt = time + 7f + random.nextFloat() * 5f
                 0f
             }
         }
@@ -307,7 +367,7 @@ private class MascotDeformer {
     fun update(animator: MascotAnimator) {
         bodyBreath = animator.breath()
         glassesBreath = animator.breath(GLASSES_LAG_S)
-        squash = animator.squash
+        squash = animator.squash - 0.12f * animator.yawn
         sway = animator.sway()
         lift = animator.lift
         val toeRadians = animator.toeAngle * PI.toFloat() / 180f
@@ -380,7 +440,8 @@ private class MascotPaths(shapeCount: Int) {
  * The brain mascot, alive: it breathes, its crown sways, its sunglasses catch the light and
  * it taps a foot now and then. Tapping it makes it hop. A [mood] change plays as a reaction:
  * delighted hops and lifts the glasses to show wide eyes, sad slumps and lets them slip, and
- * approving nods and swings a thumbs up out from behind its head.
+ * approving nods and swings a thumbs up out from behind its head, worried taps a foot
+ * impatiently, and sleepy breathes slowly, yawns and snores.
  * Inspection mode draws the settled pose of [mood] without animating.
  */
 @Composable
@@ -436,10 +497,23 @@ private fun DrawScope.drawMascot(animator: MascotAnimator, deformer: MascotDefor
     // The traced art has no face behind the glasses, so paint one in once they move.
     if (glassesMoved) drawFaceBehindGlasses(deformer, paths)
     val mouth = when {
-        animator.glasses < -0.35f -> MascotMouth.GRIN
-        animator.glasses > 0.35f -> MascotMouth.FROWN
+        abs(animator.glasses) > 0.35f -> when (animator.glassesMood) {
+            MascotMood.DELIGHTED -> MascotMouth.GRIN
+            MascotMood.SLEEPY -> if (animator.yawn > 0.05f) MascotMouth.YAWN else MascotMouth.TRACED
+            MascotMood.WORRIED -> MascotMouth.WAVY
+            else -> MascotMouth.FROWN
+        }
         animator.mood == MascotMood.APPROVING && animator.arm > 0.4f -> MascotMouth.SMILE
         else -> MascotMouth.TRACED
+    }
+    // The traced mouth is cut out of the face too; fill the cut before drawing another mouth.
+    if (mouth != MascotMouth.TRACED) {
+        mascotShapes.forEach { shape ->
+            if (shape.part != MascotPart.MOUTH) return@forEach
+            buildPath(paths.scratch, shape, deformer, MascotPart.BODY)
+            drawPath(paths.scratch, FaceFront)
+            drawPath(paths.scratch, FaceFront, style = faceSeamStroke)
+        }
     }
     var faceDrawn = false
     paths.lensClip.rewind()
@@ -449,7 +523,7 @@ private fun DrawScope.drawMascot(animator: MascotAnimator, deformer: MascotDefor
             faceDrawn = true
             withFaceTransform(deformer) {
                 if (glassesMoved) drawEyes(animator)
-                drawMouth(mouth)
+                drawMouth(mouth, animator.yawn)
             }
         }
         if (shape.part == MascotPart.ARM && animator.arm < 0.01f) return@forEachIndexed
@@ -460,7 +534,31 @@ private fun DrawScope.drawMascot(animator: MascotAnimator, deformer: MascotDefor
         if (shape.part == MascotPart.LENS) paths.lensClip.addPath(path)
     }
     if (animator.glint >= 0f) drawGlint(paths.lensClip, animator.glint)
+    if (animator.sleepiness > 0.05f) drawSnore(animator.time, animator.sleepiness, deformer)
 }
+
+// Three z's rising from the top of the head and fading, one after another.
+private fun DrawScope.drawSnore(time: Float, sleepiness: Float, deformer: MascotDeformer) {
+    deformer.map(MascotPart.BODY, 560f, 110f)
+    val originX = deformer.x
+    val originY = deformer.y
+    for (i in 0 until 3) {
+        val progress = ((time / SNORE_PERIOD_S) + i / 3f) % 1f
+        val alpha = sleepiness * sin(PI.toFloat() * progress)
+        val size = 32f + 28f * progress
+        val x = originX + 40f * progress + 10f * sin(progress * 2f * PI.toFloat())
+        val y = originY - 150f * progress
+        snorePath.rewind()
+        snorePath.moveTo(x, y)
+        snorePath.lineTo(x + size, y)
+        snorePath.lineTo(x, y + size)
+        snorePath.lineTo(x + size, y + size)
+        drawPath(snorePath, SnoreZ, alpha = alpha, style = snoreStroke)
+    }
+}
+
+private val snorePath = Path()
+private val snoreStroke = Stroke(width = 10f, cap = StrokeCap.Round, join = StrokeJoin.Round)
 
 private fun DrawScope.drawFaceBehindGlasses(deformer: MascotDeformer, paths: MascotPaths) {
     paths.faceFill.rewind()
@@ -506,17 +604,32 @@ private fun DrawScope.drawEyes(animator: MascotAnimator) {
     // Fading in with the glasses keeps a sliver of eye from flickering at a lens edge.
     val alpha = ((abs(animator.glasses) - 0.1f) / 0.35f).coerceIn(0f, 1f)
     if (alpha <= 0f) return
-    val openness = animator.eyeOpenness
-    if (animator.glasses < 0f) {
-        drawEye(Offset(335f, 345f), 30f, 40f, openness, 0f, 0f, alpha)
-        drawEye(Offset(585f, 330f), 32f, 42f, openness, 0f, 0f, alpha)
-        drawBrow(Offset(300f, 272f), Offset(360f, 262f), alpha)
-        drawBrow(Offset(550f, 252f), Offset(615f, 250f), alpha)
-    } else {
-        drawEye(Offset(335f, 318f), 27f, 32f, openness, 26f, 8f, alpha)
-        drawEye(Offset(585f, 300f), 28f, 34f, openness, 10f, 28f, alpha)
-        drawBrow(Offset(300f, 262f), Offset(362f, 244f), alpha)
-        drawBrow(Offset(552f, 236f), Offset(612f, 252f), alpha)
+    val openness = animator.eyeOpenness * (1f - 0.9f * animator.yawn)
+    when (animator.glassesMood) {
+        MascotMood.DELIGHTED -> {
+            drawEye(Offset(335f, 345f), 30f, 40f, openness, 0f, 0f, alpha)
+            drawEye(Offset(585f, 330f), 32f, 42f, openness, 0f, 0f, alpha)
+            drawBrow(Offset(300f, 272f), Offset(360f, 262f), alpha)
+            drawBrow(Offset(550f, 252f), Offset(615f, 250f), alpha)
+        }
+        MascotMood.SLEEPY -> {
+            drawEye(Offset(335f, 345f), 30f, 40f, openness, 46f, 46f, alpha)
+            drawEye(Offset(585f, 330f), 32f, 42f, openness, 48f, 48f, alpha)
+            drawBrow(Offset(302f, 284f), Offset(360f, 282f), alpha)
+            drawBrow(Offset(552f, 266f), Offset(612f, 266f), alpha)
+        }
+        MascotMood.WORRIED -> {
+            drawEye(Offset(335f, 318f), 27f, 32f, openness, 0f, 0f, alpha)
+            drawEye(Offset(585f, 300f), 28f, 34f, openness, 0f, 0f, alpha)
+            drawBrow(Offset(300f, 256f), Offset(362f, 232f), alpha)
+            drawBrow(Offset(552f, 224f), Offset(612f, 244f), alpha)
+        }
+        else -> {
+            drawEye(Offset(335f, 318f), 27f, 32f, openness, 26f, 8f, alpha)
+            drawEye(Offset(585f, 300f), 28f, 34f, openness, 10f, 28f, alpha)
+            drawBrow(Offset(300f, 262f), Offset(362f, 244f), alpha)
+            drawBrow(Offset(552f, 236f), Offset(612f, 252f), alpha)
+        }
     }
 }
 
@@ -525,11 +638,13 @@ private enum class MascotMouth {
     GRIN,
     FROWN,
     SMILE,
+    WAVY,
+    YAWN,
 }
 
 private val mouthStroke = Stroke(width = 15f, cap = StrokeCap.Round)
 
-private fun DrawScope.drawMouth(mouth: MascotMouth) {
+private fun DrawScope.drawMouth(mouth: MascotMouth, yawn: Float) {
     when (mouth) {
         MascotMouth.GRIN -> {
             drawPath(grinPath, MouthRed)
@@ -537,6 +652,12 @@ private fun DrawScope.drawMouth(mouth: MascotMouth) {
         }
         MascotMouth.FROWN -> drawPath(frownPath, MouthRed, style = mouthStroke)
         MascotMouth.SMILE -> drawPath(smilePath, MouthRed, style = mouthStroke)
+        MascotMouth.WAVY -> drawPath(wavyPath, MouthRed, style = mouthStroke)
+        MascotMouth.YAWN -> {
+            val width = 34f + 22f * yawn
+            val height = 14f + 62f * yawn
+            drawOval(MouthRed, topLeft = Offset(458f - width / 2f, 512f - height / 2f), size = Size(width, height))
+        }
         MascotMouth.TRACED -> Unit
     }
 }
@@ -596,6 +717,13 @@ private val tonguePath = Path().apply {
 private val smilePath = Path().apply {
     moveTo(424f, 500f)
     quadraticTo(462f, 526f, 496f, 494f)
+}
+
+private val wavyPath = Path().apply {
+    moveTo(424f, 566f)
+    quadraticTo(435f, 552f, 446f, 566f)
+    quadraticTo(457f, 580f, 468f, 566f)
+    quadraticTo(479f, 552f, 490f, 566f)
 }
 
 private val frownPath = Path().apply {

@@ -175,9 +175,17 @@ class GameController(
 
         /** Hold after every correct operator is shown before advancing the round. */
         private const val MISSING_OPS_FEEDBACK_HOLD_MS = 1200L
+
+        private const val WELCOME_BACK_AFTER_DAYS = 3
     }
 
+    private var welcomeBackPending = false
+
+    /** True once per launch when the player has been away long enough to be greeted. */
+    fun consumeWelcomeBack(): Boolean = welcomeBackPending.also { welcomeBackPending = false }
+
     init {
+        welcomeBackPending = (storage.recordAppOpenDay() ?: 0) >= WELCOME_BACK_AFTER_DAYS
         storage.migrateStreakIfNeeded()
         storage.seedHighScoresFromUnlockedGold()
         storage.unlockGoldForQualifyingHighScores()
