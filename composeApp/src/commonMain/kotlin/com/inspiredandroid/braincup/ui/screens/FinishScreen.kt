@@ -81,7 +81,7 @@ fun FinishScreen(
                     .height(120.dp)
                     .align(Alignment.CenterHorizontally),
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(20.dp))
         }
 
         if (medalTint != null) {
