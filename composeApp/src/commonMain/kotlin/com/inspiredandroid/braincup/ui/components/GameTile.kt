@@ -87,7 +87,6 @@ import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
 import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
 import com.inspiredandroid.braincup.ui.theme.PegHole
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.PrismChamferShape
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
@@ -271,22 +270,23 @@ private fun PreviewKey(
  */
 private const val PreviewLabelFill = 0.72f
 
-// The board-sized chamfer of PrismSlot swallows a slot this small.
-private val PreviewSlotShape = PrismChamferShape(PreviewDepth)
-
-/** The empty answer slot of the number games, sunk into the tile rather than raised from it. */
+/**
+ * An empty answer field, raised like the keys and cards around it. The next one to fill carries the
+ * orange outline the game uses for the selected field.
+ */
 @Composable
 private fun PreviewSlot(modifier: Modifier = Modifier, selected: Boolean = false) {
-    Box(
-        modifier = modifier
-            .padding(end = PreviewDepth, bottom = PreviewDepth)
-            .background(LightColorScheme.surface, PreviewSlotShape)
-            .border(
-                width = 1.5.dp,
-                color = if (selected) Primary else LightColorScheme.outlineVariant,
-                shape = PreviewSlotShape,
-            ),
-    )
+    Box(modifier = modifier) {
+        ColorPrismCell(face = LightColorScheme.surface, facet = PreviewDepth, modifier = Modifier.fillMaxSize())
+        if (selected) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(end = PreviewDepth, bottom = PreviewDepth)
+                    .border(width = 1.5.dp, color = Primary),
+            )
+        }
+    }
 }
 
 /**
@@ -1427,9 +1427,9 @@ private fun MiniSudokuPreview() {
     PreviewBoard(
         modifier = Modifier.previewSquare(),
     ) {
-        // The prism face is the outer border now; the gaps between cells stay as grid lines.
+        // The padding is the outer border, in the same line colour and width as the inner ones.
         Column(
-            modifier = Modifier.fillMaxSize().background(gridLineColor),
+            modifier = Modifier.fillMaxSize().background(gridLineColor).padding(2.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             MiniSudokuPreviewGrid.forEach { row ->
