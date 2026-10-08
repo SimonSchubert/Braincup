@@ -18,6 +18,7 @@ import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.lerp
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.ui.theme.PuzzleSlateFrame
 import kotlin.math.PI
@@ -144,8 +145,9 @@ internal fun Modifier.simonPadSurface(
     quadrant: SimonQuadrant,
     face: Color,
     sink: Float = 0f,
+    depth: Dp? = null,
 ): Modifier = drawWithCache {
-    val depth = size.width * SimonPadDepthFraction
+    val depth = depth?.toPx() ?: (size.width * SimonPadDepthFraction)
     val points = simonWedgePoints(quadrant, size.width)
     onDrawBehind {
         val shift = depth * sink
@@ -165,11 +167,12 @@ internal fun Modifier.simonPadSurface(
 internal fun SimonDisc(
     modifier: Modifier = Modifier,
     bodyColor: Color = SimonBodyColor,
+    depth: Dp? = null,
     pad: @Composable (index: Int, quadrant: SimonQuadrant, padModifier: Modifier) -> Unit,
 ) {
     Box(modifier = modifier) {
         Canvas(Modifier.matchParentSize()) {
-            val padDepth = size.width / 2f * SimonPadDepthFraction
+            val padDepth = depth?.toPx() ?: (size.width / 2f * SimonPadDepthFraction)
             // Centred half a pad-depth down-right and grown by the diagonal reach of the
             // extrusion, so the body encloses the pads' sides as well as their faces and still
             // shows a rim all the way round.
@@ -197,7 +200,12 @@ internal fun SimonDisc(
         // Sized off the board rather than a fixed dp so the cap keeps its proportion when the
         // board shrinks below its max width on narrow screens.
         Canvas(Modifier.matchParentSize()) {
-            drawPrismCircle(center = center, radius = size.width * 0.09f, face = bodyColor)
+            drawPrismCircle(
+                center = center,
+                radius = size.width * 0.09f,
+                face = bodyColor,
+                depth = depth?.toPx() ?: (size.width * 0.09f * 0.22f),
+            )
         }
     }
 }

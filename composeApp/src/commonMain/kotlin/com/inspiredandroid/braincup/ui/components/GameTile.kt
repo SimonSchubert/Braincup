@@ -209,6 +209,13 @@ private fun rememberPreviewTextFitter(texts: List<String>, style: TextStyle): Pr
 
 private val PreviewInset = 20.dp
 
+/**
+ * The one extrusion every box in a preview takes (boards, cards, keys, cells, Simon's pads), so
+ * neighbouring tiles never stand at different heights. Balls, shapes, dots and pieces resting on a board
+ * keep a depth relative to their size: a fixed 3dp turns a small dot into a capsule.
+ */
+private val PreviewDepth = 3.dp
+
 /** The square every preview stands in, so tiles share one footprint whatever they draw. */
 private fun Modifier.previewSquare(inset: Dp = PreviewInset): Modifier = fillMaxHeight().aspectRatio(1f).padding(inset)
 
@@ -237,14 +244,14 @@ private fun PreviewKey(
 ) {
     BoxWithConstraints(modifier = modifier) {
         val labelStyle = fitter.fitTo(
-            cellWidth = (maxWidth - PrismFacet.Cell) * PreviewLabelFill,
-            cellHeight = (maxHeight - PrismFacet.Cell) * PreviewLabelFill,
+            cellWidth = (maxWidth - PreviewDepth) * PreviewLabelFill,
+            cellHeight = (maxHeight - PreviewDepth) * PreviewLabelFill,
         )
-        ColorPrismCell(face = face, modifier = Modifier.fillMaxSize())
+        ColorPrismCell(facet = PreviewDepth, face = face, modifier = Modifier.fillMaxSize())
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(end = PrismFacet.Cell, bottom = PrismFacet.Cell),
+                .padding(end = PreviewDepth, bottom = PreviewDepth),
             contentAlignment = Alignment.Center,
         ) {
             Text(
@@ -265,14 +272,14 @@ private fun PreviewKey(
 private const val PreviewLabelFill = 0.72f
 
 // The board-sized chamfer of PrismSlot swallows a slot this small.
-private val PreviewSlotShape = PrismChamferShape(PrismFacet.Cell)
+private val PreviewSlotShape = PrismChamferShape(PreviewDepth)
 
 /** The empty answer slot of the number games, sunk into the tile rather than raised from it. */
 @Composable
 private fun PreviewSlot(modifier: Modifier = Modifier, selected: Boolean = false) {
     Box(
         modifier = modifier
-            .padding(end = PrismFacet.Cell, bottom = PrismFacet.Cell)
+            .padding(end = PreviewDepth, bottom = PreviewDepth)
             .background(LightColorScheme.surface, PreviewSlotShape)
             .border(
                 width = 1.5.dp,
@@ -292,7 +299,7 @@ private fun PreviewBoard(modifier: Modifier = Modifier, content: @Composable () 
         face = PreviewCardFace,
         side = PreviewBoardSide,
         bottom = PreviewBoardBottom,
-        facet = PrismFacet.Preview,
+        facet = PreviewDepth,
         modifier = modifier,
         content = content,
     )
@@ -304,7 +311,7 @@ private val PreviewBoardBottom = PreviewCardFace.darken(PrismShade.Bottom)
 /** A shape on a raised card, the way the shape games deal their figures. Null is an empty card. */
 @Composable
 private fun PreviewShapeCard(figure: Figure?, modifier: Modifier = Modifier) {
-    PrismCard(face = PreviewCardFace, facet = PrismFacet.Cell, modifier = modifier) {
+    PrismCard(face = PreviewCardFace, facet = PreviewDepth, modifier = modifier) {
         if (figure != null) {
             ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(4.dp))
         }
@@ -678,7 +685,7 @@ private fun IqTestPreview() {
             val z = ((index + 0.5f) / IqTestPreviewBars - 0.5f) * IqTestPreviewSpread
             ColorPrismCell(
                 face = if (index < IqTestPreviewBarsBelow) belowFace else aboveFace,
-                facet = PrismFacet.Dot,
+                facet = PreviewDepth,
                 modifier = Modifier
                     .weight(1f)
                     .fillMaxHeight(exp(-0.5f * z * z)),
@@ -986,7 +993,7 @@ private fun PathFinderPreview() {
                     row.forEach { figure ->
                         ColorPrismCell(
                             face = figure.color.composeColor(),
-                            facet = PrismFacet.Dot,
+                            facet = PreviewDepth,
                             modifier = Modifier.weight(1f).aspectRatio(1f).padding(1.dp),
                         )
                     }
@@ -1039,7 +1046,7 @@ private fun SpotTheNewPreview() {
                         } else {
                             SpotTheNewColors.normalFace()
                         },
-                        facet = PrismFacet.Cell,
+                        facet = PreviewDepth,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -1248,7 +1255,7 @@ private fun NBackPreview() {
         NBackPreviewStream.forEach { (shape, isMatch) ->
             PrismCard(
                 face = MaterialTheme.colorScheme.surfaceContainer,
-                facet = PrismFacet.Cell,
+                facet = PreviewDepth,
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -1366,7 +1373,7 @@ private fun FractionCalculationPreview() {
 private fun FractionCalculationPreviewCard(numerator: String, denominator: String, modifier: Modifier = Modifier) {
     PrismCard(
         face = PreviewCardFace,
-        facet = PrismFacet.Cell,
+        facet = PreviewDepth,
         modifier = modifier.fillMaxHeight(0.8f),
     ) {
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -1690,7 +1697,7 @@ private fun SchulteTablePreview() {
                         } else {
                             MaterialTheme.colorScheme.surfaceContainer
                         },
-                        facet = PrismFacet.Cell,
+                        facet = PreviewDepth,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -1727,6 +1734,7 @@ private fun GhostGridPreview() {
                     val index = row * 3 + col
                     val isHighlighted = index in GhostGridPreviewHighlighted
                     ColorPrismCell(
+                        facet = PreviewDepth,
                         face = if (isHighlighted) {
                             MaterialTheme.colorScheme.primary
                         } else {
@@ -1753,12 +1761,14 @@ private fun SimonSaysPreview() {
     SimonDisc(
         modifier = Modifier.previewSquare(),
         bodyColor = PreviewCardFace,
+        depth = PreviewDepth,
     ) { index, quadrant, padModifier ->
         val base = SimonSaysGame.PADS[index].composeColor()
         Box(
             modifier = padModifier.simonPadSurface(
                 quadrant = quadrant,
                 face = if (index == SimonSaysPreviewLitPad) simonPadColor(base, lit = true) else base,
+                depth = PreviewDepth,
             ),
         )
     }
@@ -1777,6 +1787,7 @@ private fun LightsOutPreview() {
                     val index = row * 3 + col
                     val isOn = index in LightsOutPreviewOn
                     ColorPrismCell(
+                        facet = PreviewDepth,
                         face = if (isOn) LightsOutOnColor else LightsOutOffColor,
                         modifier = Modifier
                             .weight(1f)
@@ -2043,7 +2054,7 @@ private fun SlidingPuzzlePreview() {
                         } else {
                             MaterialTheme.colorScheme.primaryContainer
                         },
-                        facet = PrismFacet.Cell,
+                        facet = PreviewDepth,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -2315,6 +2326,7 @@ private fun ColorConfusionPreview() {
         ) {
             ColorConfusionGame.RESPONSE_COLORS.forEach { swatch ->
                 ColorPrismCell(
+                    facet = PreviewDepth,
                     face = swatch.composeColor(),
                     modifier = Modifier.weight(1f).aspectRatio(1f),
                 )
@@ -2347,7 +2359,7 @@ private fun RailYardPreview() {
         modifier = Modifier.previewSquare(inset = 14.dp),
         ground = PreviewCardFace,
         rail = RailYardGround,
-        facet = PrismFacet.Preview,
+        facet = PreviewDepth,
     )
 }
 
@@ -2576,7 +2588,7 @@ private fun PrismClearPreview() {
                         if (ordinal == null) {
                             Spacer(cell)
                         } else {
-                            ColorPrismCell(face = PrismTileType.entries[ordinal].color.composeColor(), modifier = cell)
+                            ColorPrismCell(facet = PreviewDepth, face = PrismTileType.entries[ordinal].color.composeColor(), modifier = cell)
                         }
                     }
                 }
@@ -2614,7 +2626,7 @@ private fun FlagsPreview() {
                 row.forEach { drawable ->
                     PrismCard(
                         face = Color.White,
-                        facet = PrismFacet.Cell,
+                        facet = PreviewDepth,
                         modifier = Modifier.weight(1f).aspectRatio(1f),
                     ) {
                         Image(
@@ -2655,7 +2667,7 @@ private fun TrioPreview() {
                 row.forEach { (card, found) ->
                     PrismCard(
                         face = if (found) TrioPreviewFoundFace else MaterialTheme.colorScheme.surfaceContainer,
-                        facet = PrismFacet.Cell,
+                        facet = PreviewDepth,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
