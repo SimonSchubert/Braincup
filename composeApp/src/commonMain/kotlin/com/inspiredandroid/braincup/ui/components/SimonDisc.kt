@@ -1,26 +1,28 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.background
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.GenericShape
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.drawWithCache
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.ui.theme.PuzzleSlateFrame
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 /**
  * The four quadrant wedges of a Simon disc, matching `SimonSaysGame.PADS` order
@@ -74,9 +76,8 @@ internal fun simonQuadrantShape(quadrant: SimonQuadrant) = GenericShape { size, 
  * The lit and unlit faces of a pad. `darken` scales the channels, so the unlit face keeps the
  * pad's hue but at a fraction of its brightness; taking it well below half is what makes an
  * unlit pad read as off rather than merely dull, and the white lift makes the lit face read as
- * glowing rather than just "the normal color". Shared so the board and the tutorial can never
- * drift apart on what "lit" looks like. The menu tile deliberately opts out and paints every pad
- * at base colour -- see SimonSaysPreview.
+ * glowing rather than just "the normal color". Shared so the board, the tutorial and the menu
+ * tile can never drift apart on what "lit" looks like.
  */
 internal fun simonPadColor(base: Color, lit: Boolean): Color = if (lit) lerp(base, Color.White, 0.18f) else base.darken(0.28f)
 
@@ -111,19 +112,73 @@ internal fun simonWedgeAlignment(quadrant: SimonQuadrant): Alignment {
 }
 
 /**
- * The 2x2 board of wedges plus the center hub that makes them read as one disc. Shared by the
- * live game, the instructions demo and the menu tile so all three stay visually identical.
+ * How far a pad is extruded down-right, as a fraction of the pad's width. Relative rather than a
+ * fixed dp so the 45dp pads of the menu tile and the 140dp pads of the board keep one proportion.
+ */
+private const val SimonPadDepthFraction = 0.06f
+
+private const val SimonArcSegments = 16
+
+private val SimonBodyColor = PuzzleSlateFrame
+
+/** The wedge as a polygon, so it can be extruded by [drawPrismPolygon] like every other prism. */
+private fun simonWedgePoints(quadrant: SimonQuadrant, w: Float): List<Offset> {
+    val (center, startDegrees) = when (quadrant) {
+        SimonQuadrant.TOP_LEFT -> Offset(w, w) to 180f
+        SimonQuadrant.TOP_RIGHT -> Offset(0f, w) to 270f
+        SimonQuadrant.BOTTOM_LEFT -> Offset(w, 0f) to 90f
+        SimonQuadrant.BOTTOM_RIGHT -> Offset(0f, 0f) to 0f
+    }
+    return listOf(center) + List(SimonArcSegments + 1) { i ->
+        val radians = (startDegrees + 90f * i / SimonArcSegments) * PI.toFloat() / 180f
+        Offset(center.x + w * cos(radians), center.y + w * sin(radians))
+    }
+}
+
+/**
+ * Paints one extruded pad. [sink] runs from 0 (raised) to 1 (pressed flush), the same press the
+ * prism tiles make. Drawing is not clipped: the extrusion has to spill into the gap below and to
+ * the right, where the next pad (drawn later) or the disc body covers it.
+ */
+internal fun Modifier.simonPadSurface(
+    quadrant: SimonQuadrant,
+    face: Color,
+    sink: Float = 0f,
+): Modifier = drawWithCache {
+    val depth = size.width * SimonPadDepthFraction
+    val points = simonWedgePoints(quadrant, size.width)
+    onDrawBehind {
+        val shift = depth * sink
+        translate(shift, shift) { drawPrismPolygon(points, face, depth - shift) }
+    }
+}
+
+/**
+ * The 2x2 board of wedges seated in a slate body with a raised center cap, like the physical toy.
+ * Shared by the live game, the instructions demo and the menu tile so all three stay identical.
  *
  * [pad] receives the index into `SimonSaysGame.PADS`, its quadrant, and the modifier the wedge
- * must apply (weight/aspect/padding), so callers only decide how a wedge is painted.
+ * must apply (weight/aspect/padding), so callers only decide how a wedge is painted, normally via
+ * [simonPadSurface].
  */
 @Composable
 internal fun SimonDisc(
     modifier: Modifier = Modifier,
-    hubColor: Color = MaterialTheme.colorScheme.surface,
     pad: @Composable (index: Int, quadrant: SimonQuadrant, padModifier: Modifier) -> Unit,
 ) {
     Box(modifier = modifier) {
+        Canvas(Modifier.matchParentSize()) {
+            val padDepth = size.width / 2f * SimonPadDepthFraction
+            // Centred half a pad-depth down-right and grown by the diagonal reach of the
+            // extrusion, so the body encloses the pads' sides as well as their faces and still
+            // shows a rim all the way round.
+            drawPrismCircle(
+                center = center + Offset(padDepth / 2f, padDepth / 2f),
+                radius = size.width * 0.53f + padDepth * 0.71f,
+                face = SimonBodyColor,
+                depth = padDepth,
+            )
+        }
         Column {
             for (row in 0 until 2) {
                 Row {
@@ -138,20 +193,10 @@ internal fun SimonDisc(
                 }
             }
         }
-        Hub(hubColor)
+        // Sized off the board rather than a fixed dp so the cap keeps its proportion when the
+        // board shrinks below its max width on narrow screens.
+        Canvas(Modifier.matchParentSize()) {
+            drawPrismCircle(center = center, radius = size.width * 0.09f, face = SimonBodyColor)
+        }
     }
-}
-
-// Sized as a fraction of the board rather than a fixed dp so the hole keeps its proportion when
-// the board shrinks below its max width on narrow screens.
-@Composable
-private fun BoxScope.Hub(color: Color) {
-    Box(
-        modifier = Modifier
-            .align(Alignment.Center)
-            .fillMaxWidth(0.18f)
-            .aspectRatio(1f)
-            .clip(CircleShape)
-            .background(color),
-    )
 }

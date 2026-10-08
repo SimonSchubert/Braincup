@@ -1681,21 +1681,21 @@ private fun GhostGridPreview() {
     }
 }
 
+// The pad that is mid-flash. Every pad stays at full colour rather than three dark and one lit:
+// the unlit face is near-black by design, and three of those go muddy on the pale MEMORY accent.
+private const val SimonSaysPreviewLitPad = 1
+
 @Composable
 private fun SimonSaysPreview() {
-    // All four pads at full colour rather than one lit and three dark. A tile is an identity mark,
-    // not a snapshot of play: the unlit face is near-black by design, and three near-black wedges
-    // go muddy against the pale mint MEMORY accent. Four bright quadrants read as the Simon disc
-    // at a glance, which is what the tile has to do.
     SimonDisc(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        // The hub reads as a hole punched through to the tile's accent background.
-        hubColor = Color(GameType.SIMON_SAYS.accentColor),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
     ) { index, quadrant, padModifier ->
+        val base = SimonSaysGame.PADS[index].composeColor()
         Box(
-            modifier = padModifier
-                .clip(simonQuadrantShape(quadrant))
-                .background(SimonSaysGame.PADS[index].composeColor()),
+            modifier = padModifier.simonPadSurface(
+                quadrant = quadrant,
+                face = if (index == SimonSaysPreviewLitPad) simonPadColor(base, lit = true) else base,
+            ),
         )
     }
 }

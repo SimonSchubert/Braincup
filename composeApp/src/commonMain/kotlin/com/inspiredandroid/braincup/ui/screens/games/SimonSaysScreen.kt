@@ -2,7 +2,7 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
-import androidx.compose.foundation.background
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -11,7 +11,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.SimonSaysGame
@@ -93,26 +92,29 @@ private fun SimonPad(
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     // Ignore a stuck PressInteraction when the pad is disabled mid-press (e.g. game over).
-    val scale by animateFloatAsState(
-        targetValue = if (isClickable && isPressed) 0.92f else 1f,
-        label = "simonPadScale",
+    val sink by animateFloatAsState(
+        targetValue = if (isClickable && isPressed) 1f else 0f,
+        animationSpec = tween(durationMillis = 120),
+        label = "simonPadSink",
     )
 
     val shape = remember(quadrant) { simonQuadrantShape(quadrant) }
 
-    Box(
-        modifier = modifier
-            .scale(scale)
-            .clip(shape)
-            .background(animatedColor)
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null,
-                enabled = isClickable,
-                onClick = onClick,
-            )
-            .hoverHand(isClickable),
-    ) {
+    Box(modifier = modifier.simonPadSurface(quadrant, animatedColor, sink)) {
+        // The clip only shapes the hit area; the pad itself is painted unclipped so its extrusion
+        // can show in the gap beside it.
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .clip(shape)
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = null,
+                    enabled = isClickable,
+                    onClick = onClick,
+                )
+                .hoverHand(isClickable),
+        )
         val mark = when (pad.type) {
             SequenceCellType.WRONG -> FeedbackMarkKind.WRONG
             SequenceCellType.MISSED -> FeedbackMarkKind.CORRECT

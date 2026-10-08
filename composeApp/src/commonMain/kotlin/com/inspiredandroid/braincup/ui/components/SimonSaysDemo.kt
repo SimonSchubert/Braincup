@@ -1,12 +1,10 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.simon_says_demo_repeat
@@ -111,11 +109,5 @@ private fun DemoSimonPad(
         animationSpec = SimonPadColorSpec,
         label = "simonDemoPadColor",
     )
-    val shape = remember(quadrant) { simonQuadrantShape(quadrant) }
-
-    Box(
-        modifier = modifier
-            .clip(shape)
-            .background(animatedColor),
-    )
+    Box(modifier = modifier.simonPadSurface(quadrant, animatedColor))
 }
