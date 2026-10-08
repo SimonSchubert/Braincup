@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -21,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
@@ -133,20 +133,15 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
                         // Once counted in the finish flourish, the tile settles to green; the most
                         // recently counted one pops to draw the eye along the sequence.
                         val isLit = index in litCells
-                        val face by animateColorAsState(
-                            targetValue = when {
-                                tiles[index] == 0 -> emptyFace
-                                isLit -> SuccessGreen
-                                else -> tileFace
-                            },
+                        // Only the green fade animates. Filled/empty must flip instantly when the
+                        // slide lands, or the vacated cell fades out as a ghost of the moved tile.
+                        val litFraction by animateFloatAsState(
+                            targetValue = if (isLit) 1f else 0f,
                             animationSpec = tween(220),
-                            label = "slideFace",
+                            label = "slideLit",
                         )
-                        val textColor by animateColorAsState(
-                            targetValue = if (isLit) Color.White else tileText,
-                            animationSpec = tween(220),
-                            label = "slideText",
-                        )
+                        val face = if (tiles[index] == 0) emptyFace else lerp(tileFace, SuccessGreen, litFraction)
+                        val textColor = lerp(tileText, Color.White, litFraction)
                         val scale by animateFloatAsState(
                             targetValue = if (index == pulseIndex) PulseScale else 1f,
                             animationSpec = tween(180),
