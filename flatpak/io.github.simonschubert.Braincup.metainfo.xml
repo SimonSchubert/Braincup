@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.8.1" date="2026-10-08">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.8.1</url>
+      <description>
+        <ul>
+          <li>The mascot comes alive: it hops when you return, worries about your streak and dozes at night</li>
+          <li>The mascot cheers right answers, slumps at wrong ones and celebrates a new best</li>
+          <li>Redesigned game tiles on the home screen</li>
+          <li>Simon Says pads now press down like the real toy</li>
+          <li>Fix a ghost tile in the Sliding Puzzle tutorial</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.8.0" date="2026-10-04">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.8.0</url>
       <description>
@@ -164,18 +176,6 @@
           <li>New mascot app icons</li>
           <li>Fix Trio gold medal not unlocking</li>
           <li>Improve OLED and color blind colors</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.33.0" date="2026-08-14">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.33.0</url>
-      <description>
-        <ul>
-          <li>Add Trio game</li>
-          <li>Add multi-account support</li>
-          <li>Add Simon Says sound effects</li>
-          <li>Fix Peg Solitaire tile preview</li>
-          <li>Improve chess board sizing and performance</li>
         </ul>
       </description>
     </release>

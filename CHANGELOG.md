@@ -1,3 +1,25 @@
+## v3.8.1 - 2026-10-08
+
+### Features
+- Bring the main menu mascot to life: it breathes, sways and taps its foot, and hops when tapped.
+  It also reacts to your situation: a delighted hop when you return after a few days away, a
+  worried look when tonight's session is all that keeps your streak alive, and a sleepy pose late
+  at night.
+- The mascot reacts to your answers: a thumbs up for a correct answer and on the session complete
+  screen, a slump with its sunglasses slipping for a wrong one, and a celebration for a new best.
+
+### Improvements
+- Redesign every game tile on the home screen in one style: raised boards, cards and keys, with
+  the number games showing the keys and cards they are played with and every tile at the same
+  size and depth.
+- Raise the Simon Says pads like the physical toy, seated in a body with a center cap. A pressed
+  pad now sinks instead of shrinking.
+- Upgrade dependencies.
+
+### Fixes
+- Stop the Sliding Puzzle tutorial leaving a ghost tile behind.
+- Give the new-best mascot room above the trophy.
+
 ## v3.8.0 - 2026-10-04
 
 ### Features
