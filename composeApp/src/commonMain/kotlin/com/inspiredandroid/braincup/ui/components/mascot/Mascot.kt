@@ -5,6 +5,7 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.remember
@@ -457,7 +458,7 @@ fun Mascot(
     var frameNanos by remember { mutableLongStateOf(0L) }
 
     if (inInspection) {
-        remember(mood) { animator.snapTo(mood) }
+        SideEffect { animator.snapTo(mood) }
     } else {
         LaunchedEffect(mood) { animator.setMood(mood) }
         LaunchedEffect(animator) {

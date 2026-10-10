@@ -197,7 +197,6 @@ private val WELCOME_BACK_HOLD = 2.5.seconds
 
 @Composable
 fun MainMenuScreenContent(
-    mascotMood: MascotMood = MascotMood.NEUTRAL,
     totalXp: Int,
     sessionStreak: Int,
     sessionProgressIndex: Int,
@@ -205,6 +204,7 @@ fun MainMenuScreenContent(
     sessionCompletedToday: Boolean,
     highscores: ImmutableMap<String, Int>,
     unlockedCount: Int,
+    mascotMood: MascotMood = MascotMood.NEUTRAL,
     normalSudokuCompleted: Int = 0,
     matchstickRiddlesSolved: Int = 0,
     matchstickRiddlesTotal: Int = 0,
