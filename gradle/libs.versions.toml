@@ -8,7 +8,7 @@ kotlin = "2.4.21"
 spotless = "8.10.4"
 compose-multiplatform = "1.12.2"
 compose-material3 = "1.9.0"
-agp = "9.4.1"
+agp = "9.5.0"
 androidx-activity = "1.13.0"
 androidx-core = "1.19.1"
 androidx-core-splashscreen = "1.2.0"
@@ -25,7 +25,7 @@ play-review = "2.0.2"
 play-games = "22.1.0"
 paparazzi = "2.0.0-alpha05"
 coil = "3.6.3"
-ktor = "3.6.0"
+ktor = "3.6.1"
 
 [libraries]
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
