@@ -215,3 +215,7 @@ class NormalChessAi(
         }
     }
 }
+
+/** Returns [move] only if it may still be applied to [current]: [current] must be the very board
+ *  the AI searched (not replaced meanwhile, e.g. by "New game") and the move must be legal on it. */
+internal fun aiMoveIfStillValid(current: NormalChessBoard, searched: NormalChessBoard, move: Move?): Move? = move?.takeIf { current === searched && it in current.legalMoves() }

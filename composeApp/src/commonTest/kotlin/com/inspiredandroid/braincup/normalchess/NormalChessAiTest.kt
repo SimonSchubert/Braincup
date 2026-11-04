@@ -7,7 +7,9 @@ import com.inspiredandroid.braincup.chess.Square
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
+import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
 class NormalChessAiTest {
@@ -74,5 +76,26 @@ class NormalChessAiTest {
         val movedQueen = move.from == Square(3, 3)
         val capturedAttacker = move.to == Square(2, 5)
         assertTrue(movedQueen || capturedAttacker, "AI left queen hanging: played $move")
+    }
+
+    @Test
+    fun staleAiMoveIsDroppedAfterBoardReplaced() {
+        // Black bishop on c5: its moves start from a square that is empty in the starting position.
+        val searched = NormalChessBoard.fromMap(
+            pieces = mapOf(
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(2, 4) to Piece(PieceType.BISHOP, PieceColor.BLACK),
+            ),
+            sideToMove = PieceColor.BLACK,
+        )
+        val move = searched.legalMoves().first { it.from == Square(2, 4) }
+        val fresh = NormalChessBoard.startingPosition()
+        // Play Store crash: applying the stale move to the new game's board.
+        assertFailsWith<IllegalStateException> { fresh.apply(move) }
+
+        assertNull(aiMoveIfStillValid(current = fresh, searched = searched, move = move))
+        assertNull(aiMoveIfStillValid(current = searched, searched = searched, move = null))
+        assertEquals(move, aiMoveIfStillValid(current = searched, searched = searched, move = move))
     }
 }
