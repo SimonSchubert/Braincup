@@ -4,8 +4,13 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -47,6 +52,9 @@ fun SettingsScreen(
     onToggleNumberPadAscending: () -> Unit,
     themeMode: ThemeMode,
     onThemeSelected: (ThemeMode) -> Unit,
+    isDarkThemeActive: Boolean,
+    isOledEnabled: Boolean,
+    onToggleOled: () -> Unit,
     onBack: () -> Unit,
     activeAccount: PlayerAccount? = null,
     storeProfile: StorePlayerProfile? = null,
@@ -87,6 +95,14 @@ fun SettingsScreen(
                 themeMode = themeMode,
                 onThemeSelected = onThemeSelected,
             )
+            if (isDarkThemeActive) {
+                SettingsToggleRow(
+                    title = stringResource(Res.string.settings_oled),
+                    description = stringResource(Res.string.settings_oled_desc),
+                    checked = isOledEnabled,
+                    onToggle = onToggleOled,
+                )
+            }
             SettingsToggleRow(
                 title = stringResource(Res.string.settings_music),
                 description = stringResource(Res.string.settings_music_desc),
@@ -214,7 +230,6 @@ private fun SettingsThemeSelector(
         ThemeMode.SYSTEM to Res.string.settings_theme_system,
         ThemeMode.LIGHT to Res.string.settings_theme_light,
         ThemeMode.DARK to Res.string.settings_theme_dark,
-        ThemeMode.OLED to Res.string.settings_theme_oled,
     )
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceContainer,
@@ -238,9 +253,11 @@ private fun SettingsThemeSelector(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            // Two to a line normally; one when the labels have outgrown half the card and would
-            // otherwise be split across lines mid-word ("Syste" / "m").
-            val modesPerRow = if (isLargeFontScale()) 1 else 2
+            // Three to a line; one when a label doesn't fit on a single line in its third of the
+            // card (long translation or large font). Re-evaluated when the labels or font scale change.
+            val labelKey = labels.values.map { stringResource(it) } + LocalDensity.current.fontScale
+            var labelsOverflow by remember(labelKey) { mutableStateOf(false) }
+            val modesPerRow = if (isLargeFontScale() || labelsOverflow) 1 else 3
             ThemeMode.entries.toList().chunked(modesPerRow).forEach { rowModes ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -260,7 +277,10 @@ private fun SettingsThemeSelector(
                                 color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
                                 style = MaterialTheme.typography.labelLarge,
                                 textAlign = TextAlign.Center,
-                                modifier = Modifier.padding(horizontal = 12.dp, vertical = 12.dp),
+                                maxLines = 1,
+                                softWrap = false,
+                                onTextLayout = { if (it.didOverflowWidth) labelsOverflow = true },
+                                modifier = Modifier.padding(horizontal = 8.dp, vertical = 12.dp),
                             )
                         }
                     }
@@ -375,6 +395,9 @@ private fun SettingsScreenPreview() {
             onToggleNumberPadAscending = {},
             themeMode = ThemeMode.SYSTEM,
             onThemeSelected = {},
+            isDarkThemeActive = true,
+            isOledEnabled = false,
+            onToggleOled = {},
             onBack = {},
             onOpenLanguage = {},
             onOpenLicenses = {},
@@ -399,6 +422,9 @@ private fun SettingsScreenPlayGamesPreview() {
             onToggleNumberPadAscending = {},
             themeMode = ThemeMode.SYSTEM,
             onThemeSelected = {},
+            isDarkThemeActive = true,
+            isOledEnabled = false,
+            onToggleOled = {},
             onBack = {},
             activeAccount = PlayerAccount(
                 id = "default",

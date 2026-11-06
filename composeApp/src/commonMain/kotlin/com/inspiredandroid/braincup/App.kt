@@ -100,6 +100,7 @@ fun App(
         mutableStateOf(controller.storage.isNumberPadAscending())
     }
     var themeMode by remember { mutableStateOf(controller.storage.getThemeMode()) }
+    var isOledEnabled by remember { mutableStateOf(controller.storage.isOledEnabled()) }
     var appLanguage by remember(controller) {
         // Applied while the state is created rather than from an effect: the language has to be in
         // place before any child reads a string resource, and effects only run once the first
@@ -110,22 +111,22 @@ fun App(
     }
 
     val systemDark = isSystemInDarkTheme()
-    val resolvedColorScheme = when (themeMode) {
-        ThemeMode.SYSTEM -> systemColorSchemeProvider?.invoke(systemDark)
-            ?: if (systemDark) DarkColorScheme else LightColorScheme
-        ThemeMode.LIGHT -> LightColorScheme
-        ThemeMode.DARK -> DarkColorScheme
-        ThemeMode.OLED -> OledColorScheme
+    val isDarkActive = when (themeMode) {
+        ThemeMode.SYSTEM -> systemDark
+        ThemeMode.LIGHT -> false
+        ThemeMode.DARK -> true
+    }
+
+    val resolvedColorScheme = when {
+        !isDarkActive -> systemColorSchemeProvider?.invoke(false) ?: LightColorScheme
+        isOledEnabled -> OledColorScheme
+        else -> systemColorSchemeProvider?.invoke(true) ?: DarkColorScheme
     }
 
     // Drive the system bar icon brightness from the resolved theme rather than the OS setting, so an
-    // explicit Light/Dark/OLED choice that differs from the device's dark-mode state still gets
+    // explicit Light/Dark choice that differs from the device's dark-mode state still gets
     // legible status/navigation bar icons.
-    val isDarkTheme = when (themeMode) {
-        ThemeMode.SYSTEM -> systemDark
-        ThemeMode.LIGHT -> false
-        ThemeMode.DARK, ThemeMode.OLED -> true
-    }
+    val isDarkTheme = isDarkActive
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
     var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
@@ -295,6 +296,12 @@ fun App(
                                 onThemeSelected = { mode ->
                                     themeMode = mode
                                     controller.storage.setThemeMode(mode)
+                                },
+                                isDarkThemeActive = isDarkActive,
+                                isOledEnabled = isOledEnabled,
+                                onToggleOled = {
+                                    isOledEnabled = !isOledEnabled
+                                    controller.storage.setOledEnabled(isOledEnabled)
                                 },
                                 onBack = onBackSettings,
                                 activeAccount = accountSnapshot.accounts.firstOrNull {
