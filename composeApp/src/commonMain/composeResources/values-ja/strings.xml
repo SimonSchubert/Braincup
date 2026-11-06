@@ -641,7 +641,8 @@
     <string name="settings_theme_system">システム</string>
     <string name="settings_theme_light">ライト</string>
     <string name="settings_theme_dark">ダーク</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLEDダークモード</string>
+    <string name="settings_oled_desc">ダークモード有効時に真っ黒の背景を使用します</string>
     <string name="settings_language">言語</string>
     <string name="settings_language_system">システムの言語</string>
     <string name="settings_play_games_profile_switch">切り替え</string>

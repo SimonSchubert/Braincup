@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Deschisă</string>
     <string name="settings_theme_dark">Întunecată</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Mod întunecat OLED</string>
+    <string name="settings_oled_desc">Folosește un fundal negru pur când modul întunecat este activ</string>
     <string name="settings_language">Limbă</string>
     <string name="settings_language_system">Limba sistemului</string>
     <string name="settings_play_games_profile_switch">Schimbă</string>

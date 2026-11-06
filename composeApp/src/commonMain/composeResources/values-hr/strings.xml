@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Sustav</string>
     <string name="settings_theme_light">Svijetla</string>
     <string name="settings_theme_dark">Tamna</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED tamni način</string>
+    <string name="settings_oled_desc">Koristi potpuno crnu pozadinu kada je tamni način aktivan</string>
     <string name="settings_language">Jezik</string>
     <string name="settings_language_system">Jezik sustava</string>
     <string name="settings_play_games_profile_switch">Promijeni</string>

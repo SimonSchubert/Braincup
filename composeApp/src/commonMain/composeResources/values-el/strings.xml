@@ -172,7 +172,8 @@
     <string name="settings_theme_system">Συστήματος</string>
     <string name="settings_theme_light">Φωτεινό</string>
     <string name="settings_theme_dark">Σκοτεινό</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Σκοτεινή λειτουργία OLED</string>
+    <string name="settings_oled_desc">Χρήση καθαρού μαύρου φόντου όταν είναι ενεργή η σκοτεινή λειτουργία</string>
     <string name="settings_language">Γλώσσα</string>
     <string name="settings_language_system">Γλώσσα συστήματος</string>
     <string name="settings_play_games_profile_switch">Αλλαγή</string>

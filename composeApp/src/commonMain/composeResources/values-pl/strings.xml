@@ -647,7 +647,8 @@
     <string name="settings_theme_system">Systemowy</string>
     <string name="settings_theme_light">Jasny</string>
     <string name="settings_theme_dark">Ciemny</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Tryb ciemny OLED</string>
+    <string name="settings_oled_desc">Używaj czystej czerni w tle, gdy tryb ciemny jest aktywny</string>
     <string name="settings_language">Język</string>
     <string name="settings_language_system">Język systemu</string>
     <string name="settings_play_games_profile_switch">Zmień</string>

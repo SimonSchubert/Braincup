@@ -641,7 +641,8 @@
     <string name="settings_theme_system">시스템</string>
     <string name="settings_theme_light">라이트</string>
     <string name="settings_theme_dark">다크</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED 다크 모드</string>
+    <string name="settings_oled_desc">다크 모드가 켜져 있을 때 순수한 검은색 배경을 사용합니다</string>
     <string name="settings_language">언어</string>
     <string name="settings_language_system">시스템 언어</string>
     <string name="settings_play_games_profile_switch">전환</string>

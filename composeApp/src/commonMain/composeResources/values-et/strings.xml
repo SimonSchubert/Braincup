@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Süsteem</string>
     <string name="settings_theme_light">Hele</string>
     <string name="settings_theme_dark">Tume</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED-tume režiim</string>
+    <string name="settings_oled_desc">Kasuta tumeda režiimi ajal puhast musta tausta</string>
     <string name="settings_language">Keel</string>
     <string name="settings_language_system">Süsteemi keel</string>
     <string name="settings_play_games_profile_switch">Vaheta</string>

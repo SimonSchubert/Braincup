@@ -173,7 +173,8 @@
     <string name="settings_theme_system">מערכת</string>
     <string name="settings_theme_light">בהיר</string>
     <string name="settings_theme_dark">כהה</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">מצב כהה OLED</string>
+    <string name="settings_oled_desc">שימוש ברקע שחור מלא כשהמצב הכהה פעיל</string>
     <string name="settings_language">שפה</string>
     <string name="settings_language_system">שפת המערכת</string>
     <string name="settings_play_games_profile_switch">החלף</string>

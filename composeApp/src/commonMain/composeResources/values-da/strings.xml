@@ -173,7 +173,8 @@
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Lyst</string>
     <string name="settings_theme_dark">Mørkt</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED-mørk tilstand</string>
+    <string name="settings_oled_desc">Brug ren sort baggrund, når mørk tilstand er aktiv</string>
     <string name="settings_language">Sprog</string>
     <string name="settings_language_system">Systemsprog</string>
     <string name="settings_play_games_profile_switch">Skift</string>

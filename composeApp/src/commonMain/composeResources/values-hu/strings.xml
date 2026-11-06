@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Rendszer</string>
     <string name="settings_theme_light">Világos</string>
     <string name="settings_theme_dark">Sötét</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED sötét mód</string>
+    <string name="settings_oled_desc">Tiszta fekete háttér használata, ha a sötét mód aktív</string>
     <string name="settings_language">Nyelv</string>
     <string name="settings_language_system">Rendszernyelv</string>
     <string name="settings_play_games_profile_switch">Váltás</string>

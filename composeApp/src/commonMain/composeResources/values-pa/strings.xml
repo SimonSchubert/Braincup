@@ -173,7 +173,8 @@
     <string name="settings_theme_system">ਸਿਸਟਮ</string>
     <string name="settings_theme_light">ਹਲਕਾ</string>
     <string name="settings_theme_dark">ਗੂੜ੍ਹਾ</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ਡਾਰਕ ਮੋਡ</string>
+    <string name="settings_oled_desc">ਡਾਰਕ ਮੋਡ ਚਾਲੂ ਹੋਣ ਤੇ ਪੂਰੀ ਕਾਲੀ ਬੈਕਗ੍ਰਾਊਂਡ ਵਰਤੋ</string>
     <string name="settings_language">ਭਾਸ਼ਾ</string>
     <string name="settings_language_system">ਸਿਸਟਮ ਦੀ ਭਾਸ਼ਾ</string>
     <string name="settings_play_games_profile_switch">ਬਦਲੋ</string>

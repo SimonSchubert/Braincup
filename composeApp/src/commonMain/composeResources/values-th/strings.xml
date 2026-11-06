@@ -641,7 +641,8 @@
     <string name="settings_theme_system">ระบบ</string>
     <string name="settings_theme_light">สว่าง</string>
     <string name="settings_theme_dark">มืด</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">โหมดมืด OLED</string>
+    <string name="settings_oled_desc">ใช้พื้นหลังสีดำสนิทเมื่อเปิดใช้โหมดมืด</string>
     <string name="settings_language">ภาษา</string>
     <string name="settings_language_system">ภาษาของระบบ</string>
     <string name="settings_play_games_profile_switch">สลับ</string>

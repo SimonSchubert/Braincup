@@ -614,7 +614,8 @@
     <string name="settings_theme_system">সিস্টেম</string>
     <string name="settings_theme_light">হালকা</string>
     <string name="settings_theme_dark">গাঢ়</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ডার্ক মোড</string>
+    <string name="settings_oled_desc">ডার্ক মোড চালু থাকলে খাঁটি কালো ব্যাকগ্রাউন্ড ব্যবহার করুন</string>
     <string name="settings_language">ভাষা</string>
     <string name="settings_language_system">সিস্টেমের ভাষা</string>
     <string name="settings_play_games_profile_switch">বদলান</string>

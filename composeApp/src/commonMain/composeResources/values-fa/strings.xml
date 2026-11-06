@@ -173,7 +173,8 @@
     <string name="settings_theme_system">سیستم</string>
     <string name="settings_theme_light">روشن</string>
     <string name="settings_theme_dark">تیره</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">حالت تیره OLED</string>
+    <string name="settings_oled_desc">هنگام فعال بودن حالت تیره از پس‌زمینه مشکی خالص استفاده شود</string>
     <string name="settings_language">زبان</string>
     <string name="settings_language_system">زبان سیستم</string>
     <string name="settings_play_games_profile_switch">تعویض</string>

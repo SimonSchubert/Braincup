@@ -641,7 +641,8 @@
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Terang</string>
     <string name="settings_theme_dark">Gelap</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Mode gelap OLED</string>
+    <string name="settings_oled_desc">Gunakan latar belakang hitam pekat saat mode gelap aktif</string>
     <string name="settings_language">Bahasa</string>
     <string name="settings_language_system">Bahasa sistem</string>
     <string name="settings_play_games_profile_switch">Ganti</string>

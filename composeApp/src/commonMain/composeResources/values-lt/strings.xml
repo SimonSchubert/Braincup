@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Sistemos</string>
     <string name="settings_theme_light">Šviesi</string>
     <string name="settings_theme_dark">Tamsi</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED tamsusis režimas</string>
+    <string name="settings_oled_desc">Kai įjungtas tamsusis režimas, naudoti grynai juodą foną</string>
     <string name="settings_language">Kalba</string>
     <string name="settings_language_system">Sistemos kalba</string>
     <string name="settings_play_games_profile_switch">Keisti</string>

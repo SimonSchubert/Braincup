@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Järjestelmä</string>
     <string name="settings_theme_light">Vaalea</string>
     <string name="settings_theme_dark">Tumma</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED-tumma tila</string>
+    <string name="settings_oled_desc">Käytä aitoa mustaa taustaa, kun tumma tila on käytössä</string>
     <string name="settings_language">Kieli</string>
     <string name="settings_language_system">Järjestelmän kieli</string>
     <string name="settings_play_games_profile_switch">Vaihda</string>

@@ -173,7 +173,8 @@
     <string name="settings_theme_system">સિસ્ટમ</string>
     <string name="settings_theme_light">આછું</string>
     <string name="settings_theme_dark">ઘેરું</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ડાર્ક મોડ</string>
+    <string name="settings_oled_desc">ડાર્ક મોડ સક્રિય હોય ત્યારે શુદ્ધ કાળી પૃષ્ઠભૂમિનો ઉપયોગ કરો</string>
     <string name="settings_language">ભાષા</string>
     <string name="settings_language_system">સિસ્ટમની ભાષા</string>
     <string name="settings_play_games_profile_switch">બદલો</string>

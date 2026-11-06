@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Córas</string>
     <string name="settings_theme_light">Geal</string>
     <string name="settings_theme_dark">Dorcha</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Mód dorcha OLED</string>
+    <string name="settings_oled_desc">Úsáid cúlra dubh glan nuair atá an mód dorcha gníomhach</string>
     <string name="settings_language">Teanga</string>
     <string name="settings_language_system">Teanga an chórais</string>
     <string name="settings_play_games_profile_switch">Athraigh</string>
