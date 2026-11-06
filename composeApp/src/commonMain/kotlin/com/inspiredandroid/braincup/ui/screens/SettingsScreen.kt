@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -147,9 +148,25 @@ fun SettingsScreen(
                     onClick = onOpenLicenses,
                 )
             }
+            // German law requires the legal notice and privacy policy to be reachable from the
+            // app. Both are legal terms rather than UI copy, so they are not translated.
+            val uriHandler = LocalUriHandler.current
+            SettingsLinkRow(
+                title = "Impressum",
+                description = "Legal notice",
+                onClick = { uriHandler.openUri(IMPRESSUM_URL) },
+            )
+            SettingsLinkRow(
+                title = "Datenschutz",
+                description = "Privacy policy",
+                onClick = { uriHandler.openUri(PRIVACY_URL) },
+            )
         }
     }
 }
+
+private const val IMPRESSUM_URL = "https://schubert-simon.de/impressum.html"
+private const val PRIVACY_URL = "https://schubert-simon.de/privacy.html"
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable

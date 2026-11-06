@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.normalchess.NormalChessAi
 import com.inspiredandroid.braincup.normalchess.NormalChessBoard
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.normalchess.aiMoveIfStillValid
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChessBoardFrame
 import com.inspiredandroid.braincup.ui.components.ChessPieceIcon
@@ -121,18 +122,23 @@ fun NormalChessPlayScreen(
         if (mode != NormalChessMode.VS_CPU) return@LaunchedEffect
         if (board.sideToMove != PieceColor.BLACK) return@LaunchedEffect
         if (board.result() != GameResult.ONGOING) return@LaunchedEffect
+        // Search a captured snapshot: `board` may be replaced (e.g. "New game") while we think.
+        val searched = board
         aiThinking = true
         try {
             val move = withContext(Dispatchers.Default) {
                 val start = Clock.System.now()
-                val chosen = ai.bestMove(board)
+                val chosen = ai.bestMove(searched)
                 val elapsedMs = (Clock.System.now() - start).inWholeMilliseconds
                 val remaining = MIN_AI_THINK_MILLIS - elapsedMs
                 if (remaining > 0) delay(remaining)
                 chosen
             }
-            if (currentCoroutineContext().isActive && move != null) {
-                applyMove(move)
+            // The effect is only cancelled on the next recomposition, so a stale move can arrive
+            // after the board was replaced. Drop it instead of applying it to the new board.
+            val valid = aiMoveIfStillValid(current = board, searched = searched, move = move)
+            if (currentCoroutineContext().isActive && valid != null) {
+                applyMove(valid)
             }
         } finally {
             aiThinking = false
