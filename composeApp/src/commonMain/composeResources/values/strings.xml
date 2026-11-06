@@ -173,7 +173,8 @@
     <string name="settings_theme_system">System</string>
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED dark mode</string>
+    <string name="settings_oled_desc">Use pure black background when dark mode is active</string>
     <string name="settings_language">Language</string>
     <string name="settings_language_system">System default</string>
     <string name="settings_play_games_profile_switch">Switch</string>
