@@ -200,6 +200,7 @@ class UserStorage(
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
         const val KEY_MINI_CHECKERS_DIFFICULTY = "mini_checkers_difficulty"
         const val KEY_THEME_MODE = "theme_mode"
+        const val KEY_OLED_ENABLED = "oled_enabled"
         const val KEY_APP_LANGUAGE = "app_language"
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
@@ -272,6 +273,7 @@ class UserStorage(
             KEY_HAPTIC_ENABLED,
             KEY_NUMBER_PAD_ASCENDING,
             KEY_THEME_MODE,
+            KEY_OLED_ENABLED,
             KEY_TOTAL_APP_OPENS,
         )
 
@@ -492,11 +494,25 @@ class UserStorage(
     }
 
     /** Selected app theme. Defaults to [ThemeMode.SYSTEM]. */
-    fun getThemeMode(): ThemeMode = runCatching { ThemeMode.valueOf(store.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name)) }
-        .getOrDefault(ThemeMode.SYSTEM)
+    fun getThemeMode(): ThemeMode {
+        val raw = store.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name)
+        if (raw == "OLED") {
+            // Legacy OLED theme mode, now DARK + OLED toggle.
+            store.putString(KEY_THEME_MODE, ThemeMode.DARK.name)
+            store.putBoolean(KEY_OLED_ENABLED, true)
+            return ThemeMode.DARK
+        }
+        return runCatching { ThemeMode.valueOf(raw) }.getOrDefault(ThemeMode.SYSTEM)
+    }
 
     fun setThemeMode(mode: ThemeMode) {
         store.putString(KEY_THEME_MODE, mode.name)
+    }
+
+    fun isOledEnabled(): Boolean = store.getBoolean(KEY_OLED_ENABLED, false)
+
+    fun setOledEnabled(enabled: Boolean) {
+        store.putBoolean(KEY_OLED_ENABLED, enabled)
     }
 
     /**

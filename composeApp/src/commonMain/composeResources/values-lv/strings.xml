@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Sistēmas</string>
     <string name="settings_theme_light">Gaiša</string>
     <string name="settings_theme_dark">Tumša</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED tumšais režīms</string>
+    <string name="settings_oled_desc">Kad tumšais režīms ir aktīvs, izmantot tīri melnu fonu</string>
     <string name="settings_language">Valoda</string>
     <string name="settings_language_system">Sistēmas valoda</string>
     <string name="settings_play_games_profile_switch">Mainīt</string>

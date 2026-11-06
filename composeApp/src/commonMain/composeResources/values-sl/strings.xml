@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Svetla</string>
     <string name="settings_theme_dark">Temna</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Temni način OLED</string>
+    <string name="settings_oled_desc">Uporabi povsem črno ozadje, ko je temni način aktiven</string>
     <string name="settings_language">Jezik</string>
     <string name="settings_language_system">Jezik sistema</string>
     <string name="settings_play_games_profile_switch">Zamenjaj</string>

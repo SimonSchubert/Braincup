@@ -173,7 +173,8 @@
     <string name="settings_theme_system">ಸಿಸ್ಟಂ</string>
     <string name="settings_theme_light">ತಿಳಿ</string>
     <string name="settings_theme_dark">ಗಾಢ</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ಡಾರ್ಕ್ ಮೋಡ್</string>
+    <string name="settings_oled_desc">ಡಾರ್ಕ್ ಮೋಡ್ ಸಕ್ರಿಯವಾಗಿರುವಾಗ ಶುದ್ಧ ಕಪ್ಪು ಹಿನ್ನೆಲೆ ಬಳಸಿ</string>
     <string name="settings_language">ಭಾಷೆ</string>
     <string name="settings_language_system">ಸಿಸ್ಟಂ ಭಾಷೆ</string>
     <string name="settings_play_games_profile_switch">ಬದಲಿಸಿ</string>

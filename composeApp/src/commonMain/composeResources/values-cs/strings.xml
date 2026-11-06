@@ -173,7 +173,8 @@
     <string name="settings_theme_system">Systém</string>
     <string name="settings_theme_light">Světlý</string>
     <string name="settings_theme_dark">Tmavý</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Tmavý režim OLED</string>
+    <string name="settings_oled_desc">Při aktivním tmavém režimu použít čistě černé pozadí</string>
     <string name="settings_language">Jazyk</string>
     <string name="settings_language_system">Jazyk systému</string>
     <string name="settings_play_games_profile_switch">Přepnout</string>

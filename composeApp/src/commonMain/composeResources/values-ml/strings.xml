@@ -173,7 +173,8 @@
     <string name="settings_theme_system">സിസ്റ്റം</string>
     <string name="settings_theme_light">ഇളം</string>
     <string name="settings_theme_dark">കടും</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ഡാർക്ക് മോഡ്</string>
+    <string name="settings_oled_desc">ഡാർക്ക് മോഡ് സജീവമായിരിക്കുമ്പോൾ ശുദ്ധമായ കറുത്ത പശ്ചാത്തലം ഉപയോഗിക്കുക</string>
     <string name="settings_language">ഭാഷ</string>
     <string name="settings_language_system">സിസ്റ്റം ഭാഷ</string>
     <string name="settings_play_games_profile_switch">മാറ്റുക</string>

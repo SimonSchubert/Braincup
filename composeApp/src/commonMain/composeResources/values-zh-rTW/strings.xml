@@ -641,7 +641,8 @@
     <string name="settings_theme_system">跟隨系統</string>
     <string name="settings_theme_light">淺色</string>
     <string name="settings_theme_dark">深色</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED 深色模式</string>
+    <string name="settings_oled_desc">啟用深色模式時使用純黑背景</string>
     <string name="settings_language">語言</string>
     <string name="settings_language_system">跟隨系統</string>
     <string name="settings_play_games_profile_switch">切換</string>

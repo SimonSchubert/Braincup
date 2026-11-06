@@ -173,7 +173,8 @@
     <string name="settings_theme_system">सिस्टम</string>
     <string name="settings_theme_light">फिकट</string>
     <string name="settings_theme_dark">गडद</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED डार्क मोड</string>
+    <string name="settings_oled_desc">डार्क मोड सक्रिय असताना पूर्ण काळी पार्श्वभूमी वापरा</string>
     <string name="settings_language">भाषा</string>
     <string name="settings_language_system">सिस्टमची भाषा</string>
     <string name="settings_play_games_profile_switch">बदला</string>

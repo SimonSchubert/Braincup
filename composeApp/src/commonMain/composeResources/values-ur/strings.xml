@@ -173,7 +173,8 @@
     <string name="settings_theme_system">نظام</string>
     <string name="settings_theme_light">روشن</string>
     <string name="settings_theme_dark">تاریک</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED ڈارک موڈ</string>
+    <string name="settings_oled_desc">ڈارک موڈ فعال ہونے پر خالص سیاہ پس منظر استعمال کریں</string>
     <string name="settings_language">زبان</string>
     <string name="settings_language_system">سسٹم کی زبان</string>
     <string name="settings_play_games_profile_switch">تبدیل کریں</string>
