@@ -56,6 +56,9 @@ object PlayGamesBridge {
     /** Fired the first time English peg solitaire is finished with the last peg in the center. */
     var onPegSolitairePerfect: (() -> Unit)? = null
 
+    /** Fired once, when the last of the Checkmate puzzles is solved. */
+    var onCheckmateMaster: (() -> Unit)? = null
+
     /**
      * Fired when a Learn Math sub-topic certificate is earned, with the LearnUnit id. Each
      * certificate has its own store achievement; see `LearnStoreAchievements` for the id scheme.

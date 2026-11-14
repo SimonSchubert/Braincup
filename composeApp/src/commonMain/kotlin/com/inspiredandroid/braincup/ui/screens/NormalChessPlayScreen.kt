@@ -39,21 +39,16 @@ import com.inspiredandroid.braincup.chess.PieceColor
 import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.chess.Square
 import com.inspiredandroid.braincup.normalchess.GameResult
-import com.inspiredandroid.braincup.normalchess.NORMAL_CHESS_SIZE
 import com.inspiredandroid.braincup.normalchess.NormalChessAi
 import com.inspiredandroid.braincup.normalchess.NormalChessBoard
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalchess.aiMoveIfStillValid
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.ChessBoardFrame
 import com.inspiredandroid.braincup.ui.components.ChessPieceIcon
-import com.inspiredandroid.braincup.ui.components.ChessSquare
-import com.inspiredandroid.braincup.ui.components.ChessSquareTarget
 import com.inspiredandroid.braincup.ui.components.ChessWarning
 import com.inspiredandroid.braincup.ui.components.DefaultButton
-import com.inspiredandroid.braincup.ui.components.LocalScaffoldBodyHeight
-import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.NormalChessBoardView
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.chessPieceResource
@@ -239,7 +234,7 @@ fun NormalChessPlayScreen(
 
         Spacer(Modifier.height(12.dp))
 
-        BoardView(
+        NormalChessBoardView(
             board = board,
             selected = selected,
             highlightedTargets = highlightedTargets,
@@ -391,93 +386,6 @@ private fun TurnHeader(
             color = color,
             textAlign = TextAlign.Center,
         )
-    }
-}
-
-@Composable
-private fun BoardView(
-    board: NormalChessBoard,
-    selected: Square?,
-    highlightedTargets: ImmutableSet<Square>,
-    stalematingTargets: ImmutableSet<Square>,
-    lastMoveFrom: Square?,
-    lastMoveTo: Square?,
-    interactive: Boolean,
-    onSquareTapped: (Square) -> Unit,
-) {
-    val whiteInCheck = board.isInCheck(PieceColor.WHITE)
-    val blackInCheck = board.isInCheck(PieceColor.BLACK)
-    // Scrollable scaffolds measure children with unbounded height; the real viewport height
-    // comes from LocalScaffoldBodyHeight (provideCompactHeight on AppScaffold).
-    val scaffoldBodyHeight = LocalScaffoldBodyHeight.current
-    BoxWithConstraints(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-    ) {
-        // Header + spacers + action buttons take roughly this much vertical chrome.
-        val verticalChrome = 140.dp
-        val heightBudget = ((scaffoldBodyHeight ?: maxHeight) - verticalChrome)
-            .coerceAtLeast(160.dp)
-        // Grow with the smaller of width / remaining height; cap huge desktops.
-        val boardSide = minOf(maxWidth, heightBudget, 480.dp)
-        val cellSize = boardSide / NORMAL_CHESS_SIZE
-        val pieceSize = cellSize * 0.9f
-
-        PrismCard(
-            face = ChessBoardFrame,
-            facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board,
-            modifier = Modifier.align(Alignment.Center),
-        ) {
-            Column {
-                for (row in NORMAL_CHESS_SIZE - 1 downTo 0) {
-                    Row {
-                        for (col in 0 until NORMAL_CHESS_SIZE) {
-                            val square = Square(col, row)
-                            val piece = board.pieceAt(square)
-                            // a1 (file 0, row 0) is dark in standard chess; queen on d1 is light.
-                            val isLight = (row + col) % 2 == 1
-                            val isTarget = square in highlightedTargets
-                            val isStalemateTarget = square in stalematingTargets
-                            val showCheckRing = piece?.type == PieceType.KING &&
-                                (
-                                    (piece.color == PieceColor.WHITE && whiteInCheck) ||
-                                        (piece.color == PieceColor.BLACK && blackInCheck)
-                                    )
-                            val target = when {
-                                isStalemateTarget -> ChessSquareTarget.Stalemate
-                                isTarget && piece != null -> ChessSquareTarget.Capture
-                                isTarget -> ChessSquareTarget.LegalEmpty
-                                else -> ChessSquareTarget.None
-                            }
-                            ChessSquare(
-                                size = cellSize,
-                                isLight = isLight,
-                                isSelected = selected == square,
-                                isLastMove = square == lastMoveFrom || square == lastMoveTo,
-                                showCheckRing = showCheckRing,
-                                target = target,
-                                enabled = interactive,
-                                onClick = { onSquareTapped(square) },
-                            ) {
-                                piece?.let {
-                                    Box(
-                                        modifier = Modifier.size(pieceSize),
-                                        contentAlignment = Alignment.Center,
-                                    ) {
-                                        ChessPieceIcon(
-                                            resource = chessPieceResource(it.type),
-                                            isWhite = it.color == PieceColor.WHITE,
-                                            figureSize = pieceSize,
-                                        )
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 

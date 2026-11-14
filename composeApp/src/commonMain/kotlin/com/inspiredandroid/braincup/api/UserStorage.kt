@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.checkers.CheckersDifficulty
 import com.inspiredandroid.braincup.checkers.CheckersMode
+import com.inspiredandroid.braincup.checkmate.CheckmatePuzzles
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
@@ -108,6 +109,11 @@ class UserStorage(
             Res.string.achievement_peg_solitaire_perfect_desc,
             isMilestone = true,
         ),
+        CHECKMATE_MASTER(
+            Res.string.achievement_checkmate_master,
+            Res.string.achievement_checkmate_master_desc,
+            isMilestone = true,
+        ),
         IQ_TEST_COMPLETED(
             Res.string.achievement_iq_test_completed,
             Res.string.achievement_iq_test_completed_desc,
@@ -151,6 +157,7 @@ class UserStorage(
                 addAll(SudokuDifficulty.entries.map { forSudokuTier(it) })
                 add(MATCHSTICK_MASTER)
                 add(PEG_SOLITAIRE_PERFECT)
+                add(CHECKMATE_MASTER)
                 add(IQ_TEST_COMPLETED)
                 add(IQ_TEST_HIGH)
                 add(LEARN_FIRST_CERTIFICATE)
@@ -209,6 +216,9 @@ class UserStorage(
         const val KEY_CHECKERS_DIFFICULTY = "checkers_difficulty"
         const val KEY_CHECKERS_MODE = "checkers_mode"
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
+        const val KEY_CHECKMATE_SOLVED = "checkmate_solved"
+        const val KEY_CHECKMATE_STREAK = "checkmate_streak"
+        const val KEY_CHECKMATE_BEST_STREAK = "checkmate_best_streak"
         const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
         const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
         const val KEY_IQ_TEST_RESULTS = "iq_test_results"
@@ -769,6 +779,40 @@ class UserStorage(
         store.remove(normalSudokuProgressKey(id))
         store.remove(normalSudokuNotesKey(id))
         reportSudokuTierProgress(difficulty, updated)
+    }
+
+    fun getSolvedCheckmateIds(): Set<String> = store
+        .getStringOrNull(KEY_CHECKMATE_SOLVED)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.toSet()
+        ?: emptySet()
+
+    fun getCheckmateStreak(): Int = store.getInt(KEY_CHECKMATE_STREAK, 0)
+
+    fun getCheckmateBestStreak(): Int = store.getInt(KEY_CHECKMATE_BEST_STREAK, 0)
+
+    /**
+     * Any solve marks the puzzle done. Only a first-go solve of a puzzle not solved before extends
+     * the streak; a miss breaks it.
+     */
+    fun recordCheckmateResult(id: String, solved: Boolean, firstGo: Boolean) {
+        if (!solved) {
+            store.putInt(KEY_CHECKMATE_STREAK, 0)
+            return
+        }
+        val current = getSolvedCheckmateIds()
+        if (id in current) return
+        val updated = current + id
+        store.putString(KEY_CHECKMATE_SOLVED, updated.joinToString(","))
+        if (updated.size >= CheckmatePuzzles.COUNT && Achievements.CHECKMATE_MASTER !in getUnlockedAchievements()) {
+            notifyStore { PlayGamesBridge.onCheckmateMaster?.invoke() }
+            unlockAchievement(Achievements.CHECKMATE_MASTER)
+        }
+        if (!firstGo) return
+        val streak = getCheckmateStreak() + 1
+        store.putInt(KEY_CHECKMATE_STREAK, streak)
+        if (streak > getCheckmateBestStreak()) store.putInt(KEY_CHECKMATE_BEST_STREAK, streak)
     }
 
     fun getSolvedMatchstickRiddleIds(): Set<String> = store

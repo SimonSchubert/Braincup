@@ -33,11 +33,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import braincup.composeapp.generated.resources.checkmate_title
 import com.inspiredandroid.braincup.app.AnswerFeedbackState
 import com.inspiredandroid.braincup.app.RailYardUiState
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.checkers.CheckersPiece
 import com.inspiredandroid.braincup.checkers.CheckersSide
+import com.inspiredandroid.braincup.checkmate.CheckmatePuzzles
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.FlockGame
@@ -597,6 +599,17 @@ fun NormalChessTile(onClick: () -> Unit) {
         onClick = onClick,
         caption = stringResource(Res.string.menu_chess_caption),
     ) { NormalChessPreview() }
+}
+
+@Composable
+fun CheckmateTile(solvedCount: Int, onClick: () -> Unit, total: Int = CheckmatePuzzles.COUNT) {
+    NormalGameTile(
+        label = stringResource(Res.string.checkmate_title),
+        accentColor = UntimedSectionAccent,
+        onClick = onClick,
+        caption = stringResource(Res.string.menu_progress_fraction, solvedCount, total),
+        progress = if (total > 0) solvedCount.toFloat() / total else 0f,
+    ) { CheckmatePreview() }
 }
 
 /** The Matchstick Riddles entry, with how many of the riddles are solved. */
@@ -2520,6 +2533,49 @@ private fun NormalChessPreview() {
                                     drawable = drawable,
                                     isWhite = isWhite,
                                     modifier = Modifier.fillMaxSize().padding(1.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// The corner of a board at the moment of mate: the king on h8, the queen on g7 guarded from g6.
+private val CheckmatePreviewPieces: Map<Pair<Int, Int>, Pair<DrawableResource, Boolean>> = mapOf(
+    (0 to 3) to (Res.drawable.ic_chess_king to false),
+    (1 to 2) to (Res.drawable.ic_chess_queen to true),
+    (2 to 2) to (Res.drawable.ic_chess_king to true),
+)
+
+@Composable
+private fun CheckmatePreview() {
+    PreviewBoard(
+        modifier = Modifier.previewSquare(),
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            for (row in 0..3) {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    for (col in 0..3) {
+                        val isLight = (row + col) % 2 == 0
+                        val placement = CheckmatePreviewPieces[row to col]
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                                .background(if (isLight) ChessLightSquare else ChessDarkSquare),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            if (row == 0 && col == 3) {
+                                Box(Modifier.matchParentSize().background(ChessCheckTint))
+                            }
+                            placement?.let { (drawable, isWhite) ->
+                                MiniChessPreviewPiece(
+                                    drawable = drawable,
+                                    isWhite = isWhite,
+                                    modifier = Modifier.fillMaxSize().padding(2.dp),
                                 )
                             }
                         }

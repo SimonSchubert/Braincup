@@ -131,6 +131,27 @@ GAME_MEDALS = [
   }
 end
 
+# One-off milestones that are neither a certificate nor a gold medal, so they carry their own copy
+# and their own UserStorage.Achievements entry. Peg Master and Matchstick Master predate the script
+# and were made by hand; the points here match Peg Master's (5 on Game Center, 10 XP on Play).
+MILESTONES = [
+  {
+    achievement: "CHECKMATE_MASTER",
+    title: "Mate Master",
+    before: "Solve all 60 checkmate puzzles",
+    after: "Solved all 60 checkmate puzzles!",
+    icon: "91_logic_checkmate",
+  },
+].map do |m|
+  m.merge(
+    vendor_id: "achievement.#{m[:title].downcase.gsub(/[^a-z0-9]+/, '_')}",
+    xml_key: "achievement" + m[:title].split(/[^A-Za-z0-9]+/).map(&:capitalize).join,
+    icon: File.join(ROOT, "media/achievements/png/#{m[:icon]}.png"),
+    gc_points: 5,
+    play_xp: 10,
+  )
+end
+
 # --- Preflight -------------------------------------------------------------
 
 # The Kotlin list is what the app actually fires on, so a table that has drifted from it would
@@ -164,6 +185,20 @@ def verify_game_medals_against_kotlin
   return if problems.empty?
 
   abort("GAME_MEDALS has drifted from the app\n" + problems.join("\n"))
+end
+
+def verify_milestones_against_kotlin
+  achievements = File.read(File.join(ROOT, "composeApp/src/commonMain/kotlin/com/inspiredandroid/braincup/api/UserStorage.kt"))
+  xml = File.read(File.join(ROOT, "androidApp/src/playStore/res/values/play_games.xml"))
+  problems = MILESTONES.flat_map do |m|
+    [
+      ("  #{m[:achievement]} is not a UserStorage.Achievements entry" unless achievements.include?("#{m[:achievement]}(")),
+      ("  #{m[:xml_key]} is missing from play_games.xml" unless xml.include?(%(name="#{m[:xml_key]}"))),
+    ].compact
+  end
+  return if problems.empty?
+
+  abort("MILESTONES has drifted from the app\n" + problems.join("\n"))
 end
 
 def verify_icons(items)
@@ -362,7 +397,7 @@ class PlayGames
         draft: {
           name: { translations: [{ locale: "en-US", value: cert[:title] }] },
           description: { translations: [{ locale: "en-US", value: cert[:before] }] },
-          pointValue: PLAY_GAMES_XP,
+          pointValue: cert[:play_xp] || PLAY_GAMES_XP,
           sortRank: sort_rank,
         },
       })["id"]
@@ -372,12 +407,13 @@ class PlayGames
     record = request("GET", "#{BASE}/achievements/#{id}", token: @token)
     draft = record["draft"] || {}
 
-    if draft["pointValue"] != PLAY_GAMES_XP
+    xp = cert[:play_xp] || PLAY_GAMES_XP
+    if draft["pointValue"] != xp
       # The whole resource goes back, id included: a PUT missing it is rejected as
       # "achievement definition with ID  was not found".
       request("PUT", "#{BASE}/achievements/#{id}", token: @token,
-              body: record.merge("draft" => draft.merge("pointValue" => PLAY_GAMES_XP)))
-      actions << "xp #{draft['pointValue']}->#{PLAY_GAMES_XP}"
+              body: record.merge("draft" => draft.merge("pointValue" => xp)))
+      actions << "xp #{draft['pointValue']}->#{xp}"
     end
 
     # Icons cannot be set from here. The Games Configuration API exposes only
@@ -417,7 +453,7 @@ OptionParser.new do |o|
   o.banner = "Usage: ruby scripts/store_achievements.rb [options]"
   o.on("--execute", "Actually create them. Without this, nothing is written.") { options[:execute] = true }
   o.on("--store STORE", %w[apple google both], "apple, google or both (default both)") { |v| options[:store] = v }
-  o.on("--set SET", %w[certificates games both], "certificates, games or both (default both)") { |v| options[:set] = v }
+  o.on("--set SET", %w[certificates games milestones both], "certificates, games, milestones or both (default both, which is all three)") { |v| options[:set] = v }
 end.parse!
 
 items = []
@@ -428,6 +464,10 @@ end
 if %w[games both].include?(options[:set])
   verify_game_medals_against_kotlin
   items += GAME_MEDALS
+end
+if %w[milestones both].include?(options[:set])
+  verify_milestones_against_kotlin
+  items += MILESTONES
 end
 verify_icons(items)
 abort("nothing to do for --set #{options[:set]}") if items.empty?
@@ -474,9 +514,9 @@ if %w[google both].include?(options[:store])
       assigned[c[:xml_key]] = id
       puts "  #{actions.empty? ? 'ok      ' : actions.join(' + ').ljust(8)} #{id}  #{c[:title]}"
     elsif have.key?(c[:title])
-      puts "  present  #{have[c[:title]]}  #{c[:title]}  (would verify xp=#{PLAY_GAMES_XP} and icon)"
+      puts "  present  #{have[c[:title]]}  #{c[:title]}  (would verify xp=#{c[:play_xp] || PLAY_GAMES_XP} and icon)"
     else
-      puts "  create   #{c[:xml_key]}  #{PLAY_GAMES_XP}xp  #{c[:title].inspect}  #{c[:before].inspect}  icon=#{File.basename(c[:icon])}"
+      puts "  create   #{c[:xml_key]}  #{c[:play_xp] || PLAY_GAMES_XP}xp  #{c[:title].inspect}  #{c[:before].inspect}  icon=#{File.basename(c[:icon])}"
     end
   end
   if options[:execute]

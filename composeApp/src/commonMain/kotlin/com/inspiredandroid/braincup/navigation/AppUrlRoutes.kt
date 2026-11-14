@@ -7,6 +7,8 @@ import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Achievements
 import com.inspiredandroid.braincup.app.CheckersMenu
 import com.inspiredandroid.braincup.app.CheckersPlay
+import com.inspiredandroid.braincup.app.CheckmateMenu
+import com.inspiredandroid.braincup.app.CheckmatePlay
 import com.inspiredandroid.braincup.app.Finish
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.IqTestIntro
@@ -68,6 +70,8 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is NormalChessPlay -> "chess/${route.mode}/${route.difficulty}"
     is MatchstickRiddlesMenu -> "matchstick"
     is MatchstickRiddlesPlay -> "matchstick/${route.riddleId}"
+    is CheckmateMenu -> "checkmate"
+    is CheckmatePlay -> "checkmate/${route.puzzleId}"
     is PegSolitaire -> "peg-solitaire"
     is ReversiMenu -> "reversi"
     is ReversiPlay -> "reversi/${route.mode}/${route.difficulty}"
@@ -105,6 +109,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "sudoku" -> NormalSudokuMenu
         "chess" -> NormalChessMenu
         "matchstick" -> MatchstickRiddlesMenu
+        "checkmate" -> CheckmateMenu
         "peg-solitaire" -> PegSolitaire
         "reversi" -> ReversiMenu
         "checkers" -> CheckersMenu
@@ -136,6 +141,8 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<NormalChessPlay>() -> navRouteToPathSuffix(toRoute<NormalChessPlay>())
         destination.hasRoute<MatchstickRiddlesMenu>() -> navRouteToPathSuffix(MatchstickRiddlesMenu)
         destination.hasRoute<MatchstickRiddlesPlay>() -> navRouteToPathSuffix(toRoute<MatchstickRiddlesPlay>())
+        destination.hasRoute<CheckmateMenu>() -> navRouteToPathSuffix(CheckmateMenu)
+        destination.hasRoute<CheckmatePlay>() -> navRouteToPathSuffix(toRoute<CheckmatePlay>())
         destination.hasRoute<PegSolitaire>() -> navRouteToPathSuffix(PegSolitaire)
         destination.hasRoute<ReversiMenu>() -> navRouteToPathSuffix(ReversiMenu)
         destination.hasRoute<ReversiPlay>() -> navRouteToPathSuffix(toRoute<ReversiPlay>())
@@ -193,6 +200,10 @@ private fun parseParameterizedPath(suffix: String): Any? {
     if (suffix.startsWith("matchstick/")) {
         val riddleId = suffix.removePrefix("matchstick/")
         return riddleId.takeIf { it.isNotEmpty() }?.let { MatchstickRiddlesPlay(it) }
+    }
+    if (suffix.startsWith("checkmate/")) {
+        val puzzleId = suffix.removePrefix("checkmate/")
+        return puzzleId.takeIf { it.isNotEmpty() }?.let { CheckmatePlay(it) }
     }
     if (suffix.endsWith("/scores")) {
         val slug = suffix.removeSuffix("/scores")

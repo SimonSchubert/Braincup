@@ -35,6 +35,7 @@ import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.CheckersTile
+import com.inspiredandroid.braincup.ui.components.CheckmateTile
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
@@ -112,6 +113,9 @@ fun MainMenuScreen(
         controller.storage.getSolvedMatchstickRiddleIds().size
     }
     val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }
+    val checkmateSolved = remember(controller, storageRevision) {
+        controller.storage.getSolvedCheckmateIds().size
+    }
     val bestIq = remember(controller, storageRevision) {
         controller.storage.getBestIqTestRawScore()?.let { IqScoring.iqFor(it) }
     }
@@ -126,6 +130,7 @@ fun MainMenuScreen(
     val onNormalSudoku = remember(controller) { { controller.navigateToNormalSudokuMenu() } }
     val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
+    val onCheckmate = remember(controller) { { controller.navigateToCheckmateMenu() } }
     val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
     val onReversi = remember(controller) { { controller.navigateToReversiMenu() } }
     val onCheckers = remember(controller) { { controller.navigateToCheckersMenu() } }
@@ -152,6 +157,7 @@ fun MainMenuScreen(
         normalSudokuCompleted = normalSudokuCompleted,
         matchstickRiddlesSolved = matchstickRiddlesSolved,
         matchstickRiddlesTotal = matchstickRiddlesTotal,
+        checkmateSolved = checkmateSolved,
         bestIq = bestIq,
         onOpenSettings = onOpenSettings,
         onIqTest = onIqTest,
@@ -162,6 +168,7 @@ fun MainMenuScreen(
         onNormalSudoku = onNormalSudoku,
         onNormalChess = onNormalChess,
         onMatchstickRiddles = onMatchstickRiddles,
+        onCheckmate = onCheckmate,
         onPegSolitaire = onPegSolitaire,
         onReversi = onReversi,
         onCheckers = onCheckers,
@@ -208,6 +215,7 @@ fun MainMenuScreenContent(
     normalSudokuCompleted: Int = 0,
     matchstickRiddlesSolved: Int = 0,
     matchstickRiddlesTotal: Int = 0,
+    checkmateSolved: Int = 0,
     bestIq: Int? = null,
     showDailyChallenge: Boolean = true,
     /**
@@ -224,6 +232,7 @@ fun MainMenuScreenContent(
     onNormalSudoku: () -> Unit = {},
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
+    onCheckmate: () -> Unit = {},
     onPegSolitaire: () -> Unit = {},
     onReversi: () -> Unit = {},
     onCheckers: () -> Unit = {},
@@ -410,6 +419,9 @@ fun MainMenuScreenContent(
             item(contentType = "normal_chess") {
                 NormalChessTile(onClick = onNormalChess)
             }
+            item(contentType = "checkmate") {
+                CheckmateTile(solvedCount = checkmateSolved, onClick = onCheckmate)
+            }
             item(contentType = "normal_sudoku") {
                 NormalSudokuTile(completedCount = normalSudokuCompleted, onClick = onNormalSudoku)
             }
@@ -469,6 +481,9 @@ fun MainMenuScreenContent(
             }
             item(contentType = "untimed_tile") {
                 NormalChessTile(onClick = onNormalChess)
+            }
+            item(contentType = "untimed_tile") {
+                CheckmateTile(solvedCount = checkmateSolved, onClick = onCheckmate)
             }
             item(contentType = "untimed_tile") {
                 NormalSudokuTile(completedCount = normalSudokuCompleted, onClick = onNormalSudoku)

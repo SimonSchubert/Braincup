@@ -72,6 +72,31 @@
     <string name="normal_chess_promotion_knight">Knight</string>
     <string name="normal_chess_draw_warning">= stalemate (draw, not a win)</string>
 
+    <string name="checkmate_title">Checkmate</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mate in %1$d</item>
+        <item quantity="other">Mate in %1$d</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Find the mate</string>
+    <string name="checkmate_your_move">Your move</string>
+    <string name="checkmate_hint">Tap a piece, then its square</string>
+    <string name="checkmate_white_answers">White answers…</string>
+    <string name="checkmate_black_answers">Black answers…</string>
+    <string name="checkmate_solved">Checkmate!</string>
+    <string name="checkmate_not_mate">Not mate</string>
+    <string name="checkmate_white_king_escapes">White's king gets away</string>
+    <string name="checkmate_black_king_escapes">Black's king gets away</string>
+    <string name="checkmate_white_mates_you">White mates you</string>
+    <string name="checkmate_black_mates_you">Black mates you</string>
+    <string name="checkmate_mated_detail">Your king had no way out</string>
+    <string name="checkmate_stalemate">Stalemate</string>
+    <string name="checkmate_stalemate_detail">No legal move left and no check, so it's a draw</string>
+    <string name="checkmate_restart">Restart</string>
+    <string name="checkmate_next">Next puzzle</string>
+    <string name="checkmate_puzzle_number">Puzzle %1$d of %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Solved %1$d · Streak %2$d · Best %3$d</string>
+
     <string name="matchstick_riddles_title">Matchstick Riddles</string>
     <string name="matchstick_riddle_prompt_move_one">Move 1 matchstick to fix the equation.</string>
     <string name="matchstick_riddle_prompt_move_two">Move 2 matchsticks to fix the equation.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Restart</string>
     <string name="achievement_peg_solitaire_perfect">Peg Master</string>
     <string name="achievement_peg_solitaire_perfect_desc">Finish English peg solitaire with one peg in the center</string>
+    <string name="achievement_checkmate_master">Mate Master</string>
+    <string name="achievement_checkmate_master_desc">Solve all 60 checkmate puzzles</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

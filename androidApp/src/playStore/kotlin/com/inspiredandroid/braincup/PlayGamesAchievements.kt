@@ -84,6 +84,12 @@ fun initPlayGames(activity: ComponentActivity) {
         }
     }
 
+    PlayGamesBridge.onCheckmateMaster = fun() {
+        withPlayGamesId(R.string.achievementMateMaster) { activity, id ->
+            PlayGames.getAchievementsClient(activity).unlock(id)
+        }
+    }
+
     PlayGamesBridge.onLearnCertificate = fun(unitId: String) {
         withPlayGamesId(learnCertificateResIdFor(unitId)) { activity, id ->
             PlayGames.getAchievementsClient(activity).unlock(id)
@@ -363,6 +369,10 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
             val pegMasterId = activity.getString(R.string.achievementPegMaster)
             if (pegMasterId.isNotBlank() && pegMasterId in unlockedIds) {
                 toRestore.add(UserStorage.Achievements.PEG_SOLITAIRE_PERFECT)
+            }
+            val mateMasterId = activity.getString(R.string.achievementMateMaster)
+            if (mateMasterId.isNotBlank() && mateMasterId in unlockedIds) {
+                toRestore.add(UserStorage.Achievements.CHECKMATE_MASTER)
             }
             val measuredMindId = activity.getString(R.string.achievementMeasuredMind)
             if (measuredMindId.isNotBlank() && measuredMindId in unlockedIds) {

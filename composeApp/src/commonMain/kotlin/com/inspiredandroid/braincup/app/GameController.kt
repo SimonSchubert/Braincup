@@ -351,6 +351,21 @@ class GameController(
         navController.navigate(MatchstickRiddlesPlay(riddleId))
     }
 
+    fun navigateToCheckmateMenu() {
+        navController.navigate(CheckmateMenu)
+    }
+
+    fun navigateToCheckmatePlay(puzzleId: String) {
+        storage.putRecentGame(navRouteToPathSuffix(CheckmateMenu))
+        navController.navigate(CheckmatePlay(puzzleId))
+    }
+
+    fun navigateToNextCheckmatePlay(puzzleId: String) {
+        navController.navigate(CheckmatePlay(puzzleId)) {
+            popUpTo<CheckmatePlay> { inclusive = true }
+        }
+    }
+
     fun navigateToPegSolitaire() {
         storage.putRecentGame(navRouteToPathSuffix(PegSolitaire))
         navController.navigate(PegSolitaire)

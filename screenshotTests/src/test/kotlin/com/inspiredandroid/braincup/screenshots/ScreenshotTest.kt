@@ -16,6 +16,9 @@ import com.inspiredandroid.braincup.ui.components.mascot.MascotMood
 import com.inspiredandroid.braincup.ui.screens.AnswerFeedbackScreen
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
+import com.inspiredandroid.braincup.ui.screens.CheckmateMenuScreenContent
+import com.inspiredandroid.braincup.ui.screens.CheckmatePlayContent
+import com.inspiredandroid.braincup.checkmate.CheckmatePuzzle
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.InstructionsScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
@@ -33,6 +36,7 @@ import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.OledColorScheme
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
+import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.Before
@@ -980,4 +984,43 @@ class ScreenshotTest {
             )
         }
     }
+
+    @Test
+    fun checkmateMenu() {
+        val puzzles = CheckmatePuzzle.parse(CHECKMATE_SCREENSHOT_PUZZLES).toImmutableList()
+        paparazzi.snap {
+            CheckmateMenuScreenContent(
+                puzzles = puzzles,
+                solved = persistentSetOf(puzzles[0].id),
+                streak = 1,
+                best = 1,
+                onPuzzleSelected = {},
+                onBack = {},
+            )
+        }
+    }
+
+    // White has played the first move of the mate in three and black has answered, so the
+    // last-move highlight and the move pips are both on show.
+    @Test
+    fun checkmatePlayMidPuzzle() {
+        val puzzle = CheckmatePuzzle.parse(CHECKMATE_SCREENSHOT_PUZZLES).first()
+        val firstMove = CheckmatePuzzle.decode(puzzle.solution[0])!!
+        val attempt = puzzle.answer(puzzle.play(puzzle.start(), firstMove))
+        paparazzi.snap {
+            CheckmatePlayContent(
+                puzzle = puzzle,
+                total = 60,
+                storage = screenshotStorage(),
+                onSolved = {},
+                onNext = {},
+                onBack = {},
+                initialAttempt = attempt,
+            )
+        }
+    }
 }
+
+private const val CHECKMATE_SCREENSHOT_PUZZLES =
+    "UMLhc|6k1/1r3ppp/p1q5/3p4/P1n5/6QP/5PP1/1R4K1|w|3|uB JB 5B SC BC|-1|1308|F>JB\n" +
+        "NSBCR|8/1Q3pk1/2p5/4n3/3R3N/6BP/r3q1PK/8|b|2|ct nt 02|-1|1308|F>jD"

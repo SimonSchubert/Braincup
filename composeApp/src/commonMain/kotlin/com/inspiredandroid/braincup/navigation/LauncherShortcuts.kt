@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.navigation
 
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.checkers_button
+import braincup.composeapp.generated.resources.checkmate_title
 import braincup.composeapp.generated.resources.daily_challenge_title
 import braincup.composeapp.generated.resources.iq_test_button
 import braincup.composeapp.generated.resources.matchstick_riddles_title
@@ -11,6 +12,7 @@ import braincup.composeapp.generated.resources.peg_solitaire_button
 import braincup.composeapp.generated.resources.reversi_button
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.CheckersMenu
+import com.inspiredandroid.braincup.app.CheckmateMenu
 import com.inspiredandroid.braincup.app.IqTestIntro
 import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
 import com.inspiredandroid.braincup.app.NormalChessMenu
@@ -65,6 +67,7 @@ private fun recentGameLabelRes(pathSuffix: String): StringResource? = when (path
     navRouteToPathSuffix(NormalSudokuMenu) -> Res.string.normal_sudoku_title
     navRouteToPathSuffix(NormalChessMenu) -> Res.string.normal_chess_button
     navRouteToPathSuffix(MatchstickRiddlesMenu) -> Res.string.matchstick_riddles_title
+    navRouteToPathSuffix(CheckmateMenu) -> Res.string.checkmate_title
     navRouteToPathSuffix(PegSolitaire) -> Res.string.peg_solitaire_button
     navRouteToPathSuffix(ReversiMenu) -> Res.string.reversi_button
     navRouteToPathSuffix(CheckersMenu) -> Res.string.checkers_button
@@ -72,5 +75,5 @@ private fun recentGameLabelRes(pathSuffix: String): StringResource? = when (path
     else -> GameType.fromUrlSlug(pathSuffix)?.displayNameRes
 }
 
-// The seven games outside GameType are all logic puzzles; the label carries which one it is.
+// The eight games outside GameType are all logic puzzles; the label carries which one it is.
 private fun recentGameCategory(pathSuffix: String): GameCategory = GameType.fromUrlSlug(pathSuffix)?.category ?: GameCategory.LOGIC

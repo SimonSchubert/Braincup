@@ -66,6 +66,9 @@ final class GameCenterBridge: NSObject {
         bridge.onPegSolitairePerfect = { [weak self] in
             self?.reportAchievement(id: GameCenterIds.achievementPegMaster, percent: 100)
         }
+        bridge.onCheckmateMaster = { [weak self] in
+            self?.reportAchievement(id: GameCenterIds.achievementMateMaster, percent: 100)
+        }
         bridge.onLearnCertificate = { [weak self] unitId in
             self?.reportAchievement(id: GameCenterIds.learnCertificate(forUnitId: unitId), percent: 100)
         }

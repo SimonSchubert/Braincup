@@ -85,6 +85,12 @@ object MatchstickRiddlesMenu
 data class MatchstickRiddlesPlay(val riddleId: String)
 
 @Serializable
+object CheckmateMenu
+
+@Serializable
+data class CheckmatePlay(val puzzleId: String)
+
+@Serializable
 object PegSolitaire
 
 @Serializable

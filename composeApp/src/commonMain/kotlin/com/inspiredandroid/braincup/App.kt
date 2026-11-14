@@ -13,6 +13,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -165,7 +166,7 @@ fun App(
     }
 
     val currentEntry by navController.currentBackStackEntryAsState()
-    val isPlayingGame = currentEntry?.destination?.hasRoute<Playing>() == true
+    val isPlayingGame = currentEntry?.destination?.isGamePlayRoute() == true
 
     LaunchedEffect(isPlayingGame, isMusicMuted) {
         if (isPlayingGame && !isMusicMuted && gameAudio == null) {
@@ -638,6 +639,42 @@ fun App(
                             )
                         }
 
+                        composable<CheckmateMenu> {
+                            val onPuzzleSelected = remember(controller) {
+                                { id: String -> controller.navigateToCheckmatePlay(id) }
+                            }
+                            val onBackCheckmateMenu = remember(controller) { { controller.navigateToMainMenu() } }
+                            CheckmateMenuScreen(
+                                storage = controller.storage,
+                                onPuzzleSelected = onPuzzleSelected,
+                                onBack = onBackCheckmateMenu,
+                            )
+                        }
+
+                        composable<CheckmatePlay> { backStackEntry ->
+                            val route: CheckmatePlay = backStackEntry.toRoute()
+                            val popCheckmateMenu = remember(navController) {
+                                {
+                                    navController.popBackStack(CheckmateMenu, inclusive = false)
+                                    Unit
+                                }
+                            }
+                            val onNextPuzzle = remember(controller) {
+                                { id: String -> controller.navigateToNextCheckmatePlay(id) }
+                            }
+                            val hapticSuccess = rememberHapticSuccess()
+                            val onSolved = remember(hapticSuccess, hapticEnabled) {
+                                { if (hapticEnabled) hapticSuccess() }
+                            }
+                            CheckmatePlayScreen(
+                                puzzleId = route.puzzleId,
+                                storage = controller.storage,
+                                onSolved = onSolved,
+                                onNext = onNextPuzzle,
+                                onBack = popCheckmateMenu,
+                            )
+                        }
+
                         composable<PegSolitaire> {
                             val onBackPegSolitaire = remember(controller) { { controller.navigateToMainMenu() } }
                             PegSolitairePlayScreen(
@@ -1015,3 +1052,13 @@ private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = when (gameUiS
     is MiniCheckersUiState -> gameUiState.outcome == null
     else -> true
 }
+
+private fun NavDestination.isGamePlayRoute(): Boolean = hasRoute<Playing>() ||
+    hasRoute<NormalSudokuPlay>() ||
+    hasRoute<NormalChessPlay>() ||
+    hasRoute<MatchstickRiddlesPlay>() ||
+    hasRoute<PegSolitaire>() ||
+    hasRoute<ReversiPlay>() ||
+    hasRoute<CheckersPlay>() ||
+    hasRoute<IqTestPlay>() ||
+    hasRoute<CheckmatePlay>()

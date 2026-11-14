@@ -74,6 +74,8 @@ enum GameCenterIds {
     static let achievementMatchstickMaster = "achievement.matchstick_master"
     // Peg Solitaire Perfect ("Peg Master"), standard (non-incremental).
     static let achievementPegMaster       = "achievement.peg_master"
+    // Checkmate, every puzzle solved, standard (non-incremental).
+    static let achievementMateMaster      = "achievement.mate_master"
     // IQ test, standard (non-incremental). Empty until the achievements are registered in App Store
     // Connect; reportAchievement ignores an empty identifier, so this stays a working no-op.
     static let achievementMeasuredMind    = ""
@@ -180,6 +182,7 @@ enum GameCenterIds {
         case "achievement.doorkeeper":            return UserStorage.Achievements.goldHeadCount
         case "achievement.station_master":        return UserStorage.Achievements.goldRailYard
         case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
+        case achievementMateMaster:               return UserStorage.Achievements.checkmateMaster
         default: return nil
         }
     }
