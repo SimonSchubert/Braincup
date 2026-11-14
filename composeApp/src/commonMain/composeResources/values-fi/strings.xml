@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Lähetti</string>
     <string name="normal_chess_promotion_knight">Ratsu</string>
     <string name="normal_chess_draw_warning">= patti (tasapeli, ei voitto)</string>
+    <string name="checkmate_title">Shakkimatti</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matti %1$d siirrossa</item>
+        <item quantity="other">Matti %1$d siirrossa</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Etsi matti</string>
+    <string name="checkmate_your_move">Sinun siirtosi</string>
+    <string name="checkmate_hint">Napauta nappulaa, sitten ruutua</string>
+    <string name="checkmate_white_answers">Valkoinen vastaa…</string>
+    <string name="checkmate_black_answers">Musta vastaa…</string>
+    <string name="checkmate_solved">Shakkimatti!</string>
+    <string name="checkmate_not_mate">Ei matti</string>
+    <string name="checkmate_white_king_escapes">Valkoisen kuningas pääsee pakoon</string>
+    <string name="checkmate_black_king_escapes">Mustan kuningas pääsee pakoon</string>
+    <string name="checkmate_white_mates_you">Valkoinen antaa sinulle matin</string>
+    <string name="checkmate_black_mates_you">Musta antaa sinulle matin</string>
+    <string name="checkmate_mated_detail">Kuninkaallasi ei ollut pakotietä</string>
+    <string name="checkmate_stalemate">Patti</string>
+    <string name="checkmate_stalemate_detail">Ei laillisia siirtoja eikä shakkia, joten tasapeli</string>
+    <string name="checkmate_restart">Aloita alusta</string>
+    <string name="checkmate_next">Seuraava tehtävä</string>
+    <string name="checkmate_puzzle_number">Tehtävä %1$d/%2$d</string>
+    <string name="checkmate_rating">Vahvuusluku %1$d</string>
+    <string name="checkmate_stats">Ratkaistu %1$d · Putki %2$d · Paras %3$d</string>
+
 
     <string name="matchstick_riddles_title">Tulitikkutehtävät</string>
     <string name="matchstick_riddle_prompt_move_one">Siirrä 1 tulitikku, jotta yhtälö täsmää.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Aloita alusta</string>
     <string name="achievement_peg_solitaire_perfect">Tappimestari</string>
     <string name="achievement_peg_solitaire_perfect_desc">Läpäise englantilainen tappipeli yhdellä tapilla keskellä</string>
+    <string name="achievement_checkmate_master">Mattimestari</string>
+    <string name="achievement_checkmate_master_desc">Ratkaise kaikki 60 mattitehtävää</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

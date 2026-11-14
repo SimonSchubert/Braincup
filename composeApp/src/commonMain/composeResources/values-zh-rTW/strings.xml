@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">象</string>
     <string name="normal_chess_promotion_knight">馬</string>
     <string name="normal_chess_draw_warning">= 逼和（平局，非勝利）</string>
+    <string name="checkmate_title">將死</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d步將死</item>
+        <item quantity="other">%1$d步將死</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">找出將死的走法</string>
+    <string name="checkmate_your_move">輪到你了</string>
+    <string name="checkmate_hint">先點棋子，再點要走到的格子</string>
+    <string name="checkmate_white_answers">白方應對中…</string>
+    <string name="checkmate_black_answers">黑方應對中…</string>
+    <string name="checkmate_solved">將死！</string>
+    <string name="checkmate_not_mate">沒有將死</string>
+    <string name="checkmate_white_king_escapes">白方國王逃脫了</string>
+    <string name="checkmate_black_king_escapes">黑方國王逃脫了</string>
+    <string name="checkmate_white_mates_you">白方將死你了</string>
+    <string name="checkmate_black_mates_you">黑方將死你了</string>
+    <string name="checkmate_mated_detail">你的國王無路可逃</string>
+    <string name="checkmate_stalemate">逼和</string>
+    <string name="checkmate_stalemate_detail">沒有合法步且未被將軍，所以和局</string>
+    <string name="checkmate_restart">重新開始</string>
+    <string name="checkmate_next">下一題</string>
+    <string name="checkmate_puzzle_number">第 %1$d 題，共 %2$d 題</string>
+    <string name="checkmate_rating">等級分 %1$d</string>
+    <string name="checkmate_stats">已解 %1$d · 連續 %2$d · 最佳 %3$d</string>
+
 
     <string name="matchstick_riddles_title">火柴謎題</string>
     <string name="matchstick_riddle_prompt_move_one">移動 1 根火柴來修正等式。</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">重來</string>
     <string name="achievement_peg_solitaire_perfect">孔明棋大師</string>
     <string name="achievement_peg_solitaire_perfect_desc">以中心一枚棋子完成英式孔明棋</string>
+    <string name="achievement_checkmate_master">將死達人</string>
+    <string name="achievement_checkmate_master_desc">解開全部 60 道將死題目</string>
 
     <string name="reversi_button">黑白棋</string>
     <string name="reversi_title">黑白棋</string>

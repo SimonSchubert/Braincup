@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">Gajah</string>
     <string name="normal_chess_promotion_knight">Kuda</string>
     <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
+    <string name="checkmate_title">Skakmat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat dalam %1$d langkah</item>
+        <item quantity="other">Mat dalam %1$d langkah</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Temukan skakmatnya</string>
+    <string name="checkmate_your_move">Giliranmu</string>
+    <string name="checkmate_hint">Ketuk bidak, lalu petak tujuannya</string>
+    <string name="checkmate_white_answers">Putih membalas…</string>
+    <string name="checkmate_black_answers">Hitam membalas…</string>
+    <string name="checkmate_solved">Skakmat!</string>
+    <string name="checkmate_not_mate">Belum skakmat</string>
+    <string name="checkmate_white_king_escapes">Raja putih lolos</string>
+    <string name="checkmate_black_king_escapes">Raja hitam lolos</string>
+    <string name="checkmate_white_mates_you">Putih menskakmatmu</string>
+    <string name="checkmate_black_mates_you">Hitam menskakmatmu</string>
+    <string name="checkmate_mated_detail">Rajamu tak punya jalan keluar</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Tak ada langkah sah dan tidak sedang diskak, jadi seri</string>
+    <string name="checkmate_restart">Ulangi</string>
+    <string name="checkmate_next">Teka-teki berikutnya</string>
+    <string name="checkmate_puzzle_number">Teka-teki %1$d dari %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Terpecahkan %1$d · Beruntun %2$d · Terbaik %3$d</string>
+
 
     <string name="matchstick_riddles_title">Teka-teki korek api</string>
     <string name="matchstick_riddle_prompt_move_one">Pindahkan 1 korek api untuk memperbaiki persamaan.</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">Mulai ulang</string>
     <string name="achievement_peg_solitaire_perfect">Master Solitaire</string>
     <string name="achievement_peg_solitaire_perfect_desc">Selesaikan solitaire Inggris dengan satu bidak di tengah</string>
+    <string name="achievement_checkmate_master">Master Skakmat</string>
+    <string name="achievement_checkmate_master_desc">Selesaikan ke-60 teka-teki skakmat</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">ఒంటె</string>
     <string name="normal_chess_promotion_knight">గుర్రం</string>
     <string name="normal_chess_draw_warning">= స్టేల్‌మేట్ (డ్రా, గెలుపు కాదు)</string>
+    <string name="checkmate_title">చెక్‌మేట్</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d ఎత్తులో మేట్</item>
+        <item quantity="other">%1$d ఎత్తుల్లో మేట్</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">మేట్‌ను కనిపెట్టు</string>
+    <string name="checkmate_your_move">నీ ఎత్తు</string>
+    <string name="checkmate_hint">ఒక పావును నొక్కు, తర్వాత అది వెళ్లాల్సిన గడిని</string>
+    <string name="checkmate_white_answers">తెలుపు బదులిస్తోంది…</string>
+    <string name="checkmate_black_answers">నలుపు బదులిస్తోంది…</string>
+    <string name="checkmate_solved">చెక్‌మేట్!</string>
+    <string name="checkmate_not_mate">మేట్ కాలేదు</string>
+    <string name="checkmate_white_king_escapes">తెలుపు రాజు తప్పించుకున్నాడు</string>
+    <string name="checkmate_black_king_escapes">నలుపు రాజు తప్పించుకున్నాడు</string>
+    <string name="checkmate_white_mates_you">తెలుపు నిన్ను చెక్‌మేట్ చేసింది</string>
+    <string name="checkmate_black_mates_you">నలుపు నిన్ను చెక్‌మేట్ చేసింది</string>
+    <string name="checkmate_mated_detail">నీ రాజుకు తప్పించుకునే దారే లేదు</string>
+    <string name="checkmate_stalemate">స్టేల్‌మేట్</string>
+    <string name="checkmate_stalemate_detail">చెల్లే ఎత్తు లేదు, చెక్ కూడా లేదు, అందుకే డ్రా</string>
+    <string name="checkmate_restart">మళ్లీ మొదలుపెట్టు</string>
+    <string name="checkmate_next">తదుపరి పజిల్</string>
+    <string name="checkmate_puzzle_number">పజిల్ %1$d / %2$d</string>
+    <string name="checkmate_rating">రేటింగ్ %1$d</string>
+    <string name="checkmate_stats">పరిష్కరించినవి %1$d · వరుస %2$d · ఉత్తమం %3$d</string>
+
 
     <string name="matchstick_riddles_title">అగ్గిపుల్ల పజిల్స్</string>
     <string name="matchstick_riddle_prompt_move_one">సమీకరణాన్ని సరిచేయడానికి 1 అగ్గిపుల్లను కదపండి.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">మళ్లీ మొదలుపెట్టు</string>
     <string name="achievement_peg_solitaire_perfect">పెగ్ నిపుణుడు</string>
     <string name="achievement_peg_solitaire_perfect_desc">ఇంగ్లిష్ పెగ్ సాలిటైర్‌ను మధ్యలో ఒక పెగ్‌తో ముగించండి</string>
+    <string name="achievement_checkmate_master">చెక్‌మేట్ చక్రవర్తి</string>
+    <string name="achievement_checkmate_master_desc">మొత్తం 60 చెక్‌మేట్ పజిల్స్‌ను పరిష్కరించు</string>
 
     <string name="reversi_button">రివర్సి</string>
     <string name="reversi_title">రివర్సి</string>

@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">ઊંટ</string>
     <string name="normal_chess_promotion_knight">ઘોડો</string>
     <string name="normal_chess_draw_warning">= મડાગાંઠ (ડ્રો, જીત નહીં)</string>
+    <string name="checkmate_title">શહમાત</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d ચાલમાં માત</item>
+        <item quantity="other">%1$d ચાલમાં માત</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">માત શોધ</string>
+    <string name="checkmate_your_move">તારી ચાલ</string>
+    <string name="checkmate_hint">મહોરા પર ટેપ કર, પછી તેના ખાના પર</string>
+    <string name="checkmate_white_answers">સફેદ જવાબ આપે છે…</string>
+    <string name="checkmate_black_answers">કાળો જવાબ આપે છે…</string>
+    <string name="checkmate_solved">શહમાત!</string>
+    <string name="checkmate_not_mate">માત ન થઈ</string>
+    <string name="checkmate_white_king_escapes">સફેદ રાજા છટકી ગયો</string>
+    <string name="checkmate_black_king_escapes">કાળો રાજા છટકી ગયો</string>
+    <string name="checkmate_white_mates_you">સફેદે તને માત આપી</string>
+    <string name="checkmate_black_mates_you">કાળાએ તને માત આપી</string>
+    <string name="checkmate_mated_detail">તારા રાજા પાસે બચવાનો કોઈ રસ્તો નહોતો</string>
+    <string name="checkmate_stalemate">મડાગાંઠ</string>
+    <string name="checkmate_stalemate_detail">કોઈ માન્ય ચાલ નથી અને શહ પણ નથી, એટલે ડ્રો</string>
+    <string name="checkmate_restart">ફરી શરૂ કર</string>
+    <string name="checkmate_next">આગલો કોયડો</string>
+    <string name="checkmate_puzzle_number">કોયડો %1$d / %2$d</string>
+    <string name="checkmate_rating">રેટિંગ %1$d</string>
+    <string name="checkmate_stats">ઉકેલ્યા %1$d · શ્રેણી %2$d · શ્રેષ્ઠ %3$d</string>
+
 
     <string name="matchstick_riddles_title">દીવાસળી કોયડા</string>
     <string name="matchstick_riddle_prompt_move_one">સમીકરણ સુધારવા 1 દીવાસળી ખસેડો.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">ફરી શરૂ કરો</string>
     <string name="achievement_peg_solitaire_perfect">પેગ નિપુણ</string>
     <string name="achievement_peg_solitaire_perfect_desc">અંગ્રેજી પેગ સોલિટેર વચ્ચે એક પેગ સાથે પૂરું કરો</string>
+    <string name="achievement_checkmate_master">શહમાત સમ્રાટ</string>
+    <string name="achievement_checkmate_master_desc">શહમાતના બધા 60 કોયડા ઉકેલ</string>
 
     <string name="reversi_button">રિવર્સી</string>
     <string name="reversi_title">રિવર્સી</string>

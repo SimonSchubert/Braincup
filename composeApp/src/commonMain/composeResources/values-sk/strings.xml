@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Strelec</string>
     <string name="normal_chess_promotion_knight">Jazdec</string>
     <string name="normal_chess_draw_warning">= pat (remíza, nie výhra)</string>
+    <string name="checkmate_title">Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat %1$d ťahom</item>
+        <item quantity="few">Mat v %1$d ťahoch</item>
+        <item quantity="other">Mat v %1$d ťahoch</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Nájdi mat</string>
+    <string name="checkmate_your_move">Si na ťahu</string>
+    <string name="checkmate_hint">Ťukni na figúru, potom na pole</string>
+    <string name="checkmate_white_answers">Biely odpovedá…</string>
+    <string name="checkmate_black_answers">Čierny odpovedá…</string>
+    <string name="checkmate_solved">Mat!</string>
+    <string name="checkmate_not_mate">Nie je to mat</string>
+    <string name="checkmate_white_king_escapes">Biely kráľ unikne</string>
+    <string name="checkmate_black_king_escapes">Čierny kráľ unikne</string>
+    <string name="checkmate_white_mates_you">Biely ti dal mat</string>
+    <string name="checkmate_black_mates_you">Čierny ti dal mat</string>
+    <string name="checkmate_mated_detail">Tvoj kráľ nemal kam ujsť</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Žiadny povolený ťah a nie je šach, takže remíza</string>
+    <string name="checkmate_restart">Začať znova</string>
+    <string name="checkmate_next">Ďalšia úloha</string>
+    <string name="checkmate_puzzle_number">Úloha %1$d z %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Vyriešené %1$d · Séria %2$d · Najlepšia %3$d</string>
+
 
     <string name="matchstick_riddles_title">Zápalkové hádanky</string>
     <string name="matchstick_riddle_prompt_move_one">Presuň 1 zápalku, aby rovnica sedela.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Začať znova</string>
     <string name="achievement_peg_solitaire_perfect">Majster kolíkov</string>
     <string name="achievement_peg_solitaire_perfect_desc">Dokonči anglický kolíkový solitér s jedným kolíkom v strede</string>
+    <string name="achievement_checkmate_master">Majster matu</string>
+    <string name="achievement_checkmate_master_desc">Vyrieš všetkých 60 matových úloh</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

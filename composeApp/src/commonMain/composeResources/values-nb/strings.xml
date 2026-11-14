@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Løper</string>
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= patt (remis, ikke seier)</string>
+    <string name="checkmate_title">Sjakkmatt</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matt i %1$d trekk</item>
+        <item quantity="other">Matt i %1$d trekk</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Finn matten</string>
+    <string name="checkmate_your_move">Ditt trekk</string>
+    <string name="checkmate_hint">Trykk på en brikke, så på ruten</string>
+    <string name="checkmate_white_answers">Hvit svarer…</string>
+    <string name="checkmate_black_answers">Svart svarer…</string>
+    <string name="checkmate_solved">Sjakkmatt!</string>
+    <string name="checkmate_not_mate">Ikke matt</string>
+    <string name="checkmate_white_king_escapes">Hvits konge slipper unna</string>
+    <string name="checkmate_black_king_escapes">Svarts konge slipper unna</string>
+    <string name="checkmate_white_mates_you">Hvit setter deg matt</string>
+    <string name="checkmate_black_mates_you">Svart setter deg matt</string>
+    <string name="checkmate_mated_detail">Kongen din hadde ingen vei ut</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Ingen lovlige trekk og ingen sjakk, så det blir remis</string>
+    <string name="checkmate_restart">Start på nytt</string>
+    <string name="checkmate_next">Neste oppgave</string>
+    <string name="checkmate_puzzle_number">Oppgave %1$d av %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Løst %1$d · Rekke %2$d · Beste %3$d</string>
+
 
     <string name="matchstick_riddles_title">Fyrstikkgåter</string>
     <string name="matchstick_riddle_prompt_move_one">Flytt 1 fyrstikk for å rette likningen.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Start på nytt</string>
     <string name="achievement_peg_solitaire_perfect">Pinnemester</string>
     <string name="achievement_peg_solitaire_perfect_desc">Klar engelsk pinnesolitær med én pinne i midten</string>
+    <string name="achievement_checkmate_master">Mattmester</string>
+    <string name="achievement_checkmate_master_desc">Løs alle 60 mattoppgavene</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

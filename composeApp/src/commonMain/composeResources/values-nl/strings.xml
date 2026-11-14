@@ -687,6 +687,31 @@
     <string name="normal_chess_promotion_bishop">Loper</string>
     <string name="normal_chess_promotion_knight">Paard</string>
     <string name="normal_chess_draw_warning">= pat (remise, geen winst)</string>
+    <string name="checkmate_title">Schaakmat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat in %1$d zet</item>
+        <item quantity="other">Mat in %1$d zetten</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Vind het mat</string>
+    <string name="checkmate_your_move">Jij bent aan zet</string>
+    <string name="checkmate_hint">Tik op een stuk en dan op het doelveld</string>
+    <string name="checkmate_white_answers">Wit antwoordt…</string>
+    <string name="checkmate_black_answers">Zwart antwoordt…</string>
+    <string name="checkmate_solved">Schaakmat!</string>
+    <string name="checkmate_not_mate">Geen mat</string>
+    <string name="checkmate_white_king_escapes">De witte koning ontsnapt</string>
+    <string name="checkmate_black_king_escapes">De zwarte koning ontsnapt</string>
+    <string name="checkmate_white_mates_you">Wit zet je mat</string>
+    <string name="checkmate_black_mates_you">Zwart zet je mat</string>
+    <string name="checkmate_mated_detail">Je koning kon nergens meer heen</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Geen geldige zet en geen schaak, dus remise</string>
+    <string name="checkmate_restart">Opnieuw</string>
+    <string name="checkmate_next">Volgende puzzel</string>
+    <string name="checkmate_puzzle_number">Puzzel %1$d van %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Opgelost %1$d · Reeks %2$d · Record %3$d</string>
+
 
     <string name="matchstick_riddles_title">Luciferpuzzels</string>
     <string name="matchstick_riddle_prompt_move_one">Verplaats 1 lucifer om de vergelijking te corrigeren.</string>
@@ -708,6 +733,8 @@
     <string name="peg_solitaire_restart">Opnieuw</string>
     <string name="achievement_peg_solitaire_perfect">Solitaire-meester</string>
     <string name="achievement_peg_solitaire_perfect_desc">Voltooi Engels solitaire met één pin in het midden</string>
+    <string name="achievement_checkmate_master">Matmeester</string>
+    <string name="achievement_checkmate_master_desc">Los alle 60 matpuzzels op</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

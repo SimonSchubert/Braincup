@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">象</string>
     <string name="normal_chess_promotion_knight">马</string>
     <string name="normal_chess_draw_warning">= 逼和（平局，非胜利）</string>
+    <string name="checkmate_title">将杀</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d步杀</item>
+        <item quantity="other">%1$d步杀</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">找出杀着</string>
+    <string name="checkmate_your_move">轮到你了</string>
+    <string name="checkmate_hint">先点棋子，再点要走到的格子</string>
+    <string name="checkmate_white_answers">白方应着…</string>
+    <string name="checkmate_black_answers">黑方应着…</string>
+    <string name="checkmate_solved">将杀！</string>
+    <string name="checkmate_not_mate">没能将杀</string>
+    <string name="checkmate_white_king_escapes">白王逃脱了</string>
+    <string name="checkmate_black_king_escapes">黑王逃脱了</string>
+    <string name="checkmate_white_mates_you">白方将杀了你</string>
+    <string name="checkmate_black_mates_you">黑方将杀了你</string>
+    <string name="checkmate_mated_detail">你的王无路可逃</string>
+    <string name="checkmate_stalemate">逼和</string>
+    <string name="checkmate_stalemate_detail">无子可动且未被将军，判为和棋</string>
+    <string name="checkmate_restart">重新开始</string>
+    <string name="checkmate_next">下一题</string>
+    <string name="checkmate_puzzle_number">第 %1$d 题，共 %2$d 题</string>
+    <string name="checkmate_rating">等级分 %1$d</string>
+    <string name="checkmate_stats">已解 %1$d · 连续 %2$d · 最佳 %3$d</string>
+
 
     <string name="matchstick_riddles_title">火柴谜题</string>
     <string name="matchstick_riddle_prompt_move_one">移动 1 根火柴来修正等式。</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">重来</string>
     <string name="achievement_peg_solitaire_perfect">孔明棋大师</string>
     <string name="achievement_peg_solitaire_perfect_desc">以中心一枚棋子完成英式孔明棋</string>
+    <string name="achievement_checkmate_master">将杀达人</string>
+    <string name="achievement_checkmate_master_desc">解开全部 60 道将杀题</string>
 
     <string name="reversi_button">黑白棋</string>
     <string name="reversi_title">黑白棋</string>

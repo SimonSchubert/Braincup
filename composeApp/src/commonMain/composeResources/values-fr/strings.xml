@@ -687,6 +687,31 @@
     <string name="normal_chess_promotion_bishop">Fou</string>
     <string name="normal_chess_promotion_knight">Cavalier</string>
     <string name="normal_chess_draw_warning">= pat (nul, pas une victoire)</string>
+    <string name="checkmate_title">Échec et mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat en %1$d coup</item>
+        <item quantity="other">Mat en %1$d coups</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Trouve le mat</string>
+    <string name="checkmate_your_move">À toi de jouer</string>
+    <string name="checkmate_hint">Touche une pièce, puis sa case d'arrivée</string>
+    <string name="checkmate_white_answers">Les blancs répondent…</string>
+    <string name="checkmate_black_answers">Les noirs répondent…</string>
+    <string name="checkmate_solved">Échec et mat !</string>
+    <string name="checkmate_not_mate">Pas mat</string>
+    <string name="checkmate_white_king_escapes">Le roi blanc s'échappe</string>
+    <string name="checkmate_black_king_escapes">Le roi noir s'échappe</string>
+    <string name="checkmate_white_mates_you">Les blancs te matent</string>
+    <string name="checkmate_black_mates_you">Les noirs te matent</string>
+    <string name="checkmate_mated_detail">Ton roi n'avait aucune issue</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Aucun coup légal et pas d'échec : partie nulle</string>
+    <string name="checkmate_restart">Recommencer</string>
+    <string name="checkmate_next">Problème suivant</string>
+    <string name="checkmate_puzzle_number">Problème %1$d sur %2$d</string>
+    <string name="checkmate_rating">Classement %1$d</string>
+    <string name="checkmate_stats">Résolus %1$d · Série %2$d · Record %3$d</string>
+
 
     <string name="matchstick_riddles_title">Énigmes d'allumettes</string>
     <string name="matchstick_riddle_prompt_move_one">Déplace 1 allumette pour que l'équation soit juste.</string>
@@ -708,6 +733,8 @@
     <string name="peg_solitaire_restart">Recommencer</string>
     <string name="achievement_peg_solitaire_perfect">Maître du solitaire</string>
     <string name="achievement_peg_solitaire_perfect_desc">Termine le solitaire anglais avec un pion au centre</string>
+    <string name="achievement_checkmate_master">Maître du mat</string>
+    <string name="achievement_checkmate_master_desc">Résous les 60 problèmes de mat</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

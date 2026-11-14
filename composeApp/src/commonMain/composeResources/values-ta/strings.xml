@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">அமைச்சர்</string>
     <string name="normal_chess_promotion_knight">குதிரை</string>
     <string name="normal_chess_draw_warning">= முட்டுக்கட்டு (சமநிலை, வெற்றி அல்ல)</string>
+    <string name="checkmate_title">சாவுக்கட்டு</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d நகர்வில் சாவுக்கட்டு</item>
+        <item quantity="other">%1$d நகர்வுகளில் சாவுக்கட்டு</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">சாவுக்கட்டைக் கண்டுபிடி</string>
+    <string name="checkmate_your_move">உன் நகர்வு</string>
+    <string name="checkmate_hint">ஒரு காயைத் தட்டு, பிறகு அது போக வேண்டிய கட்டத்தை</string>
+    <string name="checkmate_white_answers">வெள்ளை பதிலளிக்கிறது…</string>
+    <string name="checkmate_black_answers">கருப்பு பதிலளிக்கிறது…</string>
+    <string name="checkmate_solved">சாவுக்கட்டு!</string>
+    <string name="checkmate_not_mate">சாவுக்கட்டு இல்லை</string>
+    <string name="checkmate_white_king_escapes">வெள்ளை ராஜா தப்பித்தார்</string>
+    <string name="checkmate_black_king_escapes">கருப்பு ராஜா தப்பித்தார்</string>
+    <string name="checkmate_white_mates_you">வெள்ளை உன்னைச் சாவுக்கட்டு செய்தது</string>
+    <string name="checkmate_black_mates_you">கருப்பு உன்னைச் சாவுக்கட்டு செய்தது</string>
+    <string name="checkmate_mated_detail">உன் ராஜாவுக்குத் தப்ப வழியே இல்லை</string>
+    <string name="checkmate_stalemate">முட்டுக்கட்டு</string>
+    <string name="checkmate_stalemate_detail">விதிப்படி நகர்வும் இல்லை, கட்டும் இல்லை, அதனால் சமநிலை</string>
+    <string name="checkmate_restart">மீண்டும் தொடங்கு</string>
+    <string name="checkmate_next">அடுத்த புதிர்</string>
+    <string name="checkmate_puzzle_number">புதிர் %1$d / %2$d</string>
+    <string name="checkmate_rating">ரேட்டிங் %1$d</string>
+    <string name="checkmate_stats">தீர்த்தவை %1$d · தொடர் %2$d · சிறந்தது %3$d</string>
+
 
     <string name="matchstick_riddles_title">தீக்குச்சி புதிர்கள்</string>
     <string name="matchstick_riddle_prompt_move_one">சமன்பாட்டைச் சரிசெய்ய 1 தீக்குச்சியை நகர்த்துங்கள்.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">மறுதொடக்கம்</string>
     <string name="achievement_peg_solitaire_perfect">ஆணி நிபுணர்</string>
     <string name="achievement_peg_solitaire_perfect_desc">ஆங்கில ஆணி விளையாட்டை நடுவில் ஒரு ஆணியுடன் முடியுங்கள்</string>
+    <string name="achievement_checkmate_master">சாவுக்கட்டு வேந்தன்</string>
+    <string name="achievement_checkmate_master_desc">60 சாவுக்கட்டுப் புதிர்களையும் தீர்</string>
 
     <string name="reversi_button">ரிவர்சி</string>
     <string name="reversi_title">ரிவர்சி</string>

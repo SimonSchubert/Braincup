@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Střelec</string>
     <string name="normal_chess_promotion_knight">Jezdec</string>
     <string name="normal_chess_draw_warning">= pat (remíza, ne výhra)</string>
+    <string name="checkmate_title">Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat %1$d tahem</item>
+        <item quantity="few">Mat ve %1$d tazích</item>
+        <item quantity="other">Mat v %1$d tazích</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Najdi mat</string>
+    <string name="checkmate_your_move">Jsi na tahu</string>
+    <string name="checkmate_hint">Klepni na figuru, pak na pole</string>
+    <string name="checkmate_white_answers">Bílý odpovídá…</string>
+    <string name="checkmate_black_answers">Černý odpovídá…</string>
+    <string name="checkmate_solved">Mat!</string>
+    <string name="checkmate_not_mate">Není to mat</string>
+    <string name="checkmate_white_king_escapes">Bílý král unikne</string>
+    <string name="checkmate_black_king_escapes">Černý král unikne</string>
+    <string name="checkmate_white_mates_you">Bílý ti dal mat</string>
+    <string name="checkmate_black_mates_you">Černý ti dal mat</string>
+    <string name="checkmate_mated_detail">Tvůj král neměl kam utéct</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Žádný povolený tah a není šach, takže remíza</string>
+    <string name="checkmate_restart">Začít znovu</string>
+    <string name="checkmate_next">Další úloha</string>
+    <string name="checkmate_puzzle_number">Úloha %1$d z %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Vyřešeno %1$d · Série %2$d · Nejlepší %3$d</string>
+
 
     <string name="matchstick_riddles_title">Sirkové hádanky</string>
     <string name="matchstick_riddle_prompt_move_one">Přesuň 1 sirku, aby rovnice seděla.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Začít znovu</string>
     <string name="achievement_peg_solitaire_perfect">Mistr kolíků</string>
     <string name="achievement_peg_solitaire_perfect_desc">Dokonči anglický kolíkový solitér s jedním kolíkem uprostřed</string>
+    <string name="achievement_checkmate_master">Mistr matu</string>
+    <string name="achievement_checkmate_master_desc">Vyřeš všech 60 matových úloh</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">ಒಂಟೆ</string>
     <string name="normal_chess_promotion_knight">ಕುದುರೆ</string>
     <string name="normal_chess_draw_warning">= ಬಿಕ್ಕಟ್ಟು (ಸಮಬಲ, ಗೆಲುವಲ್ಲ)</string>
+    <string name="checkmate_title">ಚೆಕ್‌ಮೇಟ್</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d ನಡೆಯಲ್ಲಿ ಚೆಕ್‌ಮೇಟ್</item>
+        <item quantity="other">%1$d ನಡೆಗಳಲ್ಲಿ ಚೆಕ್‌ಮೇಟ್</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">ಚೆಕ್‌ಮೇಟ್ ಹುಡುಕಿ</string>
+    <string name="checkmate_your_move">ನಿಮ್ಮ ಸರದಿ</string>
+    <string name="checkmate_hint">ಕಾಯಿಯನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ, ನಂತರ ಅದು ಹೋಗುವ ಮನೆಯನ್ನು</string>
+    <string name="checkmate_white_answers">ಬಿಳಿ ಉತ್ತರಿಸುತ್ತಿದೆ…</string>
+    <string name="checkmate_black_answers">ಕಪ್ಪು ಉತ್ತರಿಸುತ್ತಿದೆ…</string>
+    <string name="checkmate_solved">ಚೆಕ್‌ಮೇಟ್!</string>
+    <string name="checkmate_not_mate">ಚೆಕ್‌ಮೇಟ್ ಆಗಲಿಲ್ಲ</string>
+    <string name="checkmate_white_king_escapes">ಬಿಳಿಯ ರಾಜ ತಪ್ಪಿಸಿಕೊಳ್ಳುತ್ತಾನೆ</string>
+    <string name="checkmate_black_king_escapes">ಕಪ್ಪಿನ ರಾಜ ತಪ್ಪಿಸಿಕೊಳ್ಳುತ್ತಾನೆ</string>
+    <string name="checkmate_white_mates_you">ಬಿಳಿ ನಿಮಗೆ ಚೆಕ್‌ಮೇಟ್ ಕೊಟ್ಟಿತು</string>
+    <string name="checkmate_black_mates_you">ಕಪ್ಪು ನಿಮಗೆ ಚೆಕ್‌ಮೇಟ್ ಕೊಟ್ಟಿತು</string>
+    <string name="checkmate_mated_detail">ನಿಮ್ಮ ರಾಜನಿಗೆ ತಪ್ಪಿಸಿಕೊಳ್ಳಲು ದಾರಿ ಇರಲಿಲ್ಲ</string>
+    <string name="checkmate_stalemate">ಬಿಕ್ಕಟ್ಟು</string>
+    <string name="checkmate_stalemate_detail">ನಿಯಮಬದ್ಧ ನಡೆ ಉಳಿದಿಲ್ಲ, ಚೆಕ್ ಕೂಡ ಇಲ್ಲ, ಹಾಗಾಗಿ ಸಮಬಲ</string>
+    <string name="checkmate_restart">ಮತ್ತೆ ಪ್ರಾರಂಭಿಸಿ</string>
+    <string name="checkmate_next">ಮುಂದಿನ ಒಗಟು</string>
+    <string name="checkmate_puzzle_number">ಒಗಟು %1$d / %2$d</string>
+    <string name="checkmate_rating">ರೇಟಿಂಗ್ %1$d</string>
+    <string name="checkmate_stats">ಬಿಡಿಸಿದ್ದು %1$d · ಸರಣಿ %2$d · ಅತ್ಯುತ್ತಮ %3$d</string>
+
 
     <string name="matchstick_riddles_title">ಬೆಂಕಿಕಡ್ಡಿ ಒಗಟುಗಳು</string>
     <string name="matchstick_riddle_prompt_move_one">ಸಮೀಕರಣ ಸರಿಪಡಿಸಲು 1 ಬೆಂಕಿಕಡ್ಡಿ ಸರಿಸಿ.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">ಮತ್ತೆ ಆರಂಭಿಸಿ</string>
     <string name="achievement_peg_solitaire_perfect">ಪೆಗ್ ನಿಪುಣ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ಇಂಗ್ಲಿಷ್ ಪೆಗ್ ಸಾಲಿಟೇರ್ ಅನ್ನು ಮಧ್ಯದಲ್ಲಿ ಒಂದು ಪೆಗ್‌ನೊಂದಿಗೆ ಮುಗಿಸಿ</string>
+    <string name="achievement_checkmate_master">ಚೆಕ್‌ಮೇಟ್ ನಿಪುಣ</string>
+    <string name="achievement_checkmate_master_desc">ಎಲ್ಲಾ 60 ಚೆಕ್‌ಮೇಟ್ ಒಗಟುಗಳನ್ನು ಬಿಡಿಸಿ</string>
 
     <string name="reversi_button">ರಿವರ್ಸಿ</string>
     <string name="reversi_title">ರಿವರ್ಸಿ</string>

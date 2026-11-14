@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Oda</string>
     <string name="normal_chess_promotion_knight">Ratsu</string>
     <string name="normal_chess_draw_warning">= patt (viik, mitte võit)</string>
+    <string name="checkmate_title">Matt</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matt %1$d käiguga</item>
+        <item quantity="other">Matt %1$d käiguga</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Leia matt</string>
+    <string name="checkmate_your_move">Sinu käik</string>
+    <string name="checkmate_hint">Puuduta nuppu, siis ruutu</string>
+    <string name="checkmate_white_answers">Valge vastab…</string>
+    <string name="checkmate_black_answers">Must vastab…</string>
+    <string name="checkmate_solved">Matt!</string>
+    <string name="checkmate_not_mate">Pole matt</string>
+    <string name="checkmate_white_king_escapes">Valge kuningas pääseb minema</string>
+    <string name="checkmate_black_king_escapes">Musta kuningas pääseb minema</string>
+    <string name="checkmate_white_mates_you">Valge paneb sulle matti</string>
+    <string name="checkmate_black_mates_you">Must paneb sulle matti</string>
+    <string name="checkmate_mated_detail">Sinu kuningal polnud pääsu</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Lubatud käike pole ja tuld ka mitte, seega viik</string>
+    <string name="checkmate_restart">Alusta otsast</string>
+    <string name="checkmate_next">Järgmine ülesanne</string>
+    <string name="checkmate_puzzle_number">Ülesanne %1$d/%2$d</string>
+    <string name="checkmate_rating">Reiting %1$d</string>
+    <string name="checkmate_stats">Lahendatud %1$d · Seeria %2$d · Parim %3$d</string>
+
 
     <string name="matchstick_riddles_title">Tikuküsimused</string>
     <string name="matchstick_riddle_prompt_move_one">Liiguta 1 tikk, et võrrand klapiks.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Alusta otsast</string>
     <string name="achievement_peg_solitaire_perfect">Nupumeister</string>
     <string name="achievement_peg_solitaire_perfect_desc">Läbi inglise nuppsolitaire ühe nupuga keskel</string>
+    <string name="achievement_checkmate_master">Matimeister</string>
+    <string name="achievement_checkmate_master_desc">Lahenda kõik 60 matiülesannet</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

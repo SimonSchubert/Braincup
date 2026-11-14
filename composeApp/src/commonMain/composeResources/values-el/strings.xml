@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Αξιωματικός</string>
     <string name="normal_chess_promotion_knight">Ίππος</string>
     <string name="normal_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
+    <string name="checkmate_title">Ματ</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Ματ σε %1$d κίνηση</item>
+        <item quantity="other">Ματ σε %1$d κινήσεις</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Βρες το ματ</string>
+    <string name="checkmate_your_move">Η σειρά σου</string>
+    <string name="checkmate_hint">Πάτησε ένα κομμάτι και μετά το τετράγωνο προορισμού</string>
+    <string name="checkmate_white_answers">Τα λευκά απαντούν…</string>
+    <string name="checkmate_black_answers">Τα μαύρα απαντούν…</string>
+    <string name="checkmate_solved">Ματ!</string>
+    <string name="checkmate_not_mate">Δεν είναι ματ</string>
+    <string name="checkmate_white_king_escapes">Ο λευκός βασιλιάς ξέφυγε</string>
+    <string name="checkmate_black_king_escapes">Ο μαύρος βασιλιάς ξέφυγε</string>
+    <string name="checkmate_white_mates_you">Τα λευκά σού έκαναν ματ</string>
+    <string name="checkmate_black_mates_you">Τα μαύρα σού έκαναν ματ</string>
+    <string name="checkmate_mated_detail">Ο βασιλιάς σου δεν είχε διέξοδο</string>
+    <string name="checkmate_stalemate">Πατ</string>
+    <string name="checkmate_stalemate_detail">Καμία έγκυρη κίνηση και κανένα σαχ, άρα ισοπαλία</string>
+    <string name="checkmate_restart">Από την αρχή</string>
+    <string name="checkmate_next">Επόμενος γρίφος</string>
+    <string name="checkmate_puzzle_number">Γρίφος %1$d από %2$d</string>
+    <string name="checkmate_rating">Βαθμολογία %1$d</string>
+    <string name="checkmate_stats">Λύθηκαν %1$d · Σερί %2$d · Ρεκόρ %3$d</string>
+
 
     <string name="matchstick_riddles_title">Γρίφοι με σπίρτα</string>
     <string name="matchstick_riddle_prompt_move_one">Μετακινήστε 1 σπίρτο για να διορθώσετε την εξίσωση.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Επανεκκίνηση</string>
     <string name="achievement_peg_solitaire_perfect">Μάστερ σολιτέρ</string>
     <string name="achievement_peg_solitaire_perfect_desc">Ολοκλήρωσε το αγγλικό σολιτέρ με ένα πιόνι στο κέντρο</string>
+    <string name="achievement_checkmate_master">Δάσκαλος του ματ</string>
+    <string name="achievement_checkmate_master_desc">Λύσε και τους 60 γρίφους ματ</string>
 
     <string name="reversi_button">Ριβέρσι</string>
     <string name="reversi_title">Ριβέρσι</string>

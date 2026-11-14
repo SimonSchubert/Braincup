@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Rikis</string>
     <string name="normal_chess_promotion_knight">Žirgas</string>
     <string name="normal_chess_draw_warning">= patas (lygiosios, ne pergalė)</string>
+    <string name="checkmate_title">Matas</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matas per %1$d ėjimą</item>
+        <item quantity="few">Matas per %1$d ėjimus</item>
+        <item quantity="other">Matas per %1$d ėjimų</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Rask matą</string>
+    <string name="checkmate_your_move">Tavo ėjimas</string>
+    <string name="checkmate_hint">Paliesk figūrą, tada langelį</string>
+    <string name="checkmate_white_answers">Baltieji atsako…</string>
+    <string name="checkmate_black_answers">Juodieji atsako…</string>
+    <string name="checkmate_solved">Matas!</string>
+    <string name="checkmate_not_mate">Ne matas</string>
+    <string name="checkmate_white_king_escapes">Baltųjų karalius pabėga</string>
+    <string name="checkmate_black_king_escapes">Juodųjų karalius pabėga</string>
+    <string name="checkmate_white_mates_you">Baltieji tau paskelbė matą</string>
+    <string name="checkmate_black_mates_you">Juodieji tau paskelbė matą</string>
+    <string name="checkmate_mated_detail">Tavo karalius neturėjo kur trauktis</string>
+    <string name="checkmate_stalemate">Patas</string>
+    <string name="checkmate_stalemate_detail">Nėra leistinų ėjimų ir nėra šacho, todėl lygiosios</string>
+    <string name="checkmate_restart">Pradėti iš naujo</string>
+    <string name="checkmate_next">Kitas uždavinys</string>
+    <string name="checkmate_puzzle_number">Uždavinys %1$d iš %2$d</string>
+    <string name="checkmate_rating">Reitingas %1$d</string>
+    <string name="checkmate_stats">Išspręsta %1$d · Serija %2$d · Geriausia %3$d</string>
+
 
     <string name="matchstick_riddles_title">Degtukų galvosūkiai</string>
     <string name="matchstick_riddle_prompt_move_one">Perkelk 1 degtuką, kad lygtis būtų teisinga.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Pradėti iš naujo</string>
     <string name="achievement_peg_solitaire_perfect">Smeigtukų meistras</string>
     <string name="achievement_peg_solitaire_perfect_desc">Užbaik anglišką smeigtukų solitaire su vienu smeigtuku centre</string>
+    <string name="achievement_checkmate_master">Mato meistras</string>
+    <string name="achievement_checkmate_master_desc">Išspręsk visus 60 mato uždavinių</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

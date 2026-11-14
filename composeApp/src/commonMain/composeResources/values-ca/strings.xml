@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Alfil</string>
     <string name="normal_chess_promotion_knight">Cavall</string>
     <string name="normal_chess_draw_warning">= ofegat (taules, no una victòria)</string>
+    <string name="checkmate_title">Escac i mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat en %1$d jugada</item>
+        <item quantity="other">Mat en %1$d jugades</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Troba el mat</string>
+    <string name="checkmate_your_move">Et toca</string>
+    <string name="checkmate_hint">Toca una peça i després la casella on va</string>
+    <string name="checkmate_white_answers">Responen les blanques…</string>
+    <string name="checkmate_black_answers">Responen les negres…</string>
+    <string name="checkmate_solved">Escac i mat!</string>
+    <string name="checkmate_not_mate">No és mat</string>
+    <string name="checkmate_white_king_escapes">El rei blanc s'escapa</string>
+    <string name="checkmate_black_king_escapes">El rei negre s'escapa</string>
+    <string name="checkmate_white_mates_you">Les blanques et fan mat</string>
+    <string name="checkmate_black_mates_you">Les negres et fan mat</string>
+    <string name="checkmate_mated_detail">El teu rei no tenia escapatòria</string>
+    <string name="checkmate_stalemate">Ofegat</string>
+    <string name="checkmate_stalemate_detail">Cap jugada legal i cap escac: taules</string>
+    <string name="checkmate_restart">Torna a començar</string>
+    <string name="checkmate_next">Problema següent</string>
+    <string name="checkmate_puzzle_number">Problema %1$d de %2$d</string>
+    <string name="checkmate_rating">Puntuació %1$d</string>
+    <string name="checkmate_stats">Resolts %1$d · Ratxa %2$d · Rècord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Enigmes de llumins</string>
     <string name="matchstick_riddle_prompt_move_one">Mou 1 llumí perquè l'equació quadri.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Torna a començar</string>
     <string name="achievement_peg_solitaire_perfect">Mestre de clavilles</string>
     <string name="achievement_peg_solitaire_perfect_desc">Acaba el solitari anglès de clavilles amb una clavilla al centre</string>
+    <string name="achievement_checkmate_master">Mestre del mat</string>
+    <string name="achievement_checkmate_master_desc">Resol els 60 problemes de mat</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

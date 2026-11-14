@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">Tượng</string>
     <string name="normal_chess_promotion_knight">Mã</string>
     <string name="normal_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
+    <string name="checkmate_title">Chiếu hết</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Chiếu hết sau %1$d nước</item>
+        <item quantity="other">Chiếu hết sau %1$d nước</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Tìm nước chiếu hết</string>
+    <string name="checkmate_your_move">Đến lượt bạn</string>
+    <string name="checkmate_hint">Chạm một quân, rồi chạm ô nó cần đến</string>
+    <string name="checkmate_white_answers">Bên trắng đáp trả…</string>
+    <string name="checkmate_black_answers">Bên đen đáp trả…</string>
+    <string name="checkmate_solved">Chiếu hết!</string>
+    <string name="checkmate_not_mate">Chưa chiếu hết</string>
+    <string name="checkmate_white_king_escapes">Vua trắng thoát được</string>
+    <string name="checkmate_black_king_escapes">Vua đen thoát được</string>
+    <string name="checkmate_white_mates_you">Bên trắng chiếu hết bạn</string>
+    <string name="checkmate_black_mates_you">Bên đen chiếu hết bạn</string>
+    <string name="checkmate_mated_detail">Vua của bạn không còn đường thoát</string>
+    <string name="checkmate_stalemate">Hết nước đi</string>
+    <string name="checkmate_stalemate_detail">Không còn nước đi hợp lệ và không bị chiếu, nên hòa</string>
+    <string name="checkmate_restart">Chơi lại</string>
+    <string name="checkmate_next">Câu đố tiếp</string>
+    <string name="checkmate_puzzle_number">Câu đố %1$d / %2$d</string>
+    <string name="checkmate_rating">Xếp hạng %1$d</string>
+    <string name="checkmate_stats">Đã giải %1$d · Chuỗi %2$d · Kỷ lục %3$d</string>
+
 
     <string name="matchstick_riddles_title">Câu đố que diêm</string>
     <string name="matchstick_riddle_prompt_move_one">Di chuyển 1 que diêm để sửa phương trình.</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">Chơi lại</string>
     <string name="achievement_peg_solitaire_perfect">Bậc thầy cờ nhảy</string>
     <string name="achievement_peg_solitaire_perfect_desc">Hoàn thành cờ nhảy kiểu Anh với một quân ở giữa</string>
+    <string name="achievement_checkmate_master">Bậc thầy chiếu hết</string>
+    <string name="achievement_checkmate_master_desc">Giải cả 60 câu đố chiếu hết</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

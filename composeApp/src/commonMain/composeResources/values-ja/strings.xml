@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">ビショップ</string>
     <string name="normal_chess_promotion_knight">ナイト</string>
     <string name="normal_chess_draw_warning">= ステイルメイト（勝ちではなく引き分け）</string>
+    <string name="checkmate_title">チェックメイト</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d手メイト</item>
+        <item quantity="other">%1$d手メイト</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">メイトを見つけましょう</string>
+    <string name="checkmate_your_move">あなたの手番</string>
+    <string name="checkmate_hint">駒をタップしてから移動先をタップ</string>
+    <string name="checkmate_white_answers">白の応手…</string>
+    <string name="checkmate_black_answers">黒の応手…</string>
+    <string name="checkmate_solved">チェックメイト！</string>
+    <string name="checkmate_not_mate">メイトならず</string>
+    <string name="checkmate_white_king_escapes">白のキングに逃げられた</string>
+    <string name="checkmate_black_king_escapes">黒のキングに逃げられた</string>
+    <string name="checkmate_white_mates_you">白にメイトされた</string>
+    <string name="checkmate_black_mates_you">黒にメイトされた</string>
+    <string name="checkmate_mated_detail">キングの逃げ場がなかった</string>
+    <string name="checkmate_stalemate">ステイルメイト</string>
+    <string name="checkmate_stalemate_detail">合法手がなくチェックもされていないため引き分け</string>
+    <string name="checkmate_restart">やり直す</string>
+    <string name="checkmate_next">次の問題</string>
+    <string name="checkmate_puzzle_number">問題 %1$d / %2$d</string>
+    <string name="checkmate_rating">レーティング %1$d</string>
+    <string name="checkmate_stats">正解 %1$d · 連続 %2$d · 最高 %3$d</string>
+
 
     <string name="matchstick_riddles_title">マッチ棒パズル</string>
     <string name="matchstick_riddle_prompt_move_one">マッチ棒を1本動かして式を正しくしてください。</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">やり直す</string>
     <string name="achievement_peg_solitaire_perfect">ペグマスター</string>
     <string name="achievement_peg_solitaire_perfect_desc">英語式ペグソリティアを中央1個でクリアする</string>
+    <string name="achievement_checkmate_master">メイトマスター</string>
+    <string name="achievement_checkmate_master_desc">チェックメイト問題を60問すべて解く</string>
 
     <string name="reversi_button">リバーシ</string>
     <string name="reversi_title">リバーシ</string>

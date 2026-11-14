@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Obispo</string>
     <string name="normal_chess_promotion_knight">Kabayo</string>
     <string name="normal_chess_draw_warning">= stalemate (tabla, hindi panalo)</string>
+    <string name="checkmate_title">Checkmate</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Checkmate sa %1$d galaw</item>
+        <item quantity="other">Checkmate sa %1$d galaw</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Hanapin ang checkmate</string>
+    <string name="checkmate_your_move">Ikaw na</string>
+    <string name="checkmate_hint">I-tap ang piraso, tapos ang kahong pupuntahan nito</string>
+    <string name="checkmate_white_answers">Sumasagot ang White…</string>
+    <string name="checkmate_black_answers">Sumasagot ang Black…</string>
+    <string name="checkmate_solved">Checkmate!</string>
+    <string name="checkmate_not_mate">Hindi checkmate</string>
+    <string name="checkmate_white_king_escapes">Nakatakas ang hari ng White</string>
+    <string name="checkmate_black_king_escapes">Nakatakas ang hari ng Black</string>
+    <string name="checkmate_white_mates_you">Na-checkmate ka ng White</string>
+    <string name="checkmate_black_mates_you">Na-checkmate ka ng Black</string>
+    <string name="checkmate_mated_detail">Walang matakasan ang hari mo</string>
+    <string name="checkmate_stalemate">Stalemate</string>
+    <string name="checkmate_stalemate_detail">Wala nang legal na galaw at walang check, kaya tabla</string>
+    <string name="checkmate_restart">Ulitin</string>
+    <string name="checkmate_next">Susunod na palaisipan</string>
+    <string name="checkmate_puzzle_number">Palaisipan %1$d ng %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Nalutas %1$d · Sunod-sunod %2$d · Pinakamataas %3$d</string>
+
 
     <string name="matchstick_riddles_title">Mga Palaisipan sa Palito</string>
     <string name="matchstick_riddle_prompt_move_one">Ilipat ang 1 palito para ayusin ang equation.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Ulitin</string>
     <string name="achievement_peg_solitaire_perfect">Dalubhasa sa Peg</string>
     <string name="achievement_peg_solitaire_perfect_desc">Tapusin ang English peg solitaire nang isang peg sa gitna</string>
+    <string name="achievement_checkmate_master">Dalubhasa sa Checkmate</string>
+    <string name="achievement_checkmate_master_desc">Lutasin ang lahat ng 60 palaisipang checkmate</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

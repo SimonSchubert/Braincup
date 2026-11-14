@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">فیلی</string>
     <string name="normal_chess_promotion_knight">گھوڑا</string>
     <string name="normal_chess_draw_warning">= مردہ پانسہ (برابر، فتح نہیں)</string>
+    <string name="checkmate_title">شہ مات</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d چال میں مات</item>
+        <item quantity="other">%1$d چالوں میں مات</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">مات تلاش کریں</string>
+    <string name="checkmate_your_move">آپ کی چال</string>
+    <string name="checkmate_hint">کوئی مہرہ دبائیں، پھر اس کا خانہ</string>
+    <string name="checkmate_white_answers">سفید جواب دے رہا ہے…</string>
+    <string name="checkmate_black_answers">کالا جواب دے رہا ہے…</string>
+    <string name="checkmate_solved">شہ مات!</string>
+    <string name="checkmate_not_mate">مات نہیں ہوا</string>
+    <string name="checkmate_white_king_escapes">سفید بادشاہ بچ نکلا</string>
+    <string name="checkmate_black_king_escapes">کالا بادشاہ بچ نکلا</string>
+    <string name="checkmate_white_mates_you">سفید نے آپ کو مات دے دی</string>
+    <string name="checkmate_black_mates_you">کالے نے آپ کو مات دے دی</string>
+    <string name="checkmate_mated_detail">آپ کے بادشاہ کے پاس بچنے کا کوئی راستہ نہیں تھا</string>
+    <string name="checkmate_stalemate">مردہ پانسہ</string>
+    <string name="checkmate_stalemate_detail">کوئی جائز چال نہیں اور شہ بھی نہیں، اس لیے برابر</string>
+    <string name="checkmate_restart">دوبارہ شروع</string>
+    <string name="checkmate_next">اگلی پہیلی</string>
+    <string name="checkmate_puzzle_number">پہیلی %1$d / %2$d</string>
+    <string name="checkmate_rating">ریٹنگ %1$d</string>
+    <string name="checkmate_stats">حل %1$d · سلسلہ %2$d · بہترین %3$d</string>
+
 
     <string name="matchstick_riddles_title">ماچس کی پہیلیاں</string>
     <string name="matchstick_riddle_prompt_move_one">مساوات درست کرنے کے لیے 1 ماچس ہلائیں۔</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">دوبارہ شروع</string>
     <string name="achievement_peg_solitaire_perfect">میخ ماسٹر</string>
     <string name="achievement_peg_solitaire_perfect_desc">انگریزی میخ سولیٹیئر مرکز میں ایک میخ کے ساتھ ختم کریں</string>
+    <string name="achievement_checkmate_master">مات ماسٹر</string>
+    <string name="achievement_checkmate_master_desc">شہ مات کی تمام 60 پہیلیاں حل کریں</string>
 
     <string name="reversi_button">ریورسی</string>
     <string name="reversi_title">ریورسی</string>

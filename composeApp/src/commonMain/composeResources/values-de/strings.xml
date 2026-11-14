@@ -687,6 +687,31 @@
     <string name="normal_chess_promotion_bishop">Läufer</string>
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
+    <string name="checkmate_title">Schachmatt</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matt in %1$d Zug</item>
+        <item quantity="other">Matt in %1$d Zügen</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Finde das Matt</string>
+    <string name="checkmate_your_move">Du bist am Zug</string>
+    <string name="checkmate_hint">Tippe auf eine Figur, dann auf ihr Zielfeld</string>
+    <string name="checkmate_white_answers">Weiß antwortet…</string>
+    <string name="checkmate_black_answers">Schwarz antwortet…</string>
+    <string name="checkmate_solved">Schachmatt!</string>
+    <string name="checkmate_not_mate">Kein Matt</string>
+    <string name="checkmate_white_king_escapes">Der weiße König entkommt</string>
+    <string name="checkmate_black_king_escapes">Der schwarze König entkommt</string>
+    <string name="checkmate_white_mates_you">Weiß setzt dich matt</string>
+    <string name="checkmate_black_mates_you">Schwarz setzt dich matt</string>
+    <string name="checkmate_mated_detail">Dein König hatte keinen Ausweg</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Kein Zug mehr möglich und kein Schach, also unentschieden</string>
+    <string name="checkmate_restart">Neustart</string>
+    <string name="checkmate_next">Nächste Aufgabe</string>
+    <string name="checkmate_puzzle_number">Aufgabe %1$d von %2$d</string>
+    <string name="checkmate_rating">Wertung %1$d</string>
+    <string name="checkmate_stats">Gelöst %1$d · Serie %2$d · Rekord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Streichholz-Rätsel</string>
     <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, damit die Gleichung stimmt.</string>
@@ -708,6 +733,8 @@
     <string name="peg_solitaire_restart">Neustart</string>
     <string name="achievement_peg_solitaire_perfect">Stift-Meister</string>
     <string name="achievement_peg_solitaire_perfect_desc">Beende englisches Solitär mit einem Stift in der Mitte</string>
+    <string name="achievement_checkmate_master">Matt-Meister</string>
+    <string name="achievement_checkmate_master_desc">Löse alle 60 Mattaufgaben</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

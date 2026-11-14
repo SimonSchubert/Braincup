@@ -71,6 +71,34 @@
     <string name="normal_chess_promotion_bishop">Easpag</string>
     <string name="normal_chess_promotion_knight">Ridire</string>
     <string name="normal_chess_draw_warning">= sáinn (comhscór, ní bua)</string>
+    <string name="checkmate_title">Marbhsháinn</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Marbhsháinn i %1$d bheart</item>
+        <item quantity="two">Marbhsháinn i %1$d bheart</item>
+        <item quantity="few">Marbhsháinn i %1$d bheart</item>
+        <item quantity="many">Marbhsháinn i %1$d mbeart</item>
+        <item quantity="other">Marbhsháinn i %1$d beart</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Aimsigh an mharbhsháinn</string>
+    <string name="checkmate_your_move">Do bheart</string>
+    <string name="checkmate_hint">Tapáil píosa, ansin a chearnóg nua</string>
+    <string name="checkmate_white_answers">Freagraíonn na cinn bhána…</string>
+    <string name="checkmate_black_answers">Freagraíonn na cinn dhubha…</string>
+    <string name="checkmate_solved">Marbhsháinn!</string>
+    <string name="checkmate_not_mate">Ní marbhsháinn í</string>
+    <string name="checkmate_white_king_escapes">Éalaíonn an rí bán</string>
+    <string name="checkmate_black_king_escapes">Éalaíonn an rí dubh</string>
+    <string name="checkmate_white_mates_you">Cuireann na cinn bhána i marbhsháinn thú</string>
+    <string name="checkmate_black_mates_you">Cuireann na cinn dhubha i marbhsháinn thú</string>
+    <string name="checkmate_mated_detail">Ní raibh aon bhealach amach ag do rí</string>
+    <string name="checkmate_stalemate">Leamhsháinn</string>
+    <string name="checkmate_stalemate_detail">Gan aon bheart dleathach ná sáinn, mar sin is comhscór é</string>
+    <string name="checkmate_restart">Tosaigh as an nua</string>
+    <string name="checkmate_next">An chéad fhadhb eile</string>
+    <string name="checkmate_puzzle_number">Fadhb %1$d de %2$d</string>
+    <string name="checkmate_rating">Rátáil %1$d</string>
+    <string name="checkmate_stats">Réitithe %1$d · Sraith %2$d · Is fearr %3$d</string>
+
 
     <string name="matchstick_riddles_title">Tomhais lasán</string>
     <string name="matchstick_riddle_prompt_move_one">Bog 1 lasán chun an chothromóid a dheisiú.</string>
@@ -92,6 +120,8 @@
     <string name="peg_solitaire_restart">Tosaigh as an nua</string>
     <string name="achievement_peg_solitaire_perfect">Máistir bioráin</string>
     <string name="achievement_peg_solitaire_perfect_desc">Críochnaigh solitaire bioráin Shasana le biorán amháin sa lár</string>
+    <string name="achievement_checkmate_master">Máistir marbhsháinne</string>
+    <string name="achievement_checkmate_master_desc">Réitigh na 60 fadhb marbhsháinne</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

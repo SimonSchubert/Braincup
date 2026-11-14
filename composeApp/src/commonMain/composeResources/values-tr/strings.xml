@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">Fil</string>
     <string name="normal_chess_promotion_knight">At</string>
     <string name="normal_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
+    <string name="checkmate_title">Şah Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d hamlede mat</item>
+        <item quantity="other">%1$d hamlede mat</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Matı bul</string>
+    <string name="checkmate_your_move">Sıra sende</string>
+    <string name="checkmate_hint">Bir taşa, sonra gideceği kareye dokun</string>
+    <string name="checkmate_white_answers">Beyaz cevap veriyor…</string>
+    <string name="checkmate_black_answers">Siyah cevap veriyor…</string>
+    <string name="checkmate_solved">Şah mat!</string>
+    <string name="checkmate_not_mate">Mat değil</string>
+    <string name="checkmate_white_king_escapes">Beyaz şah kaçtı</string>
+    <string name="checkmate_black_king_escapes">Siyah şah kaçtı</string>
+    <string name="checkmate_white_mates_you">Beyaz seni mat etti</string>
+    <string name="checkmate_black_mates_you">Siyah seni mat etti</string>
+    <string name="checkmate_mated_detail">Şahının kaçacak yeri yoktu</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Yasal hamle kalmadı ve şah yok, yani berabere</string>
+    <string name="checkmate_restart">Baştan başla</string>
+    <string name="checkmate_next">Sonraki bulmaca</string>
+    <string name="checkmate_puzzle_number">Bulmaca %1$d / %2$d</string>
+    <string name="checkmate_rating">Puan %1$d</string>
+    <string name="checkmate_stats">Çözülen %1$d · Seri %2$d · En iyi %3$d</string>
+
 
     <string name="matchstick_riddles_title">Kibrit bulmacaları</string>
     <string name="matchstick_riddle_prompt_move_one">Denklemi düzeltmek için 1 kibrit taşıyın.</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">Yeniden</string>
     <string name="achievement_peg_solitaire_perfect">Solitaire ustası</string>
     <string name="achievement_peg_solitaire_perfect_desc">İngiliz solitaire'i ortada bir taşla bitir</string>
+    <string name="achievement_checkmate_master">Mat ustası</string>
+    <string name="achievement_checkmate_master_desc">60 mat bulmacasının hepsini çöz</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">บิชอป</string>
     <string name="normal_chess_promotion_knight">ม้า</string>
     <string name="normal_chess_draw_warning">= เสมอตาย (เสมอ ไม่ใช่ชนะ)</string>
+    <string name="checkmate_title">รุกฆาต</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">รุกฆาตใน %1$d ตา</item>
+        <item quantity="other">รุกฆาตใน %1$d ตา</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">หาทางรุกฆาต</string>
+    <string name="checkmate_your_move">ตาคุณ</string>
+    <string name="checkmate_hint">แตะหมาก แล้วแตะช่องที่จะเดินไป</string>
+    <string name="checkmate_white_answers">ฝ่ายขาวกำลังตอบโต้…</string>
+    <string name="checkmate_black_answers">ฝ่ายดำกำลังตอบโต้…</string>
+    <string name="checkmate_solved">รุกฆาต!</string>
+    <string name="checkmate_not_mate">ยังไม่รุกฆาต</string>
+    <string name="checkmate_white_king_escapes">ขุนฝ่ายขาวหนีรอด</string>
+    <string name="checkmate_black_king_escapes">ขุนฝ่ายดำหนีรอด</string>
+    <string name="checkmate_white_mates_you">ฝ่ายขาวรุกฆาตคุณ</string>
+    <string name="checkmate_black_mates_you">ฝ่ายดำรุกฆาตคุณ</string>
+    <string name="checkmate_mated_detail">ขุนของคุณไม่มีทางหนี</string>
+    <string name="checkmate_stalemate">เสมอตาย</string>
+    <string name="checkmate_stalemate_detail">ไม่มีตาเดินที่ถูกกติกาและไม่ได้ถูกรุก จึงเสมอ</string>
+    <string name="checkmate_restart">เริ่มใหม่</string>
+    <string name="checkmate_next">โจทย์ถัดไป</string>
+    <string name="checkmate_puzzle_number">โจทย์ %1$d จาก %2$d</string>
+    <string name="checkmate_rating">เรตติ้ง %1$d</string>
+    <string name="checkmate_stats">แก้ได้ %1$d · ต่อเนื่อง %2$d · สูงสุด %3$d</string>
+
 
     <string name="matchstick_riddles_title">ปริศนาไม้ขีดไฟ</string>
     <string name="matchstick_riddle_prompt_move_one">เลื่อนไม้ขีดไฟ 1 แท่งเพื่อแก้สมการ</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">เริ่มใหม่</string>
     <string name="achievement_peg_solitaire_perfect">ปรมาจารย์หมากกลัด</string>
     <string name="achievement_peg_solitaire_perfect_desc">จบหมากกลัดแบบอังกฤษด้วยหมุดหนึ่งตัวตรงกลาง</string>
+    <string name="achievement_checkmate_master">เซียนรุกฆาต</string>
+    <string name="achievement_checkmate_master_desc">แก้โจทย์รุกฆาตครบทั้ง 60 ข้อ</string>
 
     <string name="reversi_button">รีเวอร์ซี</string>
     <string name="reversi_title">รีเวอร์ซี</string>

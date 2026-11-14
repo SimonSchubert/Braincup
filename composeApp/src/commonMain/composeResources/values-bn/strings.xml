@@ -687,6 +687,31 @@
     <string name="normal_chess_promotion_bishop">গজ</string>
     <string name="normal_chess_promotion_knight">ঘোড়া</string>
     <string name="normal_chess_draw_warning">= স্টেলমেট (ড্র, জয় নয়)</string>
+    <string name="checkmate_title">কিস্তিমাত</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d চালে মাত</item>
+        <item quantity="other">%1$d চালে মাত</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">মাত খুঁজে বের করো</string>
+    <string name="checkmate_your_move">তোমার চাল</string>
+    <string name="checkmate_hint">একটা ঘুঁটিতে ট্যাপ করো, তারপর তার ঘরে</string>
+    <string name="checkmate_white_answers">সাদা জবাব দিচ্ছে…</string>
+    <string name="checkmate_black_answers">কালো জবাব দিচ্ছে…</string>
+    <string name="checkmate_solved">কিস্তিমাত!</string>
+    <string name="checkmate_not_mate">মাত হয়নি</string>
+    <string name="checkmate_white_king_escapes">সাদা রাজা পালিয়ে গেল</string>
+    <string name="checkmate_black_king_escapes">কালো রাজা পালিয়ে গেল</string>
+    <string name="checkmate_white_mates_you">সাদা তোমাকে মাত করল</string>
+    <string name="checkmate_black_mates_you">কালো তোমাকে মাত করল</string>
+    <string name="checkmate_mated_detail">তোমার রাজার পালানোর কোনো পথ ছিল না</string>
+    <string name="checkmate_stalemate">স্টেলমেট</string>
+    <string name="checkmate_stalemate_detail">কোনো বৈধ চাল নেই, কিস্তিও নেই, তাই ড্র</string>
+    <string name="checkmate_restart">আবার শুরু করো</string>
+    <string name="checkmate_next">পরের ধাঁধা</string>
+    <string name="checkmate_puzzle_number">ধাঁধা %1$d / %2$d</string>
+    <string name="checkmate_rating">রেটিং %1$d</string>
+    <string name="checkmate_stats">সমাধান %1$d · স্ট্রিক %2$d · সেরা %3$d</string>
+
 
     <string name="matchstick_riddles_title">ম্যাচস্টিক ধাঁধা</string>
     <string name="matchstick_riddle_prompt_move_one">সমীকরণ ঠিক করতে ১টি ম্যাচস্টিক সরান।</string>
@@ -708,6 +733,8 @@
     <string name="peg_solitaire_restart">আবার</string>
     <string name="achievement_peg_solitaire_perfect">পেগ মাস্টার</string>
     <string name="achievement_peg_solitaire_perfect_desc">ইংরেজি পেগ সলিটেয়ার মাঝখানে একটি গুটি দিয়ে শেষ করুন</string>
+    <string name="achievement_checkmate_master">কিস্তিমাতের রাজা</string>
+    <string name="achievement_checkmate_master_desc">কিস্তিমাতের ৬০টি ধাঁধাই সমাধান করো</string>
 
     <string name="reversi_button">রিভার্সি</string>
     <string name="reversi_title">রিভার্সি</string>

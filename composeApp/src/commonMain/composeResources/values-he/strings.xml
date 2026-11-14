@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">רץ</string>
     <string name="normal_chess_promotion_knight">פרש</string>
     <string name="normal_chess_draw_warning">= פט (תיקו, לא ניצחון)</string>
+    <string name="checkmate_title">מט</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">מט ב-%1$d מסע</item>
+        <item quantity="two">מט ב-%1$d מסעים</item>
+        <item quantity="other">מט ב-%1$d מסעים</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">מצא את המט</string>
+    <string name="checkmate_your_move">תורך</string>
+    <string name="checkmate_hint">הקש על כלי ואז על משבצת היעד</string>
+    <string name="checkmate_white_answers">הלבן עונה…</string>
+    <string name="checkmate_black_answers">השחור עונה…</string>
+    <string name="checkmate_solved">מט!</string>
+    <string name="checkmate_not_mate">לא מט</string>
+    <string name="checkmate_white_king_escapes">המלך הלבן נמלט</string>
+    <string name="checkmate_black_king_escapes">המלך השחור נמלט</string>
+    <string name="checkmate_white_mates_you">הלבן נתן לך מט</string>
+    <string name="checkmate_black_mates_you">השחור נתן לך מט</string>
+    <string name="checkmate_mated_detail">למלך שלך לא היה לאן לברוח</string>
+    <string name="checkmate_stalemate">פט</string>
+    <string name="checkmate_stalemate_detail">אין מסע חוקי ואין שח, לכן תיקו</string>
+    <string name="checkmate_restart">התחל מחדש</string>
+    <string name="checkmate_next">החידה הבאה</string>
+    <string name="checkmate_puzzle_number">חידה %1$d מתוך %2$d</string>
+    <string name="checkmate_rating">דירוג %1$d</string>
+    <string name="checkmate_stats">נפתרו %1$d · רצף %2$d · שיא %3$d</string>
+
 
     <string name="matchstick_riddles_title">חידות גפרורים</string>
     <string name="matchstick_riddle_prompt_move_one">הזז גפרור אחד כדי לתקן את המשוואה.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">התחל מחדש</string>
     <string name="achievement_peg_solitaire_perfect">אמן היתדות</string>
     <string name="achievement_peg_solitaire_perfect_desc">סיים סוליטר יתדות אנגלי עם יתד אחד במרכז</string>
+    <string name="achievement_checkmate_master">אמן המט</string>
+    <string name="achievement_checkmate_master_desc">פתור את כל 60 חידות המט</string>
 
     <string name="reversi_button">רברסי</string>
     <string name="reversi_title">רברסי</string>

@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Laidnis</string>
     <string name="normal_chess_promotion_knight">Zirgs</string>
     <string name="normal_chess_draw_warning">= pats (neizšķirts, ne uzvara)</string>
+    <string name="checkmate_title">Mats</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="zero">Mats %1$d gājienos</item>
+        <item quantity="one">Mats %1$d gājienā</item>
+        <item quantity="other">Mats %1$d gājienos</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Atrodi matu</string>
+    <string name="checkmate_your_move">Tavs gājiens</string>
+    <string name="checkmate_hint">Pieskaries figūrai, tad lauciņam</string>
+    <string name="checkmate_white_answers">Baltie atbild…</string>
+    <string name="checkmate_black_answers">Melnie atbild…</string>
+    <string name="checkmate_solved">Mats!</string>
+    <string name="checkmate_not_mate">Nav mats</string>
+    <string name="checkmate_white_king_escapes">Balto karalis izbēg</string>
+    <string name="checkmate_black_king_escapes">Melno karalis izbēg</string>
+    <string name="checkmate_white_mates_you">Baltie tev piesaka matu</string>
+    <string name="checkmate_black_mates_you">Melnie tev piesaka matu</string>
+    <string name="checkmate_mated_detail">Tavam karalim nebija kur bēgt</string>
+    <string name="checkmate_stalemate">Pats</string>
+    <string name="checkmate_stalemate_detail">Nav neviena atļauta gājiena un nav šaha, tātad neizšķirts</string>
+    <string name="checkmate_restart">Sākt no jauna</string>
+    <string name="checkmate_next">Nākamais uzdevums</string>
+    <string name="checkmate_puzzle_number">Uzdevums %1$d no %2$d</string>
+    <string name="checkmate_rating">Reitings %1$d</string>
+    <string name="checkmate_stats">Atrisināti %1$d · Sērija %2$d · Labākā %3$d</string>
+
 
     <string name="matchstick_riddles_title">Sērkociņu mīklas</string>
     <string name="matchstick_riddle_prompt_move_one">Pārvieto 1 sērkociņu, lai vienādojums būtu pareizs.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Sākt no jauna</string>
     <string name="achievement_peg_solitaire_perfect">Tapu meistars</string>
     <string name="achievement_peg_solitaire_perfect_desc">Pabeidz angļu tapu solitēru ar vienu tapu centrā</string>
+    <string name="achievement_checkmate_master">Šahmata meistars</string>
+    <string name="achievement_checkmate_master_desc">Atrisini visus 60 mata uzdevumus</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

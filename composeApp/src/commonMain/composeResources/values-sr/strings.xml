@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Ловац</string>
     <string name="normal_chess_promotion_knight">Скакач</string>
     <string name="normal_chess_draw_warning">= пат (реми, не победа)</string>
+    <string name="checkmate_title">Мат</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Мат у %1$d потезу</item>
+        <item quantity="few">Мат у %1$d потеза</item>
+        <item quantity="other">Мат у %1$d потеза</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Пронађи мат</string>
+    <string name="checkmate_your_move">Твој потез</string>
+    <string name="checkmate_hint">Додирни фигуру, па поље на које иде</string>
+    <string name="checkmate_white_answers">Бели одговара…</string>
+    <string name="checkmate_black_answers">Црни одговара…</string>
+    <string name="checkmate_solved">Мат!</string>
+    <string name="checkmate_not_mate">Није мат</string>
+    <string name="checkmate_white_king_escapes">Бели краљ се извукао</string>
+    <string name="checkmate_black_king_escapes">Црни краљ се извукао</string>
+    <string name="checkmate_white_mates_you">Бели ти је дао мат</string>
+    <string name="checkmate_black_mates_you">Црни ти је дао мат</string>
+    <string name="checkmate_mated_detail">Твој краљ није имао излаз</string>
+    <string name="checkmate_stalemate">Пат</string>
+    <string name="checkmate_stalemate_detail">Нема више дозвољеног потеза ни шаха, па је реми</string>
+    <string name="checkmate_restart">Испочетка</string>
+    <string name="checkmate_next">Следећа загонетка</string>
+    <string name="checkmate_puzzle_number">Загонетка %1$d од %2$d</string>
+    <string name="checkmate_rating">Рејтинг %1$d</string>
+    <string name="checkmate_stats">Решено %1$d · Низ %2$d · Рекорд %3$d</string>
+
 
     <string name="matchstick_riddles_title">Загонетке са шибицама</string>
     <string name="matchstick_riddle_prompt_move_one">Помери 1 шибицу да једначина буде тачна.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Почни испочетка</string>
     <string name="achievement_peg_solitaire_perfect">Мајстор клинова</string>
     <string name="achievement_peg_solitaire_perfect_desc">Заврши енглески солитер са клиновима са једним клином у средини</string>
+    <string name="achievement_checkmate_master">Мајстор мата</string>
+    <string name="achievement_checkmate_master_desc">Реши свих 60 загонетки с матом</string>
 
     <string name="reversi_button">Реверси</string>
     <string name="reversi_title">Реверси</string>

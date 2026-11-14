@@ -715,6 +715,31 @@
     <string name="normal_chess_promotion_bishop">Bispo</string>
     <string name="normal_chess_promotion_knight">Cavalo</string>
     <string name="normal_chess_draw_warning">= afogamento (empate, não vitória)</string>
+    <string name="checkmate_title">Xeque-mate</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mate em %1$d lance</item>
+        <item quantity="other">Mate em %1$d lances</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Encontre o mate</string>
+    <string name="checkmate_your_move">Sua vez</string>
+    <string name="checkmate_hint">Toque numa peça e depois na casa de destino</string>
+    <string name="checkmate_white_answers">As brancas respondem…</string>
+    <string name="checkmate_black_answers">As pretas respondem…</string>
+    <string name="checkmate_solved">Xeque-mate!</string>
+    <string name="checkmate_not_mate">Não é mate</string>
+    <string name="checkmate_white_king_escapes">O rei branco escapa</string>
+    <string name="checkmate_black_king_escapes">O rei preto escapa</string>
+    <string name="checkmate_white_mates_you">As brancas dão mate em você</string>
+    <string name="checkmate_black_mates_you">As pretas dão mate em você</string>
+    <string name="checkmate_mated_detail">Seu rei não tinha saída</string>
+    <string name="checkmate_stalemate">Afogamento</string>
+    <string name="checkmate_stalemate_detail">Sem lances legais e sem xeque: empate</string>
+    <string name="checkmate_restart">Reiniciar</string>
+    <string name="checkmate_next">Próximo problema</string>
+    <string name="checkmate_puzzle_number">Problema %1$d de %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Resolvidos %1$d · Sequência %2$d · Recorde %3$d</string>
+
 
     <string name="matchstick_riddles_title">Enigmas de palitos</string>
     <string name="matchstick_riddle_prompt_move_one">Mova 1 palito para corrigir a equação.</string>
@@ -736,6 +761,8 @@
     <string name="peg_solitaire_restart">Reiniciar</string>
     <string name="achievement_peg_solitaire_perfect">Mestre do Resta Um</string>
     <string name="achievement_peg_solitaire_perfect_desc">Termine o resta um inglês com um pino no centro</string>
+    <string name="achievement_checkmate_master">Mestre do mate</string>
+    <string name="achievement_checkmate_master_desc">Resolva os 60 problemas de mate</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

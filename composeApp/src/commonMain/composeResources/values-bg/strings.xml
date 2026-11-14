@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Офицер</string>
     <string name="normal_chess_promotion_knight">Кон</string>
     <string name="normal_chess_draw_warning">= пат (реми, не победа)</string>
+    <string name="checkmate_title">Мат</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Мат в %1$d ход</item>
+        <item quantity="other">Мат в %1$d хода</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Намери мата</string>
+    <string name="checkmate_your_move">Твой ход</string>
+    <string name="checkmate_hint">Докосни фигура, после полето, където отива</string>
+    <string name="checkmate_white_answers">Белите отговарят…</string>
+    <string name="checkmate_black_answers">Черните отговарят…</string>
+    <string name="checkmate_solved">Мат!</string>
+    <string name="checkmate_not_mate">Не е мат</string>
+    <string name="checkmate_white_king_escapes">Белият цар се измъкна</string>
+    <string name="checkmate_black_king_escapes">Черният цар се измъкна</string>
+    <string name="checkmate_white_mates_you">Белите ти дадоха мат</string>
+    <string name="checkmate_black_mates_you">Черните ти дадоха мат</string>
+    <string name="checkmate_mated_detail">Царят ти нямаше изход</string>
+    <string name="checkmate_stalemate">Пат</string>
+    <string name="checkmate_stalemate_detail">Няма възможен ход, нито шах, затова е реми</string>
+    <string name="checkmate_restart">Отначало</string>
+    <string name="checkmate_next">Следваща задача</string>
+    <string name="checkmate_puzzle_number">Задача %1$d от %2$d</string>
+    <string name="checkmate_rating">Рейтинг %1$d</string>
+    <string name="checkmate_stats">Решени %1$d · Серия %2$d · Рекорд %3$d</string>
+
 
     <string name="matchstick_riddles_title">Загадки с кибритени клечки</string>
     <string name="matchstick_riddle_prompt_move_one">Премести 1 клечка, за да е вярно уравнението.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Започни отначало</string>
     <string name="achievement_peg_solitaire_perfect">Майстор на колчетата</string>
     <string name="achievement_peg_solitaire_perfect_desc">Завърши английския солитер с колчета с едно колче в средата</string>
+    <string name="achievement_checkmate_master">Майстор на мата</string>
+    <string name="achievement_checkmate_master_desc">Реши всички 60 задачи за мат</string>
 
     <string name="reversi_button">Реверси</string>
     <string name="reversi_title">Реверси</string>

@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Futó</string>
     <string name="normal_chess_promotion_knight">Huszár</string>
     <string name="normal_chess_draw_warning">= patt (döntetlen, nem győzelem)</string>
+    <string name="checkmate_title">Sakk-matt</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matt %1$d lépésben</item>
+        <item quantity="other">Matt %1$d lépésben</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Találd meg a mattot</string>
+    <string name="checkmate_your_move">Te lépsz</string>
+    <string name="checkmate_hint">Koppints egy bábura, majd a célmezőre</string>
+    <string name="checkmate_white_answers">Világos válaszol…</string>
+    <string name="checkmate_black_answers">Sötét válaszol…</string>
+    <string name="checkmate_solved">Sakk-matt!</string>
+    <string name="checkmate_not_mate">Nem matt</string>
+    <string name="checkmate_white_king_escapes">Világos királya elmenekült</string>
+    <string name="checkmate_black_king_escapes">Sötét királya elmenekült</string>
+    <string name="checkmate_white_mates_you">Világos mattot adott neked</string>
+    <string name="checkmate_black_mates_you">Sötét mattot adott neked</string>
+    <string name="checkmate_mated_detail">A királyodnak nem volt kiút</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Nincs szabályos lépés és sakk sincs, így döntetlen</string>
+    <string name="checkmate_restart">Újra</string>
+    <string name="checkmate_next">Következő feladvány</string>
+    <string name="checkmate_puzzle_number">Feladvány: %1$d / %2$d</string>
+    <string name="checkmate_rating">Értékszám %1$d</string>
+    <string name="checkmate_stats">Megoldva %1$d · Sorozat %2$d · Rekord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Gyufarejtvények</string>
     <string name="matchstick_riddle_prompt_move_one">Mozgass 1 gyufaszálat, hogy stimmeljen az egyenlet.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Újrakezdés</string>
     <string name="achievement_peg_solitaire_perfect">Bábumester</string>
     <string name="achievement_peg_solitaire_perfect_desc">Fejezd be az angol bábu-türelemjátékot egy középső bábuval</string>
+    <string name="achievement_checkmate_master">Mattmester</string>
+    <string name="achievement_checkmate_master_desc">Oldd meg mind a 60 mattfeladványt</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

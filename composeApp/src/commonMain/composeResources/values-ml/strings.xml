@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">ആന</string>
     <string name="normal_chess_promotion_knight">കുതിര</string>
     <string name="normal_chess_draw_warning">= സ്തംഭനം (സമനില, ജയമല്ല)</string>
+    <string name="checkmate_title">ചെക്ക്‌മേറ്റ്</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d നീക്കത്തിൽ ചെക്ക്‌മേറ്റ്</item>
+        <item quantity="other">%1$d നീക്കത്തിൽ ചെക്ക്‌മേറ്റ്</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">ചെക്ക്‌മേറ്റ് കണ്ടെത്തുക</string>
+    <string name="checkmate_your_move">നിങ്ങളുടെ ഊഴം</string>
+    <string name="checkmate_hint">ഒരു കരുവിൽ ടാപ്പ് ചെയ്യുക, പിന്നെ അത് പോകേണ്ട കളത്തിൽ</string>
+    <string name="checkmate_white_answers">വെള്ള മറുപടി നൽകുന്നു…</string>
+    <string name="checkmate_black_answers">കറുപ്പ് മറുപടി നൽകുന്നു…</string>
+    <string name="checkmate_solved">ചെക്ക്‌മേറ്റ്!</string>
+    <string name="checkmate_not_mate">മേറ്റ് ആയില്ല</string>
+    <string name="checkmate_white_king_escapes">വെള്ളയുടെ രാജാവ് രക്ഷപ്പെടുന്നു</string>
+    <string name="checkmate_black_king_escapes">കറുപ്പിന്റെ രാജാവ് രക്ഷപ്പെടുന്നു</string>
+    <string name="checkmate_white_mates_you">വെള്ള നിങ്ങളെ ചെക്ക്‌മേറ്റ് ചെയ്തു</string>
+    <string name="checkmate_black_mates_you">കറുപ്പ് നിങ്ങളെ ചെക്ക്‌മേറ്റ് ചെയ്തു</string>
+    <string name="checkmate_mated_detail">നിങ്ങളുടെ രാജാവിന് രക്ഷപ്പെടാൻ വഴിയില്ലായിരുന്നു</string>
+    <string name="checkmate_stalemate">സ്തംഭനം</string>
+    <string name="checkmate_stalemate_detail">നിയമപരമായ നീക്കമില്ല, ചെക്കുമില്ല, അതിനാൽ സമനില</string>
+    <string name="checkmate_restart">വീണ്ടും തുടങ്ങുക</string>
+    <string name="checkmate_next">അടുത്ത പസിൽ</string>
+    <string name="checkmate_puzzle_number">പസിൽ %1$d / %2$d</string>
+    <string name="checkmate_rating">റേറ്റിംഗ് %1$d</string>
+    <string name="checkmate_stats">പരിഹരിച്ചത് %1$d · പരമ്പര %2$d · മികച്ചത് %3$d</string>
+
 
     <string name="matchstick_riddles_title">തീപ്പെട്ടിക്കൊള്ളി കടങ്കഥകൾ</string>
     <string name="matchstick_riddle_prompt_move_one">സമവാക്യം ശരിയാക്കാൻ 1 കൊള്ളി നീക്കുക.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">വീണ്ടും തുടങ്ങുക</string>
     <string name="achievement_peg_solitaire_perfect">പെഗ് നിപുണൻ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ഇംഗ്ലീഷ് പെഗ് സോളിറ്റെയർ നടുവിൽ ഒരു പെഗുമായി പൂർത്തിയാക്കുക</string>
+    <string name="achievement_checkmate_master">മേറ്റ് നിപുണൻ</string>
+    <string name="achievement_checkmate_master_desc">60 ചെക്ക്‌മേറ്റ് പസിലുകളും പരിഹരിക്കുക</string>
 
     <string name="reversi_button">റിവേഴ്സി</string>
     <string name="reversi_title">റിവേഴ്സി</string>

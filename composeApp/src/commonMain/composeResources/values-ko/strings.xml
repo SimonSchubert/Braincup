@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">비숍</string>
     <string name="normal_chess_promotion_knight">나이트</string>
     <string name="normal_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
+    <string name="checkmate_title">체크메이트</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d수 메이트</item>
+        <item quantity="other">%1$d수 메이트</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">메이트를 찾으세요</string>
+    <string name="checkmate_your_move">내 차례</string>
+    <string name="checkmate_hint">기물을 누른 다음 이동할 칸을 누르세요</string>
+    <string name="checkmate_white_answers">백이 응수합니다…</string>
+    <string name="checkmate_black_answers">흑이 응수합니다…</string>
+    <string name="checkmate_solved">체크메이트!</string>
+    <string name="checkmate_not_mate">메이트 실패</string>
+    <string name="checkmate_white_king_escapes">백 킹이 빠져나갔습니다</string>
+    <string name="checkmate_black_king_escapes">흑 킹이 빠져나갔습니다</string>
+    <string name="checkmate_white_mates_you">백에게 메이트당했습니다</string>
+    <string name="checkmate_black_mates_you">흑에게 메이트당했습니다</string>
+    <string name="checkmate_mated_detail">킹이 도망칠 곳이 없었습니다</string>
+    <string name="checkmate_stalemate">스테일메이트</string>
+    <string name="checkmate_stalemate_detail">둘 수 있는 수가 없고 체크도 아니라서 무승부입니다</string>
+    <string name="checkmate_restart">다시 시작</string>
+    <string name="checkmate_next">다음 퍼즐</string>
+    <string name="checkmate_puzzle_number">퍼즐 %1$d / %2$d</string>
+    <string name="checkmate_rating">레이팅 %1$d</string>
+    <string name="checkmate_stats">해결 %1$d · 연속 %2$d · 최고 %3$d</string>
+
 
     <string name="matchstick_riddles_title">성냥개비 퍼즐</string>
     <string name="matchstick_riddle_prompt_move_one">성냥개비 1개를 옮겨 식을 맞추세요.</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">다시 시작</string>
     <string name="achievement_peg_solitaire_perfect">페그 마스터</string>
     <string name="achievement_peg_solitaire_perfect_desc">영어식 페그 솔리테어를 중앙 한 개로 완료하기</string>
+    <string name="achievement_checkmate_master">메이트 마스터</string>
+    <string name="achievement_checkmate_master_desc">체크메이트 퍼즐 60개를 모두 풀기</string>
 
     <string name="reversi_button">리버시</string>
     <string name="reversi_title">리버시</string>

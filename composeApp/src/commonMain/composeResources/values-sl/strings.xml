@@ -71,6 +71,33 @@
     <string name="normal_chess_promotion_bishop">Lovec</string>
     <string name="normal_chess_promotion_knight">Skakač</string>
     <string name="normal_chess_draw_warning">= pat (remi, ne zmaga)</string>
+    <string name="checkmate_title">Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat v %1$d potezi</item>
+        <item quantity="two">Mat v %1$d potezah</item>
+        <item quantity="few">Mat v %1$d potezah</item>
+        <item quantity="other">Mat v %1$d potezah</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Najdi mat</string>
+    <string name="checkmate_your_move">Tvoja poteza</string>
+    <string name="checkmate_hint">Dotakni se figure, nato ciljnega polja</string>
+    <string name="checkmate_white_answers">Beli odgovarja…</string>
+    <string name="checkmate_black_answers">Črni odgovarja…</string>
+    <string name="checkmate_solved">Mat!</string>
+    <string name="checkmate_not_mate">Ni mat</string>
+    <string name="checkmate_white_king_escapes">Beli kralj se je izmuznil</string>
+    <string name="checkmate_black_king_escapes">Črni kralj se je izmuznil</string>
+    <string name="checkmate_white_mates_you">Beli ti je dal mat</string>
+    <string name="checkmate_black_mates_you">Črni ti je dal mat</string>
+    <string name="checkmate_mated_detail">Tvoj kralj ni imel izhoda</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Ni več pravilne poteze in ni šaha, zato je remi</string>
+    <string name="checkmate_restart">Znova</string>
+    <string name="checkmate_next">Naslednja uganka</string>
+    <string name="checkmate_puzzle_number">Uganka %1$d od %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Rešeno %1$d · Niz %2$d · Rekord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Uganke z vžigalicami</string>
     <string name="matchstick_riddle_prompt_move_one">Premakni 1 vžigalico, da bo enačba pravilna.</string>
@@ -92,6 +119,8 @@
     <string name="peg_solitaire_restart">Začni znova</string>
     <string name="achievement_peg_solitaire_perfect">Mojster klinčkov</string>
     <string name="achievement_peg_solitaire_perfect_desc">Dokončaj angleški solitaire s klinčki z enim klinčkom na sredini</string>
+    <string name="achievement_checkmate_master">Mojster mata</string>
+    <string name="achievement_checkmate_master_desc">Reši vseh 60 matnih ugank</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

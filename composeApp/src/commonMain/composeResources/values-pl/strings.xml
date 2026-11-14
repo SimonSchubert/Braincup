@@ -721,6 +721,33 @@
     <string name="normal_chess_promotion_bishop">Goniec</string>
     <string name="normal_chess_promotion_knight">Skoczek</string>
     <string name="normal_chess_draw_warning">= pat (remis, nie wygrana)</string>
+    <string name="checkmate_title">Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat w %1$d posunięciu</item>
+        <item quantity="few">Mat w %1$d posunięciach</item>
+        <item quantity="many">Mat w %1$d posunięciach</item>
+        <item quantity="other">Mat w %1$d posunięcia</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Znajdź mata</string>
+    <string name="checkmate_your_move">Twój ruch</string>
+    <string name="checkmate_hint">Dotknij figury, potem pola</string>
+    <string name="checkmate_white_answers">Białe odpowiadają…</string>
+    <string name="checkmate_black_answers">Czarne odpowiadają…</string>
+    <string name="checkmate_solved">Mat!</string>
+    <string name="checkmate_not_mate">To nie mat</string>
+    <string name="checkmate_white_king_escapes">Biały król ucieka</string>
+    <string name="checkmate_black_king_escapes">Czarny król ucieka</string>
+    <string name="checkmate_white_mates_you">Białe dają ci mata</string>
+    <string name="checkmate_black_mates_you">Czarne dają ci mata</string>
+    <string name="checkmate_mated_detail">Twój król nie miał dokąd uciec</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Brak legalnych ruchów i brak szacha, więc remis</string>
+    <string name="checkmate_restart">Od nowa</string>
+    <string name="checkmate_next">Następne zadanie</string>
+    <string name="checkmate_puzzle_number">Zadanie %1$d z %2$d</string>
+    <string name="checkmate_rating">Ranking %1$d</string>
+    <string name="checkmate_stats">Rozwiązane %1$d · Seria %2$d · Najlepsza %3$d</string>
+
 
     <string name="matchstick_riddles_title">Łamigłówki z zapałkami</string>
     <string name="matchstick_riddle_prompt_move_one">Przesuń 1 zapałkę, aby poprawić równanie.</string>
@@ -742,6 +769,8 @@
     <string name="peg_solitaire_restart">Od nowa</string>
     <string name="achievement_peg_solitaire_perfect">Mistrz solitaire</string>
     <string name="achievement_peg_solitaire_perfect_desc">Ukończ angielski solitaire z jednym pionkiem na środku</string>
+    <string name="achievement_checkmate_master">Mistrz mata</string>
+    <string name="achievement_checkmate_master_desc">Rozwiąż wszystkie 60 zadań z matem</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

@@ -71,6 +71,32 @@
     <string name="normal_chess_promotion_bishop">Lovac</string>
     <string name="normal_chess_promotion_knight">Skakač</string>
     <string name="normal_chess_draw_warning">= pat (remi, ne pobjeda)</string>
+    <string name="checkmate_title">Mat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat u %1$d potezu</item>
+        <item quantity="few">Mat u %1$d poteza</item>
+        <item quantity="other">Mat u %1$d poteza</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Pronađi mat</string>
+    <string name="checkmate_your_move">Tvoj potez</string>
+    <string name="checkmate_hint">Dodirni figuru, pa polje na koje ide</string>
+    <string name="checkmate_white_answers">Bijeli odgovara…</string>
+    <string name="checkmate_black_answers">Crni odgovara…</string>
+    <string name="checkmate_solved">Mat!</string>
+    <string name="checkmate_not_mate">Nije mat</string>
+    <string name="checkmate_white_king_escapes">Bijeli kralj se izvukao</string>
+    <string name="checkmate_black_king_escapes">Crni kralj se izvukao</string>
+    <string name="checkmate_white_mates_you">Bijeli ti je dao mat</string>
+    <string name="checkmate_black_mates_you">Crni ti je dao mat</string>
+    <string name="checkmate_mated_detail">Tvoj kralj nije imao izlaza</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Nema više dopuštenog poteza ni šaha, pa je remi</string>
+    <string name="checkmate_restart">Ispočetka</string>
+    <string name="checkmate_next">Sljedeća zagonetka</string>
+    <string name="checkmate_puzzle_number">Zagonetka %1$d od %2$d</string>
+    <string name="checkmate_rating">Rejting %1$d</string>
+    <string name="checkmate_stats">Riješeno %1$d · Niz %2$d · Rekord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Zagonetke sa šibicama</string>
     <string name="matchstick_riddle_prompt_move_one">Premjesti 1 šibicu da jednadžba bude točna.</string>
@@ -92,6 +118,8 @@
     <string name="peg_solitaire_restart">Kreni iznova</string>
     <string name="achievement_peg_solitaire_perfect">Majstor klinova</string>
     <string name="achievement_peg_solitaire_perfect_desc">Završi engleski solitaire s klinovima s jednim klinom u sredini</string>
+    <string name="achievement_checkmate_master">Majstor mata</string>
+    <string name="achievement_checkmate_master_desc">Riješi svih 60 zagonetki s matom</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

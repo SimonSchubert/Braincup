@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Biskup</string>
     <string name="normal_chess_promotion_knight">Riddari</string>
     <string name="normal_chess_draw_warning">= patt (jafntefli, ekki sigur)</string>
+    <string name="checkmate_title">Mát</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mát í %1$d leik</item>
+        <item quantity="other">Mát í %1$d leikjum</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Finndu mátið</string>
+    <string name="checkmate_your_move">Þú átt leik</string>
+    <string name="checkmate_hint">Ýttu á taflmann, svo á reitinn</string>
+    <string name="checkmate_white_answers">Hvítur svarar…</string>
+    <string name="checkmate_black_answers">Svartur svarar…</string>
+    <string name="checkmate_solved">Mát!</string>
+    <string name="checkmate_not_mate">Ekki mát</string>
+    <string name="checkmate_white_king_escapes">Hvíti kóngurinn sleppur</string>
+    <string name="checkmate_black_king_escapes">Svarti kóngurinn sleppur</string>
+    <string name="checkmate_white_mates_you">Hvítur mátar þig</string>
+    <string name="checkmate_black_mates_you">Svartur mátar þig</string>
+    <string name="checkmate_mated_detail">Kóngurinn þinn komst hvergi</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Enginn löglegur leikur og engin skák, svo það er jafntefli</string>
+    <string name="checkmate_restart">Byrja upp á nýtt</string>
+    <string name="checkmate_next">Næsta þraut</string>
+    <string name="checkmate_puzzle_number">Þraut %1$d af %2$d</string>
+    <string name="checkmate_rating">Stig %1$d</string>
+    <string name="checkmate_stats">Leystar %1$d · Röð %2$d · Best %3$d</string>
+
 
     <string name="matchstick_riddles_title">Eldspýtugátur</string>
     <string name="matchstick_riddle_prompt_move_one">Færðu 1 eldspýtu til að jafna jöfnuna.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Byrja upp á nýtt</string>
     <string name="achievement_peg_solitaire_perfect">Pinnameistari</string>
     <string name="achievement_peg_solitaire_perfect_desc">Ljúktu enska pinnasólitaireinu með einum pinna í miðjunni</string>
+    <string name="achievement_checkmate_master">Mátmeistari</string>
+    <string name="achievement_checkmate_master_desc">Leystu allar 60 mátþrautirnar</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

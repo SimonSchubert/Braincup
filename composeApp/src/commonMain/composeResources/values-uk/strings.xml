@@ -721,6 +721,33 @@
     <string name="normal_chess_promotion_bishop">Слон</string>
     <string name="normal_chess_promotion_knight">Кінь</string>
     <string name="normal_chess_draw_warning">= пат (нічия, не перемога)</string>
+    <string name="checkmate_title">Мат</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Мат в %1$d хід</item>
+        <item quantity="few">Мат у %1$d ходи</item>
+        <item quantity="many">Мат у %1$d ходів</item>
+        <item quantity="other">Мат у %1$d ходу</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Знайди мат</string>
+    <string name="checkmate_your_move">Твій хід</string>
+    <string name="checkmate_hint">Торкнися фігури, потім поля, куди їй іти</string>
+    <string name="checkmate_white_answers">Білі відповідають…</string>
+    <string name="checkmate_black_answers">Чорні відповідають…</string>
+    <string name="checkmate_solved">Мат!</string>
+    <string name="checkmate_not_mate">Не мат</string>
+    <string name="checkmate_white_king_escapes">Білий король утік</string>
+    <string name="checkmate_black_king_escapes">Чорний король утік</string>
+    <string name="checkmate_white_mates_you">Білі поставили тобі мат</string>
+    <string name="checkmate_black_mates_you">Чорні поставили тобі мат</string>
+    <string name="checkmate_mated_detail">Твоєму королю не було куди тікати</string>
+    <string name="checkmate_stalemate">Пат</string>
+    <string name="checkmate_stalemate_detail">Ходів більше немає, а шаху немає, тож нічия</string>
+    <string name="checkmate_restart">Заново</string>
+    <string name="checkmate_next">Наступна задача</string>
+    <string name="checkmate_puzzle_number">Задача %1$d з %2$d</string>
+    <string name="checkmate_rating">Рейтинг %1$d</string>
+    <string name="checkmate_stats">Розв'язано %1$d · Серія %2$d · Рекорд %3$d</string>
+
 
     <string name="matchstick_riddles_title">Головоломки з сірниками</string>
     <string name="matchstick_riddle_prompt_move_one">Перемістіть 1 сірник, щоб виправити рівняння.</string>
@@ -742,6 +769,8 @@
     <string name="peg_solitaire_restart">Спочатку</string>
     <string name="achievement_peg_solitaire_perfect">Майстер солітера</string>
     <string name="achievement_peg_solitaire_perfect_desc">Завершіть англійський солітер з однією фішкою в центрі</string>
+    <string name="achievement_checkmate_master">Майстер мату</string>
+    <string name="achievement_checkmate_master_desc">Розв'яжи всі 60 задач на мат</string>
 
     <string name="reversi_button">Реверсі</string>
     <string name="reversi_title">Реверсі</string>

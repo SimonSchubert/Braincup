@@ -715,6 +715,31 @@
     <string name="normal_chess_promotion_bishop">Alfiere</string>
     <string name="normal_chess_promotion_knight">Cavallo</string>
     <string name="normal_chess_draw_warning">= stallo (patta, non vittoria)</string>
+    <string name="checkmate_title">Scacco matto</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matto in %1$d mossa</item>
+        <item quantity="other">Matto in %1$d mosse</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Trova il matto</string>
+    <string name="checkmate_your_move">Tocca a te</string>
+    <string name="checkmate_hint">Tocca un pezzo, poi la casa d'arrivo</string>
+    <string name="checkmate_white_answers">Il bianco risponde…</string>
+    <string name="checkmate_black_answers">Il nero risponde…</string>
+    <string name="checkmate_solved">Scacco matto!</string>
+    <string name="checkmate_not_mate">Non è matto</string>
+    <string name="checkmate_white_king_escapes">Il re bianco scappa</string>
+    <string name="checkmate_black_king_escapes">Il re nero scappa</string>
+    <string name="checkmate_white_mates_you">Il bianco ti dà matto</string>
+    <string name="checkmate_black_mates_you">Il nero ti dà matto</string>
+    <string name="checkmate_mated_detail">Il tuo re non aveva scampo</string>
+    <string name="checkmate_stalemate">Stallo</string>
+    <string name="checkmate_stalemate_detail">Nessuna mossa legale e nessuno scacco: patta</string>
+    <string name="checkmate_restart">Ricomincia</string>
+    <string name="checkmate_next">Problema successivo</string>
+    <string name="checkmate_puzzle_number">Problema %1$d di %2$d</string>
+    <string name="checkmate_rating">Punteggio %1$d</string>
+    <string name="checkmate_stats">Risolti %1$d · Serie %2$d · Record %3$d</string>
+
 
     <string name="matchstick_riddles_title">Indovinelli con fiammiferi</string>
     <string name="matchstick_riddle_prompt_move_one">Sposta 1 fiammifero per correggere l'equazione.</string>
@@ -736,6 +761,8 @@
     <string name="peg_solitaire_restart">Ricomincia</string>
     <string name="achievement_peg_solitaire_perfect">Maestro del solitario</string>
     <string name="achievement_peg_solitaire_perfect_desc">Finisci il solitario inglese con una pedina al centro</string>
+    <string name="achievement_checkmate_master">Maestro del matto</string>
+    <string name="achievement_checkmate_master_desc">Risolvi tutti i 60 problemi di matto</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

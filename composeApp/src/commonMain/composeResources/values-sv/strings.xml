@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Löpare</string>
     <string name="normal_chess_promotion_knight">Springare</string>
     <string name="normal_chess_draw_warning">= patt (remi, inte vinst)</string>
+    <string name="checkmate_title">Schackmatt</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Matt i %1$d drag</item>
+        <item quantity="other">Matt i %1$d drag</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Hitta matten</string>
+    <string name="checkmate_your_move">Ditt drag</string>
+    <string name="checkmate_hint">Tryck på en pjäs, sedan på rutan</string>
+    <string name="checkmate_white_answers">Vit svarar…</string>
+    <string name="checkmate_black_answers">Svart svarar…</string>
+    <string name="checkmate_solved">Schackmatt!</string>
+    <string name="checkmate_not_mate">Inte matt</string>
+    <string name="checkmate_white_king_escapes">Vits kung kommer undan</string>
+    <string name="checkmate_black_king_escapes">Svarts kung kommer undan</string>
+    <string name="checkmate_white_mates_you">Vit sätter dig matt</string>
+    <string name="checkmate_black_mates_you">Svart sätter dig matt</string>
+    <string name="checkmate_mated_detail">Din kung hade ingen väg ut</string>
+    <string name="checkmate_stalemate">Patt</string>
+    <string name="checkmate_stalemate_detail">Inga lagliga drag och ingen schack, så det blir remi</string>
+    <string name="checkmate_restart">Börja om</string>
+    <string name="checkmate_next">Nästa problem</string>
+    <string name="checkmate_puzzle_number">Problem %1$d av %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Lösta %1$d · Svit %2$d · Bästa %3$d</string>
+
 
     <string name="matchstick_riddles_title">Tändsticksgåtor</string>
     <string name="matchstick_riddle_prompt_move_one">Flytta 1 tändsticka för att rätta ekvationen.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Börja om</string>
     <string name="achievement_peg_solitaire_perfect">Pinnmästare</string>
     <string name="achievement_peg_solitaire_perfect_desc">Klara engelsk pinnsolitär med en pinne i mitten</string>
+    <string name="achievement_checkmate_master">Mattmästare</string>
+    <string name="achievement_checkmate_master_desc">Lös alla 60 mattproblem</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

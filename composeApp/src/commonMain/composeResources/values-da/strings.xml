@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">Løber</string>
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= pat (remis, ikke gevinst)</string>
+    <string name="checkmate_title">Skakmat</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mat i %1$d træk</item>
+        <item quantity="other">Mat i %1$d træk</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Find matten</string>
+    <string name="checkmate_your_move">Du er i trækket</string>
+    <string name="checkmate_hint">Tryk på en brik, så på feltet den skal til</string>
+    <string name="checkmate_white_answers">Hvid svarer…</string>
+    <string name="checkmate_black_answers">Sort svarer…</string>
+    <string name="checkmate_solved">Skakmat!</string>
+    <string name="checkmate_not_mate">Ikke mat</string>
+    <string name="checkmate_white_king_escapes">Den hvide konge slipper væk</string>
+    <string name="checkmate_black_king_escapes">Den sorte konge slipper væk</string>
+    <string name="checkmate_white_mates_you">Hvid sætter dig mat</string>
+    <string name="checkmate_black_mates_you">Sort sætter dig mat</string>
+    <string name="checkmate_mated_detail">Din konge havde ingen udvej</string>
+    <string name="checkmate_stalemate">Pat</string>
+    <string name="checkmate_stalemate_detail">Intet lovligt træk og ingen skak, så det er remis</string>
+    <string name="checkmate_restart">Start forfra</string>
+    <string name="checkmate_next">Næste opgave</string>
+    <string name="checkmate_puzzle_number">Opgave %1$d af %2$d</string>
+    <string name="checkmate_rating">Rating %1$d</string>
+    <string name="checkmate_stats">Løst %1$d · Stime %2$d · Rekord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Tændstikgåder</string>
     <string name="matchstick_riddle_prompt_move_one">Flyt 1 tændstik for at rette ligningen.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">Start forfra</string>
     <string name="achievement_peg_solitaire_perfect">Pindemester</string>
     <string name="achievement_peg_solitaire_perfect_desc">Klar engelsk pindesolitær med én pind i midten</string>
+    <string name="achievement_checkmate_master">Matmester</string>
+    <string name="achievement_checkmate_master_desc">Løs alle 60 matopgaver</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

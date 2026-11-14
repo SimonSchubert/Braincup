@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">ਊਠ</string>
     <string name="normal_chess_promotion_knight">ਘੋੜਾ</string>
     <string name="normal_chess_draw_warning">= ਗਤੀਰੋਧ (ਬਰਾਬਰੀ, ਜਿੱਤ ਨਹੀਂ)</string>
+    <string name="checkmate_title">ਸ਼ਹਿਮਾਤ</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d ਚਾਲ ਵਿੱਚ ਮਾਤ</item>
+        <item quantity="other">%1$d ਚਾਲਾਂ ਵਿੱਚ ਮਾਤ</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">ਮਾਤ ਲੱਭ</string>
+    <string name="checkmate_your_move">ਤੇਰੀ ਚਾਲ</string>
+    <string name="checkmate_hint">ਮੋਹਰੇ ਉੱਤੇ ਟੈਪ ਕਰ, ਫਿਰ ਉਸ ਦੇ ਖ਼ਾਨੇ ਉੱਤੇ</string>
+    <string name="checkmate_white_answers">ਚਿੱਟਾ ਜਵਾਬ ਦੇ ਰਿਹਾ ਹੈ…</string>
+    <string name="checkmate_black_answers">ਕਾਲਾ ਜਵਾਬ ਦੇ ਰਿਹਾ ਹੈ…</string>
+    <string name="checkmate_solved">ਸ਼ਹਿਮਾਤ!</string>
+    <string name="checkmate_not_mate">ਮਾਤ ਨਹੀਂ ਹੋਈ</string>
+    <string name="checkmate_white_king_escapes">ਚਿੱਟਾ ਰਾਜਾ ਬਚ ਨਿਕਲਿਆ</string>
+    <string name="checkmate_black_king_escapes">ਕਾਲਾ ਰਾਜਾ ਬਚ ਨਿਕਲਿਆ</string>
+    <string name="checkmate_white_mates_you">ਚਿੱਟੇ ਨੇ ਤੈਨੂੰ ਮਾਤ ਦਿੱਤੀ</string>
+    <string name="checkmate_black_mates_you">ਕਾਲੇ ਨੇ ਤੈਨੂੰ ਮਾਤ ਦਿੱਤੀ</string>
+    <string name="checkmate_mated_detail">ਤੇਰੇ ਰਾਜੇ ਕੋਲ ਬਚਣ ਦਾ ਕੋਈ ਰਾਹ ਨਹੀਂ ਸੀ</string>
+    <string name="checkmate_stalemate">ਗਤੀਰੋਧ</string>
+    <string name="checkmate_stalemate_detail">ਕੋਈ ਜਾਇਜ਼ ਚਾਲ ਨਹੀਂ ਅਤੇ ਸ਼ਹਿ ਵੀ ਨਹੀਂ, ਇਸ ਲਈ ਬਰਾਬਰੀ</string>
+    <string name="checkmate_restart">ਮੁੜ ਸ਼ੁਰੂ ਕਰ</string>
+    <string name="checkmate_next">ਅਗਲੀ ਬੁਝਾਰਤ</string>
+    <string name="checkmate_puzzle_number">ਬੁਝਾਰਤ %1$d / %2$d</string>
+    <string name="checkmate_rating">ਰੇਟਿੰਗ %1$d</string>
+    <string name="checkmate_stats">ਹੱਲ %1$d · ਲੜੀ %2$d · ਸਭ ਤੋਂ ਵਧੀਆ %3$d</string>
+
 
     <string name="matchstick_riddles_title">ਤੀਲੀ ਬੁਝਾਰਤਾਂ</string>
     <string name="matchstick_riddle_prompt_move_one">ਸਮੀਕਰਨ ਠੀਕ ਕਰਨ ਲਈ 1 ਤੀਲੀ ਹਿਲਾਓ।</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">ਮੁੜ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="achievement_peg_solitaire_perfect">ਪੈੱਗ ਨਿਪੁੰਨ</string>
     <string name="achievement_peg_solitaire_perfect_desc">ਅੰਗਰੇਜ਼ੀ ਪੈੱਗ ਸੌਲੀਟੇਅਰ ਵਿਚਕਾਰ ਇੱਕ ਪੈੱਗ ਨਾਲ ਪੂਰਾ ਕਰੋ</string>
+    <string name="achievement_checkmate_master">ਸ਼ਹਿਮਾਤ ਸੂਰਮਾ</string>
+    <string name="achievement_checkmate_master_desc">ਸ਼ਹਿਮਾਤ ਦੀਆਂ ਸਾਰੀਆਂ 60 ਬੁਝਾਰਤਾਂ ਹੱਲ ਕਰ</string>
 
     <string name="reversi_button">ਰਿਵਰਸੀ</string>
     <string name="reversi_title">ਰਿਵਰਸੀ</string>

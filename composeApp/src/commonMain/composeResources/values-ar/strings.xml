@@ -699,6 +699,35 @@
     <string name="normal_chess_promotion_bishop">الفيل</string>
     <string name="normal_chess_promotion_knight">الحصان</string>
     <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
+    <string name="checkmate_title">كش ملك</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="zero">كش ملك في %1$d نقلة</item>
+        <item quantity="one">كش ملك في %1$d نقلة</item>
+        <item quantity="two">كش ملك في %1$d نقلتين</item>
+        <item quantity="few">كش ملك في %1$d نقلات</item>
+        <item quantity="many">كش ملك في %1$d نقلة</item>
+        <item quantity="other">كش ملك في %1$d نقلة</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">اعثر على كش الملك</string>
+    <string name="checkmate_your_move">دورك</string>
+    <string name="checkmate_hint">انقر على قطعة، ثم على مربعها</string>
+    <string name="checkmate_white_answers">الأبيض يرد…</string>
+    <string name="checkmate_black_answers">الأسود يرد…</string>
+    <string name="checkmate_solved">كش ملك!</string>
+    <string name="checkmate_not_mate">ليس كش ملك</string>
+    <string name="checkmate_white_king_escapes">ملك الأبيض يفلت</string>
+    <string name="checkmate_black_king_escapes">ملك الأسود يفلت</string>
+    <string name="checkmate_white_mates_you">الأبيض أوقع عليك كش ملك</string>
+    <string name="checkmate_black_mates_you">الأسود أوقع عليك كش ملك</string>
+    <string name="checkmate_mated_detail">لم يبق لملكك أي مخرج</string>
+    <string name="checkmate_stalemate">طريق مسدود</string>
+    <string name="checkmate_stalemate_detail">لا نقلة قانونية ولا كش، إذن تعادل</string>
+    <string name="checkmate_restart">ابدأ من جديد</string>
+    <string name="checkmate_next">اللغز التالي</string>
+    <string name="checkmate_puzzle_number">اللغز %1$d من %2$d</string>
+    <string name="checkmate_rating">التصنيف %1$d</string>
+    <string name="checkmate_stats">المحلولة %1$d · السلسلة %2$d · الأفضل %3$d</string>
+
 
     <string name="matchstick_riddles_title">ألغاز أعواد الثقاب</string>
     <string name="matchstick_riddle_prompt_move_one">انقل عود ثقاب واحداً لتصحيح المعادلة.</string>
@@ -720,6 +749,8 @@
     <string name="peg_solitaire_restart">إعادة</string>
     <string name="achievement_peg_solitaire_perfect">سيد السوليتير</string>
     <string name="achievement_peg_solitaire_perfect_desc">أنهِ سوليتير الأوتاد الإنجليزي بوتد واحد في الوسط</string>
+    <string name="achievement_checkmate_master">صياد الملوك</string>
+    <string name="achievement_checkmate_master_desc">حل جميع ألغاز كش الملك الـ60</string>
 
     <string name="reversi_button">ريفرسي</string>
     <string name="reversi_title">ريفرسي</string>

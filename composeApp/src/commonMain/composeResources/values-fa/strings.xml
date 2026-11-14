@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">فیل</string>
     <string name="normal_chess_promotion_knight">اسب</string>
     <string name="normal_chess_draw_warning">= پات (مساوی، نه برد)</string>
+    <string name="checkmate_title">کیش و مات</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">مات در %1$d حرکت</item>
+        <item quantity="other">مات در %1$d حرکت</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">مات را پیدا کن</string>
+    <string name="checkmate_your_move">نوبت توست</string>
+    <string name="checkmate_hint">روی یک مهره بزن، بعد روی خانه‌اش</string>
+    <string name="checkmate_white_answers">سفید جواب می‌دهد…</string>
+    <string name="checkmate_black_answers">سیاه جواب می‌دهد…</string>
+    <string name="checkmate_solved">کیش و مات!</string>
+    <string name="checkmate_not_mate">مات نشد</string>
+    <string name="checkmate_white_king_escapes">شاه سفید فرار کرد</string>
+    <string name="checkmate_black_king_escapes">شاه سیاه فرار کرد</string>
+    <string name="checkmate_white_mates_you">سفید تو را مات کرد</string>
+    <string name="checkmate_black_mates_you">سیاه تو را مات کرد</string>
+    <string name="checkmate_mated_detail">شاهت هیچ راه فراری نداشت</string>
+    <string name="checkmate_stalemate">پات</string>
+    <string name="checkmate_stalemate_detail">نه حرکت مجازی مانده نه کیش، پس مساوی است</string>
+    <string name="checkmate_restart">از نو</string>
+    <string name="checkmate_next">معمای بعدی</string>
+    <string name="checkmate_puzzle_number">معمای %1$d از %2$d</string>
+    <string name="checkmate_rating">ریتینگ %1$d</string>
+    <string name="checkmate_stats">حل‌شده %1$d · زنجیره %2$d · بهترین %3$d</string>
+
 
     <string name="matchstick_riddles_title">معماهای چوب کبریت</string>
     <string name="matchstick_riddle_prompt_move_one">با جابه‌جایی یک چوب کبریت معادله را درست کن.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">شروع دوباره</string>
     <string name="achievement_peg_solitaire_perfect">استاد مهره</string>
     <string name="achievement_peg_solitaire_perfect_desc">سالیتر میخی انگلیسی را با یک مهره در مرکز تمام کن</string>
+    <string name="achievement_checkmate_master">شکارچی شاه</string>
+    <string name="achievement_checkmate_master_desc">همه ۶۰ معمای مات را حل کن</string>
 
     <string name="reversi_button">ریورسی</string>
     <string name="reversi_title">ریورسی</string>

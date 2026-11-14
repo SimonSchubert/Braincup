@@ -720,6 +720,33 @@
     <string name="normal_chess_promotion_bishop">Слон</string>
     <string name="normal_chess_promotion_knight">Конь</string>
     <string name="normal_chess_draw_warning">= пат (ничья, не победа)</string>
+    <string name="checkmate_title">Мат</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Мат в %1$d ход</item>
+        <item quantity="few">Мат в %1$d хода</item>
+        <item quantity="many">Мат в %1$d ходов</item>
+        <item quantity="other">Мат в %1$d хода</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Найди мат</string>
+    <string name="checkmate_your_move">Твой ход</string>
+    <string name="checkmate_hint">Коснись фигуры, затем поля, куда ей идти</string>
+    <string name="checkmate_white_answers">Белые отвечают…</string>
+    <string name="checkmate_black_answers">Чёрные отвечают…</string>
+    <string name="checkmate_solved">Мат!</string>
+    <string name="checkmate_not_mate">Не мат</string>
+    <string name="checkmate_white_king_escapes">Белый король ускользнул</string>
+    <string name="checkmate_black_king_escapes">Чёрный король ускользнул</string>
+    <string name="checkmate_white_mates_you">Белые поставили тебе мат</string>
+    <string name="checkmate_black_mates_you">Чёрные поставили тебе мат</string>
+    <string name="checkmate_mated_detail">Твоему королю некуда было бежать</string>
+    <string name="checkmate_stalemate">Пат</string>
+    <string name="checkmate_stalemate_detail">Ходов больше нет, а шаха нет, значит ничья</string>
+    <string name="checkmate_restart">Заново</string>
+    <string name="checkmate_next">Следующая задача</string>
+    <string name="checkmate_puzzle_number">Задача %1$d из %2$d</string>
+    <string name="checkmate_rating">Рейтинг %1$d</string>
+    <string name="checkmate_stats">Решено %1$d · Серия %2$d · Рекорд %3$d</string>
+
 
     <string name="matchstick_riddles_title">Головоломки со спичками</string>
     <string name="matchstick_riddle_prompt_move_one">Переместите 1 спичку, чтобы исправить уравнение.</string>
@@ -741,6 +768,8 @@
     <string name="peg_solitaire_restart">Заново</string>
     <string name="achievement_peg_solitaire_perfect">Мастер солитера</string>
     <string name="achievement_peg_solitaire_perfect_desc">Завершите английский солитер с одной фишкой в центре</string>
+    <string name="achievement_checkmate_master">Мастер мата</string>
+    <string name="achievement_checkmate_master_desc">Реши все 60 задач на мат</string>
 
     <string name="reversi_button">Реверси</string>
     <string name="reversi_title">Реверси</string>

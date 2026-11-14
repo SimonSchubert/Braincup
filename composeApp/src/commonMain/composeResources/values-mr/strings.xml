@@ -71,6 +71,31 @@
     <string name="normal_chess_promotion_bishop">उंट</string>
     <string name="normal_chess_promotion_knight">घोडा</string>
     <string name="normal_chess_draw_warning">= कोंडी (बरोबरी, विजय नाही)</string>
+    <string name="checkmate_title">शह-मात</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d चालीत मात</item>
+        <item quantity="other">%1$d चालींत मात</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">मात शोध</string>
+    <string name="checkmate_your_move">तुझी चाल</string>
+    <string name="checkmate_hint">मोहऱ्यावर टॅप कर, मग त्याच्या घरावर</string>
+    <string name="checkmate_white_answers">पांढरा उत्तर देतोय…</string>
+    <string name="checkmate_black_answers">काळा उत्तर देतोय…</string>
+    <string name="checkmate_solved">शह-मात!</string>
+    <string name="checkmate_not_mate">मात झाली नाही</string>
+    <string name="checkmate_white_king_escapes">पांढरा राजा निसटला</string>
+    <string name="checkmate_black_king_escapes">काळा राजा निसटला</string>
+    <string name="checkmate_white_mates_you">पांढऱ्याने तुला मात दिली</string>
+    <string name="checkmate_black_mates_you">काळ्याने तुला मात दिली</string>
+    <string name="checkmate_mated_detail">तुझ्या राजाला सुटकेचा मार्गच नव्हता</string>
+    <string name="checkmate_stalemate">कोंडी</string>
+    <string name="checkmate_stalemate_detail">एकही वैध चाल नाही आणि शहही नाही, म्हणून बरोबरी</string>
+    <string name="checkmate_restart">पुन्हा सुरू कर</string>
+    <string name="checkmate_next">पुढचे कोडे</string>
+    <string name="checkmate_puzzle_number">कोडे %1$d / %2$d</string>
+    <string name="checkmate_rating">रेटिंग %1$d</string>
+    <string name="checkmate_stats">सोडवले %1$d · मालिका %2$d · सर्वोत्तम %3$d</string>
+
 
     <string name="matchstick_riddles_title">काडेपेटी कोडी</string>
     <string name="matchstick_riddle_prompt_move_one">समीकरण दुरुस्त करण्यासाठी 1 काडी हलवा.</string>
@@ -92,6 +117,8 @@
     <string name="peg_solitaire_restart">पुन्हा सुरू करा</string>
     <string name="achievement_peg_solitaire_perfect">पेग निपुण</string>
     <string name="achievement_peg_solitaire_perfect_desc">इंग्रजी पेग सॉलिटेअर मध्यभागी एका पेगसह संपवा</string>
+    <string name="achievement_checkmate_master">मात सम्राट</string>
+    <string name="achievement_checkmate_master_desc">शह-मातची सर्व 60 कोडी सोडव</string>
 
     <string name="reversi_button">रिव्हर्सी</string>
     <string name="reversi_title">रिव्हर्सी</string>

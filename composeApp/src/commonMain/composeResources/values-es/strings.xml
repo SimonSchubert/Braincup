@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">Alfil</string>
     <string name="normal_chess_promotion_knight">Caballo</string>
     <string name="normal_chess_draw_warning">= ahogado (tablas, no victoria)</string>
+    <string name="checkmate_title">Jaque mate</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">Mate en %1$d jugada</item>
+        <item quantity="other">Mate en %1$d jugadas</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">Encuentra el mate</string>
+    <string name="checkmate_your_move">Te toca</string>
+    <string name="checkmate_hint">Toca una pieza y luego su casilla de destino</string>
+    <string name="checkmate_white_answers">Responden las blancas…</string>
+    <string name="checkmate_black_answers">Responden las negras…</string>
+    <string name="checkmate_solved">¡Jaque mate!</string>
+    <string name="checkmate_not_mate">No es mate</string>
+    <string name="checkmate_white_king_escapes">El rey blanco se escapa</string>
+    <string name="checkmate_black_king_escapes">El rey negro se escapa</string>
+    <string name="checkmate_white_mates_you">Las blancas te dan mate</string>
+    <string name="checkmate_black_mates_you">Las negras te dan mate</string>
+    <string name="checkmate_mated_detail">Tu rey no tenía escapatoria</string>
+    <string name="checkmate_stalemate">Ahogado</string>
+    <string name="checkmate_stalemate_detail">Sin jugadas legales y sin jaque: tablas</string>
+    <string name="checkmate_restart">Reiniciar</string>
+    <string name="checkmate_next">Siguiente problema</string>
+    <string name="checkmate_puzzle_number">Problema %1$d de %2$d</string>
+    <string name="checkmate_rating">Puntuación %1$d</string>
+    <string name="checkmate_stats">Resueltos %1$d · Racha %2$d · Récord %3$d</string>
+
 
     <string name="matchstick_riddles_title">Acertijos de fósforos</string>
     <string name="matchstick_riddle_prompt_move_one">Mueve 1 fósforo para corregir la ecuación.</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">Reiniciar</string>
     <string name="achievement_peg_solitaire_perfect">Maestro del solitario</string>
     <string name="achievement_peg_solitaire_perfect_desc">Termina el solitario inglés con una ficha en el centro</string>
+    <string name="achievement_checkmate_master">Maestro del mate</string>
+    <string name="achievement_checkmate_master_desc">Resuelve los 60 problemas de mate</string>
 
     <string name="reversi_button">Reversi</string>
     <string name="reversi_title">Reversi</string>

@@ -714,6 +714,31 @@
     <string name="normal_chess_promotion_bishop">ऊँट</string>
     <string name="normal_chess_promotion_knight">घोड़ा</string>
     <string name="normal_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
+    <string name="checkmate_title">शह और मात</string>
+    <plurals name="checkmate_mate_in">
+        <item quantity="one">%1$d चाल में मात</item>
+        <item quantity="other">%1$d चालों में मात</item>
+    </plurals>
+    <string name="checkmate_find_the_mate">मात ढूँढें</string>
+    <string name="checkmate_your_move">आपकी चाल</string>
+    <string name="checkmate_hint">मोहरे पर टैप करें, फिर उसके खाने पर</string>
+    <string name="checkmate_white_answers">सफेद जवाब दे रहा है…</string>
+    <string name="checkmate_black_answers">काला जवाब दे रहा है…</string>
+    <string name="checkmate_solved">शह और मात!</string>
+    <string name="checkmate_not_mate">मात नहीं हुई</string>
+    <string name="checkmate_white_king_escapes">सफेद राजा बच निकला</string>
+    <string name="checkmate_black_king_escapes">काला राजा बच निकला</string>
+    <string name="checkmate_white_mates_you">सफेद ने आपको मात दी</string>
+    <string name="checkmate_black_mates_you">काले ने आपको मात दी</string>
+    <string name="checkmate_mated_detail">आपके राजा के पास बचने का कोई रास्ता नहीं था</string>
+    <string name="checkmate_stalemate">गतिरोध</string>
+    <string name="checkmate_stalemate_detail">कोई वैध चाल नहीं और शह भी नहीं, इसलिए ड्रॉ</string>
+    <string name="checkmate_restart">दोबारा शुरू करें</string>
+    <string name="checkmate_next">अगली पहेली</string>
+    <string name="checkmate_puzzle_number">पहेली %1$d / %2$d</string>
+    <string name="checkmate_rating">रेटिंग %1$d</string>
+    <string name="checkmate_stats">हल %1$d · स्ट्रीक %2$d · सर्वश्रेष्ठ %3$d</string>
+
 
     <string name="matchstick_riddles_title">माचिस की पहेलियाँ</string>
     <string name="matchstick_riddle_prompt_move_one">समीकरण ठीक करने के लिए 1 माचिस की तीली हटाएँ।</string>
@@ -735,6 +760,8 @@
     <string name="peg_solitaire_restart">फिर से</string>
     <string name="achievement_peg_solitaire_perfect">पेग मास्टर</string>
     <string name="achievement_peg_solitaire_perfect_desc">अंग्रेज़ी पेग सॉलिटेयर बीच में एक मोहरे के साथ पूरा करें</string>
+    <string name="achievement_checkmate_master">मात मास्टर</string>
+    <string name="achievement_checkmate_master_desc">शह और मात की सभी 60 पहेलियाँ हल करें</string>
 
     <string name="reversi_button">रिवर्सी</string>
     <string name="reversi_title">रिवर्सी</string>
