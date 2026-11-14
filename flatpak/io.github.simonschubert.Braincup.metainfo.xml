@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.9.0" date="2026-11-15">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.9.0</url>
+      <description>
+        <ul>
+          <li>New game: Checkmate, 60 mate-in-two and mate-in-three puzzles</li>
+          <li>Calm game music in the untimed games and the IQ test</li>
+          <li>Impressum and privacy policy linked from settings</li>
+          <li>Fix chess crash when starting a new game while the AI is thinking</li>
+          <li>Updated dependencies</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.8.1" date="2026-10-08">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.8.1</url>
       <description>
@@ -164,18 +176,6 @@
           <li>Improve Prism style UI</li>
           <li>Improve Missing Operator and Sherlock Calculation games</li>
           <li>Improve color sets</li>
-        </ul>
-      </description>
-    </release>
-    <release version="3.0.0" date="2026-08-18">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.0.0</url>
-      <description>
-        <ul>
-          <li>Pattern Sequence is now a 3x3 matrix reasoning puzzle</li>
-          <li>Add license screen</li>
-          <li>New mascot app icons</li>
-          <li>Fix Trio gold medal not unlocking</li>
-          <li>Improve OLED and color blind colors</li>
         </ul>
       </description>
     </release>

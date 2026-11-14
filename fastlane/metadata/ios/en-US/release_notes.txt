@@ -1,5 +1,5 @@
-The mascot comes alive: it hops when you return, worries about your streak and dozes at night
-The mascot cheers right answers, slumps at wrong ones and celebrates a new best
-Redesigned game tiles on the home screen
-Simon Says pads now press down like the real toy
-Fix a ghost tile in the Sliding Puzzle tutorial
+New game: Checkmate, 60 mate-in-two and mate-in-three puzzles
+Calm game music in the untimed games and the IQ test
+Impressum and privacy policy linked from settings
+Fix chess crash when starting a new game while the AI is thinking
+Updated dependencies

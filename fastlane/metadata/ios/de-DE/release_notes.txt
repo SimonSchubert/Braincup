@@ -1,5 +1,5 @@
-Das Maskottchen lebt: Es hüpft, wenn du zurückkommst, sorgt sich um deine Serie und döst nachts
-Das Maskottchen jubelt bei richtigen Antworten, lässt bei falschen den Kopf hängen und feiert neue Bestwerte
-Neu gestaltete Spielkacheln im Hauptmenü
-Die Felder von Simon sagt lassen sich jetzt drücken wie beim echten Spielzeug
-Das Schiebepuzzle-Tutorial lässt keine Geisterkachel mehr zurück
+Neues Spiel: Schachmatt, 60 Mattaufgaben in zwei und drei Zügen
+Ruhige Spielmusik in den Spielen ohne Zeitlimit und im IQ-Test
+Impressum und Datenschutzerklärung in den Einstellungen verlinkt
+Absturz im Schach behoben, wenn während des KI-Zugs ein neues Spiel gestartet wird
+Aktualisierte Abhängigkeiten

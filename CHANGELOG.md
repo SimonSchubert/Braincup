@@ -1,3 +1,17 @@
+## v3.9.0 - 2026-11-15
+
+### Features
+- New game: Checkmate, 60 mate-in-two and mate-in-three puzzles from the Lichess puzzle database,
+  with a solve streak and a Mate Master achievement.
+- The untimed games and the IQ test now play the calm game music instead of the menu track.
+- Link the Impressum and privacy policy from settings.
+
+### Fixes
+- Fix a chess crash when New game is pressed while the AI is thinking.
+
+### Improvements
+- Upgrade dependencies.
+
 ## v3.8.1 - 2026-10-08
 
 ### Features

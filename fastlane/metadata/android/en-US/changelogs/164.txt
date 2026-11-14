@@ -1,0 +1,5 @@
+New game: Checkmate, 60 mate-in-two and mate-in-three puzzles
+Calm game music in the untimed games and the IQ test
+Impressum and privacy policy linked from settings
+Fix chess crash when starting a new game while the AI is thinking
+Updated dependencies
