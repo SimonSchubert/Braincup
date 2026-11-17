@@ -641,7 +641,8 @@
     <string name="settings_theme_system">Sistema</string>
     <string name="settings_theme_light">Claro</string>
     <string name="settings_theme_dark">Escuro</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Modo escuro OLED</string>
+    <string name="settings_oled_desc">Usar fundo preto puro quando o modo escuro estiver ativo</string>
     <string name="settings_language">Idioma</string>
     <string name="settings_language_system">Idioma do sistema</string>
     <string name="settings_play_games_profile_switch">Trocar</string>

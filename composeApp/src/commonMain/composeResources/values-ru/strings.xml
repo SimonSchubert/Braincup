@@ -647,7 +647,8 @@
     <string name="settings_theme_system">Системная</string>
     <string name="settings_theme_light">Светлая</string>
     <string name="settings_theme_dark">Тёмная</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Тёмная тема OLED</string>
+    <string name="settings_oled_desc">Использовать чисто чёрный фон при включённой тёмной теме</string>
     <string name="settings_language">Язык</string>
     <string name="settings_language_system">Язык системы</string>
     <string name="settings_play_games_profile_switch">Сменить</string>

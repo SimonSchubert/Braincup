@@ -626,7 +626,8 @@
     <string name="settings_theme_system">النظام</string>
     <string name="settings_theme_light">فاتح</string>
     <string name="settings_theme_dark">داكن</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">وضع OLED الداكن</string>
+    <string name="settings_oled_desc">استخدم خلفية سوداء نقية عند تفعيل الوضع الداكن</string>
     <string name="settings_language">اللغة</string>
     <string name="settings_language_system">لغة النظام</string>
     <string name="settings_play_games_profile_switch">تبديل</string>

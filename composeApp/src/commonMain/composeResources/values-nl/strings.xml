@@ -614,7 +614,8 @@
     <string name="settings_theme_system">Systeem</string>
     <string name="settings_theme_light">Licht</string>
     <string name="settings_theme_dark">Donker</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">OLED-donkere modus</string>
+    <string name="settings_oled_desc">Gebruik een zuiver zwarte achtergrond wanneer de donkere modus actief is</string>
     <string name="settings_language">Taal</string>
     <string name="settings_language_system">Systeemtaal</string>
     <string name="settings_play_games_profile_switch">Wisselen</string>

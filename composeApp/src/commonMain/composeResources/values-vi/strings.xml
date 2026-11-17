@@ -641,7 +641,8 @@
     <string name="settings_theme_system">Hệ thống</string>
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
-    <string name="settings_theme_oled">OLED</string>
+    <string name="settings_oled">Chế độ tối OLED</string>
+    <string name="settings_oled_desc">Dùng nền đen tuyền khi chế độ tối đang bật</string>
     <string name="settings_language">Ngôn ngữ</string>
     <string name="settings_language_system">Ngôn ngữ hệ thống</string>
     <string name="settings_play_games_profile_switch">Đổi</string>
